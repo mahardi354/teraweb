@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak & FAQ — VELA Journeys</title>
+<meta name="description" content="Hubungi tim VELA Journeys untuk konsultasi perjalanan gratis, atau temukan jawaban atas pertanyaan yang sering diajukan seputar perjalanan premium kami.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">VELA<span>.</span></a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Beranda</a>
+      <a href="destinasi.html">Destinasi</a>
+      <a href="tentang.html">Tentang Kami</a>
+      <a href="kontak.html" class="active">Kontak</a>
+    </nav>
+    <a href="kontak.html" class="btn btn-gold header-cta">Rencanakan Perjalanan</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="page-hero" style="background-image:url('https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1920&q=80');">
+  <div class="container page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Beranda</a><span>/</span><span>Kontak</span></div>
+    <p class="eyebrow">Mari Berbincang</p>
+    <h1>Mulai Rencanakan Perjalanan Anda</h1>
+    <p class="lead">Tim travel consultant kami siap membantu merancang perjalanan yang sesuai dengan impian dan anggaran Anda — tanpa biaya konsultasi.</p>
+  </div>
+</section>
+
+<!-- CONTACT INFO CARDS -->
+<section class="section" style="padding-bottom:60px;">
+  <div class="container">
+    <div class="contact-info-grid reveal">
+      <div class="contact-info-card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h4>Kunjungi Kantor Kami</h4>
+        <p>Jl. Pantai Kuta No. 88, Badung, Bali 80361</p>
+      </div>
+      <div class="contact-info-card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.9.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg></div>
+        <h4>Telepon Kami</h4>
+        <p>+62 361 800 2211</p>
+      </div>
+      <div class="contact-info-card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+        <h4>Kirim Email</h4>
+        <p>halo@velajourneys.id</p>
+      </div>
+      <div class="contact-info-card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h4>Jam Operasional</h4>
+        <p>Senin–Sabtu, 08.00–20.00 WITA</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM + MAP -->
+<section class="section" style="padding-top:0;">
+  <div class="container contact-split">
+    <div class="contact-form reveal">
+      <p class="eyebrow on-light">Formulir Konsultasi</p>
+      <h2 style="font-size:1.8rem; margin-bottom:8px;">Ceritakan Rencana Perjalanan Anda</h2>
+      <p style="color:var(--ink-soft); margin-bottom:30px; font-size:0.95rem;">Isi formulir berikut dan travel consultant kami akan menghubungi Anda dalam 1x24 jam.</p>
+      <form id="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nama">Nama Lengkap</label>
+            <input type="text" id="nama" placeholder="Nama Anda" required>
+          </div>
+          <div class="form-group">
+            <label for="telp">Nomor WhatsApp</label>
+            <input type="tel" id="telp" placeholder="+62 812 xxxx xxxx" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Alamat Email</label>
+            <input type="email" id="email" placeholder="nama@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="destinasi">Destinasi Diminati</label>
+            <select id="destinasi">
+              <option>Ubud, Bali</option>
+              <option>Labuan Bajo, NTT</option>
+              <option>Raja Ampat, Papua Barat</option>
+              <option>Sumba, NTT</option>
+              <option>Lainnya / Rancangan Khusus</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tanggal">Perkiraan Tanggal Berangkat</label>
+            <input type="date" id="tanggal">
+          </div>
+          <div class="form-group">
+            <label for="tamu">Jumlah Tamu</label>
+            <input type="number" id="tamu" placeholder="Contoh: 2" min="1">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pesan">Ceritakan Lebih Lanjut</label>
+          <textarea id="pesan" placeholder="Gaya perjalanan, minat khusus, atau permintaan tertentu..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold btn-block">Kirim Permintaan Konsultasi</button>
+      </form>
+    </div>
+    <div class="contact-map reveal">
+      <iframe src="https://www.google.com/maps?q=Kuta,Bali&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lokasi Kantor VELA Journeys di Bali"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ ACCORDION -->
+<section class="section section--sand">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow on-light" style="justify-content:center;">Pertanyaan Umum</p>
+      <h2>Hal yang Sering Ditanyakan</h2>
+      <p>Belum menemukan jawaban yang Anda cari? Hubungi kami langsung melalui formulir di atas.</p>
+    </div>
+
+    <div class="faq-list reveal">
+
+      <div class="faq-item is-open">
+        <button class="faq-q">
+          <span>Bagaimana proses pemesanan paket perjalanan di VELA?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a" style="max-height:200px;">
+          <div class="faq-a-inner">Anda cukup mengisi formulir konsultasi atau menghubungi kami via WhatsApp. Travel consultant akan menyusun itinerary awal, dan setelah disetujui, Anda dapat melakukan konfirmasi dengan uang muka untuk mengunci tanggal keberangkatan.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Apakah harga yang tertera sudah termasuk tiket pesawat?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Sebagian besar paket kami belum termasuk tiket pesawat menuju kota keberangkatan, namun sudah mencakup seluruh transportasi lokal, akomodasi, aktivitas, dan pemandu selama perjalanan. Tim kami dapat membantu mengatur penerbangan jika diperlukan.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Berapa uang muka yang diperlukan untuk mengunci pemesanan?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Kami memerlukan uang muka sebesar 30% dari total biaya paket untuk mengunci tanggal dan akomodasi. Sisanya dapat dilunasi maksimal 14 hari sebelum tanggal keberangkatan.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Apakah itinerary bisa disesuaikan dengan kebutuhan khusus?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Tentu. Semua paket di katalog kami dapat disesuaikan — mulai dari durasi, jenis akomodasi, hingga aktivitas tambahan. Anda juga dapat meminta rancangan itinerary yang sepenuhnya baru sesuai keinginan.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Bagaimana kebijakan pembatalan atau perubahan jadwal?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Perubahan tanggal keberangkatan dapat dilakukan tanpa biaya tambahan hingga 14 hari sebelum keberangkatan. Untuk pembatalan, kebijakan pengembalian dana mengikuti ketentuan masing-masing mitra akomodasi dan akan dijelaskan secara rinci saat konfirmasi pemesanan.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Apakah tersedia paket untuk perjalanan grup besar atau korporat?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Ya, kami melayani perjalanan grup, gathering perusahaan, hingga insentif karyawan dengan kapasitas mulai dari 10 hingga lebih dari 100 orang. Hubungi tim kami untuk penawaran khusus grup.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Apakah pemandu kami bisa berbahasa Inggris atau bahasa lain?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Sebagian besar pemandu kami fasih berbahasa Inggris, dan beberapa juga menguasai bahasa Mandarin, Jepang, atau Prancis. Sampaikan kebutuhan bahasa Anda saat konsultasi agar kami dapat menyesuaikan pemandu yang tepat.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          <span>Apa yang harus saya persiapkan sebelum keberangkatan?</span>
+          <span class="faq-icon"></span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Kami akan mengirimkan panduan persiapan lengkap mencakup daftar perlengkapan, dokumen yang diperlukan, serta tips khusus sesuai destinasi Anda, paling lambat satu minggu sebelum keberangkatan.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="cta-banner reveal" style="background-image:url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1600&q=80');">
+    <div class="cta-banner-content">
+      <p class="eyebrow" style="justify-content:center;">Masih Ragu?</p>
+      <h2>Ngobrol Dulu Yuk dengan Travel Consultant Kami</h2>
+      <p>Konsultasi tanpa biaya, tanpa tekanan — kami hanya ingin membantu Anda menemukan perjalanan yang tepat.</p>
+      <div class="cta-actions">
+        <a href="#" class="btn btn-gold">Chat via WhatsApp</a>
+        <a href="destinasi.html" class="btn btn-outline">Lihat Destinasi</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <svg class="footer-route" viewBox="0 0 1400 60" preserveAspectRatio="none">
+    <path d="M0,30 C 200,70 400,-10 700,30 S 1200,70 1400,30" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="1 10"/>
+  </svg>
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">VELA<span>.</span></a>
+      <p>Butik perjalanan premium yang merancang pengalaman personal ke destinasi terbaik Indonesia dan dunia sejak 2011.</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="#" aria-label="Whatsapp"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.5 8.5 0 01-12.4 7.5L3 21l2.1-5.5A8.5 8.5 0 1121 11.5z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Jelajahi</h4>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="destinasi.html">Destinasi</a></li>
+        <li><a href="tentang.html">Tentang Kami</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Destinasi Favorit</h4>
+      <ul>
+        <li><a href="destinasi.html">Ubud, Bali</a></li>
+        <li><a href="destinasi.html">Labuan Bajo, NTT</a></li>
+        <li><a href="destinasi.html">Raja Ampat, Papua</a></li>
+        <li><a href="destinasi.html">Sumba, NTT</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-newsletter">
+      <h4>Dapatkan Penawaran Eksklusif</h4>
+      <p>Berlangganan untuk menerima inspirasi perjalanan dan penawaran khusus setiap bulan.</p>
+      <form>
+        <input type="email" placeholder="Alamat email Anda" required>
+        <button type="submit" class="btn btn-gold btn-sm">Kirim</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <p>© 2026 VELA Journeys. Seluruh hak cipta dilindungi.</p>
+    <div class="footer-legal">
+      <a href="#">Kebijakan Privasi</a>
+      <a href="#">Syarat &amp; Ketentuan</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// Kirim form konsultasi ke WhatsApp
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const nama = document.getElementById('nama').value.trim();
+    const telp = document.getElementById('telp').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const destinasi = document.getElementById('destinasi').value;
+    const tanggal = document.getElementById('tanggal').value;
+    const tamu = document.getElementById('tamu').value.trim();
+    const pesan = document.getElementById('pesan').value.trim();
+
+    // Nomor WA tujuan (kantor)
+    const nomorWA = '6281234567890';
+
+    const teks =
+`Halo VELA Journeys, saya ingin konsultasi perjalanan:
+
+Nama: ${nama}
+No. WhatsApp: ${telp}
+Email: ${email}
+Destinasi: ${destinasi}
+Perkiraan Tanggal Berangkat: ${tanggal || '-'}
+Jumlah Tamu: ${tamu || '-'}
+Pesan: ${pesan || '-'}`;
+
+    const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(teks)}`;
+    window.open(url, '_blank');
+  });
+}
+</script>
+</body>
+</html>

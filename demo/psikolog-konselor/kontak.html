@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak & Reservasi — Ruang Pulih</title>
+<meta name="description" content="Hubungi Ruang Pulih untuk membuat janji konsultasi psikologi. Alamat, nomor WhatsApp, email, jam operasional, dan lokasi praktik.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header header-light">
+  <div class="container">
+    <a href="index.html" class="brand" aria-label="Ruang Pulih — Beranda">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:#FBF6EC"><path d="M12 21c-4-3-8-6.5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4.5-4 8-8 11Z"/></svg></span>
+      <span>Ruang Pulih<span class="brand-sub">Praktik Psikologi Mandiri</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Beranda</a>
+      <a href="tentang.html">Tentang</a>
+      <a href="layanan.html">Layanan</a>
+      <a href="kontak.html" class="active">Kontak</a>
+    </nav>
+    <div class="header-right">
+      <a href="#form-reservasi" class="btn btn-clay btn-sm nav-cta">Buat Janji</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Buka menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Beranda</a> <span>/</span> <span>Kontak</span></div>
+    <h1>Mari mulai percakapan pertama</h1>
+    <p class="lede">Kami akan merespon setiap pesan dalam waktu 1x24 jam. Tidak ada pertanyaan yang terlalu kecil untuk ditanyakan.</p>
+  </div>
+</section>
+
+<!-- ============ INFO KONTAK ============ -->
+<section class="section-tight">
+  <div class="container">
+    <div class="grid-4">
+      <div class="card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.6-7-11a7 7 0 1 1 14 0c0 5.4-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <h3>Alamat Praktik</h3>
+        <p>Jl. Kemang Selatan No. 12<br>Jakarta Selatan, 12730</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.5L4 20Z"/></svg></div>
+        <h3>WhatsApp</h3>
+        <p>0812-3456-7890<br>Respon cepat jam kerja</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+        <h3>Email</h3>
+        <p>halo@ruangpulih.id<br>Untuk pertanyaan detail</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Jam Operasional</h3>
+        <p>Senin – Sabtu<br>09.00 – 20.00 WIB</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORM RESERVASI + MAP ============ -->
+<section id="form-reservasi">
+  <div class="container grid-2" style="align-items:flex-start; gap:44px;">
+    <div class="form-card reveal">
+      <span class="eyebrow">Formulir reservasi</span>
+      <h2 class="h-lg mt-0" style="font-size:1.7rem; margin-top:8px; margin-bottom:8px;">Ceritakan sedikit tentang kebutuhanmu</h2>
+      <p class="lede" style="margin-bottom:30px;">Isi formulir berikut, tim kami akan menghubungimu untuk menyepakati jadwal sesi.</p>
+      <form id="formReservasi">
+        <div class="form-row">
+          <div class="field">
+            <label for="nama">Nama Lengkap</label>
+            <input type="text" id="nama" name="nama" placeholder="Nama kamu" required>
+          </div>
+          <div class="field">
+            <label for="hp">Nomor WhatsApp</label>
+            <input type="tel" id="hp" name="hp" placeholder="08xx-xxxx-xxxx" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="nama@email.com" required>
+          </div>
+          <div class="field">
+            <label for="layanan">Layanan yang Diminati</label>
+            <select id="layanan" name="layanan">
+              <option>Konseling Individu Dewasa</option>
+              <option>Konseling Remaja</option>
+              <option>Terapi Pasangan</option>
+              <option>Terapi Keluarga</option>
+              <option>Psikoterapi Online</option>
+              <option>Asesmen Psikologi</option>
+              <option>Psikoedukasi &amp; Workshop</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field full">
+            <label for="pesan">Ceritakan Situasimu (opsional)</label>
+            <textarea id="pesan" name="pesan" placeholder="Tuliskan apa yang sedang kamu hadapi, atau jadwal yang kamu inginkan..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:6px; gap:10px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="19" height="19"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.5L4 20Z"/></svg>
+          Kirim &amp; Jadwalkan Sesi
+        </button>
+        <p style="font-size:0.8rem; color:var(--ink-faint); text-align:center; margin-top:14px;">Tombol ini akan membuka WhatsApp dengan pesan yang sudah terisi otomatis dari formulir di atas.</p>
+      </form>
+    </div>
+
+    <div class="reveal" style="display:flex; flex-direction:column; gap:24px;">
+      <div class="map-wrap">
+        <iframe src="https://maps.google.com/maps?q=Kemang%20Selatan%2C%20Jakarta%20Selatan&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lokasi Ruang Pulih di peta Google Maps"></iframe>
+      </div>
+      <div class="card" style="text-align:left; align-items:flex-start;">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></div>
+        <h3>Sebelum sesi pertama</h3>
+        <p>Datang 10 menit lebih awal untuk mengisi formulir intake singkat. Untuk sesi online, pastikan koneksi internet stabil dan ruangan cukup privat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ KONTAK ============ -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Sebelum menghubungi kami</span>
+      <h2 class="h-lg">Pertanyaan seputar reservasi</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Apakah data pribadi saya di formulir ini aman?<span class="faq-icon"></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Ya. Data yang kamu kirimkan hanya digunakan untuk keperluan penjadwalan dan komunikasi terkait sesi, serta disimpan sesuai standar kerahasiaan praktik psikologi.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Berapa lama waktu respon setelah mengirim formulir?<span class="faq-icon"></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Tim kami akan menghubungimu melalui WhatsApp atau email dalam waktu 1x24 jam pada hari kerja untuk menyepakati jadwal.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Apakah tersedia sesi di luar jam operasional?<span class="faq-icon"></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Untuk kondisi tertentu, kami dapat mendiskusikan jadwal di luar jam operasional reguler. Silakan sampaikan kebutuhanmu lewat formulir atau WhatsApp.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Bagaimana jika saya belum yakin layanan mana yang tepat?<span class="faq-icon"></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Tidak masalah — cukup ceritakan situasimu di kolom pesan, tim kami akan membantu mengarahkan ke layanan yang paling sesuai sebelum sesi pertama dijadwalkan.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:#FBF6EC"><path d="M12 21c-4-3-8-6.5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4.5-4 8-8 11Z"/></svg></span>
+          <span>Ruang Pulih</span>
+        </a>
+        <p>Praktik psikologi mandiri untuk konseling individu, pasangan, dan keluarga — tatap muka maupun online.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 4v9.5a3.5 3.5 0 1 1-3-3.46"/><path d="M14 4c.5 2.5 2 4 5 4.2"/></svg></a>
+          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.5L4 20Z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigasi</h5>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="layanan.html">Layanan</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Layanan</h5>
+        <ul>
+          <li><a href="layanan.html">Konseling Individu</a></li>
+          <li><a href="layanan.html">Terapi Pasangan</a></li>
+          <li><a href="layanan.html">Terapi Keluarga</a></li>
+          <li><a href="layanan.html">Psikoterapi Online</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Kontak</h5>
+        <ul>
+          <li class="contact-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.6-7-11a7 7 0 1 1 14 0c0 5.4-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Jl. Kemang Selatan No. 12, Jakarta Selatan</span></li>
+          <li class="contact-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 18.5L4 20Z"/></svg><span>0812-3456-7890</span></li>
+          <li class="contact-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>halo@ruangpulih.id</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ruang Pulih. Seluruh hak cipta dilindungi.</span>
+      <span>Dibuat dengan hangat untuk ruang tumbuhmu.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

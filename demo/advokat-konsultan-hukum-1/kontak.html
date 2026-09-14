@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak — Satria & Rekan</title>
+<meta name="description" content="Hubungi Satria & Rekan untuk konsultasi hukum awal tanpa biaya. Alamat, telepon, email, dan formulir kontak tersedia di halaman ini.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav container">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">S&amp;R</span>
+      <span class="brand-text"><strong>Satria &amp; Rekan</strong><span>Advokat &amp; Konsultan Hukum</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="tentang.html">Tentang Kami</a></li>
+      <li><a href="layanan.html">Layanan</a></li>
+      <li><a href="kontak.html" class="active">Kontak</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:+622157892200" class="btn btn-primary">(021) 5789-2200</a>
+      <button class="nav-toggle" aria-label="Buka menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="crumb">Beranda <span>›</span> Kontak</div>
+    <span class="eyebrow on-dark">Hubungi Kami</span>
+    <h1 style="margin-top:16px;">Mari bicarakan persoalan hukum Anda.</h1>
+    <p class="lead">Tim kami siap mendengarkan situasi Anda dan memberikan arahan awal secara gratis. Isi formulir di bawah, atau hubungi kami langsung melalui telepon dan email.</p>
+  </div>
+</section>
+
+<!-- INFO CARDS -->
+<section class="section section-tight">
+  <div class="container">
+    <div class="grid grid-3">
+      <div class="info-card reveal">
+        <div class="card-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h4>Kunjungi Kantor Kami</h4>
+        <p>Jl. Jenderal Sudirman Kav. 45, Lantai 12<br>Jakarta Selatan 12190, Indonesia</p>
+      </div>
+      <div class="info-card reveal reveal-delay-1">
+        <div class="card-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .7 3a2 2 0 01-.4 2.1L8 10.3a16 16 0 006 6l1.5-1.4a2 2 0 012.1-.4c1 .4 2 .6 3 .7a2 2 0 011.7 2z"/></svg></div>
+        <h4>Telepon &amp; WhatsApp</h4>
+        <p><a href="tel:+622157892200">(021) 5789-2200</a><br><a href="https://wa.me/6281234567890">+62 812-3456-7890</a></p>
+      </div>
+      <div class="info-card reveal reveal-delay-2">
+        <div class="card-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg></div>
+        <h4>Email &amp; Jam Kerja</h4>
+        <p><a href="mailto:info@satriarekan-law.co.id">info@satriarekan-law.co.id</a><br>Senin–Jumat, 08.30–17.30 WIB</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM + MAP -->
+<section class="section">
+  <div class="container split">
+    <div class="reveal">
+      <span class="eyebrow">Formulir Konsultasi</span>
+      <h2 style="font-size:clamp(26px,3.2vw,34px); margin-top:16px;">Ceritakan situasi hukum Anda</h2>
+      <p style="margin-top:14px; color:var(--ink-soft); font-size:15.5px; line-height:1.75;">Isi formulir di samping selengkap mungkin. Tim kami akan menghubungi Anda dalam waktu 1x24 jam kerja untuk menjadwalkan konsultasi.</p>
+
+      <div class="form-wrap" style="margin-top:32px;">
+        <form id="contact-form">
+          <div class="form-row">
+            <div class="field">
+              <label for="nama">Nama Lengkap</label>
+              <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap Anda" required>
+            </div>
+            <div class="field">
+              <label for="telepon">Nomor Telepon</label>
+              <input type="tel" id="telepon" name="telepon" placeholder="08xx-xxxx-xxxx" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Alamat Email</label>
+              <input type="email" id="email" name="email" placeholder="nama@email.com" required>
+            </div>
+            <div class="field">
+              <label for="bidang">Bidang Hukum</label>
+              <select id="bidang" name="bidang" required>
+                <option value="" selected disabled>Pilih bidang hukum</option>
+                <option>Hukum Pidana</option>
+                <option>Hukum Perdata</option>
+                <option>Hukum Bisnis &amp; Korporasi</option>
+                <option>Hukum Keluarga</option>
+                <option>Hukum Properti</option>
+                <option>Hukum Ketenagakerjaan</option>
+                <option>Lainnya</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="pesan">Ceritakan Persoalan Anda</label>
+            <textarea id="pesan" name="pesan" placeholder="Jelaskan secara singkat duduk perkara yang Anda hadapi..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Kirim Permintaan Konsultasi</button>
+          <p style="font-size:12.5px; color:var(--ink-soft); margin-top:14px; text-align:center;">Dengan mengirim formulir ini, Anda menyetujui bahwa informasi akan dijaga kerahasiaannya sesuai kode etik advokat.</p>
+        </form>
+        <div id="form-success" style="display:none; align-items:center; gap:12px; margin-top:20px; padding:16px 18px; background:var(--cream-2); border-radius:6px; border:1px solid var(--line);">
+          <svg width="22" height="22" fill="none" stroke="var(--forest)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+          <span style="font-size:14px; color:var(--ink);">Terima kasih, permintaan Anda telah terkirim. Tim kami akan segera menghubungi Anda.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal reveal-delay-1">
+      <div class="map-box">
+        <iframe src="https://www.google.com/maps?q=Jalan%20Jenderal%20Sudirman%2C%20Jakarta&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Peta lokasi kantor Satria & Rekan"></iframe>
+      </div>
+      <div class="card" style="margin-top:28px; text-align:left; align-items:flex-start;">
+        <span class="eyebrow">Butuh Respons Cepat?</span>
+        <h3 style="margin-top:14px; font-size:19px;">Layanan Darurat 24 Jam</h3>
+        <p style="margin-top:10px;">Untuk kasus yang memerlukan pendampingan segera, seperti penangkapan atau penahanan, hubungi saluran darurat kami yang aktif 24 jam.</p>
+        <a href="tel:+628111234500" class="btn btn-outline-dark" style="margin-top:20px;">Hubungi Saluran Darurat</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KANTOR CABANG -->
+<section class="section section-tight" style="background:var(--cream-2);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Jangkauan Layanan</span>
+      <h2>Kantor pusat &amp; mitra kerja sama kami</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="info-card reveal">
+        <h4>Jakarta (Kantor Pusat)</h4>
+        <p style="margin-top:10px;">Jl. Jenderal Sudirman Kav. 45, Lantai 12<br>Jakarta Selatan 12190</p>
+        <span class="tag" style="display:block; margin-top:16px;">(021) 5789-2200</span>
+      </div>
+      <div class="info-card reveal reveal-delay-1">
+        <h4>Surabaya (Mitra Kerja Sama)</h4>
+        <p style="margin-top:10px;">Jl. Basuki Rahmat No. 88, Lantai 5<br>Surabaya 60271</p>
+        <span class="tag" style="display:block; margin-top:16px;">(031) 5234-1180</span>
+      </div>
+      <div class="info-card reveal reveal-delay-2">
+        <h4>Bandung (Mitra Kerja Sama)</h4>
+        <p style="margin-top:10px;">Jl. Asia Afrika No. 112, Lantai 3<br>Bandung 40112</p>
+        <span class="tag" style="display:block; margin-top:16px;">(022) 4209-9310</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="brand-mark">S&amp;R</span>
+          <span class="brand-text"><strong>Satria &amp; Rekan</strong><span>Advokat &amp; Konsultan Hukum</span></span>
+        </a>
+        <p>Kantor advokat independen yang mendampingi klien individu dan korporasi dalam menyelesaikan persoalan hukum sejak 2008.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 014 0v4M12 17v-7"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigasi</h5>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="layanan.html">Layanan</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Layanan</h5>
+        <ul>
+          <li><a href="layanan.html">Hukum Pidana</a></li>
+          <li><a href="layanan.html">Hukum Perdata</a></li>
+          <li><a href="layanan.html">Hukum Bisnis</a></li>
+          <li><a href="layanan.html">Hukum Keluarga</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Kontak</h5>
+        <div class="contact-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Jl. Sudirman Kav. 45, Jakarta Selatan 12190</span></div>
+        <div class="contact-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .7 3a2 2 0 01-.4 2.1L8 10.3a16 16 0 006 6l1.5-1.4a2 2 0 012.1-.4c1 .4 2 .6 3 .7a2 2 0 011.7 2z"/></svg><span>(021) 5789-2200</span></div>
+        <div class="contact-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg><span>info@satriarekan-law.co.id</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Satria &amp; Rekan Advokat &amp; Konsultan Hukum. Seluruh hak cipta dilindungi.</span>
+      <span>Terdaftar pada PERADI · Kebijakan Privasi · Syarat Layanan</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// Kirim form konsultasi ke WhatsApp
+const contactForm = document.getElementById('contact-form');
+const formSuccess = document.getElementById('form-success');
+if (contactForm) {
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const nama = document.getElementById('nama').value.trim();
+    const telepon = document.getElementById('telepon').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const bidang = document.getElementById('bidang').value;
+    const pesan = document.getElementById('pesan').value.trim();
+
+    // Nomor WA tujuan (kantor)
+    const nomorWA = '6281234567890';
+
+    const teks =
+`Halo Satria & Rekan, saya ingin konsultasi hukum:
+
+Nama: ${nama}
+No. Telepon: ${telepon}
+Email: ${email}
+Bidang Hukum: ${bidang}
+Persoalan: ${pesan}`;
+
+    const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(teks)}`;
+    window.open(url, '_blank');
+
+    if (formSuccess) {
+      formSuccess.style.display = 'flex';
+    }
+  });
+}
+</script>
+</body>
+</html>

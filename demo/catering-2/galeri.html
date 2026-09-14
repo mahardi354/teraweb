@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galeri — Kanaya Catering</title>
+<meta name="description" content="Galeri momen dan dokumentasi acara pernikahan, korporat, ulang tahun, dan pengajian yang telah dilayani oleh Kanaya Catering.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <span class="mark">K</span>
+      <span>Kanaya<small>Catering &amp; Prasmanan</small></span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html">Beranda</a>
+      <a href="paket.html">Paket &amp; Menu</a>
+      <a href="galeri.html" class="active">Galeri</a>
+      <a href="kontak.html">Kontak</a>
+      <a class="btn btn-gold btn-sm" style="margin-top:14px;" href="https://wa.me/6281234567890?text=Halo%20Kanaya%20Catering%2C%20saya%20ingin%20bertanya%20tentang%20paket%20catering." target="_blank" rel="noopener">Pesan via WhatsApp</a>
+    </nav>
+    <div class="header-cta">
+      <a href="https://wa.me/6281234567890?text=Halo%20Kanaya%20Catering%2C%20saya%20ingin%20bertanya%20tentang%20paket%20catering." target="_blank" rel="noopener" class="btn btn-gold btn-sm btn-sm-desktop">Pesan Sekarang</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Buka menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="page-banner" style="--hero-img:url('https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=1600&q=80')">
+  <div class="container">
+    <p class="eyebrow">Galeri</p>
+    <h1>Momen yang Telah Kami Layani</h1>
+    <p>Sebagian dokumentasi acara pernikahan, korporat, ulang tahun, hingga pengajian yang dipercayakan kepada Kanaya Catering.</p>
+    <div class="breadcrumb"><a href="index.html">Beranda</a><span>/</span><span>Galeri</span></div>
+  </div>
+</section>
+<div class="scallop scallop-to-bg"></div>
+
+<section>
+  <div class="container">
+    <div class="gallery-filters reveal">
+      <button class="gfilter active" data-filter="semua">Semua</button>
+      <button class="gfilter" data-filter="pernikahan">Pernikahan</button>
+      <button class="gfilter" data-filter="korporat">Korporat</button>
+      <button class="gfilter" data-filter="ulang-tahun">Ulang Tahun</button>
+      <button class="gfilter" data-filter="pengajian">Pengajian</button>
+      <button class="gfilter" data-filter="nasi-box">Nasi Box</button>
+    </div>
+
+    <div class="gallery-grid reveal">
+      <div class="gitem" data-cat="pernikahan">
+        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=700&q=80" alt="Meja prasmanan resepsi pernikahan">
+        <div class="gitem-overlay"><span>Pernikahan</span><b>Resepsi Ibu Retno, Brebes</b></div>
+      </div>
+      <div class="gitem" data-cat="korporat">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=700&q=80" alt="Coffee break rapat kantor">
+        <div class="gitem-overlay"><span>Korporat</span><b>Coffee Break Meeting Tahunan</b></div>
+      </div>
+      <div class="gitem" data-cat="ulang-tahun">
+        <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=700&q=80" alt="Dessert table ulang tahun">
+        <div class="gitem-overlay"><span>Ulang Tahun</span><b>Dessert Table Ulang Tahun ke-7</b></div>
+      </div>
+      <div class="gitem" data-cat="pengajian">
+        <img src="https://images.unsplash.com/photo-1529543544282-0b45c0ecf39a?auto=format&fit=crop&w=700&q=80" alt="Nasi kotak untuk pengajian">
+        <div class="gitem-overlay"><span>Pengajian</span><b>Pengajian Keluarga Besar</b></div>
+      </div>
+      <div class="gitem" data-cat="nasi-box">
+        <img src="https://images.unsplash.com/photo-1626200419199-391ae4be7a41?auto=format&fit=crop&w=700&q=80" alt="Nasi box rapi tersusun">
+        <div class="gitem-overlay"><span>Nasi Box</span><b>Langganan Makan Siang Kantor</b></div>
+      </div>
+      <div class="gitem" data-cat="pernikahan">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=700&q=80" alt="Dekorasi meja resepsi pernikahan">
+        <div class="gitem-overlay"><span>Pernikahan</span><b>Prasmanan Gold, Tegal</b></div>
+      </div>
+      <div class="gitem" data-cat="korporat">
+        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=700&q=80" alt="Buffet acara gathering kantor">
+        <div class="gitem-overlay"><span>Korporat</span><b>Gathering Tahunan Perusahaan</b></div>
+      </div>
+      <div class="gitem" data-cat="ulang-tahun">
+        <img src="https://images.unsplash.com/photo-1533294455009-a77b7557d2d1?auto=format&fit=crop&w=700&q=80" alt="Balon dan sajian ulang tahun">
+        <div class="gitem-overlay"><span>Ulang Tahun</span><b>Ulang Tahun Sweet Seventeen</b></div>
+      </div>
+      <div class="gitem" data-cat="pengajian">
+        <img src="https://images.unsplash.com/photo-1547573854-74d2a71d0826?auto=format&fit=crop&w=700&q=80" alt="Tumpeng mini acara syukuran">
+        <div class="gitem-overlay"><span>Pengajian</span><b>Tumpeng Mini Syukuran</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="scallop scallop-to-bg scallop-flip"></div>
+
+<!-- ============ CERITA DI BALIK SAJIAN ============ -->
+<section class="bg-alt">
+  <div class="container">
+    <div class="about-split reveal">
+      <div class="about-photo">
+        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80" alt="Tim dapur Kanaya Catering menyiapkan hidangan">
+      </div>
+      <div>
+        <p class="eyebrow">Cerita di balik sajian</p>
+        <h2 class="section-title">Setiap Hidangan Melewati Tangan yang Sama Telaten</h2>
+        <p class="section-sub">Setiap subuh, tim dapur Kanaya sudah bergerak ke pasar tradisional memilih bahan segar. Proses memasak menggunakan resep keluarga yang diwariskan turun-temurun, dijaga konsistensi rasanya di setiap acara &mdash; besar maupun kecil.</p>
+        <ul class="about-list" style="margin-top:24px;">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Dapur produksi 200m² dengan alur kerja higienis</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Uji rasa oleh chef kepala sebelum dikirim</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Tim quality control kemasan &amp; suhu makanan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Armada pengantaran on-time ke lokasi acara</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section>
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Ingin Acara Anda Menjadi Momen Berikutnya di Galeri Kami?</h2>
+      <p>Hubungi tim Kanaya sekarang dan mari wujudkan sajian terbaik untuk acara Anda.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/6281234567890?text=Halo%20Kanaya%20Catering%2C%20saya%20ingin%20konsultasi%20untuk%20acara%20saya." target="_blank" rel="noopener" class="btn btn-primary">Konsultasi via WhatsApp</a>
+        <a href="paket.html" class="btn btn-outline on-dark">Lihat Paket &amp; Menu</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="scallop scallop-to-green"></div>
+<footer class="site-footer" id="footer-include"></footer>
+
+<a href="https://wa.me/6281234567890?text=Halo%20Kanaya%20Catering%2C%20saya%20ingin%20bertanya." target="_blank" rel="noopener" class="wa-float" aria-label="Chat WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 3.6 17.4L2 22l4.7-1.6A11 11 0 1 0 20.5 3.5Zm-8.5 17a9 9 0 0 1-4.6-1.3l-.3-.2-3 1 1-2.9-.2-.3A9 9 0 1 1 12 20.5Zm5-6.7c-.3-.1-1.6-.8-1.8-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.3-.1-.1-.3-.2-.6-.3Z"/></svg>
+</a>
+
+<script src="script.js"></script>
+<script src="footer.js"></script>
+</body>
+</html>

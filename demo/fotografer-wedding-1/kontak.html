@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak — Larasati Photography</title>
+<meta name="description" content="Hubungi Larasati Photography untuk konsultasi dan booking sesi fotografi pernikahan Anda.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500;600&family=Petit+Formal+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo">Larasati <span>&</span> Photography</a>
+    <nav class="nav-links">
+      <a href="index.html">Beranda</a>
+      <a href="portofolio.html">Portofolio</a>
+      <a href="tentang.html">Tentang Kami</a>
+      <a href="kontak.html" class="active">Kontak</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="kontak.html" class="btn btn-primary">Booking Sesi</a>
+      <button class="burger" aria-label="Buka menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav">
+  <button class="close-m" aria-label="Tutup menu">&times;</button>
+  <a href="index.html">Beranda</a>
+  <a href="portofolio.html">Portofolio</a>
+  <a href="tentang.html">Tentang Kami</a>
+  <a href="kontak.html">Kontak</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Beranda</a> / Kontak</div>
+    <span class="eyebrow">Hubungi Kami</span>
+    <h1>Mari Ceritakan Hari Bahagia Anda</h1>
+    <p>Kami siap membantu merencanakan dokumentasi pernikahan impian Anda. Hubungi kami melalui salah satu cara di bawah ini.</p>
+  </div>
+</section>
+
+<!-- INFO CARDS -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="info-card reveal">
+        <div class="icon">☎</div>
+        <h4>Telepon / WhatsApp</h4>
+        <p>+62 812 3456 7890</p>
+      </div>
+      <div class="info-card reveal">
+        <div class="icon">✉</div>
+        <h4>Email</h4>
+        <p>halo@larasatiphotography.id</p>
+      </div>
+      <div class="info-card reveal">
+        <div class="icon">⚑</div>
+        <h4>Alamat Studio</h4>
+        <p>Jl. Braga No. 12, Bandung, Jawa Barat</p>
+      </div>
+      <div class="info-card reveal">
+        <div class="icon">◷</div>
+        <h4>Jam Operasional</h4>
+        <p>Senin – Sabtu, 09.00 – 18.00 WIB</p>
+      </div>
+    </div>
+
+    <!-- FORM + MAP -->
+    <div class="form-map">
+      <div class="form-card reveal">
+        <span class="eyebrow">Formulir Booking</span>
+        <h2 style="margin-bottom:24px;">Kirim Detail Acara Anda</h2>
+        <form class="contact-form" id="contact-form">
+          <div class="form-row">
+            <div class="field">
+              <label for="nama">Nama Lengkap</label>
+              <input type="text" id="nama" placeholder="Nama Anda" required>
+            </div>
+            <div class="field">
+              <label for="pasangan">Nama Pasangan</label>
+              <input type="text" id="pasangan" placeholder="Nama pasangan Anda">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="nama@email.com" required>
+            </div>
+            <div class="field">
+              <label for="hp">No. HP / WhatsApp</label>
+              <input type="tel" id="hp" placeholder="08xx xxxx xxxx" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="tanggal">Tanggal Pernikahan</label>
+              <input type="date" id="tanggal">
+            </div>
+            <div class="field">
+              <label for="paket">Paket yang Diminati</label>
+              <select id="paket">
+                <option>Wedding Day</option>
+                <option>Prewedding</option>
+                <option>Engagement</option>
+                <option>Destination Wedding</option>
+                <option>Belum Yakin</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="pesan">Ceritakan Rencana Anda</label>
+            <textarea id="pesan" placeholder="Lokasi, jumlah tamu, konsep, atau hal lain yang ingin Anda sampaikan..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Kirim Permintaan</button>
+          <p class="form-note"></p>
+        </form>
+      </div>
+
+      <div class="map-wrap reveal">
+        <iframe src="https://www.google.com/maps?q=Jl.+Braga,+Bandung,+Jawa+Barat&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROSES BOOKING -->
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="justify-content:center;">Cara Booking</span>
+      <h2>Lima Langkah Menuju Hari-H</h2>
+      <p>Proses reservasi yang mudah, transparan, dan tanpa ribet.</p>
+    </div>
+    <div class="steps-row">
+      <div class="step-item reveal">
+        <div class="step-num">1</div>
+        <h4>Isi Formulir</h4>
+        <p>Kirimkan detail acara melalui formulir atau WhatsApp.</p>
+      </div>
+      <div class="step-item reveal">
+        <div class="step-num">2</div>
+        <h4>Konsultasi</h4>
+        <p>Diskusi kebutuhan, tanggal, dan paket yang sesuai.</p>
+      </div>
+      <div class="step-item reveal">
+        <div class="step-num">3</div>
+        <h4>Booking Fee</h4>
+        <p>Pembayaran DP 30% untuk mengunci tanggal Anda.</p>
+      </div>
+      <div class="step-item reveal">
+        <div class="step-num">4</div>
+        <h4>Persiapan</h4>
+        <p>Timeline acara &amp; moodboard difinalisasi bersama.</p>
+      </div>
+      <div class="step-item reveal">
+        <div class="step-num">5</div>
+        <h4>Hari Bahagia</h4>
+        <p>Tim kami hadir mengabadikan setiap momen berharga.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="justify-content:center;">FAQ</span>
+      <h2>Pertanyaan yang Sering Diajukan</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q">Berapa lama proses booking sebelum hari-H?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Kami menyarankan booking minimal 3–6 bulan sebelum hari pernikahan, terutama untuk tanggal-tanggal favorit seperti akhir pekan dan musim liburan.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Apakah DP dapat dikembalikan jika terjadi pembatalan?<span class="plus">+</span></button>
+        <div class="faq-a"><p>DP bersifat mengunci jadwal tim kami sehingga tidak dapat dikembalikan. Namun, tanggal dapat dijadwalkan ulang satu kali tanpa biaya tambahan dengan pemberitahuan minimal 30 hari sebelumnya.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Berapa lama waktu pengerjaan hasil foto?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Untuk sesi prewedding, hasil edit selesai dalam 2–3 minggu. Untuk wedding day, album dan file digital lengkap kami kirimkan dalam 6–8 minggu.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Apakah tim bersedia meliput di luar kota atau luar negeri?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Tentu. Kami memiliki paket Destination Wedding khusus yang mencakup akomodasi dan transportasi tim, dengan biaya perjalanan disesuaikan lokasi acara.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Apakah kami bisa meminta konsep atau referensi gaya foto tertentu?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Sangat bisa. Sesi konsultasi awal kami khususkan untuk membahas referensi, moodboard, dan gaya yang Anda inginkan agar hasil foto benar-benar personal.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Apa saja yang termasuk dalam paket Wedding Day?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Paket Wedding Day mencakup dua fotografer, liputan hingga 10 jam, 500+ foto hasil edit, album cetak premium, dan file digital resolusi penuh.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Bagaimana metode pembayaran yang tersedia?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Kami menerima transfer bank dan pembayaran bertahap (DP, cicilan, pelunasan) yang dapat disesuaikan dengan kesepakatan bersama.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="wrap">
+    <span class="eyebrow">Masih Ada Pertanyaan?</span>
+    <h2>Hubungi Kami Langsung via WhatsApp</h2>
+    <p>Tim kami siap merespons pertanyaan Anda dengan cepat dan ramah.</p>
+    <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="btn btn-outline">Chat via WhatsApp</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo">Larasati <span>&</span> Photography</a>
+        <p>Studio fotografi pernikahan yang mengabadikan cerita cinta dengan pendekatan otentik, personal, dan timeless sejak 2014.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="Pinterest">PN</a>
+        </div>
+      </div>
+      <div>
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="portofolio.html">Portofolio</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="index.html">Wedding Day</a></li>
+          <li><a href="index.html">Prewedding</a></li>
+          <li><a href="index.html">Engagement</a></li>
+          <li><a href="index.html">Destination Wedding</a></li>
+        </ul>
+      </div>
+      <div class="footer-map">
+        <h4>Studio Kami</h4>
+        <iframe src="https://www.google.com/maps?q=Jl.+Braga,+Bandung,+Jawa+Barat&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Larasati Photography. Seluruh hak cipta dilindungi.</span>
+      <span>Jl. Braga No. 12, Bandung, Jawa Barat</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script>
+// Kirim form booking ke WhatsApp
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const nama = document.getElementById('nama').value.trim();
+    const pasangan = document.getElementById('pasangan').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const hp = document.getElementById('hp').value.trim();
+    const tanggal = document.getElementById('tanggal').value;
+    const paket = document.getElementById('paket').value;
+    const pesan = document.getElementById('pesan').value.trim();
+
+    // Nomor WA tujuan (studio)
+    const nomorWA = '6281234567890';
+
+    const teks =
+`Halo Larasati Photography, saya ingin booking sesi:
+
+Nama: ${nama}
+Nama Pasangan: ${pasangan || '-'}
+Email: ${email}
+No. WhatsApp: ${hp}
+Tanggal Pernikahan: ${tanggal || '-'}
+Paket: ${paket}
+Rencana Acara: ${pesan || '-'}`;
+
+    const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(teks)}`;
+    window.open(url, '_blank');
+  });
+}
+</script>
+</body>
+</html>

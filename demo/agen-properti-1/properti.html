@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daftar Properti — TAPAK Properti</title>
+<meta name="description" content="Jelajahi daftar rumah, cluster, dan kavling yang sedang dipasarkan oleh TAPAK Properti di Semarang, Ungaran, dan Kendal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   TAPAK PROPERTI — design system
+   Palette: warm ivory paper + deep estate green + brass/gold
+   Type: Fraunces (display) / Plus Jakarta Sans (body) / JetBrains Mono (data)
+   ========================================================= */
+
+:root{
+  --bg:#F7F3EA;
+  --bg-alt:#EFE8D8;
+  --bg-alt-2:#E7DEC8;
+  --paper:#FFFDF8;
+  --ink:#21261F;
+  --ink-soft:#4B5246;
+  --forest:#2B4636;
+  --forest-dark:#182A20;
+  --forest-mid:#3E5D48;
+  --brass:#B8863E;
+  --brass-light:#D9B171;
+  --brass-ink:#7A5A25;
+  --line:#DCD3BE;
+  --line-strong:#C7BA9C;
+  --white:#FFFDF8;
+  --shadow: 0 20px 50px -20px rgba(33,38,31,0.35);
+  --shadow-sm: 0 8px 24px -12px rgba(33,38,31,0.28);
+  --radius: 22px;
+  --radius-sm: 12px;
+  --maxw: 1220px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Plus Jakarta Sans', sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;margin:0;padding:0;}
+h1,h2,h3,h4{
+  font-family:'Fraunces', serif;
+  font-weight:600;
+  line-height:1.12;
+  margin:0 0 .5em;
+  letter-spacing:-0.01em;
+  color:var(--forest-dark);
+}
+h1{font-size:clamp(2.4rem,5vw,4.2rem); font-weight:560;}
+h2{font-size:clamp(1.9rem,3.6vw,2.85rem);}
+h3{font-size:1.35rem;}
+p{margin:0 0 1em;color:var(--ink-soft);}
+.mono{font-family:'JetBrains Mono', monospace;}
+.container{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+section{position:relative;}
+.section-pad{padding:100px 0;}
+@media(max-width:760px){.section-pad{padding:64px 0;}}
+
+/* --- focus visibility --- */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{
+  outline:2px solid var(--brass); outline-offset:3px;
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+}
+
+/* --- eyebrow label --- */
+.eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:'JetBrains Mono', monospace;
+  font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--brass-ink); font-weight:500;
+  margin-bottom:18px;
+}
+.eyebrow::before{
+  content:""; width:26px; height:1px; background:var(--brass);
+}
+
+/* =========================== HEADER =========================== */
+.site-header{
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  padding:20px 0;
+  background:transparent;
+  transition:background .45s ease, box-shadow .45s ease, padding .35s ease, backdrop-filter .45s ease;
+}
+.site-header.is-scrolled{
+  background:rgba(247,243,234,0.86);
+  backdrop-filter:blur(14px) saturate(1.1);
+  -webkit-backdrop-filter:blur(14px) saturate(1.1);
+  box-shadow:0 10px 30px -18px rgba(33,38,31,0.35);
+  padding:12px 0;
+  border-bottom:1px solid var(--line);
+}
+.site-header .container{display:flex; align-items:center; justify-content:space-between; gap:20px;}
+.brand{display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-weight:600; font-size:1.28rem; color:var(--forest-dark);}
+.site-header.is-scrolled .brand, .light-header .brand{color:var(--forest-dark);}
+.brand .mark{
+  width:38px;height:38px;border-radius:9px;
+  background:linear-gradient(155deg, var(--forest) 0%, var(--forest-dark) 100%);
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(217,177,113,.5);
+}
+.brand .mark svg{width:20px;height:20px;}
+.brand .brand-text{display:flex; flex-direction:column; line-height:1.05;}
+.brand .brand-text small{font-family:'JetBrains Mono',monospace; font-size:.56rem; letter-spacing:.16em; color:var(--brass-ink); font-weight:500; text-transform:uppercase;}
+
+.nav-links{display:flex; align-items:center; gap:34px;}
+.nav-links a{
+  font-size:.94rem; font-weight:500; color:var(--forest-dark);
+  position:relative; padding:4px 0;
+}
+.nav-links a::after{
+  content:""; position:absolute; left:0; bottom:-2px; height:2px; width:0%;
+  background:var(--brass); transition:width .3s ease;
+}
+.nav-links a:hover::after, .nav-links a.active::after{width:100%;}
+.nav-links a.active{color:var(--brass-ink);}
+.header-actions{display:flex; align-items:center; gap:14px;}
+.hamburger{display:none; width:42px;height:42px;border-radius:10px;border:1px solid var(--line-strong); background:var(--paper); align-items:center; justify-content:center; cursor:pointer;}
+.hamburger span, .hamburger::before, .hamburger::after{content:none;}
+.hamburger .bars{width:18px;height:12px;position:relative;}
+.hamburger .bars span{position:absolute; left:0; right:0; height:2px; background:var(--forest-dark); border-radius:2px;}
+.hamburger .bars span:nth-child(1){top:0;}
+.hamburger .bars span:nth-child(2){top:5px;}
+.hamburger .bars span:nth-child(3){top:10px;}
+
+.mobile-nav{
+  position:fixed; inset:0; z-index:1100; background:var(--forest-dark);
+  display:flex; flex-direction:column; padding:28px; transform:translateY(-100%);
+  transition:transform .4s cubic-bezier(.6,.02,.2,1);
+}
+.mobile-nav.open{transform:translateY(0);}
+.mobile-nav .mnav-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:40px;}
+.mobile-nav a{color:var(--white); font-family:'Fraunces',serif; font-size:2rem; padding:14px 0; border-bottom:1px solid rgba(255,255,255,.12);}
+.mobile-nav .close-x{width:42px;height:42px;border-radius:10px;border:1px solid rgba(255,255,255,.25); color:#fff; background:transparent; font-size:1.4rem; cursor:pointer;}
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+}
+
+/* =========================== BUTTONS =========================== */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:14px 26px; border-radius:100px; font-weight:600; font-size:.94rem;
+  border:1px solid transparent; cursor:pointer; transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--forest); color:var(--white); box-shadow:var(--shadow-sm);}
+.btn-primary:hover{background:var(--forest-dark); transform:translateY(-2px);}
+.btn-brass{background:var(--brass); color:var(--white);}
+.btn-brass:hover{background:var(--brass-ink); transform:translateY(-2px);}
+.btn-outline{background:transparent; border-color:var(--forest-dark); color:var(--forest-dark);}
+.btn-outline:hover{background:var(--forest-dark); color:var(--white);}
+.btn-ghost-light{background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.35); color:var(--white);}
+.btn-ghost-light:hover{background:rgba(255,255,255,.18);}
+.btn-sm{padding:10px 18px; font-size:.82rem;}
+.btn svg{width:16px;height:16px;}
+
+/* =========================== HERO (shared) =========================== */
+.hero{
+  position:relative; padding:168px 0 100px; overflow:hidden;
+  background:radial-gradient(120% 100% at 15% 0%, #EFE7D2 0%, var(--bg) 55%);
+}
+.hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:50px; align-items:center; margin-bottom:70px;}
+@media(max-width:960px){.hero-grid{grid-template-columns:1fr; margin-bottom:56px;}}
+.hero-copy .eyebrow{margin-bottom:22px;}
+.hero-copy p.lead{font-size:1.1rem; max-width:520px;}
+.hero-cta{display:flex; gap:14px; flex-wrap:wrap; margin-top:30px;}
+.hero-media{position:relative;}
+.hero-media .frame{
+  position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);
+  border:1px solid var(--line);
+}
+.hero-media .frame img{height:520px; object-fit:cover; width:100%;}
+@media(max-width:600px){.hero-media .frame img{height:340px;}}
+.hero-media .float-card{
+  position:absolute; bottom:-26px; left:-26px; background:var(--paper);
+  border:1px solid var(--line); border-radius:var(--radius-sm); padding:16px 20px;
+  box-shadow:var(--shadow-sm); display:flex; align-items:center; gap:14px; max-width:250px;
+}
+@media(max-width:600px){.hero-media .float-card{left:10px; bottom:-20px; padding:12px 16px;}}
+.hero-media .float-card .dot{width:44px;height:44px;border-radius:50%; background:var(--forest); display:flex;align-items:center;justify-content:center; flex-shrink:0;}
+.hero-media .float-card .dot svg{width:20px;height:20px;color:var(--brass-light);}
+.hero-media .float-card strong{display:block; font-size:.95rem; color:var(--forest-dark);}
+.hero-media .float-card span{font-size:.78rem; color:var(--ink-soft);}
+
+/* small page hero (inner pages) */
+.page-hero{
+  padding:158px 0 70px; background:linear-gradient(180deg, #EFE7D2 0%, var(--bg) 100%);
+  text-align:center;
+}
+.page-hero .eyebrow{justify-content:center;}
+.page-hero p{max-width:620px; margin-left:auto; margin-right:auto;}
+
+/* =========================== STAT BAR =========================== */
+.stat-bar{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+  background:var(--forest-dark); border-radius:var(--radius);
+  padding:38px 20px; margin-top:0; position:relative; z-index:5;
+  box-shadow:var(--shadow);
+}
+.stat-bar .stat{text-align:center; padding:10px 12px; border-right:1px solid rgba(255,255,255,.12);}
+.stat-bar .stat:last-child{border-right:none;}
+.stat-bar .stat b{
+  display:block; font-family:'Fraunces',serif; font-size:2.1rem; color:var(--brass-light); font-weight:600;
+}
+.stat-bar .stat span{font-size:.8rem; color:rgba(255,255,255,.75);}
+@media(max-width:760px){.stat-bar{grid-template-columns:repeat(2,1fr); gap:22px 0;} .stat-bar .stat:nth-child(2n){border-right:none;} .stat-bar .stat{border-bottom:1px solid rgba(255,255,255,.12); padding-bottom:20px;} .stat-bar .stat:nth-last-child(-n+2){border-bottom:none;}}
+
+/* =========================== SECTION HEAD =========================== */
+.section-head{text-align:center; max-width:680px; margin:0 auto 56px;}
+.section-head.left{text-align:left; margin:0 0 50px;}
+
+/* =========================== PROPERTY CARD (signature) =========================== */
+.property-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:30px; justify-items:center;}
+@media(max-width:980px){.property-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.property-grid{grid-template-columns:1fr;}}
+
+.card-property{
+  width:100%; max-width:380px; background:var(--paper); border-radius:var(--radius);
+  overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow-sm);
+  transition:transform .35s ease, box-shadow .35s ease;
+  position:relative;
+}
+.card-property:hover{transform:translateY(-6px); box-shadow:var(--shadow);}
+.card-property .thumb{position:relative; height:220px; overflow:hidden;}
+.card-property .thumb img{width:100%;height:100%;object-fit:cover; transition:transform .6s ease;}
+.card-property:hover .thumb img{transform:scale(1.06);}
+.card-property .ribbon{
+  position:absolute; top:16px; left:-8px; background:var(--brass); color:#fff;
+  font-family:'JetBrains Mono',monospace; font-size:.66rem; letter-spacing:.08em; text-transform:uppercase;
+  padding:5px 14px 5px 18px; border-radius:0 4px 4px 0; box-shadow:0 6px 14px -6px rgba(0,0,0,.4);
+}
+.card-property .ribbon.nego{background:var(--forest);}
+.card-property .ribbon.booked{background:#8B4A3C;}
+.card-property .price-tag{
+  position:absolute; bottom:14px; right:14px; background:rgba(33,38,31,.82); color:var(--white);
+  font-family:'JetBrains Mono',monospace; font-size:.86rem; padding:7px 12px; border-radius:8px; backdrop-filter:blur(4px);
+}
+.card-property .body{padding:22px 22px 0;}
+.card-property .body h3{margin-bottom:4px; font-size:1.18rem;}
+.card-property .loc{display:flex; align-items:center; gap:6px; font-size:.85rem; color:var(--ink-soft); margin-bottom:14px;}
+.card-property .loc svg{width:14px;height:14px; color:var(--brass);}
+.card-property .spec-strip{
+  display:flex; border-top:1px dashed var(--line-strong); margin-top:6px;
+}
+.card-property .spec-strip div{
+  flex:1; text-align:center; padding:12px 4px; font-family:'JetBrains Mono',monospace; font-size:.74rem; color:var(--forest-dark);
+  border-right:1px dashed var(--line-strong);
+}
+.card-property .spec-strip div:last-child{border-right:none;}
+.card-property .spec-strip b{display:block; font-size:.95rem;}
+.card-property .cta-row{display:flex; border-top:1px solid var(--line); }
+.card-property .cta-row a{flex:1; text-align:center; padding:14px 10px; font-size:.84rem; font-weight:600; color:var(--forest); transition:background .25s ease;}
+.card-property .cta-row a:hover{background:var(--bg-alt);}
+.card-property .cta-row a.wa{color:var(--brass-ink); border-left:1px solid var(--line);}
+
+/* =========================== WHY / FEATURE LIST =========================== */
+.feature-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+@media(max-width:900px){.feature-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.feature-grid{grid-template-columns:1fr;}}
+.feature-card{
+  background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-sm);
+  padding:30px 26px; text-align:center;
+}
+.feature-card .ic{
+  width:52px;height:52px;border-radius:14px; background:var(--bg-alt); display:flex; align-items:center; justify-content:center;
+  margin:0 auto 18px; border:1px solid var(--line-strong);
+}
+.feature-card .ic svg{width:24px;height:24px; color:var(--forest);}
+.feature-card h3{font-size:1.08rem; margin-bottom:8px;}
+.feature-card p{font-size:.92rem; margin-bottom:0;}
+
+/* =========================== STEPS (process, left -> right) =========================== */
+.steps-row{
+  display:grid; grid-template-columns:repeat(5,1fr); gap:0; position:relative; margin-top:20px;
+}
+@media(max-width:980px){.steps-row{grid-template-columns:1fr; gap:0;}}
+.step-item{position:relative; padding:0 18px 40px; text-align:center;}
+@media(max-width:980px){.step-item{text-align:left; padding:0 0 34px 62px;}}
+.step-item .num{
+  width:56px;height:56px;border-radius:50%; background:var(--forest); color:var(--brass-light);
+  font-family:'Fraunces',serif; font-size:1.3rem; display:flex; align-items:center; justify-content:center;
+  margin:0 auto 20px; position:relative; z-index:2; border:3px solid var(--bg);
+  box-shadow:0 0 0 1px var(--line-strong);
+}
+@media(max-width:980px){.step-item .num{position:absolute; left:0; top:0; margin:0;}}
+.step-item h3{font-size:1.02rem; margin-bottom:6px;}
+.step-item p{font-size:.86rem;}
+.steps-row::before{
+  content:""; position:absolute; top:28px; left:10%; right:10%; height:2px;
+  background:repeating-linear-gradient(90deg, var(--line-strong) 0 8px, transparent 8px 14px); z-index:1;
+}
+@media(max-width:980px){.steps-row::before{top:0; bottom:0; left:27px; right:auto; width:2px; height:auto; background:repeating-linear-gradient(180deg, var(--line-strong) 0 8px, transparent 8px 14px);}}
+
+/* vertical timeline (about page career) */
+.timeline{position:relative; max-width:760px; margin:0 auto; padding-left:34px; border-left:2px dashed var(--line-strong);}
+.timeline-item{position:relative; padding-bottom:42px;}
+.timeline-item:last-child{padding-bottom:0;}
+.timeline-item::before{
+  content:""; position:absolute; left:-42px; top:2px; width:16px;height:16px; border-radius:50%;
+  background:var(--brass); border:3px solid var(--bg);
+}
+.timeline-item .yr{font-family:'JetBrains Mono',monospace; font-size:.78rem; color:var(--brass-ink); margin-bottom:6px; display:block;}
+
+/* =========================== TESTIMONIALS =========================== */
+.testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+@media(max-width:980px){.testi-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.testi-grid{grid-template-columns:1fr;}}
+.testi-card{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-sm); padding:28px; position:relative;}
+.testi-card .quote-mark{font-family:'Fraunces',serif; font-size:3rem; color:var(--brass-light); line-height:0; position:relative; top:18px;}
+.testi-card p{font-size:.95rem; font-style:italic; color:var(--ink);}
+.testi-card .who{display:flex; align-items:center; gap:12px; margin-top:16px;}
+.testi-card .who img{width:44px;height:44px;border-radius:50%; object-fit:cover; border:2px solid var(--brass-light);}
+.testi-card .who strong{display:block; font-size:.9rem;}
+.testi-card .who span{font-size:.78rem; color:var(--ink-soft);}
+.testi-card .stars{color:var(--brass); font-size:.85rem; margin-bottom:8px;}
+
+/* =========================== FAQ ACCORDION =========================== */
+.faq-list{max-width:800px; margin:0 auto;}
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-q{
+  width:100%; text-align:left; background:none; border:none; cursor:pointer;
+  padding:24px 6px; display:flex; align-items:center; justify-content:space-between; gap:20px;
+  font-family:'Fraunces',serif; font-size:1.08rem; color:var(--forest-dark); font-weight:600;
+}
+.faq-q .plus{
+  width:30px;height:30px;border-radius:50%; border:1px solid var(--line-strong); flex-shrink:0;
+  display:flex; align-items:center; justify-content:center; position:relative; transition:transform .35s ease, background .3s ease;
+}
+.faq-q .plus::before, .faq-q .plus::after{content:""; position:absolute; background:var(--forest-dark);}
+.faq-q .plus::before{width:12px;height:2px;}
+.faq-q .plus::after{width:2px;height:12px; transition:opacity .3s ease;}
+.faq-item.open .faq-q .plus{transform:rotate(135deg); background:var(--brass); border-color:var(--brass);}
+.faq-item.open .faq-q .plus::before, .faq-item.open .faq-q .plus::after{background:#fff;}
+.faq-a{max-height:0; overflow:hidden; transition:max-height .4s ease;}
+.faq-a p{padding:0 6px 24px; font-size:.94rem; max-width:680px;}
+.faq-item.open .faq-a{}
+
+/* =========================== CTA BANNER =========================== */
+.cta-banner{
+  background:linear-gradient(135deg, var(--forest-dark), var(--forest)); border-radius:var(--radius);
+  padding:64px 50px; text-align:center; position:relative; overflow:hidden;
+}
+.cta-banner::before{
+  content:""; position:absolute; inset:0; opacity:.08;
+  background-image:radial-gradient(circle at 20% 20%, #fff 0, transparent 40%), radial-gradient(circle at 80% 60%, #fff 0, transparent 40%);
+}
+.cta-banner h2{color:var(--white); position:relative;}
+.cta-banner p{color:rgba(255,255,255,.78); max-width:520px; margin:0 auto 26px; position:relative;}
+.cta-banner .hero-cta{justify-content:center; position:relative;}
+
+/* =========================== FOOTER =========================== */
+.site-footer{background:var(--forest-dark); color:rgba(255,255,255,.7); padding:70px 0 26px; margin-top:0;}
+.footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:40px; padding-bottom:46px; border-bottom:1px solid rgba(255,255,255,.12);}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr; gap:36px 24px;}}
+@media(max-width:560px){.footer-grid{grid-template-columns:1fr;}}
+.footer-grid h4{color:var(--brass-light); font-family:'JetBrains Mono',monospace; font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; margin-bottom:18px; font-weight:500;}
+.footer-grid p, .footer-grid a{color:rgba(255,255,255,.68); font-size:.9rem;}
+.footer-grid ul li{margin-bottom:10px;}
+.footer-grid ul li a:hover{color:var(--brass-light);}
+.footer-brand{display:flex; align-items:center; gap:10px; margin-bottom:16px;}
+.footer-brand .brand-text strong{color:var(--white); font-family:'Fraunces',serif; font-size:1.2rem;}
+.social-row{display:flex; gap:10px; margin-top:18px;}
+.social-row a{width:36px;height:36px; border-radius:50%; border:1px solid rgba(255,255,255,.25); display:flex; align-items:center; justify-content:center;}
+.social-row a:hover{background:var(--brass); border-color:var(--brass);}
+.social-row svg{width:16px;height:16px;}
+.footer-bottom{display:flex; justify-content:space-between; align-items:center; padding-top:24px; font-size:.8rem; flex-wrap:wrap; gap:10px;}
+.footer-bottom a{text-decoration:underline;}
+
+/* =========================== MISC: forms, filters, badges =========================== */
+.field{margin-bottom:18px;}
+.field label{display:block; font-size:.84rem; font-weight:600; margin-bottom:8px; color:var(--forest-dark);}
+.field input, .field select, .field textarea{
+  width:100%; padding:13px 16px; border-radius:10px; border:1px solid var(--line-strong);
+  background:var(--paper); font-family:'Plus Jakarta Sans',sans-serif; font-size:.94rem; color:var(--ink);
+}
+.field input:focus, .field select:focus, .field textarea:focus{border-color:var(--brass);}
+.field textarea{resize:vertical; min-height:120px;}
+
+.filter-bar{
+  background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-sm);
+  padding:22px; box-shadow:var(--shadow-sm); display:grid; grid-template-columns:repeat(4,1fr) auto; gap:14px; align-items:end;
+  margin-bottom:44px;
+}
+@media(max-width:900px){.filter-bar{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.filter-bar{grid-template-columns:1fr;}}
+.filter-bar .field{margin-bottom:0;}
+.filter-bar .btn{width:100%;}
+
+.search-float{
+  background:var(--paper); border-radius:var(--radius-sm); box-shadow:var(--shadow);
+  padding:20px; display:grid; grid-template-columns:repeat(4,1fr) auto; gap:14px; align-items:end;
+  margin-top:-46px; position:relative; z-index:6; border:1px solid var(--line);
+}
+@media(max-width:900px){.search-float{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.search-float{grid-template-columns:1fr;}}
+.search-float .field{margin-bottom:0;}
+
+.badge{
+  display:inline-flex; align-items:center; gap:6px; background:var(--bg-alt); border:1px solid var(--line-strong);
+  padding:6px 12px; border-radius:100px; font-size:.78rem; font-weight:600; color:var(--forest-dark);
+}
+
+.compare-table{width:100%; border-collapse:collapse; background:var(--paper); border-radius:var(--radius-sm); overflow:hidden; box-shadow:var(--shadow-sm);}
+.compare-table th, .compare-table td{padding:16px 18px; text-align:left; border-bottom:1px solid var(--line); font-size:.92rem;}
+.compare-table th{font-family:'Fraunces',serif; font-weight:600; color:var(--forest-dark); background:var(--bg-alt);}
+.compare-table td.yes{color:var(--forest); font-weight:700;}
+.compare-table td.no{color:#a35c4d;}
+.compare-table tr:last-child td{border-bottom:none;}
+
+.map-wrap{border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow-sm); position:relative;}
+.map-wrap iframe{width:100%; height:420px; border:0; display:block; filter:grayscale(.15) sepia(.08);}
+
+.value-card{background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-sm); padding:26px; }
+.value-card .ic{width:46px;height:46px;border-radius:12px;background:var(--forest); display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.value-card .ic svg{width:22px;height:22px;color:var(--brass-light);}
+
+.contact-info-card{display:flex; gap:16px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-sm); padding:22px; align-items:flex-start;}
+.contact-info-card .ic{width:46px;height:46px;border-radius:12px;background:var(--bg-alt); display:flex;align-items:center;justify-content:center; flex-shrink:0; border:1px solid var(--line-strong);}
+.contact-info-card .ic svg{width:22px;height:22px;color:var(--forest);}
+.contact-info-card strong{display:block; margin-bottom:4px; font-size:1rem; color:var(--forest-dark); font-family:'Fraunces',serif;}
+.contact-info-card p{margin:0; font-size:.9rem;}
+
+.reveal{opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease;}
+.reveal.in{opacity:1; transform:translateY(0);}
+
+.wa-float{
+  position:fixed; bottom:24px; right:24px; z-index:900; width:58px; height:58px; border-radius:50%;
+  background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 12px 26px -8px rgba(0,0,0,.4);
+  animation:pulse 2.6s infinite;
+}
+.wa-float svg{width:28px;height:28px; color:#fff;}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55);}70%{box-shadow:0 0 0 16px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
+
+.pill-row{display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-bottom:40px;}
+.pill-row button{
+  padding:10px 20px; border-radius:100px; border:1px solid var(--line-strong); background:var(--paper);
+  font-size:.86rem; font-weight:600; color:var(--forest-dark); cursor:pointer; transition:.25s;
+}
+.pill-row button.active, .pill-row button:hover{background:var(--forest); color:#fff; border-color:var(--forest);}
+
+.load-more-wrap{text-align:center; margin-top:40px;}
+.hidden-card{display:none;}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand" aria-label="TAPAK Properti — Beranda">
+        <span class="mark">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 11.5L12 4l9 7.5" stroke="#D9B171" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 10v9a1 1 0 0 0 1 1H10v-5.5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1V20h3.5a1 1 0 0 0 1-1v-9" stroke="#D9B171" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="brand-text">
+          <span>TAPAK Properti</span>
+          <small>Independent Property Advisor</small>
+        </span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" data-nav="beranda">Beranda</a>
+        <a href="tentang.html" data-nav="tentang">Tentang Kami</a>
+        <a href="properti.html" data-nav="properti" class="active">Properti</a>
+        <a href="kontak.html" data-nav="kontak">Kontak</a>
+      </nav>
+      <div class="header-actions">
+        <a href="https://wa.me/6281234567890" class="btn btn-brass btn-sm" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.7-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.2.2-.3.2-.5.1-.2 0-.3 0-.5s-.6-1.5-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>
+          WhatsApp
+        </a>
+        <button class="hamburger" aria-label="Buka menu"><span class="bars"><span></span><span></span><span></span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mnav-top">
+      <span class="brand" style="color:#fff;">
+        <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M3 11.5L12 4l9 7.5" stroke="#D9B171" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="brand-text" style="color:#fff;">TAPAK Properti</span>
+      </span>
+      <button class="close-x" aria-label="Tutup menu">&times;</button>
+    </div>
+    <a href="index.html">Beranda</a>
+    <a href="tentang.html">Tentang Kami</a>
+    <a href="properti.html">Properti</a>
+    <a href="kontak.html">Kontak</a>
+    <a href="https://wa.me/6281234567890" style="font-family:'Plus Jakarta Sans',sans-serif; font-size:1rem; color:#D9B171;">Chat via WhatsApp &rarr;</a>
+  </div>
+
+<main>
+  <section class="page-hero" style="padding-bottom:0;">
+    <div class="container">
+      <span class="eyebrow">Daftar Properti</span>
+      <h1>Properti aktif yang sedang dipasarkan</h1>
+      <p>24 unit tersedia di area Semarang Raya, Ungaran, dan Kendal. Gunakan filter untuk mempersempit pencarian sesuai kebutuhan Anda.</p>
+    </div>
+  </section>
+
+  <section class="section-pad" style="padding-top:36px;">
+    <div class="container">
+
+      <div class="filter-bar reveal">
+        <div class="field">
+          <label for="f-tipe">Tipe Properti</label>
+          <select id="f-tipe" name="tipe">
+            <option value="">Semua Tipe</option>
+            <option value="rumah">Rumah Tapak</option>
+            <option value="cluster">Cluster Baru</option>
+            <option value="kavling">Kavling / Tanah</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-lokasi">Lokasi</label>
+          <select id="f-lokasi" name="lokasi">
+            <option value="">Semua Lokasi</option>
+            <option value="semarang">Semarang</option>
+            <option value="ungaran">Ungaran</option>
+            <option value="kendal">Kendal</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-harga">Rentang Harga</label>
+          <select id="f-harga" name="harga">
+            <option value="">Semua Harga</option>
+            <option value="under1m">Di bawah Rp 1 M</option>
+            <option value="1to2m">Rp 1 M – 2 M</option>
+            <option value="above2m">Di atas Rp 2 M</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-kt">Kamar Tidur</label>
+          <select id="f-kt" name="kt">
+            <option value="">Semua</option>
+            <option value="2">2 KT</option>
+            <option value="3">3 KT</option>
+            <option value="4">4+ KT</option>
+          </select>
+        </div>
+        <button class="btn btn-primary btn-filter">Terapkan Filter</button>
+      </div>
+
+      <p class="filter-empty" style="display:none; text-align:center; color:var(--ink-soft);">Tidak ada properti yang cocok dengan filter ini. Coba ubah kombinasi filter, atau hubungi kami langsung — mungkin ada unit yang belum tayang di situs.</p>
+
+      <div class="property-grid">
+
+        <article class="card-property reveal" data-tipe="rumah" data-lokasi="semarang" data-harga="1to2m" data-kt="3">
+          <div class="thumb"><span class="ribbon">Baru</span>
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=760&q=80" alt="Rumah asri Tembalang Semarang">
+            <span class="price-tag mono">Rp 1,15 M</span></div>
+          <div class="body"><h3>Rumah Asri Tembalang</h3>
+            <div class="loc"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.3-9.1C1.2 8.7 3 5 6.6 5c2 0 3.4 1 4.4 2.3C12 6 13.4 5 15.4 5 19 5 20.8 8.7 19.3 11.9 17 16.4 12 21 12 21Z" stroke="currentColor" stroke-width="1.5"/></svg> Tembalang, Semarang</div></div>
+          <div class="spec-strip"><div><b>120</b>LT/m²</div><div><b>95</b>LB/m²</div><div><b>3</b>KT</div><div><b>2</b>KM</div></div>
+          <div class="cta-row"><a href="kontak.html">Lihat Detail</a><a href="https://wa.me/6281234567890" class="wa" target="_blank" rel="noopener">Tanya via WA</a></div>
+        </article>
+
+        <article class="card-property reveal" data-tipe="cluster" data-lokasi="ungaran" data-harga="under1m" data-kt="2">
+          <div class="thumb"><span class="ribbon nego">Nego</span>
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=760&q=80" alt="Cluster modern Ungaran">
+            <span class="price-tag mono">Rp 890 Jt</span></div>
+          <div class="body"><h3>Cluster Modern Ungaran</h3>
+            <div class="loc"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.3-9.1C1.2 8.7 3 5 6.6 5c2 0 3.4 1 4.4 2.3C12 6 13.4 5 15.4 5 19 5 20.8 8.7 19.3 11.9 17 16.4 12 21 12 21Z" stroke="currentColor" stroke-width="1.5"/></svg> Ungaran</div></div>
+          <div class="spec-strip"><div><b>90</b>LT/m²</div><div><b>70</b>LB/m²</div><div><b>2</b>KT</div><div><b>1</b>KM</div></div>
+          <div class="cta-row"><a href="kontak.html">Lihat Detail</a><a href="https://wa.me/6281234567890" class="wa" target="_blank" rel="noopener">Tanya via WA</a></div>
+        </article>
+
+        <article class="card-property reveal" data-tipe="rumah" data-lokasi="semarang" data-harga="1to2m" data-kt="4">
+          <div class="thumb"><span class="ribbon booked">Booking Fee</span>
+            <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=760&q=80" alt="Rumah hook Mijen Semarang">
+            <span class="price-tag mono">Rp 1,65 M</span></div>
+          <div class="body"><h3>Rumah Hook Mijen</h3>
+            <div class="loc"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.3-9.1C1.2 8.7 3 5 6.6 5c2 0 3.4 1 4.4 2.3C12 6 13.4 5 15.4 5 19 5 20.8 8.7 19.3 11.9 17 16.4 12 21 12 21Z" stroke="currentColor" stroke-width="1.5"/></svg> Mijen, Semarang</div></div>
+          <div class="spec-strip"><div><b>150</b>LT/m²</div><div><b>120</b>LB/m²</div><div><b>4</b>KT</div><div><b>3</b>KM</div></div>
+          <div class="cta-row"><a href="kontak.html">Lihat Detail</a><a href="https://wa.me/6281234567890" class="wa" target="_blank" rel="noopener">Tanya via WA</a></div>
+        </article>
+
+        <article class="card-property reveal" data-tipe="rumah" data-lokasi="semarang" data-harga="under1m" data-kt="2">
+          <div class="thumb"><span class="ribbon">Baru</span>
+            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=760&q=80" alt="Rumah second Pedurungan Semarang">
+            <span class="price-tag mono">Rp 720 Jt</span></div>
+          <div class="body"><h3>Rumah Nyaman Pedurungan</h3>
+            <div class="loc"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.3-9.1C1.2 8.7 3 5 6.6 5c2 0 3.4 1 4.4 2.3C12 6 13.4 5 15.4 5 19 5 20.8 8.7 19.3 11.9 17 16.4 12 21 12 21Z" stroke="currentColor" stroke-width="1.5"/></svg> Pedurungan, Semarang</div></div>
+          <div class="spec-strip"><div><b>84</b>LT/m²</div><div><b>60</b>LB/m²</div><div><b>2</b>KT</div><div><b>1</b>KM</div></div>
+          <div class="cta-row"><a href="kontak.html">Lihat Detail</a><a href="https://wa.me/6281234567890" class="wa" target="_blank" rel="noopener">Tanya via WA</a></div>
+        </article>
+
+        <article class="card-property reveal" data-tipe="rumah" data-lokasi="semarang" data-harga="under1m" data-kt="2">
+          <div class="thumb"><span class="ribbon nego">Nego</span>
+            <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=760&q=80" alt="Rumah minimalis Semarang Barat">
+            <span class="price-tag mono">Rp 810 Jt</span></div>
+          <div class="body"><h3>Rumah Minimalis Semarang Barat</h3>
+            <div class="loc"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.3-9.1C1.2 8.7 3 5 6.6 5c2 0 3.4 1 4.4 2.3C12 6 13.4 5 15.4 5 19 5 20.8 8.7 19.3 11.9 17 16.4 12 21 12 21Z" stroke="currentColor" stroke-width="1.5"/></svg> Semarang Barat</div></div>
+          <div class="spec-strip"><div><b>96</b>LT/m²</div><div><b>65</b>LB/m²</div><div><b>2</b>KT</div><div><b>1</b>KM</div></div>
+          <div class="cta-row"><a href="kontak.html">Lihat Detail</a><a href="https://wa.me/6281234567890" class="wa" target="_blank" rel="noopener">Tanya via WA</a></div>
+        </article>
+
+        <article class="card-property reveal" data-tipe="cluster" data-lokasi="semarang" data-harga="1to2m" data-kt="3">
+          <div class="thumb"><span class="ribbon">Baru</span>
+            <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&w=760&q=80" alt="Cluster modern Banyumanik Semarang">
+            <span class="price-tag mono">Rp 1,3 M</span></div>
+          <div class="body"><h3>Cluster Modern Banyumanik</h3>
+            <div class="loc"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.3-9.1C1.2 8.7 3 5 6.6 5c2 0 3.4 1 4.4 2.3C12 6 13.4 5 15.4 5 19 5 20.8 8.7 19.3 11.9 17 16.4 12 21 12 21Z" stroke="currentColor" stroke-width="1.5"/></svg> Banyumanik, Semarang</div></div>
+          <div class="spec-strip"><div><b>105</b>LT/m²</div><div><b>90</b>LB/m²</div><div><b>3</b>KT</div><div><b>2</b>KM</div></div>
+          <div class="cta-row"><a href="kontak.html">Lihat Detail</a><a href="https://wa.me/6281234567890" class="wa" target="_blank" rel="noopener">Tanya via WA</a></div>
+        </article>
+
+        <!-- HIDDEN (load more) -->
+        <article class="card-property reveal hidden-card" data-tipe="rumah" data-lokasi="semarang" data-harga="under1m" data-kt="2">
+          <div class="thumb"><span class="ribbon">Baru</span>
+            <img src="https://images.unsplash.com/photo-1560184611-ff3e53f00e8f?auto=format&fit=crop&w=760&q=80" alt="Rumah nyaman Tembalang 2">
+            <span class="price-tag mono">Rp 950 Jt</span></div>
+          <div class="body"><h3>Rumah Nyaman Tembalang II</h3>
+            <div class="loc"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.3-9.1C1.2 8.7 3 5 6.6 5c2 0 3.4 1 4.4 2.3C12 6 13.4 5 15.4 5 19 5 20.8 8.7 19.3 11.9 17 16.4 12 21 12 21Z" stroke="currentColor" stroke-width="1.5"/></svg> Tembalang, Semarang</div></div>
+          <div class="spec-strip"><div><b>88</b>LT/m²</div><div><b>62</b>LB/m²</div><div><b>2</b>KT</div><div><b>1</b>KM</div></div>
+          <div class="cta-row"><a href="kontak.html">Lihat Detail</a><a href="https://wa.me/6281234567890" class="wa" target="_blank" rel="noopener">Tanya via WA</a></div>
+        </article>
+
+        <article class="card-property reveal hidden-card" data-tipe="rumah" data-lokasi="semarang" data-harga="1to2m" data-kt="3">
+          <div class="thumb"><span class="ribbon nego">Nego</span>
+            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=760&q=80" alt="Rumah strategis Ngaliyan Semarang">
+            <span class="price-tag mono">Rp 1,4 M</span></div>
+          <div class="body"><h3>Rumah Strategis Ngaliyan</h3>
+            <div class="loc"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.3-9.1C1.2 8.7 3 5 6.6 5c2 0 3.4 1 4.4 2.3C12 6 13.4 5 15.4 5 19 5 20.8 8.7 19.3 11.9 17 16.4 12 21 12 21Z" stroke="currentColor" stroke-width="1.5"/></svg> Ngaliyan, Semarang</div></div>
+          <div class="spec-strip"><div><b>112</b>LT/m²</div><div><b>88</b>LB/m²</div><div><b>3</b>KT</div><div><b>2</b>KM</div></div>
+          <div class="cta-row"><a href="kontak.html">Lihat Detail</a><a href="https://wa.me/6281234567890" class="wa" target="_blank" rel="noopener">Tanya via WA</a></div>
+        </article>
+
+        <article class="card-property reveal hidden-card" data-tipe="rumah" data-lokasi="semarang" data-harga="under1m" data-kt="3">
+          <div class="thumb"><span class="ribbon">Baru</span>
+            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=760&q=80" alt="Rumah keluarga Genuk Semarang">
+            <span class="price-tag mono">Rp 690 Jt</span></div>
+          <div class="body"><h3>Rumah Keluarga Genuk</h3>
+            <div class="loc"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.3-9.1C1.2 8.7 3 5 6.6 5c2 0 3.4 1 4.4 2.3C12 6 13.4 5 15.4 5 19 5 20.8 8.7 19.3 11.9 17 16.4 12 21 12 21Z" stroke="currentColor" stroke-width="1.5"/></svg> Genuk, Semarang</div></div>
+          <div class="spec-strip"><div><b>91</b>LT/m²</div><div><b>68</b>LB/m²</div><div><b>3</b>KT</div><div><b>1</b>KM</div></div>
+          <div class="cta-row"><a href="kontak.html">Lihat Detail</a><a href="https://wa.me/6281234567890" class="wa" target="_blank" rel="noopener">Tanya via WA</a></div>
+        </article>
+
+        <article class="card-property reveal hidden-card" data-tipe="kavling" data-lokasi="kendal" data-harga="under1m" data-kt="2">
+          <div class="thumb"><span class="ribbon">Baru</span>
+            <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=760&q=80" alt="Kavling siap bangun Kendal">
+            <span class="price-tag mono">Rp 450 Jt</span></div>
+          <div class="body"><h3>Kavling Siap Bangun Kendal</h3>
+            <div class="loc"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.3-9.1C1.2 8.7 3 5 6.6 5c2 0 3.4 1 4.4 2.3C12 6 13.4 5 15.4 5 19 5 20.8 8.7 19.3 11.9 17 16.4 12 21 12 21Z" stroke="currentColor" stroke-width="1.5"/></svg> Kendal Kota</div></div>
+          <div class="spec-strip"><div><b>140</b>LT/m²</div><div>&mdash;</div><div>&mdash;</div><div>&mdash;</div></div>
+          <div class="cta-row"><a href="kontak.html">Lihat Detail</a><a href="https://wa.me/6281234567890" class="wa" target="_blank" rel="noopener">Tanya via WA</a></div>
+        </article>
+
+        <article class="card-property reveal hidden-card" data-tipe="rumah" data-lokasi="ungaran" data-harga="above2m" data-kt="4">
+          <div class="thumb"><span class="ribbon booked">Booking Fee</span>
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=760&q=80" alt="Rumah mewah Ungaran Barat">
+            <span class="price-tag mono">Rp 2,4 M</span></div>
+          <div class="body"><h3>Rumah Mewah Ungaran Barat</h3>
+            <div class="loc"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.3-9.1C1.2 8.7 3 5 6.6 5c2 0 3.4 1 4.4 2.3C12 6 13.4 5 15.4 5 19 5 20.8 8.7 19.3 11.9 17 16.4 12 21 12 21Z" stroke="currentColor" stroke-width="1.5"/></svg> Ungaran Barat</div></div>
+          <div class="spec-strip"><div><b>220</b>LT/m²</div><div><b>180</b>LB/m²</div><div><b>4</b>KT</div><div><b>3</b>KM</div></div>
+          <div class="cta-row"><a href="kontak.html">Lihat Detail</a><a href="https://wa.me/6281234567890" class="wa" target="_blank" rel="noopener">Tanya via WA</a></div>
+        </article>
+
+      </div>
+
+      <div class="load-more-wrap">
+        <button class="btn btn-outline load-more-btn">Muat Lebih Banyak Properti</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad" style="background:var(--bg-alt);">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" style="justify-content:center;">Belum Nemu yang Cocok?</span>
+        <h2>Ceritakan kriteria rumah impian Anda</h2>
+        <p>Banyak unit belum sempat naik ke situs karena baru masuk dalam 1–2 hari terakhir. Kirimkan kriteria Anda dan saya carikan opsi yang paling sesuai.</p>
+      </div>
+      <div class="reveal" style="text-align:center;">
+        <a href="kontak.html" class="btn btn-primary">Kirim Kriteria via Formulir</a>
+        <a href="https://wa.me/6281234567890" class="btn btn-outline" target="_blank" rel="noopener">Atau Chat WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <span class="mark" style="width:38px;height:38px;border-radius:9px;background:linear-gradient(155deg,#3E5D48,#182A20);display:flex;align-items:center;justify-content:center;border:1px solid rgba(217,177,113,.5);">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M3 11.5L12 4l9 7.5" stroke="#D9B171" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="brand-text"><strong>TAPAK Properti</strong></span>
+          </div>
+          <p>Konsultan properti independen di Semarang &amp; sekitarnya. Menemani proses jual‑beli rumah Anda dari survei pertama hingga serah terima kunci, tanpa drama, tanpa tekanan.</p>
+          <div class="social-row">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="#fff" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none"><path d="M14 8h2V5h-2c-2 0-3.5 1.4-3.5 3.5V11H8v3h2.5v6H14v-6h2.3l.5-3H14V9c0-.6.4-1 1-1Z" fill="#fff"/></svg></a>
+            <a href="https://wa.me/6281234567890" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Z" stroke="#fff" stroke-width="1.4"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>Navigasi</h4>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="tentang.html">Tentang Kami</a></li>
+            <li><a href="properti.html">Daftar Properti</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Layanan</h4>
+          <ul>
+            <li><a href="properti.html">Jual Rumah</a></li>
+            <li><a href="properti.html">Beli Rumah</a></li>
+            <li><a href="kontak.html">Konsultasi Legalitas</a></li>
+            <li><a href="kontak.html">Simulasi KPR</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontak</h4>
+          <ul>
+            <li>Jl. Setiabudi No. 88, Banyumanik, Semarang</li>
+            <li><a href="https://wa.me/6281234567890">0812‑3456‑7890 (WA)</a></li>
+            <li><a href="mailto:halo@tapakproperti.id">halo@tapakproperti.id</a></li>
+            <li>Senin – Sabtu, 08.00 – 20.00 WIB</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 TAPAK Properti — Bimo Aditya Nugraha, Konsultan Properti Independen.</span>
+        <span><a href="kontak.html">Hubungi kami</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/6281234567890" class="wa-float" aria-label="Chat WhatsApp" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.7-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.2.2-.3.2-.5.1-.2 0-.3 0-.5s-.6-1.5-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>
+  </a>
+
+<script>
+// ===== Header: transparent -> solid on scroll =====
+(function(){
+  var header = document.querySelector('.site-header');
+  if(!header) return;
+  function onScroll(){
+    if(window.scrollY > 40){ header.classList.add('is-scrolled'); }
+    else{ header.classList.remove('is-scrolled'); }
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+})();
+
+// ===== Mobile nav =====
+(function(){
+  var burger = document.querySelector('.hamburger');
+  var mnav = document.querySelector('.mobile-nav');
+  var closeX = document.querySelector('.close-x');
+  if(!burger || !mnav) return;
+  function open(){ mnav.classList.add('open'); document.body.style.overflow='hidden'; }
+  function close(){ mnav.classList.remove('open'); document.body.style.overflow=''; }
+  burger.addEventListener('click', open);
+  if(closeX) closeX.addEventListener('click', close);
+  mnav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+})();
+
+// ===== FAQ accordion (only one open at a time) =====
+(function(){
+  var items = document.querySelectorAll('.faq-item');
+  items.forEach(function(item){
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    if(!q || !a) return;
+    q.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      items.forEach(function(other){
+        other.classList.remove('open');
+        var oa = other.querySelector('.faq-a');
+        if(oa) oa.style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+})();
+
+// ===== Reveal on scroll =====
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+    });
+  }, {threshold:.12});
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+// ===== Property filter (properti.html) =====
+(function(){
+  var bar = document.querySelector('.filter-bar');
+  if(!bar) return;
+  var tipe = bar.querySelector('[name="tipe"]');
+  var lokasi = bar.querySelector('[name="lokasi"]');
+  var harga = bar.querySelector('[name="harga"]');
+  var kt = bar.querySelector('[name="kt"]');
+  var btn = bar.querySelector('.btn-filter');
+  var cards = document.querySelectorAll('.card-property');
+  var emptyMsg = document.querySelector('.filter-empty');
+
+  function apply(){
+    var vTipe = tipe ? tipe.value : '';
+    var vLokasi = lokasi ? lokasi.value : '';
+    var vHarga = harga ? harga.value : '';
+    var vKt = kt ? kt.value : '';
+    var shown = 0;
+    cards.forEach(function(card){
+      var okTipe = !vTipe || card.dataset.tipe === vTipe;
+      var okLokasi = !vLokasi || card.dataset.lokasi === vLokasi;
+      var okHarga = !vHarga || card.dataset.harga === vHarga;
+      var okKt = !vKt || card.dataset.kt === vKt;
+      var visible = okTipe && okLokasi && okHarga && okKt;
+      card.style.display = visible ? '' : 'none';
+      if(visible) shown++;
+    });
+    if(emptyMsg) emptyMsg.style.display = shown === 0 ? 'block' : 'none';
+  }
+  if(btn) btn.addEventListener('click', apply);
+})();
+
+// ===== Load more (properti.html) =====
+(function(){
+  var loadBtn = document.querySelector('.load-more-btn');
+  if(!loadBtn) return;
+  loadBtn.addEventListener('click', function(){
+    document.querySelectorAll('.hidden-card').forEach(function(c){ c.classList.remove('hidden-card'); });
+    loadBtn.style.display = 'none';
+  });
+})();
+
+// ===== Contact form (kontak.html) — kirim langsung ke WhatsApp =====
+(function(){
+  var form = document.querySelector('.contact-form');
+  if(!form) return;
+  var WA_NUMBER = '6281234567890'; // ganti dengan nomor WhatsApp bisnis Anda
+
+  var kebutuhanLabel = {
+    beli: 'Membeli Rumah',
+    jual: 'Menjual Rumah',
+    sewa: 'Menyewakan / Menyewa',
+    konsultasi: 'Konsultasi Umum'
+  };
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var status = form.querySelector('.form-status');
+    var nama = form.querySelector('[name="nama"]').value.trim();
+    var hp = form.querySelector('[name="hp"]').value.trim();
+    var kebutuhanVal = form.querySelector('[name="kebutuhan"]').value;
+    var lokasi = form.querySelector('[name="lokasi_form"]').value.trim();
+    var pesan = form.querySelector('[name="pesan"]').value.trim();
+
+    if(!nama || !hp){
+      status.textContent = 'Mohon lengkapi nama dan nomor HP terlebih dahulu.';
+      status.style.color = '#a35c4d';
+      return;
+    }
+
+    var lines = [
+      'Halo TAPAK Properti, saya ingin menghubungi melalui formulir website.',
+      '',
+      'Nama: ' + nama,
+      'No. HP: ' + hp,
+      'Kebutuhan: ' + (kebutuhanLabel[kebutuhanVal] || kebutuhanVal),
+    ];
+    if(lokasi) lines.push('Lokasi & Bujet: ' + lokasi);
+    if(pesan) lines.push('Pesan: ' + pesan);
+
+    var text = encodeURIComponent(lines.join('\n'));
+    var waUrl = 'https://wa.me/' + WA_NUMBER + '?text=' + text;
+
+    status.textContent = 'Mengarahkan Anda ke WhatsApp...';
+    status.style.color = '#2B4636';
+
+    window.open(waUrl, '_blank', 'noopener');
+    form.reset();
+  });
+})();
+
+</script>
+</body>
+</html>

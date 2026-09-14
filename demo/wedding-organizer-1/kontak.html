@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak &amp; Booking — Suvarna Wedding Organizer</title>
+<meta name="description" content="Hubungi Suvarna untuk konsultasi gratis dan mulai rencanakan pernikahan impian Anda bersama tim perencana premium kami.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="grain"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">Suvarna<span class="amp">&amp;</span>Co
+      <small>Wedding Organizer · Premium</small>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Beranda</a>
+      <a href="layanan.html">Layanan &amp; Paket</a>
+      <a href="galeri.html">Galeri</a>
+      <a href="kontak.html" class="active">Kontak</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="kontak.html" class="btn btn-gold btn-sm">Konsultasi Gratis</a>
+      <button class="nav-toggle" aria-label="Buka menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PAGE BANNER ============ -->
+<section class="page-banner">
+  <div class="hero-media">
+    <img src="https://images.unsplash.com/photo-1634653871299-9907b666e913?w=1800&q=80&auto=format&fit=crop" alt="Detail buket bunga pengantin di atas meja kayu">
+  </div>
+  <div class="container page-banner-inner">
+    <div class="breadcrumb"><a href="index.html">Beranda</a><span class="sep">/</span><span class="current">Kontak</span></div>
+    <h1>Mari Berkenalan</h1>
+    <p>Langkah pertama menuju hari bahagia Anda dimulai dari satu pesan. Kami akan membalas dalam 1x24 jam kerja.</p>
+  </div>
+</section>
+
+<!-- ============ BOOKING PROCESS ============ -->
+<section class="section bg-ivory">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow center">Alur Booking</div>
+      <h2>Empat langkah mudah untuk memulai</h2>
+      <p class="desc">Dari pesan pertama hingga tanda tangan kontrak, prosesnya kami buat sesederhana mungkin.</p>
+    </div>
+    <div class="process-row reveal">
+      <div class="process-step">
+        <div class="process-connector"></div>
+        <div class="process-badge">
+          <span class="idx">1</span>
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+        </div>
+        <h4>Isi Formulir</h4>
+        <p>Lengkapi form di bawah dengan detail rencana pernikahan Anda.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-connector"></div>
+        <div class="process-badge">
+          <span class="idx">2</span>
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h4>Sesi Konsultasi</h4>
+        <p>Diskusi gratis 60 menit bersama planner kami, tatap muka atau daring.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-connector"></div>
+        <div class="process-badge">
+          <span class="idx">3</span>
+          <svg viewBox="0 0 24 24"><path d="M12 3c-4 3-6 6-6 9a6 6 0 0 0 12 0c0-3-2-6-6-9Z"/></svg>
+        </div>
+        <h4>Survey Venue</h4>
+        <p>Kunjungan bersama ke lokasi pilihan untuk memastikan kecocokan konsep.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-badge">
+          <span class="idx">4</span>
+          <svg viewBox="0 0 24 24"><path d="M20 7 9 18l-5-5"/></svg>
+        </div>
+        <h4>Tanda Tangan Kontrak</h4>
+        <p>Kesepakatan resmi ditandatangani, dan perjalanan perencanaan pun dimulai.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT FORM + INFO ============ -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="contact-wrap">
+      <div class="contact-form-card reveal">
+        <div class="eyebrow">Formulir Konsultasi</div>
+        <h2 style="margin-bottom:10px;">Ceritakan rencana Anda</h2>
+        <p style="margin-bottom:36px;">Semakin detail informasi yang Anda berikan, semakin tepat rekomendasi yang bisa kami siapkan.</p>
+        <form id="booking-form">
+          <div class="form-row">
+            <div class="field">
+              <label for="nama">Nama Lengkap</label>
+              <input type="text" id="nama" placeholder="Nama Anda" required>
+            </div>
+            <div class="field">
+              <label for="pasangan">Nama Pasangan</label>
+              <input type="text" id="pasangan" placeholder="Nama pasangan">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="nama@email.com" required>
+            </div>
+            <div class="field">
+              <label for="telepon">No. WhatsApp</label>
+              <input type="tel" id="telepon" placeholder="+62 8xx xxxx xxxx" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="tanggal">Tanggal Pernikahan (Estimasi)</label>
+              <input type="date" id="tanggal">
+            </div>
+            <div class="field">
+              <label for="tamu">Estimasi Jumlah Tamu</label>
+              <select id="tamu">
+                <option>Kurang dari 100</option>
+                <option>100 – 250</option>
+                <option>250 – 500</option>
+                <option>Lebih dari 500</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="paket">Paket yang Diminati</label>
+            <select id="paket">
+              <option>Intimate</option>
+              <option>Signature</option>
+              <option>Grand Premiere</option>
+              <option>Belum yakin, mohon rekomendasi</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="pesan">Ceritakan Visi Anda</label>
+            <textarea id="pesan" placeholder="Tema, venue impian, atau hal lain yang ingin Anda ceritakan..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold btn-block">Kirim Permintaan Konsultasi</button>
+        </form>
+      </div>
+
+      <div class="info-cards reveal">
+        <div class="info-card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-9.5-9A5.5 5.5 0 0 1 12 5.5 5.5 5.5 0 0 1 21.5 12c-2.5 3.5-9.5 9-9.5 9Z"/></svg></div>
+          <div>
+            <h4>Studio Suvarna</h4>
+            <p>Jl. Kemang Raya No. 28, Jakarta Selatan, DKI Jakarta 12730</p>
+          </div>
+        </div>
+        <div class="info-card alt">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2Z"/></svg></div>
+          <div>
+            <h4>Telepon &amp; WhatsApp</h4>
+            <p>+62 812 3456 7890 (WhatsApp direspons lebih cepat)</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z"/><path d="m3 6 9 7 9-7"/></svg></div>
+          <div>
+            <h4>Email</h4>
+            <p>halo@suvarna.co.id — untuk kerja sama &amp; media</p>
+          </div>
+        </div>
+        <div class="info-card alt">
+          <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <div>
+            <h4>Jam Operasional</h4>
+            <p>Senin – Sabtu, 09.00 – 18.00 WIB. Minggu dengan janji temu.</p>
+          </div>
+        </div>
+        <div class="map-block">
+          <svg viewBox="0 0 400 220" preserveAspectRatio="xMidYMid slice">
+            <rect width="400" height="220" fill="#E7EEE8"/>
+            <path d="M0 150 Q100 120 180 150 T400 140" stroke="#C39A45" stroke-width="2" fill="none" opacity="0.5"/>
+            <path d="M0 90 Q120 60 220 95 T400 80" stroke="#2C4A3B" stroke-width="1.4" fill="none" opacity="0.35"/>
+            <circle cx="205" cy="115" r="9" fill="#2C4A3B"/>
+            <circle cx="205" cy="115" r="15" fill="none" stroke="#C39A45" stroke-width="1.5"/>
+            <text x="205" y="145" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" fill="#2C4A3B">Studio Suvarna — Kemang</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section bg-ivory">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow center">Sebelum Menghubungi Kami</div>
+      <h2>Beberapa hal yang mungkin ingin Anda ketahui</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item open">
+        <button class="faq-q">Apakah sesi konsultasi pertama benar-benar gratis?<span class="plus"></span></button>
+        <div class="faq-a"><p>Ya, sesi konsultasi awal selama 60 menit sepenuhnya gratis dan tanpa kewajiban. Ini adalah kesempatan bagi kita untuk saling mengenal sebelum melangkah lebih jauh.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Apakah Suvarna melayani pernikahan di luar Jakarta?<span class="plus"></span></button>
+        <div class="faq-a"><p>Tentu. Kami telah menangani pernikahan di Bandung, Yogyakarta, Bali, hingga beberapa destinasi luar negeri. Biaya perjalanan tim akan disesuaikan dengan lokasi acara.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Berapa lama waktu respons setelah mengisi formulir?<span class="plus"></span></button>
+        <div class="faq-a"><p>Tim kami akan menghubungi Anda melalui WhatsApp atau email dalam waktu 1x24 jam kerja untuk menjadwalkan sesi konsultasi.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOCIAL STRIP ============ -->
+<section class="section-sm bg-emerald">
+  <div class="container text-center">
+    <div class="eyebrow center on-dark">Ikuti Kami</div>
+    <h3 style="color:var(--white);margin-bottom:10px;">@suvarnawedding di Instagram</h3>
+    <p style="max-width:480px;margin:0 auto 20px;">Inspirasi dekorasi, cerita pasangan, dan momen di balik layar setiap minggunya.</p>
+    <a href="#" class="btn btn-outline">Kunjungi Instagram</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">Suvarna<span class="amp">&amp;</span>Co</a>
+        <p>Wedding organizer &amp; vendor premium yang merangkai setiap detail pernikahan Anda menjadi kisah yang layak dikenang.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3a4 4 0 0 0-4 4v2H8v3h2v6h3v-6h3l1-3h-4v-2a1 1 0 0 1 1-1Z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3v10.5a3.5 3.5 0 1 1-3-3.46"/><path d="M14 3c.5 2.5 2 4 5 4.5"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="layanan.html">Layanan &amp; Paket</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="layanan.html">Full Wedding Planning</a></li>
+          <li><a href="layanan.html">Day-of Coordination</a></li>
+          <li><a href="layanan.html">Dekorasi &amp; Venue</a></li>
+          <li><a href="layanan.html">Kurasi Vendor</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Tetap Terhubung</h4>
+        <ul class="footer-contact">
+          <li><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z"/><path d="m3 6 9 7 9-7"/></svg> halo@suvarna.co.id</li>
+          <li><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2Z"/></svg> +62 812 3456 7890</li>
+        </ul>
+        <div class="newsletter">
+          <form class="newsletter-form">
+            <input type="email" placeholder="Email Anda" required>
+            <button type="submit" aria-label="Kirim"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Suvarna &amp; Co. Seluruh hak cipta dilindungi.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Kebijakan Privasi</a>
+        <a href="#">Syarat &amp; Ketentuan</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// Kirim form konsultasi ke WhatsApp
+const contactForm = document.getElementById('booking-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const nama = document.getElementById('nama').value.trim();
+    const pasangan = document.getElementById('pasangan').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const telepon = document.getElementById('telepon').value.trim();
+    const tanggal = document.getElementById('tanggal').value;
+    const tamu = document.getElementById('tamu').value;
+    const paket = document.getElementById('paket').value;
+    const pesan = document.getElementById('pesan').value.trim();
+
+    // Nomor WA tujuan (studio)
+    const nomorWA = '6281234567890';
+
+    const teks =
+`Halo Suvarna & Co, saya ingin konsultasi:
+
+Nama: ${nama}
+Nama Pasangan: ${pasangan || '-'}
+Email: ${email}
+No. WhatsApp: ${telepon}
+Tanggal Pernikahan (Estimasi): ${tanggal || '-'}
+Estimasi Jumlah Tamu: ${tamu}
+Paket: ${paket}
+Visi Anda: ${pesan || '-'}`;
+
+    const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(teks)}`;
+    window.open(url, '_blank');
+  });
+}
+</script>
+</body>
+</html>

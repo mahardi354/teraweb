@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tentang Kami — Amara Dental</title>
+<meta name="description" content="Kenali cerita, visi misi, dan tim dokter Amara Dental — klinik gigi yang telah melayani ribuan pasien dengan pendekatan yang hangat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+/* ============================================================
+   AMARA DENTAL — Design System
+   Display: Fraunces (warm editorial serif, soft curves)
+   Body/UI: Plus Jakarta Sans (rounded, friendly geometric sans)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap');
+
+:root{
+  /* -- Colors -- */
+  --bg:            #F6FAF8;
+  --bg-mint:       #EAF5EF;
+  --surface:       #FFFFFF;
+  --ink:           #163832;
+  --ink-soft:      #52706A;
+  --ink-faint:     #86A29B;
+  --primary:       #0D6E5C;
+  --primary-dark:  #0A4F42;
+  --primary-light: #DCEFE8;
+  --accent:        #FF8B65;
+  --accent-dark:   #E96F49;
+  --accent-soft:   #FFE7DA;
+  --line:          #DCEAE3;
+  --gold:          #F0AC3D;
+
+  /* -- Type -- */
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+
+  /* -- Radius / shadow -- */
+  --r-sm: 14px;
+  --r-md: 22px;
+  --r-lg: 32px;
+  --r-pill: 999px;
+  --shadow-sm: 0 2px 10px rgba(15,50,42,.06);
+  --shadow-md: 0 14px 40px -12px rgba(13,64,53,.22);
+  --shadow-lg: 0 30px 70px -20px rgba(13,64,53,.28);
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ margin:0; padding:0; list-style:none; }
+button{ font-family:inherit; cursor:pointer; }
+input,textarea,select{ font-family:inherit; font-size:1rem; }
+
+h1,h2,h3,h4{
+  font-family:var(--font-display);
+  color:var(--primary-dark);
+  line-height:1.12;
+  margin:0;
+  font-weight:600;
+  letter-spacing:-0.01em;
+}
+em, .ital{ font-style:italic; color:var(--accent-dark); font-weight:500; }
+
+.container{
+  width:100%;
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 28px;
+}
+
+:focus-visible{
+  outline:3px solid var(--accent);
+  outline-offset:3px;
+  border-radius:6px;
+}
+
+/* ============== SMILE MOTIF (signature element) ==============
+   A soft downward arc — the recurring "smile curve" used as a
+   section divider, heading underline, and step connector. */
+.smile-underline{
+  display:block;
+  width:74px;
+  height:16px;
+  margin-top:10px;
+}
+.smile-divider{
+  display:block;
+  width:100%;
+  line-height:0;
+}
+.smile-divider svg{ width:100%; height:auto; display:block; }
+
+/* ============== BUTTONS ============== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:15px 30px;
+  border-radius:var(--r-pill);
+  font-weight:700;
+  font-size:.98rem;
+  border:2px solid transparent;
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+  white-space:nowrap;
+}
+.btn-primary{
+  background:var(--primary);
+  color:#fff;
+  box-shadow:var(--shadow-md);
+}
+.btn-primary:hover{ background:var(--primary-dark); transform:translateY(-2px); }
+.btn-accent{
+  background:var(--accent);
+  color:#fff;
+  box-shadow:0 14px 32px -10px rgba(233,111,73,.55);
+}
+.btn-accent:hover{ background:var(--accent-dark); transform:translateY(-2px); }
+.btn-outline{
+  background:transparent;
+  border-color:var(--primary);
+  color:var(--primary);
+}
+.btn-outline:hover{ background:var(--primary); color:#fff; transform:translateY(-2px); }
+.btn-ghost-light{
+  background:rgba(255,255,255,.14);
+  border-color:rgba(255,255,255,.55);
+  color:#fff;
+}
+.btn-ghost-light:hover{ background:#fff; color:var(--primary-dark); }
+.btn-sm{ padding:10px 20px; font-size:.88rem; }
+.btn-block{ width:100%; }
+
+/* ============== HEADER / NAV ============== */
+.site-header{
+  position:sticky; top:0; z-index:100;
+  background:rgba(246,250,248,.82);
+  backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 28px;
+  max-width:1180px; margin:0 auto;
+}
+.brand{ display:flex; align-items:center; gap:10px; }
+.brand-mark{
+  width:42px; height:42px; border-radius:14px;
+  background:linear-gradient(155deg,var(--primary),var(--primary-dark));
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:var(--shadow-sm);
+}
+.brand-mark svg{ width:24px; height:24px; }
+.brand-name{ font-family:var(--font-display); font-weight:700; font-size:1.28rem; color:var(--primary-dark); }
+.brand-name span{ color:var(--accent-dark); font-style:italic; font-weight:500; }
+
+.nav-links{ display:flex; align-items:center; gap:36px; }
+.nav-links a{
+  font-weight:600; font-size:.96rem; color:var(--ink-soft);
+  position:relative; padding:6px 0; transition:color .2s ease;
+}
+.nav-links a:hover{ color:var(--primary); }
+.nav-links a.active{ color:var(--primary-dark); }
+.nav-links a.active::after{
+  content:''; position:absolute; left:0; right:0; bottom:-4px; height:3px;
+  background:var(--accent); border-radius:3px;
+}
+.nav-cta{ display:flex; align-items:center; gap:18px; }
+.nav-phone{ display:flex; align-items:center; gap:8px; font-weight:700; font-size:.9rem; color:var(--primary-dark); }
+.nav-toggle{ display:none; background:none; border:none; padding:8px; }
+.nav-toggle span{ display:block; width:26px; height:3px; background:var(--primary-dark); margin:5px 0; border-radius:3px; transition:.3s; }
+
+/* ============== HERO ============== */
+.hero{
+  position:relative;
+  padding:70px 0 110px;
+  overflow:hidden;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:56px;
+  align-items:center;
+}
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--primary-light); color:var(--primary-dark);
+  font-weight:700; font-size:.8rem; letter-spacing:.06em; text-transform:uppercase;
+  padding:9px 18px; border-radius:var(--r-pill);
+}
+.eyebrow::before{ content:''; width:7px; height:7px; border-radius:50%; background:var(--accent); }
+.hero h1{
+  font-size:clamp(2.5rem,4.6vw,3.8rem);
+  margin:22px 0 20px;
+}
+.hero p.lead{
+  font-size:1.14rem; color:var(--ink-soft); max-width:520px; margin-bottom:32px;
+}
+.hero-actions{ display:flex; gap:16px; flex-wrap:wrap; margin-bottom:44px; }
+.hero-stats{ display:flex; gap:38px; flex-wrap:wrap; }
+.hero-stat b{ display:block; font-family:var(--font-display); font-size:1.9rem; color:var(--primary-dark); font-weight:700; }
+.hero-stat span{ font-size:.86rem; color:var(--ink-soft); font-weight:600; }
+
+.hero-visual{ position:relative; }
+.hero-visual .img-main{
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  aspect-ratio:4/4.6;
+}
+.hero-visual .img-main img{ width:100%; height:100%; object-fit:cover; }
+.floating-card{
+  position:absolute;
+  background:#fff;
+  border-radius:var(--r-md);
+  box-shadow:var(--shadow-md);
+  padding:16px 20px;
+  display:flex; align-items:center; gap:12px;
+}
+.floating-card.fc-1{ top:8%; left:-9%; }
+.floating-card.fc-2{ bottom:9%; right:-8%; }
+.floating-icon{
+  width:44px; height:44px; border-radius:12px;
+  background:var(--accent-soft); color:var(--accent-dark);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.floating-card b{ display:block; font-size:.95rem; color:var(--ink); }
+.floating-card small{ color:var(--ink-soft); font-size:.78rem; }
+.hero-blob{
+  position:absolute; z-index:-1; border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, var(--bg-mint), transparent 70%);
+  width:640px; height:640px; top:-220px; right:-220px;
+}
+
+/* ============== SECTIONS ============== */
+section{ padding:96px 0; }
+.section-alt{ background:var(--bg-mint); }
+.section-dark{ background:var(--primary-dark); color:#fff; }
+.section-dark h2, .section-dark h3, .section-dark h4{ color:#fff; }
+.section-dark .section-head p{ color:rgba(255,255,255,.72); }
+
+.section-head{
+  text-align:center;
+  max-width:640px;
+  margin:0 auto 58px;
+}
+.section-head h2{ font-size:clamp(1.9rem,3vw,2.6rem); }
+.section-head p{ color:var(--ink-soft); margin-top:16px; font-size:1.05rem; }
+.section-head .smile-underline{ margin-left:auto; margin-right:auto; }
+
+/* ============== FEATURE / CENTERED CARDS ============== */
+.grid{ display:grid; gap:28px; }
+.grid-4{ grid-template-columns:repeat(4,1fr); }
+.grid-3{ grid-template-columns:repeat(3,1fr); }
+.grid-2{ grid-template-columns:repeat(2,1fr); }
+
+.card{
+  background:var(--surface);
+  border-radius:var(--r-lg);
+  padding:38px 30px;
+  text-align:center;
+  box-shadow:var(--shadow-sm);
+  border:1px solid var(--line);
+  transition:transform .3s ease, box-shadow .3s ease;
+  display:flex; flex-direction:column; align-items:center;
+}
+.card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); }
+.card-icon{
+  width:62px; height:62px; border-radius:18px;
+  background:var(--primary-light); color:var(--primary);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:22px;
+}
+.card h3{ font-size:1.18rem; margin-bottom:10px; }
+.card p{ color:var(--ink-soft); font-size:.96rem; margin:0; }
+
+/* ============== SERVICE CARDS ============== */
+.service-card{
+  background:var(--surface);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  text-align:center;
+  box-shadow:var(--shadow-sm);
+  border:1px solid var(--line);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.service-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); }
+.service-media{ aspect-ratio:16/11; overflow:hidden; }
+.service-media img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+.service-card:hover .service-media img{ transform:scale(1.06); }
+.service-body{ padding:28px 26px 32px; display:flex; flex-direction:column; align-items:center; }
+.service-body h3{ font-size:1.2rem; margin-bottom:10px; }
+.service-body p{ color:var(--ink-soft); font-size:.94rem; margin-bottom:16px; }
+.price-tag{
+  display:inline-flex; align-items:center; gap:6px;
+  background:var(--accent-soft); color:var(--accent-dark);
+  font-weight:700; font-size:.86rem; padding:8px 16px; border-radius:var(--r-pill);
+  margin-bottom:16px;
+}
+
+/* ============== STEPS (horizontal, left→right, smile arc) ============== */
+.steps{
+  position:relative;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  margin-top:20px;
+}
+.steps-arc{ position:absolute; left:0; right:0; top:38px; z-index:0; }
+.steps-arc svg{ width:100%; height:60px; display:block; }
+.step{
+  position:relative; z-index:1;
+  flex:1;
+  text-align:center;
+  display:flex; flex-direction:column; align-items:center;
+  padding:0 8px;
+}
+.step-num{
+  width:76px; height:76px; border-radius:50%;
+  background:var(--surface);
+  border:3px solid var(--primary);
+  color:var(--primary-dark);
+  font-family:var(--font-display); font-weight:700; font-size:1.5rem;
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:22px;
+  box-shadow:var(--shadow-sm);
+}
+.step:nth-child(even) .step-num{ border-color:var(--accent); color:var(--accent-dark); }
+.step h4{ font-size:1.05rem; margin-bottom:8px; }
+.step p{ color:var(--ink-soft); font-size:.9rem; margin:0; }
+
+/* ============== TESTIMONIALS ============== */
+.testimonial-card{
+  background:var(--surface);
+  border-radius:var(--r-lg);
+  padding:34px 30px;
+  text-align:center;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-sm);
+}
+.stars{ color:var(--gold); font-size:1.05rem; margin-bottom:16px; letter-spacing:2px; }
+.testimonial-card p.quote{ font-style:italic; color:var(--ink); font-size:1.02rem; margin-bottom:22px; }
+.testimonial-person{ display:flex; flex-direction:column; align-items:center; gap:8px; }
+.avatar{ width:52px; height:52px; border-radius:50%; overflow:hidden; }
+.avatar img{ width:100%; height:100%; object-fit:cover; }
+.testimonial-person b{ font-size:.94rem; }
+.testimonial-person span{ font-size:.8rem; color:var(--ink-soft); }
+
+/* ============== GALLERY ============== */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:150px;
+  gap:16px;
+}
+.gallery-grid a{ border-radius:var(--r-md); overflow:hidden; display:block; }
+.gallery-grid img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+.gallery-grid a:hover img{ transform:scale(1.08); }
+.g-tall{ grid-row:span 2; }
+.g-wide{ grid-column:span 2; }
+
+/* ============== CTA BANNER ============== */
+.cta-banner{
+  background:linear-gradient(120deg,var(--primary-dark),var(--primary));
+  border-radius:var(--r-lg);
+  padding:64px 56px;
+  display:flex; align-items:center; justify-content:space-between; gap:40px;
+  color:#fff;
+  position:relative; overflow:hidden;
+}
+.cta-banner::after{
+  content:''; position:absolute; right:-60px; top:-60px; width:260px; height:260px;
+  border-radius:50%; background:rgba(255,255,255,.08);
+}
+.cta-banner h2{ color:#fff; font-size:clamp(1.6rem,2.6vw,2.2rem); max-width:480px; }
+.cta-banner p{ color:rgba(255,255,255,.78); margin-top:10px; max-width:440px; }
+.cta-actions{ display:flex; gap:14px; flex-wrap:wrap; position:relative; z-index:1; }
+
+/* ============== FAQ ACCORDION ============== */
+.faq-list{ max-width:780px; margin:0 auto; display:flex; flex-direction:column; gap:14px; }
+.faq-item{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-md);
+  overflow:hidden;
+}
+.faq-q{
+  width:100%; display:flex; align-items:center; justify-content:space-between;
+  padding:22px 26px; background:none; border:none; text-align:left;
+  font-family:var(--font-display); font-weight:600; font-size:1.05rem; color:var(--primary-dark);
+}
+.faq-q .plus{
+  width:30px; height:30px; border-radius:50%; background:var(--primary-light); color:var(--primary);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-left:16px;
+  transition:transform .3s ease, background .3s ease, color .3s ease;
+  font-size:1.1rem;
+}
+.faq-item.open .faq-q .plus{ transform:rotate(45deg); background:var(--accent); color:#fff; }
+.faq-a{ max-height:0; overflow:hidden; transition:max-height .35s ease; }
+.faq-a-inner{ padding:0 26px 24px; color:var(--ink-soft); font-size:.95rem; }
+.faq-item.open .faq-a{ max-height:260px; }
+
+/* ============== DOCTOR CARDS ============== */
+.doctor-card{
+  background:var(--surface); border-radius:var(--r-lg); overflow:hidden; text-align:center;
+  border:1px solid var(--line); box-shadow:var(--shadow-sm);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.doctor-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); }
+.doctor-media{ aspect-ratio:3/3.4; overflow:hidden; }
+.doctor-media img{ width:100%; height:100%; object-fit:cover; }
+.doctor-body{ padding:24px 20px 28px; }
+.doctor-body h3{ font-size:1.1rem; margin-bottom:4px; }
+.doctor-role{ color:var(--accent-dark); font-weight:700; font-size:.83rem; margin-bottom:10px; }
+.doctor-body p{ color:var(--ink-soft); font-size:.88rem; }
+
+/* ============== VALUES / VISI-MISI ============== */
+.value-row{ display:flex; align-items:flex-start; gap:18px; padding:22px 0; border-bottom:1px solid var(--line); }
+.value-row:last-child{ border-bottom:none; }
+.value-num{ font-family:var(--font-display); font-size:1.4rem; color:var(--accent); font-weight:700; flex-shrink:0; }
+.value-row h4{ font-size:1.08rem; margin-bottom:6px; }
+.value-row p{ color:var(--ink-soft); font-size:.94rem; margin:0; }
+
+/* ============== PRICING PACKAGES ============== */
+.pricing-card{
+  background:var(--surface); border-radius:var(--r-lg); padding:40px 32px; text-align:center;
+  border:2px solid var(--line); position:relative; box-shadow:var(--shadow-sm);
+  display:flex; flex-direction:column; align-items:center;
+}
+.pricing-card.featured{ border-color:var(--accent); box-shadow:var(--shadow-md); transform:scale(1.03); }
+.pricing-badge{
+  position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+  background:var(--accent); color:#fff; font-size:.76rem; font-weight:700;
+  padding:6px 18px; border-radius:var(--r-pill); letter-spacing:.03em;
+}
+.pricing-card h3{ font-size:1.3rem; margin-bottom:6px; }
+.pricing-card .price{ font-family:var(--font-display); font-size:2.2rem; color:var(--primary-dark); font-weight:700; margin:14px 0 4px; }
+.pricing-card .price span{ font-size:.9rem; color:var(--ink-soft); font-weight:400; }
+.pricing-list{ text-align:left; margin:26px 0; width:100%; }
+.pricing-list li{ display:flex; gap:10px; align-items:flex-start; padding:8px 0; font-size:.92rem; color:var(--ink-soft); }
+.pricing-list li svg{ flex-shrink:0; color:var(--primary); margin-top:2px; }
+
+/* ============== CONTACT ============== */
+.contact-grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:48px; }
+.contact-info-card{
+  background:var(--surface); border-radius:var(--r-lg); border:1px solid var(--line);
+  padding:34px 30px; display:flex; align-items:flex-start; gap:18px; box-shadow:var(--shadow-sm);
+}
+.contact-info-card + .contact-info-card{ margin-top:20px; }
+.contact-form{
+  background:var(--surface); border-radius:var(--r-lg); border:1px solid var(--line);
+  padding:44px 40px; box-shadow:var(--shadow-sm);
+}
+.form-row{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.field{ margin-bottom:20px; }
+.field label{ display:block; font-weight:700; font-size:.88rem; margin-bottom:8px; color:var(--ink); }
+.field input, .field select, .field textarea{
+  width:100%; padding:14px 16px; border-radius:var(--r-sm); border:1.5px solid var(--line);
+  background:var(--bg); color:var(--ink); transition:border-color .2s ease, box-shadow .2s ease;
+}
+.field input:focus, .field select:focus, .field textarea:focus{
+  outline:none; border-color:var(--primary); box-shadow:0 0 0 4px var(--primary-light);
+}
+.field textarea{ resize:vertical; min-height:120px; }
+.map-frame{
+  border-radius:var(--r-lg); overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow-sm);
+  aspect-ratio:16/7;
+}
+.map-frame iframe{ width:100%; height:100%; border:0; }
+.hours-table{ width:100%; border-collapse:collapse; }
+.hours-table td{ padding:10px 0; border-bottom:1px solid var(--line); font-size:.92rem; }
+.hours-table td:last-child{ text-align:right; font-weight:700; color:var(--primary-dark); }
+
+/* ============== BADGES / MISC ============== */
+.badge-row{ display:flex; justify-content:center; gap:44px; flex-wrap:wrap; align-items:center; opacity:.85; }
+.badge-row img{ height:34px; width:auto; filter:grayscale(1); opacity:.7; }
+.tag-pill{
+  display:inline-block; background:var(--primary-light); color:var(--primary-dark);
+  font-size:.78rem; font-weight:700; padding:6px 14px; border-radius:var(--r-pill); margin-bottom:14px;
+}
+
+/* ============== FOOTER ============== */
+.site-footer{ background:var(--primary-dark); color:rgba(255,255,255,.82); padding:76px 0 0; }
+.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:44px; padding-bottom:56px; border-bottom:1px solid rgba(255,255,255,.14); }
+.footer-brand .brand-name{ color:#fff; }
+.footer-brand p{ font-size:.92rem; margin:16px 0 22px; color:rgba(255,255,255,.65); max-width:280px; }
+.social-row{ display:flex; gap:12px; }
+.social-row a{
+  width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,.12);
+  display:flex; align-items:center; justify-content:center; transition:background .2s ease;
+}
+.social-row a:hover{ background:var(--accent); }
+.footer-col h4{ color:#fff; font-size:1rem; margin-bottom:20px; }
+.footer-col ul li{ margin-bottom:12px; }
+.footer-col ul li a{ color:rgba(255,255,255,.68); font-size:.92rem; transition:color .2s ease; }
+.footer-col ul li a:hover{ color:#fff; }
+.footer-bottom{
+  display:flex; justify-content:space-between; align-items:center; padding:26px 0; flex-wrap:wrap; gap:12px;
+  font-size:.84rem; color:rgba(255,255,255,.55);
+}
+
+/* ============== PAGE HERO (inner pages) ============== */
+.page-hero{
+  padding:56px 0 78px; text-align:center; position:relative; overflow:hidden;
+}
+.page-hero .breadcrumb{ font-size:.86rem; color:var(--ink-soft); margin-bottom:18px; }
+.page-hero .breadcrumb a{ color:var(--primary); font-weight:700; }
+.page-hero h1{ font-size:clamp(2.2rem,4vw,3.2rem); }
+.page-hero p{ max-width:600px; margin:18px auto 0; color:var(--ink-soft); font-size:1.06rem; }
+
+/* ============== REVEAL ANIMATION ============== */
+.reveal{ opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.in{ opacity:1; transform:translateY(0); }
+
+/* ============== RESPONSIVE ============== */
+@media (max-width:1020px){
+  .hero-grid{ grid-template-columns:1fr; }
+  .hero-visual{ order:-1; max-width:440px; margin:0 auto; }
+  .grid-4{ grid-template-columns:repeat(2,1fr); }
+  .grid-3{ grid-template-columns:repeat(2,1fr); }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+  .contact-grid{ grid-template-columns:1fr; }
+  .steps{ flex-wrap:wrap; }
+  .steps-arc{ display:none; }
+  .step{ flex:1 1 220px; }
+}
+@media (max-width:760px){
+  .nav-links, .nav-phone{ display:none; }
+  .nav-toggle{ display:block; }
+  .nav.open .nav-links{
+    display:flex; position:absolute; top:100%; left:0; right:0; background:var(--surface);
+    flex-direction:column; padding:22px 28px; gap:20px; border-bottom:1px solid var(--line); box-shadow:var(--shadow-md);
+  }
+  .grid-4, .grid-3, .grid-2{ grid-template-columns:1fr; }
+  .footer-grid{ grid-template-columns:1fr; }
+  .gallery-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:130px; }
+  .cta-banner{ flex-direction:column; text-align:center; padding:44px 28px; }
+  .cta-actions{ justify-content:center; }
+  .form-row{ grid-template-columns:1fr; }
+  .contact-form{ padding:30px 24px; }
+  .floating-card{ display:none; }
+  .footer-bottom{ flex-direction:column; text-align:center; }
+  section{ padding:64px 0; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M6 10c0 4 2.5 4 6 4s6 0 6-4"/><circle cx="8" cy="7" r="1.1" fill="#fff" stroke="none"/><circle cx="16" cy="7" r="1.1" fill="#fff" stroke="none"/></svg></span>
+      <span class="brand-name">Amara <span>Dental</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="layanan.html">Layanan</a></li>
+      <li><a href="tentang.html" class="active">Tentang Kami</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:+622112345678" class="nav-phone">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (021) 1234-5678
+      </a>
+      <a href="kontak.html" class="btn btn-primary btn-sm">Buat Janji</a>
+      <button class="nav-toggle" aria-label="Buka menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="hero-blob"></div>
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Beranda</a> / Tentang Kami</div>
+    <h1>Dibangun dari satu keyakinan: <em>gigi sehat, hidup lebih tenang</em></h1>
+    <p>Amara Dental berdiri sejak 2013 dengan misi sederhana — membuat perawatan gigi terasa manusiawi, bukan menakutkan.</p>
+  </div>
+</section>
+
+<!-- ===== CERITA KLINIK ===== -->
+<section>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="reveal">
+        <div class="img-main" style="aspect-ratio:4/3.4;">
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80" alt="Tim Amara Dental berdiskusi di ruang klinik">
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="tag-pill">Cerita Kami</span>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.4rem); margin-bottom:20px;">Dari klinik kecil di Kebayoran, menjadi rumah bagi ribuan senyum</h2>
+        <p style="color:var(--ink-soft); margin-bottom:16px;">Amara Dental dimulai dari satu ruang praktik dengan dua kursi perawatan. drg. Amara Wijaya percaya bahwa banyak orang menghindari dokter gigi bukan karena malas, tapi karena pengalaman yang membuat mereka trauma.</p>
+        <p style="color:var(--ink-soft); margin-bottom:16px;">Sejak itu, kami membangun klinik yang berbeda: ruang tunggu yang tenang, dokter yang mau menjelaskan tanpa terburu-buru, dan teknologi yang membuat tindakan lebih presisi dan minim rasa sakit.</p>
+        <p style="color:var(--ink-soft);">Kini Amara Dental telah berkembang menjadi tiga cabang dengan lebih dari 16 dokter, namun nilai awal itu tetap sama — mendengarkan pasien sebelum bertindak.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VISI MISI ===== -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="tag-pill">Visi &amp; Misi</span>
+      <h2>Arah yang menuntun setiap keputusan kami</h2>
+    </div>
+    <div class="grid grid-2">
+      <div class="card reveal" style="text-align:left; align-items:flex-start;">
+        <span class="card-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 2.6 6.9L22 10l-5.6 4.9L18 22l-6-3.6L6 22l1.6-7.1L2 10l7.4-1.1Z"/></svg></span>
+        <h3>Visi</h3>
+        <p>Menjadi klinik gigi terpercaya yang membuat setiap orang, dari anak-anak hingga lansia, merasa aman dan dihargai saat menjaga kesehatan mulutnya.</p>
+      </div>
+      <div class="card reveal" style="text-align:left; align-items:flex-start;">
+        <span class="card-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6l-8-4Z"/></svg></span>
+        <h3>Misi</h3>
+        <p>Menghadirkan perawatan berbasis bukti klinis, harga yang transparan, dan komunikasi yang jujur antara dokter dan pasien di setiap tahap perawatan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NILAI-NILAI ===== -->
+<section>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="reveal">
+        <span class="tag-pill">Nilai yang Kami Pegang</span>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.4rem); margin:16px 0 10px;">Empat prinsip di balik setiap tindakan</h2>
+        <p style="color:var(--ink-soft);">Nilai-nilai ini bukan sekadar slogan di dinding — mereka membentuk cara kami merekrut dokter, mendesain ruang, dan menyusun harga.</p>
+      </div>
+      <div class="reveal">
+        <div class="value-row">
+          <span class="value-num">01</span>
+          <div><h4>Empati Lebih Dulu</h4><p>Kami mendengarkan kekhawatiran pasien sebelum membahas tindakan medis.</p></div>
+        </div>
+        <div class="value-row">
+          <span class="value-num">02</span>
+          <div><h4>Transparansi Biaya</h4><p>Estimasi biaya disampaikan di awal, tanpa kejutan di akhir kunjungan.</p></div>
+        </div>
+        <div class="value-row">
+          <span class="value-num">03</span>
+          <div><h4>Ketelitian Klinis</h4><p>Setiap diagnosis didukung data rontgen dan pemeriksaan yang menyeluruh.</p></div>
+        </div>
+        <div class="value-row">
+          <span class="value-num">04</span>
+          <div><h4>Kebersihan Tanpa Kompromi</h4><p>Standar sterilisasi ganda diterapkan pada seluruh alat dan ruang tindakan.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TIM DOKTER ===== -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="tag-pill">Tim Dokter</span>
+      <h2>Ditangani oleh dokter yang tepat untuk kebutuhan Anda</h2>
+      <p>Setiap dokter di Amara Dental memiliki spesialisasi yang berbeda, saling melengkapi dalam satu tim perawatan.</p>
+    </div>
+    <div class="grid grid-4">
+      <div class="doctor-card reveal">
+        <div class="doctor-media"><img src="https://i.pravatar.cc/400?img=15" alt="Foto drg. Amara Wijaya"></div>
+        <div class="doctor-body">
+          <h3>drg. Amara Wijaya, Sp.KG</h3>
+          <div class="doctor-role">Pendiri &amp; Spesialis Konservasi Gigi</div>
+          <p>15+ tahun pengalaman, fokus pada perawatan saluran akar dan tambal estetik.</p>
+        </div>
+      </div>
+      <div class="doctor-card reveal">
+        <div class="doctor-media"><img src="https://i.pravatar.cc/400?img=68" alt="Foto drg. Bimo Santoso"></div>
+        <div class="doctor-body">
+          <h3>drg. Bimo Santoso, Sp.Ort</h3>
+          <div class="doctor-role">Spesialis Ortodonti</div>
+          <p>Menangani behel dan clear aligner dengan pendekatan rencana perawatan digital.</p>
+        </div>
+      </div>
+      <div class="doctor-card reveal">
+        <div class="doctor-media"><img src="https://i.pravatar.cc/400?img=44" alt="Foto drg. Citra Lestari"></div>
+        <div class="doctor-body">
+          <h3>drg. Citra Lestari, Sp.KGA</h3>
+          <div class="doctor-role">Spesialis Gigi Anak</div>
+          <p>Ahli menangani pasien anak dengan pendekatan yang sabar dan komunikatif.</p>
+        </div>
+      </div>
+      <div class="doctor-card reveal">
+        <div class="doctor-media"><img src="https://i.pravatar.cc/400?img=52" alt="Foto drg. Dedi Nugraha"></div>
+        <div class="doctor-body">
+          <h3>drg. Dedi Nugraha, Sp.BM</h3>
+          <div class="doctor-role">Spesialis Bedah Mulut</div>
+          <p>Menangani odontektomi, implan gigi, dan kasus bedah mulut kompleks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FASILITAS ===== -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="tag-pill">Fasilitas Klinik</span>
+      <h2>Dilengkapi peralatan yang mendukung akurasi diagnosis</h2>
+    </div>
+    <div class="gallery-grid reveal">
+      <a href="#" class="g-wide"><img src="https://images.unsplash.com/photo-1541604193435-422b5a9f0940?auto=format&fit=crop&w=900&q=80" alt="Ruang tunggu klinik yang nyaman"></a>
+      <a href="#"><img src="https://images.unsplash.com/photo-1609207825181-52d3214556dd?auto=format&fit=crop&w=500&q=80" alt="Ruang tindakan dengan peralatan modern"></a>
+      <a href="#" class="g-tall"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=500&q=80" alt="Dokter mempersiapkan alat tindakan"></a>
+      <a href="#"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=500&q=80" alt="Alat kedokteran gigi tertata rapi"></a>
+      <a href="#"><img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=500&q=80" alt="Unit sterilisasi peralatan gigi"></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERTIFIKASI / BADGE ===== -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="tag-pill">Diakui &amp; Bersertifikat</span>
+      <h2>Standar praktik yang teruji</h2>
+      <p>Seluruh dokter terdaftar resmi dan klinik beroperasi sesuai standar Kementerian Kesehatan RI.</p>
+    </div>
+    <div class="grid grid-4 reveal">
+      <div class="card">
+        <span class="card-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6l-8-4Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <h3>Izin Praktik Resmi</h3>
+        <p>Terdaftar di Dinas Kesehatan dan PDGI (Persatuan Dokter Gigi Indonesia).</p>
+      </div>
+      <div class="card">
+        <span class="card-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 13 6 22l6-3 6 3-2.5-9"/></svg></span>
+        <h3>Sertifikasi Berkelanjutan</h3>
+        <p>Dokter mengikuti pelatihan rutin untuk mengikuti perkembangan teknik terbaru.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6l-8-4Z"/></svg></span>
+        <h3>Protokol Sterilisasi</h3>
+        <p>Autoklaf standar internasional untuk seluruh alat yang bersentuhan dengan pasien.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg></span>
+        <h3>9.400+ Pasien Puas</h3>
+        <p>Rating rata-rata 4.9/5 dari ulasan pasien selama tiga tahun terakhir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta-banner reveal">
+      <div>
+        <h2>Ingin bertemu langsung dengan tim kami?</h2>
+        <p>Kunjungi klinik kami atau jadwalkan konsultasi untuk kenali lebih dekat cara kami merawat pasien.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="kontak.html" class="btn btn-accent">Kunjungi Klinik</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M6 10c0 4 2.5 4 6 4s6 0 6-4"/><circle cx="8" cy="7" r="1.1" fill="#fff" stroke="none"/><circle cx="16" cy="7" r="1.1" fill="#fff" stroke="none"/></svg></span>
+          <span class="brand-name">Amara <span>Dental</span></span>
+        </a>
+        <p>Klinik gigi modern yang mengutamakan kenyamanan, ketelitian, dan hasil perawatan yang bisa dipercaya.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 20l1.1-5.4A8.5 8.5 0 1 1 21 11.5Z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="layanan.html">Layanan</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="layanan.html">Perawatan Umum</a></li>
+          <li><a href="layanan.html">Estetika Gigi</a></li>
+          <li><a href="layanan.html">Ortodonti</a></li>
+          <li><a href="layanan.html">Gigi Anak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hubungi Kami</h4>
+        <ul>
+          <li>Jl. Melati Indah No. 24, Jakarta Selatan</li>
+          <li><a href="tel:+622112345678">(021) 1234-5678</a></li>
+          <li><a href="mailto:halo@amaradental.id">halo@amaradental.id</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Amara Dental. Seluruh hak cipta dilindungi.</span>
+      <span>Dibuat dengan perhatian pada setiap senyum.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== Mobile nav toggle =====
+const navToggle = document.querySelector('.nav-toggle');
+const navEl = document.querySelector('.nav');
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    navEl.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', navEl.classList.contains('open'));
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => navEl.classList.remove('open'));
+  });
+}
+
+// ===== FAQ accordion =====
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  q.addEventListener('click', () => {
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => { if (i !== item) i.classList.remove('open'); });
+    item.classList.toggle('open', !wasOpen);
+  });
+});
+
+// ===== Scroll reveal =====
+const revealEls = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window && revealEls.length) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+} else {
+  revealEls.forEach(el => el.classList.add('in'));
+}
+
+// ===== Contact form (demo submit) =====
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = contactForm.querySelector('button[type="submit"]');
+    const originalText = btn.textContent;
+    btn.textContent = 'Mengirim...';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Terkirim! Kami akan segera menghubungi Anda ✓';
+      contactForm.reset();
+      setTimeout(() => { btn.textContent = originalText; btn.disabled = false; }, 3200);
+    }, 900);
+  });
+}
+
+// ===== Sticky header shadow on scroll =====
+const header = document.querySelector('.site-header');
+if (header) {
+  window.addEventListener('scroll', () => {
+    header.style.boxShadow = window.scrollY > 8 ? '0 8px 24px -18px rgba(13,64,53,.35)' : 'none';
+  });
+}
+
+</script>
+</body>
+</html>

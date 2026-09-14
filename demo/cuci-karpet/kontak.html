@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak — ANYAM Karpet & Sofa Care</title>
+<meta name="description" content="Hubungi ANYAM Karpet & Sofa Care via WhatsApp atau form kontak. Lihat lokasi kami di Cilacap Tengah lewat Google Maps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#241804" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h18M3 12h18M3 16h18"/><path d="M7 4v16M12 4v16M17 4v16" opacity=".55"/></svg></span>
+      <span>ANYAM<small>Karpet &amp; Sofa Care</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Beranda</a>
+      <a href="layanan.html">Layanan</a>
+      <a href="tentang.html">Tentang Kami</a>
+      <a href="kontak.html" class="active">Kontak</a>
+    </nav>
+    <div class="header-actions">
+      <a href="kontak.html" class="btn btn-outline btn-sm">Konsultasi Gratis</a>
+      <button class="nav-toggle" aria-label="Buka menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" style="padding:150px 0 70px;">
+  <div class="container" style="grid-template-columns:1fr;text-align:center;">
+    <div>
+      <span class="hero-eyebrow" style="justify-content:center;">Kontak</span>
+      <h1 style="max-width:680px;margin:0 auto 18px;">Ada karpet yang perlu dibersihkan? Ngobrol dulu yuk</h1>
+      <p class="lead" style="max-width:600px;margin:0 auto 0;">Isi form di bawah atau langsung chat WhatsApp — tim kami biasanya balas dalam hitungan menit di jam operasional.</p>
+    </div>
+  </div>
+</section>
+
+<div class="weave-divider" style="background:var(--bg);">
+  <svg viewBox="0 0 1200 34" preserveAspectRatio="none"><path d="M0 17 Q30 2 60 17 T120 17 T180 17 T240 17 T300 17 T360 17 T420 17 T480 17 T540 17 T600 17 T660 17 T720 17 T780 17 T840 17 T900 17 T960 17 T1020 17 T1080 17 T1140 17 T1200 17" fill="none" stroke="var(--primary)" stroke-width="1.6" opacity=".22"/></svg>
+</div>
+
+<!-- ===== INFO CARDS ===== -->
+<section style="padding-top:56px;">
+  <div class="container">
+    <div class="grid grid-4">
+      <div class="contact-info-card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 0 1 2-2h2l2 5-2 1a11 11 0 0 0 5 5l1-2 5 2v2a2 2 0 0 1-2 2A16 16 0 0 1 3 5Z"/></svg></div>
+        <h4>WhatsApp</h4>
+        <p>0812-3456-7895</p>
+      </div>
+      <div class="contact-info-card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div>
+        <h4>Alamat</h4>
+        <p>Jl. Jenderal Sudirman No. 88, Cilacap Tengah, Jawa Tengah</p>
+      </div>
+      <div class="contact-info-card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg></div>
+        <h4>Jam Operasional</h4>
+        <p>Senin–Sabtu, 08.00–17.00<br>Minggu: by appointment</p>
+      </div>
+      <div class="contact-info-card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z"/><path d="M4 6l8 7 8-7"/></svg></div>
+        <h4>Email</h4>
+        <p>halo@anyamkarpet.id</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORM + MAPS ===== -->
+<section>
+  <div class="container">
+    <div class="contact-layout">
+      <div class="form-card reveal">
+        <span class="eyebrow">Form Booking</span>
+        <h2 style="font-size:26px;margin-bottom:8px;">Isi data singkat ini</h2>
+        <p style="color:var(--ink-soft);font-size:14.5px;margin-bottom:26px;">Setelah dikirim, pesan otomatis tersusun dan terbuka di WhatsApp — tinggal tekan kirim di sana.</p>
+        <form id="contact-form">
+          <div class="form-two">
+            <div class="form-row">
+              <label for="cf-nama">Nama</label>
+              <input type="text" id="cf-nama" placeholder="Nama Anda" required>
+            </div>
+            <div class="form-row">
+              <label for="cf-telp">No. HP / WhatsApp</label>
+              <input type="tel" id="cf-telp" placeholder="08xx-xxxx-xxxx">
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="cf-layanan">Jenis Layanan</label>
+            <select id="cf-layanan">
+              <option>Cuci Karpet Rumah</option>
+              <option>Cuci Karpet Kantor &amp; Masjid</option>
+              <option>Cuci Karpet &amp; Jok Mobil</option>
+              <option>Cuci Sofa</option>
+              <option>Cuci Kasur &amp; Springbed</option>
+              <option>Cuci Gorden &amp; Vitrase</option>
+              <option>Karpet Outdoor / Rumput Sintetis</option>
+              <option>Event &amp; Perhelatan</option>
+              <option>Belum tahu, mau konsultasi dulu</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="cf-lokasi">Lokasi / Alamat</label>
+            <input type="text" id="cf-lokasi" placeholder="Contoh: Jl. Kartini, Cilacap Tengah">
+          </div>
+          <div class="form-row">
+            <label for="cf-pesan">Catatan Tambahan</label>
+            <textarea id="cf-pesan" rows="3" placeholder="Contoh: karpet ±20m², ada noda kopi membandel"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Kirim Pesan</button>
+        </form>
+      </div>
+
+      <div class="reveal">
+        <span class="eyebrow">Lokasi Kami</span>
+        <h2 style="font-size:26px;margin-bottom:18px;">Workshop &amp; kantor ANYAM</h2>
+        <div class="map-card">
+          <iframe src="https://maps.google.com/maps?q=Cilacap%20Tengah%2C%20Cilacap%2C%20Jawa%20Tengah&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lokasi ANYAM Karpet & Sofa Care di Cilacap Tengah"></iframe>
+        </div>
+        <div class="badge-row" style="justify-content:flex-start;margin-top:20px;">
+          <span class="badge-pill">Cilacap Tengah</span>
+          <span class="badge-pill">Kroya</span>
+          <span class="badge-pill">Sidareja</span>
+          <span class="badge-pill">Purwokerto</span>
+          <span class="badge-pill">Banyumas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ SEPUTAR BOOKING ===== -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">FAQ Booking</span>
+      <h2>Sebelum menghubungi kami</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item open">
+        <button class="faq-q"><span>Berapa lama respon chat WhatsApp?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Di jam operasional (08.00–17.00), chat biasanya dibalas dalam 5–15 menit. Di luar jam tersebut, akan dibalas paling lambat keesokan harinya.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Apakah survey lokasi dikenakan biaya?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Survey dan estimasi harga di area Cilacap Tengah &amp; sekitarnya gratis. Untuk area di luar itu, ada biaya transport yang diinfokan sebelum survey dijadwalkan.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Bisa booking untuk hari yang sama (same-day)?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Bisa, tergantung ketersediaan teknisi di jadwal hari itu. Chat sepagi mungkin agar peluang dilayani hari yang sama lebih besar.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Apakah perlu DP (uang muka) untuk booking?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Untuk pesanan rumahan tidak perlu DP. Untuk pesanan instansi/event dengan jadwal khusus, kami akan infokan kebijakan DP saat konfirmasi jadwal.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="brand">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#241804" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h18M3 12h18M3 16h18"/><path d="M7 4v16M12 4v16M17 4v16" opacity=".55"/></svg></span>
+          <span>ANYAM<small>Karpet &amp; Sofa Care</small></span>
+        </a>
+        <p>Jasa cuci karpet, sofa, kasur, gorden &amp; interior mobil untuk rumah, kantor, dan masjid di Cilacap &amp; Purwokerto.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="https://wa.me/6281234567895" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.2.2-.4.1-.1 0-.3 0-.4 0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.3c.1.2 1.6 2.5 3.9 3.4.5.2.9.4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5>Navigasi</h5>
+        <ul class="footer-links">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="layanan.html">Layanan</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Layanan</h5>
+        <ul class="footer-links">
+          <li><a href="layanan.html">Cuci Karpet Rumah</a></li>
+          <li><a href="layanan.html">Cuci Sofa &amp; Kasur</a></li>
+          <li><a href="layanan.html">Karpet &amp; Jok Mobil</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Kontak</h5>
+        <ul class="footer-links">
+          <li>0812-3456-7895</li>
+          <li>halo@anyamkarpet.id</li>
+          <li>Jl. Jenderal Sudirman No. 88, Cilacap Tengah</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ANYAM Karpet &amp; Sofa Care.</span>
+      <span>Dibuat dengan ❤ di Cilacap</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6281234567895?text=Halo%20ANYAM%20Karpet%20%26%20Sofa%20Care%2C%20saya%20ingin%20tanya-tanya." class="wa-float" aria-label="Chat WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.2.2-.4.1-.1 0-.3 0-.4 0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.3c.1.2 1.6 2.5 3.9 3.4.5.2.9.4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>

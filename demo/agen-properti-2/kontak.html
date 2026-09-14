@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak — Raditya Properti</title>
+<meta name="description" content="Hubungi Raditya Properti untuk konsultasi gratis seputar jual, beli, atau sewa properti di kawasan Jabodetabek. Respons cepat via WhatsApp, telepon, atau formulir kontak.">
+<link rel="icon" href="data:,">
+<style>
+/* =========================================================
+   RADITYA PROPERTI — Design System
+   Display: Fraunces | Body: Plus Jakarta Sans | Mono: JetBrains Mono
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  /* --- Color tokens --- */
+  --ink:        #16231D;   /* deep forest-charcoal */
+  --ink-soft:   #223228;
+  --ivory:      #F6F1E7;   /* warm paper */
+  --paper-2:    #EEE6D3;   /* deeper paper for alternating sections */
+  --brass:      #AD8B4C;   /* gold / brass accent */
+  --brass-light:#D9BD86;
+  --sage:       #5C6E4F;   /* olive-sage secondary accent */
+  --sage-light: #8B9C7B;
+  --clay:       #8B5A3C;   /* warm wood accent, sparing */
+  --text-dark:  #23291F;
+  --text-soft:  #565B4E;
+  --text-onink: #F3EDDD;
+  --text-onink-soft: #C9C2AC;
+  --line:       rgba(35,41,31,0.12);
+  --line-onink: rgba(243,237,221,0.16);
+
+  /* --- Type --- */
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --radius-s: 6px;
+  --radius-m: 14px;
+  --radius-l: 28px;
+
+  --shadow-card: 0 1px 2px rgba(22,35,29,0.04), 0 12px 32px -14px rgba(22,35,29,0.22);
+  --shadow-lift: 0 24px 60px -20px rgba(22,35,29,0.35);
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family:var(--font-body);
+  background:var(--ivory);
+  color:var(--text-dark);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ margin:0; padding:0; list-style:none; }
+button{ font-family:inherit; cursor:pointer; }
+input,textarea,select{ font-family:inherit; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+
+:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
+
+.container{
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 32px;
+}
+
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--brass);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:0 0 16px;
+  font-weight:500;
+}
+.eyebrow::before{
+  content:"";
+  width:26px;
+  height:1px;
+  background:var(--brass);
+  display:inline-block;
+}
+.eyebrow.center{ justify-content:center; }
+.eyebrow.center::before{ display:none; }
+.eyebrow.onink{ color:var(--brass-light); }
+
+h1,h2,h3,h4{
+  font-family:var(--font-display);
+  font-weight:500;
+  line-height:1.08;
+  margin:0;
+  color:var(--text-dark);
+  letter-spacing:-0.01em;
+}
+h1 em, h2 em, h3 em{
+  font-style:italic;
+  font-weight:400;
+  color:var(--brass);
+}
+.onink, .onink h1, .onink h2, .onink h3, .onink p{ color:var(--text-onink); }
+
+.section-title{
+  font-size:clamp(30px, 4vw, 46px);
+  max-width:720px;
+}
+.section-title.center{ margin:0 auto; text-align:center; }
+
+.section-sub{
+  font-family:var(--font-body);
+  font-size:17px;
+  line-height:1.7;
+  color:var(--text-soft);
+  max-width:560px;
+  margin-top:18px;
+}
+.section-sub.center{ margin-left:auto; margin-right:auto; text-align:center; }
+
+.section-head{
+  margin-bottom:56px;
+}
+.section-head.center{ text-align:center; display:flex; flex-direction:column; align-items:center; }
+
+section{ position:relative; }
+.pad{ padding:110px 0; }
+.pad-s{ padding:70px 0; }
+
+.bg-ivory{ background:var(--ivory); }
+.bg-paper{ background:var(--paper-2); }
+.bg-ink{ background:var(--ink); }
+
+/* subtle grain/texture overlay on dark sections */
+.bg-ink::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    radial-gradient(circle at 18% 20%, rgba(173,139,76,0.10), transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(92,110,79,0.14), transparent 50%);
+  pointer-events:none;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:15px 30px;
+  border-radius:999px;
+  font-family:var(--font-body);
+  font-weight:600;
+  font-size:14.5px;
+  letter-spacing:0.01em;
+  border:1px solid transparent;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, background .35s, color .35s, border-color .35s;
+  white-space:nowrap;
+}
+.btn-primary{
+  background:var(--brass);
+  color:var(--ink);
+}
+.btn-primary:hover{
+  background:var(--brass-light);
+  transform:translateY(-2px);
+  box-shadow:0 14px 28px -12px rgba(173,139,76,0.55);
+}
+.btn-ghost{
+  background:transparent;
+  border-color:rgba(243,237,221,0.4);
+  color:var(--text-onink);
+}
+.btn-ghost:hover{
+  background:rgba(243,237,221,0.1);
+  border-color:var(--text-onink);
+  transform:translateY(-2px);
+}
+.btn-outline-dark{
+  background:transparent;
+  border-color:var(--line);
+  color:var(--text-dark);
+}
+.btn-outline-dark:hover{
+  border-color:var(--ink);
+  background:var(--ink);
+  color:var(--text-onink);
+  transform:translateY(-2px);
+}
+.btn-sm{ padding:11px 22px; font-size:13px; }
+.btn-arrow{ transition:transform .35s; }
+.btn:hover .btn-arrow{ transform:translateX(4px); }
+
+/* =========================================================
+   HEADER / NAV
+   ========================================================= */
+.site-header{
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:1000;
+  background:transparent;
+  border-bottom:1px solid transparent;
+  transition:background .45s ease, border-color .45s ease, box-shadow .45s ease, backdrop-filter .45s ease, padding .35s ease;
+  padding:26px 0;
+}
+.site-header.scrolled{
+  background:rgba(22,35,29,0.86);
+  backdrop-filter:blur(14px) saturate(140%);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid rgba(173,139,76,0.28);
+  box-shadow:0 12px 30px -18px rgba(0,0,0,0.5);
+  padding:16px 0;
+}
+.site-header .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  font-family:var(--font-display);
+  font-size:20px;
+  color:var(--text-onink);
+  letter-spacing:0.01em;
+}
+.brand-mark{
+  width:40px; height:40px;
+  border-radius:50%;
+  border:1px solid var(--brass);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:17px;
+  color:var(--brass-light);
+  flex-shrink:0;
+  transition:transform .4s;
+}
+.brand:hover .brand-mark{ transform:rotate(-8deg) scale(1.05); }
+.brand-text b{ font-weight:600; }
+.brand-text span{
+  display:block;
+  font-family:var(--font-mono);
+  font-size:9.5px;
+  letter-spacing:0.16em;
+  color:var(--text-onink-soft);
+  text-transform:uppercase;
+  margin-top:2px;
+  font-weight:400;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:40px;
+}
+.nav-links a{
+  font-size:14.5px;
+  font-weight:500;
+  color:var(--text-onink-soft);
+  position:relative;
+  padding:4px 0;
+  transition:color .3s;
+}
+.nav-links a::after{
+  content:"";
+  position:absolute; left:0; bottom:-2px;
+  width:0; height:1px;
+  background:var(--brass-light);
+  transition:width .3s;
+}
+.nav-links a:hover, .nav-links a.active{ color:var(--text-onink); }
+.nav-links a:hover::after, .nav-links a.active::after{ width:100%; }
+
+.nav-links .btn-primary{ display:none; }
+.header-actions{ display:flex; align-items:center; gap:18px; }
+.nav-toggle{
+  display:none;
+  width:42px; height:42px;
+  border-radius:50%;
+  border:1px solid rgba(243,237,221,0.3);
+  background:transparent;
+  align-items:center; justify-content:center;
+  flex-direction:column; gap:5px;
+}
+.nav-toggle span{ width:16px; height:1px; background:var(--text-onink); display:block; transition:.3s; }
+
+@media (max-width:920px){
+  .nav-links{
+    position:fixed; top:0; right:0; bottom:0;
+    width:min(320px, 78vw);
+    background:var(--ink);
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:center;
+    gap:28px;
+    padding:60px 44px;
+    transform:translateX(100%);
+    transition:transform .5s cubic-bezier(.2,.8,.2,1);
+    box-shadow:-20px 0 50px rgba(0,0,0,0.35);
+  }
+  .nav-links.open{ transform:translateX(0); }
+  .nav-links a{ font-size:20px; }
+  .nav-toggle{ display:flex; }
+  .header-actions .btn-primary{ display:none; }
+  .nav-links .btn-primary{ display:inline-flex; margin-top:10px; }
+}
+
+/* =========================================================
+   HERO (shared skeleton, per-page background image via inline style)
+   ========================================================= */
+.hero{
+  position:relative;
+  min-height:92vh;
+  display:flex;
+  align-items:flex-end;
+  padding:160px 0 90px;
+  background-size:cover;
+  background-position:center;
+  isolation:isolate;
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    linear-gradient(180deg, rgba(16,24,18,0.55) 0%, rgba(16,24,18,0.4) 40%, rgba(16,24,18,0.92) 100%);
+  z-index:0;
+}
+.hero .container{ position:relative; z-index:1; }
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.15fr 0.85fr;
+  gap:60px;
+  align-items:end;
+}
+.hero-kicker{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--brass-light);
+  margin-bottom:22px;
+  display:flex; align-items:center; gap:10px;
+}
+.hero-kicker::before{ content:"●"; font-size:8px; color:var(--sage-light); }
+.hero h1{
+  font-size:clamp(40px, 6vw, 72px);
+  color:var(--text-onink);
+  max-width:760px;
+}
+.hero-lede{
+  color:var(--text-onink-soft);
+  font-size:18px;
+  line-height:1.75;
+  max-width:460px;
+  margin-top:26px;
+}
+.hero-cta{ display:flex; gap:16px; margin-top:38px; flex-wrap:wrap; }
+
+.hero-stats{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+  padding:30px 32px;
+  border-radius:var(--radius-m);
+  background:rgba(22,35,29,0.55);
+  border:1px solid rgba(243,237,221,0.14);
+  backdrop-filter:blur(10px);
+}
+.hero-stat{ display:flex; align-items:baseline; gap:14px; justify-content:space-between; }
+.hero-stat + .hero-stat{ border-top:1px solid rgba(243,237,221,0.1); padding-top:22px; }
+.hero-stat b{
+  font-family:var(--font-display);
+  font-size:32px;
+  color:var(--brass-light);
+  font-weight:500;
+}
+.hero-stat span{
+  font-size:13px;
+  color:var(--text-onink-soft);
+  max-width:150px;
+  text-align:right;
+  line-height:1.4;
+}
+
+.page-hero{
+  min-height:64vh;
+  align-items:center;
+  text-align:left;
+}
+.page-hero .container{ padding-top:40px; }
+.breadcrumb{
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--text-onink-soft);
+  margin-bottom:20px;
+  display:flex; gap:10px; align-items:center;
+}
+.breadcrumb a{ color:var(--text-onink-soft); transition:color .3s; }
+.breadcrumb a:hover{ color:var(--brass-light); }
+
+@media (max-width:920px){
+  .hero-grid{ grid-template-columns:1fr; }
+  .hero{ padding:140px 0 60px; align-items:flex-end;}
+}
+
+/* =========================================================
+   TRUST BAR
+   ========================================================= */
+.trust-bar{
+  background:var(--ink-soft);
+  padding:26px 0;
+  border-bottom:1px solid var(--line-onink);
+}
+.trust-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+  flex-wrap:wrap;
+}
+.trust-item{
+  display:flex; align-items:center; gap:10px;
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--text-onink-soft);
+}
+.trust-item svg{ width:16px; height:16px; color:var(--brass-light); flex-shrink:0; }
+
+/* =========================================================
+   CARDS (centered content per requirement)
+   ========================================================= */
+.grid{ display:grid; gap:28px; }
+.grid-2{ grid-template-columns:repeat(2,1fr); }
+.grid-3{ grid-template-columns:repeat(3,1fr); }
+.grid-4{ grid-template-columns:repeat(4,1fr); }
+
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
+  padding:40px 30px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  transition:transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s, border-color .4s;
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-card);
+  border-color:rgba(173,139,76,0.35);
+}
+.card-icon{
+  width:60px; height:60px;
+  border-radius:50%;
+  background:var(--paper-2);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:22px;
+  color:var(--sage);
+  transition:background .4s, color .4s, transform .4s;
+}
+.card:hover .card-icon{ background:var(--brass); color:var(--ink); transform:scale(1.08) rotate(-6deg); }
+.card-icon svg{ width:26px; height:26px; }
+.card h3{ font-size:21px; margin-bottom:12px; }
+.card p{ font-size:14.5px; line-height:1.7; color:var(--text-soft); margin:0; }
+.card-num{
+  font-family:var(--font-mono);
+  font-size:12px;
+  color:var(--brass);
+  letter-spacing:0.1em;
+  margin-bottom:14px;
+}
+
+/* =========================================================
+   PROCESS / STEPS — signature "route" element (left → right)
+   ========================================================= */
+.route{
+  position:relative;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding-top:10px;
+}
+.route-line{
+  position:absolute;
+  top:29px; left:0; right:0;
+  height:0;
+  z-index:0;
+}
+.route-line svg{ width:100%; height:14px; display:block; overflow:visible; }
+.route-step{
+  position:relative;
+  z-index:1;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  max-width:230px;
+}
+.route-pin{
+  width:58px; height:58px;
+  border-radius:50%;
+  background:var(--ivory);
+  border:1.5px solid var(--brass);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:20px;
+  color:var(--brass);
+  margin-bottom:22px;
+  transition:transform .4s, background .4s, color .4s;
+  flex-shrink:0;
+}
+.route-step:hover .route-pin{ background:var(--brass); color:var(--ink); transform:translateY(-6px); }
+.route-step h3{ font-size:18px; margin-bottom:10px; }
+.route-step p{ font-size:13.5px; line-height:1.65; color:var(--text-soft); }
+.onink .route-pin{ background:var(--ink-soft); }
+.onink .route-step p{ color:var(--text-onink-soft); }
+
+@media (max-width:920px){
+  .route{ flex-direction:column; align-items:flex-start; gap:44px; padding-left:29px; }
+  .route-line{ top:0; bottom:0; left:29px; right:auto; width:0; height:auto; }
+  .route-line svg{ width:14px; height:100%; }
+  .route-step{ flex-direction:row; text-align:left; max-width:none; align-items:flex-start; gap:20px; }
+  .route-pin{ margin-bottom:0; }
+}
+
+/* =========================================================
+   FAQ ACCORDION
+   ========================================================= */
+.faq-list{ max-width:780px; margin:0 auto; }
+.faq-item{
+  border-bottom:1px solid var(--line);
+}
+.onink .faq-item{ border-bottom:1px solid var(--line-onink); }
+.faq-q{
+  width:100%;
+  background:none;
+  border:none;
+  text-align:left;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:26px 4px;
+  font-family:var(--font-display);
+  font-size:19px;
+  color:var(--text-dark);
+  transition:color .3s;
+}
+.onink .faq-q{ color:var(--text-onink); }
+.faq-q:hover{ color:var(--brass); }
+.faq-icon{
+  width:34px; height:34px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+  transition:transform .4s, background .4s, border-color .4s;
+}
+.onink .faq-icon{ border-color:var(--line-onink); }
+.faq-icon::before, .faq-icon::after{
+  content:"";
+  position:absolute;
+  background:var(--text-dark);
+  transition:transform .35s, opacity .35s, background .35s;
+}
+.onink .faq-icon::before, .onink .faq-icon::after{ background:var(--text-onink); }
+.faq-icon::before{ width:12px; height:1px; }
+.faq-icon::after{ width:1px; height:12px; }
+.faq-item.active .faq-icon{ background:var(--brass); border-color:var(--brass); transform:rotate(180deg); }
+.faq-item.active .faq-icon::before, .faq-item.active .faq-icon::after{ background:var(--ink); }
+.faq-item.active .faq-icon::after{ opacity:0; }
+.faq-item.active .faq-q{ color:var(--brass); }
+.faq-a{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .5s cubic-bezier(.2,.8,.2,1);
+}
+.faq-a-inner{
+  padding:0 4px 28px;
+  font-size:15px;
+  line-height:1.75;
+  color:var(--text-soft);
+  max-width:640px;
+}
+.onink .faq-a-inner{ color:var(--text-onink-soft); }
+
+/* =========================================================
+   TESTIMONIALS
+   ========================================================= */
+.testi-card{
+  background:var(--paper-2);
+  border-radius:var(--radius-m);
+  padding:38px 34px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.testi-stars{ color:var(--brass); font-size:15px; letter-spacing:3px; margin-bottom:18px; }
+.testi-quote{
+  font-family:var(--font-display);
+  font-size:19px;
+  font-style:italic;
+  line-height:1.6;
+  color:var(--text-dark);
+  margin-bottom:26px;
+}
+.testi-person{ display:flex; flex-direction:column; align-items:center; gap:10px; }
+.testi-avatar{
+  width:52px; height:52px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid var(--brass-light);
+}
+.testi-name{ font-weight:700; font-size:14.5px; }
+.testi-role{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.06em; color:var(--text-soft); text-transform:uppercase; }
+
+/* =========================================================
+   PROPERTY CARDS
+   ========================================================= */
+.prop-card{
+  background:#fff;
+  border-radius:var(--radius-m);
+  overflow:hidden;
+  border:1px solid var(--line);
+  text-align:center;
+  transition:transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s;
+  display:flex; flex-direction:column;
+}
+.prop-card:hover{ transform:translateY(-8px); box-shadow:var(--shadow-lift); }
+.prop-media{ position:relative; height:230px; overflow:hidden; }
+.prop-media img{ width:100%; height:100%; object-fit:cover; transition:transform .7s cubic-bezier(.2,.8,.2,1); }
+.prop-card:hover .prop-media img{ transform:scale(1.08); }
+.prop-badge{
+  position:absolute; top:16px; left:16px;
+  background:var(--ink);
+  color:var(--text-onink);
+  font-family:var(--font-mono);
+  font-size:10.5px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  padding:7px 14px;
+  border-radius:999px;
+}
+.prop-badge.sewa{ background:var(--sage); }
+.prop-fav{
+  position:absolute; top:16px; right:16px;
+  width:36px; height:36px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.9);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--text-dark);
+}
+.prop-fav svg{ width:16px; height:16px; }
+.prop-body{ padding:28px 26px 30px; display:flex; flex-direction:column; align-items:center; flex:1; }
+.prop-loc{
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--sage);
+  margin-bottom:10px;
+  display:flex; align-items:center; gap:6px;
+}
+.prop-title{ font-size:20px; margin-bottom:12px; }
+.prop-price{ font-family:var(--font-display); font-size:22px; color:var(--brass); font-weight:500; margin-bottom:18px; }
+.prop-price span{ font-family:var(--font-body); font-size:12px; color:var(--text-soft); font-weight:400; }
+.prop-specs{
+  display:flex; align-items:center; justify-content:center; gap:16px;
+  padding-top:18px; margin-top:auto;
+  border-top:1px solid var(--line);
+  width:100%;
+  font-size:12.5px;
+  color:var(--text-soft);
+}
+.prop-specs span{ display:flex; align-items:center; gap:6px; }
+.prop-specs svg{ width:15px; height:15px; color:var(--sage); }
+
+/* =========================================================
+   FILTER BAR (properti page)
+   ========================================================= */
+.filter-bar{
+  background:#fff;
+  border-radius:var(--radius-m);
+  border:1px solid var(--line);
+  padding:26px;
+  box-shadow:var(--shadow-card);
+  margin-top:-96px;
+  position:relative;
+  z-index:5;
+}
+.filter-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr) auto;
+  gap:16px;
+  align-items:end;
+}
+.filter-field label{
+  display:block;
+  font-family:var(--font-mono);
+  font-size:10.5px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--text-soft);
+  margin-bottom:9px;
+}
+.filter-field select, .filter-field input{
+  width:100%;
+  padding:13px 14px;
+  border-radius:var(--radius-s);
+  border:1px solid var(--line);
+  background:var(--ivory);
+  font-size:14px;
+  color:var(--text-dark);
+  appearance:none;
+}
+.filter-field{ position:relative; }
+.filter-field.select-wrap::after{
+  content:"";
+  position:absolute; right:14px; bottom:16px;
+  width:8px; height:8px;
+  border-right:1.5px solid var(--text-soft);
+  border-bottom:1.5px solid var(--text-soft);
+  transform:rotate(45deg);
+  pointer-events:none;
+}
+.tabs{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin:50px 0 46px; }
+.tab-btn{
+  padding:11px 22px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:#fff;
+  font-size:13.5px;
+  font-weight:600;
+  color:var(--text-soft);
+  transition:.3s;
+}
+.tab-btn.active, .tab-btn:hover{ background:var(--ink); color:var(--text-onink); border-color:var(--ink); }
+
+/* =========================================================
+   TIMELINE (about page)
+   ========================================================= */
+.timeline{ position:relative; max-width:800px; margin:0 auto; }
+.timeline::before{
+  content:"";
+  position:absolute; left:100px; top:8px; bottom:8px; width:1px;
+  background:repeating-linear-gradient(to bottom, var(--brass) 0 6px, transparent 6px 12px);
+}
+.tl-item{ display:grid; grid-template-columns:70px 60px 1fr; gap:0 24px; margin-bottom:44px; align-items:start; }
+.tl-year{ font-family:var(--font-mono); font-size:14px; color:var(--brass); padding-top:8px; text-align:right; }
+.tl-dot{ width:16px; height:16px; border-radius:50%; background:var(--ivory); border:2px solid var(--brass); margin:8px auto 0; position:relative; z-index:1; }
+.tl-content h3{ font-size:19px; margin-bottom:8px; }
+.tl-content p{ font-size:14.5px; line-height:1.7; color:var(--text-soft); margin:0; }
+
+@media (max-width:720px){
+  .timeline::before{ left:52px; }
+  .tl-item{ grid-template-columns:32px 40px 1fr; }
+  .tl-year{ font-size:11px; text-align:center; padding-top:10px; }
+}
+
+/* =========================================================
+   FORM (kontak)
+   ========================================================= */
+.form-card{
+  background:#fff;
+  border-radius:var(--radius-l);
+  padding:48px;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-card);
+}
+.form-row{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.field{ margin-bottom:22px; }
+.field label{
+  display:block;
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--text-soft);
+  margin-bottom:10px;
+}
+.field input, .field select, .field textarea{
+  width:100%;
+  padding:15px 16px;
+  border-radius:var(--radius-s);
+  border:1px solid var(--line);
+  background:var(--ivory);
+  font-size:14.5px;
+  color:var(--text-dark);
+  transition:border-color .3s, box-shadow .3s;
+}
+.field input:focus, .field select:focus, .field textarea:focus{
+  border-color:var(--brass);
+  box-shadow:0 0 0 3px rgba(173,139,76,0.15);
+  outline:none;
+}
+.field textarea{ resize:vertical; min-height:130px; }
+.form-note{ font-size:12.5px; color:var(--text-soft); margin-top:6px; line-height:1.6; }
+
+.contact-info-card{
+  display:flex; gap:20px; align-items:flex-start;
+  padding:28px 0;
+  border-bottom:1px solid var(--line-onink);
+}
+.contact-info-card:last-child{ border-bottom:none; }
+.contact-info-icon{
+  width:48px; height:48px; border-radius:50%;
+  background:rgba(173,139,76,0.14);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--brass-light);
+  flex-shrink:0;
+}
+.contact-info-icon svg{ width:20px; height:20px; }
+.contact-info-card h3{ font-size:16.5px; color:var(--text-onink); margin-bottom:6px; }
+.contact-info-card p{ font-size:14px; color:var(--text-onink-soft); line-height:1.6; margin:0; }
+
+/* =========================================================
+   MAP
+   ========================================================= */
+.map-wrap{
+  border-radius:var(--radius-l);
+  overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-card);
+  position:relative;
+}
+.map-wrap iframe{ width:100%; height:100%; min-height:420px; border:0; display:block; filter:grayscale(0.15) contrast(1.02); }
+
+/* =========================================================
+   CTA BANNER
+   ========================================================= */
+.cta-banner{
+  border-radius:var(--radius-l);
+  padding:70px 60px;
+  background:var(--ink);
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+  display:flex; flex-direction:column; align-items:center;
+}
+.cta-banner::before{
+  content:"";
+  position:absolute; inset:0;
+  background:radial-gradient(circle at 30% 20%, rgba(173,139,76,0.22), transparent 55%), radial-gradient(circle at 80% 90%, rgba(92,110,79,0.28), transparent 50%);
+}
+.cta-banner > *{ position:relative; z-index:1; }
+.cta-banner h2{ color:var(--text-onink); font-size:clamp(28px,4vw,42px); max-width:640px; }
+.cta-banner p{ color:var(--text-onink-soft); margin-top:16px; max-width:520px; font-size:16px; line-height:1.7;}
+.cta-banner .hero-cta{ margin-top:32px; justify-content:center; }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer{ background:var(--ink); color:var(--text-onink); padding-top:90px; position:relative; }
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.4fr 0.8fr 0.8fr 1fr;
+  gap:50px;
+  padding-bottom:70px;
+  border-bottom:1px solid var(--line-onink);
+}
+.footer-brand p{ color:var(--text-onink-soft); font-size:14px; line-height:1.75; margin-top:18px; max-width:280px; }
+.footer-col h4{
+  font-family:var(--font-mono);
+  font-size:11.5px;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--brass-light);
+  margin-bottom:22px;
+  font-weight:500;
+}
+.footer-col ul li{ margin-bottom:13px; }
+.footer-col ul a{ color:var(--text-onink-soft); font-size:14.5px; transition:color .3s, padding-left .3s; }
+.footer-col ul a:hover{ color:var(--text-onink); padding-left:4px; }
+.footer-social{ display:flex; gap:12px; margin-top:20px; }
+.footer-social a{
+  width:38px; height:38px; border-radius:50%;
+  border:1px solid var(--line-onink);
+  display:flex; align-items:center; justify-content:center;
+  transition:.3s;
+}
+.footer-social a:hover{ background:var(--brass); border-color:var(--brass); color:var(--ink); }
+.footer-social svg{ width:16px; height:16px; }
+.footer-bottom{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:26px 0;
+  font-size:13px;
+  color:var(--text-onink-soft);
+  flex-wrap:wrap;
+  gap:12px;
+}
+.footer-bottom a{ color:var(--text-onink-soft); }
+.footer-bottom a:hover{ color:var(--brass-light); }
+
+/* =========================================================
+   REVEAL ON SCROLL
+   ========================================================= */
+.reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1); }
+.reveal.in{ opacity:1; transform:translateY(0); }
+.reveal-delay-1{ transition-delay:.1s; }
+.reveal-delay-2{ transition-delay:.2s; }
+.reveal-delay-3{ transition-delay:.3s; }
+.reveal-delay-4{ transition-delay:.4s; }
+
+/* route path draw-in */
+.route-line path{
+  stroke-dasharray: 8 10;
+  opacity:0.6;
+}
+
+/* =========================================================
+   MISC — badges, value cards, comparison
+   ========================================================= */
+.pill{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--font-mono);
+  font-size:11px; letter-spacing:0.07em; text-transform:uppercase;
+  padding:8px 16px; border-radius:999px;
+  border:1px solid var(--line);
+  color:var(--text-soft);
+}
+.badge-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.badge-card{
+  border:1px solid var(--line);
+  border-radius:var(--radius-m);
+  padding:30px 20px;
+  text-align:center;
+  background:#fff;
+}
+.badge-card svg{ width:34px; height:34px; color:var(--brass); margin-bottom:16px; }
+.badge-card h4{ font-family:var(--font-display); font-size:16px; margin-bottom:6px; }
+.badge-card p{ font-size:12.5px; color:var(--text-soft); margin:0; }
+
+.compare-table{ width:100%; border-collapse:collapse; background:#fff; border-radius:var(--radius-m); overflow:hidden; border:1px solid var(--line); }
+.compare-table th, .compare-table td{ padding:20px 24px; text-align:center; font-size:14.5px; border-bottom:1px solid var(--line); }
+.compare-table th{ font-family:var(--font-mono); font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-soft); background:var(--paper-2); }
+.compare-table td:first-child, .compare-table th:first-child{ text-align:left; font-weight:600; }
+.compare-table tr:last-child td{ border-bottom:none; }
+.check-yes{ color:var(--sage); font-size:18px; }
+.check-no{ color:#c2a37f; font-size:14px; }
+.compare-table .highlight{ background:rgba(173,139,76,0.07); font-weight:700; color:var(--brass); }
+
+/* stat strip */
+.stat-strip{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:1px solid var(--line-onink); border-radius:var(--radius-m); overflow:hidden; }
+.stat-strip .stat{ padding:38px 20px; text-align:center; border-right:1px solid var(--line-onink); }
+.stat-strip .stat:last-child{ border-right:none; }
+.stat b{ display:block; font-family:var(--font-display); font-size:38px; color:var(--brass-light); font-weight:500; }
+.stat span{ display:block; font-family:var(--font-mono); font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-onink-soft); margin-top:10px; }
+
+/* responsive grids */
+@media (max-width:1024px){
+  .grid-4{ grid-template-columns:repeat(2,1fr); }
+  .grid-3{ grid-template-columns:repeat(2,1fr); }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+  .filter-grid{ grid-template-columns:1fr 1fr; }
+  .badge-grid{ grid-template-columns:repeat(2,1fr); }
+  .stat-strip{ grid-template-columns:repeat(2,1fr); }
+  .stat-strip .stat:nth-child(2){ border-right:none; }
+}
+@media (max-width:720px){
+  .container{ padding:0 20px; }
+  .pad{ padding:70px 0; }
+  .grid-2, .grid-3, .grid-4{ grid-template-columns:1fr; }
+  .form-row{ grid-template-columns:1fr; }
+  .footer-grid{ grid-template-columns:1fr; gap:40px; }
+  .footer-bottom{ flex-direction:column; align-items:flex-start; }
+  .filter-bar{ margin-top:-40px; }
+  .filter-grid{ grid-template-columns:1fr; }
+  .form-card{ padding:30px 24px; }
+  .cta-banner{ padding:50px 26px; }
+  .badge-grid{ grid-template-columns:1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand" aria-label="Kembali ke Beranda Raditya Properti">
+      <span class="brand-mark">R</span>
+      <span class="brand-text"><b>Raditya Properti</b><span>Konsultan Independen</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" data-page="index.html">Beranda</a>
+      <a href="tentang.html" data-page="tentang.html">Tentang Saya</a>
+      <a href="properti.html" data-page="properti.html">Properti</a>
+      <a href="kontak.html" data-page="kontak.html">Kontak</a>
+      <a href="kontak.html" class="btn btn-primary btn-sm">Konsultasi Gratis</a>
+    </nav>
+    <div class="header-actions">
+      <a href="kontak.html" class="btn btn-primary btn-sm">Konsultasi Gratis</a>
+      <button class="nav-toggle" aria-label="Buka menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero page-hero" style="min-height:56vh; background-image:url('https://images.unsplash.com/photo-1560250097-0b93528c311a?w=1800&q=80&auto=format&fit=crop');">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Beranda</a> / Kontak</div>
+    <div class="hero-kicker">Mari Berdiskusi</div>
+    <h1>Ceritakan <em>Kebutuhan</em> Properti Anda</h1>
+    <p class="hero-lede">Konsultasi awal tidak dipungut biaya apa pun. Isi formulir di bawah atau hubungi langsung — biasanya saya balas dalam hitungan menit.</p>
+  </div>
+</section>
+
+<!-- ============ INFO + FORM ============ -->
+<section class="pad bg-ink onink">
+  <div class="container">
+    <div class="grid grid-2" style="gap:70px; align-items:flex-start;">
+
+      <div class="reveal">
+        <div class="eyebrow onink">Informasi Kontak</div>
+        <h2 class="section-title" style="color:var(--text-onink); font-size:34px;">Beberapa Cara Menghubungi Saya</h2>
+        <div style="margin-top:24px;">
+          <div class="contact-info-card">
+            <div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4A8.5 8.5 0 0 1 7 19L3 20l1-4a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 1 1 17.9-.7z"/></svg></div>
+            <div><h3>WhatsApp</h3><p>+62 812-3456-7890 — respons tercepat, tersedia 08.00–21.00 WIB</p></div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg></div>
+            <div><h3>Email</h3><p>halo@radityaproperti.id — untuk pertanyaan detail atau lampiran dokumen</p></div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.5-9.5-9C.7 8 2 4.5 5.5 4a4.8 4.8 0 0 1 6.5 2 4.8 4.8 0 0 1 6.5-2C22 4.5 23.3 8 21.5 12 19 16.5 12 21 12 21z"/></svg></div>
+            <div><h3>Alamat Kantor</h3><p>Jl. Kemang Raya No. 88, Jakarta Selatan, DKI Jakarta 12730</p></div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+            <div><h3>Jam Operasional</h3><p>Senin–Sabtu, 08.00–20.00 WIB. Survei akhir pekan tersedia dengan janji temu.</p></div>
+          </div>
+        </div>
+        <div class="footer-social" style="margin-top:8px;">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v5M8 8v.01M12 16v-3a2 2 0 1 1 4 0v3M12 13v3"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3v11a3.5 3.5 0 1 1-3-3.46"/><path d="M14 3c.5 3 2.3 5 5 5.3"/></svg></a>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="form-card">
+          <div class="eyebrow">Formulir Konsultasi</div>
+          <h3 style="font-size:24px; margin-bottom:8px;">Isi Detail Kebutuhan Anda</h3>
+          <p style="font-size:14px; color:var(--text-soft); margin-bottom:30px;">Semakin lengkap informasi yang Anda berikan, semakin cepat saya bisa membantu.</p>
+          <form id="contact-form">
+            <div class="form-row">
+              <div class="field">
+                <label for="nama">Nama Lengkap</label>
+                <input type="text" id="nama" placeholder="Nama Anda" required>
+              </div>
+              <div class="field">
+                <label for="telepon">Nomor WhatsApp</label>
+                <input type="tel" id="telepon" placeholder="08xx-xxxx-xxxx" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="nama@email.com" required>
+            </div>
+            <div class="field">
+              <label for="kebutuhan">Jenis Kebutuhan</label>
+              <select id="kebutuhan">
+                <option>Beli Properti</option>
+                <option>Jual Properti</option>
+                <option>Sewa Properti</option>
+                <option>Konsultasi Investasi</option>
+                <option>Lainnya</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="pesan">Pesan</label>
+              <textarea id="pesan" placeholder="Ceritakan lokasi, bujet, atau kriteria yang Anda cari..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;">Kirim Pesan <span class="btn-arrow">→</span></button>
+            <p class="form-note">Dengan mengirim formulir ini, Anda setuju untuk dihubungi kembali melalui WhatsApp atau email terkait kebutuhan properti Anda.</p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAP ============ -->
+<section class="pad bg-ivory">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow center">Lokasi Kantor</div>
+      <h2 class="section-title center">Temui Saya di Kemang, Jakarta Selatan</h2>
+      <p class="section-sub center">Kunjungan ke kantor tersedia dengan janji temu terlebih dahulu agar saya bisa mempersiapkan diskusi sebaik mungkin.</p>
+    </div>
+    <div class="map-wrap reveal">
+      <iframe src="https://maps.google.com/maps?q=Jl.%20Kemang%20Raya%2C%20Jakarta%20Selatan&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Peta lokasi kantor Raditya Properti di Kemang, Jakarta Selatan"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="pad bg-paper">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow center">Sebelum Menghubungi</div>
+      <h2 class="section-title center">Pertanyaan Seputar Konsultasi</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q">Apakah konsultasi awal benar-benar gratis? <span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Ya, sepenuhnya gratis dan tanpa kewajiban. Konsultasi awal digunakan untuk memahami kebutuhan Anda dan menentukan apakah saya bisa membantu secara efektif.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Berapa lama waktu respons setelah mengisi formulir? <span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Pada jam operasional (08.00–20.00 WIB), pesan biasanya dibalas dalam 1-2 jam. Di luar jam tersebut, saya akan menghubungi kembali paling lambat keesokan harinya.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Apakah bisa survei properti di luar jam kerja? <span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Bisa. Saya cukup fleksibel mengikuti jadwal klien, termasuk sore hari maupun akhir pekan, selama dijadwalkan terlebih dahulu.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Saya belum yakin mau jual atau sewa, apakah tetap bisa konsultasi? <span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Tentu saja. Banyak klien memulai dari sekadar bertanya-tanya. Saya akan membantu memetakan opsi terbaik sesuai kondisi dan tujuan Anda.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" aria-label="Kembali ke Beranda Raditya Properti">
+          <span class="brand-mark">R</span>
+          <span class="brand-text"><b>Raditya Properti</b><span>Konsultan Independen</span></span>
+        </a>
+        <p>Konsultan properti independen yang mendampingi setiap klien secara personal di kawasan Jabodetabek sejak 2016.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v5M8 8v.01M12 16v-3a2 2 0 1 1 4 0v3M12 13v3"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4A8.5 8.5 0 0 1 7 19L3 20l1-4a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 1 1 17.9-.7z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="tentang.html">Tentang Saya</a></li>
+          <li><a href="properti.html">Properti</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="properti.html">Jual Properti</a></li>
+          <li><a href="properti.html">Beli Properti</a></li>
+          <li><a href="properti.html">Sewa Properti</a></li>
+          <li><a href="kontak.html">Konsultasi Investasi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <ul>
+          <li><a href="tel:+622112345678">(021) 1234-5678</a></li>
+          <li><a href="mailto:halo@radityaproperti.id">halo@radityaproperti.id</a></li>
+          <li><a href="kontak.html">Jl. Kemang Raya No. 88, Jakarta Selatan</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Raditya Properti. Seluruh hak cipta dilindungi.</span>
+      <span>Terdaftar AREBI · Anggota REI Jakarta</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// =========================================================
+// RADITYA PROPERTI — shared interactions
+// =========================================================
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ---------- Header: transparent -> solid on scroll ---------- */
+  var header = document.querySelector('.site-header');
+  function handleScroll () {
+    if (!header) return;
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  }
+  handleScroll();
+  window.addEventListener('scroll', handleScroll, { passive: true });
+
+  /* ---------- Mobile nav toggle ---------- */
+  var toggle = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (toggle && navLinks) {
+    toggle.addEventListener('click', function () {
+      navLinks.classList.toggle('open');
+      toggle.classList.toggle('active');
+    });
+    navLinks.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        navLinks.classList.remove('open');
+      });
+    });
+  }
+
+  /* ---------- Active nav link by current page ---------- */
+  var current = (window.location.pathname.split('/').pop() || 'index.html');
+  document.querySelectorAll('.nav-links a[data-page]').forEach(function (a) {
+    if (a.getAttribute('data-page') === current) a.classList.add('active');
+  });
+
+  /* ---------- FAQ accordion: one open at a time ---------- */
+  document.querySelectorAll('.faq-list').forEach(function (list) {
+    var items = list.querySelectorAll('.faq-item');
+    items.forEach(function (item) {
+      var q = item.querySelector('.faq-q');
+      var a = item.querySelector('.faq-a');
+      q.addEventListener('click', function () {
+        var isActive = item.classList.contains('active');
+        items.forEach(function (other) {
+          other.classList.remove('active');
+          other.querySelector('.faq-a').style.maxHeight = null;
+        });
+        if (!isActive) {
+          item.classList.add('active');
+          a.style.maxHeight = a.scrollHeight + 40 + 'px';
+        }
+      });
+    });
+    // open first item by default
+    if (items.length) {
+      items[0].classList.add('active');
+      var firstA = items[0].querySelector('.faq-a');
+      firstA.style.maxHeight = firstA.scrollHeight + 40 + 'px';
+    }
+  });
+
+  /* ---------- Scroll reveal ---------- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ---------- Property filter tabs (properti.html) ---------- */
+  var tabs = document.querySelectorAll('.tab-btn');
+  var propCards = document.querySelectorAll('[data-category]');
+  if (tabs.length && propCards.length) {
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        tabs.forEach(function (t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        var cat = tab.getAttribute('data-filter');
+        propCards.forEach(function (card) {
+          if (cat === 'semua' || card.getAttribute('data-category') === cat) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
+  /* ---------- Contact form: kirim langsung ke WhatsApp ---------- */
+  var form = document.querySelector('#contact-form');
+  if (form) {
+    // Nomor WhatsApp tujuan (format internasional, tanpa + / spasi / strip)
+    var WA_NUMBER = '6281234567890';
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Pastikan field wajib terisi sebelum lanjut ke WhatsApp
+      if (typeof form.reportValidity === 'function' && !form.reportValidity()) {
+        return;
+      }
+
+      var nama = (form.querySelector('#nama') || {}).value || '-';
+      var telepon = (form.querySelector('#telepon') || {}).value || '-';
+      var email = (form.querySelector('#email') || {}).value || '-';
+      var kebutuhanEl = form.querySelector('#kebutuhan');
+      var kebutuhan = kebutuhanEl ? kebutuhanEl.value : '-';
+      var pesan = (form.querySelector('#pesan') || {}).value || '-';
+
+      var teks =
+        'Halo Raditya Properti, saya ingin konsultasi:\n\n' +
+        '*Nama:* ' + nama + '\n' +
+        '*No. WhatsApp:* ' + telepon + '\n' +
+        '*Email:* ' + email + '\n' +
+        '*Jenis Kebutuhan:* ' + kebutuhan + '\n' +
+        '*Pesan:*\n' + pesan;
+
+      var waUrl = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(teks);
+
+      // Tampilkan status sekilas, lalu buka WhatsApp di tab baru
+      var btn = form.querySelector('button[type="submit"]');
+      var original = btn.innerHTML;
+      btn.innerHTML = 'Membuka WhatsApp… ✓';
+      btn.style.background = 'var(--sage)';
+      btn.style.color = '#fff';
+
+      window.open(waUrl, '_blank');
+
+      form.reset();
+      setTimeout(function () {
+        btn.innerHTML = original;
+        btn.style.background = '';
+        btn.style.color = '';
+      }, 3200);
+    });
+  }
+
+});
+
+</script>
+</body>
+</html>

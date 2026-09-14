@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak — Artamitra Pajak</title>
+<meta name="description" content="Hubungi Artamitra Pajak untuk konsultasi gratis. Kantor di Jakarta, Surabaya, dan Bandung.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="nav-wrap">
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 6.5V11c0 5.2 3.6 9.7 9 11 5.4-1.3 9-5.8 9-11V6.5L12 2Z" stroke="#E4C077" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8" stroke="#E4C077" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="brand-name">Artamitra<span>Konsultan Pajak</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Beranda</a>
+        <a href="layanan.html">Layanan</a>
+        <a href="tentang.html">Tentang Kami</a>
+        <a href="kontak.html" class="active">Kontak</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="kontak.html" class="btn btn-outline btn-sm">Masuk Klien</a>
+        <a href="kontak.html" class="btn btn-gold btn-sm">Konsultasi Gratis</a>
+        <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Beranda</a><span>/</span><span>Kontak</span></div>
+    <span class="eyebrow on-dark">Hubungi Kami</span>
+    <h1>Mari diskusikan kebutuhan pajak Anda</h1>
+    <p>Tim kami siap membantu — isi formulir di bawah atau hubungi kami langsung melalui telepon, email, atau kunjungan kantor.</p>
+  </div>
+</section>
+
+<!-- ============ INFO + FORM ============ -->
+<section>
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal in">
+        <div class="contact-info-card">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 10c0 5-8 12-8 12s-8-7-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><h4>Kantor Pusat</h4><p>Jl. Jenderal Sudirman Kav. 45, Lantai 12<br>Jakarta Selatan 12190, Indonesia</p></div>
+        </div>
+        <div class="contact-info-card">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5c0 9 7 16 16 16l3-4-6-3-2 2c-2-1-4-3-5-5l2-2-3-6-4 1Z"/></svg></div>
+          <div><h4>Telepon &amp; WhatsApp</h4><p>(021) 555-0182<br>+62 812-3456-7890</p></div>
+        </div>
+        <div class="contact-info-card">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+          <div><h4>Email</h4><p>halo@artamitrapajak.co.id<br>konsultasi@artamitrapajak.co.id</p></div>
+        </div>
+        <div class="contact-info-card">
+          <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg></div>
+          <div><h4>Jam Operasional</h4><p>Senin – Jumat: 08.30 – 17.30 WIB<br>Sabtu: 09.00 – 13.00 WIB</p></div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1 in">
+        <div class="form-card">
+          <h3 style="font-size:24px; margin-bottom:8px;">Formulir Konsultasi Gratis</h3>
+          <p style="color:var(--ink-soft); font-size:14.5px; margin-bottom:28px;">Lengkapi data di bawah, tim kami akan menghubungi Anda dalam 1x24 jam.</p>
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="field"><label for="nama">Nama Lengkap</label><input id="nama" type="text" placeholder="Nama Anda" required></div>
+              <div class="field"><label for="telp">Nomor Telepon</label><input id="telp" type="tel" placeholder="08xx-xxxx-xxxx" required></div>
+            </div>
+            <div class="form-row">
+              <div class="field field-email"><label for="email">Email</label><input id="email" type="email" placeholder="nama@email.com" required></div>
+              <div class="field"><label for="layanan">Layanan yang Diminati</label>
+                <select id="layanan">
+                  <option>Perencanaan Pajak</option>
+                  <option>Pelaporan SPT</option>
+                  <option>Pendampingan Pemeriksaan</option>
+                  <option>Sengketa Pajak</option>
+                  <option>Pajak UMKM</option>
+                  <option>Lainnya</option>
+                </select>
+              </div>
+            </div>
+            <div class="field full" style="margin-bottom:26px;">
+              <label for="pesan">Pesan</label>
+              <textarea id="pesan" placeholder="Ceritakan kebutuhan pajak Anda secara singkat..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold" style="width:100%;">Kirim Permintaan Konsultasi</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PETA ============ -->
+<section class="section-tight">
+  <div class="container">
+    <div class="map-frame reveal in">
+      <iframe src="https://www.google.com/maps?q=Jl.+Jenderal+Sudirman+Kav.+45,+Jakarta+Selatan&z=16&output=embed" loading="lazy" title="Lokasi Kantor Artamitra Pajak — Google Maps"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CABANG KANTOR ============ -->
+<section style="background:var(--paper-2);">
+  <div class="container">
+    <div class="section-head center reveal in">
+      <span class="eyebrow" style="justify-content:center;">Jaringan Kantor</span>
+      <h2>Tiga kantor, satu standar layanan</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="office-card reveal in">
+        <img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=600&q=80" alt="Kantor Jakarta">
+        <div class="body">
+          <h4>Jakarta (Pusat)</h4>
+          <p>Jl. Jenderal Sudirman Kav. 45, Lantai 12<br>Jakarta Selatan 12190</p>
+        </div>
+      </div>
+      <div class="office-card reveal reveal-delay-1 in">
+        <img src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=600&q=80" alt="Kantor Surabaya">
+        <div class="body">
+          <h4>Surabaya</h4>
+          <p>Jl. Basuki Rahmat No. 78, Lantai 5<br>Surabaya 60271</p>
+        </div>
+      </div>
+      <div class="office-card reveal reveal-delay-2 in">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Kantor Bandung">
+        <div class="body">
+          <h4>Bandung</h4>
+          <p>Jl. Asia Afrika No. 112, Lantai 3<br>Bandung 40112</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section>
+  <div class="container">
+    <div class="section-head center reveal in">
+      <span class="eyebrow" style="justify-content:center;">Pertanyaan Umum</span>
+      <h2>Sebelum menghubungi kami, mungkin ini membantu</h2>
+    </div>
+    <div class="faq-list reveal in">
+      <div class="faq-item">
+        <button class="faq-q"><span>Apakah sesi konsultasi pertama benar-benar gratis?</span><span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Ya, sesi konsultasi awal selama 30 menit tidak dikenakan biaya apa pun dan tanpa komitmen lanjutan. Anda bebas menentukan apakah ingin melanjutkan kerja sama setelahnya.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Apakah saya harus datang langsung ke kantor?</span><span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Tidak wajib. Sebagian besar sesi konsultasi dapat dilakukan secara daring melalui video call. Kunjungan langsung tersedia untuk klien di sekitar Jakarta, Surabaya, dan Bandung.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Berapa lama waktu tunggu untuk dihubungi kembali?</span><span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Tim kami akan menghubungi Anda melalui telepon atau email dalam waktu 1x24 jam kerja setelah formulir dikirimkan.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Apakah Artamitra melayani klien di luar Jakarta, Surabaya, dan Bandung?</span><span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Ya. Melalui layanan konsultasi daring, kami melayani klien dari seluruh Indonesia bahkan warga negara Indonesia yang berdomisili di luar negeri.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Dokumen apa saja yang perlu saya siapkan untuk konsultasi awal?</span><span class="faq-icon"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Untuk konsultasi awal, cukup siapkan gambaran umum kondisi usaha atau pajak Anda. Dokumen detail seperti laporan keuangan atau SPT sebelumnya baru diperlukan pada tahap analisis lanjutan.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta-banner reveal in">
+      <div>
+        <h2>Jangan tunda urusan pajak Anda</h2>
+        <p>Semakin cepat berkonsultasi, semakin banyak opsi strategi yang bisa kami tawarkan.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="#contactForm" class="btn btn-gold">Isi Formulir Sekarang</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand"><span class="brand-mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 6.5V11c0 5.2 3.6 9.7 9 11 5.4-1.3 9-5.8 9-11V6.5L12 2Z" stroke="#E4C077" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span class="brand-name">Artamitra</span></a>
+        <p>Konsultan pajak terdaftar yang membantu bisnis dan individu mengelola kewajiban perpajakan secara legal, efisien, dan terencana sejak 2010.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M12 17v-4.5a2.5 2.5 0 0 1 5 0V17M12 10v7"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M20 12a8 8 0 1 1-3.6-6.7"/><path d="M20 4l-4 4"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="layanan.html">Layanan</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="layanan.html">Perencanaan Pajak</a></li>
+          <li><a href="layanan.html">Pelaporan SPT</a></li>
+          <li><a href="layanan.html">Sengketa Pajak</a></li>
+          <li><a href="layanan.html">Pajak UMKM</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <ul class="footer-contact">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 10c0 5-8 12-8 12s-8-7-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Jl. Sudirman Kav. 45, Jakarta Selatan</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 5c0 9 7 16 16 16l3-4-6-3-2 2c-2-1-4-3-5-5l2-2-3-6-4 1Z"/></svg> (021) 555-0182</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> halo@artamitrapajak.co.id</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Artamitra Pajak. Seluruh hak cipta dilindungi.</span>
+      <div class="footer-legal"><a href="#">Kebijakan Privasi</a><a href="#">Syarat &amp; Ketentuan</a></div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-top" aria-label="Kembali ke atas"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<script src="script.js"></script>
+<script>
+// Kirim form konsultasi ke WhatsApp
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const nama = document.getElementById('nama').value.trim();
+    const telp = document.getElementById('telp').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const layanan = document.getElementById('layanan').value;
+    const pesan = document.getElementById('pesan').value.trim();
+
+    // Nomor WA tujuan (kantor)
+    const nomorWA = '6281234567890';
+
+    const teks =
+`Halo Artamitra Pajak, saya ingin konsultasi:
+
+Nama: ${nama}
+No. Telepon: ${telp}
+Email: ${email}
+Layanan: ${layanan}
+Pesan: ${pesan || '-'}`;
+
+    const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(teks)}`;
+    window.open(url, '_blank');
+  });
+}
+</script>
+</body>
+</html>

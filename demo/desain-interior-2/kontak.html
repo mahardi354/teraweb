@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak — Ruang & Rasa Studio Interior</title>
+<meta name="description" content="Hubungi Ruang & Rasa untuk konsultasi desain interior gratis. Kunjungi studio kami di Jakarta Selatan atau isi formulir untuk dijadwalkan bersama desainer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand"><span class="brand-mark">R&amp;R</span>Ruang <em>&amp;</em> Rasa</a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="tentang.html">Tentang Kami</a></li>
+        <li><a href="layanan.html">Layanan</a></li>
+        <li><a href="kontak.html" class="active">Kontak</a></li>
+      </ul>
+    </nav>
+    <a href="kontak.html" class="header-cta">Konsultasi Gratis</a>
+    <button class="nav-toggle" aria-label="Buka menu"><span></span></button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <p class="eyebrow">Kontak</p>
+    <h1>Mari mulai percakapan tentang ruang Anda.</h1>
+    <p class="lead">Isi formulir di bawah atau kunjungi studio kami langsung. Tim kami biasanya membalas dalam 1x24 jam pada hari kerja.</p>
+    <p class="hero-breadcrumb"><a href="index.html">Beranda</a> / Kontak</p>
+  </div>
+</section>
+
+<!-- ================= INFO CARDS (RATA TENGAH) ================= -->
+<section style="padding-bottom:0;">
+  <div class="container card-grid" style="grid-template-columns:repeat(4,1fr);">
+    <div class="card reveal">
+      <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <h3 style="font-size:18px;">Alamat Studio</h3>
+      <p>Jl. Kemang Raya No. 21<br>Jakarta Selatan, 12730</p>
+    </div>
+    <div class="card reveal">
+      <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2z"/></svg></div>
+      <h3 style="font-size:18px;">Telepon &amp; WhatsApp</h3>
+      <p>+62 812 3456 7890<br>Senin–Sabtu</p>
+    </div>
+    <div class="card reveal">
+      <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+      <h3 style="font-size:18px;">Email</h3>
+      <p>halo@ruangdanrasa.id<br>proyek@ruangdanrasa.id</p>
+    </div>
+    <div class="card reveal">
+      <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+      <h3 style="font-size:18px;">Jam Operasional</h3>
+      <p>Senin–Jumat 09.00–18.00<br>Sabtu 09.00–14.00</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FORM + MAP ================= -->
+<section>
+  <div class="container two-col" style="align-items:flex-start;">
+    <div class="reveal">
+      <p class="eyebrow">Formulir Konsultasi</p>
+      <h2 style="font-size:clamp(26px,3.2vw,36px);">Ceritakan sedikit tentang proyek Anda</h2>
+      <p style="margin-top:16px; color:var(--ink-soft);">Semakin lengkap informasi yang Anda berikan, semakin cepat tim kami menyiapkan rekomendasi awal sebelum sesi konsultasi.</p>
+
+      <form id="contact-form" style="margin-top:34px; display:flex; flex-direction:column; gap:20px;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+          <div>
+            <label style="font-family:var(--font-mono); font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft);">Nama Lengkap</label>
+            <input type="text" id="nama" required placeholder="Nama Anda" style="width:100%; margin-top:8px; padding:14px 16px; border:1px solid var(--line); border-radius:4px; background:var(--paper); font-family:var(--font-body); font-size:15px;">
+          </div>
+          <div>
+            <label style="font-family:var(--font-mono); font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft);">Nomor WhatsApp</label>
+            <input type="tel" id="hp" required placeholder="08xx xxxx xxxx" style="width:100%; margin-top:8px; padding:14px 16px; border:1px solid var(--line); border-radius:4px; background:var(--paper); font-family:var(--font-body); font-size:15px;">
+          </div>
+        </div>
+        <div>
+          <label style="font-family:var(--font-mono); font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft);">Email</label>
+          <input type="email" id="email" required placeholder="nama@email.com" style="width:100%; margin-top:8px; padding:14px 16px; border:1px solid var(--line); border-radius:4px; background:var(--paper); font-family:var(--font-body); font-size:15px;">
+        </div>
+        <div>
+          <label style="font-family:var(--font-mono); font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft);">Jenis Ruang</label>
+          <select id="layanan" style="width:100%; margin-top:8px; padding:14px 16px; border:1px solid var(--line); border-radius:4px; background:var(--paper); font-family:var(--font-body); font-size:15px;">
+            <option>Rumah Tinggal</option>
+            <option>Apartemen</option>
+            <option>Kantor</option>
+            <option>Kafe / Retail</option>
+            <option>Lainnya</option>
+          </select>
+        </div>
+        <div>
+          <label style="font-family:var(--font-mono); font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-soft);">Ceritakan Proyek Anda</label>
+          <textarea id="pesan" rows="4" required placeholder="Luas ruang, gaya yang diinginkan, estimasi anggaran, dsb." style="width:100%; margin-top:8px; padding:14px 16px; border:1px solid var(--line); border-radius:4px; background:var(--paper); font-family:var(--font-body); font-size:15px; resize:vertical;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="background:var(--bronze); align-self:flex-start;">Kirim Formulir <span class="btn-arrow">→</span></button>
+      </form>
+    </div>
+
+    <div class="reveal" style="position:sticky; top:120px;">
+      <div class="bracket-frame" style="border-radius:8px; overflow:hidden;">
+        <span class="bf-corner tl"></span><span class="bf-corner br"></span>
+        <iframe
+          src="https://www.google.com/maps?q=Jl.+Kemang+Raya,+Jakarta+Selatan&output=embed"
+          width="100%" height="420" style="border:0; display:block; filter:grayscale(15%) contrast(1.05);"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Lokasi Studio Ruang & Rasa di Google Maps"></iframe>
+      </div>
+      <div class="tag-pill" style="margin-top:20px;">📍 Jl. Kemang Raya No. 21, Jakarta Selatan, 12730</div>
+      <p style="margin-top:20px; color:var(--ink-soft); font-size:14.5px;">Studio kami berjarak 5 menit jalan kaki dari Kemang Village. Tersedia area parkir untuk pengunjung dengan janji temu.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOSIAL & CHANNEL LAIN ================= -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow" style="justify-content:center;">Kanal Lain</p>
+      <h2>Pilih cara yang paling nyaman untuk Anda</h2>
+    </div>
+    <div class="card-grid">
+      <div class="card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></div>
+        <h3>Instagram</h3>
+        <p>Lihat portofolio harian dan proses di balik layar proyek kami.</p>
+        <span class="card-tag">@ruangdanrasa.id</span>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2z"/></svg></div>
+        <h3>WhatsApp Business</h3>
+        <p>Chat langsung dengan tim konsultasi untuk respons lebih cepat.</p>
+        <span class="card-tag">+62 812 3456 7890</span>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.5 6.5L21 10l-5 4.5L17.5 21 12 17.5 6.5 21 8 14.5 3 10l6.5-1.5L12 2z"/></svg></div>
+        <h3>Pinterest</h3>
+        <p>Kumpulan moodboard dan inspirasi ruang dari berbagai proyek kami.</p>
+        <span class="card-tag">Ruang &amp; Rasa Studio</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow" style="justify-content:center;">Sebelum Menghubungi Kami</p>
+      <h2>Pertanyaan seputar proses konsultasi</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Apakah sesi konsultasi awal benar-benar gratis?<span class="faq-icon"></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Ya, sesi konsultasi pertama (30–45 menit) tidak dikenakan biaya, baik secara tatap muka di studio maupun melalui panggilan video. Sesi ini digunakan untuk memahami kebutuhan awal dan menentukan paket yang paling sesuai.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Berapa lama waktu respons setelah mengisi formulir?<span class="faq-icon"></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Tim kami akan menghubungi Anda melalui WhatsApp atau email dalam waktu 1x24 jam pada hari kerja untuk menjadwalkan sesi konsultasi.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Apakah saya perlu datang langsung ke studio?<span class="faq-icon"></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Tidak wajib. Konsultasi awal dapat dilakukan sepenuhnya secara daring. Kunjungan ke lokasi proyek akan dijadwalkan pada tahap survei apabila proyek dilanjutkan.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Apakah Ruang &amp; Rasa melayani konsultasi di luar Jakarta?<span class="faq-icon"></span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">Ya. Kami melayani klien di lebih dari 18 kota. Konsultasi awal dapat dilakukan secara daring, dengan kunjungan lapangan dijadwalkan sesuai kebutuhan proyek dan lokasi.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand"><span class="brand-mark">R&amp;R</span>Ruang <em>&amp;</em> Rasa</a>
+        <p class="footer-desc">Studio desain interior yang merancang ruang residensial dan komersial dengan pendekatan personal, material jujur, dan detail yang matang sejak 2014.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Pinterest">PN</a>
+          <a href="#" aria-label="TikTok">TT</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigasi</h5>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="layanan.html">Layanan</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Layanan</h5>
+        <ul>
+          <li><a href="layanan.html">Desain Residensial</a></li>
+          <li><a href="layanan.html">Desain Komersial</a></li>
+          <li><a href="layanan.html">Renovasi &amp; Build</a></li>
+          <li><a href="layanan.html">Furnitur Custom</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Kontak</h5>
+        <ul class="footer-contact">
+          <li>📍 Jl. Kemang Raya No. 21, Jakarta Selatan</li>
+          <li>📞 +62 812 3456 7890</li>
+          <li>✉️ halo@ruangdanrasa.id</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ruang &amp; Rasa Studio Interior. Seluruh hak cipta dilindungi.</span>
+      <span><a href="kontak.html">Kebijakan Privasi</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// Kirim form konsultasi ke WhatsApp
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const nama = document.getElementById('nama').value.trim();
+    const hp = document.getElementById('hp').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const layanan = document.getElementById('layanan').value;
+    const pesan = document.getElementById('pesan').value.trim();
+
+    // Nomor WA tujuan (studio)
+    const nomorWA = '6281234567890';
+
+    const teks =
+`Halo Ruang & Rasa, saya ingin konsultasi proyek:
+
+Nama: ${nama}
+No. WhatsApp: ${hp}
+Email: ${email}
+Jenis Ruang: ${layanan}
+Ceritakan Proyek: ${pesan}`;
+
+    const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(teks)}`;
+    window.open(url, '_blank');
+  });
+}
+</script>
+</body>
+</html>

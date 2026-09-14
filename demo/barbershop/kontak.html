@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak & Booking — GARIS. Barbershop</title>
+<meta name="description" content="Booking jadwal GARIS. Barbershop, lihat lokasi di Google Maps, jam operasional, dan hubungi kami langsung via WhatsApp.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span>GARIS.</span>
+      <small>BARBERSHOP&nbsp;&nbsp;•&nbsp;&nbsp;EST. 2016</small>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">Beranda</a>
+      <a href="layanan.html">Layanan</a>
+      <a href="galeri.html">Galeri</a>
+      <a href="kontak.html" class="active">Kontak</a>
+    </nav>
+    <div class="header-actions">
+      <a href="#booking" class="btn btn-primary btn-sm">Booking Sekarang</a>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav">
+  <button class="mobile-nav-close" aria-label="Tutup menu">✕</button>
+  <a href="index.html">Beranda</a>
+  <a href="layanan.html">Layanan</a>
+  <a href="galeri.html">Galeri</a>
+  <a href="kontak.html" class="active">Kontak</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Beranda</a><span>/</span><span style="color:var(--gold);">Kontak</span></div>
+    <h1>Booking & <em>Kontak</em></h1>
+    <p>Amankan jadwalmu dalam empat langkah mudah, atau langsung hubungi kami via WhatsApp.</p>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="section-tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="justify-content:center;">Cara Booking</div>
+      <h2>Empat Langkah, <em>Kelar</em></h2>
+      <p>Isi form di bawah, pesanmu akan langsung terkirim rapi ke WhatsApp kami.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <h3>Isi Data Diri</h3>
+        <p>Nama lengkap dan nomor HP aktif yang bisa kami hubungi.</p>
+      </div>
+      <div class="step reveal reveal-d1">
+        <div class="step-num">02</div>
+        <h3>Pilih Layanan & Barber</h3>
+        <p>Tentukan gaya yang kamu mau dan barber favoritmu.</p>
+      </div>
+      <div class="step reveal reveal-d2">
+        <div class="step-num">03</div>
+        <h3>Tentukan Jadwal</h3>
+        <p>Pilih tanggal dan jam yang paling sesuai dengan waktumu.</p>
+      </div>
+      <div class="step reveal reveal-d3">
+        <div class="step-num">04</div>
+        <h3>Kirim & Konfirmasi</h3>
+        <p>Klik kirim, tim kami akan konfirmasi via WhatsApp dalam 15 menit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING FORM + INFO -->
+<section class="bg-alt" id="booking">
+  <div class="wrap contact-layout">
+
+    <!-- FORM -->
+    <div class="booking-card reveal">
+      <h3>Form Booking</h3>
+      <p>Lengkapi data di bawah ini, klik "Kirim via WhatsApp" dan pesananmu otomatis tersusun rapi.</p>
+      <form id="booking-form">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="nama">Nama Lengkap</label>
+            <input type="text" id="nama" name="nama" placeholder="cth. Budi Santoso" required>
+          </div>
+          <div class="form-field">
+            <label for="telp">Nomor WhatsApp</label>
+            <input type="tel" id="telp" name="telp" placeholder="08xx-xxxx-xxxx" required>
+          </div>
+          <div class="form-field">
+            <label for="layanan">Pilih Layanan</label>
+            <select id="layanan" name="layanan" required>
+              <option value="">— Pilih layanan —</option>
+              <option>Skin Fade Signature</option>
+              <option>Taper Cut</option>
+              <option>Classic Pompadour</option>
+              <option>Beard Grooming</option>
+              <option>Royal Shave</option>
+              <option>Coloring & Bleaching</option>
+              <option>Perm Curly Texture</option>
+              <option>Paket Combo Lengkap</option>
+              <option>Gentleman Package</option>
+              <option>Lainnya / belum yakin</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="barber">Pilih Barber</label>
+            <select id="barber" name="barber">
+              <option value="">Siapa saja / tidak masalah</option>
+              <option>Rian Saputra</option>
+              <option>Dimas Prakoso</option>
+              <option>Fajar Nugraha</option>
+              <option>Bayu Kurniawan</option>
+              <option>Yoga Pratama</option>
+              <option>Doni Setiawan</option>
+              <option>Eko Ramadhan</option>
+              <option>Wahyu Hidayat</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="tanggal">Tanggal</label>
+            <input type="date" id="tanggal" name="tanggal" required>
+          </div>
+          <div class="form-field">
+            <label for="jam">Jam</label>
+            <input type="time" id="jam" name="jam" required>
+          </div>
+          <div class="form-field full">
+            <label for="catatan">Catatan Tambahan (opsional)</label>
+            <textarea id="catatan" name="catatan" placeholder="cth. referensi gaya, alergi produk tertentu, dll."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-wa btn-block" style="margin-top:26px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.7.44 3.36 1.29 4.82L2 22l5.42-1.42a9.9 9.9 0 004.62 1.18h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.13-2.9-7-1.87-1.88-4.35-2.86-7-2.86zm0 18.1a8.2 8.2 0 01-4.18-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.35c0-4.53 3.7-8.22 8.24-8.22a8.19 8.19 0 015.83 2.4 8.16 8.16 0 012.41 5.82c0 4.53-3.7 8.2-8.25 8.2z"/></svg>
+          Kirim via WhatsApp
+        </button>
+        <p class="form-note">Dengan mengirim form ini, kamu akan diarahkan ke WhatsApp dengan pesan booking yang sudah tersusun otomatis — tim kami akan membalas secepatnya.</p>
+      </form>
+    </div>
+
+    <!-- INFO -->
+    <div class="reveal reveal-d1">
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <h4>Alamat</h4>
+          <p>Jl. Ahmad Yani No. 45, Purbalingga, Jawa Tengah 53314</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.9.35 1.79.68 2.63a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.45-1.27a2 2 0 012.11-.45c.84.33 1.73.56 2.63.68A2 2 0 0122 16.92z"/></svg></div>
+          <h4>Telepon / WhatsApp</h4>
+          <p>+62 812-3456-7890</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+          <h4>Email</h4>
+          <p>halo@garisbarbershop.id</p>
+        </div>
+        <div class="info-card">
+          <div class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></div>
+          <h4>Instagram</h4>
+          <p>@garis.barbershop</p>
+        </div>
+      </div>
+
+      <div class="hours-card">
+        <h4>Jam Operasional</h4>
+        <div class="hours-row"><span>Senin – Jumat</span><b>09.00 – 21.00</b></div>
+        <div class="hours-row"><span>Sabtu – Minggu</span><b>08.00 – 22.00</b></div>
+        <div class="hours-row"><span>Hari Libur Nasional</span><b>10.00 – 20.00</b></div>
+        <div class="hours-row off"><span>Idul Fitri (H-1 & H1)</span><b>Tutup</b></div>
+      </div>
+
+      <div class="map-wrap">
+        <iframe
+          src="https://maps.google.com/maps?q=Purbalingga%2C%20Jawa%20Tengah&t=&z=14&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Lokasi GARIS. Barbershop di Google Maps">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="justify-content:center;">FAQ</div>
+      <h2>Pertanyaan Seputar <em>Booking</em></h2>
+      <p>Belum ketemu jawaban yang kamu cari? Langsung chat kami via WhatsApp saja.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Apakah bisa datang langsung tanpa booking?</span><span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-in">Bisa, tapi kami sangat menyarankan booking terlebih dahulu terutama di akhir pekan agar kamu tidak perlu menunggu lama. Slot walk-in tersedia terbatas dan mengikuti sistem antre di tempat.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Berapa lama sebelum booking harus dikonfirmasi?</span><span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-in">Tim kami akan membalas konfirmasi jadwal dalam 15 menit setelah pesan booking terkirim di jam operasional. Di luar jam operasional, konfirmasi akan dibalas keesokan harinya.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Apakah bisa reschedule atau membatalkan jadwal?</span><span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-in">Tentu bisa. Cukup hubungi kami via WhatsApp minimal 2 jam sebelum jadwal untuk reschedule atau pembatalan agar slot bisa dialihkan ke klien lain.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Apakah ada biaya tambahan jika telat datang?</span><span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-in">Tidak ada biaya tambahan. Namun jika kamu terlambat lebih dari 15 menit dari jadwal, slot mungkin dialihkan ke klien lain dan kamu akan masuk antrean walk-in.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Metode pembayaran apa saja yang diterima?</span><span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-in">Kami menerima pembayaran tunai, kartu debit/kredit, QRIS, dan transfer bank untuk kemudahan transaksi kamu.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-tight">
+  <div class="wrap">
+    <div class="cta-banner reveal">
+      <div>
+        <h2>Butuh Respon Cepat? <em>Langsung Chat Aja.</em></h2>
+        <p>Tim kami siap bantu jawab pertanyaan dan atur jadwalmu secepatnya.</p>
+      </div>
+      <div class="actions">
+        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="btn btn-wa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.7.44 3.36 1.29 4.82L2 22l5.42-1.42a9.9 9.9 0 004.62 1.18h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.13-2.9-7-1.87-1.88-4.35-2.86-7-2.86z"/></svg>
+          Chat WhatsApp Sekarang
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand"><span>GARIS.</span></a>
+        <p>Barbershop modern untuk pria yang detail soal gaya. Fade presisi, suasana nyaman, hasil yang bikin pede.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-.9-.88-1.4-2.08-1.4-3.32h-3.1v13.94a2.8 2.8 0 11-2-2.68V10.7a5.9 5.9 0 00-1-.09A5.9 5.9 0 105.9 16.5a5.9 5.9 0 003.1-.86v-4.4a5.83 5.83 0 003.1.9v-3.1a6.2 6.2 0 004.5 1.9V8.8a3.9 3.9 0 01-1-2.98z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="layanan.html">Layanan</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="layanan.html">Potong Rambut</a></li>
+          <li><a href="layanan.html">Perawatan Jenggot</a></li>
+          <li><a href="layanan.html">Coloring & Perm</a></li>
+          <li><a href="layanan.html">Paket Membership</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-news">
+        <h4>Newsletter</h4>
+        <p>Info promo & jadwal barber favoritmu langsung ke email.</p>
+        <form class="news-form">
+          <input type="email" placeholder="Alamat email kamu" required>
+          <button type="submit" aria-label="Kirim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 GARIS. Barbershop. Seluruh hak cipta dilindungi.</span>
+      <div class="footer-legal">
+        <a href="#">Kebijakan Privasi</a>
+        <a href="#">Syarat & Ketentuan</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="wa-float" aria-label="Chat WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.7.44 3.36 1.29 4.82L2 22l5.42-1.42a9.9 9.9 0 004.62 1.18h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.13-2.9-7-1.87-1.88-4.35-2.86-7-2.86z"/></svg>
+</a>
+<button class="back-top" aria-label="Kembali ke atas">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>

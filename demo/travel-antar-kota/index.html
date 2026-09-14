@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lintasa Trans — Travel Antar Kota Aman, Nyaman & Tepat Waktu</title>
+<meta name="description" content="Lintasa Trans melayani perjalanan antar kota dengan armada nyaman, sopir berpengalaman, dan harga transparan. Pesan tiket travel antar kota favoritmu sekarang.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============================= HEADER ============================= -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="20" fill="#17A98A"/>
+        <path d="M9 24h4l2.2-6.6A2.5 2.5 0 0 1 17.6 15.7h6.8a2.5 2.5 0 0 1 2.4 1.7L29 24h2a1.2 1.2 0 0 1 1.2 1.2v3a1.2 1.2 0 0 1-1.2 1.2h-1.3a2.4 2.4 0 1 1-4.8 0H14.1a2.4 2.4 0 1 1-4.8 0H9a1.2 1.2 0 0 1-1.2-1.2v-3A1.2 1.2 0 0 1 9 24Z" fill="#0B2545"/>
+        <circle cx="14.5" cy="13" r="2.4" fill="#F4A340"/>
+      </svg>
+      <span class="brand-name">Lintasa <span>Trans</span></span>
+    </a>
+    <nav class="nav-main">
+      <a href="index.html" class="active">Beranda</a>
+      <a href="rute.html">Rute &amp; Armada</a>
+      <a href="tentang.html">Tentang Kami</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+    <div class="header-actions">
+      <a href="https://wa.me/6281234567890" class="btn btn-primary" target="_blank" rel="noopener">Pesan Sekarang</a>
+      <button class="nav-toggle" aria-label="Buka menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<div class="mobile-nav">
+  <div class="mobile-nav-top">
+    <span class="brand" style="color:#fff;">Lintasa <span style="color:#F4A340">Trans</span></span>
+    <button class="mobile-nav-close" aria-label="Tutup menu" style="background:none;border:none;color:#fff;font-size:30px;line-height:1;">&times;</button>
+  </div>
+  <a href="index.html">Beranda</a>
+  <a href="rute.html">Rute &amp; Armada</a>
+  <a href="tentang.html">Tentang Kami</a>
+  <a href="kontak.html">Kontak</a>
+  <a href="https://wa.me/6281234567890" class="btn btn-primary btn-block" target="_blank" rel="noopener">Pesan via WhatsApp</a>
+</div>
+
+<!-- ============================= HERO ============================= -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1740&auto=format&fit=crop" alt="jalan lintas antar kota di pegunungan">
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">Travel Antar Kota Terpercaya Sejak 2011</div>
+      <h1>Jelajahi Nusantara, <em>Satu Perjalanan</em> Sekaligus</h1>
+      <p class="lead">Lintasa Trans menghubungkan lebih dari 45 kota dengan armada nyaman, sopir berpengalaman, dan jadwal yang selalu tepat waktu. Tinggal duduk manis, sisanya biar kami yang urus.</p>
+      <div class="hero-cta">
+        <a href="#cari-rute" class="btn btn-amber">Cari Jadwal Perjalanan</a>
+        <a href="rute.html" class="btn btn-outline">Lihat Semua Rute</a>
+      </div>
+      <div class="hero-trust">
+        <div><strong>45+</strong><span>Kota Tujuan</span></div>
+        <div><strong>120+</strong><span>Armada Aktif</span></div>
+        <div><strong>50rb+</strong><span>Pelanggan Puas</span></div>
+        <div><strong>4.9/5</strong><span>Rating Pelanggan</span></div>
+      </div>
+    </div>
+
+    <!-- Search widget -->
+    <form id="searchForm" class="search-card" aria-label="Cari jadwal perjalanan">
+      <div class="search-field">
+        <label for="sfAsal">Kota Asal</label>
+        <select id="sfAsal" required>
+          <option value="">Pilih kota asal</option>
+          <option>Jakarta</option><option>Bandung</option><option>Semarang</option>
+          <option>Yogyakarta</option><option>Surabaya</option><option>Solo</option>
+          <option>Malang</option><option>Cirebon</option>
+        </select>
+      </div>
+      <span class="search-swap" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 7h13M7 7l4-4M7 7l4 4M17 17H4M17 17l-4 4M17 17l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <div class="search-field">
+        <label for="sfTujuan">Kota Tujuan</label>
+        <select id="sfTujuan" required>
+          <option value="">Pilih kota tujuan</option>
+          <option>Bandung</option><option>Yogyakarta</option><option>Surabaya</option>
+          <option>Malang</option><option>Solo</option><option>Jakarta</option>
+          <option>Semarang</option><option>Cirebon</option>
+        </select>
+      </div>
+      <div class="search-field">
+        <label for="sfTanggal">Tanggal Berangkat</label>
+        <input type="date" id="sfTanggal" required>
+      </div>
+      <div class="search-field">
+        <label for="sfPenumpang">Penumpang</label>
+        <select id="sfPenumpang">
+          <option>1 Penumpang</option><option>2 Penumpang</option>
+          <option>3 Penumpang</option><option>4+ Penumpang</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary" id="cari-rute">Cari Jadwal</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============================= USP ============================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="margin-inline:auto;">Kenapa Lintasa Trans</div>
+      <h2>Perjalanan Antar Kota yang Bisa Kamu Percaya</h2>
+      <p>Empat alasan utama kenapa ribuan penumpang memilih kami sebagai teman perjalanan mereka setiap bulan.</p>
+    </div>
+    <div class="grid grid-4">
+      <div class="card reveal reveal-1">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 8.2-7 9-4-.8-7-4.5-7-9V6l7-3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Aman &amp; Terpercaya</h3>
+        <p>Seluruh sopir tersertifikasi dan armada diasuransikan penuh untuk setiap perjalanan.</p>
+      </div>
+      <div class="card reveal reveal-2">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 17h16M6 17V9.5A2.5 2.5 0 0 1 8.5 7h7A2.5 2.5 0 0 1 18 9.5V17M8 17v2M16 17v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8.5" cy="17" r="1.4" fill="currentColor"/><circle cx="15.5" cy="17" r="1.4" fill="currentColor"/></svg></div>
+        <h3>Armada Nyaman</h3>
+        <p>Kursi reclining, AC dingin, dan ruang kaki lega di setiap kelas armada kami.</p>
+      </div>
+      <div class="card reveal reveal-3">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 8v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/></svg></div>
+        <h3>Tepat Waktu</h3>
+        <p>98% keberangkatan kami sesuai jadwal, karena waktu kamu berharga.</p>
+      </div>
+      <div class="card reveal reveal-4">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 10h18M6 6h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 14h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h3>Harga Transparan</h3>
+        <p>Tidak ada biaya tersembunyi — harga yang kamu lihat adalah harga yang kamu bayar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= RUTE POPULER ============================= -->
+<section class="section section--cream-2">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="margin-inline:auto;">Rute Favorit</div>
+      <h2>Rute Populer Minggu Ini</h2>
+      <p>Enam rute paling banyak dipesan penumpang kami — lengkap dengan jadwal keberangkatan setiap hari.</p>
+    </div>
+    <div class="grid grid-3">
+
+      <div class="route-card reveal reveal-1">
+        <div class="rc-media"><span class="rc-badge">Terlaris</span>
+          <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=1200&auto=format&fit=crop" alt="rute Jakarta Bandung"></div>
+        <div class="rc-body">
+          <div class="route-line"><span class="rl-city">Jakarta</span><span class="rl-track"></span><span class="rl-city">Bandung</span></div>
+          <div class="rc-meta"><span>⏱ 3 jam perjalanan</span><span>🚐 12x keberangkatan/hari</span></div>
+          <div class="rc-price"><div><strong>Rp 95.000</strong><span> /orang</span></div><a href="#" class="btn btn-ghost" data-wa-route="Jakarta - Bandung" style="padding:10px 18px;font-size:13.5px;">Pesan</a></div>
+        </div>
+      </div>
+
+      <div class="route-card reveal reveal-2">
+        <div class="rc-media"><span class="rc-badge">Populer</span>
+          <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=1200&auto=format&fit=crop" alt="rute Jakarta Yogyakarta"></div>
+        <div class="rc-body">
+          <div class="route-line"><span class="rl-city">Jakarta</span><span class="rl-track"></span><span class="rl-city">Yogyakarta</span></div>
+          <div class="rc-meta"><span>⏱ 9 jam perjalanan</span><span>🚐 6x keberangkatan/hari</span></div>
+          <div class="rc-price"><div><strong>Rp 220.000</strong><span> /orang</span></div><a href="#" class="btn btn-ghost" data-wa-route="Jakarta - Yogyakarta" style="padding:10px 18px;font-size:13.5px;">Pesan</a></div>
+        </div>
+      </div>
+
+      <div class="route-card reveal reveal-3">
+        <div class="rc-media"><span class="rc-badge">Hemat</span>
+          <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?q=80&w=1200&auto=format&fit=crop" alt="rute Surabaya Malang"></div>
+        <div class="rc-body">
+          <div class="route-line"><span class="rl-city">Surabaya</span><span class="rl-track"></span><span class="rl-city">Malang</span></div>
+          <div class="rc-meta"><span>⏱ 2 jam perjalanan</span><span>🚐 15x keberangkatan/hari</span></div>
+          <div class="rc-price"><div><strong>Rp 65.000</strong><span> /orang</span></div><a href="#" class="btn btn-ghost" data-wa-route="Surabaya - Malang" style="padding:10px 18px;font-size:13.5px;">Pesan</a></div>
+        </div>
+      </div>
+
+      <div class="route-card reveal reveal-1">
+        <div class="rc-media"><span class="rc-badge">Baru</span>
+          <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=1200&auto=format&fit=crop" alt="rute Semarang Solo"></div>
+        <div class="rc-body">
+          <div class="route-line"><span class="rl-city">Semarang</span><span class="rl-track"></span><span class="rl-city">Solo</span></div>
+          <div class="rc-meta"><span>⏱ 2.5 jam perjalanan</span><span>🚐 10x keberangkatan/hari</span></div>
+          <div class="rc-price"><div><strong>Rp 55.000</strong><span> /orang</span></div><a href="#" class="btn btn-ghost" data-wa-route="Semarang - Solo" style="padding:10px 18px;font-size:13.5px;">Pesan</a></div>
+        </div>
+      </div>
+
+      <div class="route-card reveal reveal-2">
+        <div class="rc-media"><span class="rc-badge">Favorit</span>
+          <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=1200&auto=format&fit=crop" alt="rute Bandung Cirebon"></div>
+        <div class="rc-body">
+          <div class="route-line"><span class="rl-city">Bandung</span><span class="rl-track"></span><span class="rl-city">Cirebon</span></div>
+          <div class="rc-meta"><span>⏱ 3.5 jam perjalanan</span><span>🚐 8x keberangkatan/hari</span></div>
+          <div class="rc-price"><div><strong>Rp 85.000</strong><span> /orang</span></div><a href="#" class="btn btn-ghost" data-wa-route="Bandung - Cirebon" style="padding:10px 18px;font-size:13.5px;">Pesan</a></div>
+        </div>
+      </div>
+
+      <div class="route-card reveal reveal-3">
+        <div class="rc-media"><span class="rc-badge">Akhir Pekan</span>
+          <img src="https://images.unsplash.com/photo-1465447142348-e9952c393450?q=80&w=1200&auto=format&fit=crop" alt="rute Yogyakarta Solo"></div>
+        <div class="rc-body">
+          <div class="route-line"><span class="rl-city">Yogyakarta</span><span class="rl-track"></span><span class="rl-city">Solo</span></div>
+          <div class="rc-meta"><span>⏱ 1.5 jam perjalanan</span><span>🚐 14x keberangkatan/hari</span></div>
+          <div class="rc-price"><div><strong>Rp 45.000</strong><span> /orang</span></div><a href="#" class="btn btn-ghost" data-wa-route="Yogyakarta - Solo" style="padding:10px 18px;font-size:13.5px;">Pesan</a></div>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:44px;">
+      <a href="rute.html" class="btn btn-primary">Lihat Semua Rute &amp; Jadwal</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= CARA PESAN (STEPS) ============================= -->
+<section class="section section--navy">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Mudah &amp; Cepat</div>
+      <h2>Empat Langkah Menuju Kota Tujuan</h2>
+      <p>Pesan tiket travel antar kota tanpa ribet, langsung dari genggaman tanganmu.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal reveal-1">
+        <div class="step-num">01</div>
+        <h3>Pilih Rute &amp; Tanggal</h3>
+        <p>Tentukan kota asal, tujuan, dan tanggal keberangkatan yang kamu inginkan.</p>
+      </div>
+      <div class="step reveal reveal-2">
+        <div class="step-num">02</div>
+        <h3>Isi Data Penumpang</h3>
+        <p>Masukkan nama dan jumlah penumpang yang akan ikut dalam perjalanan.</p>
+      </div>
+      <div class="step reveal reveal-3">
+        <div class="step-num">03</div>
+        <h3>Konfirmasi via WhatsApp</h3>
+        <p>Tim kami membalas dalam hitungan menit untuk konfirmasi kursi &amp; pembayaran.</p>
+      </div>
+      <div class="step reveal reveal-4">
+        <div class="step-num">04</div>
+        <h3>Berangkat Nyaman</h3>
+        <p>Datang ke titik jemput, dan biarkan kami mengantarmu sampai tujuan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= ARMADA TEASER (SPLIT) ============================= -->
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div class="split-media reveal">
+        <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=1200&auto=format&fit=crop" alt="interior armada Lintasa Trans yang nyaman">
+        <div class="split-badge">
+          <span class="num">15</span>
+          <span>Tahun<br>pengalaman melayani penumpang</span>
+        </div>
+      </div>
+      <div class="reveal reveal-2">
+        <div class="eyebrow">Armada Kami</div>
+        <h2>Setiap Kursi Dirancang untuk Perjalanan Panjang</h2>
+        <p>Dari kelas Ekonomi hingga VIP Sleeper, seluruh armada Lintasa Trans dirawat rutin dan dilengkapi fasilitas yang membuat perjalanan antar kota terasa sesingkat mungkin.</p>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Kursi recliner dengan sandaran kaki</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>AC dua blower &amp; colokan USB tiap kursi</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sopir profesional bersertifikat, sistem shift</li>
+          <li><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>GPS tracking real-time untuk keamanan keluarga</li>
+        </ul>
+        <a href="rute.html" class="btn btn-primary" style="margin-top:28px;">Lihat Semua Armada</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= TESTIMONI ============================= -->
+<section class="section section--cream-2">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="margin-inline:auto;">Kata Mereka</div>
+      <h2>Cerita dari Penumpang Kami</h2>
+      <p>Lebih dari 50.000 penumpang sudah mempercayakan perjalanan mereka pada Lintasa Trans.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card testi-card reveal reveal-1">
+        <div class="testi-stars">★★★★★</div>
+        <p>“Pesan tiketnya gampang banget, tinggal chat WhatsApp langsung dibalas cepat. Busnya juga bersih dan sopirnya sopan.”</p>
+        <div class="testi-person">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dewi Anggraini">
+          <div><strong>Dewi Anggraini</strong><span>Jakarta → Bandung</span></div>
+        </div>
+      </div>
+      <div class="card testi-card reveal reveal-2">
+        <div class="testi-stars">★★★★★</div>
+        <p>“Rute Jakarta-Jogja jadi langganan keluarga saya tiap lebaran. Selalu tepat waktu dan harga jujur, nggak ada biaya tambahan.”</p>
+        <div class="testi-person">
+          <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Bagas Prasetyo">
+          <div><strong>Bagas Prasetyo</strong><span>Jakarta → Yogyakarta</span></div>
+        </div>
+      </div>
+      <div class="card testi-card reveal reveal-3">
+        <div class="testi-stars">★★★★★</div>
+        <p>“Armada VIP-nya benar-benar nyaman buat tidur sepanjang perjalanan. Recommended untuk perjalanan malam hari!”</p>
+        <div class="testi-person">
+          <img src="https://randomuser.me/api/portraits/women/21.jpg" alt="Sri Wahyuni">
+          <div><strong>Sri Wahyuni</strong><span>Surabaya → Malang</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= CTA BANNER ============================= -->
+<section class="section">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Siap Menjelajahi Kota Berikutnya?</h2>
+      <p>Tim kami siap membantu merencanakan perjalananmu, kapan pun kamu butuhkan.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/6281234567890" class="btn btn-amber" target="_blank" rel="noopener">Chat via WhatsApp</a>
+        <a href="rute.html" class="btn btn-outline">Lihat Semua Rute</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FAQ ============================= -->
+<section class="section section--cream-2">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="margin-inline:auto;">Pertanyaan Umum</div>
+      <h2>Masih Ada yang Ingin Ditanyakan?</h2>
+      <p>Beberapa pertanyaan yang paling sering diajukan calon penumpang kami.</p>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item open">
+        <button class="faq-q"><span>Bagaimana cara memesan tiket Lintasa Trans?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>Kamu bisa memesan lewat form pencarian di beranda atau langsung chat tim kami via WhatsApp dengan menyebutkan rute, tanggal, dan jumlah penumpang.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Apakah bisa reschedule jika berhalangan berangkat?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>Bisa, selama pengajuan dilakukan maksimal 6 jam sebelum jadwal keberangkatan melalui WhatsApp customer service kami tanpa biaya tambahan.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Apakah tersedia titik jemput di rumah?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>Untuk beberapa rute tersedia layanan antar-jemput di area kota tertentu dengan biaya tambahan. Tanyakan ketersediaannya saat memesan.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Bagaimana metode pembayarannya?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>Pembayaran dapat dilakukan melalui transfer bank, e-wallet, atau tunai langsung di titik keberangkatan, sesuai konfirmasi admin kami.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Apakah bagasi dikenakan biaya tambahan?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>Setiap penumpang mendapat jatah bagasi hingga 20kg tanpa biaya tambahan. Kelebihan bagasi akan dikenakan biaya sesuai berat.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Apakah anak-anak dikenakan tarif penuh?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner"><p>Anak di bawah 5 tahun yang tidak menempati kursi terpisah tidak dikenakan biaya. Di atas usia tersebut dikenakan tarif seperti dewasa.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="20" fill="#17A98A"/>
+            <path d="M9 24h4l2.2-6.6A2.5 2.5 0 0 1 17.6 15.7h6.8a2.5 2.5 0 0 1 2.4 1.7L29 24h2a1.2 1.2 0 0 1 1.2 1.2v3a1.2 1.2 0 0 1-1.2 1.2h-1.3a2.4 2.4 0 1 1-4.8 0H14.1a2.4 2.4 0 1 1-4.8 0H9a1.2 1.2 0 0 1-1.2-1.2v-3A1.2 1.2 0 0 1 9 24Z" fill="#0B2545"/>
+            <circle cx="14.5" cy="13" r="2.4" fill="#F4A340"/>
+          </svg>
+          <span class="brand-name">Lintasa <span>Trans</span></span>
+        </a>
+        <p>Menghubungkan kota-kota di Nusantara dengan perjalanan yang aman, nyaman, dan tepat waktu sejak 2011.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#fff" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="#fff" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1" fill="#fff"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none"><path d="M14 9h2V6h-2c-1.7 0-3 1.3-3 3v2H9v3h2v6h3v-6h2.2l.8-3H14V9Z" fill="#fff"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none"><path d="M14 4c.3 1.8 1.5 3 3.4 3.2V10c-1.2 0-2.3-.4-3.4-1.1v5.6a4.6 4.6 0 1 1-4.6-4.6c.3 0 .6 0 .9.1v2.6a2 2 0 1 0 1.4 1.9V4H14Z" fill="#fff"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="rute.html">Rute &amp; Armada</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="rute.html">Travel Reguler</a></li>
+          <li><a href="rute.html">Sewa Armada Rombongan</a></li>
+          <li><a href="rute.html">Antar Jemput Bandara</a></li>
+          <li><a href="kontak.html">Charter Perusahaan</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <ul>
+          <li class="fc-contact"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-6.1-7-11a7 7 0 1 1 14 0c0 4.9-7 11-7 11Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg><span>Jl. Terusan Pahlawan No. 88, Bandung, Jawa Barat</span></li>
+          <li class="fc-contact"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h4l2 5-2.5 1.5a12 12 0 0 0 5 5L14 14l5 2v4a2 2 0 0 1-2 2C9.6 22 2 14.4 2 7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6"/></svg><span>0812-3456-7890</span></li>
+          <li class="fc-contact"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.6"/></svg><span>halo@lintasatrans.id</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-route-line">
+      <div class="route-line route-line--white">
+        <span class="rl-city">Jakarta</span><span class="rl-track"></span><span class="rl-dot"></span><span class="rl-track"></span>
+        <span class="rl-city">Bandung</span><span class="rl-track"></span><span class="rl-dot"></span><span class="rl-track"></span>
+        <span class="rl-city">Semarang</span><span class="rl-track"></span><span class="rl-dot"></span><span class="rl-track"></span>
+        <span class="rl-city">Yogyakarta</span><span class="rl-track"></span><span class="rl-dot"></span><span class="rl-track"></span>
+        <span class="rl-city">Surabaya</span>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Lintasa Trans. Seluruh hak cipta dilindungi.</span>
+      <span>Dibuat dengan ♥ untuk para penjelajah kota.</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6281234567890" class="wa-float" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16.02 3C9.4 3 4 8.4 4 15.02c0 2.36.63 4.57 1.73 6.48L4 29l7.66-1.7a12 12 0 0 0 4.36.82h.01c6.62 0 12.02-5.4 12.02-12.02C28.05 8.4 22.65 3 16.02 3Zm7.03 17.1c-.3.83-1.7 1.58-2.34 1.65-.6.07-1.36.1-2.19-.14-.5-.15-1.15-.36-1.98-.7-3.48-1.5-5.75-4.97-5.93-5.2-.17-.23-1.42-1.9-1.42-3.62 0-1.72.9-2.56 1.22-2.9.32-.35.7-.43.93-.43h.67c.21 0 .5-.08.78.6.3.7.99 2.42 1.08 2.6.1.17.16.38.03.6-.13.24-.2.38-.4.6-.2.22-.42.5-.6.66-.2.19-.4.4-.18.79.23.4 1 1.66 2.16 2.7 1.49 1.32 2.75 1.74 3.14 1.94.4.2.63.17.86-.1.24-.26 1-1.16 1.27-1.56.27-.4.53-.33.9-.2.36.13 2.3 1.08 2.7 1.28.4.2.66.3.76.46.1.17.1.96-.2 1.79Z" fill="#fff"/></svg>
+</a>
+
+<script src="js/script.js"></script>
+</body>
+</html>

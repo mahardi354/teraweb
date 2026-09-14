@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Layanan & Harga — GARIS. Barbershop</title>
+<meta name="description" content="Daftar lengkap layanan dan harga GARIS. Barbershop: potong rambut, perawatan jenggot, coloring, paket combo, dan membership.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span>GARIS.</span>
+      <small>BARBERSHOP&nbsp;&nbsp;•&nbsp;&nbsp;EST. 2016</small>
+    </a>
+    <nav class="main-nav">
+      <a href="index.html">Beranda</a>
+      <a href="layanan.html" class="active">Layanan</a>
+      <a href="galeri.html">Galeri</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+    <div class="header-actions">
+      <a href="kontak.html" class="btn btn-primary btn-sm">Booking Sekarang</a>
+      <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav">
+  <button class="mobile-nav-close" aria-label="Tutup menu">✕</button>
+  <a href="index.html">Beranda</a>
+  <a href="layanan.html" class="active">Layanan</a>
+  <a href="galeri.html">Galeri</a>
+  <a href="kontak.html">Kontak</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Beranda</a><span>/</span><span style="color:var(--gold);">Layanan</span></div>
+    <h1>Layanan & <em>Harga</em></h1>
+    <p>Transparan dari awal. Semua harga sudah termasuk konsultasi gaya gratis dan cuci rambut — tanpa biaya tersembunyi.</p>
+  </div>
+</section>
+
+<!-- FILTER + PRICE LIST -->
+<section>
+  <div class="wrap">
+    <div class="filter-bar" data-filter-group=".svc-item">
+      <button class="filter-btn active" data-cat="semua">Semua</button>
+      <button class="filter-btn" data-cat="potong">Potong Rambut</button>
+      <button class="filter-btn" data-cat="jenggot">Perawatan Jenggot</button>
+      <button class="filter-btn" data-cat="warna">Coloring & Perm</button>
+      <button class="filter-btn" data-cat="combo">Paket Kombo</button>
+      <button class="filter-btn" data-cat="tambahan">Perawatan Tambahan</button>
+    </div>
+
+    <div class="grid-4">
+      <!-- Potong Rambut -->
+      <div class="service-card svc-item reveal" data-cat="potong">
+        <div class="img-wrap"><span class="tag">Best Seller</span><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=700&auto=format&fit=crop" alt="Skin Fade"></div>
+        <div class="body">
+          <h3>Skin Fade Signature</h3>
+          <p>Fade halus dari kulit hingga rambut atas, disesuaikan bentuk kepala.</p>
+          <div class="price">75rb <small>/ sesi</small></div>
+          <div class="meta"><span>⏱ 45 mnt</span><span>★ 4.9</span></div>
+        </div>
+      </div>
+      <div class="service-card svc-item reveal reveal-d1" data-cat="potong">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1584316712724-f5d4b188fee2?q=80&w=700&auto=format&fit=crop" alt="Taper Cut"></div>
+        <div class="body">
+          <h3>Taper Cut</h3>
+          <p>Potongan rapi dengan transisi bertahap di sisi & belakang kepala.</p>
+          <div class="price">65rb <small>/ sesi</small></div>
+          <div class="meta"><span>⏱ 40 mnt</span><span>★ 4.8</span></div>
+        </div>
+      </div>
+      <div class="service-card svc-item reveal reveal-d2" data-cat="potong">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186?q=80&w=700&auto=format&fit=crop" alt="Classic Pompadour"></div>
+        <div class="body">
+          <h3>Classic Pompadour</h3>
+          <p>Gaya klasik bervolume di atas, rapi di samping — timeless & elegan.</p>
+          <div class="price">70rb <small>/ sesi</small></div>
+          <div class="meta"><span>⏱ 45 mnt</span><span>★ 4.9</span></div>
+        </div>
+      </div>
+      <div class="service-card svc-item reveal reveal-d3" data-cat="potong">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=700&auto=format&fit=crop" alt="Potong Anak"></div>
+        <div class="body">
+          <h3>Haircut Anak (&lt;12 th)</h3>
+          <p>Potongan ramah anak, sabar & cepat, orang tua boleh menemani.</p>
+          <div class="price">50rb <small>/ sesi</small></div>
+          <div class="meta"><span>⏱ 30 mnt</span><span>★ 4.9</span></div>
+        </div>
+      </div>
+
+      <!-- Jenggot -->
+      <div class="service-card svc-item reveal" data-cat="jenggot">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=700&auto=format&fit=crop" alt="Beard Grooming"></div>
+        <div class="body">
+          <h3>Beard Grooming</h3>
+          <p>Rapikan jenggot & kumis dengan trimming presisi + hot towel.</p>
+          <div class="price">60rb <small>/ sesi</small></div>
+          <div class="meta"><span>⏱ 30 mnt</span><span>★ 4.8</span></div>
+        </div>
+      </div>
+      <div class="service-card svc-item reveal reveal-d1" data-cat="jenggot">
+        <div class="img-wrap"><span class="tag">Baru</span><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=700&auto=format&fit=crop" alt="Royal Shave"></div>
+        <div class="body">
+          <h3>Royal Shave</h3>
+          <p>Cukur bersih dengan pisau cukur klasik, hot & cold towel treatment.</p>
+          <div class="price">80rb <small>/ sesi</small></div>
+          <div class="meta"><span>⏱ 40 mnt</span><span>★ 5.0</span></div>
+        </div>
+      </div>
+      <div class="service-card svc-item reveal reveal-d2" data-cat="jenggot">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1493256338651-d82f7acb2b38?q=80&w=700&auto=format&fit=crop" alt="Beard Coloring"></div>
+        <div class="body">
+          <h3>Beard Coloring</h3>
+          <p>Samarkan uban di jenggot dengan pewarna khusus, hasil natural.</p>
+          <div class="price">90rb <small>/ sesi</small></div>
+          <div class="meta"><span>⏱ 35 mnt</span><span>★ 4.7</span></div>
+        </div>
+      </div>
+
+      <!-- Warna -->
+      <div class="service-card svc-item reveal" data-cat="warna">
+        <div class="img-wrap"><span class="tag">Baru</span><img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=700&auto=format&fit=crop" alt="Hair Coloring"></div>
+        <div class="body">
+          <h3>Coloring & Bleaching</h3>
+          <p>Ubah warna rambut dengan produk aman, hasil tahan lama & merata.</p>
+          <div class="price">150rb <small>/ sesi</small></div>
+          <div class="meta"><span>⏱ 90 mnt</span><span>★ 4.9</span></div>
+        </div>
+      </div>
+      <div class="service-card svc-item reveal reveal-d1" data-cat="warna">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=700&auto=format&fit=crop" alt="Perm">
+        </div>
+        <div class="body">
+          <h3>Perm Curly Texture</h3>
+          <p>Tambah tekstur ikal alami untuk tampilan lebih dinamis.</p>
+          <div class="price">180rb <small>/ sesi</small></div>
+          <div class="meta"><span>⏱ 100 mnt</span><span>★ 4.8</span></div>
+        </div>
+      </div>
+      <div class="service-card svc-item reveal reveal-d2" data-cat="warna">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=700&auto=format&fit=crop" alt="Highlight"></div>
+        <div class="body">
+          <h3>Highlight Sebagian</h3>
+          <p>Sentuhan warna di bagian tertentu untuk gaya yang lebih berani.</p>
+          <div class="price">120rb <small>/ sesi</small></div>
+          <div class="meta"><span>⏱ 70 mnt</span><span>★ 4.7</span></div>
+        </div>
+      </div>
+
+      <!-- Combo -->
+      <div class="service-card svc-item reveal" data-cat="combo">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=700&auto=format&fit=crop" alt="Paket Combo"></div>
+        <div class="body">
+          <h3>Paket Combo Lengkap</h3>
+          <p>Potong + cuci + styling + pijat kepala relaksasi 10 menit.</p>
+          <div class="price">120rb <small>/ sesi</small></div>
+          <div class="meta"><span>⏱ 75 mnt</span><span>★ 5.0</span></div>
+        </div>
+      </div>
+      <div class="service-card svc-item reveal reveal-d1" data-cat="combo">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?q=80&w=700&auto=format&fit=crop" alt="Paket Gentleman"></div>
+        <div class="body">
+          <h3>Gentleman Package</h3>
+          <p>Potong + royal shave + beard grooming, paket lengkap sekali duduk.</p>
+          <div class="price">180rb <small>/ sesi</small></div>
+          <div class="meta"><span>⏱ 110 mnt</span><span>★ 4.9</span></div>
+        </div>
+      </div>
+      <div class="service-card svc-item reveal reveal-d2" data-cat="combo">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=700&auto=format&fit=crop" alt="Paket Ayah Anak"></div>
+        <div class="body">
+          <h3>Paket Ayah & Anak</h3>
+          <p>Potong bareng — satu untuk ayah, satu untuk si kecil, harga hemat.</p>
+          <div class="price">100rb <small>/ 2 org</small></div>
+          <div class="meta"><span>⏱ 60 mnt</span><span>★ 4.9</span></div>
+        </div>
+      </div>
+
+      <!-- Tambahan -->
+      <div class="service-card svc-item reveal" data-cat="tambahan">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=700&auto=format&fit=crop" alt="Creambath"></div>
+        <div class="body">
+          <h3>Creambath Relaksasi</h3>
+          <p>Perawatan rambut & pijat kepala untuk relaksasi maksimal.</p>
+          <div class="price">85rb <small>/ sesi</small></div>
+          <div class="meta"><span>⏱ 50 mnt</span><span>★ 4.8</span></div>
+        </div>
+      </div>
+      <div class="service-card svc-item reveal reveal-d1" data-cat="tambahan">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1622296089863-eb7fc530daa8?q=80&w=700&auto=format&fit=crop" alt="Hair Tonic"></div>
+        <div class="body">
+          <h3>Hair Tonic Treatment</h3>
+          <p>Perkuat akar rambut & cegah rontok dengan tonic khusus.</p>
+          <div class="price">45rb <small>/ sesi</small></div>
+          <div class="meta"><span>⏱ 20 mnt</span><span>★ 4.6</span></div>
+        </div>
+      </div>
+      <div class="service-card svc-item reveal reveal-d2" data-cat="tambahan">
+        <div class="img-wrap"><img src="https://images.unsplash.com/photo-1618077360395-f3068be8e001?q=80&w=700&auto=format&fit=crop" alt="Styling"></div>
+        <div class="body">
+          <h3>Styling Only</h3>
+          <p>Butuh tampil rapi buru-buru? Styling cepat tanpa potong.</p>
+          <div class="price">35rb <small>/ sesi</small></div>
+          <div class="meta"><span>⏱ 15 mnt</span><span>★ 4.7</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERSHIP -->
+<section class="bg-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="script-tag">Hemat lebih banyak</span>
+      <div class="eyebrow" style="justify-content:center;">Paket Membership</div>
+      <h2>Langganan, <em>Lebih Untung</em></h2>
+      <p>Cocok buat kamu yang rutin grooming tiap bulan. Pilih paket sesuai kebutuhan.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <h3>Basic</h3>
+        <div class="amount">99rb<span>/bulan</span></div>
+        <p class="desc">Untuk kamu yang potong rambut rutin sebulan sekali.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>1x potong rambut / bulan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Konsultasi gaya gratis</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Diskon 10% layanan tambahan</li>
+        </ul>
+        <a href="kontak.html" class="btn btn-dark">Pilih Basic</a>
+      </div>
+      <div class="price-card featured reveal reveal-d1">
+        <span class="ribbon">Paling Populer</span>
+        <h3>Premium</h3>
+        <div class="amount">199rb<span>/bulan</span></div>
+        <p class="desc">Paket lengkap untuk grooming rutin dua minggu sekali.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>2x potong rambut / bulan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>1x beard grooming / bulan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Diskon 20% layanan tambahan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Prioritas jadwal booking</li>
+        </ul>
+        <a href="kontak.html" class="btn btn-primary">Pilih Premium</a>
+      </div>
+      <div class="price-card reveal reveal-d2">
+        <h3>VIP</h3>
+        <div class="amount">349rb<span>/bulan</span></div>
+        <p class="desc">Perawatan lengkap tanpa batas untuk hasil maksimal tiap saat.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Potong rambut tanpa batas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>2x beard grooming / bulan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>1x creambath relaksasi / bulan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Barber tetap pilihan kamu</li>
+        </ul>
+        <a href="kontak.html" class="btn btn-dark">Pilih VIP</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUK -->
+<section class="section-tight">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="justify-content:center;">Produk yang Kami Pakai</div>
+      <h2>Kualitas <em>Terjamin</em></h2>
+      <p>Semua produk grooming yang kami gunakan aman untuk kulit sensitif dan sudah teruji.</p>
+    </div>
+    <div class="grid-4">
+      <div class="feature-card reveal">
+        <div class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Pomade Matte & Gloss</h3>
+        <p>Tahan lama, mudah dibilas, cocok untuk semua tekstur rambut.</p>
+      </div>
+      <div class="feature-card reveal reveal-d1">
+        <div class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M2 12h20"/></svg></div>
+        <h3>Clay & Fiber Wax</h3>
+        <p>Untuk hasil tekstur natural dengan hold kuat seharian.</p>
+      </div>
+      <div class="feature-card reveal reveal-d2">
+        <div class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/></svg></div>
+        <h3>Beard Oil & Balm</h3>
+        <p>Melembutkan & merawat jenggot agar tidak kering dan gatal.</p>
+      </div>
+      <div class="feature-card reveal reveal-d3">
+        <div class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12a8 8 0 0116 0M12 4v1M12 19v1M4.9 4.9l.7.7M18.4 18.4l.7.7"/></svg></div>
+        <h3>Sanitasi Alat Medis-Grade</h3>
+        <p>Sterilisasi alat cukur menggunakan standar keamanan tinggi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="bg-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow" style="justify-content:center;">FAQ</div>
+      <h2>Pertanyaan Seputar <em>Layanan</em></h2>
+      <p>Masih ragu? Berikut jawaban dari pertanyaan yang paling sering ditanyakan klien kami.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Berapa lama proses potong rambut biasanya?</span><span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-in">Rata-rata 30–45 menit untuk potongan standar, dan bisa mencapai 90 menit untuk layanan seperti coloring atau perm karena membutuhkan waktu proses bahan kimia.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Apakah bisa booking untuk anak-anak?</span><span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-in">Bisa. Kami punya paket khusus Haircut Anak dengan barber yang sabar menangani anak-anak, dan orang tua boleh menemani selama proses berlangsung.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Apakah harga sudah termasuk cuci rambut?</span><span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-in">Sudah. Semua layanan potong rambut sudah termasuk cuci rambut sebelum dan sesudah proses, konsultasi gaya gratis, serta styling akhir tanpa biaya tambahan.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Apakah bisa membawa referensi foto gaya rambut?</span><span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-in">Sangat disarankan. Semakin jelas referensi yang kamu bawa, semakin mudah barber menyesuaikan hasil sesuai keinginanmu. Kamu juga bisa berkonsultasi langsung jika belum yakin gaya apa yang cocok.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Bagaimana cara kerja paket membership?</span><span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-in">Setelah mendaftar, kamu tinggal booking jadwal seperti biasa dan sebutkan nomor membership. Kuota layanan akan otomatis terpotong sesuai paket yang kamu pilih setiap bulannya, dan tidak bisa diakumulasi ke bulan berikutnya.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q"><span>Apakah ada garansi jika hasil tidak sesuai?</span><span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-in">Kepuasan klien adalah prioritas kami. Jika ada bagian yang kurang rapi, sampaikan langsung ke barber sebelum meninggalkan tempat dan akan kami perbaiki tanpa biaya tambahan.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-tight">
+  <div class="wrap">
+    <div class="cta-banner reveal">
+      <div>
+        <h2>Sudah Tahu Mau Gaya Apa? <em>Booking Sekarang.</em></h2>
+        <p>Tim kami siap bantu wujudkan tampilan terbaikmu minggu ini.</p>
+      </div>
+      <div class="actions">
+        <a href="kontak.html" class="btn btn-primary">Booking Sekarang</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand"><span>GARIS.</span></a>
+        <p>Barbershop modern untuk pria yang detail soal gaya. Fade presisi, suasana nyaman, hasil yang bikin pede.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82c-.9-.88-1.4-2.08-1.4-3.32h-3.1v13.94a2.8 2.8 0 11-2-2.68V10.7a5.9 5.9 0 00-1-.09A5.9 5.9 0 105.9 16.5a5.9 5.9 0 003.1-.86v-4.4a5.83 5.83 0 003.1.9v-3.1a6.2 6.2 0 004.5 1.9V8.8a3.9 3.9 0 01-1-2.98z"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="layanan.html">Layanan</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="layanan.html">Potong Rambut</a></li>
+          <li><a href="layanan.html">Perawatan Jenggot</a></li>
+          <li><a href="layanan.html">Coloring & Perm</a></li>
+          <li><a href="layanan.html">Paket Membership</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-news">
+        <h4>Newsletter</h4>
+        <p>Info promo & jadwal barber favoritmu langsung ke email.</p>
+        <form class="news-form">
+          <input type="email" placeholder="Alamat email kamu" required>
+          <button type="submit" aria-label="Kirim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 GARIS. Barbershop. Seluruh hak cipta dilindungi.</span>
+      <div class="footer-legal">
+        <a href="#">Kebijakan Privasi</a>
+        <a href="#">Syarat & Ketentuan</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="wa-float" aria-label="Chat WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.7.44 3.36 1.29 4.82L2 22l5.42-1.42a9.9 9.9 0 004.62 1.18h.01c5.46 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.13-2.9-7-1.87-1.88-4.35-2.86-7-2.86z"/></svg>
+</a>
+<button class="back-top" aria-label="Kembali ke atas">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>

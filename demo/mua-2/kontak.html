@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak & Booking — Rona Makeup Artistry</title>
+<meta name="description" content="Hubungi Rona Makeup Artistry untuk konsultasi dan booking jadwal riasan Anda.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=Parisienne&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">Rona<small>MUA Studio</small></a>
+    <nav class="nav-desktop">
+      <a href="index.html">Beranda</a>
+      <a href="tentang.html">Tentang</a>
+      <a href="layanan.html">Layanan</a>
+      <a href="kontak.html" class="active">Kontak</a>
+    </nav>
+    <div class="header-cta">
+      <a href="kontak.html" class="btn btn-primary btn-sm">Booking Sekarang</a>
+    </div>
+    <button class="burger" aria-label="Buka menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="mobile-nav">
+  <a href="index.html">Beranda</a>
+  <a href="tentang.html">Tentang</a>
+  <a href="layanan.html">Layanan</a>
+  <a href="kontak.html">Kontak</a>
+  <a href="kontak.html" class="btn btn-primary">Booking Sekarang</a>
+</nav>
+
+<!-- ===================== PAGE BANNER ===================== -->
+<section class="page-banner">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Beranda</a> / Kontak</div>
+    <h1>Mari Berbincang Dulu</h1>
+    <p>Ceritakan tanggal dan jenis acaramu, tim Rona akan segera membalas untuk menjadwalkan konsultasi.</p>
+  </div>
+</section>
+
+<!-- ===================== CONTACT INFO CARDS ===================== -->
+<section>
+  <div class="container">
+    <div class="grid grid-4 reveal">
+      <div class="card">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>Alamat Studio</h3>
+        <p>Jl. Mawar Melati No. 12, Purbalingga, Jawa Tengah 53311</p>
+      </div>
+      <div class="card">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-9.6 8.3 8.5 8.5 0 01-4-1.3L3 20l1.5-4.4A8.5 8.5 0 1121 11.5z"/></svg></div>
+        <h3>Telepon / WhatsApp</h3>
+        <p>+62 812-3456-7890</p>
+      </div>
+      <div class="card">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg></div>
+        <h3>Email</h3>
+        <p>halo@ronamua.id</p>
+      </div>
+      <div class="card">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Jam Operasional</h3>
+        <p>Senin–Sabtu, 09.00–19.00 WIB</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FORM + MAP ===================== -->
+<section class="section-alt">
+  <div class="container">
+    <div class="contact-wrap reveal">
+      <div class="contact-form">
+        <span class="eyebrow">Formulir Booking</span>
+        <h2 style="margin:8px 0 24px;">Isi Detail Acaramu</h2>
+        <form id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nama">Nama Lengkap</label>
+              <input type="text" id="nama" name="nama" placeholder="Nama Anda" required>
+            </div>
+            <div class="form-group">
+              <label for="whatsapp">Nomor WhatsApp</label>
+              <input type="tel" id="whatsapp" name="whatsapp" placeholder="08xx-xxxx-xxxx" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="tanggal">Tanggal Acara</label>
+              <input type="date" id="tanggal" name="tanggal" required>
+            </div>
+            <div class="form-group">
+              <label for="layanan">Jenis Layanan</label>
+              <select id="layanan" name="layanan" required>
+                <option value="">Pilih layanan</option>
+                <option>Bridal Makeup</option>
+                <option>Graduation Makeup</option>
+                <option>Photoshoot / Editorial</option>
+                <option>Party & Prom Glam</option>
+                <option>Kelas Privat Makeup</option>
+                <option>Lainnya</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="pesan">Ceritakan Kebutuhanmu</label>
+            <textarea id="pesan" name="pesan" placeholder="Contoh: butuh riasan akad & resepsi, lokasi di Purbalingga, tema acara rustic..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Kirim &amp; Jadwalkan Konsultasi</button>
+        </form>
+      </div>
+
+      <div>
+        <div class="contact-info-cards">
+          <div class="info-card">
+            <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-9.6 8.3 8.5 8.5 0 01-4-1.3L3 20l1.5-4.4A8.5 8.5 0 1121 11.5z"/></svg></div>
+            <div>
+              <h3>Respon Cepat via WhatsApp</h3>
+              <p>Chat langsung untuk cek ketersediaan tanggal favoritmu, biasanya dibalas dalam 1-2 jam.</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></div>
+            <div>
+              <h3>Ikuti Portofolio Terbaru</h3>
+              <p>Lihat hasil riasan terkini dan cerita klien di Instagram @rona.mua.</p>
+            </div>
+          </div>
+        </div>
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps?q=Purbalingga,+Jawa+Tengah&output=embed"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Lokasi Studio Rona Makeup Artistry">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section>
+  <div class="container reveal">
+    <div class="cta-banner">
+      <span class="eyebrow" style="color:var(--gold-soft)">Jadwal terbatas tiap bulannya</span>
+      <h2>Amankan Tanggal Spesialmu Hari Ini</h2>
+      <p>Semakin cepat booking, semakin leluasa kita berdiskusi soal konsep riasan impianmu.</p>
+      <div class="actions">
+        <a href="#" class="btn btn-primary">Chat via WhatsApp</a>
+        <a href="layanan.html" class="btn btn-outline">Lihat Paket Harga</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Rona<small>MUA Studio</small></a>
+        <p>Studio makeup artist profesional di Purbalingga, melayani bridal, wisuda, photoshoot, dan kelas privat merias.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M16 3v10.5a4 4 0 11-4-4V16"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-9.6 8.3 8.5 8.5 0 01-4-1.3L3 20l1.5-4.4A8.5 8.5 0 1121 11.5z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="layanan.html">Layanan</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="layanan.html">Bridal Makeup</a></li>
+          <li><a href="layanan.html">Graduation Makeup</a></li>
+          <li><a href="layanan.html">Photoshoot / Editorial</a></li>
+          <li><a href="layanan.html">Party &amp; Prom Glam</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <ul>
+          <li>Jl. Mawar Melati No. 12, Purbalingga, Jawa Tengah</li>
+          <li>+62 812-3456-7890</li>
+          <li>halo@ronamua.id</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Rona Makeup Artistry. Seluruh hak cipta dilindungi.</span>
+      <span>Dibuat dengan ♥ untuk keindahan yang otentik.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+// Kirim form booking ke WhatsApp
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const nama = document.getElementById('nama').value.trim();
+    const whatsapp = document.getElementById('whatsapp').value.trim();
+    const tanggal = document.getElementById('tanggal').value;
+    const layanan = document.getElementById('layanan').value;
+    const pesan = document.getElementById('pesan').value.trim();
+
+    // Nomor WA tujuan (studio)
+    const nomorWA = '6281234567890';
+
+    const teks =
+`Halo Rona MUA Studio, saya ingin booking:
+
+Nama: ${nama}
+No. WhatsApp: ${whatsapp}
+Tanggal Acara: ${tanggal || '-'}
+Jenis Layanan: ${layanan}
+Kebutuhan: ${pesan || '-'}`;
+
+    const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(teks)}`;
+    window.open(url, '_blank');
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak — KKP Wicaksana & Rekan</title>
+<meta name="description" content="Hubungi KKP Wicaksana & Rekan untuk konsultasi pajak gratis. Kunjungi kantor kami di Jakarta Selatan atau isi formulir kontak.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><span>KW</span></span>
+      <span>KKP Wicaksana<small>&amp; Rekan · Konsultan Pajak</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="tentang.html">Tentang Kami</a></li>
+      <li><a href="layanan.html">Layanan</a></li>
+      <li><a href="kontak.html" class="active">Kontak</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="kontak.html" class="btn btn-navy btn-sm">Konsultasi Gratis</a>
+      <button class="nav-toggle" aria-label="Buka menu"><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb">Beranda / <span>Kontak</span></div>
+    <h1>Mari diskusikan kebutuhan pajak Anda</h1>
+    <p>Tim konsultan kami siap membantu, baik untuk pertanyaan singkat maupun kebutuhan penanganan kasus yang kompleks.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="contact-wrap">
+
+      <div class="reveal">
+        <div class="contact-info-card">
+          <h3>Informasi Kontak</h3>
+          <p>Pilih cara yang paling nyaman untuk Anda — kami merespons setiap pesan dalam waktu 1x24 jam kerja.</p>
+          <ul class="contact-info-list">
+            <li>
+              <span class="ico">📍</span>
+              <div><b>Kantor Pusat</b><span>Jl. Jenderal Sudirman Kav. 45, Lt. 12, Jakarta Selatan 12190</span></div>
+            </li>
+            <li>
+              <span class="ico">📞</span>
+              <div><b>Telepon</b><span>(021) 5555-0123</span></div>
+            </li>
+            <li>
+              <span class="ico">📱</span>
+              <div><b>WhatsApp</b><span>+62 812-3456-7890</span></div>
+            </li>
+            <li>
+              <span class="ico">✉️</span>
+              <div><b>Email</b><span>halo@kkpwicaksana.co.id</span></div>
+            </li>
+          </ul>
+          <div class="hours-box">
+            <div class="hours-row"><span>Senin – Jumat</span><b>08.00 – 17.00</b></div>
+            <div class="hours-row"><span>Sabtu</span><b>09.00 – 13.00</b></div>
+            <div class="hours-row"><span>Minggu &amp; Libur Nasional</span><b>Tutup</b></div>
+          </div>
+        </div>
+
+        <div class="map-embed reveal">
+          <iframe src="https://maps.google.com/maps?q=Jalan%20Jenderal%20Sudirman%20Jakarta&t=&z=14&ie=UTF8&iwloc=&output=embed" title="Peta lokasi kantor KKP Wicaksana & Rekan" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="form-card">
+          <h3 style="font-size:24px;margin-bottom:6px;">Kirim Pesan / Jadwalkan Konsultasi</h3>
+          <p style="color:var(--ink-500);font-size:14.5px;margin-bottom:26px;">Lengkapi formulir berikut, dan konsultan kami akan menghubungi Anda kembali.</p>
+          <form id="contact-form">
+            <div class="form-row">
+              <div class="field">
+                <label for="nama">Nama Lengkap</label>
+                <input type="text" id="nama" placeholder="Nama Anda" required>
+              </div>
+              <div class="field">
+                <label for="telp">Nomor Telepon</label>
+                <input type="tel" id="telp" placeholder="08xx-xxxx-xxxx" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="nama@email.com" required>
+              </div>
+              <div class="field">
+                <label for="layanan">Layanan yang Dibutuhkan</label>
+                <select id="layanan" required>
+                  <option value="">Pilih layanan…</option>
+                  <option>Pajak Orang Pribadi</option>
+                  <option>Pajak Badan Usaha</option>
+                  <option>Tax Planning</option>
+                  <option>Sengketa &amp; Restitusi Pajak</option>
+                  <option>Transfer Pricing</option>
+                  <option>Lainnya</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="pesan">Ceritakan Kebutuhan Anda</label>
+              <textarea id="pesan" placeholder="Jelaskan secara singkat kondisi atau kendala pajak yang Anda hadapi..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Kirim &amp; Jadwalkan Konsultasi Gratis</button>
+            <p class="form-note">Dengan mengirim formulir ini, Anda menyetujui data akan digunakan hanya untuk keperluan konsultasi.</p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ singkat kontak -->
+<section class="bg-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Sebelum Menghubungi Kami</span>
+      <h2>Beberapa hal yang perlu disiapkan</h2>
+      <p>Mempersiapkan dokumen berikut akan mempercepat proses konsultasi awal Anda.</p>
+    </div>
+    <div class="card-grid">
+      <div class="card reveal">
+        <div class="card-icon">🪪</div>
+        <h3>Identitas &amp; NPWP</h3>
+        <p>KTP/KITAS dan NPWP pribadi maupun badan usaha yang bersangkutan.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">📑</div>
+        <h3>Bukti Potong / Laporan Keuangan</h3>
+        <p>Bukti potong PPh terakhir atau laporan keuangan 1-2 tahun terakhir.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">📨</div>
+        <h3>Surat dari DJP (jika ada)</h3>
+        <p>Surat pemeriksaan, teguran, atau ketetapan pajak yang sedang berjalan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA akhir -->
+<section>
+  <div class="container">
+    <div class="cta-band reveal">
+      <div>
+        <h3>Lebih suka bicara langsung? Hubungi kami via WhatsApp.</h3>
+        <p>Respons cepat untuk pertanyaan singkat seputar kepatuhan pajak Anda.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="#" class="btn btn-primary">Chat via WhatsApp</a>
+        <a href="tel:+622155550123" class="btn btn-outline">Telepon Kami</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand"><span class="brand-mark"><span>KW</span></span><span>KKP Wicaksana<small>&amp; Rekan</small></span></a>
+        <p>Kantor Konsultan Pajak resmi berizin, melayani perencanaan, pelaporan, dan pendampingan sengketa pajak sejak 2009.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="WhatsApp">WA</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigasi</h5>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="layanan.html">Layanan</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Layanan</h5>
+        <ul>
+          <li><a href="layanan.html">Pajak Pribadi</a></li>
+          <li><a href="layanan.html">Pajak Badan</a></li>
+          <li><a href="layanan.html">Sengketa Pajak</a></li>
+          <li><a href="layanan.html">Tax Planning</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-contact">
+        <h5>Kontak</h5>
+        <ul>
+          <li><span class="ico">📍</span><span>Jl. Sudirman Kav. 45, Jakarta Selatan</span></li>
+          <li><span class="ico">📞</span><span>(021) 5555-0123</span></li>
+          <li><span class="ico">✉️</span><span>halo@kkpwicaksana.co.id</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 KKP Wicaksana &amp; Rekan. Seluruh hak cipta dilindungi.</span>
+      <span><a href="#">Kebijakan Privasi</a><a href="#">Syarat &amp; Ketentuan</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// Kirim form konsultasi ke WhatsApp
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const nama = document.getElementById('nama').value.trim();
+    const telp = document.getElementById('telp').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const layanan = document.getElementById('layanan').value;
+    const pesan = document.getElementById('pesan').value.trim();
+
+    // Nomor WA tujuan (kantor)
+    const nomorWA = '6281234567890';
+
+    const teks =
+`Halo KKP Wicaksana & Rekan, saya ingin konsultasi pajak:
+
+Nama: ${nama}
+No. Telepon: ${telp}
+Email: ${email}
+Layanan: ${layanan}
+Kebutuhan: ${pesan}`;
+
+    const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(teks)}`;
+    window.open(url, '_blank');
+  });
+}
+</script>
+</body>
+</html>

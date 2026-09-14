@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio Proyek — BATA & BAJA</title>
+<meta name="description" content="Galeri proyek renovasi rumah, bangun baru, kamar mandi, atap, pengecatan, hingga pagar & carport yang telah diselesaikan tim BATA & BAJA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand" aria-label="BATA & BAJA — Kembali ke Beranda">
+        <span class="brand-mark">B<span class="brand-amp">&amp;</span>B</span>
+        <span>BATA <span class="brand-amp">&amp;</span> BAJA</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav">
+        <a href="index.html" class="">Beranda</a>
+        <a href="layanan.html" class="">Layanan</a>
+        <a href="portfolio.html" class="active">Portofolio</a>
+        <a href="kontak.html" class="">Kontak</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-primary desktop-only" href="https://wa.me/6281234567890" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M17.6 6.32A8.86 8.86 0 0 0 3.15 15.6L2 20l4.53-1.13a8.86 8.86 0 0 0 4.25 1.08h.01a8.86 8.86 0 0 0 6.81-14.6Zm-6.8 13.6h-.01a7.37 7.37 0 0 1-3.75-1.03l-.27-.16-2.68.67.71-2.61-.18-.27a7.36 7.36 0 1 1 6.18 3.4Zm4.04-5.52c-.22-.11-1.3-.64-1.5-.71-.2-.07-.35-.11-.5.11s-.57.71-.7.86-.26.16-.48.05a6.05 6.05 0 0 1-1.78-1.1 6.7 6.7 0 0 1-1.23-1.54c-.13-.22 0-.34.1-.45.1-.1.22-.26.33-.4.11-.13.15-.22.22-.37a.4.4 0 0 0 0-.38c-.05-.11-.5-1.2-.68-1.64-.18-.43-.36-.37-.5-.38h-.43a.82.82 0 0 0-.6.28 2.5 2.5 0 0 0-.78 1.86 4.35 4.35 0 0 0 .91 2.3 9.96 9.96 0 0 0 3.82 3.38c.53.23.95.37 1.27.47a3.05 3.05 0 0 0 1.4.09c.43-.06 1.3-.53 1.48-1.04.18-.51.18-.95.13-1.04-.05-.1-.2-.15-.42-.26Z" fill="currentColor"/></svg>
+          Hubungi via WhatsApp
+        </a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Buka menu navigasi" aria-expanded="false">
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero hero--sm">
+      <div class="hero-bg">
+        <img src="https://picsum.photos/seed/tb-rumah-selesai/1600/900" alt="Rumah hasil renovasi yang telah selesai dikerjakan" loading="eager">
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="badge">Portofolio</span>
+          <h1 style="margin-top:20px;font-size:clamp(34px,4.6vw,54px);">Proyek yang <em>Sudah Kami Selesaikan</em></h1>
+          <p class="lead">Sebagian dokumentasi hasil kerja tim BATA &amp; BAJA. Gunakan filter di bawah untuk melihat kategori proyek tertentu.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="tape" aria-hidden="true"></div>
+
+    <section>
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center;">Galeri Proyek</span>
+          <h2>340+ Proyek, Ini Sebagian Contohnya</h2>
+          <p>Setiap proyek didokumentasikan sebelum, saat proses, dan sesudah pengerjaan selesai.</p>
+        </div>
+
+        <div class="filter-bar reveal">
+          <button class="filter-btn active" data-filter="semua">Semua</button>
+          <button class="filter-btn" data-filter="renovasi">Renovasi Rumah</button>
+          <button class="filter-btn" data-filter="baru">Bangun Baru</button>
+          <button class="filter-btn" data-filter="kamar-mandi">Kamar Mandi</button>
+          <button class="filter-btn" data-filter="atap">Atap &amp; Plafon</button>
+          <button class="filter-btn" data-filter="cat">Pengecatan</button>
+          <button class="filter-btn" data-filter="pagar">Pagar &amp; Carport</button>
+        </div>
+
+        <div class="gallery-grid reveal">
+          <div class="gallery-item" data-cat="renovasi">
+            <img src="https://picsum.photos/seed/tb-fasad-sokaraja/700/560" alt="Renovasi fasad rumah minimalis di Sokaraja">
+            <div class="overlay"><span class="cat">Renovasi Rumah</span><h3>Renovasi Fasad — Sokaraja</h3></div>
+          </div>
+          <div class="gallery-item" data-cat="baru">
+            <img src="https://picsum.photos/seed/tb-dualantai/700/560" alt="Pembangunan rumah dua lantai baru">
+            <div class="overlay"><span class="cat">Bangun Baru</span><h3>Rumah Dua Lantai — Purwokerto Utara</h3></div>
+          </div>
+          <div class="gallery-item" data-cat="kamar-mandi">
+            <img src="https://picsum.photos/seed/tb-kamarmandi-modern/700/560" alt="Renovasi kamar mandi modern">
+            <div class="overlay"><span class="cat">Kamar Mandi</span><h3>Kamar Mandi Modern — Baturraden</h3></div>
+          </div>
+          <div class="gallery-item" data-cat="atap">
+            <img src="https://picsum.photos/seed/tb-atap-genteng/700/560" alt="Perbaikan atap genteng rumah">
+            <div class="overlay"><span class="cat">Atap &amp; Plafon</span><h3>Perbaikan Atap Bocor — Sumbang</h3></div>
+          </div>
+          <div class="gallery-item" data-cat="cat">
+            <img src="https://picsum.photos/seed/tb-cat-dinding/700/560" alt="Pengecatan ulang dinding rumah">
+            <div class="overlay"><span class="cat">Pengecatan</span><h3>Cat Ulang Fasad — Purwokerto Selatan</h3></div>
+          </div>
+          <div class="gallery-item" data-cat="pagar">
+            <img src="https://picsum.photos/seed/tb-pagar-carport/700/560" alt="Pembuatan pagar dan carport rumah">
+            <div class="overlay"><span class="cat">Pagar &amp; Carport</span><h3>Pagar Besi &amp; Carport — Sokaraja</h3></div>
+          </div>
+          <div class="gallery-item" data-cat="renovasi">
+            <img src="https://picsum.photos/seed/tb-renov-dapur/700/560" alt="Renovasi dapur rumah">
+            <div class="overlay"><span class="cat">Renovasi Rumah</span><h3>Renovasi Dapur — Purbalingga</h3></div>
+          </div>
+          <div class="gallery-item" data-cat="baru">
+            <img src="https://picsum.photos/seed/tb-struktur-bangunan/700/560" alt="Proses pembangunan rumah baru tahap struktur">
+            <div class="overlay"><span class="cat">Bangun Baru</span><h3>Rumah Type 60 — Banyumas</h3></div>
+          </div>
+          <div class="gallery-item" data-cat="kamar-mandi">
+            <img src="https://picsum.photos/seed/tb-shower/700/560" alt="Renovasi shower kamar mandi">
+            <div class="overlay"><span class="cat">Kamar Mandi</span><h3>Kamar Mandi Shower — Baturraden</h3></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONI -->
+    <section class="section-alt">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center;">Testimoni</span>
+          <h2>Cerita dari Klien yang Sudah Kami Bantu</h2>
+        </div>
+        <div class="grid grid-3 reveal">
+          <div class="testi-card">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="quote">Pagar dan carport baru selesai sesuai jadwal, rapi, dan sesuai gambar yang didiskusikan di awal.</p>
+            <div class="who">
+              <img class="avatar" src="https://i.pravatar.cc/100?img=12,asian" alt="Foto Pak Bambang">
+              <div><div class="name">Pak Bambang</div><div class="loc">Sokaraja</div></div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="quote">Dapur rumah kami dirombak total, hasilnya lebih fungsional dan tetap sesuai budget yang direncanakan.</p>
+            <div class="who">
+              <img class="avatar" src="https://i.pravatar.cc/100?img=45,asian" alt="Foto Bu Dewi">
+              <div><div class="name">Bu Dewi</div><div class="loc">Purbalingga</div></div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="quote">Rumah type 60 kami dibangun dalam waktu 4 bulan, komunikasi tim sangat lancar sepanjang proses.</p>
+            <div class="who">
+              <img class="avatar" src="https://i.pravatar.cc/100?img=12,young" alt="Foto Mas Arif">
+              <div><div class="name">Mas Arif</div><div class="loc">Banyumas</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+      <div class="container">
+        <div class="cta-band reveal">
+          <h2>Ingin Hasil Serupa untuk Rumah Anda?</h2>
+          <p>Konsultasikan gambaran proyek Anda dan dapatkan estimasi biaya awal secara gratis.</p>
+          <div class="cta-actions">
+            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="btn btn-primary">Diskusikan Proyek Anda</a>
+            <a href="layanan.html" class="btn btn-ghost">Lihat Layanan Kami</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="tape tape--thick" style="margin-bottom:56px;border-radius:4px;"></div>
+
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand" style="margin-bottom:16px;display:inline-flex;">
+            <span class="brand-mark">B<span class="brand-amp">&amp;</span>B</span>
+            <span>BATA <span class="brand-amp">&amp;</span> BAJA</span>
+          </a>
+          <p>Jasa tukang bangunan &amp; renovasi rumah profesional di Purwokerto dan sekitarnya. Kerja rapi, RAB transparan, tanpa drama di lapangan.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M14 9h2.5V6.2h-2.7C11.9 6.2 11 7.6 11 9.4V11H9v2.8h2v7h3v-7h2.3l.4-2.8H14v-1.3c0-.7.2-.9 1-.9Z" fill="currentColor"/></svg>
+            </a>
+            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M17.6 6.32A8.86 8.86 0 0 0 3.15 15.6L2 20l4.53-1.13a8.86 8.86 0 0 0 4.25 1.08h.01a8.86 8.86 0 0 0 6.81-14.6Z" fill="currentColor"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Navigasi</h4>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="layanan.html">Layanan</a></li>
+            <li><a href="portfolio.html">Portofolio</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Layanan Utama</h4>
+          <ul>
+            <li><a href="layanan.html">Bangun Rumah Baru</a></li>
+            <li><a href="layanan.html">Renovasi Total</a></li>
+            <li><a href="layanan.html">Atap &amp; Plafon</a></li>
+            <li><a href="layanan.html">Kamar Mandi &amp; Dapur</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Kontak</h4>
+          <ul>
+            <li><a href="https://wa.me/6281234567890" target="_blank" rel="noopener">0812-3456-7890</a></li>
+            <li><a href="mailto:halo@batabaja.id">halo@batabaja.id</a></li>
+            <li><a href="kontak.html">Jl. Jenderal Sudirman, Purwokerto</a></li>
+            <li>Senin – Sabtu, 07.00 – 17.00</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 BATA &amp; BAJA. Seluruh hak cipta dilindungi.</span>
+        <span>Dibangun dengan teliti, satu bata satu waktu.</span>
+      </div>
+    </div>
+  </footer>
+
+<script src="main.js"></script>
+</body>
+</html>

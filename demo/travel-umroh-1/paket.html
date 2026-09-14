@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paket Umroh — MIQAT Tour &amp; Travel</title>
+<meta name="description" content="Pilihan lengkap paket Umroh MIQAT: Reguler, Plus Turki, Plus Dubai, dan VIP Executive. Lengkap dengan rincian hotel, maskapai, dan jadwal keberangkatan.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230E2224'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='%23DEC090'%3E☪%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   MIQAT — Umroh Travel
+   Design tokens: Ihram (light), Night (dark teal-indigo),
+   Zamzam Teal, Old Gold, Dune Sand.
+   Display: Fraunces / Body: Plus Jakarta Sans / Accent: Amiri
+   ========================================================= */
+
+:root{
+  --ihram:      #FBF8F1;
+  --ihram-2:    #F3EDDF;
+  --sand:       #E9DDC3;
+  --night:      #0E2224;
+  --night-2:    #123634;
+  --teal:       #1C4A47;
+  --teal-2:     #24605C;
+  --gold:       #B8935A;
+  --gold-light: #DEC090;
+  --gold-deep:  #8C6B3B;
+  --ink:        #1D2321;
+  --ink-soft:   #52605C;
+  --white:      #ffffff;
+
+  --font-display: "Fraunces", "Amiri", serif;
+  --font-body: "Plus Jakarta Sans", -apple-system, sans-serif;
+  --font-accent: "Amiri", serif;
+
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --shadow-soft: 0 20px 45px -20px rgba(14,34,36,0.28);
+  --shadow-card: 0 12px 30px -14px rgba(14,34,36,0.22);
+  --container: 1180px;
+}
+
+*, *::before, *::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--ihram);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ margin:0; padding:0; list-style:none; }
+button{ font-family:inherit; cursor:pointer; }
+:focus-visible{ outline:3px solid var(--gold); outline-offset:3px; }
+
+h1,h2,h3,h4{
+  font-family: var(--font-display);
+  font-weight:600;
+  color: var(--night);
+  line-height:1.15;
+  margin:0 0 .5em;
+}
+h1{ font-size: clamp(2.4rem, 4.6vw, 4.1rem); font-weight:500; letter-spacing:-0.01em; }
+h2{ font-size: clamp(1.9rem, 3.4vw, 2.7rem); }
+h3{ font-size: clamp(1.25rem, 1.8vw, 1.55rem); }
+p{ margin:0 0 1em; color: var(--ink-soft); }
+
+.container{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.center{ text-align:center; }
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:.6em;
+  font-family: var(--font-accent);
+  font-style:italic;
+  font-size:1.05rem;
+  color: var(--gold-deep);
+  letter-spacing:.02em;
+  margin-bottom: 1em;
+}
+.eyebrow::before, .eyebrow::after{
+  content:"";
+  width:26px; height:1px;
+  background: var(--gold);
+  display:inline-block;
+}
+.section-head{
+  max-width:680px;
+  margin: 0 auto 3rem;
+  text-align:center;
+}
+.section-head p{ max-width:560px; margin-inline:auto; }
+
+.arabic-mark{
+  font-family: var(--font-accent);
+  font-size:1.4em;
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.6em;
+  padding: 15px 30px;
+  border-radius: 999px;
+  font-weight:600;
+  font-size:.98rem;
+  letter-spacing:.01em;
+  border:1.5px solid transparent;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+  white-space:nowrap;
+}
+.btn-gold{
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: var(--night);
+  box-shadow: 0 14px 30px -12px rgba(184,147,90,.65);
+}
+.btn-gold:hover{ transform: translateY(-2px); box-shadow: 0 18px 34px -12px rgba(184,147,90,.8); }
+.btn-outline{
+  border-color: rgba(251,248,241,.5);
+  color: var(--ihram);
+}
+.btn-outline:hover{ background: rgba(251,248,241,.12); }
+.btn-outline-dark{
+  border-color: rgba(28,74,71,.35);
+  color: var(--teal);
+}
+.btn-outline-dark:hover{ background: rgba(28,74,71,.08); }
+.btn-block{ width:100%; }
+.btn-sm{ padding:10px 20px; font-size:.85rem; }
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky; top:0; z-index:100;
+  background: rgba(251,248,241,.86);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(28,74,71,.08);
+}
+.nav-wrap{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 16px 0;
+}
+.brand{ display:flex; align-items:center; gap:12px; }
+.brand-mark{ width:42px; height:42px; flex:none; }
+.brand-text{ font-family: var(--font-display); font-size:1.35rem; color:var(--night); letter-spacing:.02em; }
+.brand-text span{ color: var(--gold-deep); }
+.nav-links{ display:flex; align-items:center; gap:2.2rem; }
+.nav-links a{
+  font-size:.95rem; font-weight:600; color: var(--ink-soft);
+  position:relative; padding:6px 0;
+}
+.nav-links a::after{
+  content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px;
+  background: var(--gold); transform:scaleX(0); transform-origin:left;
+  transition: transform .3s ease;
+}
+.nav-links a:hover, .nav-links a.active{ color: var(--night); }
+.nav-links a:hover::after, .nav-links a.active::after{ transform:scaleX(1); }
+.nav-cta{ display:flex; align-items:center; gap:14px; }
+.nav-toggle{
+  display:none; background:none; border:none; width:40px; height:40px;
+  position:relative;
+}
+.nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+  content:""; position:absolute; left:8px; right:8px; height:2px; background:var(--night);
+  transition: all .25s ease;
+}
+.nav-toggle span{ top:19px; }
+.nav-toggle span::before{ top:-7px; }
+.nav-toggle span::after{ top:7px; }
+.nav-toggle.open span{ background:transparent; }
+.nav-toggle.open span::before{ transform: rotate(45deg); top:0; }
+.nav-toggle.open span::after{ transform: rotate(-45deg); top:0; }
+
+/* ---------- Arch motif divider (plain inline SVG, no mask/clip-path
+   so it renders identically everywhere) ---------- */
+.arch-divider{
+  position:relative;
+  z-index:5;
+  height:44px;
+  margin-top:-44px;
+  line-height:0;
+  pointer-events:none;
+}
+.arch-divider svg{ display:block; width:100%; height:100%; }
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;
+  color: var(--ihram);
+}
+.hero-media{
+  position:absolute; inset:0;
+  background-size:cover; background-position:center;
+}
+.hero-media::after{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(9,24,26,.78) 0%, rgba(9,24,26,.55) 42%, rgba(9,24,26,.92) 100%);
+}
+.hero-inner{
+  position:relative; z-index:2;
+  padding: 168px 0 120px;
+}
+.hero-inner.short{ padding: 128px 0 96px; }
+.hero .eyebrow{ color: var(--gold-light); }
+.hero .eyebrow::before, .hero .eyebrow::after{ background: var(--gold-light); }
+.hero h1{ color: var(--ihram); max-width: 820px; }
+.hero .lead{ color: rgba(251,248,241,.86); font-size:1.15rem; max-width:560px; }
+.hero-actions{ display:flex; gap:16px; flex-wrap:wrap; margin-top:2rem; }
+.hero-stats{
+  margin-top:4rem;
+  display:grid; grid-template-columns:repeat(4,1fr); gap: 28px;
+  border-top:1px solid rgba(251,248,241,.18);
+  padding-top:2rem;
+}
+.hero-stats .num{ font-family:var(--font-display); font-size:2.1rem; color:var(--gold-light); }
+.hero-stats .lbl{ font-size:.85rem; color:rgba(251,248,241,.7); }
+/* ---------- Sections ---------- */
+.section{ padding: 100px 0; }
+.section-sand{ background: var(--ihram-2); }
+.section-night{ background: var(--night); color: var(--ihram); }
+.section-night h2, .section-night h3{ color: var(--ihram); }
+.section-night p{ color: rgba(251,248,241,.72); }
+.section-night .eyebrow{ color: var(--gold-light); }
+.section-night .eyebrow::before,.section-night .eyebrow::after{ background: var(--gold-light); }
+
+/* ---------- Feature / value cards ---------- */
+.grid{ display:grid; gap: 28px; }
+.grid-3{ grid-template-columns:repeat(3,1fr); }
+.grid-4{ grid-template-columns:repeat(4,1fr); }
+.grid-2{ grid-template-columns:repeat(2,1fr); }
+
+.feature-card{
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 2.2rem 1.9rem;
+  text-align:center;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(28,74,71,.06);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.feature-card:hover{ transform: translateY(-6px); box-shadow: var(--shadow-soft); }
+.icon-arch{
+  width:76px; height:76px;
+  margin: 0 auto 1.3rem;
+  display:flex; align-items:center; justify-content:center;
+  background: linear-gradient(160deg, var(--teal), var(--night));
+  color: var(--gold-light);
+  border-radius: 50%;
+  box-shadow: 0 10px 22px -10px rgba(14,34,36,.5);
+}
+.icon-arch svg{ width:32px; height:32px; }
+.feature-card h3{ margin-bottom:.5rem; }
+.feature-card p{ font-size:.95rem; margin-bottom:0; }
+
+/* ---------- Steps timeline (left -> right) ---------- */
+.steps{
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap:0;
+  position:relative;
+  margin-top:3rem;
+}
+.steps::before{
+  content:"";
+  position:absolute;
+  top:38px; left:6%; right:6%;
+  height:2px;
+  background: repeating-linear-gradient(90deg, var(--gold) 0 10px, transparent 10px 20px);
+  z-index:0;
+}
+.step{
+  position:relative; z-index:1;
+  text-align:center;
+  padding: 0 12px;
+}
+.step-num{
+  width:76px; height:76px;
+  margin:0 auto 1.1rem;
+  background: var(--ihram);
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  color: var(--night);
+  font-family: var(--font-display);
+  font-size:1.5rem;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: var(--shadow-card);
+}
+.section-night .step-num{ background: var(--night-2); color: var(--gold-light); }
+.step h4{ font-family:var(--font-display); font-size:1.05rem; margin-bottom:.35rem; color:var(--night); }
+.section-night .step h4{ color: var(--ihram); }
+.step p{ font-size:.86rem; margin:0; }
+
+/* ---------- Package cards ---------- */
+.pkg-card{
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow:hidden;
+  box-shadow: var(--shadow-card);
+  text-align:center;
+  border:1px solid rgba(28,74,71,.06);
+  display:flex; flex-direction:column;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.pkg-card:hover{ transform: translateY(-6px); box-shadow: var(--shadow-soft); }
+.pkg-media{
+  position:relative; height:190px; margin: 22px auto 0; width:88%;
+  overflow:hidden;
+  border-radius: 110px 110px 16px 16px / 64px 64px 16px 16px;
+}
+.pkg-media img{ width:100%; height:100%; object-fit:cover; }
+.pkg-badge{
+  position:absolute; top:14px; left:50%; transform:translateX(-50%);
+  background: var(--gold);
+  color: var(--night);
+  font-size:.72rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+  padding:6px 16px; border-radius:999px;
+  box-shadow: 0 8px 16px -6px rgba(0,0,0,.35);
+}
+.pkg-body{ padding: 1.6rem 1.8rem 2rem; display:flex; flex-direction:column; align-items:center; flex:1; }
+.pkg-body h3{ margin-bottom:.2rem; }
+.pkg-sub{ font-size:.85rem; color:var(--ink-soft); margin-bottom:1rem; }
+.pkg-price{ font-family:var(--font-display); font-size:1.9rem; color:var(--gold-deep); margin-bottom:.15rem; }
+.pkg-price small{ font-family:var(--font-body); font-size:.7rem; color:var(--ink-soft); font-weight:600; }
+.pkg-meta{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin: .9rem 0 1.2rem; }
+.pkg-meta span{
+  font-size:.78rem; font-weight:600; color:var(--teal);
+  background: var(--ihram-2); padding:6px 12px; border-radius:999px;
+}
+.pkg-list{ text-align:left; width:100%; margin-bottom:1.6rem; }
+.pkg-list li{ font-size:.87rem; color:var(--ink-soft); display:flex; gap:.6em; margin-bottom:.5em; }
+.pkg-list li::before{ content:"✓"; color:var(--gold-deep); font-weight:700; }
+.pkg-body .btn{ margin-top:auto; }
+
+/* ---------- Testimonials ---------- */
+.testi-card{
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 2.2rem 2rem;
+  text-align:center;
+  box-shadow: var(--shadow-card);
+  border:1px solid rgba(28,74,71,.06);
+}
+.testi-quote{
+  font-family: var(--font-accent); font-style:italic;
+  color:var(--gold-deep); font-size:2.4rem; line-height:1; display:block; margin-bottom:.3rem;
+}
+.testi-card p.body{ color: var(--ink); font-size:.98rem; }
+.testi-avatar{
+  width:54px; height:54px; border-radius:50%;
+  margin: 1.2rem auto .6rem;
+  background: linear-gradient(160deg, var(--teal), var(--night));
+  color:var(--gold-light);
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--font-display); font-size:1.1rem;
+}
+.testi-name{ font-weight:700; color:var(--night); font-size:.92rem; }
+.testi-role{ font-size:.8rem; color:var(--ink-soft); }
+.stars{ color: var(--gold); letter-spacing:2px; margin-bottom:.6rem; }
+
+/* ---------- Gallery ---------- */
+.gallery-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 150px;
+  gap: 14px;
+}
+.gallery-grid img{ width:100%; height:100%; object-fit:cover; border-radius: var(--radius-sm); }
+.gallery-grid .tall{ grid-row: span 2; }
+.gallery-grid .wide{ grid-column: span 2; }
+
+/* ---------- CTA banner ---------- */
+.cta-banner{
+  background: linear-gradient(120deg, var(--teal-2), var(--night));
+  border-radius: var(--radius-lg);
+  padding: 3.4rem 3rem;
+  color: var(--ihram);
+  display:flex; align-items:center; justify-content:space-between; gap:2rem;
+  flex-wrap:wrap;
+  position:relative;
+  overflow:hidden;
+}
+.cta-banner .arabic-mark{ position:absolute; right:26px; top:10px; font-size:5.5rem; color:rgba(222,192,144,.14); }
+.cta-banner h2{ color:var(--ihram); margin-bottom:.4rem; }
+.cta-banner p{ color:rgba(251,248,241,.75); margin-bottom:0; max-width:440px; }
+.cta-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+
+/* ---------- Footer ---------- */
+.site-footer{ background: var(--night); color: rgba(251,248,241,.78); padding-top:0; }
+.footer-top{ padding: 4.5rem 0 3rem; }
+.footer-grid{
+  display:grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 40px;
+}
+.footer-brand .brand-text{ color: var(--ihram); }
+.footer-brand p{ color: rgba(251,248,241,.6); font-size:.92rem; max-width:280px; }
+.footer-col h4{ color: var(--gold-light); font-family:var(--font-body); font-weight:700; font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1.1rem; }
+.footer-col li{ margin-bottom:.7rem; font-size:.92rem; }
+.footer-col a:hover{ color: var(--gold-light); }
+.social-row{ display:flex; gap:12px; margin-top:1.4rem; }
+.social-row a{
+  width:38px; height:38px; border-radius:50%; border:1px solid rgba(251,248,241,.25);
+  display:flex; align-items:center; justify-content:center;
+}
+.social-row a:hover{ background: var(--gold); color:var(--night); border-color:var(--gold); }
+.footer-bottom{
+  border-top:1px solid rgba(251,248,241,.12);
+  padding: 1.6rem 0;
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;
+  font-size:.82rem; color: rgba(251,248,241,.55);
+}
+.footer-bottom .legal-badges{ display:flex; gap:10px; flex-wrap:wrap; }
+.footer-bottom .legal-badges span{
+  border:1px solid rgba(251,248,241,.2); padding:5px 12px; border-radius:999px; font-size:.75rem;
+}
+
+/* ---------- Page hero (inner pages) ---------- */
+.page-hero{ padding: 150px 0 90px; position:relative; color:var(--ihram); }
+.page-hero .container{ position:relative; z-index:2; }
+.page-hero .lead{ max-width:600px; color: rgba(251,248,241,.82); }
+
+/* ---------- Tabs (paket) ---------- */
+.tabs{ display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:3rem; }
+.tab-btn{
+  background: var(--white); border:1.5px solid rgba(28,74,71,.15);
+  padding:11px 22px; border-radius:999px; font-weight:600; font-size:.9rem; color:var(--teal);
+  transition: all .25s ease;
+}
+.tab-btn.active, .tab-btn:hover{ background: var(--teal); color:var(--ihram); border-color:var(--teal); }
+.pkg-group{ display:none; }
+.pkg-group.active{ display:grid; }
+
+/* ---------- Comparison table ---------- */
+.table-wrap{ overflow-x:auto; border-radius: var(--radius-md); box-shadow: var(--shadow-card); }
+table.compare{ width:100%; border-collapse:collapse; background:var(--white); min-width:720px; }
+table.compare th, table.compare td{ padding:16px 20px; text-align:center; border-bottom:1px solid rgba(28,74,71,.08); font-size:.92rem; }
+table.compare th{ background: var(--teal); color:var(--ihram); font-family:var(--font-display); font-weight:500; font-size:1rem; }
+table.compare td:first-child, table.compare th:first-child{ text-align:left; font-weight:600; color:var(--night); }
+table.compare tr:last-child td{ border-bottom:none; }
+table.compare td.yes{ color:var(--teal-2); font-weight:700; }
+
+/* ---------- FAQ accordion ---------- */
+.faq{ max-width:820px; margin:0 auto; }
+.faq-item{
+  background: var(--white); border-radius: var(--radius-sm); margin-bottom:14px;
+  box-shadow: var(--shadow-card); overflow:hidden; border:1px solid rgba(28,74,71,.06);
+}
+.faq-item summary{
+  padding: 1.2rem 1.6rem; cursor:pointer; font-weight:700; color:var(--night);
+  display:flex; justify-content:space-between; align-items:center; list-style:none;
+  font-family:var(--font-display); font-size:1.05rem;
+}
+.faq-item summary::-webkit-details-marker{ display:none; }
+.faq-item summary::after{
+  content:"+"; font-size:1.4rem; color:var(--gold-deep); font-family:var(--font-body); transition:transform .25s ease;
+}
+.faq-item[open] summary::after{ transform: rotate(45deg); }
+.faq-item .faq-body{ padding: 0 1.6rem 1.4rem; color:var(--ink-soft); font-size:.95rem; }
+
+/* ---------- About page specifics ---------- */
+.story-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items:center; }
+.story-media{ position:relative; }
+.story-media img{ border-radius: var(--radius-lg); box-shadow: var(--shadow-soft); }
+.story-media .ring{
+  position:absolute; width:130px; height:130px; border:2px solid var(--gold);
+  border-radius:50%; top:-30px; left:-30px; z-index:-1;
+}
+.stat-pill{
+  position:absolute; bottom:-24px; right:-24px;
+  background: var(--night); color:var(--ihram);
+  padding: 1.2rem 1.6rem; border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  text-align:center;
+}
+.stat-pill .num{ font-family:var(--font-display); font-size:1.8rem; color:var(--gold-light); }
+.stat-pill .lbl{ font-size:.72rem; color:rgba(251,248,241,.7); }
+
+.legal-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+.legal-card{
+  background:var(--white); border-radius: var(--radius-md); padding:1.8rem 1.4rem; text-align:center;
+  box-shadow: var(--shadow-card); border:1px solid rgba(28,74,71,.06);
+}
+.legal-card .num-lg{ font-family:var(--font-display); font-size:1.6rem; color:var(--gold-deep); }
+.legal-card h4{ font-size:.95rem; color:var(--night); margin:.4rem 0 .3rem; }
+.legal-card p{ font-size:.82rem; margin:0; }
+
+.team-card{ text-align:center; }
+.team-photo{
+  width:150px; height:150px; border-radius:50%; margin:0 auto 1.1rem; overflow:hidden;
+  border:4px solid var(--ihram); box-shadow: var(--shadow-card);
+}
+.team-photo img{ width:100%; height:100%; object-fit:cover; }
+.team-card h4{ margin-bottom:.15rem; }
+.team-role{ color:var(--gold-deep); font-size:.85rem; font-weight:700; margin-bottom:.5rem; }
+
+/* ---------- Contact page ---------- */
+.contact-grid{ display:grid; grid-template-columns: .9fr 1.1fr; gap: 50px; align-items:flex-start; }
+.contact-info-card{
+  background: var(--night); color: var(--ihram); border-radius: var(--radius-lg);
+  padding: 2.6rem; position:relative; overflow:hidden;
+}
+.contact-info-card h3{ color: var(--ihram); }
+.contact-row{ display:flex; gap:1rem; margin-bottom:1.6rem; align-items:flex-start; }
+.contact-row .ic{
+  width:44px; height:44px; border-radius:50%; background: rgba(222,192,144,.14);
+  display:flex; align-items:center; justify-content:center; flex:none; color:var(--gold-light);
+}
+.contact-row strong{ display:block; color:var(--ihram); font-size:.95rem; margin-bottom:.15rem; }
+.contact-row span, .contact-row a{ font-size:.88rem; color:rgba(251,248,241,.68); }
+
+.form-card{
+  background: var(--white); border-radius: var(--radius-lg); padding:2.6rem;
+  box-shadow: var(--shadow-card);
+}
+.form-row{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px; }
+.field label{ display:block; font-size:.85rem; font-weight:700; color:var(--night); margin-bottom:.4rem; }
+.field input, .field select, .field textarea{
+  width:100%; padding:13px 16px; border-radius:10px; border:1.5px solid rgba(28,74,71,.18);
+  font-family:inherit; font-size:.92rem; background: var(--ihram-2); color:var(--ink);
+  transition: border-color .2s ease, background .2s ease;
+}
+.field input:focus, .field select:focus, .field textarea:focus{ border-color:var(--gold); background:var(--white); outline:none; }
+.field.full{ grid-column: 1 / -1; }
+.form-note{ font-size:.8rem; color:var(--ink-soft); margin-top:.8rem; }
+
+.map-frame{ position:relative; border-radius: var(--radius-lg); overflow:hidden; box-shadow: var(--shadow-card); margin-top:2rem; }
+.map-frame iframe{ width:100%; height:340px; border:0; display:block; filter: grayscale(.15) contrast(1.05); position:relative; z-index:1; }
+.map-overlay{
+  position:absolute; inset:0; z-index:2;
+  display:flex; align-items:center; justify-content:center;
+  background: rgba(14,34,36,0);
+  opacity:0; transition:opacity .25s ease, background .25s ease;
+  cursor:pointer;
+}
+.map-overlay.active{ opacity:1; background:rgba(14,34,36,.38); }
+.map-overlay span{
+  background: rgba(14,34,36,.92); color:var(--ihram);
+  padding:11px 22px; border-radius:999px;
+  font-size:.86rem; font-weight:600; text-align:center;
+  box-shadow: var(--shadow-card);
+}
+.map-overlay kbd{
+  background: rgba(251,248,241,.18); border:1px solid rgba(251,248,241,.3);
+  padding:2px 8px; border-radius:6px; font-family:var(--font-body); font-size:.82rem;
+}
+
+.branch-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:1rem; }
+.branch-card{ background:var(--white); border-radius:var(--radius-md); padding:1.6rem; box-shadow:var(--shadow-card); border:1px solid rgba(28,74,71,.06); }
+.branch-card h4{ margin-bottom:.3rem; }
+.branch-card p{ font-size:.86rem; margin-bottom:.3rem; }
+
+/* ---------- Reveal animation ---------- */
+.reveal{ opacity:0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.in{ opacity:1; transform:none; }
+
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+  html{ scroll-behavior:auto; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px){
+  .grid-4{ grid-template-columns:repeat(2,1fr); }
+  .grid-3{ grid-template-columns:repeat(2,1fr); }
+  .steps{ grid-template-columns:repeat(3,1fr); row-gap:2.6rem; }
+  .steps::before{ display:none; }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+  .story-grid{ grid-template-columns:1fr; }
+  .legal-grid{ grid-template-columns:repeat(2,1fr); }
+  .contact-grid{ grid-template-columns:1fr; }
+  .branch-grid{ grid-template-columns:1fr 1fr; }
+  .gallery-grid{ grid-template-columns:repeat(3,1fr); }
+}
+
+@media (max-width: 760px){
+  .nav-links, .nav-cta .btn{ display:none; }
+  .nav-toggle{ display:block; }
+  .site-header.open .nav-links{
+    display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0;
+    background: var(--ihram); padding:24px; gap:18px; box-shadow: var(--shadow-soft);
+  }
+  .hero-stats{ grid-template-columns:repeat(2,1fr); }
+  .grid-4, .grid-3, .grid-2{ grid-template-columns:1fr; }
+  .steps{ grid-template-columns:1fr; }
+  .footer-grid{ grid-template-columns:1fr; }
+  .footer-bottom{ flex-direction:column; align-items:flex-start; }
+  .legal-grid{ grid-template-columns:1fr 1fr; }
+  .cta-banner{ padding:2.4rem 1.6rem; }
+  .form-row{ grid-template-columns:1fr; }
+  .branch-grid{ grid-template-columns:1fr; }
+  .gallery-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:120px; }
+  h1{ font-size:2.3rem; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a href="index.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="21" cy="21" r="20" stroke="#B8935A" stroke-width="1.5"/>
+        <path d="M21 8 C13 8 9 15 9 21 C9 27 13 34 21 34 C15 30 15 12 21 8Z" fill="#B8935A"/>
+        <circle cx="29" cy="13" r="1.6" fill="#B8935A"/>
+      </svg>
+      <span class="brand-text">MIQAT<span>.</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Beranda</a>
+      <a href="paket.html" class="active">Paket Umroh</a>
+      <a href="tentang.html">Tentang Kami</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="kontak.html" class="btn btn-gold btn-sm">Konsultasi Gratis</a>
+      <button class="nav-toggle" aria-label="Buka menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== PAGE HERO ===================== -->
+<section class="hero">
+  <div class="hero-media" style="background-image:url('https://images.unsplash.com/photo-1577295605163-132e25c3c914?auto=format&fit=crop&w=2000&q=80')"></div>
+  <div class="container hero-inner short">
+    <p class="eyebrow">Paket Umroh</p>
+    <h1 style="max-width:700px">Pilih Paket Sesuai Kebutuhan &amp; Kenyamanan Ibadah Anda</h1>
+    <p class="lead">Empat kategori paket dengan rincian hotel, maskapai, dan fasilitas yang transparan — tanpa biaya tersembunyi.</p>
+  </div>
+</section>
+<div class="arch-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,60 L0,28 C0,10 25.2,0 45.0,0 C64.8,0 90,10 90,28 L90,28 C90,10 115.2,0 135.0,0 C154.8,0 180,10 180,28 L180,28 C180,10 205.2,0 225.0,0 C244.8,0 270,10 270,28 L270,28 C270,10 295.2,0 315.0,0 C334.8,0 360,10 360,28 L360,28 C360,10 385.2,0 405.0,0 C424.8,0 450,10 450,28 L450,28 C450,10 475.2,0 495.0,0 C514.8,0 540,10 540,28 L540,28 C540,10 565.2,0 585.0,0 C604.8,0 630,10 630,28 L630,28 C630,10 655.2,0 675.0,0 C694.8,0 720,10 720,28 L720,28 C720,10 745.2,0 765.0,0 C784.8,0 810,10 810,28 L810,28 C810,10 835.2,0 855.0,0 C874.8,0 900,10 900,28 L900,28 C900,10 925.2,0 945.0,0 C964.8,0 990,10 990,28 L990,28 C990,10 1015.2,0 1035.0,0 C1054.8,0 1080,10 1080,28 L1080,28 C1080,10 1105.2,0 1125.0,0 C1144.8,0 1170,10 1170,28 L1170,28 C1170,10 1195.2,0 1215.0,0 C1234.8,0 1260,10 1260,28 L1260,28 C1260,10 1285.2,0 1305.0,0 C1324.8,0 1350,10 1350,28 L1350,28 C1350,10 1375.2,0 1395.0,0 C1414.8,0 1440,10 1440,28 L1440,60 Z" fill="var(--ihram)"/></svg></div>
+
+<!-- ===================== TABS + PACKAGE GRID ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="tabs reveal">
+      <button class="tab-btn active" data-target="grp-reguler">Reguler</button>
+      <button class="tab-btn" data-target="grp-turki">Plus Turki</button>
+      <button class="tab-btn" data-target="grp-dubai">Plus Dubai</button>
+      <button class="tab-btn" data-target="grp-vip">VIP Executive</button>
+    </div>
+
+    <!-- REGULER -->
+    <div class="pkg-group grid grid-2 active" id="grp-reguler">
+      <article class="pkg-card">
+        <div class="pkg-media"><span class="pkg-badge">Reguler</span><img src="https://images.unsplash.com/photo-1553755088-ef1973c7b4a1?auto=format&fit=crop&w=800&q=80" alt="Kaabah pada malam hari"></div>
+        <div class="pkg-body">
+          <h3>Umroh Reguler Hemat 9 Hari</h3>
+          <p class="pkg-sub">Keberangkatan setiap 2 minggu dari Jakarta (CGK)</p>
+          <div class="pkg-price">Rp 26,9 Jt <small>/ orang, quad</small></div>
+          <div class="pkg-meta"><span>Makkah 4 malam</span><span>Madinah 3 malam</span><span>Hotel ★★★★</span><span>Saudia Airlines</span></div>
+          <ul class="pkg-list">
+            <li>Hotel radius 500m dari Masjidil Haram</li>
+            <li>Hotel radius 400m dari Masjid Nabawi</li>
+            <li>Bimbingan manasik 2x sebelum berangkat</li>
+            <li>Ziarah kota Makkah &amp; Madinah</li>
+            <li>Koper, ihram/mukena, tas paspor</li>
+            <li>Muthawif pendamping 1:45 jamaah</li>
+          </ul>
+          <a href="kontak.html" class="btn btn-outline-dark btn-block">Tanya Paket Ini</a>
+        </div>
+      </article>
+      <article class="pkg-card">
+        <div class="pkg-media"><span class="pkg-badge">Reguler</span><img src="https://images.unsplash.com/photo-1554794470-42d3cd193ecc?auto=format&fit=crop&w=800&q=80" alt="Jamaah beribadah di Masjidil Haram"></div>
+        <div class="pkg-body">
+          <h3>Umroh Reguler Ekonomis 12 Hari</h3>
+          <p class="pkg-sub">Keberangkatan setiap awal bulan dari Jakarta (CGK)</p>
+          <div class="pkg-price">Rp 24,5 Jt <small>/ orang, quad</small></div>
+          <div class="pkg-meta"><span>Makkah 6 malam</span><span>Madinah 4 malam</span><span>Hotel ★★★</span><span>Oman Air (transit)</span></div>
+          <ul class="pkg-list">
+            <li>Hotel radius 800m dari Masjidil Haram</li>
+            <li>Hotel radius 600m dari Masjid Nabawi</li>
+            <li>Bimbingan manasik 2x sebelum berangkat</li>
+            <li>Waktu ibadah lebih leluasa (12 hari)</li>
+            <li>Koper, ihram/mukena, tas paspor</li>
+            <li>Muthawif pendamping 1:45 jamaah</li>
+          </ul>
+          <a href="kontak.html" class="btn btn-outline-dark btn-block">Tanya Paket Ini</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- PLUS TURKI -->
+    <div class="pkg-group grid grid-2" id="grp-turki">
+      <article class="pkg-card">
+        <div class="pkg-media"><span class="pkg-badge">Plus Turki</span><img src="https://images.unsplash.com/photo-1736425620502-8386e8e7de1b?auto=format&fit=crop&w=800&q=80" alt="Interior masjid megah bergaya Turki"></div>
+        <div class="pkg-body">
+          <h3>Umroh Plus Istanbul 12 Hari</h3>
+          <p class="pkg-sub">Makkah — Madinah — Istanbul, 1x keberangkatan/bulan</p>
+          <div class="pkg-price">Rp 34,5 Jt <small>/ orang, quad</small></div>
+          <div class="pkg-meta"><span>Makkah 4 malam</span><span>Madinah 3 malam</span><span>Istanbul 3 malam</span><span>Turkish Airlines</span></div>
+          <ul class="pkg-list">
+            <li>Hotel radius 300m dari Masjidil Haram</li>
+            <li>City tour Istanbul: Blue Mosque, Grand Bazaar</li>
+            <li>Bimbingan manasik 3x sebelum berangkat</li>
+            <li>Makan 3x sehari menu Indonesia</li>
+            <li>Muthawif pendamping penuh sepanjang trip</li>
+            <li>Asuransi perjalanan internasional</li>
+          </ul>
+          <a href="kontak.html" class="btn btn-outline-dark btn-block">Tanya Paket Ini</a>
+        </div>
+      </article>
+      <article class="pkg-card">
+        <div class="pkg-media"><span class="pkg-badge">Plus Turki</span><img src="https://images.unsplash.com/photo-1577295605163-132e25c3c914?auto=format&fit=crop&w=800&q=80" alt="Masjid Nabawi Madinah"></div>
+        <div class="pkg-body">
+          <h3>Umroh Plus Istanbul &amp; Bursa 15 Hari</h3>
+          <p class="pkg-sub">Makkah — Madinah — Istanbul — Bursa</p>
+          <div class="pkg-price">Rp 39,9 Jt <small>/ orang, quad</small></div>
+          <div class="pkg-meta"><span>Makkah 5 malam</span><span>Madinah 4 malam</span><span>Turki 5 malam</span><span>Turkish Airlines</span></div>
+          <ul class="pkg-list">
+            <li>Hotel radius 300m dari Masjidil Haram</li>
+            <li>City tour Istanbul &amp; Bursa lengkap</li>
+            <li>Bimbingan manasik 3x sebelum berangkat</li>
+            <li>Wisata Uludag &amp; kota tua Bursa</li>
+            <li>Muthawif pendamping penuh sepanjang trip</li>
+            <li>Asuransi perjalanan internasional</li>
+          </ul>
+          <a href="kontak.html" class="btn btn-outline-dark btn-block">Tanya Paket Ini</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- PLUS DUBAI -->
+    <div class="pkg-group grid grid-2" id="grp-dubai">
+      <article class="pkg-card">
+        <div class="pkg-media"><span class="pkg-badge">Plus Dubai</span><img src="https://images.unsplash.com/photo-1730409087627-15c014efd5dd?auto=format&fit=crop&w=800&q=80" alt="Perjalanan udara menuju Timur Tengah"></div>
+        <div class="pkg-body">
+          <h3>Umroh Plus Dubai 12 Hari</h3>
+          <p class="pkg-sub">Makkah — Madinah — Dubai, 1x keberangkatan/bulan</p>
+          <div class="pkg-price">Rp 36,2 Jt <small>/ orang, quad</small></div>
+          <div class="pkg-meta"><span>Makkah 4 malam</span><span>Madinah 3 malam</span><span>Dubai 3 malam</span><span>Emirates</span></div>
+          <ul class="pkg-list">
+            <li>Hotel radius 400m dari Masjidil Haram</li>
+            <li>City tour Dubai: Burj Khalifa, Desert Safari</li>
+            <li>Bimbingan manasik 3x sebelum berangkat</li>
+            <li>Makan 3x sehari menu Indonesia</li>
+            <li>Muthawif pendamping penuh sepanjang trip</li>
+            <li>Asuransi perjalanan internasional</li>
+          </ul>
+          <a href="kontak.html" class="btn btn-outline-dark btn-block">Tanya Paket Ini</a>
+        </div>
+      </article>
+      <article class="pkg-card">
+        <div class="pkg-media"><span class="pkg-badge">Plus Dubai</span><img src="https://images.unsplash.com/photo-1554794470-42d3cd193ecc?auto=format&fit=crop&w=800&q=80" alt="Jamaah di Masjidil Haram"></div>
+        <div class="pkg-body">
+          <h3>Umroh Plus Dubai Ekspress 10 Hari</h3>
+          <p class="pkg-sub">Program singkat untuk jamaah dengan waktu cuti terbatas</p>
+          <div class="pkg-price">Rp 32,8 Jt <small>/ orang, quad</small></div>
+          <div class="pkg-meta"><span>Makkah 3 malam</span><span>Madinah 3 malam</span><span>Dubai 2 malam</span><span>Emirates</span></div>
+          <ul class="pkg-list">
+            <li>Hotel radius 400m dari Masjidil Haram</li>
+            <li>City tour Dubai singkat (1 hari penuh)</li>
+            <li>Bimbingan manasik 2x sebelum berangkat</li>
+            <li>Cocok untuk jamaah pekerja/profesional</li>
+            <li>Muthawif pendamping penuh sepanjang trip</li>
+            <li>Asuransi perjalanan internasional</li>
+          </ul>
+          <a href="kontak.html" class="btn btn-outline-dark btn-block">Tanya Paket Ini</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- VIP -->
+    <div class="pkg-group grid grid-2" id="grp-vip">
+      <article class="pkg-card">
+        <div class="pkg-media"><span class="pkg-badge">VIP</span><img src="https://images.unsplash.com/photo-1736425620502-8386e8e7de1b?auto=format&fit=crop&w=800&q=80" alt="Interior masjid mewah"></div>
+        <div class="pkg-body">
+          <h3>Umroh VIP Executive 10 Hari</h3>
+          <p class="pkg-sub">Kuota terbatas, maksimal 25 jamaah per keberangkatan</p>
+          <div class="pkg-price">Rp 58 Jt <small>/ orang, double</small></div>
+          <div class="pkg-meta"><span>Makkah 5 malam</span><span>Madinah 4 malam</span><span>Hotel ★★★★★</span><span>Garuda Indonesia</span></div>
+          <ul class="pkg-list">
+            <li>Hotel bintang 5 tepat di depan Masjidil Haram</li>
+            <li>Kamar isi 2 (double) — privasi lebih terjaga</li>
+            <li>Private transport bandara &amp; antar kota</li>
+            <li>Fast track imigrasi Jeddah/Madinah</li>
+            <li>Muthawif pribadi rasio 1:15 jamaah</li>
+            <li>Perlengkapan premium &amp; suvenir eksklusif</li>
+          </ul>
+          <a href="kontak.html" class="btn btn-outline-dark btn-block">Tanya Paket Ini</a>
+        </div>
+      </article>
+      <article class="pkg-card">
+        <div class="pkg-media"><span class="pkg-badge">VIP</span><img src="https://images.unsplash.com/photo-1553755088-ef1973c7b4a1?auto=format&fit=crop&w=800&q=80" alt="Kaabah pada malam hari"></div>
+        <div class="pkg-body">
+          <h3>Umroh VIP Royal 14 Hari</h3>
+          <p class="pkg-sub">Program lengkap dengan waktu ibadah paling leluasa</p>
+          <div class="pkg-price">Rp 74 Jt <small>/ orang, double</small></div>
+          <div class="pkg-meta"><span>Makkah 7 malam</span><span>Madinah 5 malam</span><span>Hotel ★★★★★</span><span>Garuda Indonesia</span></div>
+          <ul class="pkg-list">
+            <li>Hotel bintang 5 tepat di depan kedua Masjid</li>
+            <li>Kamar isi 2 (double) atau privat (single)</li>
+            <li>Private transport &amp; city tour eksklusif</li>
+            <li>Fast track imigrasi &amp; lounge bandara</li>
+            <li>Muthawif pribadi rasio 1:10 jamaah</li>
+            <li>Konsultasi kesehatan pra-keberangkatan</li>
+          </ul>
+          <a href="kontak.html" class="btn btn-outline-dark btn-block">Tanya Paket Ini</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TABEL PERBANDINGAN ===================== -->
+<section class="section section-sand">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Bandingkan</p>
+      <h2>Perbandingan Fasilitas Antar Kategori</h2>
+      <p>Ringkasan agar Anda mudah membandingkan sebelum memilih paket yang paling sesuai.</p>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th>Fasilitas</th>
+            <th>Reguler</th>
+            <th>Plus Turki / Dubai</th>
+            <th>VIP Executive</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Jarak hotel ke Masjidil Haram</td><td>500–800 m</td><td>300–400 m</td><td>&lt; 100 m</td></tr>
+          <tr><td>Rating hotel</td><td>★★★–★★★★</td><td>★★★★–★★★★★</td><td>★★★★★</td></tr>
+          <tr><td>Isi kamar</td><td>Quad (4 orang)</td><td>Quad / Triple</td><td>Double / Single</td></tr>
+          <tr><td>Rasio muthawif : jamaah</td><td>1 : 45</td><td>1 : 35</td><td>1 : 10–15</td></tr>
+          <tr><td>Kota tambahan</td><td class="yes">—</td><td class="yes">Istanbul / Dubai</td><td>Opsional</td></tr>
+          <tr><td>Fast track imigrasi</td><td>—</td><td>—</td><td class="yes">Ya</td></tr>
+          <tr><td>Bimbingan manasik</td><td>2x</td><td>3x</td><td>3x + privat</td></tr>
+          <tr><td>Estimasi harga mulai</td><td>Rp 24,5 Jt</td><td>Rp 32,8 Jt</td><td>Rp 58 Jt</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Pertanyaan Umum</p>
+      <h2>Seputar Paket &amp; Pembayaran</h2>
+    </div>
+    <div class="faq reveal">
+      <details class="faq-item" open>
+        <summary>Berapa uang muka (DP) untuk mendaftar?</summary>
+        <div class="faq-body">DP minimal Rp 5.000.000 per jamaah untuk mengunci kursi &amp; jadwal keberangkatan. Sisa pelunasan dapat dicicil hingga H-30 sebelum keberangkatan.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Apakah harga sudah termasuk visa &amp; perlengkapan?</summary>
+        <div class="faq-body">Ya. Seluruh paket sudah termasuk visa Umroh, tiket pesawat PP, akomodasi, konsumsi, transportasi darat, muthawif, serta perlengkapan (koper, ihram/mukena, tas paspor, buku doa).</div>
+      </details>
+      <details class="faq-item">
+        <summary>Bagaimana kebijakan pembatalan atau reschedule?</summary>
+        <div class="faq-body">Pembatalan H-14 ke atas dikenakan potongan biaya administrasi 10%. Reschedule ke jadwal lain dalam 6 bulan dapat dilakukan tanpa biaya tambahan, mengikuti ketersediaan kursi.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Apa perbedaan kamar quad, triple, double, dan single?</summary>
+        <div class="faq-body">Quad diisi 4 orang, triple 3 orang, double 2 orang, dan single sendiri. Semakin sedikit isi kamar, semakin tinggi biaya tambahan namun privasi semakin terjaga.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Dokumen apa saja yang perlu disiapkan?</summary>
+        <div class="faq-body">Paspor asli (masa berlaku minimal 8 bulan), pas foto latar putih, KTP &amp; KK, buku nikah (bagi pasangan), serta sertifikat vaksin meningitis meningokokus.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Apakah tersedia pendampingan untuk lansia atau jamaah dengan kebutuhan khusus?</summary>
+        <div class="faq-body">Tersedia. Kami menyediakan kursi roda, pendamping khusus, serta pengaturan kamar di lantai bawah/dekat lift untuk jamaah lansia atau berkebutuhan khusus.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <span class="arabic-mark">حج</span>
+      <div>
+        <h2>Belum Yakin Paket Mana yang Cocok?</h2>
+        <p>Tim kami siap membantu Anda memilih paket sesuai anggaran, waktu cuti, dan kebutuhan keluarga.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="kontak.html" class="btn btn-gold">Konsultasi Gratis</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="arch-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,60 L0,28 C0,10 25.2,0 45.0,0 C64.8,0 90,10 90,28 L90,28 C90,10 115.2,0 135.0,0 C154.8,0 180,10 180,28 L180,28 C180,10 205.2,0 225.0,0 C244.8,0 270,10 270,28 L270,28 C270,10 295.2,0 315.0,0 C334.8,0 360,10 360,28 L360,28 C360,10 385.2,0 405.0,0 C424.8,0 450,10 450,28 L450,28 C450,10 475.2,0 495.0,0 C514.8,0 540,10 540,28 L540,28 C540,10 565.2,0 585.0,0 C604.8,0 630,10 630,28 L630,28 C630,10 655.2,0 675.0,0 C694.8,0 720,10 720,28 L720,28 C720,10 745.2,0 765.0,0 C784.8,0 810,10 810,28 L810,28 C810,10 835.2,0 855.0,0 C874.8,0 900,10 900,28 L900,28 C900,10 925.2,0 945.0,0 C964.8,0 990,10 990,28 L990,28 C990,10 1015.2,0 1035.0,0 C1054.8,0 1080,10 1080,28 L1080,28 C1080,10 1105.2,0 1125.0,0 C1144.8,0 1170,10 1170,28 L1170,28 C1170,10 1195.2,0 1215.0,0 C1234.8,0 1260,10 1260,28 L1260,28 C1260,10 1285.2,0 1305.0,0 C1324.8,0 1350,10 1350,28 L1350,28 C1350,10 1375.2,0 1395.0,0 C1414.8,0 1440,10 1440,28 L1440,60 Z" fill="var(--night)"/></svg></div>
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand"><span class="brand-text">MIQAT<span>.</span></span></a>
+        <p>Biro perjalanan Umroh &amp; Haji resmi berizin Kemenag RI. Menemani perjalanan ibadah Anda sejak 2010.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5Z" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 4v9.5a3.5 3.5 0 1 1-3.5-3.5M14 4c.3 2 2 3.6 4 4"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="paket.html">Paket Umroh</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Paket</h4>
+        <ul>
+          <li><a href="paket.html">Umroh Reguler</a></li>
+          <li><a href="paket.html">Umroh Plus Turki</a></li>
+          <li><a href="paket.html">Umroh Plus Dubai</a></li>
+          <li><a href="paket.html">Umroh VIP Executive</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak Cepat</h4>
+        <ul>
+          <li>WhatsApp: +62 812-3456-7890</li>
+          <li>Email: halo@miqat.travel</li>
+          <li>Jl. Bintaro Raya No. 21, Jakarta Selatan</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 MIQAT Tour &amp; Travel. Seluruh hak cipta dilindungi.</span>
+    <div class="legal-badges">
+      <span>Izin Kemenag RI</span>
+      <span>Anggota HIMPUH</span>
+      <span>ISO 9001:2015</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== Mobile nav toggle =====
+const navToggle = document.querySelector('.nav-toggle');
+const siteHeader = document.querySelector('.site-header');
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('open');
+    siteHeader.classList.toggle('open');
+  });
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navToggle.classList.remove('open');
+      siteHeader.classList.remove('open');
+    });
+  });
+}
+
+// ===== Scroll reveal =====
+const revealEls = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window && revealEls.length) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+} else {
+  revealEls.forEach(el => el.classList.add('in'));
+}
+
+// ===== Package tabs (paket.html) =====
+const tabButtons = document.querySelectorAll('.tab-btn');
+const pkgGroups = document.querySelectorAll('.pkg-group');
+tabButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabButtons.forEach(b => b.classList.remove('active'));
+    pkgGroups.forEach(g => g.classList.remove('active'));
+    btn.classList.add('active');
+    const target = document.getElementById(btn.dataset.target);
+    if (target) target.classList.add('active');
+  });
+});
+
+// ===== FAQ accordion — only one item open at a time =====
+document.querySelectorAll('.faq').forEach(faq => {
+  const items = faq.querySelectorAll('.faq-item');
+  items.forEach(item => {
+    item.addEventListener('toggle', () => {
+      if (item.open) {
+        items.forEach(other => { if (other !== item) other.removeAttribute('open'); });
+      }
+    });
+  });
+});
+
+// ===== Map: require Ctrl + scroll to zoom, so page scroll isn't trapped =====
+const mapOverlay = document.querySelector('.map-overlay');
+if (mapOverlay) {
+  let hintTimer, releaseTimer;
+  mapOverlay.addEventListener('wheel', (e) => {
+    if (e.ctrlKey) {
+      mapOverlay.style.pointerEvents = 'none';
+      clearTimeout(releaseTimer);
+      releaseTimer = setTimeout(() => { mapOverlay.style.pointerEvents = 'auto'; }, 700);
+    } else {
+      e.preventDefault();
+      mapOverlay.classList.add('active');
+      clearTimeout(hintTimer);
+      hintTimer = setTimeout(() => mapOverlay.classList.remove('active'), 1100);
+    }
+  }, { passive: false });
+}
+
+// ===== Contact form (kontak.html) — front-end only demo =====
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = contactForm.querySelector('button[type="submit"]');
+    const original = btn.textContent;
+    btn.textContent = 'Terkirim! Tim kami akan segera menghubungi Anda ✓';
+    btn.style.opacity = '0.85';
+    contactForm.reset();
+    setTimeout(() => { btn.textContent = original; btn.style.opacity = '1'; }, 3500);
+  });
+}
+
+</script>
+</body>
+</html>

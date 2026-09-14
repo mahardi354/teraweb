@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak — Sejuk Prima AC Care</title>
+<meta name="description" content="Hubungi Sejuk Prima AC Care via WhatsApp, telepon, atau formulir kontak. Lihat lokasi kami di Google Maps dan jam operasional layanan servis AC.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❄️</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand" aria-label="Sejuk Prima AC Care — Beranda">
+      <span class="brand-mark"><i class="fa-solid fa-snowflake"></i></span>
+      Sejuk<span>Prima</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Beranda</a>
+      <a href="layanan.html">Layanan</a>
+      <a href="tentang.html">Tentang Kami</a>
+      <a href="kontak.html" class="active">Kontak</a>
+    </nav>
+    <div class="header-actions">
+      <a href="kontak.html" class="btn btn-outline on-dark btn-sm btn-sm-hide">Hubungi Kami</a>
+      <a href="https://wa.me/6281234567890?text=Halo%20Sejuk%20Prima%20AC%20Care%2C%20saya%20ingin%20bertanya%20tentang%20layanan%20servis%20AC" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+        <i class="fa-brands fa-whatsapp"></i> Pesan Servis
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Buka menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PAGE BANNER ============ -->
+<section class="page-banner">
+  <div class="container">
+    <div class="crumbs"><a href="index.html">Beranda</a> &nbsp;/&nbsp; Kontak</div>
+    <h1>Mari Bicarakan Kebutuhan AC Anda</h1>
+    <p>Chat langsung via WhatsApp untuk respons tercepat, atau isi formulir di bawah — pesan akan otomatis kami terima melalui WhatsApp.</p>
+  </div>
+</section>
+
+<!-- ============ INFO KONTAK 2x2 ============ -->
+<section class="section section-tight">
+  <div class="container">
+    <div class="grid grid-2 reveal">
+      <div class="card contact-info-card">
+        <div class="card-icon"><i class="fa-brands fa-whatsapp"></i></div>
+        <h3>WhatsApp &amp; Telepon</h3>
+        <p>Cara tercepat menjangkau kami. Aktif setiap hari untuk booking maupun konsultasi kendala AC.</p>
+        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="btn btn-outline btn-sm" style="margin-top:16px;">0812-3456-7890</a>
+      </div>
+      <div class="card contact-info-card">
+        <div class="card-icon"><i class="fa-solid fa-envelope"></i></div>
+        <h3>Email</h3>
+        <p>Untuk kerja sama bisnis, kontrak kantor, atau pertanyaan yang butuh dokumen tertulis.</p>
+        <a href="mailto:halo@sejukprima.id" class="btn btn-outline btn-sm" style="margin-top:16px;">halo@sejukprima.id</a>
+      </div>
+      <div class="card contact-info-card">
+        <div class="card-icon"><i class="fa-solid fa-location-dot"></i></div>
+        <h3>Alamat Kantor</h3>
+        <p>Jl. Melati Raya No. 21, Kebayoran Baru, Jakarta Selatan, DKI Jakarta 12180.</p>
+      </div>
+      <div class="card contact-info-card">
+        <div class="card-icon"><i class="fa-solid fa-clock"></i></div>
+        <h3>Jam Operasional</h3>
+        <p>Senin–Minggu, 07.00–21.00 WIB. Layanan darurat tersedia 24 jam dengan biaya tambahan wajar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORM + MAPS ============ -->
+<section class="section">
+  <div class="container">
+    <div class="split reveal" style="align-items:flex-start;">
+
+      <div class="form-wrap">
+        <div class="eyebrow">Formulir Kontak</div>
+        <h2 style="font-size:26px; margin-bottom:8px;">Kirim Detail Kebutuhan Anda</h2>
+        <p style="color:var(--muted); margin-bottom:28px; font-size:14.5px;">Pesan akan otomatis tersusun dan terkirim ke WhatsApp kami begitu Anda menekan tombol kirim.</p>
+
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="cf-nama">Nama Lengkap</label>
+              <input type="text" id="cf-nama" placeholder="Contoh: Rina Amelia" required>
+            </div>
+            <div class="field">
+              <label for="cf-telepon">Nomor HP / WhatsApp</label>
+              <input type="tel" id="cf-telepon" placeholder="08xx-xxxx-xxxx" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="cf-layanan">Layanan yang Dibutuhkan</label>
+            <select id="cf-layanan" required>
+              <option value="" disabled selected>Pilih layanan</option>
+              <option>Cuci AC Rutin</option>
+              <option>Isi Freon &amp; Deteksi Kebocoran</option>
+              <option>Perbaikan AC Rusak</option>
+              <option>Pasang Baru</option>
+              <option>Bongkar Pasang</option>
+              <option>Cuci Steam / Deep Cleaning</option>
+              <option>Kontrak Maintenance Kantor</option>
+              <option>Panggilan Darurat 24 Jam</option>
+              <option>Lainnya / Belum Tahu</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cf-alamat">Alamat Lokasi Servis</label>
+            <input type="text" id="cf-alamat" placeholder="Nama jalan, kecamatan, kota">
+          </div>
+          <div class="field">
+            <label for="cf-pesan">Catatan Tambahan (opsional)</label>
+            <textarea id="cf-pesan" placeholder="Contoh: AC bocor air, sudah 2 minggu tidak dicuci, dsb."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            <i class="fa-solid fa-paper-plane"></i> Kirim Pesan
+          </button>
+          <p style="font-size:12.5px; color:var(--muted); margin-top:14px; text-align:center;">
+            <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> Pesan akan dibuka melalui WhatsApp untuk diproses tim kami.
+          </p>
+        </form>
+      </div>
+
+      <div class="map-wrap" style="height:100%; min-height:560px;">
+        <iframe
+          src="https://maps.google.com/maps?q=Kebayoran%20Baru%2C%20Jakarta%20Selatan&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Lokasi Sejuk Prima AC Care di Google Maps">
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ KONTAK ============ -->
+<section class="section" style="background:var(--bg-cool-2)">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">FAQ Kontak</div>
+      <h2>Sebelum Menghubungi Kami</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item active">
+        <button class="faq-q"><span>Berapa lama waktu respons chat WhatsApp?</span><span class="q-icon"><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-a" style="max-height:200px"><div class="faq-a-inner">Rata-rata tim kami membalas dalam waktu kurang dari 15 menit pada jam operasional (07.00–21.00 WIB). Di luar jam tersebut, pesan akan dibalas pertama kali keesokan harinya.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Apakah formulir ini benar-benar mengirim ke WhatsApp?</span><span class="q-icon"><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Ya. Setelah menekan "Kirim Pesan", data yang Anda isi akan otomatis tersusun menjadi pesan WhatsApp dan membuka tab baru menuju percakapan dengan tim kami — Anda hanya perlu menekan kirim di WhatsApp.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Apakah bisa survei lokasi sebelum servis?</span><span class="q-icon"><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Bisa, khususnya untuk kebutuhan pasang baru atau kontrak kantor dengan banyak unit. Survei lokasi dapat dijadwalkan tanpa biaya untuk area jangkauan kami.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Apakah melayani di luar area Jabodetabek?</span><span class="q-icon"><i class="fa-solid fa-plus"></i></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Saat ini fokus layanan kami berada di Jabodetabek. Untuk lokasi di luar area tersebut, silakan hubungi kami untuk pengecekan ketersediaan teknisi mitra.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer" id="site-footer-include"></footer>
+
+<a href="https://wa.me/6281234567890?text=Halo%20Sejuk%20Prima%20AC%20Care%2C%20saya%20ingin%20bertanya%20tentang%20layanan%20servis%20AC" target="_blank" rel="noopener" class="wa-float" aria-label="Chat WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/footer.js"></script>
+</body>
+</html>

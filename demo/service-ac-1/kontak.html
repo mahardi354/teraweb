@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak &amp; Booking | SEJUK.ID — Jasa Service AC Profesional</title>
+<meta name="description" content="Hubungi SEJUK.ID untuk booking jasa service AC. Isi form dan pesan otomatis terkirim ke WhatsApp kami, atau kunjungi kantor kami langsung.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#0B2E33" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg></span>
+      SEJUK<span class="dot">.ID</span>
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="layanan.html">Layanan</a></li>
+        <li><a href="tentang.html">Tentang Kami</a></li>
+        <li><a href="kontak.html" class="is-active">Kontak</a></li>
+      </ul>
+      <div class="header-cta">
+        <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.81.35 1.6.68 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.74-1.25a2 2 0 0 1 2.11-.45c.74.33 1.53.56 2.34.68A2 2 0 0 1 22 16.92z"/></svg>
+          Chat WhatsApp
+        </a>
+      </div>
+    </nav>
+    <button class="nav-toggle" aria-label="Buka menu"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Beranda</a> / Kontak</div>
+    <h1>Booking Layanan AC Anda</h1>
+    <p>Isi form di bawah, pesan Anda otomatis diteruskan ke WhatsApp tim kami untuk konfirmasi jadwal tercepat.</p>
+  </div>
+</section>
+
+<!-- ============ FORM + INFO KONTAK ============ -->
+<section class="section">
+  <div class="container">
+    <div class="grid grid-2" style="gap:50px; align-items:flex-start;">
+
+      <!-- FORM -->
+      <div class="form-card reveal">
+        <span class="eyebrow">Form Booking</span>
+        <h2 style="font-size:1.6rem;">Ceritakan Kebutuhan AC Anda</h2>
+        <p style="margin-bottom:28px;">Klik "Kirim Pesan" dan lanjutkan percakapan langsung dengan tim kami di WhatsApp.</p>
+
+        <form id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nama">Nama Lengkap</label>
+              <input type="text" id="nama" name="nama" placeholder="Nama Anda" required>
+            </div>
+            <div class="form-group">
+              <label for="hp">Nomor HP / WhatsApp</label>
+              <input type="tel" id="hp" name="hp" placeholder="08xx-xxxx-xxxx" required>
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <label for="alamat">Alamat Lokasi Servis</label>
+            <input type="text" id="alamat" name="alamat" placeholder="Jl. Contoh No. 10, Kecamatan, Kota">
+          </div>
+
+          <div class="form-group full">
+            <label for="layanan">Jenis Layanan</label>
+            <select id="layanan" name="layanan" required>
+              <option value="">Pilih jenis layanan</option>
+              <option>Cuci AC Split Reguler</option>
+              <option>Cuci AC Cassette / Ceiling</option>
+              <option>Service &amp; Perbaikan</option>
+              <option>Isi Freon / Refrigerant</option>
+              <option>Pasang Baru AC</option>
+              <option>Bongkar &amp; Pasang Pindah Lokasi</option>
+              <option>Vacuum &amp; Leak Test</option>
+              <option>Kontrak Perawatan Berkala</option>
+              <option>Konsultasi &amp; Survey Kebutuhan</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label for="pesan">Catatan Tambahan (opsional)</label>
+            <textarea id="pesan" name="pesan" placeholder="Contoh: 2 unit AC di lantai 2, salah satunya bocor air."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.81.35 1.6.68 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.74-1.25a2 2 0 0 1 2.11-.45c.74.33 1.53.56 2.34.68A2 2 0 0 1 22 16.92z"/></svg>
+            Kirim Pesan
+          </button>
+        </form>
+      </div>
+
+      <!-- INFO -->
+      <div class="reveal">
+        <span class="eyebrow">Info Kontak</span>
+        <h2 style="font-size:1.6rem;">Atau Hubungi Kami Langsung</h2>
+        <div class="grid grid-2" style="margin-top:26px;">
+          <div class="card info-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><h3>Alamat Kantor</h3><p>Jl. Melati Raya No. 21, Bintaro, Tangerang Selatan, Banten 15412</p></div>
+          </div>
+          <div class="card info-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <div><h3>Jam Operasional</h3><p>Setiap hari, 08.00 – 20.00 WIB (termasuk akhir pekan)</p></div>
+          </div>
+          <div class="card info-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.81.35 1.6.68 2.34a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.74-1.25a2 2 0 0 1 2.11-.45c.74.33 1.53.56 2.34.68A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><h3>Telepon / WhatsApp</h3><p>+62 812-3456-7890</p></div>
+          </div>
+          <div class="card info-card">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg></div>
+            <div><h3>Email</h3><p>halo@sejuk.id</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAPS ============ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Lokasi Kami</span>
+      <h2>Kunjungi Kantor SEJUK.ID</h2>
+      <p>Berlokasi strategis di Bintaro, mudah dijangkau dari berbagai arah Tangerang Selatan dan Jakarta Selatan.</p>
+    </div>
+    <div class="map-frame reveal">
+      <iframe
+        src="https://www.google.com/maps?q=Bintaro%20Tangerang%20Selatan&output=embed"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Lokasi kantor SEJUK.ID di Bintaro, Tangerang Selatan">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AREA LAYANAN ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Area Layanan</span>
+      <h2>Kota yang Kami Jangkau</h2>
+    </div>
+    <div class="area-badges reveal" style="justify-content:center;">
+      <span class="tag">Tangerang Selatan</span>
+      <span class="tag">Jakarta Selatan</span>
+      <span class="tag">Jakarta Barat</span>
+      <span class="tag">Jakarta Timur</span>
+      <span class="tag">Depok</span>
+      <span class="tag">Bekasi</span>
+      <span class="tag">Bogor Kota</span>
+      <span class="tag">Tangerang Kota</span>
+      <span class="tag">Serpong &amp; BSD</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ KONTAK ============ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">FAQ Booking</span>
+      <h2>Pertanyaan Seputar Booking &amp; Kunjungan</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item is-open">
+        <button class="faq-q"><span>Setelah mengisi form, apa yang terjadi selanjutnya?</span><span class="plus">+</span></button>
+        <div class="faq-a" style="max-height:200px;"><div class="faq-a-inner">Anda akan diarahkan ke WhatsApp dengan pesan yang sudah terisi otomatis. Tim kami akan membalas dan mengonfirmasi jadwal dalam waktu kurang dari 30 menit di jam operasional.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Apakah saya perlu mengisi alamat lengkap sekarang?</span><span class="plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Sebaiknya iya agar tim dapat memperkirakan waktu tempuh teknisi, namun jika belum yakin Anda tetap bisa melanjutkan diskusi detail lewat WhatsApp.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Bisakah booking untuk hari yang sama?</span><span class="plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Bisa, tergantung ketersediaan teknisi di area Anda. Semakin pagi Anda menghubungi, semakin besar peluang dijadwalkan di hari yang sama.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Apakah kunjungan survey dikenakan biaya?</span><span class="plus">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Survey dan konsultasi kebutuhan AC tidak dikenakan biaya selama berada di area jangkauan utama kami.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" style="margin-bottom:16px; display:inline-flex;">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#0B2E33" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg></span>
+          SEJUK<span class="dot">.ID</span>
+        </a>
+        <p>Jasa service AC profesional untuk rumah dan kantor di area Jabodetabek. Cuci, perbaikan, isi freon, hingga pasang baru.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M9 18a4 4 0 1 0 4-4V2h4a5 5 0 0 0 5 5v3a8 8 0 0 1-5-1.7V14a6 6 0 1 1-8-5.65"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="layanan.html">Layanan</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="layanan.html">Cuci AC</a></li>
+          <li><a href="layanan.html">Service &amp; Perbaikan</a></li>
+          <li><a href="layanan.html">Isi Freon</a></li>
+          <li><a href="layanan.html">Pasang Baru</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <ul>
+          <li>Jl. Melati Raya No. 21, Bintaro, Tangerang Selatan</li>
+          <li>+62 812-3456-7890</li>
+          <li>halo@sejuk.id</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 SEJUK.ID. Seluruh hak cipta dilindungi.</span>
+      <span>Dibuat dengan sepenuh hati untuk udara yang lebih sejuk.</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6281234567890" class="wa-float" aria-label="Chat WhatsApp" target="_blank">
+  <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.29.633 4.435 1.735 6.267L4 29l7.938-1.66A11.94 11.94 0 0 0 16.001 27C22.629 27 28 21.627 28 15S22.629 3 16.001 3zm.06 21.6a9.55 9.55 0 0 1-4.87-1.34l-.35-.21-3.86.81.82-3.76-.23-.38A9.56 9.56 0 1 1 25.6 15c0 5.303-4.302 9.6-9.539 9.6zm5.24-7.17c-.29-.14-1.7-.84-1.96-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.14-1.22-.45-2.32-1.43-.86-.77-1.44-1.71-1.61-2-.17-.29-.02-.45.13-.6.13-.13.29-.33.43-.5.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49-.17-.01-.36-.01-.55-.01-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43 0 1.43 1.03 2.81 1.17 3 .14.19 2.03 3.1 4.92 4.35.69.3 1.22.48 1.64.61.69.22 1.32.19 1.82.11.55-.08 1.7-.7 1.94-1.37.24-.67.24-1.25.17-1.37-.07-.12-.26-.19-.55-.33z"/></svg>
+</a>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1853 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SENJA — Perjalanan Premium, Dirancang Seperti Senja</title>
+<meta name="description" content="SENJA Travel & Tour merancang perjalanan premium ke seluruh penjuru dunia — dari destinasi eksotis hingga honeymoon romantis, seperti senja: tenang, hangat, tak terlupakan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   SENJA — Premium Travel & Tour
+   Design tokens: golden-hour palette, editorial serif + humanist sans
+   Signature motif: boarding-pass ticket cards & flight-path steps
+   ========================================================================== */
+
+:root{
+  /* Colors */
+  --navy-950:#0A1B27;
+  --navy-900:#0F2635;
+  --navy-800:#153447;
+  --navy-700:#1D4356;
+  --teal-600:#2C6E73;
+  --teal-500:#3D8A88;
+
+  --sand-50:#FCF8F0;
+  --sand-100:#F6EEDD;
+  --sand-200:#EFE1C4;
+
+  --gold-300:#F0D19B;
+  --gold-400:#E3B769;
+  --gold-500:#D6A44A;
+  --gold-600:#B98530;
+
+  --coral-500:#E2705A;
+  --coral-600:#C85A46;
+
+  --ink-900:#1B2A2F;
+  --ink-700:#33474D;
+  --ink-600:#4B5D63;
+  --ink-400:#7C8B90;
+
+  --ivory:#FAF6EC;
+  --line-dark: rgba(250,246,236,0.14);
+  --line-dark-strong: rgba(250,246,236,0.28);
+  --line-light: rgba(27,42,47,0.13);
+
+  /* Type */
+  --font-display: "Fraunces", "Iowan Old Style", serif;
+  --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "Space Mono", monospace;
+
+  /* Layout */
+  --container: 1220px;
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 10px;
+  --shadow-soft: 0 20px 50px -20px rgba(10,27,39,0.35);
+  --shadow-card: 0 14px 34px -18px rgba(10,27,39,0.28);
+}
+
+*,*::before,*::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin:0;
+  font-family: var(--font-body);
+  color: var(--ink-900);
+  background: var(--sand-50);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  padding-top: var(--header-h, 122px);
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ margin:0; padding:0; list-style:none; }
+button{ font-family: inherit; cursor:pointer; }
+input, textarea, select{ font-family: inherit; }
+h1,h2,h3,h4,p{ margin:0; }
+.container{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* Focus visibility */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline: 2px solid var(--gold-500);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+
+/* ==========================================================================
+   Typography helpers
+   ========================================================================== */
+.eyebrow{
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  color: var(--gold-600);
+}
+.eyebrow::before{
+  content:"";
+  width:26px; height:1px;
+  background: var(--gold-500);
+  display:inline-block;
+}
+.on-dark .eyebrow{ color: var(--gold-400); }
+.on-dark .eyebrow::before{ background: var(--gold-400); }
+
+h1, .h1{
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.4rem, 4.6vw, 4.4rem);
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  color: var(--ink-900);
+}
+h2, .h2{
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  line-height: 1.1;
+  color: var(--ink-900);
+}
+h3, .h3{
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+  line-height: 1.25;
+  color: var(--ink-900);
+}
+.italic-accent{ font-style: italic; color: var(--gold-600); }
+.on-dark h1, .on-dark h2, .on-dark h3, .on-dark p, .on-dark span{ color: var(--ivory); }
+.on-dark .italic-accent{ color: var(--gold-400); }
+
+.lede{
+  font-size: clamp(1.02rem, 1.2vw, 1.18rem);
+  line-height: 1.65;
+  color: var(--ink-600);
+  max-width: 56ch;
+}
+.on-dark .lede{ color: rgba(250,246,236,0.72); }
+
+.section-head{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:16px;
+  max-width: 680px;
+  margin: 0 auto 56px;
+}
+.section-head.left{ align-items:flex-start; text-align:left; margin: 0 0 48px; }
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding: 15px 30px;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+  white-space: nowrap;
+}
+.btn-primary{
+  background: linear-gradient(135deg, var(--gold-400), var(--gold-600));
+  color: var(--navy-950);
+  box-shadow: 0 12px 24px -10px rgba(214,164,74,0.55);
+}
+.btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 16px 30px -10px rgba(214,164,74,0.65); }
+.btn-ghost{
+  background: transparent;
+  border-color: var(--line-light);
+  color: var(--ink-900);
+}
+.btn-ghost:hover{ border-color: var(--ink-900); transform: translateY(-2px); }
+.on-dark .btn-ghost{ border-color: var(--line-dark-strong); color: var(--ivory); }
+.on-dark .btn-ghost:hover{ border-color: var(--gold-400); }
+.navbar .btn-ghost{ border-color: rgba(250,246,236,0.35); color: var(--ivory); }
+.site-header.scrolled .navbar .btn-ghost{ border-color: var(--line-light); color: var(--ink-900); }
+.site-header.scrolled .navbar .btn-ghost:hover{ border-color: var(--ink-900); }
+.btn-sm{ padding: 10px 20px; font-size: 0.85rem; }
+.btn-block{ width:100%; }
+.btn svg{ width:16px; height:16px; }
+
+/* ==========================================================================
+   Announcement bar
+   ========================================================================== */
+.announce{
+  background: var(--navy-950);
+  color: var(--gold-300);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.03em;
+  text-align:center;
+  padding: 9px 20px;
+  overflow:hidden;
+  transition: max-height .35s ease, padding .35s ease, opacity .3s ease;
+  max-height: 60px;
+}
+.site-header.scrolled .announce{
+  max-height:0;
+  padding-top:0;
+  padding-bottom:0;
+  opacity:0;
+}
+.announce a{ color: var(--ivory); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ==========================================================================
+   Navbar
+   ========================================================================== */
+:root{ --header-h: 122px; }
+.site-header{
+  position: fixed;
+  top:0; left:0; right:0;
+  z-index: 100;
+}
+.navbar{
+  background: transparent;
+  backdrop-filter: blur(0px);
+  border-bottom: 1px solid transparent;
+  transition: background .35s ease, backdrop-filter .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+.site-header.scrolled .navbar{
+  background: rgba(250,246,236,0.55);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line-light);
+}
+.navbar .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height: 82px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--ivory);
+  transition: color .3s ease;
+}
+.site-header.scrolled .brand{ color: var(--navy-950); }
+.brand-mark{
+  width:38px; height:38px;
+  border-radius: 50%;
+  background: conic-gradient(from 210deg, var(--gold-300), var(--coral-500), var(--gold-600), var(--gold-300));
+  display:flex; align-items:center; justify-content:center;
+  color: var(--navy-950);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  flex-shrink:0;
+}
+.brand small{
+  display:block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: rgba(250,246,236,0.65);
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top:2px;
+  transition: color .3s ease;
+}
+.site-header.scrolled .brand small{ color: var(--ink-400); }
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap: 34px;
+}
+.nav-links a{
+  font-size: 0.93rem;
+  font-weight: 500;
+  color: rgba(250,246,236,0.85);
+  position: relative;
+  padding: 6px 0;
+  transition: color .2s ease;
+}
+.site-header.scrolled .nav-links a{ color: var(--ink-700); }
+.nav-links a::after{
+  content:"";
+  position:absolute; left:0; right:100%; bottom:0;
+  height:2px; background: var(--gold-500);
+  transition: right .25s ease;
+}
+.nav-links a:hover{ color: var(--ivory); }
+.nav-links a:hover::after, .nav-links a.active::after{ right:0; }
+.nav-links a.active{ color: var(--ivory); font-weight: 600; }
+.site-header.scrolled .nav-links a:hover{ color: var(--navy-950); }
+.site-header.scrolled .nav-links a.active{ color: var(--navy-950); }
+.nav-cta{ display:flex; align-items:center; gap:14px; }
+.nav-toggle{
+  display:none;
+  background:none; border:none;
+  width:40px; height:40px;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+}
+.nav-toggle span{ width:22px; height:2px; background: var(--ivory); border-radius:2px; transition: background .3s ease; }
+.site-header.scrolled .nav-toggle span{ background: var(--navy-950); }
+
+/* Mobile nav */
+@media (max-width: 980px){
+  .nav-links{
+    position: fixed; inset: 82px 0 0 0;
+    background: var(--sand-50);
+    flex-direction:column;
+    align-items:flex-start;
+    padding: 30px 28px;
+    gap: 6px;
+    transform: translateX(100%);
+    transition: transform .35s ease;
+    overflow-y:auto;
+  }
+  .nav-links.open{ transform: translateX(0); }
+  .nav-links a, .site-header.scrolled .nav-links a{ width:100%; padding: 14px 0; border-bottom:1px solid var(--line-light); font-size: 1.05rem; color: var(--ink-700); }
+  .nav-links a:hover, .nav-links a.active, .site-header.scrolled .nav-links a:hover, .site-header.scrolled .nav-links a.active{ color: var(--navy-950); }
+  .nav-toggle{ display:flex; }
+  .nav-cta .btn-ghost{ display:none; }
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero{
+  position: relative;
+  min-height: calc(92vh + var(--header-h, 122px));
+  padding-top: var(--header-h, 122px);
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+  background: var(--navy-950);
+  margin-top: calc(-1 * var(--header-h, 122px));
+}
+.hero-media{ position:absolute; inset:0; }
+.hero-media img{ width:100%; height:100%; object-fit:cover; }
+.hero-media::after{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    linear-gradient(180deg, rgba(10,27,39,0.25) 0%, rgba(10,27,39,0.35) 45%, rgba(10,20,28,0.92) 100%),
+    linear-gradient(90deg, rgba(10,27,39,0.55) 0%, rgba(10,27,39,0) 55%);
+}
+.hero-inner{
+  position:relative;
+  z-index:2;
+  width:100%;
+  padding-bottom: 92px;
+}
+.hero-tag{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family: var(--font-mono);
+  font-size: 12px; letter-spacing: 0.12em; text-transform:uppercase;
+  color: var(--gold-300);
+  background: rgba(10,27,39,0.4);
+  border: 1px solid var(--line-dark-strong);
+  padding: 8px 16px;
+  border-radius: 100px;
+  margin-bottom: 26px;
+}
+.hero h1{ max-width: 15ch; margin-bottom: 22px; }
+.hero .lede{ color: rgba(250,246,236,0.78); margin-bottom: 34px; }
+.hero-actions{ display:flex; gap:16px; flex-wrap:wrap; margin-bottom: 56px; }
+.hero-stats{
+  display:flex;
+  gap: 0;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--line-dark);
+  padding-top: 28px;
+  max-width: 760px;
+}
+.hero-stats .stat{
+  flex:1;
+  min-width: 140px;
+  padding-right: 28px;
+}
+.hero-stats .stat b{
+  display:block;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  color: var(--ivory);
+  font-weight: 500;
+}
+.hero-stats .stat span{
+  font-size: 0.82rem;
+  color: rgba(250,246,236,0.6);
+}
+
+/* Floating ticket search widget */
+.hero-ticket{
+  position: relative;
+  z-index: 3;
+  margin: -64px auto 0;
+  max-width: var(--container);
+  padding: 0 28px;
+}
+.ticket-search{
+  background: var(--ivory);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  display:grid;
+  grid-template-columns: 1.3fr 1fr 1fr auto;
+  align-items:stretch;
+}
+.ticket-search .field{
+  padding: 24px 28px;
+  border-right: 1px dashed var(--line-light);
+  display:flex; flex-direction:column; gap:6px;
+}
+.ticket-search .field:last-of-type{ border-right:none; }
+.ticket-search label{
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform:uppercase;
+  color: var(--ink-400);
+}
+.ticket-search select, .ticket-search input{
+  border:none; background:transparent; outline:none;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--ink-900);
+}
+.ticket-search .field-btn{
+  display:flex; align-items:center; justify-content:center;
+  padding: 10px;
+}
+@media (max-width: 900px){
+  .ticket-search{ grid-template-columns: 1fr 1fr; }
+  .ticket-search .field:nth-child(2){ border-right:none; }
+  .ticket-search .field-btn{ grid-column: 1/-1; padding: 18px; }
+}
+
+/* ==========================================================================
+   Logo strip
+   ========================================================================== */
+.logo-strip{
+  padding: 40px 0;
+  border-bottom: 1px solid var(--line-light);
+}
+.logo-strip .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap: 24px;
+}
+.logo-strip .label{
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-400);
+  white-space: nowrap;
+}
+.logo-strip .marks{
+  display:flex; gap: 42px; flex-wrap:wrap; align-items:center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--ink-400);
+}
+
+/* ==========================================================================
+   Section paddings/backgrounds
+   ========================================================================== */
+.section{ padding: 108px 0; }
+.section-tight{ padding: 84px 0; }
+.bg-dark{ background: var(--navy-950); }
+.bg-sand{ background: var(--sand-100); }
+.bg-ivory{ background: var(--ivory); }
+
+/* ==========================================================================
+   Ticket / boarding-pass cards (signature component)
+   ========================================================================== */
+.ticket-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.ticket-card{
+  background: var(--ivory);
+  border-radius: var(--radius-md);
+  overflow:hidden;
+  box-shadow: var(--shadow-card);
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+  transition: transform .3s ease, box-shadow .3s ease;
+  position: relative;
+}
+.ticket-card:hover{ transform: translateY(-6px); box-shadow: 0 26px 46px -18px rgba(10,27,39,0.32); }
+.ticket-media{ position:relative; height: 230px; }
+.ticket-media img{ width:100%; height:100%; object-fit:cover; }
+.ticket-badge{
+  position:absolute; top:16px; left:16px;
+  background: rgba(10,27,39,0.55);
+  backdrop-filter: blur(6px);
+  color: var(--ivory);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  padding: 6px 12px;
+  border-radius: 100px;
+}
+.ticket-rating{
+  position:absolute; top:16px; right:16px;
+  background: var(--ivory);
+  color: var(--ink-900);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  padding: 6px 10px;
+  border-radius: 100px;
+  display:flex; align-items:center; gap:4px;
+}
+.ticket-body{
+  padding: 26px 26px 22px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap: 10px;
+  flex:1;
+}
+.ticket-body .place{
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-600);
+}
+.ticket-body h3{ margin: 0; }
+.ticket-body p{ color: var(--ink-600); font-size: 0.92rem; line-height:1.6; }
+.ticket-tags{ display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-top:4px; }
+.ticket-tags span{
+  font-size: 0.74rem;
+  padding: 5px 11px;
+  border-radius: 100px;
+  background: var(--sand-200);
+  color: var(--ink-700);
+  font-weight: 600;
+}
+
+/* Perforated divider (stub) */
+.ticket-stub{
+  position: relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 18px 26px;
+  border-top: 1px dashed var(--line-light);
+}
+.ticket-stub::before, .ticket-stub::after{
+  content:"";
+  position:absolute; top:-11px;
+  width:22px; height:22px;
+  background: var(--sand-100);
+  border-radius:50%;
+}
+.ticket-stub::before{ left:-11px; }
+.ticket-stub::after{ right:-11px; }
+.ticket-stub .price{ text-align:left; }
+.ticket-stub .price b{
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--ink-900);
+  display:block;
+}
+.ticket-stub .price span{ font-size: 0.74rem; color: var(--ink-400); }
+
+@media (max-width: 980px){
+  .ticket-grid{ grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 640px){
+  .ticket-grid{ grid-template-columns: 1fr; }
+}
+
+/* Stamp badge */
+.stamp{
+  position:absolute;
+  top: 20px; right: 20px;
+  width: 74px; height: 74px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--gold-500);
+  display:flex; align-items:center; justify-content:center;
+  transform: rotate(-14deg);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  text-align:center;
+  color: var(--gold-600);
+  line-height:1.3;
+  background: rgba(250,246,236,0.85);
+  z-index: 2;
+}
+
+/* ==========================================================================
+   Feature grid (why us)
+   ========================================================================== */
+.feature-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--line-light);
+  border: 1px solid var(--line-light);
+  border-radius: var(--radius-md);
+  overflow:hidden;
+}
+.feature-item{
+  background: var(--sand-50);
+  padding: 40px 34px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap: 16px;
+}
+.feature-icon{
+  width: 54px; height:54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-300), var(--gold-500));
+  display:flex; align-items:center; justify-content:center;
+  color: var(--navy-950);
+}
+.feature-icon svg{ width:24px; height:24px; }
+.feature-item p{ color: var(--ink-600); font-size: 0.92rem; line-height:1.6; }
+@media (max-width: 900px){ .feature-grid{ grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 600px){ .feature-grid{ grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   Flight-path steps (signature horizontal step design)
+   ========================================================================== */
+.flightpath{
+  position: relative;
+  display:flex;
+  justify-content:space-between;
+  gap: 12px;
+  padding-top: 20px;
+}
+.flightpath::before{
+  content:"";
+  position:absolute;
+  left: 6%; right: 6%;
+  top: 68px;
+  height: 1px;
+  background-image: linear-gradient(90deg, var(--line-dark-strong) 60%, transparent 0%);
+  background-size: 14px 1px;
+  background-repeat: repeat-x;
+}
+.bg-sand .flightpath::before, .bg-ivory .flightpath::before{
+  background-image: linear-gradient(90deg, rgba(27,42,47,0.22) 60%, transparent 0%);
+}
+.flight-step{
+  position: relative;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap: 18px;
+  padding: 0 8px;
+}
+.flight-step:nth-child(even){ transform: translateY(28px); }
+.flight-node{
+  width: 68px; height:68px;
+  border-radius: 50%;
+  background: var(--navy-950);
+  border: 1px solid var(--line-dark-strong);
+  color: var(--gold-400);
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 2;
+  flex-shrink:0;
+}
+.flight-node svg{ width:24px; height:24px; }
+.flight-step h4{
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 500;
+  color: var(--ink-900);
+}
+.on-dark .flight-node{ background: var(--gold-400); color: var(--navy-950); }
+.flight-step p{ font-size: 0.86rem; color: var(--ink-600); line-height:1.6; max-width: 22ch; }
+.on-dark .flight-step p{ color: rgba(250,246,236,0.65); }
+
+@media (max-width: 900px){
+  .flightpath{ flex-direction:column; gap: 36px; padding-left: 34px; }
+  .flightpath::before{
+    left: 33px; top:0; bottom:0; right:auto; width:1px; height:auto;
+    background-image: linear-gradient(180deg, var(--line-dark-strong) 60%, transparent 0%);
+    background-size: 1px 14px;
+  }
+  .flight-step{ flex-direction:row; text-align:left; align-items:flex-start; }
+  .flight-step:nth-child(even){ transform:none; }
+  .flight-node{ width:52px; height:52px; }
+}
+
+/* ==========================================================================
+   Testimonials
+   ========================================================================== */
+.testi-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+.testi-card{
+  background: var(--sand-50);
+  border: 1px solid var(--line-light);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  display:flex;
+  flex-direction:column;
+  gap: 18px;
+}
+.testi-stars{ color: var(--gold-500); letter-spacing: 3px; font-size: 0.9rem; }
+.testi-card p{ color: var(--ink-700); line-height:1.7; font-size: 0.98rem; }
+.testi-person{ display:flex; align-items:center; gap: 12px; margin-top:auto; }
+.testi-person img{ width:46px; height:46px; border-radius:50%; object-fit:cover; }
+.testi-person b{ display:block; font-size: 0.92rem; }
+.testi-person span{ font-size: 0.78rem; color: var(--ink-400); }
+@media (max-width: 900px){ .testi-grid{ grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   Stat band
+   ========================================================================== */
+.stat-band{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align:center;
+}
+.stat-band .stat b{
+  display:block;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+  color: var(--gold-400);
+  font-weight: 500;
+}
+.stat-band .stat span{ font-size: 0.82rem; color: rgba(250,246,236,0.6); }
+@media (max-width: 800px){ .stat-band{ grid-template-columns: repeat(2,1fr); row-gap: 40px; } }
+
+/* ==========================================================================
+   Gallery / masonry
+   ========================================================================== */
+.gallery-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 130px;
+  gap: 14px;
+}
+.gallery-grid img{ width:100%; height:100%; object-fit:cover; border-radius: 14px; }
+.gallery-grid .g-tall{ grid-row: span 2; }
+@media (max-width: 900px){
+  .gallery-grid{ grid-template-columns: repeat(2,1fr); grid-auto-rows: 150px; }
+}
+
+/* ==========================================================================
+   FAQ accordion
+   ========================================================================== */
+.faq-list{ max-width: 780px; margin: 0 auto; display:flex; flex-direction:column; gap:14px; }
+.faq-item{
+  border: 1px solid var(--line-light);
+  border-radius: var(--radius-sm);
+  background: var(--sand-50);
+  overflow:hidden;
+}
+.faq-q{
+  width:100%;
+  display:flex; align-items:center; justify-content:space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  background:none; border:none;
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  color: var(--ink-900);
+  text-align:left;
+}
+.faq-q .plus{
+  flex-shrink:0;
+  width:26px; height:26px;
+  border-radius:50%;
+  border: 1px solid var(--line-light);
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+}
+.faq-q .plus::before, .faq-q .plus::after{
+  content:""; position:absolute; background: var(--ink-900);
+}
+.faq-q .plus::before{ width:10px; height:1.5px; }
+.faq-q .plus::after{ width:1.5px; height:10px; transition: transform .25s ease; }
+.faq-item.open .plus::after{ transform: scaleY(0); }
+.faq-a{
+  max-height:0;
+  overflow:hidden;
+  transition: max-height .35s ease;
+}
+.faq-a-inner{ padding: 0 24px 22px; color: var(--ink-600); line-height:1.7; font-size: 0.94rem; }
+.faq-item.open .faq-a{ max-height: 300px; }
+
+/* ==========================================================================
+   CTA banner
+   ========================================================================== */
+.cta-banner{
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow:hidden;
+  padding: 74px 60px;
+  text-align:center;
+  background: var(--navy-950);
+  isolation: isolate;
+}
+.cta-banner::before{
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(600px 300px at 20% 0%, rgba(214,164,74,0.35), transparent 60%),
+              radial-gradient(600px 300px at 85% 100%, rgba(226,112,90,0.25), transparent 60%);
+  z-index:-1;
+}
+.cta-banner h2{ max-width: 20ch; margin: 0 auto 16px; }
+.cta-banner .lede{ margin: 0 auto 32px; }
+.cta-actions{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer{ background: var(--navy-950); padding-top: 90px; }
+.footer-top{
+  display:grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid var(--line-dark);
+}
+.footer-brand p{ color: rgba(250,246,236,0.6); font-size: 0.9rem; line-height:1.7; margin: 18px 0 22px; max-width: 30ch; }
+.footer-social{ display:flex; gap:10px; }
+.footer-social a{
+  width:38px; height:38px; border-radius:50%;
+  border: 1px solid var(--line-dark-strong);
+  display:flex; align-items:center; justify-content:center;
+  color: var(--ivory);
+  transition: background .2s ease, border-color .2s ease;
+}
+.footer-social a:hover{ background: var(--gold-500); border-color: var(--gold-500); color: var(--navy-950); }
+.footer-social svg{ width:16px; height:16px; }
+.footer-col h5{
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin-bottom: 20px;
+}
+.footer-col ul{ display:flex; flex-direction:column; gap: 13px; }
+.footer-col a{ color: rgba(250,246,236,0.68); font-size: 0.92rem; transition: color .2s ease; }
+.footer-col a:hover{ color: var(--gold-300); }
+.footer-col .contact-line{ display:flex; gap:10px; align-items:flex-start; color: rgba(250,246,236,0.68); font-size: 0.9rem; line-height:1.6; }
+.footer-col .contact-line svg{ width:16px; height:16px; margin-top:2px; flex-shrink:0; color: var(--gold-400); }
+
+.newsletter-form{ display:flex; gap:8px; margin-top: 4px; }
+.newsletter-form input{
+  flex:1;
+  background: var(--navy-800);
+  border: 1px solid var(--line-dark-strong);
+  border-radius: 100px;
+  padding: 12px 18px;
+  color: var(--ivory);
+  font-size: 0.86rem;
+  outline:none;
+}
+.newsletter-form input::placeholder{ color: rgba(250,246,236,0.4); }
+.newsletter-form button{
+  width: 44px; height:44px; border-radius:50%; flex-shrink:0;
+  background: var(--gold-500); border:none; color: var(--navy-950);
+  display:flex; align-items:center; justify-content:center;
+}
+.newsletter-note{ font-size: 0.76rem; color: rgba(250,246,236,0.42); margin-top:10px; }
+
+.footer-bottom{
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap: 16px;
+  padding: 26px 0 30px;
+}
+.footer-bottom p{ font-size: 0.82rem; color: rgba(250,246,236,0.5); }
+.footer-bottom-links{ display:flex; gap: 24px; flex-wrap:wrap; }
+.footer-bottom-links a{ font-size: 0.82rem; color: rgba(250,246,236,0.5); }
+.footer-bottom-links a:hover{ color: var(--gold-300); }
+
+@media (max-width: 980px){
+  .footer-top{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px){
+  .footer-top{ grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   Page hero (inner pages)
+   ========================================================================== */
+.page-hero{
+  position:relative;
+  padding: 64px 0 90px;
+  background: var(--navy-950);
+  overflow:hidden;
+}
+.page-hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(700px 340px at 15% -10%, rgba(214,164,74,0.28), transparent 60%),
+              radial-gradient(700px 340px at 100% 100%, rgba(44,110,115,0.35), transparent 60%);
+}
+.breadcrumb{
+  position:relative; z-index:2;
+  display:flex; align-items:center; gap:8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: rgba(250,246,236,0.5);
+  margin-bottom: 26px;
+}
+.breadcrumb a{ color: rgba(250,246,236,0.75); }
+.page-hero .inner{ position:relative; z-index:2; max-width: 720px; }
+.page-hero h1{ margin-bottom: 18px; }
+
+/* ==========================================================================
+   Chips / filters
+   ========================================================================== */
+.chip-row{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-bottom: 56px; }
+.chip{
+  padding: 11px 22px;
+  border-radius: 100px;
+  border: 1px solid var(--line-light);
+  background: var(--sand-50);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--ink-700);
+  transition: all .2s ease;
+}
+.chip.active, .chip:hover{ background: var(--navy-950); color: var(--gold-300); border-color: var(--navy-950); }
+
+/* ==========================================================================
+   Split section (image + content)
+   ========================================================================== */
+.split{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items:center;
+}
+.split-media{ position:relative; }
+.split-media img{ border-radius: var(--radius-md); width:100%; height: 460px; object-fit:cover; }
+.split-media .float-card{
+  position:absolute; bottom: -26px; left: -26px;
+  background: var(--ivory);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+  padding: 20px 24px;
+  display:flex; align-items:center; gap:14px;
+}
+.split .highlight-list{ display:flex; flex-direction:column; gap:16px; margin-top: 26px; }
+.split .highlight-list li{ display:flex; gap:14px; align-items:flex-start; font-size: 0.95rem; color: var(--ink-700); }
+.split .highlight-list svg{ width:20px; height:20px; color: var(--gold-600); flex-shrink:0; margin-top:2px; }
+@media (max-width: 900px){
+  .split{ grid-template-columns: 1fr; gap: 46px; }
+  .split-media img{ height: 340px; }
+}
+.split.reverse{ direction: rtl; }
+.split.reverse > *{ direction: ltr; }
+
+/* ==========================================================================
+   Region cards
+   ========================================================================== */
+.region-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap: 22px; }
+.region-card{
+  position:relative;
+  border-radius: var(--radius-md);
+  overflow:hidden;
+  height: 220px;
+  text-align:center;
+}
+.region-card img{ width:100%; height:100%; object-fit:cover; transition: transform .5s ease; }
+.region-card:hover img{ transform: scale(1.08); }
+.region-card::after{ content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(10,27,39,0.1), rgba(10,27,39,0.82)); }
+.region-card .label{
+  position:absolute; left:0; right:0; bottom: 20px; z-index:2;
+  color: var(--ivory);
+}
+.region-card .label b{ display:block; font-family: var(--font-display); font-size: 1.15rem; font-weight:500; }
+.region-card .label span{ font-family: var(--font-mono); font-size: 11px; color: rgba(250,246,236,0.65); }
+@media (max-width: 900px){ .region-grid{ grid-template-columns: repeat(2,1fr); } }
+
+/* ==========================================================================
+   Pricing / package cards (paket-tur page)
+   ========================================================================== */
+.package-card{
+  background: var(--sand-50);
+  border-radius: var(--radius-lg);
+  overflow:hidden;
+  box-shadow: var(--shadow-card);
+  display:grid;
+  grid-template-columns: 0.9fr 1.1fr;
+}
+.package-card + .package-card{ margin-top: 30px; }
+.package-media{ position:relative; }
+.package-media img{ width:100%; height:100%; min-height: 320px; object-fit:cover; }
+.package-content{
+  padding: 38px 42px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap: 14px;
+}
+.package-content .tier{
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing:0.1em; text-transform:uppercase;
+  color: var(--gold-600);
+  background: var(--sand-200);
+  padding: 6px 14px; border-radius:100px;
+}
+.package-includes{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+  margin: 8px 0 4px;
+  text-align:left;
+  width:100%;
+  max-width: 380px;
+}
+.package-includes li{ display:flex; gap:8px; align-items:flex-start; font-size: 0.86rem; color: var(--ink-600); }
+.package-includes svg{ width:16px; height:16px; color: var(--gold-600); flex-shrink:0; margin-top:2px; }
+.package-stub{
+  width:100%;
+  display:flex; align-items:center; justify-content:space-between;
+  border-top: 1px dashed var(--line-light);
+  padding-top: 20px; margin-top: 10px;
+  position:relative;
+}
+.package-stub::before, .package-stub::after{
+  content:""; position:absolute; top:-11px; width:22px; height:22px; background: var(--sand-50); border-radius:50%;
+}
+.package-stub::before{ left:-38px; } .package-stub::after{ right:-38px; }
+.package-stub .price b{ display:block; font-family: var(--font-display); font-size:1.6rem; }
+.package-stub .price span{ font-size:0.76rem; color: var(--ink-400); }
+
+@media (max-width: 900px){
+  .package-card{ grid-template-columns: 1fr; }
+  .package-media img{ min-height: 220px; }
+  .package-stub::before, .package-stub::after{ display:none; }
+}
+
+/* ==========================================================================
+   Comparison table
+   ========================================================================== */
+.compare-table{ width:100%; border-collapse: collapse; background: var(--sand-50); border-radius: var(--radius-md); overflow:hidden; box-shadow: var(--shadow-card); }
+.compare-table th, .compare-table td{ padding: 18px 22px; text-align:center; border-bottom: 1px solid var(--line-light); font-size: 0.9rem; }
+.compare-table th{ font-family: var(--font-display); font-weight:500; font-size:1.05rem; background: var(--navy-950); color: var(--ivory); }
+.compare-table td:first-child, .compare-table th:first-child{ text-align:left; font-weight:600; color: var(--ink-700); }
+.compare-table tr:last-child td{ border-bottom:none; }
+.compare-table .yes{ color: var(--gold-600); font-weight:700; }
+.compare-table .no{ color: var(--ink-400); }
+.table-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+
+/* ==========================================================================
+   Team cards
+   ========================================================================== */
+.team-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap: 26px; }
+.team-card{ text-align:center; }
+.team-card img{ width:100%; height: 280px; object-fit:cover; border-radius: var(--radius-md); margin-bottom: 18px; }
+.team-card b{ display:block; font-family: var(--font-display); font-size: 1.08rem; font-weight:500; }
+.team-card span{ font-size: 0.82rem; color: var(--gold-600); font-family: var(--font-mono); }
+@media (max-width: 900px){ .team-grid{ grid-template-columns: repeat(2,1fr); } }
+
+/* ==========================================================================
+   Values grid
+   ========================================================================== */
+.value-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+.value-card{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:14px; padding: 10px; }
+.value-num{ font-family: var(--font-mono); font-size: 0.78rem; color: var(--gold-600); }
+@media (max-width: 900px){ .value-grid{ grid-template-columns: repeat(2,1fr); } }
+
+/* ==========================================================================
+   Contact section
+   ========================================================================== */
+.contact-grid{ display:grid; grid-template-columns: 1fr 1.15fr; gap: 60px; }
+.contact-cards{ display:flex; flex-direction:column; gap: 16px; }
+.contact-card{
+  display:flex; gap:16px; align-items:flex-start;
+  background: var(--sand-50); border:1px solid var(--line-light);
+  border-radius: var(--radius-sm); padding: 22px;
+}
+.contact-card .icon{
+  width:44px; height:44px; border-radius:50%; flex-shrink:0;
+  background: linear-gradient(135deg, var(--gold-300), var(--gold-500));
+  display:flex; align-items:center; justify-content:center; color: var(--navy-950);
+}
+.contact-card .icon svg{ width:20px; height:20px; }
+.contact-card b{ display:block; margin-bottom:4px; font-size: 0.98rem; }
+.contact-card p{ font-size: 0.87rem; color: var(--ink-600); line-height:1.6; }
+
+.form-card{
+  background: var(--navy-950);
+  border-radius: var(--radius-lg);
+  padding: 44px;
+}
+.form-row{ display:grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+.form-group{ display:flex; flex-direction:column; gap:8px; }
+.form-group.full{ grid-column: 1/-1; }
+.form-group label{ font-family: var(--font-mono); font-size: 10.5px; letter-spacing:0.08em; text-transform:uppercase; color: rgba(250,246,236,0.55); }
+.form-group input, .form-group select, .form-group textarea{
+  background: var(--navy-800);
+  border: 1px solid var(--line-dark-strong);
+  border-radius: 10px;
+  padding: 13px 16px;
+  color: var(--ivory);
+  font-size: 0.92rem;
+  outline:none;
+  transition: border-color .2s ease;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus{ border-color: var(--gold-500); }
+.form-group textarea{ resize: vertical; min-height: 110px; }
+@media (max-width: 700px){ .contact-grid{ grid-template-columns: 1fr; } .form-row{ grid-template-columns:1fr; } .form-card{ padding: 28px; } }
+
+.map-box{
+  border-radius: var(--radius-md);
+  overflow:hidden;
+  height: 280px;
+  position:relative;
+  margin-top: 16px;
+  background: var(--navy-900);
+}
+.map-box svg{ width:100%; height:100%; }
+
+/* ==========================================================================
+   Branch list
+   ========================================================================== */
+.branch-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+.branch-card{ background: var(--sand-50); border: 1px solid var(--line-light); border-radius: var(--radius-sm); padding: 26px; }
+.branch-card .eyebrow{ margin-bottom: 10px; }
+.branch-card p{ font-size: 0.88rem; color: var(--ink-600); line-height:1.7; margin-top:8px; }
+@media (max-width: 900px){ .branch-grid{ grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   Utility
+   ========================================================================== */
+.text-center{ text-align:center; }
+.mt-40{ margin-top:40px; }
+.divider-dashed{ border-top: 1px dashed var(--line-light); margin: 60px 0; }
+.reveal{ opacity:0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.in{ opacity:1; transform: translateY(0); }
+
+@media (max-width: 1024px){
+  .ticket-grid{ grid-template-columns: repeat(2,1fr); }
+  .region-grid{ grid-template-columns: repeat(2,1fr); }
+  .team-grid{ grid-template-columns: repeat(2,1fr); }
+  .value-grid{ grid-template-columns: repeat(2,1fr); }
+  .branch-grid{ grid-template-columns: 1fr 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="site-header" id="siteHeader">
+<div class="announce">🌅 Promo Awal Musim — Diskon 15% untuk 20 pemesanan pertama bulan ini. <a href="paket-tur.html">Lihat paket →</a></div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">S</span>
+      <span>SENJA<small>Travel &amp; Tour</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Beranda</a>
+      <a href="destinasi.html">Destinasi</a>
+      <a href="paket-tur.html">Paket Tur</a>
+      <a href="tentang.html">Tentang &amp; Kontak</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tentang.html" class="btn btn-ghost btn-sm">Konsultasi Gratis</a>
+      <a href="paket-tur.html" class="btn btn-primary btn-sm">Pesan Sekarang</a>
+      <button class="nav-toggle" aria-label="Buka menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-media">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1800&q=80&auto=format&fit=crop" alt="Pantai tropis saat golden hour" onerror="phFallback(this,1800,1000)">
+  </div>
+  <div class="container hero-inner">
+    <span class="hero-tag">✈ Sejak 2012 — 12 tahun mengantar cerita perjalanan</span>
+    <h1>Perjalanan premium, dirancang seperti <span class="italic-accent">senja</span></h1>
+    <p class="lede">Kami merangkai setiap itinerary dengan detail dan kehangatan seorang sahabat lama — pemandu berpengalaman, akomodasi pilihan, dan momen yang tak sekadar difoto, tapi diingat seumur hidup.</p>
+    <div class="hero-actions">
+      <a href="paket-tur.html" class="btn btn-primary">Lihat Paket Tur</a>
+      <a href="tentang.html" class="btn btn-ghost" style="color:#faf6ec;border-color:rgba(250,246,236,0.35)">Konsultasi Gratis</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b>10.400+</b><span>Wisatawan terlayani</span></div>
+      <div class="stat"><b>48</b><span>Destinasi di 6 benua</span></div>
+      <div class="stat"><b>4.9/5</b><span>Rating dari 2.300 ulasan</span></div>
+      <div class="stat"><b>12 Thn</b><span>Pengalaman menyusun tur</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Floating ticket search widget -->
+<div class="hero-ticket">
+  <form class="ticket-search">
+    <div class="field">
+      <label>Mau ke mana?</label>
+      <select>
+        <option>Bali, Indonesia</option>
+        <option>Santorini, Yunani</option>
+        <option>Kyoto, Jepang</option>
+        <option>Cappadocia, Turki</option>
+        <option>Swiss Alps</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Tanggal Berangkat</label>
+      <input type="text" placeholder="Pilih tanggal" value="12 Sep 2026">
+    </div>
+    <div class="field">
+      <label>Jumlah Tamu</label>
+      <select>
+        <option>2 Dewasa</option>
+        <option>2 Dewasa, 1 Anak</option>
+        <option>4 Dewasa</option>
+        <option>Rombongan (6+)</option>
+      </select>
+    </div>
+    <div class="field field-btn">
+      <button type="submit" class="btn btn-primary btn-block">Cari Paket</button>
+    </div>
+  </form>
+</div>
+
+<!-- ============ LOGO STRIP ============ -->
+<section class="logo-strip">
+  <div class="container">
+    <span class="label">Mitra perjalanan tepercaya kami</span>
+    <div class="marks">
+      <span>Garuda Partners</span>
+      <span>Nusantara Air</span>
+      <span>Horizon Hotels</span>
+      <span>Blue Ocean Cruise</span>
+      <span>Golden Visa Co.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DESTINASI UNGGULAN ============ -->
+<section class="section bg-sand" id="destinasi-unggulan">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Destinasi Unggulan</span>
+      <h2>Enam tempat yang paling sering membuat tamu kami menangis bahagia</h2>
+      <p class="lede">Dipilih dari ratusan destinasi berdasarkan ulasan, keindahan musiman, dan kenyamanan perjalanan.</p>
+    </div>
+
+    <div class="ticket-grid">
+      <div class="ticket-card reveal">
+        <div class="ticket-media">
+          <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80&auto=format&fit=crop" alt="Sawah dan pura di Bali" onerror="phFallback(this,800,600)">
+          <span class="ticket-badge">Terlaris</span>
+          <span class="ticket-rating">★ 4.9</span>
+        </div>
+        <div class="ticket-body">
+          <span class="place">Bali, Indonesia</span>
+          <h3>Ubud &amp; Nusa Penida Escape</h3>
+          <p>Terasering hijau, pura tersembunyi, dan tebing karang biru yang memeluk laut selatan.</p>
+          <div class="ticket-tags"><span>5 Hari 4 Malam</span><span>Honeymoon</span></div>
+        </div>
+        <div class="ticket-stub">
+          <div class="price"><b>Rp 8.450.000</b><span>per orang, minimal 2 tamu</span></div>
+          <a href="paket-tur.html" class="btn btn-ghost btn-sm">Detail</a>
+        </div>
+      </div>
+
+      <div class="ticket-card reveal">
+        <div class="ticket-media">
+          <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&q=80&auto=format&fit=crop" alt="Kubah biru Santorini" onerror="phFallback(this,800,600)">
+          <span class="ticket-badge">Populer</span>
+          <span class="ticket-rating">★ 4.8</span>
+        </div>
+        <div class="ticket-body">
+          <span class="place">Santorini, Yunani</span>
+          <h3>Aegean Sunset Romance</h3>
+          <p>Rumah putih di tebing curam, senja jingga di Oia, dan pelayaran kaldera saat matahari tenggelam.</p>
+          <div class="ticket-tags"><span>6 Hari 5 Malam</span><span>Eksklusif</span></div>
+        </div>
+        <div class="ticket-stub">
+          <div class="price"><b>Rp 24.900.000</b><span>per orang, minimal 2 tamu</span></div>
+          <a href="paket-tur.html" class="btn btn-ghost btn-sm">Detail</a>
+        </div>
+      </div>
+
+      <div class="ticket-card reveal">
+        <div class="ticket-media">
+          <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80&auto=format&fit=crop" alt="Persimpangan Shibuya Tokyo" onerror="phFallback(this,800,600)">
+          <span class="ticket-badge">Musim Sakura</span>
+          <span class="ticket-rating">★ 4.9</span>
+        </div>
+        <div class="ticket-body">
+          <span class="place">Kyoto &amp; Tokyo, Jepang</span>
+          <h3>Sakura &amp; Neon Journey</h3>
+          <p>Kuil kuno berselimut sakura, gang tradisional, hingga gemerlap kota masa depan.</p>
+          <div class="ticket-tags"><span>7 Hari 6 Malam</span><span>Budaya</span></div>
+        </div>
+        <div class="ticket-stub">
+          <div class="price"><b>Rp 27.300.000</b><span>per orang, minimal 2 tamu</span></div>
+          <a href="paket-tur.html" class="btn btn-ghost btn-sm">Detail</a>
+        </div>
+      </div>
+
+      <div class="ticket-card reveal">
+        <div class="ticket-media">
+          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80&auto=format&fit=crop" alt="Pegunungan Alpen Swiss" onerror="phFallback(this,800,600)">
+          <span class="ticket-badge">Petualangan</span>
+          <span class="ticket-rating">★ 5.0</span>
+        </div>
+        <div class="ticket-body">
+          <span class="place">Interlaken, Swiss</span>
+          <h3>Alpine Peaks Adventure</h3>
+          <p>Kereta panorama, danau turquoise, dan puncak salju yang menembus awan.</p>
+          <div class="ticket-tags"><span>8 Hari 7 Malam</span><span>Alam</span></div>
+        </div>
+        <div class="ticket-stub">
+          <div class="price"><b>Rp 38.750.000</b><span>per orang, minimal 2 tamu</span></div>
+          <a href="paket-tur.html" class="btn btn-ghost btn-sm">Detail</a>
+        </div>
+      </div>
+
+      <div class="ticket-card reveal">
+        <div class="ticket-media">
+          <img src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800&q=80&auto=format&fit=crop" alt="Villa terapung di Maldives" onerror="phFallback(this,800,600)">
+          <span class="ticket-badge">Honeymoon</span>
+          <span class="ticket-rating">★ 4.9</span>
+        </div>
+        <div class="ticket-body">
+          <span class="place">Maldives</span>
+          <h3>Overwater Villa Retreat</h3>
+          <p>Vila terapung di atas laut jernih, snorkeling bersama pari manta, makan malam di pasir.</p>
+          <div class="ticket-tags"><span>5 Hari 4 Malam</span><span>Mewah</span></div>
+        </div>
+        <div class="ticket-stub">
+          <div class="price"><b>Rp 42.100.000</b><span>per orang, minimal 2 tamu</span></div>
+          <a href="paket-tur.html" class="btn btn-ghost btn-sm">Detail</a>
+        </div>
+      </div>
+
+      <div class="ticket-card reveal">
+        <div class="ticket-media">
+          <img src="https://images.unsplash.com/photo-1526495124232-a04e1849168c?w=800&q=80&auto=format&fit=crop" alt="Balon udara Cappadocia" onerror="phFallback(this,800,600)">
+          <span class="ticket-badge">Ikonik</span>
+          <span class="ticket-rating">★ 4.8</span>
+        </div>
+        <div class="ticket-body">
+          <span class="place">Cappadocia, Turki</span>
+          <h3>Sunrise Balloon Odyssey</h3>
+          <p>Terbang di atas lembah batu purba saat fajar, disusul jelajah gua dan kota bawah tanah.</p>
+          <div class="ticket-tags"><span>6 Hari 5 Malam</span><span>Petualangan</span></div>
+        </div>
+        <div class="ticket-stub">
+          <div class="price"><b>Rp 22.600.000</b><span>per orang, minimal 2 tamu</span></div>
+          <a href="paket-tur.html" class="btn btn-ghost btn-sm">Detail</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-40">
+      <a href="destinasi.html" class="btn btn-ghost">Lihat Semua Destinasi</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KENAPA MEMILIH KAMI ============ -->
+<section class="section bg-ivory">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Kenapa SENJA</span>
+      <h2>Kemewahan yang terasa personal, bukan sekadar transaksi</h2>
+      <p class="lede">Kami membangun setiap perjalanan di sekitar Anda — bukan sebaliknya.</p>
+    </div>
+    <div class="feature-grid reveal">
+      <div class="feature-item">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h4>Pendampingan 24/7</h4>
+        <p>Tour leader dan tim darurat siaga sepanjang perjalanan, di mana pun Anda berada.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 4v5c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V7l7-4z"/></svg></div>
+        <h4>Terjamin &amp; Terasuransi</h4>
+        <p>Setiap paket dilengkapi asuransi perjalanan penuh dan mitra berlisensi resmi.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg></div>
+        <h4>Itinerary Personal</h4>
+        <p>Disusun berdasarkan ritme dan minat Anda — bukan jadwal massal yang terburu-buru.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div>
+        <h4>Akomodasi Terkurasi</h4>
+        <p>Hanya hotel dan vila bintang 4–5 yang lolos kunjungan langsung tim kami.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12l2-7h14l2 7"/><path d="M5 12v7a1 1 0 001 1h12a1 1 0 001-1v-7"/><path d="M9 21v-5h6v5"/></svg></div>
+        <h4>Cicilan Ringan</h4>
+        <p>Bayar DP 30% dan lunasi sisanya sebelum keberangkatan tanpa bunga tersembunyi.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h4>Pemandu Lokal Ahli</h4>
+        <p>Bercerita dari sudut pandang penduduk asli, bukan sekadar membaca naskah.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CARA KERJA / FLIGHT PATH STEPS ============ -->
+<section class="section bg-dark on-dark">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Cara Kerja</span>
+      <h2>Dari ide liburan hingga lepas landas, dalam lima langkah</h2>
+      <p class="lede">Rute yang jelas, tanpa kejutan biaya di tengah jalan.</p>
+    </div>
+    <div class="flightpath reveal">
+      <div class="flight-step">
+        <div class="flight-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 4a1 1 0 011.8-.6L21 12l-8.2 8.6A1 1 0 0111 20V4z"/></svg></div>
+        <h4>Konsultasi</h4>
+        <p>Ceritakan gaya liburan impian Anda kepada travel consultant kami.</p>
+      </div>
+      <div class="flight-step">
+        <div class="flight-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+        <h4>Rancang Itinerary</h4>
+        <p>Kami susun rute, akomodasi, dan aktivitas sesuai anggaran Anda.</p>
+      </div>
+      <div class="flight-step">
+        <div class="flight-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+        <h4>Booking &amp; DP</h4>
+        <p>Kunci tanggal dan harga dengan uang muka mulai 30%.</p>
+      </div>
+      <div class="flight-step">
+        <div class="flight-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+        <h4>Persiapan</h4>
+        <p>Dokumen, visa, dan koper — kami dampingi dengan checklist lengkap.</p>
+      </div>
+      <div class="flight-step">
+        <div class="flight-node"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2.5 19l19-7-19-7 4 7-4 7z"/></svg></div>
+        <h4>Berangkat!</h4>
+        <p>Nikmati perjalanan, kami pantau dari jauh sambil siap membantu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAKET TUR POPULER ============ -->
+<section class="section bg-sand">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Paket Pilihan</span>
+      <h2>Tiga paket yang paling banyak dipesan bulan ini</h2>
+    </div>
+    <div class="ticket-grid">
+      <div class="ticket-card reveal">
+        <div class="ticket-media">
+          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80&auto=format&fit=crop" alt="Skyline Dubai saat senja" onerror="phFallback(this,800,600)">
+          <span class="ticket-badge">Keluarga</span>
+          <span class="ticket-rating">★ 4.7</span>
+        </div>
+        <div class="ticket-body">
+          <span class="place">Dubai, UEA</span>
+          <h3>Desert &amp; Skyline Wonders</h3>
+          <p>Safari gurun, air mancur Burj Khalifa, dan taman hiburan kelas dunia.</p>
+          <div class="ticket-tags"><span>6 Hari 5 Malam</span><span>Keluarga</span></div>
+        </div>
+        <div class="ticket-stub">
+          <div class="price"><b>Rp 19.800.000</b><span>per orang</span></div>
+          <a href="paket-tur.html" class="btn btn-ghost btn-sm">Detail</a>
+        </div>
+      </div>
+      <div class="ticket-card reveal">
+        <div class="ticket-media">
+          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80&auto=format&fit=crop" alt="Menara Eiffel Paris" onerror="phFallback(this,800,600)">
+          <span class="ticket-badge">Eksklusif</span>
+          <span class="ticket-rating">★ 4.9</span>
+        </div>
+        <div class="ticket-body">
+          <span class="place">Paris, Prancis</span>
+          <h3>Champagne &amp; Cobblestones</h3>
+          <p>Museum ikonik, kafe tepi Seine, dan hari khusus ke Istana Versailles.</p>
+          <div class="ticket-tags"><span>7 Hari 6 Malam</span><span>Romantis</span></div>
+        </div>
+        <div class="ticket-stub">
+          <div class="price"><b>Rp 31.500.000</b><span>per orang</span></div>
+          <a href="paket-tur.html" class="btn btn-ghost btn-sm">Detail</a>
+        </div>
+      </div>
+      <div class="ticket-card reveal">
+        <div class="ticket-media">
+          <img src="https://images.unsplash.com/photo-1489493887464-892be6d1daae?w=800&q=80&auto=format&fit=crop" alt="Air terjun dan hutan Selandia Baru" onerror="phFallback(this,800,600)">
+          <span class="ticket-badge">Alam</span>
+          <span class="ticket-rating">★ 4.8</span>
+        </div>
+        <div class="ticket-body">
+          <span class="place">Queenstown, Selandia Baru</span>
+          <h3>Fiordland Wilderness</h3>
+          <p>Pelayaran fjord, hiking glasial, dan langit malam paling jernih di selatan bumi.</p>
+          <div class="ticket-tags"><span>8 Hari 7 Malam</span><span>Petualangan</span></div>
+        </div>
+        <div class="ticket-stub">
+          <div class="price"><b>Rp 35.200.000</b><span>per orang</span></div>
+          <a href="paket-tur.html" class="btn btn-ghost btn-sm">Detail</a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-40">
+      <a href="paket-tur.html" class="btn btn-primary">Lihat Semua Paket Tur</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONI ============ -->
+<section class="section bg-ivory">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Cerita Tamu Kami</span>
+      <h2>Kata mereka yang sudah menikmati perjalanan bersama SENJA</h2>
+    </div>
+    <div class="testi-grid reveal">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>Kami tidak perlu memikirkan apa pun selain menikmati pemandangan. Setiap detail, dari kamar hotel hingga menu makan malam, terasa sudah dipikirkan matang-matang.</p>
+        <div class="testi-person">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80&auto=format&fit=crop" alt="Rania Putri" onerror="phFallback(this,100,100)">
+          <div><b>Rania Putri</b><span>Honeymoon ke Santorini</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>Tour leader-nya bukan cuma tahu rute, tapi juga tahu cerita di baliknya. Perjalanan ke Jepang jadi terasa seperti dituntun sahabat lama, bukan turis biasa.</p>
+        <div class="testi-person">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80&auto=format&fit=crop" alt="Dimas Prakoso" onerror="phFallback(this,100,100)">
+          <div><b>Dimas Prakoso</b><span>Sakura &amp; Neon Journey</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>Sempat khawatir soal budget keluarga besar, tapi tim SENJA bantu susun paket yang pas tanpa mengorbankan kenyamanan. Anak-anak masih membicarakannya sampai sekarang.</p>
+        <div class="testi-person">
+          <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&q=80&auto=format&fit=crop" alt="Keluarga Hartanto" onerror="phFallback(this,100,100)">
+          <div><b>Keluarga Hartanto</b><span>Desert &amp; Skyline Wonders</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALERI ============ -->
+<section class="section bg-sand">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Galeri Momen</span>
+      <h2>Sepotong senja dari perjalanan tamu-tamu kami</h2>
+    </div>
+    <div class="gallery-grid reveal">
+      <img class="g-tall" src="https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=500&q=80&auto=format&fit=crop" alt="Terasering Bali" onerror="phFallback(this,500,700)">
+      <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=500&q=80&auto=format&fit=crop" alt="Pura di Bali" onerror="phFallback(this,500,300)">
+      <img src="https://images.unsplash.com/photo-1546412414-8035e1776c9a?w=500&q=80&auto=format&fit=crop" alt="Jalanan Tokyo malam hari" onerror="phFallback(this,500,300)">
+      <img class="g-tall" src="https://images.unsplash.com/photo-1518684079-3c830dcef090?w=500&q=80&auto=format&fit=crop" alt="Menara Eiffel dari kejauhan" onerror="phFallback(this,500,700)">
+      <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=500&q=80&auto=format&fit=crop" alt="Gurun Dubai" onerror="phFallback(this,500,300)">
+      <img class="g-tall" src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=500&q=80&auto=format&fit=crop" alt="Pantai tropis" onerror="phFallback(this,500,700)">
+      <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=500&q=80&auto=format&fit=crop" alt="Hutan pegunungan" onerror="phFallback(this,500,300)">
+      <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=500&q=80&auto=format&fit=crop" alt="Danau pegunungan Swiss" onerror="phFallback(this,500,300)">
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAT BAND ============ -->
+<section class="section-tight bg-dark on-dark">
+  <div class="container">
+    <div class="stat-band reveal">
+      <div class="stat"><b>48</b><span>Destinasi aktif</span></div>
+      <div class="stat"><b>10.4K+</b><span>Wisatawan sejak 2012</span></div>
+      <div class="stat"><b>96%</b><span>Tamu yang memesan ulang</span></div>
+      <div class="stat"><b>24/7</b><span>Pendampingan perjalanan</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section bg-ivory">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Pertanyaan Umum</span>
+      <h2>Hal yang paling sering ditanyakan calon tamu</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item open">
+        <button class="faq-q">Apakah harga paket sudah termasuk tiket pesawat?<span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Sebagian besar paket internasional sudah termasuk tiket pesawat pulang-pergi kelas ekonomi dari Jakarta. Untuk kota keberangkatan lain atau upgrade kelas, tim kami akan menghitungkan biaya tambahan secara transparan sebelum Anda membayar DP.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Bagaimana skema pembayarannya?<span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Anda cukup membayar uang muka 30% untuk mengunci tanggal dan harga. Sisa pembayaran dapat dicicil bertahap dan wajib lunas paling lambat 14 hari sebelum keberangkatan.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Apakah bisa request itinerary custom?<span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Tentu. Semua paket di situs ini adalah titik awal — travel consultant kami dapat menyesuaikan durasi, hotel, hingga aktivitas harian sesuai kebutuhan Anda tanpa biaya konsultasi tambahan.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Bagaimana jika terjadi pembatalan mendadak?<span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Setiap pemesanan otomatis dilindungi asuransi perjalanan. Kebijakan pembatalan dan pengembalian dana mengikuti ketentuan mitra maskapai/hotel dan akan dijelaskan detail saat proses booking.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Apakah tersedia pemandu berbahasa Indonesia?<span class="plus"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Ya, seluruh perjalanan grup didampingi tour leader berbahasa Indonesia, ditambah pemandu lokal di destinasi untuk cerita dan konteks budaya yang lebih kaya.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="section bg-sand">
+  <div class="container">
+    <div class="cta-banner on-dark reveal">
+      <span class="eyebrow" style="justify-content:center">Siap Berangkat?</span>
+      <h2>Senja terbaik menanti di ujung perjalanan Anda</h2>
+      <p class="lede">Ceritakan destinasi impian Anda hari ini, dan biarkan kami menyusun sisanya.</p>
+      <div class="cta-actions">
+        <a href="paket-tur.html" class="btn btn-primary">Lihat Paket Tur</a>
+        <a href="tentang.html" class="btn btn-ghost" style="color:#faf6ec;border-color:rgba(250,246,236,0.35)">Hubungi Kami</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" style="color:#faf6ec"><span class="brand-mark">S</span><span>SENJA<small>Travel &amp; Tour</small></span></a>
+        <p>Merancang perjalanan premium sejak 2012 — tenang seperti senja, hangat seperti pulang.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 9h3V6h-3a4 4 0 00-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2a1 1 0 011-1z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3v11.5a3.5 3.5 0 11-3.5-3.5"/><path d="M14 3a5 5 0 005 5"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a9 9 0 11-4.2-7.6L21 3l-1.1 4.5A9 9 0 0121 12z"/><path d="M8.5 9.5c.3 2.8 2.7 5.2 5.5 5.5"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Jelajahi</h5>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="destinasi.html">Destinasi</a></li>
+          <li><a href="paket-tur.html">Paket Tur</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Destinasi</h5>
+        <ul>
+          <li><a href="destinasi.html">Bali &amp; Nusa Penida</a></li>
+          <li><a href="destinasi.html">Santorini, Yunani</a></li>
+          <li><a href="destinasi.html">Kyoto &amp; Tokyo</a></li>
+          <li><a href="destinasi.html">Swiss Alps</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Bantuan</h5>
+        <ul>
+          <li><a href="tentang.html">Hubungi Kami</a></li>
+          <li><a href="index.html#faq">Pertanyaan Umum</a></li>
+          <li><a href="paket-tur.html">Syarat Pemesanan</a></li>
+          <li><a href="tentang.html">Kebijakan Privasi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Tetap Terhubung</h5>
+        <p style="color:rgba(250,246,236,0.6);font-size:0.88rem;margin-bottom:16px;">Dapatkan promo senja dan inspirasi destinasi setiap minggu.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Alamat email Anda" required>
+          <button type="submit" aria-label="Berlangganan"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </form>
+        <p class="newsletter-note">Tanpa spam. Berhenti berlangganan kapan saja.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 SENJA Travel &amp; Tour. Seluruh hak cipta dilindungi.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Syarat &amp; Ketentuan</a>
+        <a href="#">Kebijakan Privasi</a>
+        <a href="#">Peta Situs</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// SENJA — Premium Travel & Tour — main.js
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* Mobile nav toggle */
+  var toggle = document.querySelector('.nav-toggle');
+  var links = document.querySelector('.nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', function () {
+      links.classList.toggle('open');
+    });
+    links.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { links.classList.remove('open'); });
+    });
+  }
+
+  /* Header height -> CSS var (keeps layout offset in sync with real header size) */
+  var siteHeader = document.getElementById('siteHeader');
+  var setHeaderHeight = function () {
+    if (!siteHeader) return;
+    var wasScrolled = siteHeader.classList.contains('scrolled');
+    siteHeader.classList.remove('scrolled');
+    document.documentElement.style.setProperty('--header-h', siteHeader.offsetHeight + 'px');
+    if (wasScrolled) siteHeader.classList.add('scrolled');
+  };
+  setHeaderHeight();
+  window.addEventListener('resize', setHeaderHeight);
+
+  /* Header background on scroll (transparent over hero -> solid on scroll) */
+  var navbar = document.querySelector('.navbar');
+  if (siteHeader && navbar) {
+    var updateNavbar = function () {
+      if (window.scrollY > 10) {
+        siteHeader.classList.add('scrolled');
+        navbar.style.boxShadow = '0 8px 24px -18px rgba(10,27,39,0.4)';
+      } else {
+        siteHeader.classList.remove('scrolled');
+        navbar.style.boxShadow = 'none';
+      }
+    };
+    window.addEventListener('scroll', updateNavbar);
+    updateNavbar();
+  }
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    var q = item.querySelector('.faq-q');
+    q.addEventListener('click', function () {
+      var isOpen = item.classList.contains('open');
+      item.parentElement.querySelectorAll('.faq-item').forEach(function (i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  /* Chip filters (visual only, filters destination/package cards if data-tag present) */
+  document.querySelectorAll('.chip-row').forEach(function (row) {
+    var chips = row.querySelectorAll('.chip');
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        chips.forEach(function (c) { c.classList.remove('active'); });
+        chip.classList.add('active');
+        var tag = chip.getAttribute('data-filter');
+        var targetGrid = document.querySelector(row.getAttribute('data-target'));
+        if (!targetGrid) return;
+        targetGrid.querySelectorAll('[data-tag]').forEach(function (card) {
+          if (tag === 'semua' || card.getAttribute('data-tag').indexOf(tag) !== -1) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+
+  /* Reveal on scroll */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* Newsletter form (front-end only) */
+  var newsletter = document.querySelector('.newsletter-form');
+  if (newsletter) {
+    newsletter.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var input = newsletter.querySelector('input');
+      var btn = newsletter.querySelector('button');
+      if (input.value) {
+        input.value = '';
+        input.placeholder = 'Terima kasih! Sudah terdaftar ✓';
+      }
+    });
+  }
+
+  /* Contact form (front-end only) */
+  var contactForm = document.querySelector('.contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = contactForm.querySelector('button[type="submit"]');
+      var original = btn.innerHTML;
+      btn.innerHTML = 'Pesan terkirim ✓';
+      contactForm.reset();
+      setTimeout(function () { btn.innerHTML = original; }, 2600);
+    });
+  }
+
+});
+
+/* Image fallback: swap broken images to a stable placeholder so layout never breaks */
+function phFallback(img, w, h) {
+  img.onerror = null;
+  var seed = encodeURIComponent(img.getAttribute('alt') || 'senja-travel');
+  img.src = 'https://picsum.photos/seed/' + seed + '/' + (w || 800) + '/' + (h || 600);
+}
+
+</script>
+</body>
+</html>

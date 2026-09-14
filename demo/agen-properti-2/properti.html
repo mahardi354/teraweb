@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Properti — Raditya Properti</title>
+<meta name="description" content="Jelajahi daftar properti dijual dan disewa oleh Raditya Properti: rumah, apartemen, tanah, dan ruko di kawasan Jabodetabek.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand" aria-label="Kembali ke Beranda Raditya Properti">
+      <span class="brand-mark">R</span>
+      <span class="brand-text"><b>Raditya Properti</b><span>Konsultan Independen</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" data-page="index.html">Beranda</a>
+      <a href="tentang.html" data-page="tentang.html">Tentang Saya</a>
+      <a href="properti.html" data-page="properti.html">Properti</a>
+      <a href="kontak.html" data-page="kontak.html">Kontak</a>
+      <a href="kontak.html" class="btn btn-primary btn-sm">Konsultasi Gratis</a>
+    </nav>
+    <div class="header-actions">
+      <a href="kontak.html" class="btn btn-primary btn-sm">Konsultasi Gratis</a>
+      <button class="nav-toggle" aria-label="Buka menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero page-hero" style="min-height:58vh; background-image:url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1800&q=80&auto=format&fit=crop');">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Beranda</a> / Properti</div>
+    <div class="hero-kicker">Daftar Properti Aktif</div>
+    <h1>Temukan Properti yang <em>Sesuai</em> Anda</h1>
+    <p class="hero-lede">15+ properti pilihan tersedia untuk dijual maupun disewa di kawasan Jabodetabek — diperbarui setiap minggu.</p>
+  </div>
+</section>
+
+<!-- ============ FILTER BAR ============ -->
+<div class="container">
+  <div class="filter-bar reveal">
+    <div class="filter-grid">
+      <div class="filter-field select-wrap">
+        <label for="f-kategori">Kategori</label>
+        <select id="f-kategori">
+          <option>Semua Kategori</option>
+          <option>Rumah</option>
+          <option>Apartemen</option>
+          <option>Tanah</option>
+          <option>Ruko</option>
+        </select>
+      </div>
+      <div class="filter-field select-wrap">
+        <label for="f-lokasi">Lokasi</label>
+        <select id="f-lokasi">
+          <option>Semua Lokasi</option>
+          <option>Jakarta Selatan</option>
+          <option>BSD City</option>
+          <option>Bintaro</option>
+          <option>Depok</option>
+          <option>Bekasi</option>
+        </select>
+      </div>
+      <div class="filter-field select-wrap">
+        <label for="f-status">Status</label>
+        <select id="f-status">
+          <option>Dijual & Disewa</option>
+          <option>Dijual</option>
+          <option>Disewa</option>
+        </select>
+      </div>
+      <div class="filter-field">
+        <label for="f-budget">Estimasi Bujet</label>
+        <input type="text" id="f-budget" placeholder="Contoh: 2 - 5 Miliar">
+      </div>
+      <button class="btn btn-primary" style="height:50px;">Cari Properti</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TABS + GRID ============ -->
+<section class="pad bg-ivory">
+  <div class="container">
+    <div class="tabs reveal">
+      <button class="tab-btn active" data-filter="semua">Semua</button>
+      <button class="tab-btn" data-filter="rumah">Rumah</button>
+      <button class="tab-btn" data-filter="apartemen">Apartemen</button>
+      <button class="tab-btn" data-filter="tanah">Tanah</button>
+      <button class="tab-btn" data-filter="ruko">Ruko</button>
+    </div>
+
+    <div class="grid grid-3">
+
+      <div class="prop-card reveal" data-category="rumah">
+        <div class="prop-media">
+          <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=900&q=80&auto=format&fit=crop" alt="Rumah modern dengan kolam renang di Bintaro Hills">
+          <span class="prop-badge">Dijual</span>
+          <span class="prop-fav">🤍</span>
+        </div>
+        <div class="prop-body">
+          <div class="prop-loc">📍 Bintaro, Tangerang Selatan</div>
+          <h3 class="prop-title">Rumah Modern Bintaro Hills</h3>
+          <div class="prop-price">Rp 3,8 M <span>/ nego</span></div>
+          <div class="prop-specs"><span>🛏 4 KT</span><span>🛁 3 KM</span><span>📐 220 m²</span></div>
+        </div>
+      </div>
+
+      <div class="prop-card reveal reveal-delay-1" data-category="apartemen">
+        <div class="prop-media">
+          <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=900&q=80&auto=format&fit=crop" alt="Apartemen modern di Kuningan Jakarta Selatan">
+          <span class="prop-badge sewa">Disewa</span>
+          <span class="prop-fav">🤍</span>
+        </div>
+        <div class="prop-body">
+          <div class="prop-loc">📍 Kuningan, Jakarta Selatan</div>
+          <h3 class="prop-title">Apartemen Kuningan Suites</h3>
+          <div class="prop-price">Rp 18 Jt <span>/ bulan</span></div>
+          <div class="prop-specs"><span>🛏 2 KT</span><span>🛁 2 KM</span><span>📐 78 m²</span></div>
+        </div>
+      </div>
+
+      <div class="prop-card reveal reveal-delay-2" data-category="rumah">
+        <div class="prop-media">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=80&auto=format&fit=crop" alt="Rumah keluarga minimalis di BSD City Foresta">
+          <span class="prop-badge">Dijual</span>
+          <span class="prop-fav">🤍</span>
+        </div>
+        <div class="prop-body">
+          <div class="prop-loc">📍 BSD City, Tangerang</div>
+          <h3 class="prop-title">Rumah Minimalis Foresta</h3>
+          <div class="prop-price">Rp 2,3 M <span>/ nego</span></div>
+          <div class="prop-specs"><span>🛏 3 KT</span><span>🛁 2 KM</span><span>📐 140 m²</span></div>
+        </div>
+      </div>
+
+      <div class="prop-card reveal" data-category="tanah">
+        <div class="prop-media">
+          <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=900&q=80&auto=format&fit=crop" alt="Tanah kavling siap bangun di Sawangan Depok">
+          <span class="prop-badge">Dijual</span>
+          <span class="prop-fav">🤍</span>
+        </div>
+        <div class="prop-body">
+          <div class="prop-loc">📍 Sawangan, Depok</div>
+          <h3 class="prop-title">Kavling Siap Bangun Sawangan</h3>
+          <div class="prop-price">Rp 850 Jt <span>/ nego</span></div>
+          <div class="prop-specs"><span>📐 300 m²</span><span>📄 SHM</span></div>
+        </div>
+      </div>
+
+      <div class="prop-card reveal reveal-delay-1" data-category="ruko">
+        <div class="prop-media">
+          <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900&q=80&auto=format&fit=crop" alt="Ruko tiga lantai di kawasan bisnis Bekasi">
+          <span class="prop-badge">Dijual</span>
+          <span class="prop-fav">🤍</span>
+        </div>
+        <div class="prop-body">
+          <div class="prop-loc">📍 Harapan Indah, Bekasi</div>
+          <h3 class="prop-title">Ruko 3 Lantai Strategis</h3>
+          <div class="prop-price">Rp 4,5 M <span>/ nego</span></div>
+          <div class="prop-specs"><span>🏢 3 Lantai</span><span>📐 180 m²</span></div>
+        </div>
+      </div>
+
+      <div class="prop-card reveal reveal-delay-2" data-category="apartemen">
+        <div class="prop-media">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&q=80&auto=format&fit=crop" alt="Apartemen studio modern dekat stasiun MRT">
+          <span class="prop-badge sewa">Disewa</span>
+          <span class="prop-fav">🤍</span>
+        </div>
+        <div class="prop-body">
+          <div class="prop-loc">📍 Fatmawati, Jakarta Selatan</div>
+          <h3 class="prop-title">Studio Dekat Stasiun MRT</h3>
+          <div class="prop-price">Rp 7,5 Jt <span>/ bulan</span></div>
+          <div class="prop-specs"><span>🛏 1 KT</span><span>🛁 1 KM</span><span>📐 32 m²</span></div>
+        </div>
+      </div>
+
+      <div class="prop-card reveal" data-category="rumah">
+        <div class="prop-media">
+          <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=900&q=80&auto=format&fit=crop" alt="Rumah asri dengan taman di Depok">
+          <span class="prop-badge">Dijual</span>
+          <span class="prop-fav">🤍</span>
+        </div>
+        <div class="prop-body">
+          <div class="prop-loc">📍 Cinere, Depok</div>
+          <h3 class="prop-title">Rumah Asri Cinere Garden</h3>
+          <div class="prop-price">Rp 1,9 M <span>/ nego</span></div>
+          <div class="prop-specs"><span>🛏 3 KT</span><span>🛁 2 KM</span><span>📐 120 m²</span></div>
+        </div>
+      </div>
+
+      <div class="prop-card reveal reveal-delay-1" data-category="tanah">
+        <div class="prop-media">
+          <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=900&q=80&auto=format&fit=crop" alt="Tanah komersial di jalur utama Bintaro">
+          <span class="prop-badge">Dijual</span>
+          <span class="prop-fav">🤍</span>
+        </div>
+        <div class="prop-body">
+          <div class="prop-loc">📍 Jalur Utama, Bintaro</div>
+          <h3 class="prop-title">Tanah Komersial Tepi Jalan</h3>
+          <div class="prop-price">Rp 6,2 M <span>/ nego</span></div>
+          <div class="prop-specs"><span>📐 400 m²</span><span>📄 SHM</span></div>
+        </div>
+      </div>
+
+      <div class="prop-card reveal reveal-delay-2" data-category="ruko">
+        <div class="prop-media">
+          <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=900&q=80&auto=format&fit=crop" alt="Ruko dua lantai di pusat kota BSD">
+          <span class="prop-badge sewa">Disewa</span>
+          <span class="prop-fav">🤍</span>
+        </div>
+        <div class="prop-body">
+          <div class="prop-loc">📍 BSD City, Tangerang</div>
+          <h3 class="prop-title">Ruko 2 Lantai Pusat Niaga</h3>
+          <div class="prop-price">Rp 65 Jt <span>/ tahun</span></div>
+          <div class="prop-specs"><span>🏢 2 Lantai</span><span>📐 90 m²</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:56px;">
+      <a href="kontak.html" class="btn btn-outline-dark">Tidak Menemukan yang Cocok? Hubungi Saya <span class="btn-arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MINI PROSES ============ -->
+<section class="pad bg-ink onink">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow center onink">Cara Kerja</div>
+      <h2 class="section-title center">Tertarik dengan Salah Satu Properti?</h2>
+      <p class="section-sub center">Tiga langkah singkat sebelum jadwal survei ditentukan.</p>
+    </div>
+    <div class="route reveal">
+      <div class="route-line">
+        <svg viewBox="0 0 1000 14" preserveAspectRatio="none"><path d="M0,7 L1000,7" stroke="#AD8B4C" stroke-width="1.5" fill="none"/></svg>
+      </div>
+      <div class="route-step">
+        <div class="route-pin">01</div>
+        <h3>Hubungi Saya</h3>
+        <p>Kirim pesan lewat WhatsApp atau formulir kontak dengan properti yang Anda minati.</p>
+      </div>
+      <div class="route-step">
+        <div class="route-pin">02</div>
+        <h3>Jadwalkan Survei</h3>
+        <p>Kita tentukan waktu kunjungan yang paling sesuai dengan jadwal Anda, termasuk akhir pekan.</p>
+      </div>
+      <div class="route-step">
+        <div class="route-pin">03</div>
+        <h3>Diskusi Penawaran</h3>
+        <p>Jika cocok, saya bantu susun strategi negosiasi dan kelengkapan dokumen sejak awal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="pad bg-ivory">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <div class="eyebrow center onink">Punya Properti untuk Dijual?</div>
+      <h2>Titipkan Properti Anda, Saya Bantu Pasarkan Secara Maksimal</h2>
+      <p>Termasuk foto profesional, deskripsi menarik, dan distribusi ke jaringan calon pembeli tersaring.</p>
+      <div class="hero-cta">
+        <a href="kontak.html" class="btn btn-primary">Titipkan Properti Saya <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" aria-label="Kembali ke Beranda Raditya Properti">
+          <span class="brand-mark">R</span>
+          <span class="brand-text"><b>Raditya Properti</b><span>Konsultan Independen</span></span>
+        </a>
+        <p>Konsultan properti independen yang mendampingi setiap klien secara personal di kawasan Jabodetabek sejak 2016.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 11v5M8 8v.01M12 16v-3a2 2 0 1 1 4 0v3M12 13v3"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4A8.5 8.5 0 0 1 7 19L3 20l1-4a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 1 1 17.9-.7z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="tentang.html">Tentang Saya</a></li>
+          <li><a href="properti.html">Properti</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="properti.html">Jual Properti</a></li>
+          <li><a href="properti.html">Beli Properti</a></li>
+          <li><a href="properti.html">Sewa Properti</a></li>
+          <li><a href="kontak.html">Konsultasi Investasi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <ul>
+          <li><a href="tel:+622112345678">(021) 1234-5678</a></li>
+          <li><a href="mailto:halo@radityaproperti.id">halo@radityaproperti.id</a></li>
+          <li><a href="kontak.html">Jl. Kemang Raya No. 88, Jakarta Selatan</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Raditya Properti. Seluruh hak cipta dilindungi.</span>
+      <span>Terdaftar AREBI · Anggota REI Jakarta</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio — Senja Wedding Photography</title>
+<meta name="description" content="Jelajahi koleksi karya fotografi pernikahan Senja — dari prewedding, akad, resepsi, hingga elopement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300..700;1,300..700&family=Jost:wght@300;400;500;600&family=Beau+Rivage&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">Senja<small>Wedding Photography</small></a>
+    <nav class="nav-links">
+      <a href="index.html">Beranda</a>
+      <a href="tentang.html">Tentang Kami</a>
+      <a href="portofolio.html" class="active">Portofolio</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+    <div class="header-cta">
+      <a href="https://instagram.com" class="btn btn-ghost" target="_blank" rel="noopener">Instagram</a>
+      <a href="kontak.html" class="btn btn-light">Booking Sesi <span class="btn-arrow">→</span></a>
+      <button class="burger" aria-label="Buka menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav">
+  <button class="close-btn" aria-label="Tutup menu">✕</button>
+  <a href="index.html">Beranda</a>
+  <a href="tentang.html">Tentang Kami</a>
+  <a href="portofolio.html">Portofolio</a>
+  <a href="kontak.html">Kontak</a>
+</div>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="hero-media">
+    <img src="https://images.unsplash.com/photo-1758810409620-f4961f7431e8?w=1800&h=1100&fit=crop&auto=format&q=80" alt="Siluet pasangan pengantin saat matahari terbenam">
+  </div>
+  <div class="container page-hero-content">
+    <span class="breadcrumb"><a href="index.html">Beranda</a> / Portofolio</span>
+    <span class="eyebrow" style="color:var(--gold-light)">Karya Kami</span>
+    <h1>Setiap pasangan,<br>satu cerita berbeda.</h1>
+  </div>
+</section>
+
+<!-- ============ FILTER + GALLERY ============ -->
+<section class="section section-ivory">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Galeri</span>
+      <h2>Koleksi momen<br>yang pernah kami abadikan</h2>
+      <p>Gunakan filter di bawah untuk menjelajahi kategori foto sesuai jenis sesi yang Anda cari.</p>
+    </div>
+
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="semua">Semua</button>
+      <button class="filter-btn" data-filter="prewedding">Prewedding</button>
+      <button class="filter-btn" data-filter="akad">Akad &amp; Nikah</button>
+      <button class="filter-btn" data-filter="resepsi">Resepsi</button>
+      <button class="filter-btn" data-filter="elopement">Elopement</button>
+      <button class="filter-btn" data-filter="detail">Detail</button>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item tall reveal" data-category="prewedding">
+        <img src="https://images.unsplash.com/photo-1756087612479-d0ff735a3aea?w=800&h=1600&fit=crop&auto=format&q=80" alt="Pasangan berpelukan saat golden hour">
+        <div class="g-overlay"><div><span>Prewedding</span><p>Aditya &amp; Naya</p></div></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" data-category="detail">
+        <img src="https://images.unsplash.com/photo-1758712508646-49eb3ced4e89?w=800&h=800&fit=crop&auto=format&q=80" alt="Tangan pasangan dengan cincin kawin">
+        <div class="g-overlay"><div><span>Detail</span><p>Cincin &amp; Genggaman</p></div></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" data-category="detail">
+        <img src="https://images.unsplash.com/photo-1521543832500-49e69fb2bea2?w=800&h=800&fit=crop&auto=format&q=80" alt="Buket bunga pengantin">
+        <div class="g-overlay"><div><span>Detail</span><p>Buket Pengantin</p></div></div>
+      </div>
+      <div class="gallery-item tall reveal reveal-delay-3" data-category="elopement">
+        <img src="https://images.unsplash.com/photo-1758810409620-f4961f7431e8?w=800&h=1600&fit=crop&auto=format&q=80" alt="Siluet pasangan saat matahari terbenam">
+        <div class="g-overlay"><div><span>Elopement</span><p>Bima &amp; Salsa</p></div></div>
+      </div>
+      <div class="gallery-item reveal" data-category="akad">
+        <img src="https://images.unsplash.com/photo-1673347603300-2d3fedbeb199?w=800&h=800&fit=crop&auto=format&q=80" alt="Potret pengantin dengan veil">
+        <div class="g-overlay"><div><span>Akad &amp; Nikah</span><p>Keanggunan Pengantin</p></div></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" data-category="resepsi">
+        <img src="https://images.unsplash.com/photo-1676304917549-5c42b40779a2?w=800&h=800&fit=crop&auto=format&q=80" alt="Fotografer memegang kamera saat resepsi">
+        <div class="g-overlay"><div><span>Resepsi</span><p>Balik Layar Tim Senja</p></div></div>
+      </div>
+      <div class="gallery-item tall reveal reveal-delay-2" data-category="prewedding">
+        <img src="https://images.unsplash.com/photo-1673347603300-2d3fedbeb199?w=800&h=1600&fit=crop&auto=format&q=80" alt="Potret pengantin gaun dan veil">
+        <div class="g-overlay"><div><span>Prewedding</span><p>Rangga &amp; Citra</p></div></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-3" data-category="akad">
+        <img src="https://images.unsplash.com/photo-1758712508646-49eb3ced4e89?w=800&h=800&fit=crop&auto=format&q=80" alt="Detail cincin saat ijab kabul">
+        <div class="g-overlay"><div><span>Akad &amp; Nikah</span><p>Tukar Cincin</p></div></div>
+      </div>
+      <div class="gallery-item reveal" data-category="resepsi">
+        <img src="https://images.unsplash.com/photo-1521543832500-49e69fb2bea2?w=800&h=800&fit=crop&auto=format&q=80" alt="Buket bunga di meja resepsi">
+        <div class="g-overlay"><div><span>Resepsi</span><p>Dekorasi &amp; Buket</p></div></div>
+      </div>
+      <div class="gallery-item tall reveal reveal-delay-1" data-category="elopement">
+        <img src="https://images.unsplash.com/photo-1756087612479-d0ff735a3aea?w=800&h=1600&fit=crop&auto=format&q=80" alt="Pasangan berpelukan intim">
+        <div class="g-overlay"><div><span>Elopement</span><p>Dimas &amp; Larasati</p></div></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" data-category="prewedding">
+        <img src="https://images.unsplash.com/photo-1758810409620-f4961f7431e8?w=800&h=800&fit=crop&auto=format&q=80" alt="Pasangan silhouette senja">
+        <div class="g-overlay"><div><span>Prewedding</span><p>Fajar &amp; Winda</p></div></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-3" data-category="detail">
+        <img src="https://images.unsplash.com/photo-1676304917549-5c42b40779a2?w=800&h=800&fit=crop&auto=format&q=80" alt="Persiapan alat fotografi">
+        <div class="g-overlay"><div><span>Detail</span><p>Persiapan Sesi</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider">
+  <svg viewBox="0 0 900 120" xmlns="http://www.w3.org/2000/svg">
+    <path class="arc-line" style="stroke:var(--gold);stroke-width:1;fill:none" d="M0 92 C 160 92, 230 22, 450 22 C 670 22, 740 92, 900 92"/>
+    <circle class="sun" style="fill:var(--gold)" cx="450" cy="22" r="7"/>
+  </svg>
+</div>
+
+<!-- ============ FEATURED STORY ============ -->
+<section class="section section-ivory" style="padding-top:0;">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Cerita Pilihan</span>
+      <h2>Bima &amp; Salsa —<br>Elopement di Nusa Penida</h2>
+      <p>Pasangan ini memilih upacara kecil hanya dihadiri sepuluh orang terdekat, di tebing menghadap laut, saat matahari perlahan tenggelam.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item tall reveal">
+        <img src="https://images.unsplash.com/photo-1758810409620-f4961f7431e8?w=900&h=1700&fit=crop&auto=format&q=80" alt="Siluet Bima dan Salsa di tebing">
+      </div>
+      <div class="gallery-item reveal reveal-delay-1">
+        <img src="https://images.unsplash.com/photo-1758712508646-49eb3ced4e89?w=900&h=900&fit=crop&auto=format&q=80" alt="Detail genggaman tangan Bima dan Salsa">
+      </div>
+      <div class="gallery-item reveal reveal-delay-2">
+        <img src="https://images.unsplash.com/photo-1756087612479-d0ff735a3aea?w=900&h=900&fit=crop&auto=format&q=80" alt="Bima dan Salsa berpelukan">
+      </div>
+    </div>
+    <div style="max-width:680px;margin:44px auto 0;text-align:center;" class="reveal">
+      <p style="color:var(--charcoal-soft);">“Kami hanya butuh laut, langit, dan orang-orang yang benar-benar penting. Tim Senja mengerti itu sejak konsultasi pertama — mereka tidak pernah memaksa kami berpose berlebihan.” — Salsa</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="section section-ivory">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <div class="hero-media">
+        <img src="https://images.unsplash.com/photo-1521543832500-49e69fb2bea2?w=1600&h=1000&fit=crop&auto=format&q=80" alt="Buket bunga pengantin">
+      </div>
+      <div class="cta-banner-inner">
+        <span class="eyebrow" style="color:var(--gold-light)">Terinspirasi?</span>
+        <h2>Cerita berikutnya,<br>mungkin milik Anda.</h2>
+        <div class="hero-actions">
+          <a href="kontak.html" class="btn btn-primary">Diskusikan Konsep Anda <span class="btn-arrow">→</span></a>
+          <a href="tentang.html" class="btn btn-light">Kenali Tim Kami</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Senja<small>Wedding Photography</small></a>
+        <p>Studio fotografi pernikahan berbasis di Bandung, melayani seluruh Indonesia dengan pendekatan candid-sinematik yang hangat dan personal.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 4v9.5a3.5 3.5 0 1 1-3-3.46"/><path d="M14 4c.4 2.2 2 4 5 4"/></svg></a>
+          <a href="https://pinterest.com" target="_blank" rel="noopener" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M9 17l3-9 3 9M9.8 13h5"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigasi</h5>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="portofolio.html">Portofolio</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Layanan</h5>
+        <ul>
+          <li><a href="kontak.html">Prewedding</a></li>
+          <li><a href="kontak.html">Akad &amp; Resepsi</a></li>
+          <li><a href="kontak.html">Elopement</a></li>
+          <li><a href="kontak.html">Cetak Album</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Kontak</h5>
+        <ul>
+          <li><a href="kontak.html">hello@senjaphotography.id</a></li>
+          <li><a href="kontak.html">+62 812-3456-7890</a></li>
+          <li><a href="kontak.html">Jl. Braga No. 21, Bandung</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Senja Photography Studio. Seluruh hak cipta dilindungi.</span>
+      <span>Dibuat dengan cahaya &amp; cinta di Bandung.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

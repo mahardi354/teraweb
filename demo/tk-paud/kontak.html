@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak — Ceria Kids TK & PAUD</title>
+<meta name="description" content="Hubungi Ceria Kids untuk konsultasi pendaftaran, jadwalkan kunjungan sekolah, atau temukan lokasi kami di Google Maps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo"><span class="logo-badge">🌈</span> Ceria Kids</a>
+    <nav class="main-nav">
+      <a href="index.html">Beranda</a>
+      <a href="tentang.html">Tentang Kami</a>
+      <a href="program.html">Program & Kegiatan</a>
+      <a href="kontak.html" class="active">Kontak</a>
+    </nav>
+    <div class="header-cta">
+      <a href="kontak.html" class="btn btn-primary"><i class="fa-solid fa-pen-nib"></i> <span class="long">Daftar Sekarang</span></a>
+      <button class="nav-toggle" aria-label="Buka menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <svg class="bg-doodle" style="top:100px; left:6%; width:90px;" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#DCF3FC"/></svg>
+  <svg class="bg-doodle" style="bottom:20px; right:6%; width:120px;" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#FFF2CE"/></svg>
+  <div class="container">
+    <span class="eyebrow"><i class="fa-solid fa-comment-dots"></i> Kami Senang Mendengar Dari Anda</span>
+    <h1>Yuk, Mulai Percakapan dengan Ceria Kids</h1>
+    <p>Punya pertanyaan seputar pendaftaran atau ingin berkunjung langsung? Tim kami siap membantu dengan senang hati.</p>
+    <div class="crumb"><a href="index.html">Beranda</a> <span>/</span> <span>Kontak</span></div>
+  </div>
+</section>
+
+<div class="wave"><svg viewBox="0 0 1200 70" preserveAspectRatio="none"><path d="M0,40 C150,80 350,0 600,30 C850,60 1050,10 1200,40 L1200,70 L0,70 Z" fill="#FFFFFF"/></svg></div>
+
+<!-- ============ INFO KONTAK CARDS ============ -->
+<section style="background:#fff; padding-top:20px;">
+  <div class="container">
+    <div class="info-cards reveal">
+      <div class="card">
+        <div class="card-icon ic-coral"><i class="fa-solid fa-location-dot"></i></div>
+        <h3>Alamat Sekolah</h3>
+        <p>Jl. Melati Ceria No. 12, Purbalingga, Jawa Tengah</p>
+      </div>
+      <div class="card">
+        <div class="card-icon ic-leaf"><i class="fa-brands fa-whatsapp"></i></div>
+        <h3>WhatsApp / Telepon</h3>
+        <p>+62 812-3456-7890</p>
+      </div>
+      <div class="card">
+        <div class="card-icon ic-sky"><i class="fa-solid fa-envelope"></i></div>
+        <h3>Email Kami</h3>
+        <p>halo@ceriakids.sch.id</p>
+      </div>
+      <div class="card">
+        <div class="card-icon ic-sun"><i class="fa-solid fa-clock"></i></div>
+        <h3>Jam Operasional</h3>
+        <p>Senin–Jumat, 07.30–15.00 WIB</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORM + MAPS ============ -->
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="badge-pill">Formulir & Lokasi</span>
+      <h2>Kirim Pesan atau Kunjungi Kami Langsung</h2>
+      <p>Isi formulir di bawah ini, pesan Anda akan langsung terkirim ke WhatsApp resmi Ceria Kids.</p>
+    </div>
+    <div class="contact-wrap">
+      <div class="form-card reveal">
+        <form id="wa-contact-form">
+          <div class="form-row-2">
+            <div class="form-row">
+              <label for="f-nama">Nama Orang Tua / Wali</label>
+              <input type="text" id="f-nama" placeholder="Contoh: Ratna Sari" required>
+            </div>
+            <div class="form-row">
+              <label for="f-telp">Nomor WhatsApp</label>
+              <input type="tel" id="f-telp" placeholder="Contoh: 0812xxxxxxx" required>
+            </div>
+          </div>
+          <div class="form-row-2">
+            <div class="form-row">
+              <label for="f-anak">Nama Anak</label>
+              <input type="text" id="f-anak" placeholder="Contoh: Keanu">
+            </div>
+            <div class="form-row">
+              <label for="f-usia">Usia Anak</label>
+              <select id="f-usia">
+                <option value="">Pilih usia</option>
+                <option value="1-2 tahun">1–2 tahun</option>
+                <option value="2-3 tahun">2–3 tahun</option>
+                <option value="4-5 tahun">4–5 tahun</option>
+                <option value="5-6 tahun">5–6 tahun</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="f-program">Program yang Diminati</label>
+            <select id="f-program">
+              <option value="">Pilih program</option>
+              <option value="Daycare / Baby Care">Daycare / Baby Care</option>
+              <option value="Kelompok Bermain">Kelompok Bermain</option>
+              <option value="TK A">TK A</option>
+              <option value="TK B">TK B</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="f-pesan">Pesan Tambahan</label>
+            <textarea id="f-pesan" placeholder="Tuliskan pertanyaan atau kebutuhan Anda di sini..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-wa btn-block"><i class="fa-brands fa-whatsapp"></i> Kirim Pesan</button>
+        </form>
+      </div>
+
+      <div class="map-card reveal">
+        <iframe
+          src="https://www.google.com/maps?q=Purbalingga%2C%20Jawa%20Tengah&output=embed"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Lokasi Ceria Kids di Google Maps"></iframe>
+        <div class="map-info">
+          <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div><b>Ceria Kids TK & PAUD</b><span>Jl. Melati Ceria No. 12, Purbalingga, Jawa Tengah</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ PENDAFTARAN ============ -->
+<section style="background:#fff;">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="badge-pill">FAQ Pendaftaran</span>
+      <h2>Pertanyaan Seputar Pendaftaran</h2>
+      <p>Kumpulan pertanyaan yang paling sering ditanyakan calon orang tua murid.</p>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item open">
+        <button class="faq-q">Kapan periode pendaftaran dibuka? <span class="plus"></span></button>
+        <div class="faq-a"><p>Pendaftaran gelombang pertama dibuka setiap bulan Januari, dan gelombang kedua pada bulan Mei. Namun kami tetap menerima pendaftaran sepanjang tahun selama kuota kelas masih tersedia.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Dokumen apa saja yang perlu disiapkan? <span class="plus"></span></button>
+        <div class="faq-a"><p>Fotokopi akta kelahiran, kartu keluarga, buku imunisasi, pas foto anak 3x4, dan formulir pendaftaran yang telah diisi lengkap.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Apakah bisa melakukan pendaftaran secara online? <span class="plus"></span></button>
+        <div class="faq-a"><p>Bisa. Anda dapat mengisi formulir di halaman ini, tim kami akan menghubungi balik melalui WhatsApp untuk proses selanjutnya.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Bagaimana skema pembayaran biaya sekolah? <span class="plus"></span></button>
+        <div class="faq-a"><p>Kami menyediakan opsi pembayaran per semester maupun bulanan, dengan rincian biaya yang akan dijelaskan detail saat sesi konsultasi.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Apakah orang tua bisa berkunjung sebelum mendaftar? <span class="plus"></span></button>
+        <div class="faq-a"><p>Tentu, kami sangat menyarankan kunjungan langsung. Silakan hubungi kami untuk membuat janji temu di hari dan jam yang Anda inginkan.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section style="background:#fff; padding-top:0;">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Masih Ada Pertanyaan Lain?</h2>
+      <p>Tim admisi kami siap membantu menjawab semua pertanyaan Anda dengan senang hati.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/6281234567890?text=Halo%20Ceria%20Kids%2C%20saya%20ingin%20bertanya." target="_blank" class="btn btn-secondary"><i class="fa-brands fa-whatsapp"></i> Chat via WhatsApp</a>
+        <a href="mailto:halo@ceriakids.sch.id" class="btn btn-wa"><i class="fa-solid fa-envelope"></i> Kirim Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="footer-logo"><span class="logo-badge">🌈</span> Ceria Kids</a>
+        <p>TK & PAUD modern yang menumbuhkan anak ceria, mandiri, dan siap menyambut jenjang pendidikan berikutnya dengan penuh percaya diri.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://wa.me/6281234567890" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="program.html">Program & Kegiatan</a></li>
+          <li><a href="kontak.html" class="active">Kontak</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Program</h4>
+        <ul>
+          <li><a href="program.html">Kelompok Bermain</a></li>
+          <li><a href="program.html">TK A</a></li>
+          <li><a href="program.html">TK B</a></li>
+          <li><a href="program.html">Ekstrakurikuler</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontak Kami</h4>
+        <ul class="foot-contact">
+          <li><i class="fa-solid fa-location-dot"></i> Jl. Melati Ceria No. 12, Purbalingga, Jawa Tengah</li>
+          <li><i class="fa-solid fa-phone"></i> +62 812-3456-7890</li>
+          <li><i class="fa-solid fa-envelope"></i> halo@ceriakids.sch.id</li>
+          <li><i class="fa-solid fa-clock"></i> Senin–Jumat, 07.30–15.00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ceria Kids. Semua hak dilindungi.</span>
+      <span>Dibuat dengan 💛 untuk masa depan anak Indonesia.</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6281234567890?text=Halo%20Ceria%20Kids%2C%20saya%20ingin%20bertanya." target="_blank" class="wa-float" aria-label="Chat WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

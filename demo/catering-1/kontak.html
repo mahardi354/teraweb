@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontak — SAJI Catering</title>
+<meta name="description" content="Hubungi SAJI Catering untuk konsultasi gratis paket acara Anda. Isi form, chat WhatsApp, atau kunjungi dapur kami langsung.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2248%22 fill=%22%23C1440E%22/></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand" aria-label="SAJI Catering — Beranda">
+      <span class="brand-mark">S</span>
+      <span class="brand-text"><b>SAJI</b><span>Catering &amp; Event</span></span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html" data-page="index.html">Beranda</a>
+      <a href="menu.html" data-page="menu.html">Menu &amp; Paket</a>
+      <a href="tentang.html" data-page="tentang.html">Tentang Kami</a>
+      <a href="kontak.html" data-page="kontak.html">Kontak</a>
+    </nav>
+    <div class="header-cta">
+      <a href="kontak.html" class="btn btn-primary btn-sm"><span class="btn-label-only">Pesan Sekarang</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="nav-scrim" id="navScrim"></div>
+
+<!-- ===================== HERO KECIL ===================== -->
+<section class="hero hero-small">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=1800&q=80" alt="Tim SAJI Catering siap melayani konsultasi acara">
+  </div>
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Beranda</a> <span>/</span> <span>Kontak</span></div>
+    <h1>Mari Wujudkan Acara Anda</h1>
+    <p class="hero-sub">Konsultasi gratis, tanpa komitmen. Isi form di bawah atau langsung chat tim kami via WhatsApp.</p>
+  </div>
+</section>
+
+<!-- ===================== INFO KONTAK (4 CARD) ===================== -->
+<section class="section-pad" style="padding-bottom:60px;">
+  <div class="container">
+    <div class="contact-info-grid">
+      <div class="info-card reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.63 2.61a2 2 0 0 1-.45 2.11L8.09 9.63a16 16 0 0 0 6 6l1.19-1.2a2 2 0 0 1 2.11-.45c.84.3 1.71.51 2.61.63A2 2 0 0 1 22 16.92Z"/></svg></div>
+        <h3>Telepon / WhatsApp</h3>
+        <p>+62 812-3456-7890<br>Setiap hari, 08.00–20.00</p>
+      </div>
+      <div class="info-card reveal reveal-delay-1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 7 9 6 9-6M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg></div>
+        <h3>Email</h3>
+        <p>halo@sajicatering.id<br>Respon dalam 1x24 jam</p>
+      </div>
+      <div class="info-card reveal reveal-delay-2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>Alamat Dapur</h3>
+        <p>Jl. Melati Raya No. 24<br>Kebayoran Baru, Jakarta Selatan</p>
+      </div>
+      <div class="info-card reveal reveal-delay-3">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Jam Operasional</h3>
+        <p>Senin–Sabtu 08.00–20.00<br>Minggu 09.00–17.00</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FORM + MAPS ===================== -->
+<section class="section-pad" style="padding-top:0;">
+  <div class="container">
+    <div class="contact-split">
+
+      <div class="contact-form-card reveal">
+        <span class="eyebrow">Form Konsultasi</span>
+        <h3>Ceritakan Rencana Acara Anda</h3>
+        <p>Lengkapi form ini, pesan Anda akan langsung terkirim ke WhatsApp tim SAJI Catering dengan format yang rapi.</p>
+
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="nama">Nama Lengkap</label>
+              <input type="text" id="nama" name="nama" placeholder="Nama Anda" required>
+            </div>
+            <div class="field">
+              <label for="telepon">No. WhatsApp</label>
+              <input type="tel" id="telepon" name="telepon" placeholder="0812-xxxx-xxxx" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="jenisAcara">Jenis Acara</label>
+              <select id="jenisAcara" name="jenisAcara" required>
+                <option value="" disabled selected>Pilih jenis acara</option>
+                <option>Pernikahan / Resepsi</option>
+                <option>Acara Kantor / Korporat</option>
+                <option>Ulang Tahun</option>
+                <option>Syukuran / Aqiqah</option>
+                <option>Seminar / Coffee Break</option>
+                <option>Lainnya</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="tanggal">Tanggal Acara</label>
+              <input type="date" id="tanggal" name="tanggal" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="tamu">Perkiraan Jumlah Tamu</label>
+            <input type="text" id="tamu" name="tamu" placeholder="Contoh: 150 orang">
+          </div>
+          <div class="field">
+            <label for="pesan">Detail Kebutuhan</label>
+            <textarea id="pesan" name="pesan" placeholder="Ceritakan lokasi acara, budget, preferensi menu, atau kebutuhan khusus lainnya..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2Zm5.2 14.2c-.22.62-1.27 1.2-1.75 1.24-.45.05-.9.24-3.02-.63-2.56-1.06-4.2-3.68-4.34-3.85-.13-.18-1.03-1.37-1.03-2.62s.65-1.86.88-2.11c.22-.25.5-.31.66-.31.17 0 .33 0 .48.01.16.01.37-.06.58.44.22.53.74 1.83.8 1.96.07.13.11.29.02.47-.09.18-.14.29-.27.44-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.2.7-.82.88-1.1.19-.28.37-.23.62-.14.25.09 1.58.75 1.85.88.27.14.45.2.51.32.07.12.07.66-.15 1.28Z"/></svg>
+            Kirim Pesan
+          </button>
+          <div class="form-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6l-8-3Z"/></svg>
+            Pesan Anda akan diteruskan langsung ke WhatsApp resmi SAJI Catering — data tidak disimpan di server kami.
+          </div>
+        </form>
+      </div>
+
+      <div class="map-wrap reveal reveal-delay-1">
+        <iframe
+          src="https://www.google.com/maps?q=Kebayoran+Baru,+Jakarta+Selatan&output=embed"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Lokasi dapur SAJI Catering di Kebayoran Baru, Jakarta Selatan"></iframe>
+        <div class="map-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>
+            <b>Dapur Produksi SAJI Catering</b>
+            <span>Jl. Melati Raya No. 24, Kebayoran Baru, Jakarta Selatan</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="spice-divider"><span class="seed p"></span><span class="seg"></span><span class="seed t"></span><span class="seg"></span><span class="seed b"></span></div></div>
+
+<!-- ===================== FAQ UMUM ===================== -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" style="justify-content:center">FAQ</span>
+      <h2>Pertanyaan Umum Seputar Pemesanan</h2>
+      <p>Masih ada pertanyaan lain? Jangan ragu untuk chat langsung tim kami via WhatsApp.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">Apakah SAJI Catering melayani di luar Jakarta?<span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Kami melayani seluruh area Jabodetabek. Untuk lokasi di luar area tersebut, silakan hubungi kami untuk pengecekan ketersediaan dan biaya transportasi tambahan.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">Berapa besar DP yang harus dibayarkan?<span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Down payment sebesar 30% dari total tagihan untuk mengunci tanggal acara Anda, dengan pelunasan paling lambat 3 hari sebelum hari pelaksanaan.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">Apakah bisa reschedule tanggal acara?<span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Bisa, dengan pemberitahuan minimal 14 hari sebelum tanggal acara dan mengikuti ketersediaan jadwal tim kami di tanggal baru.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">Bagaimana proses jika ada permintaan mendadak (H-2)?<span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Untuk pesanan mendadak, kami tetap berusaha membantu selama kapasitas dapur tersedia — segera hubungi WhatsApp kami untuk pengecekan real-time.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">Apakah bisa datang langsung untuk konsultasi tatap muka?<span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Tentu, silakan buat janji terlebih dahulu via WhatsApp agar tim kami bisa menyiapkan sesi konsultasi dan sample menu terbaik untuk Anda.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">Metode pembayaran apa saja yang diterima?<span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Kami menerima transfer bank, QRIS, dan pembayaran tunai langsung di dapur produksi kami.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="section-pad" style="padding-top:0;">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <div>
+        <h2>Jangan Tunda Momen Spesial Anda</h2>
+        <p>Slot tanggal favorit cepat penuh, terutama musim pernikahan. Amankan jadwal Anda sekarang juga.</p>
+      </div>
+      <div class="actions">
+        <a href="#" class="btn btn-primary" data-wa-quick="Halo SAJI Catering, saya ingin konsultasi gratis untuk rencana acara saya.">Konsultasi Gratis Sekarang</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand" aria-label="SAJI Catering — Beranda">
+          <span class="brand-mark">S</span>
+          <span class="brand-text"><b>SAJI</b><span style="color:rgba(247,241,226,.6)">Catering &amp; Event</span></span>
+        </a>
+        <p>Menghadirkan hidangan nusantara &amp; western premium untuk setiap momen berharga Anda sejak 2015. Rasa rumah, sajian istimewa.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 9V6.5A1.5 1.5 0 0 1 15.5 5H17V2h-2.5A4.5 4.5 0 0 0 10 6.5V9H8v3h2v10h4V12h2.5l.5-3H14Z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3v11.5a3.5 3.5 0 1 1-3-3.46M14 3a5 5 0 0 0 5 5"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="menu.html">Menu &amp; Paket</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="menu.html">Paket Pernikahan</a></li>
+          <li><a href="menu.html">Catering Kantor</a></li>
+          <li><a href="menu.html">Ulang Tahun &amp; Syukuran</a></li>
+          <li><a href="menu.html">Coffee Break Seminar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <ul>
+          <li class="fitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Jl. Melati Raya No. 24, Kebayoran Baru, Jakarta Selatan</li>
+          <li class="fitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.63 2.61a2 2 0 0 1-.45 2.11L8.09 9.63a16 16 0 0 0 6 6l1.19-1.2a2 2 0 0 1 2.11-.45c.84.3 1.71.51 2.61.63A2 2 0 0 1 22 16.92Z"/></svg> +62 812-3456-7890</li>
+          <li class="fitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 7 9 6 9-6M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg> halo@sajicatering.id</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="year-now">2026</span> SAJI Catering. Seluruh hak cipta dilindungi.</span>
+      <span>Dibuat dengan ❤ untuk pecinta kuliner nusantara.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="#" aria-label="Chat WhatsApp" data-wa-quick="Halo SAJI Catering, saya ingin bertanya tentang layanan catering.">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2Zm5.2 14.2c-.22.62-1.27 1.2-1.75 1.24-.45.05-.9.24-3.02-.63-2.56-1.06-4.2-3.68-4.34-3.85-.13-.18-1.03-1.37-1.03-2.62s.65-1.86.88-2.11c.22-.25.5-.31.66-.31.17 0 .33 0 .48.01.16.01.37-.06.58.44.22.53.74 1.83.8 1.96.07.13.11.29.02.47-.09.18-.14.29-.27.44-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.2.7-.82.88-1.1.19-.28.37-.23.62-.14.25.09 1.58.75 1.85.88.27.14.45.2.51.32.07.12.07.66-.15 1.28Z"/></svg>
+</a>
+
+<script src="js/main.js"></script>
+</body>
+</html>
