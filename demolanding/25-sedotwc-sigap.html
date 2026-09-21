@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIGAP — Sedot WC & Saluran Tersumbat 24 Jam</title>
+<meta name="description" content="SIGAP melayani sedot WC, saluran tersumbat, dan pembuatan septic tank dengan respon cepat, armada higienis, dan harga transparan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E2A33;
+    --teal:#177E89;
+    --teal-deep:#0E5C66;
+    --teal-pale:#DCEEEC;
+    --amber:#F2A93B;
+    --amber-deep:#D98A1F;
+    --porcelain:#EFF2F0;
+    --white:#FFFFFF;
+    --ash:#5C6B6E;
+    --charcoal:#16201F;
+    --line:rgba(14,42,51,0.12);
+    --radius:16px;
+    --container:1180px;
+    --ease:cubic-bezier(.16,.84,.44,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--porcelain);color:var(--charcoal);
+    font-family:'IBM Plex Sans',sans-serif;font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  button{font-family:inherit;cursor:pointer;}
+  ::selection{background:var(--amber);color:var(--ink);}
+  :focus-visible{outline:2px solid var(--teal-deep);outline-offset:3px;}
+  .container{max-width:var(--container);margin:0 auto;padding:0 28px;}
+  .section{padding:96px 0;}
+  @media (max-width:720px){ .section{padding:64px 0;} }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+    font-size:12.5px;color:var(--teal-deep);display:flex;align-items:center;gap:9px;margin-bottom:16px;
+  }
+  .eyebrow::before{content:"";width:8px;height:8px;background:var(--amber);display:inline-block;border-radius:2px;}
+
+  h1,h2,h3,h4{font-family:'Archivo',sans-serif;font-weight:800;line-height:1.08;letter-spacing:-.01em;color:var(--ink);}
+  h2{font-size:clamp(30px,3.8vw,44px);margin-bottom:16px;}
+  h3{font-size:21px;}
+  p{color:var(--ash);}
+  .lede{font-size:17.5px;max-width:600px;color:var(--ash);}
+
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:15px 26px;border-radius:10px;
+    font-weight:700;font-size:15px;border:2px solid transparent;transition:transform .3s var(--ease),background .25s,color .25s,border-color .25s;}
+  .btn-amber{background:var(--amber);color:var(--ink);}
+  .btn-amber:hover{background:var(--amber-deep);transform:translateY(-2px);}
+  .btn-teal{background:var(--teal);color:var(--white);}
+  .btn-teal:hover{background:var(--teal-deep);transform:translateY(-2px);}
+  .btn-outline{border-color:var(--ink);color:var(--ink);}
+  .btn-outline:hover{background:var(--ink);color:var(--white);transform:translateY(-2px);}
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{background:var(--ink);color:var(--porcelain);font-family:'IBM Plex Mono',monospace;font-size:12.5px;}
+  .topbar .container{display:flex;justify-content:space-between;align-items:center;padding:9px 28px;gap:16px;flex-wrap:wrap;}
+  .status-pill{display:flex;align-items:center;gap:8px;}
+  .status-dot{width:8px;height:8px;border-radius:50%;background:#4ADE80;animation:blink 1.6s infinite;}
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:.35;}}
+  @media (prefers-reduced-motion:reduce){ .status-dot{animation:none;} }
+  .topbar a{display:flex;align-items:center;gap:6px;}
+  @media (max-width:600px){ .topbar .area{display:none;} }
+
+  /* ---------- HEADER ---------- */
+  header{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--line);}
+  .nav-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+  .brand{font-family:'Archivo',sans-serif;font-weight:900;font-size:23px;letter-spacing:-.02em;color:var(--ink);display:flex;align-items:center;gap:8px;}
+  .brand .sq{width:11px;height:11px;background:var(--amber);display:inline-block;}
+  nav ul{display:flex;gap:30px;}
+  nav a{font-size:14.5px;font-weight:600;color:var(--charcoal);transition:color .2s;}
+  nav a:hover{color:var(--teal-deep);}
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:6px;}
+  .burger span{width:24px;height:2.5px;background:var(--ink);display:block;}
+  @media (max-width:880px){
+    nav{position:fixed;inset:0;top:0;background:var(--white);display:flex;align-items:center;justify-content:center;
+      transform:translateX(100%);transition:transform .4s var(--ease);}
+    nav.open{transform:translateX(0);}
+    nav ul{flex-direction:column;text-align:center;gap:26px;}
+    nav a{font-size:21px;}
+    .nav-cta .btn-outline{display:none;}
+    .burger{display:flex;z-index:120;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;overflow:hidden;padding:76px 0 90px;
+    background:radial-gradient(ellipse 70% 60% at 85% 10%, var(--teal-pale), transparent 60%), var(--porcelain);}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;}
+  @media (max-width:940px){ .hero-grid{grid-template-columns:1fr;} .hero-visual{order:-1;} }
+  .hero h1{font-size:clamp(34px,5vw,54px);margin-bottom:18px;}
+  .hero h1 .hl{color:var(--teal-deep);}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 36px;}
+  .badge-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .badge{display:flex;align-items:center;gap:7px;background:var(--white);border:1px solid var(--line);border-radius:999px;
+    padding:8px 14px;font-size:12.8px;font-weight:600;color:var(--ink);}
+  .badge svg{flex:none;}
+
+  .hero-visual{position:relative;}
+  .hero-img-wrap{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 50px -25px rgba(14,42,51,.35);}
+  .hero-img-wrap img{aspect-ratio:4/3;object-fit:cover;}
+  .gauge-card{
+    position:absolute;bottom:-26px;left:-26px;background:var(--white);border:1px solid var(--line);border-radius:14px;
+    padding:16px 18px;box-shadow:0 18px 30px -18px rgba(14,42,51,.3);display:flex;align-items:center;gap:14px;
+  }
+  @media (max-width:520px){ .gauge-card{position:static;margin-top:18px;} }
+  .gauge-num{font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;color:var(--ink);}
+  .gauge-label{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ash);}
+
+  /* ---------- STATS ---------- */
+  .stats-strip{background:var(--ink);}
+  .stats-strip .container{display:flex;justify-content:space-between;padding:34px 28px;flex-wrap:wrap;gap:24px;}
+  .stat{color:var(--porcelain);}
+  .stat b{display:block;font-family:'Archivo',sans-serif;font-size:30px;font-weight:800;color:var(--amber);}
+  .stat span{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:#A9BFC2;}
+
+  /* ---------- SERVICES ---------- */
+  .head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:44px;}
+  .grid-services{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s;}
+  .card:hover{transform:translateY(-5px);box-shadow:0 20px 36px -22px rgba(14,42,51,.25);}
+  .card-img{aspect-ratio:4/3;overflow:hidden;}
+  .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+  .card:hover .card-img img{transform:scale(1.06);}
+  .card-body{padding:20px 22px 24px;}
+  .card-body h3{margin-bottom:8px;}
+  .card-body p{font-size:14.3px;}
+
+  /* ---------- WHY / FEATURES ---------- */
+  .bg-white{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .grid-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;}
+  .feature{display:flex;gap:16px;}
+  .icon-circle{width:48px;height:48px;border-radius:12px;background:var(--teal-pale);display:flex;align-items:center;justify-content:center;flex:none;}
+  .feature h4{font-size:16.5px;margin-bottom:6px;color:var(--ink);}
+  .feature p{font-size:14px;}
+
+  /* ---------- AREA LAYANAN ---------- */
+  .area-chips{display:flex;gap:10px;flex-wrap:wrap;}
+  .chip-static{background:var(--white);border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:600;color:var(--ink);}
+
+  /* ---------- PROCESS ---------- */
+  .process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;position:relative;}
+  @media (max-width:920px){ .process-grid{grid-template-columns:1fr;} }
+  .process-grid::before{content:"";position:absolute;top:24px;left:0;right:0;border-top:2px dashed var(--line);}
+  @media (max-width:920px){ .process-grid::before{display:none;} }
+  .proc-step{position:relative;}
+  .proc-num{
+    width:48px;height:48px;border-radius:50%;background:var(--ink);color:var(--amber);
+    display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:800;font-size:16px;
+    margin-bottom:16px;position:relative;z-index:2;
+  }
+  .proc-step h4{font-size:16px;margin-bottom:7px;color:var(--ink);}
+  .proc-step p{font-size:13.5px;}
+
+  /* ---------- PRICING ---------- */
+  .grid-pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media (max-width:920px){ .grid-pricing{grid-template-columns:1fr;} }
+  .price-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;position:relative;display:flex;flex-direction:column;}
+  .price-card.popular{border-color:var(--teal);box-shadow:0 18px 34px -22px rgba(23,126,137,.35);}
+  .ribbon{position:absolute;top:-12px;right:24px;background:var(--teal);color:var(--white);font-size:11px;font-weight:700;
+    padding:6px 13px;border-radius:999px;font-family:'IBM Plex Mono',monospace;letter-spacing:.05em;text-transform:uppercase;}
+  .price-tier{font-family:'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;font-size:12.5px;color:var(--teal-deep);margin-bottom:10px;font-weight:600;}
+  .price-amount{font-family:'Archivo',sans-serif;font-size:28px;font-weight:800;color:var(--ink);margin-bottom:4px;}
+  .price-amount small{font-family:'IBM Plex Sans',sans-serif;font-size:12.5px;color:var(--ash);font-weight:400;}
+  .price-desc{font-size:13.8px;margin-bottom:22px;}
+  .price-features{display:grid;gap:11px;margin-bottom:26px;flex:1;}
+  .price-features li{display:flex;gap:9px;font-size:14px;color:var(--charcoal);align-items:flex-start;}
+  .price-features svg{flex:none;margin-top:3px;}
+  .price-card .btn{justify-content:center;width:100%;}
+  .price-note{font-size:12.8px;color:var(--ash);margin-top:18px;}
+
+  /* ---------- BEFORE/AFTER ---------- */
+  .ba-wrap{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;max-width:780px;margin:0 auto;}
+  .ba-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .ba-after{clip-path:inset(0 50% 0 0);}
+  .ba-label{position:absolute;top:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+    background:rgba(14,42,51,.75);color:#fff;padding:5px 11px;border-radius:6px;z-index:3;}
+  .ba-label.before{left:14px;}
+  .ba-label.after{right:14px;}
+  .ba-slider{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;z-index:4;}
+  .ba-handle{position:absolute;top:0;bottom:0;left:50%;width:3px;background:var(--white);box-shadow:0 0 0 1px rgba(0,0,0,.1);z-index:2;pointer-events:none;}
+  .ba-handle::after{content:"⇆";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;
+    background:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--ink);box-shadow:0 6px 14px -4px rgba(0,0,0,.3);}
+
+  /* ---------- GALLERY ---------- */
+  .grid-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  @media (max-width:920px){ .grid-gallery{grid-template-columns:repeat(2,1fr);} }
+  .gal-item{border-radius:12px;overflow:hidden;aspect-ratio:1/1;}
+  .gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease);}
+  .gal-item:hover img{transform:scale(1.08);}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .test-scroller{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:none;}
+  .test-scroller::-webkit-scrollbar{display:none;}
+  .test-card{scroll-snap-align:start;flex:0 0 min(360px,85vw);background:var(--white);border:1px solid var(--line);
+    border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:16px;}
+  .stars{color:var(--amber);font-size:14px;letter-spacing:2px;}
+  .test-card p.quote{color:var(--charcoal);font-size:15px;flex:1;}
+  .test-who{display:flex;align-items:center;gap:11px;}
+  .test-who img{width:42px;height:42px;border-radius:50%;object-fit:cover;}
+  .test-who b{display:block;font-size:13.8px;color:var(--ink);}
+  .test-who small{color:var(--ash);font-size:12px;}
+  .test-nav{display:flex;gap:9px;}
+  .test-nav button{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--white);color:var(--ink);font-size:16px;transition:border-color .25s;}
+  .test-nav button:hover{border-color:var(--teal);}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{max-width:760px;}
+  details{border-bottom:1px solid var(--line);padding:20px 0;}
+  summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:16.5px;color:var(--ink);gap:20px;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";font-size:20px;color:var(--teal);transition:transform .25s;flex:none;}
+  details[open] summary::after{transform:rotate(45deg);}
+  details p{margin-top:12px;font-size:14.3px;max-width:620px;}
+
+  /* ---------- CTA / CONTACT ---------- */
+  .cta-section{background:var(--ink);border-radius:24px;margin:0 auto;max-width:var(--container);padding:60px 46px;}
+  @media (max-width:720px){ .cta-section{padding:40px 24px;border-radius:18px;} }
+  .cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;}
+  @media (max-width:880px){ .cta-grid{grid-template-columns:1fr;} }
+  .cta-section .eyebrow{color:var(--amber);}
+  .cta-section .eyebrow::before{background:var(--amber);}
+  .cta-section h2{color:var(--white);}
+  .cta-section .lede{color:#AEC2C4;}
+  .phone-big{font-family:'Archivo',sans-serif;font-weight:900;font-size:30px;color:var(--white);margin:18px 0 22px;display:flex;align-items:center;gap:12px;}
+  .phone-big span{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#7FA8AC;display:block;font-weight:600;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px;}
+  @media (max-width:480px){ .form-row{grid-template-columns:1fr;} }
+  input,textarea,select{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:9px;
+    padding:13px 14px;color:var(--white);font-family:'IBM Plex Sans',sans-serif;font-size:14.3px;transition:border-color .25s;}
+  input::placeholder,textarea::placeholder{color:#8FA7AA;}
+  input:focus,textarea:focus,select:focus{border-color:var(--amber);outline:none;}
+  select option{color:#000;}
+  textarea{resize:vertical;min-height:88px;margin-bottom:16px;}
+  .form-msg{font-size:13px;color:var(--amber);margin-top:12px;display:none;}
+  .form-msg.show{display:block;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:70px 0 26px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:36px;margin-bottom:44px;}
+  @media (max-width:880px){ .foot-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:520px){ .foot-grid{grid-template-columns:1fr;} }
+  .foot-grid h5{font-family:'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;font-size:12px;color:var(--teal-deep);margin-bottom:16px;font-weight:600;}
+  .foot-grid ul{display:grid;gap:10px;}
+  .foot-grid a{color:var(--ash);font-size:14px;transition:color .2s;}
+  .foot-grid a:hover{color:var(--ink);}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:24px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ash);}
+
+  [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease);}
+  [data-reveal].in{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion:reduce){ [data-reveal]{opacity:1;transform:none;transition:none;} }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="container">
+    <div class="status-pill"><span class="status-dot"></span> SIAP DIPANGGIL 24 JAM</div>
+    <a href="tel:0812345600">📞 0812-3456-0000</a>
+    <span class="area">AREA: JABODETABEK</span>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header id="site-header">
+  <div class="container nav-row">
+    <a href="#top" class="brand"><span class="sq"></span>SIGAP</a>
+    <nav id="site-nav">
+      <ul>
+        <li><a href="#layanan">Layanan</a></li>
+        <li><a href="#kenapa">Kenapa Kami</a></li>
+        <li><a href="#harga">Harga</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#testimoni">Testimoni</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:0812345600" class="btn btn-outline" style="padding:10px 18px;font-size:13.5px;">Telepon</a>
+      <a href="https://wa.me/6281234560000" target="_blank" class="btn btn-amber" style="padding:10px 18px;font-size:13.5px;">Chat WA</a>
+      <button class="burger" id="burger" aria-label="Buka menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">Sedot WC &amp; Saluran Tersumbat — 24 Jam</p>
+      <h1>WC Mampet? Septic Tank Penuh? <span class="hl">Tuntas Hari Ini.</span></h1>
+      <p class="lede">SIGAP melayani sedot WC, saluran tersumbat, dan pembuatan septic tank dengan armada higienis, teknisi berpengalaman, dan respon cepat langsung ke lokasi Anda.</p>
+      <div class="hero-ctas">
+        <a href="tel:0812345600" class="btn btn-amber">📞 Telepon Sekarang</a>
+        <a href="https://wa.me/6281234560000" target="_blank" class="btn btn-teal">Chat via WhatsApp</a>
+      </div>
+      <div class="badge-row">
+        <span class="badge"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 22s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z" stroke="#177E89" stroke-width="2"/><circle cx="12" cy="11" r="2.4" stroke="#177E89" stroke-width="2"/></svg> Bergaransi 30 Hari</span>
+        <span class="badge"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 7 5 10.5 5 14.5A7 7 0 0 0 19 14.5C19 10.5 16 7 12 2Z" stroke="#177E89" stroke-width="2"/></svg> Ramah Lingkungan</span>
+        <span class="badge"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#177E89" stroke-width="2"/><path d="M12 7v5l3.5 2" stroke="#177E89" stroke-width="2" stroke-linecap="round"/></svg> Respon &lt; 60 Menit</span>
+        <span class="badge"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M3 14V8a1 1 0 0 1 1-1h9v7M3 14h12m0 0h2.5l3-3.5V8h-5.5v6M3 14v2a1 1 0 0 0 1 1h1" stroke="#177E89" stroke-width="1.7"/><circle cx="7" cy="17" r="1.6" stroke="#177E89" stroke-width="1.7"/><circle cx="16" cy="17" r="1.6" stroke="#177E89" stroke-width="1.7"/></svg> Armada Higienis</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-img-wrap">
+        <img src="https://picsum.photos/seed/sigap-hero-truck/640/480" alt="Armada truk sedot WC SIGAP" loading="eager">
+      </div>
+      <div class="gauge-card">
+        <div>
+          <div class="gauge-num">&lt; 60'</div>
+          <div class="gauge-label">Estimasi Respon</div>
+        </div>
+        <div class="waveform-sep" style="width:1px;height:34px;background:var(--line);"></div>
+        <div>
+          <div class="gauge-num">24/7</div>
+          <div class="gauge-label">Siap Dipanggil</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS STRIP ============ -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="stat"><b>1.200+</b><span>Rumah &amp; Ruko Terlayani</span></div>
+    <div class="stat"><b>24/7</b><span>Siap Dipanggil Kapan Saja</span></div>
+    <div class="stat"><b>8 Thn</b><span>Beroperasi di Jabodetabek</span></div>
+    <div class="stat"><b>30 Hari</b><span>Garansi Layanan</span></div>
+  </div>
+</div>
+
+<!-- ============ LAYANAN ============ -->
+<section class="section" id="layanan">
+  <div class="container">
+    <div class="head-row" data-reveal>
+      <div>
+        <p class="eyebrow">Layanan</p>
+        <h2 style="margin-bottom:0;">Solusi Lengkap untuk Saluran &amp; Septic Tank</h2>
+      </div>
+      <p class="lede" style="margin:0;">Dari rumah tangga hingga komersial, kami tangani dengan peralatan dan SOP yang sesuai kebutuhan.</p>
+    </div>
+    <div class="grid-services" data-reveal>
+      <div class="card">
+        <div class="card-img"><img src="https://picsum.photos/seed/sigap-svc-rumah/600/450" alt="Sedot WC Rumahan"></div>
+        <div class="card-body"><h3>Sedot WC Rumahan</h3><p>Penyedotan septic tank rumah tangga — cepat, bersih, tanpa bau menyengat.</p></div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://picsum.photos/seed/sigap-svc-komersial/600/450" alt="Sedot WC Komersial"></div>
+        <div class="card-body"><h3>Sedot WC Komersial</h3><p>Untuk ruko, kos-kosan, restoran, dan gedung dengan volume besar.</p></div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://picsum.photos/seed/sigap-svc-jetting/600/450" alt="Saluran Tersumbat"></div>
+        <div class="card-body"><h3>Saluran Tersumbat</h3><p>Mengatasi saluran air &amp; WC mampet dengan mesin jetting bertekanan tinggi.</p></div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://picsum.photos/seed/sigap-svc-bangun/600/450" alt="Pembuatan Septic Tank"></div>
+        <div class="card-body"><h3>Pembuatan Septic Tank</h3><p>Septic tank baru dengan material standar dan perhitungan kapasitas tepat.</p></div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://picsum.photos/seed/sigap-svc-pipa/600/450" alt="Perbaikan Saluran Pipa"></div>
+        <div class="card-body"><h3>Perbaikan Saluran Pipa</h3><p>Perbaikan dan penggantian pipa saluran yang bocor atau rusak.</p></div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://picsum.photos/seed/sigap-svc-limbah/600/450" alt="Penyedotan Limbah Ringan"></div>
+        <div class="card-body"><h3>Penyedotan Limbah Ringan</h3><p>Penyedotan limbah cair ringan untuk kebutuhan usaha kecil &amp; menengah.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KENAPA PILIH KAMI ============ -->
+<section class="section bg-white" id="kenapa">
+  <div class="container">
+    <div data-reveal>
+      <p class="eyebrow">Kenapa Pilih Kami</p>
+      <h2>Bekerja Cepat, Bersih, dan Transparan</h2>
+    </div>
+    <div class="grid-features" style="margin-top:42px;" data-reveal>
+      <div class="feature">
+        <div class="icon-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#177E89" stroke-width="2"/><path d="M12 7v5l3.5 2" stroke="#177E89" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <div><h4>Respon Cepat</h4><p>Tim siap meluncur kurang dari 60 menit di area layanan utama.</p></div>
+      </div>
+      <div class="feature">
+        <div class="icon-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 14V8a1 1 0 0 1 1-1h9v7M3 14h12m0 0h2.5l3-3.5V8h-5.5v6" stroke="#177E89" stroke-width="1.7"/><circle cx="7" cy="17" r="1.6" stroke="#177E89" stroke-width="1.7"/><circle cx="16" cy="17" r="1.6" stroke="#177E89" stroke-width="1.7"/></svg></div>
+        <div><h4>Armada Higienis</h4><p>Mobil tangki tertutup rapat — tidak bau, tidak mengotori jalan.</p></div>
+      </div>
+      <div class="feature">
+        <div class="icon-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h10M4 18h7" stroke="#177E89" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <div><h4>Harga Transparan</h4><p>Estimasi biaya disampaikan sebelum pengerjaan, tanpa biaya tersembunyi.</p></div>
+      </div>
+      <div class="feature">
+        <div class="icon-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3Z" stroke="#177E89" stroke-width="2"/></svg></div>
+        <div><h4>Teknisi Berpengalaman</h4><p>Tim terlatih dan berseragam, bekerja sesuai SOP keselamatan.</p></div>
+      </div>
+      <div class="feature">
+        <div class="icon-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 7 5 10.5 5 14.5A7 7 0 0 0 19 14.5C19 10.5 16 7 12 2Z" stroke="#177E89" stroke-width="2"/></svg></div>
+        <div><h4>Pembuangan Sesuai Standar</h4><p>Limbah dibuang ke IPLT resmi, sesuai aturan lingkungan.</p></div>
+      </div>
+      <div class="feature">
+        <div class="icon-circle"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 22s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z" stroke="#177E89" stroke-width="2"/><path d="M9 11.5 11 13.5 15 9" stroke="#177E89" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div><h4>Garansi Layanan</h4><p>Garansi 30 hari jika terjadi masalah serupa pasca pengerjaan.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AREA LAYANAN ============ -->
+<section class="section">
+  <div class="container">
+    <div data-reveal>
+      <p class="eyebrow">Area Layanan</p>
+      <h2>Melayani Seluruh Jabodetabek</h2>
+      <p class="lede" style="margin-bottom:28px;">Tidak menemukan area Anda? Hubungi kami, kemungkinan besar tetap bisa kami jangkau.</p>
+    </div>
+    <div class="area-chips" data-reveal>
+      <span class="chip-static">Jakarta Selatan</span>
+      <span class="chip-static">Jakarta Timur</span>
+      <span class="chip-static">Jakarta Barat</span>
+      <span class="chip-static">Jakarta Pusat</span>
+      <span class="chip-static">Depok</span>
+      <span class="chip-static">Bekasi</span>
+      <span class="chip-static">Tangerang</span>
+      <span class="chip-static">Tangerang Selatan</span>
+      <span class="chip-static">Bogor</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROSES KERJA ============ -->
+<section class="section bg-white">
+  <div class="container">
+    <div data-reveal>
+      <p class="eyebrow">Proses Kerja</p>
+      <h2>Mudah, Tanpa Drama</h2>
+    </div>
+    <div class="process-grid" style="margin-top:44px;" data-reveal>
+      <div class="proc-step"><div class="proc-num">01</div><h4>Hubungi Kami</h4><p>Telepon atau chat WhatsApp, ceritakan kendala Anda.</p></div>
+      <div class="proc-step"><div class="proc-num">02</div><h4>Survei &amp; Estimasi</h4><p>Tim memberi estimasi biaya &amp; waktu pengerjaan.</p></div>
+      <div class="proc-step"><div class="proc-num">03</div><h4>Pengerjaan</h4><p>Teknisi datang dengan armada lengkap, bekerja sesuai SOP.</p></div>
+      <div class="proc-step"><div class="proc-num">04</div><h4>Pembayaran</h4><p>Bayar setelah pekerjaan selesai dan Anda cek hasilnya.</p></div>
+      <div class="proc-step"><div class="proc-num">05</div><h4>Garansi</h4><p>Dapatkan garansi 30 hari untuk masalah yang sama.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HARGA ============ -->
+<section class="section" id="harga">
+  <div class="container">
+    <div data-reveal>
+      <p class="eyebrow">Harga</p>
+      <h2>Estimasi Biaya Layanan</h2>
+      <p class="lede">Harga dapat berbeda sesuai lokasi, volume, dan kondisi di lapangan. Estimasi pasti diberikan sebelum pengerjaan dimulai.</p>
+    </div>
+    <div class="grid-pricing" style="margin-top:42px;" data-reveal>
+      <div class="price-card popular">
+        <span class="ribbon">Paling Sering Dipesan</span>
+        <p class="price-tier">Rumah Tangga</p>
+        <p class="price-amount">Rp 250.000 <small>mulai dari</small></p>
+        <p class="price-desc">Untuk septic tank rumah dengan kapasitas standar 1–2 m³.</p>
+        <ul class="price-features">
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#177E89" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Penyedotan tuntas</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#177E89" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Pengecekan saluran</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#177E89" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Area dibersihkan kembali</li>
+        </ul>
+        <a href="#kontak" class="btn btn-teal">Pesan Sekarang</a>
+      </div>
+      <div class="price-card">
+        <p class="price-tier">Ruko / Komersial</p>
+        <p class="price-amount">Rp 450.000 <small>mulai dari</small></p>
+        <p class="price-desc">Untuk kapasitas lebih besar — ruko, kos, restoran, gedung kecil.</p>
+        <ul class="price-features">
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#177E89" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Armada kapasitas besar</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#177E89" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Jam kerja fleksibel</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#177E89" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Estimasi tertulis</li>
+        </ul>
+        <a href="#kontak" class="btn btn-outline">Pesan Sekarang</a>
+      </div>
+      <div class="price-card">
+        <p class="price-tier">Saluran Mampet</p>
+        <p class="price-amount">Rp 200.000 <small>mulai dari</small></p>
+        <p class="price-desc">Layanan jetting untuk saluran air &amp; WC yang tersumbat.</p>
+        <ul class="price-features">
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#177E89" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Mesin jetting tekanan tinggi</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#177E89" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Diagnosa penyebab mampet</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#177E89" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Garansi 7 hari titik yang sama</li>
+        </ul>
+        <a href="#kontak" class="btn btn-outline">Pesan Sekarang</a>
+      </div>
+    </div>
+    <p class="price-note">* Harga belum termasuk biaya tambahan untuk kondisi khusus (akses sulit, jarak jauh, atau volume di luar standar).</p>
+  </div>
+</section>
+
+<!-- ============ BEFORE / AFTER ============ -->
+<section class="section bg-white">
+  <div class="container" style="text-align:center;">
+    <div data-reveal>
+      <p class="eyebrow" style="justify-content:center;">Hasil Kerja</p>
+      <h2>Geser untuk Lihat Hasilnya</h2>
+      <p class="lede" style="margin:0 auto 36px;">Contoh kondisi saluran sebelum dan sesudah ditangani tim SIGAP.</p>
+    </div>
+    <div class="ba-wrap" data-reveal>
+      <img src="https://picsum.photos/seed/sigap-before/780/440" alt="Sebelum dikerjakan">
+      <img class="ba-after" id="baAfter" src="https://picsum.photos/seed/sigap-after/780/440" alt="Setelah dikerjakan">
+      <div class="ba-handle" id="baHandle"></div>
+      <span class="ba-label before">Sebelum</span>
+      <span class="ba-label after">Sesudah</span>
+      <input type="range" class="ba-slider" id="baSlider" min="0" max="100" value="50" aria-label="Geser untuk membandingkan sebelum dan sesudah">
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALERI ============ -->
+<section class="section" id="galeri">
+  <div class="container">
+    <div data-reveal>
+      <p class="eyebrow">Galeri</p>
+      <h2>Armada &amp; Tim di Lapangan</h2>
+    </div>
+    <div class="grid-gallery" style="margin-top:36px;" data-reveal>
+      <div class="gal-item"><img src="https://picsum.photos/seed/sigap-gal-1/400/400" alt="Armada SIGAP"></div>
+      <div class="gal-item"><img src="https://picsum.photos/seed/sigap-gal-2/400/400" alt="Teknisi bekerja"></div>
+      <div class="gal-item"><img src="https://picsum.photos/seed/sigap-gal-3/400/400" alt="Mesin jetting"></div>
+      <div class="gal-item"><img src="https://picsum.photos/seed/sigap-gal-4/400/400" alt="Tim SIGAP"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONI ============ -->
+<section class="section bg-white" id="testimoni">
+  <div class="container">
+    <div class="head-row" data-reveal>
+      <div>
+        <p class="eyebrow">Testimoni</p>
+        <h2 style="margin-bottom:0;">Apa Kata Pelanggan Kami</h2>
+      </div>
+      <div class="test-nav">
+        <button id="testPrev" aria-label="Sebelumnya">←</button>
+        <button id="testNext" aria-label="Selanjutnya">→</button>
+      </div>
+    </div>
+    <div class="test-scroller" id="testScroller" data-reveal>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Datang kurang dari 1 jam, kerja rapi, gak bau sama sekali di rumah.</p>
+        <div class="test-who"><img src="https://i.pravatar.cc/150?img=44" alt=""><div><b>Bu Sri</b><small>Cipayung</small></div></div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Harga sesuai yang diomongin di telepon, gak ada biaya tambahan dadakan.</p>
+        <div class="test-who"><img src="https://i.pravatar.cc/150?img=15" alt=""><div><b>Pak Joko</b><small>Bekasi</small></div></div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Saluran mampet di ruko saya langsung lancar, teknisinya jelasin sebabnya juga.</p>
+        <div class="test-who"><img src="https://i.pravatar.cc/150?img=29" alt=""><div><b>Mbak Lina</b><small>Pemilik Ruko</small></div></div>
+      </div>
+      <div class="test-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Tengah malam WC meluap, mereka tetap datang. Sangat membantu sekali.</p>
+        <div class="test-who"><img src="https://i.pravatar.cc/150?img=51" alt=""><div><b>Pak Anton</b><small>Depok</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section">
+  <div class="container">
+    <div data-reveal>
+      <p class="eyebrow">FAQ</p>
+      <h2>Pertanyaan yang Sering Ditanyakan</h2>
+    </div>
+    <div class="faq-list" style="margin-top:32px;" data-reveal>
+      <details>
+        <summary>Apakah bisa dipanggil tengah malam atau weekend?</summary>
+        <p>Bisa. Kami siap dipanggil 24 jam setiap hari, termasuk tengah malam dan hari libur, tanpa biaya tambahan untuk jam malam di area layanan utama.</p>
+      </details>
+      <details>
+        <summary>Berapa lama proses pengerjaan sedot WC biasa?</summary>
+        <p>Untuk rumah tangga standar, pengerjaan biasanya selesai dalam 30–60 menit, tergantung kondisi dan akses lokasi.</p>
+      </details>
+      <details>
+        <summary>Apakah ada biaya survei jika akhirnya tidak jadi pakai jasa?</summary>
+        <p>Tidak ada biaya survei untuk estimasi awal via telepon/WhatsApp. Untuk survei langsung ke lokasi, biaya akan diinformasikan terlebih dahulu.</p>
+      </details>
+      <details>
+        <summary>Apa yang menyebabkan septic tank cepat penuh?</summary>
+        <p>Beberapa sebab umum: ukuran tangki tidak sesuai jumlah penghuni, sering membuang sampah padat ke WC, atau usia tangki yang sudah lama tidak pernah disedot.</p>
+      </details>
+      <details>
+        <summary>Apakah aman untuk septic tank lama atau yang sudah retak?</summary>
+        <p>Tim kami akan memeriksa kondisi tangki sebelum penyedotan. Jika ditemukan keretakan, kami akan informasikan opsi perbaikan sebelum melanjutkan pengerjaan.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA / KONTAK ============ -->
+<section class="section" id="kontak">
+  <div class="cta-section">
+    <div class="cta-grid">
+      <div>
+        <p class="eyebrow">Layanan Darurat 24 Jam</p>
+        <h2>Jangan Tunggu Sampai Meluap</h2>
+        <p class="lede">Hubungi kami sekarang, tim siap meluncur ke lokasi Anda dengan estimasi biaya yang jelas.</p>
+        <div class="phone-big">📞 0812-3456-0000<span>Telepon &amp; WhatsApp — Siap 24 Jam</span></div>
+        <a href="https://wa.me/6281234560000" target="_blank" class="btn btn-amber">Chat via WhatsApp →</a>
+      </div>
+      <form id="contactForm">
+        <div class="form-row">
+          <input type="text" placeholder="Nama Anda" required>
+          <input type="tel" placeholder="No. HP / WhatsApp" required>
+        </div>
+        <div class="form-row">
+          <select required>
+            <option value="" disabled selected>Jenis Layanan</option>
+            <option>Sedot WC Rumahan</option>
+            <option>Sedot WC Komersial</option>
+            <option>Saluran Tersumbat</option>
+            <option>Pembuatan Septic Tank</option>
+            <option>Lainnya</option>
+          </select>
+          <input type="text" placeholder="Alamat / Area">
+        </div>
+        <textarea placeholder="Ceritakan kendala Anda..."></textarea>
+        <button type="submit" class="btn btn-amber" style="width:100%;justify-content:center;">Kirim Permintaan</button>
+        <p class="form-msg" id="formMsg">Terima kasih! Permintaan demo Anda berhasil "terkirim". Di situs asli, formulir ini akan terhubung ke WhatsApp/email Anda.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="#top" class="brand"><span class="sq"></span>SIGAP</a>
+        <p style="margin-top:14px;max-width:280px;font-size:14px;">Layanan sedot WC, saluran tersumbat, dan pembuatan septic tank — respon cepat, armada higienis, harga transparan.</p>
+      </div>
+      <div>
+        <h5>Navigasi</h5>
+        <ul>
+          <li><a href="#layanan">Layanan</a></li>
+          <li><a href="#kenapa">Kenapa Kami</a></li>
+          <li><a href="#harga">Harga</a></li>
+          <li><a href="#galeri">Galeri</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Layanan</h5>
+        <ul>
+          <li><a href="#layanan">Sedot WC Rumahan</a></li>
+          <li><a href="#layanan">Sedot WC Komersial</a></li>
+          <li><a href="#layanan">Saluran Tersumbat</a></li>
+          <li><a href="#layanan">Pembuatan Septic Tank</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Kontak</h5>
+        <ul>
+          <li>Telepon: 0812-3456-0000</li>
+          <li>Email: halo@sigap-wc.id</li>
+          <li>Area: Jabodetabek</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SIGAP Sedot WC. Seluruh hak cipta dilindungi.</span>
+      <span>Template demo — siap dikustomisasi untuk klien Anda.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('site-nav');
+  burger.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
+  }));
+
+  // Before/After slider
+  const baSlider = document.getElementById('baSlider');
+  const baAfter = document.getElementById('baAfter');
+  const baHandle = document.getElementById('baHandle');
+  baSlider.addEventListener('input', () => {
+    const v = baSlider.value;
+    baAfter.style.clipPath = `inset(0 ${100 - v}% 0 0)`;
+    baHandle.style.left = v + '%';
+  });
+
+  // Testimonial scroller controls
+  const scroller = document.getElementById('testScroller');
+  document.getElementById('testNext').addEventListener('click', () => scroller.scrollBy({left: 360, behavior:'smooth'}));
+  document.getElementById('testPrev').addEventListener('click', () => scroller.scrollBy({left: -360, behavior:'smooth'}));
+
+  // Fake contact form submit
+  document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('formMsg').classList.add('show');
+    e.target.reset();
+  });
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15});
+  revealEls.forEach(el => io.observe(el));
+</script>
+</body>
+</html>

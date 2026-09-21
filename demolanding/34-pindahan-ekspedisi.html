@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GarudaMove — Jasa Pindahan & Ekspedisi Terpercaya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:   #F97316;
+      --orange-d: #EA6C0A;
+      --orange-l: #FED7AA;
+      --yellow:   #FCD34D;
+      --dark:     #1C1917;
+      --dark2:    #292524;
+      --dark3:    #3D3935;
+      --stone:    #78716C;
+      --stone-l:  #A8A29E;
+      --cream:    #FAFAF9;
+      --white:    #FFFFFF;
+      --green:    #22C55E;
+      --r:        8px;
+      --r-sm:     4px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--dark); overflow-x: hidden; }
+
+    /* ═══ NAV ═══ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+      height: 70px; padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(28, 25, 23, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(249,115,22,0.15);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: .6rem;
+      text-decoration: none;
+    }
+    .logo-mark {
+      width: 36px; height: 36px; background: var(--orange);
+      border-radius: 6px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .logo-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem; font-weight: 700; color: var(--white); letter-spacing: -.02em;
+    }
+    .logo-text span { color: var(--orange); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,.65); font-size: .875rem; font-weight: 500; text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-tel { color: var(--yellow); font-weight: 600; font-size: .85rem; text-decoration: none; letter-spacing: .01em; }
+    .nav-cta {
+      background: var(--orange); color: white; font-weight: 700; font-size: .82rem;
+      padding: .55rem 1.3rem; border-radius: 50px; text-decoration: none;
+      transition: background .2s, transform .15s; letter-spacing: .02em;
+    }
+    .nav-cta:hover { background: var(--orange-d); transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+    .hamburger span { width: 22px; height: 2px; background: white; display: block; border-radius: 2px; }
+
+    /* ═══ HERO ═══ */
+    #hero {
+      min-height: 100vh; padding-top: 70px;
+      background: var(--dark);
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg-img {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1600518464441-9154a4dea21b?w=1600&q=80') center/cover no-repeat;
+      opacity: 0.18;
+    }
+    .hero-grid {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 480px;
+      gap: 4rem; align-items: center;
+      padding: 60px 5% 80px;
+      max-width: 1280px; margin: 0 auto; width: 100%;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: .55rem;
+      background: rgba(249,115,22,.15); border: 1px solid rgba(249,115,22,.35);
+      color: var(--orange); font-size: .72rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: .4rem 1rem; border-radius: 50px;
+      margin-bottom: 1.5rem; width: fit-content;
+      animation: fadeUp .6s .1s both;
+    }
+    .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); animation: blink 1.5s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .hero-h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 700; color: var(--white);
+      line-height: 1.08; letter-spacing: -.03em;
+      margin-bottom: 1.4rem;
+      animation: fadeUp .6s .25s both;
+    }
+    .hero-h1 em { color: var(--orange); font-style: normal; }
+    .hero-h1 .underline-yellow {
+      color: var(--yellow);
+      border-bottom: 3px solid var(--yellow);
+      padding-bottom: 1px;
+    }
+    .hero-desc {
+      color: rgba(255,255,255,.6); font-size: 1rem; line-height: 1.75;
+      max-width: 480px; margin-bottom: 2rem;
+      animation: fadeUp .6s .4s both;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp .6s .55s both; }
+    .btn-orange {
+      background: var(--orange); color: white; font-weight: 700; font-size: .9rem;
+      padding: .9rem 2rem; border-radius: 50px; text-decoration: none; border: none; cursor: pointer;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(249,115,22,.4); letter-spacing: .01em;
+    }
+    .btn-orange:hover { background: var(--orange-d); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,115,22,.5); }
+    .btn-outline-w {
+      background: transparent; color: white; font-weight: 600; font-size: .9rem;
+      padding: .9rem 2rem; border-radius: 50px; text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,.25);
+      transition: border-color .2s, background .2s, transform .15s;
+    }
+    .btn-outline-w:hover { border-color: var(--orange); background: rgba(249,115,22,.08); transform: translateY(-2px); }
+
+    /* Route visual card */
+    .hero-route-card {
+      background: var(--dark2); border-radius: 16px;
+      border: 1px solid rgba(249,115,22,.2);
+      padding: 2rem; animation: fadeUp .6s .3s both;
+      box-shadow: 0 24px 64px rgba(0,0,0,.5);
+    }
+    .route-card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--stone-l); margin-bottom: 1.5rem;
+    }
+    .route-visual {
+      display: flex; flex-direction: column; gap: 0; margin-bottom: 1.8rem;
+    }
+    .route-point { display: flex; align-items: center; gap: 1rem; }
+    .route-point-icon {
+      width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+      position: relative; z-index: 1;
+    }
+    .route-point-icon.origin { background: rgba(249,115,22,.2); border: 2px solid var(--orange); }
+    .route-point-icon.dest { background: rgba(34,197,94,.2); border: 2px solid var(--green); }
+    .route-point-info { flex: 1; }
+    .route-label { font-size: .7rem; color: var(--stone-l); letter-spacing: .08em; text-transform: uppercase; }
+    .route-city {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+      color: var(--white); font-size: 1rem; margin-top: .15rem;
+    }
+    .route-line {
+      display: flex; align-items: center; gap: .8rem;
+      padding: .5rem 0 .5rem 1.35rem;
+    }
+    .route-line-track {
+      width: 2px; height: 40px; background: linear-gradient(to bottom, var(--orange), var(--green));
+      border-radius: 2px; flex-shrink: 0; margin-left: 20px;
+      position: relative;
+    }
+    .route-line-dots {
+      display: flex; flex-direction: column; gap: 5px; margin-left: 6px;
+    }
+    .route-line-dots span {
+      display: block; font-size: .68rem; color: var(--stone-l);
+    }
+    .route-truck-anim {
+      font-size: 1.2rem; margin-left: 8px;
+      animation: truckDrive 2.5s ease-in-out infinite alternate;
+    }
+    @keyframes truckDrive { from{transform:translateY(-8px)} to{transform:translateY(8px)} }
+
+    .route-meta { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .8rem; margin-bottom: 1.5rem; }
+    .route-meta-item { background: var(--dark3); border-radius: 8px; padding: .75rem .9rem; }
+    .route-meta-label { font-size: .65rem; color: var(--stone-l); letter-spacing: .08em; text-transform: uppercase; }
+    .route-meta-val { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--white); font-size: .95rem; margin-top: .2rem; }
+    .route-meta-val.orange { color: var(--orange); }
+    .route-btn {
+      width: 100%; background: var(--orange); color: white; font-weight: 700; font-size: .9rem;
+      padding: .85rem; border-radius: 50px; border: none; cursor: pointer;
+      transition: background .2s, transform .15s;
+      font-family: 'Inter', sans-serif;
+    }
+    .route-btn:hover { background: var(--orange-d); transform: translateY(-1px); }
+
+    .hero-trust-bar {
+      position: relative; z-index: 2;
+      display: flex; gap: 2.5rem; flex-wrap: wrap;
+      padding: 0 5% 60px;
+      max-width: 1280px; margin: 0 auto; width: 100%;
+      animation: fadeUp .6s .7s both;
+    }
+    .trust-item { display: flex; align-items: center; gap: .7rem; }
+    .trust-icon { font-size: 1.3rem; }
+    .trust-text-w { font-size: .82rem; color: rgba(255,255,255,.55); line-height: 1.4; }
+    .trust-text-w strong { color: var(--white); display: block; font-size: .88rem; }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+    /* ═══ STATS STRIP ═══ */
+    #stats {
+      background: var(--orange);
+      padding: 1.6rem 5%;
+      display: flex; justify-content: space-around; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem; font-weight: 700; color: white; line-height: 1;
+    }
+    .stat-label { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.75); margin-top: .25rem; }
+    .stat-sep { width: 1px; height: 40px; background: rgba(255,255,255,.3); }
+
+    /* ═══ SECTION COMMON ═══ */
+    .sec { padding: 90px 5%; }
+    .sec-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: .7rem; }
+    .sec-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+      font-weight: 700; color: var(--dark); letter-spacing: -.025em;
+      line-height: 1.15; margin-bottom: .9rem;
+    }
+    .sec-sub { color: var(--stone); font-size: .97rem; line-height: 1.75; max-width: 500px; }
+
+    /* ═══ LAYANAN ═══ */
+    #layanan { background: var(--white); }
+    .layanan-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
+    .layanan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+    .layanan-card {
+      border-radius: var(--r); overflow: hidden;
+      position: relative; cursor: pointer;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .layanan-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(28,25,23,.15); }
+    .layanan-card-img { height: 200px; overflow: hidden; }
+    .layanan-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; display: block; }
+    .layanan-card:hover .layanan-card-img img { transform: scale(1.07); }
+    .layanan-card-body {
+      background: var(--dark2); padding: 1.5rem 1.6rem 1.8rem;
+    }
+    .layanan-card-tag {
+      display: inline-block; background: rgba(249,115,22,.2); color: var(--orange);
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: .25rem .7rem; border-radius: 50px; margin-bottom: .75rem;
+    }
+    .layanan-card h3 {
+      font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 700;
+      color: var(--white); margin-bottom: .6rem; letter-spacing: -.01em;
+    }
+    .layanan-card p { font-size: .84rem; color: rgba(255,255,255,.55); line-height: 1.65; margin-bottom: 1.1rem; }
+    .layanan-link { font-size: .8rem; font-weight: 700; color: var(--orange); text-decoration: none; letter-spacing: .04em; display: flex; align-items: center; gap: .4rem; transition: gap .2s; }
+    .layanan-link:hover { gap: .7rem; }
+
+    /* ═══ KEUNGGULAN ═══ */
+    #keunggulan { background: var(--cream); }
+    .keu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .keu-img-wrap { position: relative; }
+    .keu-img-wrap img { width: 100%; height: 500px; object-fit: cover; border-radius: var(--r); display: block; }
+    .keu-badge {
+      position: absolute; bottom: -20px; right: -20px;
+      background: var(--orange); color: white; padding: 1.4rem 1.6rem;
+      border-radius: var(--r); text-align: center;
+      box-shadow: 0 8px 32px rgba(249,115,22,.4);
+      animation: floatBadge 4s ease-in-out infinite;
+    }
+    @keyframes floatBadge { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .keu-badge .big { font-family:'Space Grotesk',sans-serif; font-size:2.2rem; font-weight:700; line-height:1; }
+    .keu-badge .small { font-size:.72rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; opacity:.85; margin-top:.2rem; }
+    .keu-badge2 {
+      position: absolute; top: 1.5rem; left: -20px;
+      background: var(--dark2); color: white; padding: .9rem 1.2rem;
+      border-radius: var(--r-sm); display: flex; align-items: center; gap: .8rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,.3);
+      animation: floatBadge 4s 2s ease-in-out infinite;
+    }
+    .keu-badge2 .icon { font-size:1.6rem; }
+    .keu-badge2 .txt .top { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:.95rem; }
+    .keu-badge2 .txt .bot { font-size:.72rem; color:rgba(255,255,255,.55); margin-top:.1rem; }
+    .keu-list { display:flex; flex-direction:column; gap:1.3rem; margin-top:2rem; }
+    .keu-item { display:flex; gap:1.1rem; align-items:flex-start; }
+    .keu-icon {
+      width:46px; height:46px; border-radius:10px; flex-shrink:0;
+      background: rgba(249,115,22,.1); border: 1px solid rgba(249,115,22,.25);
+      display:flex; align-items:center; justify-content:center; font-size:1.2rem;
+    }
+    .keu-item h4 { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:.95rem; color:var(--dark); margin-bottom:.3rem; }
+    .keu-item p { font-size:.84rem; color:var(--stone); line-height:1.65; }
+
+    /* ═══ CARA KERJA ═══ */
+    #cara-kerja { background: var(--dark); }
+    #cara-kerja .sec-title { color: var(--white); }
+    #cara-kerja .sec-sub { color: rgba(255,255,255,.55); }
+    .ck-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3.5rem; flex-wrap:wrap; gap:1rem; }
+    .ck-steps {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 0; position: relative;
+    }
+    .ck-steps::before {
+      content:''; position:absolute; top:28px; left:10%; right:10%;
+      height:2px; background:linear-gradient(to right, var(--orange), var(--yellow), var(--green));
+      z-index:0;
+    }
+    .ck-step { display:flex; flex-direction:column; align-items:center; text-align:center; position:relative; z-index:1; padding:0 .5rem; }
+    .ck-step-num {
+      width:56px; height:56px; border-radius:50%; border:2px solid var(--orange);
+      background:var(--dark); color:var(--orange);
+      font-family:'Space Grotesk',sans-serif; font-size:1.1rem; font-weight:700;
+      display:flex; align-items:center; justify-content:center;
+      margin-bottom:1rem; position:relative; z-index:1;
+      transition: background .3s, color .3s;
+    }
+    .ck-step:hover .ck-step-num { background:var(--orange); color:white; }
+    .ck-step-icon { font-size:1.6rem; margin-bottom:.7rem; }
+    .ck-step h4 { font-family:'Space Grotesk',sans-serif; font-size:.88rem; font-weight:700; color:var(--white); margin-bottom:.4rem; line-height:1.3; }
+    .ck-step p { font-size:.76rem; color:rgba(255,255,255,.45); line-height:1.6; }
+
+    /* ═══ KALKULATOR ═══ */
+    #kalkulator { background: var(--dark2); }
+    #kalkulator .sec-title { color: var(--white); }
+    #kalkulator .sec-sub { color: rgba(255,255,255,.55); }
+    .kalku-inner { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; margin-top:3rem; }
+    .kalku-form { background:var(--dark3); border-radius:12px; padding:2rem; }
+    .kalku-form h3 { font-family:'Space Grotesk',sans-serif; font-size:1.1rem; font-weight:700; color:var(--white); margin-bottom:1.5rem; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
+    .form-group { display:flex; flex-direction:column; gap:.4rem; }
+    .form-group.full { grid-column:span 2; }
+    .form-label { font-size:.75rem; font-weight:600; color:rgba(255,255,255,.6); letter-spacing:.06em; text-transform:uppercase; }
+    .form-select, .form-input {
+      background: var(--dark2); border: 1.5px solid rgba(255,255,255,.1);
+      color: var(--white); font-family:'Inter',sans-serif; font-size:.9rem;
+      padding: .75rem 1rem; border-radius: var(--r-sm); outline:none;
+      transition: border-color .2s;
+      appearance: none; -webkit-appearance: none;
+    }
+    .form-select:focus, .form-input:focus { border-color: var(--orange); }
+    .form-select option { background: var(--dark2); }
+    .range-wrap { position:relative; }
+    .form-range {
+      width:100%; -webkit-appearance:none; height:4px;
+      background: linear-gradient(to right, var(--orange) var(--pct,50%), rgba(255,255,255,.15) var(--pct,50%));
+      border-radius:2px; outline:none; cursor:pointer;
+    }
+    .form-range::-webkit-slider-thumb {
+      -webkit-appearance:none; width:18px; height:18px; border-radius:50%;
+      background:var(--orange); border:2px solid white; cursor:pointer;
+      box-shadow:0 2px 8px rgba(249,115,22,.5);
+    }
+    .range-labels { display:flex; justify-content:space-between; font-size:.7rem; color:rgba(255,255,255,.4); margin-top:.4rem; }
+    .range-val { text-align:right; font-family:'Space Grotesk',sans-serif; font-size:.9rem; font-weight:700; color:var(--orange); margin-top:.3rem; }
+    .kalku-btn {
+      width:100%; background:var(--orange); color:white; font-weight:700; font-size:.95rem;
+      padding:.95rem; border-radius:50px; border:none; cursor:pointer;
+      margin-top:1.4rem; transition:background .2s, transform .15s;
+      font-family:'Inter',sans-serif; letter-spacing:.02em;
+    }
+    .kalku-btn:hover { background:var(--orange-d); transform:translateY(-1px); }
+
+    .kalku-result { background:var(--dark3); border-radius:12px; padding:2rem; }
+    .kalku-result h3 { font-family:'Space Grotesk',sans-serif; font-size:1.1rem; font-weight:700; color:var(--white); margin-bottom:1.5rem; padding-bottom:1rem; border-bottom:1px solid rgba(255,255,255,.08); }
+    .result-placeholder { text-align:center; padding:3rem 1rem; color:rgba(255,255,255,.3); }
+    .result-placeholder .icon { font-size:3rem; margin-bottom:1rem; }
+    .result-placeholder p { font-size:.88rem; line-height:1.6; }
+    .result-rows { display:none; flex-direction:column; gap:.75rem; }
+    .result-row { display:flex; justify-content:space-between; align-items:center; }
+    .result-row-label { font-size:.85rem; color:rgba(255,255,255,.55); }
+    .result-row-val { font-family:'Space Grotesk',sans-serif; font-size:.9rem; font-weight:700; color:var(--white); }
+    .result-divider { height:1px; background:rgba(255,255,255,.08); margin:.5rem 0; }
+    .result-total-row { display:none; }
+    .result-total-label { font-size:.85rem; color:var(--orange); font-weight:600; }
+    .result-total-val { font-family:'Space Grotesk',sans-serif; font-size:1.5rem; font-weight:700; color:var(--orange); }
+    .result-note { font-size:.75rem; color:rgba(255,255,255,.35); margin-top:1rem; line-height:1.55; }
+    .result-cta { display:none; width:100%; background:var(--orange); color:white; font-weight:700; font-size:.9rem; padding:.85rem; border-radius:50px; border:none; cursor:pointer; margin-top:1.2rem; font-family:'Inter',sans-serif; transition:background .2s; }
+    .result-cta:hover { background:var(--orange-d); }
+
+    /* ═══ GALERI ═══ */
+    #galeri { background: var(--cream); }
+    .galeri-header { margin-bottom:2.5rem; }
+    .galeri-mosaic {
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 220px 220px;
+      gap:.8rem;
+    }
+    .galeri-item { border-radius:var(--r); overflow:hidden; position:relative; }
+    .galeri-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s; }
+    .galeri-item:hover img { transform:scale(1.06); }
+    .galeri-item:nth-child(1) { grid-column:span 2; grid-row:span 2; }
+    .galeri-item:nth-child(4) { grid-column:span 2; }
+    .galeri-label {
+      position:absolute; bottom:.75rem; left:.75rem;
+      background:rgba(28,25,23,.75); backdrop-filter:blur(8px);
+      color:white; font-size:.7rem; font-weight:600;
+      letter-spacing:.06em; text-transform:uppercase;
+      padding:.3rem .75rem; border-radius:50px;
+    }
+
+    /* ═══ TESTIMONI ═══ */
+    #testimoni { background: var(--white); }
+    .testi-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:2.8rem; flex-wrap:wrap; gap:1rem; }
+    .rating-big { text-align:right; }
+    .rating-big .num { font-family:'Space Grotesk',sans-serif; font-size:3rem; font-weight:700; color:var(--dark); line-height:1; }
+    .rating-big .stars { color:var(--orange); font-size:1rem; margin:.2rem 0; }
+    .rating-big .from { font-size:.78rem; color:var(--stone-l); }
+    .testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; }
+    .testi-card { border-radius:var(--r); padding:1.8rem; border:1.5px solid rgba(28,25,23,.08); transition:border-color .3s, box-shadow .3s; }
+    .testi-card:hover { border-color:var(--orange); box-shadow:0 8px 28px rgba(249,115,22,.1); }
+    .testi-stars { color:var(--orange); font-size:.9rem; margin-bottom:.9rem; }
+    .testi-quote { font-size:.87rem; color:var(--stone); line-height:1.75; margin-bottom:1.4rem; font-style:italic; }
+    .testi-author { display:flex; align-items:center; gap:.85rem; }
+    .testi-avatar { width:42px; height:42px; border-radius:50%; object-fit:cover; border:2px solid var(--orange-l); }
+    .testi-name { font-family:'Space Grotesk',sans-serif; font-size:.88rem; font-weight:700; color:var(--dark); }
+    .testi-meta { font-size:.75rem; color:var(--stone-l); margin-top:.1rem; }
+    .testi-route { font-size:.72rem; color:var(--orange); font-weight:600; margin-top:.2rem; }
+
+    /* ═══ AREA COVERAGE ═══ */
+    #coverage { background: var(--dark); padding:90px 5%; }
+    #coverage .sec-title { color:var(--white); }
+    #coverage .sec-sub { color:rgba(255,255,255,.55); }
+    .cov-inner { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; margin-top:3rem; }
+    .cov-list { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .cov-item {
+      background:var(--dark2); border-radius:var(--r-sm); padding:1rem 1.2rem;
+      border-left:3px solid var(--orange);
+      display:flex; align-items:center; gap:.8rem;
+      transition:background .2s;
+    }
+    .cov-item:hover { background:var(--dark3); }
+    .cov-icon { font-size:1.2rem; }
+    .cov-city { font-family:'Space Grotesk',sans-serif; font-size:.9rem; font-weight:700; color:var(--white); }
+    .cov-province { font-size:.72rem; color:rgba(255,255,255,.45); }
+    .cov-badge-list { display:flex; flex-direction:column; gap:1rem; }
+    .cov-badge {
+      background:var(--dark2); border-radius:var(--r); padding:1.4rem 1.6rem;
+      display:flex; align-items:center; gap:1.2rem;
+    }
+    .cov-badge-icon { font-size:2rem; flex-shrink:0; }
+    .cov-badge h4 { font-family:'Space Grotesk',sans-serif; font-size:.95rem; font-weight:700; color:var(--white); margin-bottom:.25rem; }
+    .cov-badge p { font-size:.8rem; color:rgba(255,255,255,.45); line-height:1.5; }
+
+    /* ═══ CTA BAND ═══ */
+    #cta-band {
+      background: linear-gradient(135deg, var(--orange) 0%, #DC5309 100%);
+      padding:80px 5%;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:3rem; flex-wrap:wrap;
+    }
+    .cta-text h2 { font-family:'Space Grotesk',sans-serif; font-size:clamp(1.6rem,3vw,2.4rem); font-weight:700; color:white; letter-spacing:-.02em; max-width:480px; line-height:1.2; }
+    .cta-text p { color:rgba(255,255,255,.75); font-size:.95rem; margin-top:.8rem; }
+    .cta-form-w { display:flex; gap:.7rem; flex-wrap:wrap; }
+    .cta-input {
+      background:rgba(255,255,255,.15); border:1.5px solid rgba(255,255,255,.3);
+      color:white; font-family:'Inter',sans-serif; font-size:.9rem;
+      padding:.85rem 1.2rem; border-radius:50px; outline:none; min-width:190px;
+      transition:border-color .2s;
+    }
+    .cta-input::placeholder { color:rgba(255,255,255,.5); }
+    .cta-input:focus { border-color:white; }
+    .cta-btn-w {
+      background:white; color:var(--orange-d); font-weight:700; font-size:.88rem;
+      padding:.85rem 1.8rem; border-radius:50px; border:none; cursor:pointer;
+      transition:transform .15s, box-shadow .2s; white-space:nowrap;
+      box-shadow:0 4px 16px rgba(0,0,0,.2); font-family:'Inter',sans-serif;
+    }
+    .cta-btn-w:hover { transform:translateY(-2px); box-shadow:0 6px 24px rgba(0,0,0,.25); }
+
+    /* ═══ FOOTER ═══ */
+    footer { background:#0E0C0B; padding:64px 5% 28px; }
+    .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem; margin-bottom:3rem; }
+    .footer-brand .logo-text { font-size:1.4rem; }
+    .footer-desc { color:rgba(255,255,255,.4); font-size:.85rem; line-height:1.7; max-width:240px; margin:1rem 0 1.4rem; }
+    .footer-certif { display:flex; flex-direction:column; gap:.5rem; }
+    .certif-item { display:flex; align-items:center; gap:.5rem; font-size:.78rem; color:rgba(255,255,255,.5); }
+    .certif-dot { width:6px; height:6px; border-radius:50%; background:var(--green); flex-shrink:0; }
+    .footer-col h5 { font-size:.7rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:1.2rem; }
+    .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:.65rem; }
+    .footer-col a { color:rgba(255,255,255,.5); font-size:.85rem; text-decoration:none; transition:color .2s; }
+    .footer-col a:hover { color:var(--orange); }
+    .footer-bottom { border-top:1px solid rgba(255,255,255,.06); padding-top:1.4rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+    .footer-bottom p { color:rgba(255,255,255,.25); font-size:.78rem; }
+    .footer-links { display:flex; gap:1.5rem; }
+    .footer-links a { color:rgba(255,255,255,.3); font-size:.78rem; text-decoration:none; }
+    .footer-links a:hover { color:var(--orange); }
+
+    /* ═══ WA FLOAT ═══ */
+    .wa-float {
+      position:fixed; bottom:2rem; right:2rem; z-index:400;
+      width:58px; height:58px; border-radius:50%;
+      background:#25D366; color:white;
+      display:flex; align-items:center; justify-content:center;
+      text-decoration:none; font-size:1.6rem;
+      box-shadow:0 4px 20px rgba(37,211,102,.4);
+      animation:pulseWA 2.5s infinite;
+      transition:transform .2s;
+    }
+    .wa-float:hover { transform:scale(1.1); animation:none; }
+    @keyframes pulseWA { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)} 50%{box-shadow:0 4px 32px rgba(37,211,102,.7)} }
+
+    /* ═══ REVEAL ═══ */
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media(max-width:1024px){
+      .hero-grid { grid-template-columns:1fr; }
+      .hero-route-card { max-width:480px; }
+      .ck-steps { grid-template-columns:1fr 1fr; }
+      .ck-steps::before { display:none; }
+    }
+    @media(max-width:900px){
+      .nav-links,.nav-tel { display:none; }
+      .hamburger { display:flex; }
+      .layanan-grid { grid-template-columns:1fr 1fr; }
+      .keu-grid { grid-template-columns:1fr; gap:2.5rem; }
+      .keu-badge { bottom:1rem; right:1rem; }
+      .keu-badge2 { left:1rem; top:1rem; }
+      .kalku-inner { grid-template-columns:1fr; }
+      .galeri-mosaic { grid-template-columns:1fr 1fr; grid-template-rows:auto; }
+      .galeri-item:nth-child(1) { grid-column:span 2; grid-row:span 1; }
+      .galeri-item:nth-child(4) { grid-column:span 2; }
+      .testi-grid { grid-template-columns:1fr; }
+      .cov-inner { grid-template-columns:1fr; }
+      .footer-top { grid-template-columns:1fr 1fr; }
+      #cta-band { flex-direction:column; }
+      .cta-form-w { flex-direction:column; width:100%; }
+      .cta-input { min-width:unset; width:100%; }
+    }
+    @media(max-width:600px){
+      .layanan-grid { grid-template-columns:1fr; }
+      .form-row { grid-template-columns:1fr; }
+      .form-group.full { grid-column:span 1; }
+      .ck-steps { grid-template-columns:1fr; }
+      .stat-sep { display:none; }
+      .galeri-mosaic { grid-template-columns:1fr; }
+      .galeri-item:nth-child(1),.galeri-item:nth-child(4) { grid-column:span 1; }
+      .cov-list { grid-template-columns:1fr; }
+      .footer-top { grid-template-columns:1fr; }
+      .hero-trust-bar { gap:1.5rem; }
+      .route-meta { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="logo-mark">🚚</div>
+    <span class="logo-text">Garuda<span>Move</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#layanan">Layanan</a></li>
+    <li><a href="#cara-kerja">Cara Kerja</a></li>
+    <li><a href="#kalkulator">Estimasi Harga</a></li>
+    <li><a href="#galeri">Galeri</a></li>
+    <li><a href="#testimoni">Testimoni</a></li>
+    <li><a href="#coverage">Area</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="nav-tel" href="tel:08001234567">📞 0800-1234-567</a>
+    <a href="#cta-band" class="nav-cta">Minta Penawaran</a>
+  </div>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-grid">
+    <!-- Left: Copy -->
+    <div>
+      <div class="hero-eyebrow"><span class="eyebrow-dot"></span> Armada 150+ Kendaraan Siap Bergerak</div>
+      <h1 class="hero-h1">
+        Pindahan <em>Aman,</em><br>
+        Sampai <span class="underline-yellow">Tepat Waktu</span>,<br>
+        Harga Jelas
+      </h1>
+      <p class="hero-desc">GarudaMove melayani jasa pindahan rumah, kantor, dan pengiriman barang ke seluruh Indonesia — dengan armada modern, tim terlatih, dan asuransi penuh untuk setiap barang Anda.</p>
+      <div class="hero-actions">
+        <a href="#kalkulator" class="btn-orange">Hitung Biaya Sekarang →</a>
+        <a href="#layanan" class="btn-outline-w">Lihat Layanan</a>
+      </div>
+    </div>
+    <!-- Right: Route Card -->
+    <div class="hero-route-card">
+      <div class="route-card-title">🛰 Lacak Pengiriman Live</div>
+      <div class="route-visual">
+        <div class="route-point">
+          <div class="route-point-icon origin">📦</div>
+          <div class="route-point-info">
+            <div class="route-label">Titik Jemput</div>
+            <div class="route-city">Jakarta Selatan</div>
+          </div>
+        </div>
+        <div class="route-line">
+          <div class="route-line-track"></div>
+          <div class="route-line-dots">
+            <span>Dalam perjalanan...</span>
+          </div>
+          <span class="route-truck-anim">🚚</span>
+        </div>
+        <div class="route-point">
+          <div class="route-point-icon dest">📍</div>
+          <div class="route-point-info">
+            <div class="route-label">Tujuan</div>
+            <div class="route-city">Surabaya, Jawa Timur</div>
+          </div>
+        </div>
+      </div>
+      <div class="route-meta">
+        <div class="route-meta-item">
+          <div class="route-meta-label">Jarak</div>
+          <div class="route-meta-val">798 km</div>
+        </div>
+        <div class="route-meta-item">
+          <div class="route-meta-label">ETA</div>
+          <div class="route-meta-val">18 Jam</div>
+        </div>
+        <div class="route-meta-item">
+          <div class="route-meta-label">Status</div>
+          <div class="route-meta-val orange">On Track ✓</div>
+        </div>
+      </div>
+      <button class="route-btn" onclick="alert('Fitur tracking real-time tersedia di aplikasi GarudaMove!')">📡 Lacak Pengiriman Saya</button>
+    </div>
+  </div>
+  <!-- Trust bar -->
+  <div class="hero-trust-bar">
+    <div class="trust-item">
+      <span class="trust-icon">🛡️</span>
+      <div class="trust-text-w"><strong>Asuransi All-Risk</strong>Setiap barang dilindungi penuh</div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">⏱️</span>
+      <div class="trust-text-w"><strong>On-Time Guarantee</strong>Terlambat? Kami ganti rugi</div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">📦</span>
+      <div class="trust-text-w"><strong>Packing Profesional</strong>Tim packer berpengalaman</div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">📱</span>
+      <div class="trust-text-w"><strong>Tracking Real-Time</strong>Pantau posisi barang 24/7</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STATS ═══ -->
+<div id="stats">
+  <div class="stat-item"><div class="stat-num">50.000+</div><div class="stat-label">Pengiriman Selesai</div></div>
+  <div class="stat-sep"></div>
+  <div class="stat-item"><div class="stat-num">150+</div><div class="stat-label">Unit Armada</div></div>
+  <div class="stat-sep"></div>
+  <div class="stat-item"><div class="stat-num">34</div><div class="stat-label">Provinsi Dijangkau</div></div>
+  <div class="stat-sep"></div>
+  <div class="stat-item"><div class="stat-num">12 Th</div><div class="stat-label">Pengalaman</div></div>
+  <div class="stat-sep"></div>
+  <div class="stat-item"><div class="stat-num">4.9 ★</div><div class="stat-label">Rating Pelanggan</div></div>
+</div>
+
+<!-- ═══ LAYANAN ═══ -->
+<section id="layanan" class="sec">
+  <div class="layanan-header">
+    <div>
+      <p class="sec-eyebrow">Apa yang Kami Kerjakan</p>
+      <h2 class="sec-title">Satu Tempat untuk<br>Semua Kebutuhan Pindahan</h2>
+    </div>
+    <a href="#cta-band" style="font-weight:700;color:var(--orange);font-size:.88rem;text-decoration:none;letter-spacing:.02em">Lihat Semua Layanan →</a>
+  </div>
+  <div class="layanan-grid">
+    <div class="layanan-card reveal">
+      <div class="layanan-card-img">
+        <img src="https://images.unsplash.com/photo-1600518464441-9154a4dea21b?w=700&q=80" alt="Pindahan Rumah"/>
+      </div>
+      <div class="layanan-card-body">
+        <span class="layanan-card-tag">Terpopuler</span>
+        <h3>Pindahan Rumah</h3>
+        <p>Layanan lengkap pindahan rumah — dari bongkar, packing, muat, kirim, hingga susun ulang di lokasi baru. Satu tim, satu harga.</p>
+        <a href="#cta-band" class="layanan-link">Pesan Sekarang <span>→</span></a>
+      </div>
+    </div>
+    <div class="layanan-card reveal">
+      <div class="layanan-card-img">
+        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=700&q=80" alt="Pindahan Kantor"/>
+      </div>
+      <div class="layanan-card-body">
+        <span class="layanan-card-tag">Bisnis</span>
+        <h3>Relokasi Kantor</h3>
+        <p>Pindah kantor tanpa ganggu operasional. Kami kerjakan di luar jam kerja — peralatan IT, furnitur, dan arsip dipindah dengan aman.</p>
+        <a href="#cta-band" class="layanan-link">Pesan Sekarang <span>→</span></a>
+      </div>
+    </div>
+    <div class="layanan-card reveal">
+      <div class="layanan-card-img">
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=700&q=80" alt="Ekspedisi Barang"/>
+      </div>
+      <div class="layanan-card-body">
+        <span class="layanan-card-tag">Ekspedisi</span>
+        <h3>Pengiriman Barang</h3>
+        <p>Kirim barang besar antar kota & pulau via darat, laut, dan udara. Harga per kg & per volume kompetitif, tracking real-time tersedia.</p>
+        <a href="#cta-band" class="layanan-link">Pesan Sekarang <span>→</span></a>
+      </div>
+    </div>
+    <div class="layanan-card reveal">
+      <div class="layanan-card-img">
+        <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=700&q=80" alt="Packing Profesional"/>
+      </div>
+      <div class="layanan-card-body">
+        <span class="layanan-card-tag">Add-on</span>
+        <h3>Jasa Packing</h3>
+        <p>Tim packer profesional membungkus setiap barang dengan bubble wrap, kardus double, dan peti kayu khusus untuk barang antik & elektronik.</p>
+        <a href="#cta-band" class="layanan-link">Pesan Sekarang <span>→</span></a>
+      </div>
+    </div>
+    <div class="layanan-card reveal">
+      <div class="layanan-card-img">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&q=80" alt="Sewa Gudang"/>
+      </div>
+      <div class="layanan-card-body">
+        <span class="layanan-card-tag">Storage</span>
+        <h3>Sewa Gudang (Storage)</h3>
+        <p>Titip barang di gudang kami yang ber-AC, aman 24 jam, dan berinsurance. Sewa harian, mingguan, atau bulanan dengan harga fleksibel.</p>
+        <a href="#cta-band" class="layanan-link">Pesan Sekarang <span>→</span></a>
+      </div>
+    </div>
+    <div class="layanan-card reveal">
+      <div class="layanan-card-img">
+        <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=700&q=80" alt="Motor dan Mobil"/>
+      </div>
+      <div class="layanan-card-body">
+        <span class="layanan-card-tag">Kendaraan</span>
+        <h3>Kirim Motor & Mobil</h3>
+        <p>Pengiriman kendaraan roda dua & empat antar pulau menggunakan kapal roll-on/roll-off atau kontainer. Dilindungi asuransi penuh.</p>
+        <a href="#cta-band" class="layanan-link">Pesan Sekarang <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ KEUNGGULAN ═══ -->
+<section id="keunggulan" class="sec">
+  <div class="keu-grid">
+    <div class="keu-img-wrap reveal">
+      <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=80" alt="Tim GarudaMove profesional"/>
+      <div class="keu-badge">
+        <div class="big">12+</div>
+        <div class="small">Tahun<br>Pengalaman</div>
+      </div>
+      <div class="keu-badge2">
+        <span class="icon">🏆</span>
+        <div class="txt">
+          <div class="top">Top Mover 2024</div>
+          <div class="bot">Versi Kompas & Detik</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="sec-eyebrow">Mengapa Pilih Kami</p>
+      <h2 class="sec-title">Bukan Sekadar<br>Angkut dan Antar</h2>
+      <p class="sec-sub">Kami memahami bahwa setiap barang Anda punya nilai lebih dari sekadar harga — ada kenangan, kepercayaan, dan keamanan di dalamnya.</p>
+      <div class="keu-list">
+        <div class="keu-item">
+          <div class="keu-icon">🛡️</div>
+          <div>
+            <h4>Asuransi All-Risk Otomatis</h4>
+            <p>Setiap pengiriman sudah tercover asuransi tanpa biaya tambahan. Klaim mudah dalam 3×24 jam jika ada kerusakan.</p>
+          </div>
+        </div>
+        <div class="keu-item">
+          <div class="keu-icon">📡</div>
+          <div>
+            <h4>Tracking GPS Real-Time</h4>
+            <p>Pantau posisi kendaraan dan barang Anda kapan saja lewat aplikasi atau WhatsApp. Update otomatis setiap 30 menit.</p>
+          </div>
+        </div>
+        <div class="keu-item">
+          <div class="keu-icon">💰</div>
+          <div>
+            <h4>Harga Fix, Tanpa Kejutan</h4>
+            <p>Harga dikunci di awal kontrak. Tidak ada biaya tambahan mendadak — BBM, tol, dan tenaga sudah termasuk semua.</p>
+          </div>
+        </div>
+        <div class="keu-item">
+          <div class="keu-icon">👷</div>
+          <div>
+            <h4>Tim Bersertifikat & Diasuransikan</h4>
+            <p>Semua kru kami mengikuti pelatihan handling barang, pertolongan pertama, dan lulus pemeriksaan latar belakang.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CARA KERJA ═══ -->
+<section id="cara-kerja" class="sec">
+  <div class="ck-header">
+    <div>
+      <p class="sec-eyebrow">Proses Kami</p>
+      <h2 class="sec-title" style="color:white">Dari Hubungi hingga<br>Barang di Tujuan</h2>
+    </div>
+    <p class="sec-sub" style="text-align:right">Prosesnya sederhana dan transparan — tidak ada yang perlu Anda khawatirkan.</p>
+  </div>
+  <div class="ck-steps">
+    <div class="ck-step reveal">
+      <div class="ck-step-num">1</div>
+      <div class="ck-step-icon">📞</div>
+      <h4>Hubungi & Survei</h4>
+      <p>Ceritakan kebutuhan pindahan Anda. Tim kami survei lokasi & volume barang gratis.</p>
+    </div>
+    <div class="ck-step reveal">
+      <div class="ck-step-num">2</div>
+      <div class="ck-step-icon">📋</div>
+      <h4>Penawaran Harga</h4>
+      <p>Terima penawaran fix dalam 1 jam. Harga sudah all-in termasuk asuransi & packing.</p>
+    </div>
+    <div class="ck-step reveal">
+      <div class="ck-step-num">3</div>
+      <div class="ck-step-icon">📦</div>
+      <h4>Packing & Muat</h4>
+      <p>Tim datang tepat waktu, packing profesional, dan semua barang dicatat dalam manifest.</p>
+    </div>
+    <div class="ck-step reveal">
+      <div class="ck-step-num">4</div>
+      <div class="ck-step-icon">🚚</div>
+      <h4>Pengiriman & Tracking</h4>
+      <p>Armada berangkat. Anda bisa lacak posisi real-time via link tracking yang kami kirim.</p>
+    </div>
+    <div class="ck-step reveal">
+      <div class="ck-step-num">5</div>
+      <div class="ck-step-icon">🎉</div>
+      <h4>Bongkar & Susun</h4>
+      <p>Barang tiba, kami bongkar, susun di tempat yang Anda inginkan. Sampah packing kami bawa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ KALKULATOR ═══ -->
+<section id="kalkulator" class="sec">
+  <p class="sec-eyebrow">Estimasi Biaya</p>
+  <h2 class="sec-title">Hitung Biaya Pindahan<br>dalam 30 Detik</h2>
+  <p class="sec-sub">Masukkan detail pindahan Anda dan dapatkan estimasi harga langsung — tanpa daftar, tanpa tunggu.</p>
+  <div class="kalku-inner">
+    <!-- Form -->
+    <div class="kalku-form">
+      <h3>📝 Detail Pindahan</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Kota Asal</label>
+          <select class="form-select" id="kotaAsal">
+            <option value="">— Pilih Kota —</option>
+            <option value="jakarta">Jakarta</option>
+            <option value="bandung">Bandung</option>
+            <option value="surabaya">Surabaya</option>
+            <option value="medan">Medan</option>
+            <option value="bali">Bali / Denpasar</option>
+            <option value="makassar">Makassar</option>
+            <option value="semarang">Semarang</option>
+            <option value="yogyakarta">Yogyakarta</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Kota Tujuan</label>
+          <select class="form-select" id="kotaTujuan">
+            <option value="">— Pilih Kota —</option>
+            <option value="jakarta">Jakarta</option>
+            <option value="bandung">Bandung</option>
+            <option value="surabaya">Surabaya</option>
+            <option value="medan">Medan</option>
+            <option value="bali">Bali / Denpasar</option>
+            <option value="makassar">Makassar</option>
+            <option value="semarang">Semarang</option>
+            <option value="yogyakarta">Yogyakarta</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Jenis Layanan</label>
+          <select class="form-select" id="jenisLayanan">
+            <option value="rumah">Pindahan Rumah</option>
+            <option value="kantor">Relokasi Kantor</option>
+            <option value="ekspedisi">Pengiriman Barang</option>
+            <option value="kendaraan">Kirim Kendaraan</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Jenis Rumah / Volume</label>
+          <select class="form-select" id="jenisRumah">
+            <option value="kost">Kamar Kost / Studio</option>
+            <option value="type36">Rumah Type 36</option>
+            <option value="type45">Rumah Type 45–60</option>
+            <option value="type70">Rumah Type 70–90</option>
+            <option value="besar">Rumah Besar / Villa</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group full">
+          <label class="form-label">Lantai Asal</label>
+          <select class="form-select" id="lantai">
+            <option value="1">Lantai 1 (atau ada lift)</option>
+            <option value="2">Lantai 2–3 (tangga)</option>
+            <option value="3">Lantai 4+ (tangga)</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group full">
+          <label class="form-label">Tambahan Layanan</label>
+          <select class="form-select" id="tambahan">
+            <option value="none">Tidak Ada</option>
+            <option value="packing">+ Jasa Packing Profesional</option>
+            <option value="storage">+ Sewa Gudang 1 Bulan</option>
+            <option value="both">+ Packing & Gudang</option>
+          </select>
+        </div>
+      </div>
+      <button class="kalku-btn" onclick="hitungBiaya()">⚡ Hitung Estimasi Biaya Sekarang</button>
+    </div>
+
+    <!-- Hasil -->
+    <div class="kalku-result">
+      <h3>💰 Estimasi Biaya Anda</h3>
+      <div class="result-placeholder" id="resultPlaceholder">
+        <div class="icon">🚚</div>
+        <p>Isi form di sebelah kiri dan klik <strong style="color:var(--orange)">"Hitung Estimasi"</strong> untuk melihat perkiraan biaya pindahan Anda.</p>
+      </div>
+      <div class="result-rows" id="resultRows">
+        <div class="result-row">
+          <span class="result-row-label">Rute</span>
+          <span class="result-row-val" id="resRute">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-row-label">Jenis Layanan</span>
+          <span class="result-row-val" id="resLayanan">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-row-label">Biaya Pengangkutan</span>
+          <span class="result-row-val" id="resAngkut">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-row-label">Biaya Lantai/Akses</span>
+          <span class="result-row-val" id="resLantai">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-row-label">Tambahan Layanan</span>
+          <span class="result-row-val" id="resTambahan">—</span>
+        </div>
+        <div class="result-row">
+          <span class="result-row-label">Asuransi All-Risk</span>
+          <span class="result-row-val" style="color:var(--green)">✓ Gratis (Sudah Termasuk)</span>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-row result-total-row" id="resultTotalRow">
+          <span class="result-total-label">TOTAL ESTIMASI</span>
+          <span class="result-total-val" id="resTotal">—</span>
+        </div>
+        <p class="result-note">* Estimasi ini bersifat indikatif. Harga final ditentukan setelah survei gratis oleh tim kami. Harga bisa lebih hemat dengan paket bundling.</p>
+      </div>
+      <button class="result-cta" id="resultCta" onclick="alert('Tim GarudaMove akan menghubungi Anda dalam 5 menit untuk konfirmasi detail! 🚚')">📞 Hubungi Saya untuk Penawaran Final</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALERI ═══ -->
+<section id="galeri" class="sec">
+  <div class="galeri-header">
+    <p class="sec-eyebrow">Galeri Kerja</p>
+    <h2 class="sec-title">Lihat Tim Kami Beraksi</h2>
+  </div>
+  <div class="galeri-mosaic">
+    <div class="galeri-item reveal">
+      <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=900&q=80" alt="Tim pindahan profesional"/>
+      <span class="galeri-label">Tim Lapangan</span>
+    </div>
+    <div class="galeri-item reveal">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" alt="Truk ekspedisi"/>
+      <span class="galeri-label">Armada Truk</span>
+    </div>
+    <div class="galeri-item reveal">
+      <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=500&q=80" alt="Packing profesional"/>
+      <span class="galeri-label">Jasa Packing</span>
+    </div>
+    <div class="galeri-item reveal">
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Gudang storage"/>
+      <span class="galeri-label">Gudang Storage</span>
+    </div>
+    <div class="galeri-item reveal">
+      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=500&q=80" alt="Relokasi kantor"/>
+      <span class="galeri-label">Relokasi Kantor</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONI ═══ -->
+<section id="testimoni" class="sec">
+  <div class="testi-header">
+    <div>
+      <p class="sec-eyebrow">Suara Pelanggan</p>
+      <h2 class="sec-title">Mereka Sudah Percaya,<br>Giliran Anda</h2>
+    </div>
+    <div class="rating-big">
+      <div class="num">4.9</div>
+      <div class="stars">★★★★★</div>
+      <div class="from">dari 3.200+ ulasan Google</div>
+    </div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"Pindah dari Jakarta ke Surabaya dengan isi rumah type 60, semua beres dalam 2 hari. Barang pecah belah utuh semua — tidak ada satupun yang retak. Timnya juga sopan dan kerja keras."</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt="Pak Rendi"/>
+        <div>
+          <div class="testi-name">Rendi Saputra</div>
+          <div class="testi-meta">Pelanggan Pindahan Rumah</div>
+          <div class="testi-route">📍 Jakarta → Surabaya</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"Relokasi kantor 3 lantai kami selesai dalam satu akhir pekan. Senin pagi karyawan langsung bisa bekerja normal. Tidak ada satu pun peralatan IT yang rusak. Luar biasa efisien!"</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&q=80" alt="Bu Diana"/>
+        <div>
+          <div class="testi-name">Diana Kusuma</div>
+          <div class="testi-meta">Office Manager, PT Kreasi Digital</div>
+          <div class="testi-route">📍 Sudirman → BSD City</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"Kirim motor dari Makassar ke Bali, tiba tepat waktu dan kondisi motor mulus. Fitur tracking WhatsApp-nya membantu banget — saya bisa tahu posisi motor tiap saat. Harga juga paling kompetitif."</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=80&q=80" alt="Siti"/>
+        <div>
+          <div class="testi-name">Siti Rahayu</div>
+          <div class="testi-meta">Pelanggan Kirim Kendaraan</div>
+          <div class="testi-route">📍 Makassar → Bali</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COVERAGE ═══ -->
+<section id="coverage">
+  <p class="sec-eyebrow">Jangkauan Kami</p>
+  <h2 class="sec-title">Melayani Seluruh Indonesia</h2>
+  <p class="sec-sub">Dari Sabang sampai Merauke — 34 provinsi, 500+ kota, via darat, laut, dan udara.</p>
+  <div class="cov-inner">
+    <div class="cov-list reveal">
+      <div class="cov-item"><span class="cov-icon">🏙️</span><div><div class="cov-city">Jakarta</div><div class="cov-province">DKI Jakarta</div></div></div>
+      <div class="cov-item"><span class="cov-icon">🌸</span><div><div class="cov-city">Bandung</div><div class="cov-province">Jawa Barat</div></div></div>
+      <div class="cov-item"><span class="cov-icon">🌊</span><div><div class="cov-city">Surabaya</div><div class="cov-province">Jawa Timur</div></div></div>
+      <div class="cov-item"><span class="cov-icon">🌴</span><div><div class="cov-city">Bali</div><div class="cov-province">Bali</div></div></div>
+      <div class="cov-item"><span class="cov-icon">🏔️</span><div><div class="cov-city">Medan</div><div class="cov-province">Sumatera Utara</div></div></div>
+      <div class="cov-item"><span class="cov-icon">⚓</span><div><div class="cov-city">Makassar</div><div class="cov-province">Sulawesi Selatan</div></div></div>
+      <div class="cov-item"><span class="cov-icon">🎭</span><div><div class="cov-city">Yogyakarta</div><div class="cov-province">DIY</div></div></div>
+      <div class="cov-item"><span class="cov-icon">🌿</span><div><div class="cov-city">Balikpapan</div><div class="cov-province">Kalimantan Timur</div></div></div>
+      <div class="cov-item"><span class="cov-icon">🏝️</span><div><div class="cov-city">Manado</div><div class="cov-province">Sulawesi Utara</div></div></div>
+      <div class="cov-item"><span class="cov-icon">⛵</span><div><div class="cov-city">Palembang</div><div class="cov-province">Sumatera Selatan</div></div></div>
+      <div class="cov-item"><span class="cov-icon">🌺</span><div><div class="cov-city">Jayapura</div><div class="cov-province">Papua</div></div></div>
+      <div class="cov-item" style="border-left-color:var(--yellow)"><span class="cov-icon">✈️</span><div><div class="cov-city">+500 Kota</div><div class="cov-province">Seluruh Indonesia</div></div></div>
+    </div>
+    <div class="cov-badge-list reveal">
+      <div class="cov-badge">
+        <span class="cov-badge-icon">🚛</span>
+        <div>
+          <h4>Jalur Darat</h4>
+          <p>Armada truk box, fuso, CDD, dan pickup untuk pengiriman antar kota di Jawa, Sumatera, Kalimantan, dan Sulawesi.</p>
+        </div>
+      </div>
+      <div class="cov-badge">
+        <span class="cov-badge-icon">🚢</span>
+        <div>
+          <h4>Jalur Laut</h4>
+          <p>Pengiriman kontainer 20ft & 40ft ke seluruh pelabuhan Indonesia — Jawa, Kalimantan, Sulawesi, Maluku, Papua, dan NTT.</p>
+        </div>
+      </div>
+      <div class="cov-badge">
+        <span class="cov-badge-icon">✈️</span>
+        <div>
+          <h4>Jalur Udara</h4>
+          <p>Untuk kiriman urgent dengan jangkauan seluruh kota ber-bandara di Indonesia. Tiba dalam 1×24 jam.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section id="cta-band">
+  <div class="cta-text">
+    <h2>Siap Pindah? Hubungi Kami Sekarang & Dapatkan Survei Gratis</h2>
+    <p>Tim kami merespons dalam 5 menit. Tidak ada kewajiban — survei dan penawaran 100% gratis.</p>
+  </div>
+  <div class="cta-form-w">
+    <input class="cta-input" type="text" placeholder="Nama Anda"/>
+    <input class="cta-input" type="tel" placeholder="Nomor WhatsApp"/>
+    <button class="cta-btn-w" onclick="alert('Terima kasih! Tim GarudaMove akan menghubungi Anda dalam 5 menit. 🚚')">Minta Survei Gratis →</button>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo" style="margin-bottom:.5rem">
+        <div class="logo-mark">🚚</div>
+        <span class="logo-text">Garuda<span>Move</span></span>
+      </div>
+      <p class="footer-desc">Jasa pindahan & ekspedisi terpercaya sejak 2012. Melayani 34 provinsi dengan 150+ armada modern dan tim profesional bersertifikat.</p>
+      <div class="footer-certif">
+        <div class="certif-item"><span class="certif-dot"></span>Anggota APJLL (Asosiasi Perusahaan Jasa Logistik & Pengiriman)</div>
+        <div class="certif-item"><span class="certif-dot"></span>Terdaftar & berizin Kementerian Perhubungan RI</div>
+        <div class="certif-item"><span class="certif-dot"></span>ISO 9001:2015 — Manajemen Mutu Layanan</div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Layanan</h5>
+      <ul>
+        <li><a href="#">Pindahan Rumah</a></li>
+        <li><a href="#">Relokasi Kantor</a></li>
+        <li><a href="#">Pengiriman Barang</a></li>
+        <li><a href="#">Jasa Packing</a></li>
+        <li><a href="#">Sewa Gudang</a></li>
+        <li><a href="#">Kirim Kendaraan</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Perusahaan</h5>
+      <ul>
+        <li><a href="#">Tentang GarudaMove</a></li>
+        <li><a href="#">Tim & Manajemen</a></li>
+        <li><a href="#">Karir</a></li>
+        <li><a href="#">Blog & Tips Pindahan</a></li>
+        <li><a href="#">Kemitraan</a></li>
+        <li><a href="#">Hubungi Kami</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Kontak</h5>
+      <ul>
+        <li><a href="#">📞 0800-1234-567 (Bebas Pulsa)</a></li>
+        <li><a href="#">💬 WA: 0812-3456-7890</a></li>
+        <li><a href="#">✉️ cs@garudamove.id</a></li>
+        <li><a href="#">📍 Jl. Logistik Raya No. 88, Jakarta Barat</a></li>
+        <li><a href="#">🕐 24 Jam / 7 Hari</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 GarudaMove Indonesia. Seluruh hak cipta dilindungi undang-undang.</p>
+    <div class="footer-links">
+      <a href="#">Kebijakan Privasi</a>
+      <a href="#">Syarat & Ketentuan</a>
+      <a href="#">Klaim Asuransi</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WA Float -->
+<a class="wa-float" href="https://wa.me/6281234567890?text=Halo+GarudaMove,+saya+ingin+tanya+layanan+pindahan!" target="_blank" title="Chat WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+/* ── NAV ── */
+let navOpen = false;
+function toggleNav() {
+  navOpen = !navOpen;
+  const ul = document.querySelector('.nav-links');
+  if (!ul) return;
+  ul.style.cssText = navOpen
+    ? 'display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:#1C1917;padding:1.5rem 5%;gap:1.2rem;z-index:299;border-bottom:1px solid rgba(249,115,22,.2);'
+    : '';
+}
+
+/* ── SCROLL REVEAL ── */
+const revEls = document.querySelectorAll('.reveal');
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+revEls.forEach(el => revObs.observe(el));
+
+/* ── KALKULATOR ── */
+const JARAK = {
+  jakarta:    { bandung:150, surabaya:800, medan:1800, bali:1200, makassar:2500, semarang:450, yogyakarta:560 },
+  bandung:    { jakarta:150, surabaya:700, medan:1900, bali:1300, makassar:2600, semarang:320, yogyakarta:420 },
+  surabaya:   { jakarta:800, bandung:700, medan:2300, bali:350, makassar:1700, semarang:350, yogyakarta:310 },
+  medan:      { jakarta:1800, bandung:1900, surabaya:2300, bali:2600, makassar:3000, semarang:2000, yogyakarta:2100 },
+  bali:       { jakarta:1200, bandung:1300, surabaya:350, medan:2600, makassar:1400, semarang:950, yogyakarta:800 },
+  makassar:   { jakarta:2500, bandung:2600, surabaya:1700, medan:3000, bali:1400, semarang:2000, yogyakarta:1900 },
+  semarang:   { jakarta:450, bandung:320, surabaya:350, medan:2000, bali:950, makassar:2000, yogyakarta:130 },
+  yogyakarta: { jakarta:560, bandung:420, surabaya:310, medan:2100, bali:800, makassar:1900, semarang:130 },
+};
+const VOLUME_BASE = { kost:400000, type36:800000, type45:1300000, type70:2000000, besar:3500000 };
+const LAYANAN_MULT = { rumah:1, kantor:1.3, ekspedisi:0.7, kendaraan:1.5 };
+const LANTAI_ADD = { '1':0, '2':200000, '3':450000 };
+const TAMBAHAN_ADD = { none:0, packing:500000, storage:800000, both:1200000 };
+
+function fmt(n) { return 'Rp ' + n.toLocaleString('id-ID'); }
+function getJarak(a, b) { if (a === b) return 0; return (JARAK[a] && JARAK[a][b]) ? JARAK[a][b] : 1000; }
+
+function hitungBiaya() {
+  const a = document.getElementById('kotaAsal').value;
+  const b = document.getElementById('kotaTujuan').value;
+  const layanan = document.getElementById('jenisLayanan').value;
+  const rumah = document.getElementById('jenisRumah').value;
+  const lantai = document.getElementById('lantai').value;
+  const tambahan = document.getElementById('tambahan').value;
+
+  if (!a || !b) { alert('Pilih kota asal dan tujuan terlebih dahulu!'); return; }
+  if (a === b) { alert('Kota asal dan tujuan tidak boleh sama!'); return; }
+
+  const jarak = getJarak(a, b);
+  const baseVol = VOLUME_BASE[rumah] || 800000;
+  const multLayanan = LAYANAN_MULT[layanan] || 1;
+  const jarakMult = jarak < 200 ? 1 : jarak < 500 ? 1.4 : jarak < 1000 ? 2 : jarak < 2000 ? 3 : 4.5;
+  const biayaAngkut = Math.round(baseVol * multLayanan * jarakMult / 50000) * 50000;
+  const biayaLantai = LANTAI_ADD[lantai] || 0;
+  const biayaTambahan = TAMBAHAN_ADD[tambahan] || 0;
+  const total = biayaAngkut + biayaLantai + biayaTambahan;
+
+  const kotaLabel = { jakarta:'Jakarta', bandung:'Bandung', surabaya:'Surabaya', medan:'Medan', bali:'Bali', makassar:'Makassar', semarang:'Semarang', yogyakarta:'Yogyakarta' };
+  const layananLabel = { rumah:'Pindahan Rumah', kantor:'Relokasi Kantor', ekspedisi:'Pengiriman Barang', kendaraan:'Kirim Kendaraan' };
+  const tambahanLabel = { none:'Tidak Ada', packing:'Jasa Packing', storage:'Sewa Gudang 1 Bln', both:'Packing + Gudang' };
+
+  document.getElementById('resRute').textContent = `${kotaLabel[a]} → ${kotaLabel[b]} (${jarak} km)`;
+  document.getElementById('resLayanan').textContent = layananLabel[layanan];
+  document.getElementById('resAngkut').textContent = fmt(biayaAngkut);
+  document.getElementById('resLantai').textContent = biayaLantai === 0 ? 'Gratis' : fmt(biayaLantai);
+  document.getElementById('resTambahan').textContent = biayaTambahan === 0 ? '—' : fmt(biayaTambahan);
+  document.getElementById('resTotal').textContent = fmt(total);
+
+  document.getElementById('resultPlaceholder').style.display = 'none';
+  document.getElementById('resultRows').style.display = 'flex';
+  document.getElementById('resultTotalRow').style.display = 'flex';
+  document.getElementById('resultCta').style.display = 'block';
+}
+</script>
+</body>
+</html>

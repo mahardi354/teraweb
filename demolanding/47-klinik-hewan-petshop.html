@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Satwa Sehat — Klinik Hewan & Pet Shop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pine:#1F3A30;
+    --pine-light:#2E5645;
+    --pine-pale:#E4ECE6;
+    --paper:#FBF6EC;
+    --mist:#F1EBDD;
+    --coral:#FF6F4D;
+    --coral-dark:#E0552F;
+    --butter:#FFC857;
+    --ink:#1C2420;
+    --ink-soft:#56625B;
+    --white:#FFFFFF;
+    --radius-lg:28px;
+    --radius-md:18px;
+    --radius-sm:12px;
+    --shadow-soft:0 18px 40px -18px rgba(28,36,32,0.25);
+    --shadow-tight:0 8px 20px -10px rgba(28,36,32,0.3);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Plus Jakarta Sans',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3,h4{
+    font-family:'Baloo 2',sans-serif;
+    margin:0 0 .4em;
+    line-height:1.15;
+    color:var(--pine);
+  }
+  p{margin:0 0 1em;color:var(--ink-soft);}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    font-size:.78rem;color:var(--coral-dark);
+    background:#FFEDE6;padding:6px 14px;border-radius:999px;
+    margin-bottom:14px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.98rem;
+    padding:14px 26px;border-radius:999px;border:none;cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease, background .2s ease;
+  }
+  .btn:focus-visible{outline:3px solid var(--butter);outline-offset:2px;}
+  .btn-primary{background:var(--coral);color:#fff;box-shadow:var(--shadow-tight);}
+  .btn-primary:hover{background:var(--coral-dark);transform:translateY(-2px);}
+  .btn-ghost{background:transparent;color:var(--pine);border:2px solid var(--pine);}
+  .btn-ghost:hover{background:var(--pine);color:#fff;transform:translateY(-2px);}
+  .btn-light{background:#fff;color:var(--pine);}
+  .btn-light:hover{background:var(--butter);transform:translateY(-2px);}
+  @media (prefers-reduced-motion: reduce){
+    .btn,*{transition:none !important;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,246,236,0.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(31,58,48,0.08);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;max-width:1180px;margin:0 auto;
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Baloo 2',sans-serif;font-weight:800;font-size:1.3rem;color:var(--pine);
+  }
+  .logo span.paw{font-size:1.5rem;}
+  .nav-links{display:flex;gap:30px;align-items:center;}
+  .nav-links a{font-weight:600;font-size:.95rem;color:var(--ink);padding:6px 2px;border-bottom:2px solid transparent;}
+  .nav-links a:hover{border-color:var(--coral);}
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .burger{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .burger span{display:block;width:26px;height:3px;background:var(--pine);margin:5px 0;border-radius:2px;}
+  @media (max-width:860px){
+    .nav-links{
+      position:absolute;top:100%;left:0;right:0;
+      background:var(--paper);flex-direction:column;gap:0;
+      max-height:0;overflow:hidden;transition:max-height .3s ease;
+      border-bottom:1px solid rgba(31,58,48,0.08);
+    }
+    .nav-links.open{max-height:340px;}
+    .nav-links a{width:100%;padding:16px 24px;border-bottom:1px solid rgba(31,58,48,.06);}
+    .burger{display:block;}
+    .nav-cta .btn-ghost{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{padding:64px 0 40px;}
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;
+  }
+  .hero h1{font-size:clamp(2.2rem,4.2vw,3.4rem);}
+  .hero h1 em{font-style:normal;color:var(--coral);}
+  .hero p.lead{font-size:1.12rem;max-width:520px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px;}
+  .hero-art{position:relative;}
+  .hero-art img{
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-soft);
+    aspect-ratio:4/4.6;object-fit:cover;width:100%;
+  }
+  .float-card{
+    position:absolute;background:#fff;border-radius:var(--radius-md);
+    box-shadow:var(--shadow-soft);padding:14px 18px;
+    display:flex;align-items:center;gap:10px;font-weight:700;font-size:.92rem;
+  }
+  .float-card.status{bottom:-22px;left:-22px;color:var(--pine);}
+  .float-card.status .dot{width:10px;height:10px;border-radius:50%;background:#34C77B;box-shadow:0 0 0 4px rgba(52,199,123,.25);}
+  .float-card.rating{top:24px;right:-20px;color:var(--ink);}
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:40px;}
+    .float-card{position:static;display:inline-flex;margin-top:14px;margin-right:10px;}
+    .hero-art img{aspect-ratio:16/11;}
+  }
+
+  /* ---------- STATS ---------- */
+  .stats{background:var(--pine);color:#fff;padding:34px 0;}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;}
+  .stats-grid b{display:block;font-family:'Baloo 2',sans-serif;font-size:1.9rem;color:var(--butter);}
+  .stats-grid span{font-size:.85rem;color:#D9E3DC;}
+  @media (max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr);row-gap:26px;}}
+
+  /* ---------- DIVIDER (signature) ---------- */
+  .divider{padding:30px 0 0;}
+  .divider svg{display:block;width:100%;height:46px;}
+  .divider path,.divider polyline{
+    stroke:var(--pine-light);stroke-width:2.5;fill:none;
+    stroke-linecap:round;stroke-linejoin:round;
+    opacity:.55;
+  }
+  .divider circle{fill:var(--coral);}
+
+  /* ---------- SECTION HEADS ---------- */
+  section{padding:74px 0;}
+  .sec-head{max-width:680px;margin-bottom:46px;}
+  .sec-head h2{font-size:clamp(1.7rem,3vw,2.4rem);}
+
+  /* ---------- SERVICES ---------- */
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .svc-card{
+    background:#fff;border-radius:var(--radius-md);overflow:hidden;
+    box-shadow:var(--shadow-tight);transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .svc-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft);}
+  .svc-card img{width:100%;height:170px;object-fit:cover;}
+  .svc-body{padding:22px 22px 26px;}
+  .svc-tag{font-size:1.5rem;}
+  .svc-body h3{font-size:1.15rem;margin:10px 0 8px;}
+  .svc-body p{font-size:.93rem;margin:0;}
+  @media (max-width:980px){.svc-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:620px){.svc-grid{grid-template-columns:1fr;}}
+
+  /* ---------- PRICING ---------- */
+  .price-section{background:var(--mist);}
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .price-card{
+    background:#fff;border-radius:var(--radius-md);padding:30px 26px;
+    box-shadow:var(--shadow-tight);border:2px solid transparent;
+  }
+  .price-card.popular{border-color:var(--coral);position:relative;}
+  .price-card.popular::before{
+    content:"Paling Diminati";position:absolute;top:-14px;right:22px;
+    background:var(--coral);color:#fff;font-size:.72rem;font-weight:800;
+    padding:5px 12px;border-radius:999px;letter-spacing:.03em;
+  }
+  .price-card h3{font-size:1.1rem;margin-bottom:4px;}
+  .price-card .amt{font-family:'Baloo 2',sans-serif;font-size:2rem;color:var(--pine);margin:6px 0 14px;}
+  .price-card .amt small{font-size:.85rem;color:var(--ink-soft);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;}
+  .price-card ul{list-style:none;padding:0;margin:0 0 20px;}
+  .price-card li{padding:7px 0;border-top:1px solid #EFEAE0;font-size:.92rem;color:var(--ink-soft);display:flex;gap:8px;}
+  .price-card li:first-child{border-top:none;}
+  .price-card li::before{content:"✓";color:var(--coral);font-weight:800;}
+  @media (max-width:900px){.price-grid{grid-template-columns:1fr;}}
+
+  /* ---------- PRODUCTS ---------- */
+  .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .prod-card{border-radius:var(--radius-md);overflow:hidden;background:#fff;box-shadow:var(--shadow-tight);}
+  .prod-card img{width:100%;height:190px;object-fit:cover;}
+  .prod-info{padding:16px 16px 20px;}
+  .prod-info .cat{font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;font-weight:700;color:var(--ink-soft);}
+  .prod-info h4{margin:6px 0 6px;font-size:1rem;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:var(--ink);}
+  .prod-info .price{color:var(--coral-dark);font-weight:800;}
+  @media (max-width:980px){.prod-grid{grid-template-columns:repeat(2,1fr);}}
+
+  /* ---------- TEAM IN ACTION ---------- */
+  .team-section{background:var(--pine);color:#fff;}
+  .team-section .sec-head h2,.team-section .eyebrow{color:#fff;}
+  .team-section .eyebrow{background:rgba(255,255,255,.12);color:var(--butter);}
+  .team-section p{color:#CFE0D6;}
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .team-card{border-radius:var(--radius-md);overflow:hidden;position:relative;}
+  .team-card img{width:100%;height:280px;object-fit:cover;}
+  .team-card .cap{
+    position:absolute;left:0;right:0;bottom:0;padding:18px 18px 16px;
+    background:linear-gradient(to top, rgba(15,26,21,.85), transparent);
+    color:#fff;font-weight:700;font-size:.95rem;
+  }
+  .team-card .cap small{display:block;font-weight:500;font-size:.8rem;color:#D9E3DC;}
+  @media (max-width:860px){.team-grid{grid-template-columns:1fr;}}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testi-scroll{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;}
+  .testi-card{
+    scroll-snap-align:start;flex:0 0 320px;background:#fff;border-radius:var(--radius-md);
+    padding:26px;box-shadow:var(--shadow-tight);
+  }
+  .testi-stars{color:var(--butter);font-size:1rem;letter-spacing:2px;margin-bottom:10px;}
+  .testi-card p{font-style:italic;color:var(--ink);}
+  .testi-who{display:flex;align-items:center;gap:10px;margin-top:14px;}
+  .testi-avatar{width:38px;height:38px;border-radius:50%;background:var(--pine-pale);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--pine);}
+  .testi-who b{font-size:.92rem;display:block;}
+  .testi-who span{font-size:.78rem;color:var(--ink-soft);}
+
+  /* ---------- FAQ ---------- */
+  .faq-wrap{max-width:760px;margin:0 auto;}
+  details{
+    background:#fff;border-radius:var(--radius-sm);padding:18px 22px;margin-bottom:12px;
+    box-shadow:var(--shadow-tight);
+  }
+  summary{font-weight:700;cursor:pointer;font-size:1rem;color:var(--pine);list-style:none;display:flex;justify-content:space-between;align-items:center;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";font-size:1.4rem;color:var(--coral);}
+  details[open] summary::after{content:"–";}
+  details p{margin:12px 0 0;font-size:.95rem;}
+
+  /* ---------- BOOKING FORM ---------- */
+  .book-section{background:var(--mist);}
+  .book-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:start;}
+  .book-info-card{
+    background:var(--pine);color:#fff;border-radius:var(--radius-lg);padding:34px;
+  }
+  .book-info-card h3{color:#fff;font-size:1.3rem;}
+  .book-info-card p{color:#CFE0D6;}
+  .book-info-list{list-style:none;padding:0;margin:18px 0 0;}
+  .book-info-list li{display:flex;gap:12px;padding:10px 0;border-top:1px solid rgba(255,255,255,.15);font-size:.92rem;}
+  .book-info-list li:first-child{border-top:none;}
+  form.booking{
+    background:#fff;border-radius:var(--radius-lg);padding:34px;box-shadow:var(--shadow-soft);
+    display:grid;gap:16px;
+  }
+  .field{display:grid;gap:6px;}
+  .field label{font-size:.85rem;font-weight:700;color:var(--pine);}
+  .field input,.field select,.field textarea{
+    font-family:'Plus Jakarta Sans',sans-serif;font-size:.96rem;padding:12px 14px;
+    border-radius:var(--radius-sm);border:1.5px solid #DDD5C2;background:var(--paper);
+    color:var(--ink);
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--coral);border-color:var(--coral);}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  form.booking .btn{width:100%;margin-top:6px;}
+  @media (max-width:900px){.book-grid{grid-template-columns:1fr;}.field-row{grid-template-columns:1fr;}}
+
+  /* ---------- LOCATION ---------- */
+  .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+  .loc-card{background:#fff;border-radius:var(--radius-md);padding:30px;box-shadow:var(--shadow-tight);}
+  .loc-card h3{font-size:1.1rem;margin-bottom:14px;}
+  .hours-row{display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid #EFEAE0;font-size:.92rem;}
+  .hours-row:first-child{border-top:none;}
+  .map-pin{
+    background:linear-gradient(135deg,var(--pine),var(--pine-light));border-radius:var(--radius-md);
+    color:#fff;padding:30px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+    min-height:260px;position:relative;overflow:hidden;
+  }
+  .map-pin .pin-icon{font-size:2.4rem;margin-bottom:10px;}
+  .map-pin h3{color:#fff;}
+  .map-pin p{color:#D9E3DC;}
+  @media (max-width:860px){.loc-grid{grid-template-columns:1fr;}}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#15251D;color:#C9D6CD;padding:54px 0 24px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;margin-bottom:36px;}
+  .foot-grid h4{color:#fff;font-size:1rem;margin-bottom:14px;}
+  .foot-grid ul{list-style:none;padding:0;margin:0;display:grid;gap:9px;font-size:.9rem;}
+  .foot-grid ul a:hover{color:var(--butter);}
+  .foot-logo{display:flex;align-items:center;gap:8px;color:#fff;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:1.2rem;margin-bottom:10px;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem;}
+  @media (max-width:860px){.foot-grid{grid-template-columns:1fr 1fr;}}
+
+  /* ---------- WHATSAPP FAB ---------- */
+  .wa-fab{
+    position:fixed;bottom:22px;right:22px;z-index:60;
+    width:60px;height:60px;border-radius:50%;background:#25D366;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 12px 28px -8px rgba(0,0,0,.35);font-size:1.7rem;
+  }
+  .wa-fab:hover{transform:scale(1.07);}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.show{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo"><span class="paw">🐾</span> Satwa Sehat</div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#layanan">Layanan</a>
+      <a href="#harga">Harga Grooming</a>
+      <a href="#produk">Pet Shop</a>
+      <a href="#testimoni">Testimoni</a>
+      <a href="#booking">Booking</a>
+      <a href="#lokasi">Lokasi</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#booking" class="btn btn-ghost">Booking Sekarang</a>
+      <button class="burger" id="burgerBtn" aria-label="Buka menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">🏥 Klinik Hewan & Pet Shop</span>
+      <h1>Karena si kecil berbulu juga berhak <em>sehat</em> dan bahagia.</h1>
+      <p class="lead">Dari periksa rutin, vaksin, grooming, sampai belanja camilan favoritnya—semua kebutuhan hewan peliharaanmu ada di satu tempat, ditangani tim yang sayang binatang seperti kamu.</p>
+      <div class="hero-ctas">
+        <a href="#booking" class="btn btn-primary">📅 Booking Konsultasi</a>
+        <a href="#produk" class="btn btn-ghost">Lihat Pet Shop →</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="https://images.unsplash.com/photo-1611173622933-91942d394b04?auto=format&fit=crop&w=1100&q=80" alt="Anjing pomeranian dimandikan dengan handuk lembut di klinik">
+      <div class="float-card status"><span class="dot"></span> Buka Sekarang · Tutup 20.00</div>
+      <div class="float-card rating">⭐ 4.9/5 · 1.250+ ulasan</div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap stats-grid">
+    <div><b>12+</b><span>Tahun melayani</span></div>
+    <div><b>9.000+</b><span>Pasien dirawat</span></div>
+    <div><b>4.9/5</b><span>Rating pelanggan</span></div>
+    <div><b>24/7</b><span>Layanan darurat</span></div>
+  </div>
+</div>
+
+<div class="divider"><svg viewBox="0 0 1180 46" preserveAspectRatio="none">
+  <polyline points="0,23 260,23 300,23 320,4 340,42 360,23 420,23 470,23 492,12 506,34 520,23 600,23"/>
+  <path d="M640 23 q14 -14 28 0 q14 -14 28 0 q-14 24 -28 30 q-14 -6 -28 -30 Z"/>
+  <circle cx="668" cy="23" r="3"/>
+  <polyline points="730,23 1180,23"/>
+</svg></div>
+
+<section id="layanan">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Layanan Kami</span>
+      <h2>Satu atap, semua kebutuhan—dari jarum suntik sampai jajan kucing.</h2>
+      <p>Tim dokter hewan dan groomer bersertifikat siap menangani si kecil dengan sabar, lembut, dan tanpa drama.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal">
+        <img src="https://images.unsplash.com/photo-1725409796872-8b41e8eca929?auto=format&fit=crop&w=700&q=75" alt="Dokter hewan memeriksa anak kucing putih">
+        <div class="svc-body"><span class="svc-tag">🩺</span><h3>Periksa & Konsultasi</h3><p>Diagnosis dari batuk ringan sampai keluhan serius, lengkap dengan rekomendasi penanganan.</p></div>
+      </div>
+      <div class="svc-card reveal">
+        <img src="https://images.unsplash.com/photo-1654895716780-b4664497420d?auto=format&fit=crop&w=700&q=75" alt="Tangan dokter memegang anjing dengan lembut">
+        <div class="svc-body"><span class="svc-tag">💉</span><h3>Vaksinasi & Imunisasi</h3><p>Paket vaksin lengkap sesuai usia dan jenis hewan, dengan kartu rekam medis pribadi.</p></div>
+      </div>
+      <div class="svc-card reveal">
+        <img src="https://images.unsplash.com/photo-1719464454959-9cf304ef4774?auto=format&fit=crop&w=700&q=75" alt="Anjing kecil sedang dirapikan bulunya">
+        <div class="svc-body"><span class="svc-tag">✂️</span><h3>Grooming & Spa</h3><p>Mandi, potong bulu, sampai pijat relaksasi—pulang wangi, rapi, dan jauh lebih rileks.</p></div>
+      </div>
+      <div class="svc-card reveal">
+        <img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=700&q=75" alt="Anjing bermain bola di area penitipan">
+        <div class="svc-body"><span class="svc-tag">🏠</span><h3>Pet Hotel & Penitipan</h3><p>Titip aman saat kamu traveling, lengkap dengan update foto dan video harian.</p></div>
+      </div>
+      <div class="svc-card reveal">
+        <img src="https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?auto=format&fit=crop&w=700&q=75" alt="Aneka mainan tulang berwarna-warni">
+        <div class="svc-body"><span class="svc-tag">🛍️</span><h3>Pet Shop</h3><p>Pakan, snack, kandang, sampai mainan dari brand-brand yang sudah kami uji sendiri.</p></div>
+      </div>
+      <div class="svc-card reveal">
+        <img src="https://images.unsplash.com/photo-1599443015574-be5fe8a05783?auto=format&fit=crop&w=700&q=75" alt="Anjing memakai kerah pelindung pasca tindakan">
+        <div class="svc-body"><span class="svc-tag">🛏️</span><h3>Rawat Inap & Tindakan</h3><p>Fasilitas rawat inap dan tindakan medis dengan pengawasan tim selama 24 jam.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="price-section" id="harga">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Harga Grooming</span>
+      <h2>Paket grooming, transparan tanpa biaya tersembunyi.</h2>
+      <p>Semua paket sudah termasuk produk perawatan ramah kulit hewan. Harga dapat menyesuaikan kondisi bulu.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card reveal">
+        <h3>Grooming Kucing</h3>
+        <div class="amt">Rp85.000<small> /sesi</small></div>
+        <ul><li>Mandi & keringkan</li><li>Sikat bulu</li><li>Potong kuku</li><li>Bersihkan telinga</li></ul>
+        <a href="#booking" class="btn btn-ghost" style="width:100%;">Pilih Paket</a>
+      </div>
+      <div class="price-card popular reveal">
+        <h3>Anjing Kecil &lt;10kg</h3>
+        <div class="amt">Rp120.000<small> /sesi</small></div>
+        <ul><li>Mandi & keringkan</li><li>Potong & rapikan bulu</li><li>Potong kuku</li><li>Parfum hewan</li></ul>
+        <a href="#booking" class="btn btn-primary" style="width:100%;">Pilih Paket</a>
+      </div>
+      <div class="price-card reveal">
+        <h3>Anjing Besar &gt;10kg</h3>
+        <div class="amt">Rp180.000<small> /sesi</small></div>
+        <ul><li>Mandi & keringkan</li><li>Potong & rapikan bulu</li><li>Potong kuku</li><li>Pijat relaksasi</li></ul>
+        <a href="#booking" class="btn btn-ghost" style="width:100%;">Pilih Paket</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="produk">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Pet Shop</span>
+      <h2>Belanja kebutuhan hariannya, sekalian periksa kesehatannya.</h2>
+      <p>Beberapa produk favorit pelanggan kami minggu ini.</p>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card reveal">
+        <img src="https://images.unsplash.com/photo-1632239484316-e0f0a6fba583?auto=format&fit=crop&w=500&q=75" alt="Dua kucing di atas cat tree">
+        <div class="prod-info"><span class="cat">Furniture Kucing</span><h4>Cat Tree Premium 3 Level</h4><span class="price">Rp349.000</span></div>
+      </div>
+      <div class="prod-card reveal">
+        <img src="https://images.unsplash.com/photo-1630438994394-3deff7a591bf?auto=format&fit=crop&w=500&q=75" alt="Anjing memakai baju polkadot">
+        <div class="prod-info"><span class="cat">Apparel</span><h4>Baju Hangat Anjing</h4><span class="price">Rp95.000</span></div>
+      </div>
+      <div class="prod-card reveal">
+        <img src="https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?auto=format&fit=crop&w=500&q=75" alt="Mainan tulang berwarna-warni">
+        <div class="prod-info"><span class="cat">Mainan</span><h4>Paket Mainan Gigit 5pcs</h4><span class="price">Rp65.000</span></div>
+      </div>
+      <div class="prod-card reveal">
+        <img src="https://images.unsplash.com/photo-1597843786411-a7fa8ad44a95?auto=format&fit=crop&w=500&q=75" alt="Wadah penyimpanan pakan hewan">
+        <div class="prod-info"><span class="cat">Pakan</span><h4>Dry Food Premium 1kg</h4><span class="price">Rp78.000</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team-section">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Tim Kami</span>
+      <h2>Setiap pasien diperlakukan seperti keluarga sendiri.</h2>
+      <p>Sabar, teliti, dan selalu update kondisi hewanmu—bukan cuma soal obat dan suntikan.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <img src="https://images.unsplash.com/photo-1415369629372-26f2fe60c467?auto=format&fit=crop&w=600&q=75" alt="Kucing menyentuh telapak tangan pemiliknya">
+        <div class="cap">drh. Nadia Putri<small>Dokter Hewan Utama</small></div>
+      </div>
+      <div class="team-card reveal">
+        <img src="https://images.unsplash.com/photo-1581887936036-3f4f7f0b6679?auto=format&fit=crop&w=600&q=75" alt="Anjing sedang dirawat dengan handuk biru">
+        <div class="cap">Reza Pratama<small>Groomer Bersertifikat</small></div>
+      </div>
+      <div class="team-card reveal">
+        <img src="https://images.unsplash.com/photo-1505628346881-b72b27e84530?auto=format&fit=crop&w=600&q=75" alt="Anjing berbulu panjang yang sehat dan terawat">
+        <div class="cap">Sinta Amelia<small>Pet Hotel Supervisor</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimoni">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Testimoni</span>
+      <h2>Apa kata pelanggan kami?</h2>
+    </div>
+    <div class="testi-scroll">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Kucingku yang biasanya takut groomer, jadi tenang banget di sini. Hasil potong bulunya juga rapi sekali."</p>
+        <div class="testi-who"><div class="testi-avatar">D</div><div><b>Dian K.</b><span>Pelanggan sejak 2022</span></div></div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Dokternya sabar jelasin kondisi anjingku sampai detail. Nggak buru-buru, dan harganya jujur."</p>
+        <div class="testi-who"><div class="testi-avatar">A</div><div><b>Andra W.</b><span>Pelanggan sejak 2021</span></div></div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Pet hotel-nya kasih update foto setiap hari, jadi tetap tenang walau lagi dinas luar kota."</p>
+        <div class="testi-who"><div class="testi-avatar">M</div><div><b>Maya S.</b><span>Pelanggan sejak 2023</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>Pertanyaan yang sering ditanyakan.</h2>
+    </div>
+    <div class="faq-wrap">
+      <details class="reveal" open>
+        <summary>Apakah harus booking dulu sebelum datang?</summary>
+        <p>Disarankan booking via WhatsApp atau form di bawah agar tidak perlu menunggu lama, terutama untuk grooming dan konsultasi dokter. Untuk kondisi darurat, silakan langsung datang.</p>
+      </details>
+      <details class="reveal">
+        <summary>Apakah ada layanan darurat di luar jam operasional?</summary>
+        <p>Ya, kami menyediakan hotline darurat 24 jam untuk kondisi gawat seperti kecelakaan atau muntah-mencret parah. Hubungi nomor WhatsApp utama kami.</p>
+      </details>
+      <details class="reveal">
+        <summary>Apakah produk di pet shop bisa dipesan dan diantar?</summary>
+        <p>Bisa. Kamu bisa memesan via WhatsApp dan kami antar ke area sekitar klinik dengan biaya kirim sesuai jarak.</p>
+      </details>
+      <details class="reveal">
+        <summary>Jenis hewan apa saja yang bisa ditangani?</summary>
+        <p>Kami menangani kucing, anjing, kelinci, hamster, dan beberapa jenis burung. Untuk reptil dan hewan eksotis, silakan konsultasi dulu via WhatsApp.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="book-section" id="booking">
+  <div class="wrap book-grid">
+    <div class="book-info-card reveal">
+      <span class="eyebrow" style="background:rgba(255,255,255,.15);color:var(--butter);">Booking Konsultasi</span>
+      <h3>Isi form, kami konfirmasi via WhatsApp dalam hitungan menit.</h3>
+      <p>Pilih layanan, tanggal, dan ceritakan keluhannya. Tim kami akan menghubungimu untuk konfirmasi jadwal.</p>
+      <ul class="book-info-list">
+        <li>📍 Jl. Kaliurang KM 7, Sleman, Yogyakarta</li>
+        <li>🕒 Setiap hari, 08.00 – 20.00 WIB</li>
+        <li>📞 +62 812-3456-7890</li>
+      </ul>
+    </div>
+    <form class="booking reveal" id="bookingForm">
+      <div class="field">
+        <label for="nama">Nama Pemilik</label>
+        <input type="text" id="nama" required placeholder="Nama lengkap kamu">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="hewan">Jenis Hewan</label>
+          <select id="hewan">
+            <option>Kucing</option><option>Anjing</option><option>Kelinci</option><option>Hamster</option><option>Burung</option><option>Lainnya</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="layanan">Layanan</label>
+          <select id="layanan">
+            <option>Periksa & Konsultasi</option><option>Vaksinasi</option><option>Grooming & Spa</option><option>Pet Hotel</option><option>Lainnya</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="tanggal">Tanggal yang Diinginkan</label>
+        <input type="date" id="tanggal">
+      </div>
+      <div class="field">
+        <label for="catatan">Catatan / Keluhan</label>
+        <textarea id="catatan" rows="3" placeholder="Ceritakan kondisi hewanmu secara singkat"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Kirim via WhatsApp →</button>
+    </form>
+  </div>
+</section>
+
+<section id="lokasi">
+  <div class="wrap loc-grid">
+    <div class="map-pin reveal">
+      <div class="pin-icon">📍</div>
+      <h3>Satwa Sehat Klinik & Pet Shop</h3>
+      <p>Jl. Kaliurang KM 7, Sleman, Yogyakarta. Parkir luas, mudah dijangkau dari arah kota maupun kampus.</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=klinik+hewan+kaliurang+sleman" target="_blank" class="btn btn-light">Buka di Google Maps</a>
+    </div>
+    <div class="loc-card reveal">
+      <h3>Jam Operasional</h3>
+      <div class="hours-row"><span>Senin – Jumat</span><span>08.00 – 20.00</span></div>
+      <div class="hours-row"><span>Sabtu</span><span>08.00 – 21.00</span></div>
+      <div class="hours-row"><span>Minggu / Libur</span><span>09.00 – 18.00</span></div>
+      <div class="hours-row"><span>Layanan Darurat</span><span>24 Jam</span></div>
+    </div>
+  </div>
+</section>
+
+<a href="https://wa.me/6281234567890" target="_blank" class="wa-fab" aria-label="Chat WhatsApp">💬</a>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">🐾 Satwa Sehat</div>
+        <p style="color:#9DB1A4;font-size:.9rem;">Klinik hewan & pet shop terpercaya untuk si kecil berbulu kesayanganmu, sejak 2012.</p>
+      </div>
+      <div><h4>Navigasi</h4><ul><li><a href="#layanan">Layanan</a></li><li><a href="#produk">Pet Shop</a></li><li><a href="#testimoni">Testimoni</a></li><li><a href="#booking">Booking</a></li></ul></div>
+      <div><h4>Kontak</h4><ul><li>+62 812-3456-7890</li><li>halo@satwasehat.id</li><li>Sleman, Yogyakarta</li></ul></div>
+      <div><h4>Sosial Media</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li><li><a href="#">Facebook</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Satwa Sehat Klinik & Pet Shop. Semua hak dilindungi.</span>
+      <span>Demo website ini dibuat oleh [Nama Jasa Pembuatan Website Anda] · Foto: Unsplash</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burgerBtn');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
+  }));
+
+  document.getElementById('bookingForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const nama = document.getElementById('nama').value;
+    const hewan = document.getElementById('hewan').value;
+    const layanan = document.getElementById('layanan').value;
+    const tanggal = document.getElementById('tanggal').value || 'fleksibel';
+    const catatan = document.getElementById('catatan').value || '-';
+    const msg = `Halo Satwa Sehat, saya ${nama} ingin booking:%0ALayanan: ${layanan}%0AJenis Hewan: ${hewan}%0ATanggal: ${tanggal}%0ACatatan: ${catatan}`;
+    window.open(`https://wa.me/6281234567890?text=${msg}`, '_blank');
+  });
+
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
+    }, {threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('show'));
+  }
+</script>
+
+</body>
+</html>

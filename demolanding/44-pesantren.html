@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pondok Pesantren Al-Hikmah — Membentuk Generasi Berilmu & Berakhlak</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-dark: #1B4332;
+    --green: #2D6A4F;
+    --green-mid: #40916C;
+    --green-light: #74C69D;
+    --green-pale: #D8F3DC;
+    --sage: #B7E4C7;
+    --gold: #D4A017;
+    --gold-light: #F0C040;
+    --cream: #FAF6EF;
+    --cream-dark: #F0E8D8;
+    --text: #2C2416;
+    --muted: #6B7A6E;
+    --white: #FFFFFF;
+    --border: #D9E8DD;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
+
+  /* NAV */
+  nav {
+    background: var(--green-dark); position: sticky; top: 0; z-index: 100;
+    padding: 0 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo-wrap { display: flex; align-items: center; gap: 16px; padding: 16px 0; text-decoration: none; }
+  .logo-emblem {
+    width: 52px; height: 52px; border-radius: 50%;
+    border: 2px solid var(--gold); overflow: hidden; flex-shrink: 0;
+  }
+  .logo-emblem img { width: 100%; height: 100%; object-fit: cover; }
+  .logo-text-wrap { line-height: 1.1; }
+  .logo-ar { font-family: 'Amiri', serif; font-size: 1.1rem; color: var(--gold); letter-spacing: 1px; }
+  .logo-id { font-size: 0.78rem; color: rgba(255,255,255,0.8); font-weight: 600; letter-spacing: 0.3px; }
+  .logo-sub { font-size: 0.65rem; color: rgba(255,255,255,0.5); }
+  .nav-links { display: flex; list-style: none; }
+  .nav-links a {
+    font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.75);
+    text-decoration: none; padding: 20px 16px; display: block;
+    border-bottom: 3px solid transparent; transition: all 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--green-dark);
+    padding: 10px 24px; font-size: 0.82rem; font-weight: 800;
+    text-decoration: none; border-radius: 6px; transition: all 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 92vh; position: relative;
+    display: flex; align-items: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1591560990861-697d7b48c440?w=1600&q=80');
+    background-size: cover; background-position: center top;
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(27,67,50,0.92) 0%, rgba(27,67,50,0.7) 50%, rgba(27,67,50,0.3) 100%);
+  }
+  /* Arabesque pattern overlay */
+  .hero-pattern {
+    position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 80px 60px; max-width: 750px;
+  }
+  .hero-arabic {
+    font-family: 'Amiri', serif; font-size: 2.2rem; color: var(--gold);
+    margin-bottom: 8px; letter-spacing: 2px; direction: rtl; text-align: left;
+  }
+  .hero-terjemah {
+    font-size: 0.8rem; color: rgba(255,255,255,0.6); font-style: italic;
+    margin-bottom: 36px; padding-left: 2px;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 800; color: var(--white);
+    line-height: 1.15; margin-bottom: 20px;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero p {
+    font-size: 1rem; color: rgba(255,255,255,0.8); max-width: 520px;
+    line-height: 1.9; margin-bottom: 40px;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-gold {
+    background: var(--gold); color: var(--green-dark);
+    padding: 14px 32px; font-size: 0.9rem; font-weight: 800;
+    text-decoration: none; border-radius: 8px; transition: all 0.25s;
+  }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline-white {
+    border: 2px solid rgba(255,255,255,0.5); color: var(--white);
+    padding: 14px 32px; font-size: 0.9rem; font-weight: 600;
+    text-decoration: none; border-radius: 8px; transition: all 0.25s;
+  }
+  .btn-outline-white:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-right {
+    position: absolute; right: 0; top: 0; bottom: 0; z-index: 2;
+    width: 380px; background: rgba(27,67,50,0.85);
+    backdrop-filter: blur(8px); border-left: 1px solid rgba(212,160,23,0.2);
+    padding: 48px 32px; display: flex; flex-direction: column; justify-content: center;
+  }
+  .info-strip { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .info-strip:last-child { border-bottom: none; margin-bottom: 0; }
+  .strip-icon { font-size: 1.6rem; margin-bottom: 10px; }
+  .strip-val { font-size: 1.8rem; font-weight: 800; color: var(--gold); line-height: 1; }
+  .strip-lbl { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+  /* SECTION */
+  section { padding: 88px 60px; }
+
+  /* TENTANG */
+  .tentang { background: var(--white); }
+  .tentang-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .tentang-images { position: relative; }
+  .img-main {
+    width: 100%; height: 420px; object-fit: cover;
+    border-radius: 16px; display: block;
+  }
+  .img-float {
+    position: absolute; bottom: -28px; right: -28px;
+    width: 180px; height: 180px; object-fit: cover;
+    border-radius: 12px; border: 4px solid var(--white);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+  .badge-founded {
+    position: absolute; top: 24px; left: 24px;
+    background: var(--gold); color: var(--green-dark);
+    padding: 10px 20px; border-radius: 8px;
+    font-size: 0.82rem; font-weight: 800;
+  }
+  .section-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 12px; }
+  .section-title { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; color: var(--text); line-height: 1.2; margin-bottom: 20px; }
+  .section-title span { color: var(--green); }
+  .section-text { font-size: 0.95rem; color: var(--muted); line-height: 1.9; }
+  .nilai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px; }
+  .nilai-item {
+    background: var(--green-pale); border-radius: 10px; padding: 20px;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .nilai-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .nilai-item h4 { font-size: 0.88rem; font-weight: 700; color: var(--green-dark); }
+  .nilai-item p { font-size: 0.78rem; color: var(--muted); margin-top: 2px; line-height: 1.6; }
+
+  /* PROGRAM */
+  .program { background: var(--cream); }
+  .program-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+  .program-card {
+    background: var(--white); border-radius: 16px; overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05); transition: all 0.3s;
+    border: 1.5px solid var(--border);
+  }
+  .program-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(45,106,79,0.12); }
+  .program-img { width: 100%; height: 200px; object-fit: cover; display: block; }
+  .program-body { padding: 28px; }
+  .program-level {
+    display: inline-block; background: var(--green-pale); color: var(--green-dark);
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 100px; margin-bottom: 12px;
+  }
+  .program-body h3 { font-size: 1.05rem; font-weight: 800; color: var(--text); margin-bottom: 8px; }
+  .program-body p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+  .program-meta { display: flex; gap: 16px; }
+  .meta-item { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--green); font-weight: 600; }
+
+  /* KEUNGGULAN */
+  .keunggulan { background: var(--green-dark); color: var(--white); }
+  .keunggulan .section-tag { color: var(--gold); }
+  .keunggulan .section-title { color: var(--white); }
+  .keunggulan .section-title span { color: var(--gold); }
+  .unggulan-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 56px; }
+  .unggulan-item {
+    display: flex; gap: 20px; padding: 28px;
+    background: rgba(255,255,255,0.05); border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08); transition: all 0.3s;
+  }
+  .unggulan-item:hover { background: rgba(255,255,255,0.09); }
+  .unggulan-icon {
+    width: 56px; height: 56px; flex-shrink: 0;
+    background: rgba(212,160,23,0.15); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; font-size: 1.6rem;
+  }
+  .unggulan-item h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; color: var(--sage); }
+  .unggulan-item p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+  /* GALERI */
+  .galeri { background: var(--cream); }
+  .gallery-layout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 220px 220px;
+    gap: 12px;
+    margin-top: 56px;
+  }
+  .gallery-layout img {
+    width: 100%; height: 100%; object-fit: cover; border-radius: 10px;
+    transition: all 0.3s; cursor: pointer;
+  }
+  .gallery-layout img:hover { transform: scale(1.02); box-shadow: 0 12px 32px rgba(0,0,0,0.15); }
+  .gallery-layout .g-wide { grid-column: span 2; }
+
+  /* PENDAFTARAN */
+  .pendaftaran { background: var(--white); }
+  .pendaftaran-inner { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: start; }
+  .pendaftaran-info .syarat-list { list-style: none; margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
+  .syarat-list li {
+    display: flex; align-items: flex-start; gap: 14px; padding: 16px;
+    background: var(--cream); border-radius: 10px; border-left: 3px solid var(--green);
+  }
+  .syarat-num {
+    width: 28px; height: 28px; border-radius: 50%; background: var(--green);
+    color: white; font-size: 0.78rem; font-weight: 800;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .syarat-list li p { font-size: 0.88rem; color: var(--text); line-height: 1.6; }
+  .form-card { background: var(--green-dark); border-radius: 20px; padding: 40px; }
+  .form-card h3 {
+    font-size: 1.2rem; font-weight: 700; color: var(--white);
+    margin-bottom: 28px; padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .f-group { margin-bottom: 18px; }
+  .f-group label { display: block; font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.7); margin-bottom: 8px; letter-spacing: 0.5px; }
+  .f-group input, .f-group select, .f-group textarea {
+    width: 100%; background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15); color: var(--white);
+    padding: 12px 16px; border-radius: 8px; font-size: 0.9rem;
+    font-family: 'Nunito', sans-serif; outline: none; transition: border-color 0.2s;
+  }
+  .f-group input::placeholder, .f-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+  .f-group input:focus, .f-group select:focus, .f-group textarea:focus { border-color: var(--gold); }
+  .f-group select option { background: var(--green-dark); }
+  .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .btn-submit-green {
+    width: 100%; padding: 15px; background: var(--gold); color: var(--green-dark);
+    font-size: 0.9rem; font-weight: 800; border: none; border-radius: 8px;
+    cursor: pointer; transition: all 0.2s; margin-top: 8px;
+  }
+  .btn-submit-green:hover { background: var(--gold-light); }
+
+  /* MAP LOKASI */
+  .lokasi { background: var(--green-pale); }
+  .lokasi-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .map-wrap {
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1); height: 380px;
+  }
+  .map-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  .kontak-detail { display: flex; flex-direction: column; gap: 20px; margin-top: 36px; }
+  .kontak-row { display: flex; gap: 16px; align-items: flex-start; }
+  .kontak-icon {
+    width: 44px; height: 44px; background: var(--green); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .kontak-row strong { display: block; font-size: 0.85rem; font-weight: 700; color: var(--green-dark); }
+  .kontak-row span { font-size: 0.85rem; color: var(--muted); }
+
+  /* FOOTER */
+  footer { background: var(--green-dark); padding: 60px; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .footer-brand .arabic-name { font-family: 'Amiri', serif; font-size: 1.4rem; color: var(--gold); direction: rtl; }
+  .footer-brand .id-name { font-size: 1rem; font-weight: 700; color: var(--white); margin: 4px 0; }
+  .footer-brand .est { font-size: 0.72rem; color: var(--green-light); }
+  .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-top: 16px; }
+  .footer-col h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col ul li a { font-size: 0.85rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: var(--white); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px;
+    display: flex; justify-content: space-between;
+    font-size: 0.78rem; color: rgba(255,255,255,0.35);
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 16px; }
+    .nav-links, .nav-cta { display: none; }
+    section { padding: 48px 20px; }
+    .hero { min-height: auto; }
+    .hero-content { padding: 60px 20px; }
+    .hero-right { display: none; }
+    .tentang-inner, .kalk-inner, .lokasi-inner, .pendaftaran-inner { grid-template-columns: 1fr; }
+    .program-grid { grid-template-columns: 1fr; }
+    .unggulan-grid { grid-template-columns: 1fr; }
+    .gallery-layout { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gallery-layout .g-wide { grid-column: span 1; }
+    footer { padding: 40px 20px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 8px; }
+    .img-float { display: none; }
+    .f-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo-wrap">
+    <div class="logo-emblem">
+      <img src="https://images.unsplash.com/photo-1591560990861-697d7b48c440?w=100&q=80" alt="Logo">
+    </div>
+    <div class="logo-text-wrap">
+      <div class="logo-ar">معهد الحكمة</div>
+      <div class="logo-id">PP. Al-Hikmah</div>
+      <div class="logo-sub">Kabupaten Bantul, D.I. Yogyakarta</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#tentang">Tentang</a></li>
+    <li><a href="#program">Program</a></li>
+    <li><a href="#keunggulan">Keunggulan</a></li>
+    <li><a href="#galeri">Galeri</a></li>
+    <li><a href="#pendaftaran">Pendaftaran</a></li>
+    <li><a href="#lokasi">Lokasi</a></li>
+  </ul>
+  <a href="#pendaftaran" class="nav-cta">Daftar Santri</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-arabic">طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ</div>
+    <div class="hero-terjemah">"Mencari ilmu adalah kewajiban bagi setiap Muslim" — HR. Ibnu Majah</div>
+    <h1>Membentuk Generasi<br><span>Berilmu, Berakhlak,</span><br>& Berdaya</h1>
+    <p>Pondok Pesantren Al-Hikmah hadir sejak 1987 sebagai lembaga pendidikan Islam terpadu yang menggabungkan kurikulum pesantren salafiyah dengan pendidikan umum berstandar nasional.</p>
+    <div class="hero-actions">
+      <a href="#pendaftaran" class="btn-gold">📖 Daftar Santri Baru</a>
+      <a href="#program" class="btn-outline-white">Lihat Program</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="info-strip">
+      <div class="strip-icon">👨‍🎓</div>
+      <div class="strip-val">2.400+</div>
+      <div class="strip-lbl">Santri Aktif 2024/2025</div>
+    </div>
+    <div class="info-strip">
+      <div class="strip-icon">🕌</div>
+      <div class="strip-val">37 Thn</div>
+      <div class="strip-lbl">Berdiri & Terpercaya</div>
+    </div>
+    <div class="info-strip">
+      <div class="strip-icon">🎓</div>
+      <div class="strip-val">18.000+</div>
+      <div class="strip-lbl">Alumni Tersebar Seluruh RI</div>
+    </div>
+    <div class="info-strip">
+      <div class="strip-icon">👨‍🏫</div>
+      <div class="strip-val">148</div>
+      <div class="strip-lbl">Ustadz & Ustadzah</div>
+    </div>
+  </div>
+</section>
+
+<!-- TENTANG -->
+<section class="tentang" id="tentang">
+  <div class="tentang-inner">
+    <div class="tentang-images">
+      <img class="img-main" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=700&q=80" alt="Kegiatan Pesantren">
+      <div class="badge-founded">Est. 1987</div>
+      <img class="img-float" src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=300&q=80" alt="Santri belajar">
+    </div>
+    <div>
+      <div class="section-tag">Tentang Kami</div>
+      <h2 class="section-title">Pesantren Modern dengan <span>Akar Tradisi</span> yang Kuat</h2>
+      <p class="section-text">Pondok Pesantren Al-Hikmah didirikan oleh KH. Abdul Aziz pada tahun 1987 dengan visi mencetak generasi Muslim yang alim, berakhlak mulia, dan mampu berkontribusi nyata bagi masyarakat.</p>
+      <p class="section-text" style="margin-top:16px;">Kami menggabungkan pembelajaran kitab kuning klasik dengan kurikulum Kemendikbud dan Kemenag, didukung fasilitas modern serta pengajar berpengalaman dari berbagai universitas ternama.</p>
+      <div class="nilai-grid">
+        <div class="nilai-item">
+          <div class="nilai-icon">📚</div>
+          <div>
+            <h4>Ilmu yang Bermanfaat</h4>
+            <p>Kurikulum komprehensif: agama & umum</p>
+          </div>
+        </div>
+        <div class="nilai-item">
+          <div class="nilai-icon">🌙</div>
+          <div>
+            <h4>Akhlak Karimah</h4>
+            <p>Pembentukan karakter Islami sejak dini</p>
+          </div>
+        </div>
+        <div class="nilai-item">
+          <div class="nilai-icon">🤝</div>
+          <div>
+            <h4>Kemandirian</h4>
+            <p>Melatih jiwa wirausaha & kepemimpinan</p>
+          </div>
+        </div>
+        <div class="nilai-item">
+          <div class="nilai-icon">🌍</div>
+          <div>
+            <h4>Berwawasan Global</h4>
+            <p>Bahasa Arab, Inggris, dan digital literacy</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section class="program" id="program">
+  <div style="text-align:center;">
+    <div class="section-tag">Program Pendidikan</div>
+    <h2 class="section-title" style="text-align:center;">Jenjang Pendidikan<br><span>yang Kami Tawarkan</span></h2>
+  </div>
+  <div class="program-grid">
+    <div class="program-card">
+      <img class="program-img" src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&q=80" alt="Tsanawiyah">
+      <div class="program-body">
+        <div class="program-level">Setara SMP</div>
+        <h3>MTs Al-Hikmah (Wustha)</h3>
+        <p>Program tiga tahun untuk santri lulusan SD/MI. Perpaduan pelajaran pesantren dengan kurikulum Kemenag yang terakreditasi A.</p>
+        <div class="program-meta">
+          <span class="meta-item">📅 3 Tahun</span>
+          <span class="meta-item">👥 800 Santri</span>
+          <span class="meta-item">🏅 Akreditasi A</span>
+        </div>
+      </div>
+    </div>
+    <div class="program-card">
+      <img class="program-img" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80" alt="Aliyah">
+      <div class="program-body">
+        <div class="program-level">Setara SMA</div>
+        <h3>MA Al-Hikmah (Ulya)</h3>
+        <p>Program intensif tiga tahun. Tersedia jurusan IPA, IPS, dan Keagamaan. Persiapan ujian nasional dan masuk PTN/PTI terbaik.</p>
+        <div class="program-meta">
+          <span class="meta-item">📅 3 Tahun</span>
+          <span class="meta-item">👥 1.200 Santri</span>
+          <span class="meta-item">🏅 Akreditasi A</span>
+        </div>
+      </div>
+    </div>
+    <div class="program-card">
+      <img class="program-img" src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=600&q=80" alt="Tahfidz">
+      <div class="program-body">
+        <div class="program-level">Program Khusus</div>
+        <h3>Tahfidz Al-Qur'an</h3>
+        <p>Program menghafal Al-Qur'an 30 juz dengan metode Tilawati. Dapat dikombinasikan dengan jenjang MTs atau MA.</p>
+        <div class="program-meta">
+          <span class="meta-item">📅 3–5 Tahun</span>
+          <span class="meta-item">👥 400 Santri</span>
+          <span class="meta-item">🏅 Bersanad</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEUNGGULAN -->
+<section class="keunggulan" id="keunggulan">
+  <div style="max-width:680px;">
+    <div class="section-tag">Keunggulan Kami</div>
+    <h2 class="section-title">Kenapa Memilih <span>PP. Al-Hikmah?</span></h2>
+  </div>
+  <div class="unggulan-grid">
+    <div class="unggulan-item">
+      <div class="unggulan-icon">🕌</div>
+      <div>
+        <h3>Lingkungan Islami 24 Jam</h3>
+        <p>Santri tinggal di asrama yang terjaga nilai-nilai Islamnya. Shalat berjamaah, dzikir pagi-petang, dan kajian rutin setiap hari.</p>
+      </div>
+    </div>
+    <div class="unggulan-item">
+      <div class="unggulan-icon">📗</div>
+      <div>
+        <h3>Kajian Kitab Kuning Klasik</h3>
+        <p>Santri diajarkan kitab-kitab ulama besar seperti Fathul Qorib, Riyadhush Shalihin, dan Alfiyah Ibn Malik secara langsung.</p>
+      </div>
+    </div>
+    <div class="unggulan-item">
+      <div class="unggulan-icon">🌐</div>
+      <div>
+        <h3>Bahasa Arab & Inggris Aktif</h3>
+        <p>Lingkungan berbahasa Arab dan Inggris yang terstruktur melalui program percakapan harian dan kelas intensif.</p>
+      </div>
+    </div>
+    <div class="unggulan-item">
+      <div class="unggulan-icon">💻</div>
+      <div>
+        <h3>Lab Komputer & Digital Skill</h3>
+        <p>Fasilitas laboratorium komputer modern untuk mempersiapkan santri menghadapi era digital tanpa meninggalkan nilai keislaman.</p>
+      </div>
+    </div>
+    <div class="unggulan-item">
+      <div class="unggulan-icon">🏆</div>
+      <div>
+        <h3>Prestasi Akademik & Non-Akademik</h3>
+        <p>Santri kami aktif berprestasi di MTQ, olimpiade sains, kompetisi bahasa, dan berbagai ajang tingkat nasional.</p>
+      </div>
+    </div>
+    <div class="unggulan-item">
+      <div class="unggulan-icon">🩺</div>
+      <div>
+        <h3>Klinik Kesehatan & Gizi</h3>
+        <p>Layanan kesehatan gratis dengan dokter dan perawat, serta dapur gizi yang menjamin asupan makan bergizi 3x sehari.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERI -->
+<section class="galeri" id="galeri">
+  <div style="text-align:center;">
+    <div class="section-tag">Galeri</div>
+    <h2 class="section-title" style="text-align:center;">Sekilas Kehidupan <span>di Pesantren</span></h2>
+  </div>
+  <div class="gallery-layout">
+    <img class="g-wide" src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800&q=80" alt="Kegiatan Belajar">
+    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=400&q=80" alt="Masjid">
+    <img src="https://images.unsplash.com/photo-1567168544813-cc03465b4fa8?w=400&q=80" alt="Asrama">
+    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&q=80" alt="Santri">
+    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=400&q=80" alt="Kitab">
+    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&q=80" alt="Kelas">
+    <img class="g-wide" src="https://images.unsplash.com/photo-1562516155-e0c1ee44059b?w=800&q=80" alt="Wisuda Santri">
+  </div>
+</section>
+
+<!-- PENDAFTARAN -->
+<section class="pendaftaran" id="pendaftaran">
+  <div class="pendaftaran-inner">
+    <div class="pendaftaran-info">
+      <div class="section-tag">Penerimaan Santri Baru</div>
+      <h2 class="section-title">Daftar Santri Baru<br><span>T.A. 2025/2026</span></h2>
+      <p class="section-text">Pendaftaran dibuka mulai Januari – Juni 2025. Tersedia program beasiswa untuk santri berprestasi dan yatim/dhuafa.</p>
+      <ul class="syarat-list">
+        <li>
+          <div class="syarat-num">1</div>
+          <p><strong>Fotokopi Akta Kelahiran</strong> — legalisir dari kantor catatan sipil</p>
+        </li>
+        <li>
+          <div class="syarat-num">2</div>
+          <p><strong>Fotokopi Kartu Keluarga & KTP Orang Tua</strong></p>
+        </li>
+        <li>
+          <div class="syarat-num">3</div>
+          <p><strong>Ijazah & Nilai Rapor SD/SMP</strong> — legalisir dari sekolah asal</p>
+        </li>
+        <li>
+          <div class="syarat-num">4</div>
+          <p><strong>Pas Foto 3x4</strong> — 4 lembar, latar biru</p>
+        </li>
+        <li>
+          <div class="syarat-num">5</div>
+          <p><strong>Surat Keterangan Sehat</strong> — dari puskesmas/dokter</p>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <div class="form-card">
+        <h3>📋 Formulir Pendaftaran Online</h3>
+        <div class="f-row">
+          <div class="f-group">
+            <label>Nama Lengkap Calon Santri</label>
+            <input type="text" placeholder="Muhammad / Siti...">
+          </div>
+          <div class="f-group">
+            <label>Jenis Kelamin</label>
+            <select>
+              <option>Laki-laki (Putra)</option>
+              <option>Perempuan (Putri)</option>
+            </select>
+          </div>
+        </div>
+        <div class="f-row">
+          <div class="f-group">
+            <label>Tempat Lahir</label>
+            <input type="text" placeholder="Kota kelahiran">
+          </div>
+          <div class="f-group">
+            <label>Tanggal Lahir</label>
+            <input type="date">
+          </div>
+        </div>
+        <div class="f-group">
+          <label>Program yang Dipilih</label>
+          <select>
+            <option>MTs Al-Hikmah (Wustha)</option>
+            <option>MA Al-Hikmah (Ulya)</option>
+            <option>Program Tahfidz + MTs</option>
+            <option>Program Tahfidz + MA</option>
+          </select>
+        </div>
+        <div class="f-group">
+          <label>Nama Orang Tua / Wali</label>
+          <input type="text" placeholder="Nama ayah/ibu">
+        </div>
+        <div class="f-group">
+          <label>Nomor WhatsApp Orang Tua</label>
+          <input type="tel" placeholder="0812-xxxx-xxxx">
+        </div>
+        <div class="f-group">
+          <label>Asal Kota / Kabupaten</label>
+          <input type="text" placeholder="Kota/Kabupaten asal">
+        </div>
+        <button type="button" class="btn-submit-green">📩 Kirim Pendaftaran</button>
+        <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);text-align:center;margin-top:12px;">Panitia akan menghubungi via WhatsApp dalam 1-2 hari kerja</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOKASI -->
+<section class="lokasi" id="lokasi">
+  <div class="lokasi-inner">
+    <div>
+      <div class="section-tag">Lokasi</div>
+      <h2 class="section-title">Temukan Kami di<br><span>Bantul, Yogyakarta</span></h2>
+      <p class="section-text">Berada di lingkungan asri dan tenang di Kabupaten Bantul, jauh dari keramaian kota namun mudah diakses dari berbagai penjuru DIY dan Jawa Tengah.</p>
+      <div class="kontak-detail">
+        <div class="kontak-row">
+          <div class="kontak-icon">📍</div>
+          <div>
+            <strong>Alamat</strong>
+            <span>Jl. Imogiri Barat Km.7, Sewon, Bantul, D.I. Yogyakarta 55188</span>
+          </div>
+        </div>
+        <div class="kontak-row">
+          <div class="kontak-icon">📞</div>
+          <div>
+            <strong>Telepon / WhatsApp</strong>
+            <span>0274-123456 | 0812-3456-7890</span>
+          </div>
+        </div>
+        <div class="kontak-row">
+          <div class="kontak-icon">📧</div>
+          <div>
+            <strong>Email</strong>
+            <span>info@ppalhikmah-bantul.ac.id</span>
+          </div>
+        </div>
+        <div class="kontak-row">
+          <div class="kontak-icon">⏰</div>
+          <div>
+            <strong>Jam Kunjungan</strong>
+            <span>Setiap hari 08.00 – 16.00 WIB (selain hari libur nasional)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="map-wrap">
+      <img src="https://images.unsplash.com/photo-1524813686514-a57563d77965?w=700&q=80" alt="Area Bantul Yogyakarta">
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="arabic-name">معهد الحكمة الإسلامي</div>
+      <div class="id-name">Pondok Pesantren Al-Hikmah</div>
+      <div class="est">Bantul, D.I. Yogyakarta · Est. 1987</div>
+      <p>Mencetak generasi Muslim yang berilmu, berakhlak mulia, mandiri, dan siap menghadapi tantangan zaman dengan tetap berpegang pada Al-Qur'an dan Sunnah.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Program</h4>
+      <ul>
+        <li><a href="#">MTs Al-Hikmah</a></li>
+        <li><a href="#">MA Al-Hikmah</a></li>
+        <li><a href="#">Tahfidz Qur'an</a></li>
+        <li><a href="#">Ma'had Aly</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Informasi</h4>
+      <ul>
+        <li><a href="#">Tentang Pesantren</a></li>
+        <li><a href="#">Pendaftaran</a></li>
+        <li><a href="#">Jadwal Kegiatan</a></li>
+        <li><a href="#">Berita & Pengumuman</a></li>
+        <li><a href="#">Alumni</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kontak</h4>
+      <ul>
+        <li><a href="#">Jl. Imogiri Barat Km.7</a></li>
+        <li><a href="#">Bantul, Yogyakarta</a></li>
+        <li><a href="#">📞 0274-123456</a></li>
+        <li><a href="#">💬 0812-3456-7890</a></li>
+        <li><a href="#">📧 info@ppalhikmah.ac.id</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 PP. Al-Hikmah Bantul. Semua hak dilindungi.</span>
+    <span>Website oleh <strong style="color:var(--green-light);">WebStudio Anda</strong></span>
+  </div>
+</footer>
+
+</body>
+</html>

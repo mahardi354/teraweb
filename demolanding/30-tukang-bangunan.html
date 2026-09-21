@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bangun Jaya – Jasa Tukang Bangunan Profesional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --concrete:  #2C2C2C;
+      --bone:      #F7F5F2;
+      --yellow:    #F5A623;
+      --brick:     #C0522A;
+      --sage:      #4A6741;
+      --mid-gray:  #6B6B6B;
+      --light-gray:#E8E5E0;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bone);
+      color: var(--concrete);
+      overflow-x: hidden;
+    }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--concrete);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      color: var(--yellow);
+      letter-spacing: 2px;
+      text-decoration: none;
+    }
+    .nav-logo span { color: #fff; }
+    .nav-logo:hover { opacity: .85; }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      color: #ccc;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--yellow); }
+    .nav-cta {
+      background: var(--yellow);
+      color: var(--concrete) !important;
+      padding: 8px 20px;
+      border-radius: 2px;
+      font-weight: 700 !important;
+    }
+    .nav-cta:hover { background: #e0941a !important; color: var(--concrete) !important; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 64px;
+    }
+    .hero-left {
+      background: var(--concrete);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 6% 80px 8%;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-left::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 200px; height: 200px;
+      background: var(--yellow);
+      opacity: .08;
+      border-radius: 50%;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 30px; height: 2px;
+      background: var(--yellow);
+    }
+    .hero-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 6vw, 6rem);
+      line-height: .95;
+      color: #fff;
+      margin-bottom: 28px;
+    }
+    .hero-heading em {
+      color: var(--yellow);
+      font-style: normal;
+      display: block;
+    }
+    .hero-desc {
+      font-size: 1rem;
+      color: #aaa;
+      line-height: 1.7;
+      max-width: 420px;
+      margin-bottom: 40px;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--yellow);
+      color: var(--concrete);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 14px 32px;
+      border-radius: 2px;
+      letter-spacing: .5px;
+      transition: background .2s, transform .15s;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-primary:hover { background: #e0941a; transform: translateY(-2px); }
+    .btn-outline {
+      border: 1.5px solid #555;
+      color: #ccc;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 14px 32px;
+      border-radius: 2px;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-outline:hover { border-color: var(--yellow); color: var(--yellow); }
+    .hero-right {
+      position: relative;
+      min-height: 500px;
+    }
+    .hero-right img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: 40px; left: -28px;
+      background: var(--yellow);
+      padding: 16px 20px;
+      border-radius: 2px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.25);
+    }
+    .hero-badge .num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      color: var(--concrete);
+      line-height: 1;
+    }
+    .hero-badge .label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--concrete);
+    }
+    .hero-tape {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 8px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--yellow) 0px, var(--yellow) 24px,
+        var(--concrete) 24px, var(--concrete) 32px
+      );
+    }
+
+    /* ─── STATS BAR ─── */
+    .stats-bar {
+      background: var(--brick);
+      padding: 28px 8%;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem;
+      color: #fff;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.65);
+      margin-top: 4px;
+    }
+    .stat-divider {
+      width: 1px; background: rgba(255,255,255,.2);
+      align-self: stretch;
+    }
+
+    /* ─── SECTION HEADER ─── */
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .section-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--brick);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      color: var(--concrete);
+      line-height: 1.05;
+    }
+    .section-title span { color: var(--brick); }
+    .section-sub {
+      font-size: 0.95rem;
+      color: var(--mid-gray);
+      max-width: 520px;
+      margin: 14px auto 0;
+      line-height: 1.7;
+    }
+
+    /* ─── LAYANAN ─── */
+    .layanan { padding: 96px 8%; }
+    .layanan-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px;
+    }
+    .layanan-card {
+      background: #fff;
+      padding: 40px 32px;
+      position: relative;
+      transition: transform .25s;
+      border-top: 4px solid transparent;
+    }
+    .layanan-card:hover {
+      transform: translateY(-6px);
+      border-top-color: var(--yellow);
+    }
+    .card-icon {
+      width: 52px; height: 52px;
+      background: var(--concrete);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+      font-size: 1.5rem;
+    }
+    .card-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      color: var(--concrete);
+      letter-spacing: .5px;
+    }
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--mid-gray);
+      line-height: 1.65;
+    }
+    .card-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--brick);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .card-link::after { content: '→'; transition: transform .2s; }
+    .layanan-card:hover .card-link::after { transform: translateX(4px); }
+
+    /* ─── CARA KERJA ─── */
+    .cara-kerja {
+      background: var(--concrete);
+      padding: 96px 8%;
+    }
+    .cara-kerja .section-title { color: #fff; }
+    .cara-kerja .section-tag { color: var(--yellow); }
+    .cara-kerja .section-sub { color: #aaa; }
+    .proses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .proses-step {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-top: 3px solid var(--yellow);
+      padding: 32px 28px;
+      position: relative;
+      transition: background .25s, transform .25s;
+    }
+    .proses-step:hover {
+      background: rgba(255,255,255,.09);
+      transform: translateY(-4px);
+    }
+    .step-num {
+      width: 52px; height: 52px;
+      background: var(--yellow);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: var(--concrete);
+      margin-bottom: 20px;
+    }
+    .step-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      color: #fff;
+      margin-bottom: 10px;
+      letter-spacing: .5px;
+    }
+    .step-desc {
+      font-size: 0.85rem;
+      color: #888;
+      line-height: 1.6;
+    }
+
+    /* ─── GALERI ─── */
+    .galeri { padding: 96px 8%; }
+    .galeri-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 260px 260px;
+      gap: 6px;
+    }
+    .galeri-item { overflow: hidden; }
+    .galeri-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .galeri-item:hover img { transform: scale(1.05); }
+    .galeri-item:first-child { grid-row: 1 / 3; }
+
+    /* ─── TESTIMONI ─── */
+    .testimoni {
+      background: var(--light-gray);
+      padding: 96px 8%;
+    }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .testi-card {
+      background: #fff;
+      padding: 36px;
+      border-radius: 2px;
+      position: relative;
+    }
+    .testi-quote {
+      font-size: 3.5rem;
+      line-height: 1;
+      color: var(--yellow);
+      font-family: Georgia, serif;
+      margin-bottom: 16px;
+    }
+    .testi-text {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .testi-author {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .testi-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .testi-name {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--concrete);
+    }
+    .testi-loc {
+      font-size: 0.78rem;
+      color: var(--mid-gray);
+      margin-top: 2px;
+    }
+    .stars { color: var(--yellow); font-size: 0.85rem; margin-bottom: 4px; }
+
+    /* ─── KEUNGGULAN ─── */
+    .keunggulan {
+      padding: 96px 8%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .keunggulan-img { position: relative; }
+    .keunggulan-img img { border-radius: 2px; height: 500px; object-fit: cover; }
+    .keunggulan-badge {
+      position: absolute;
+      bottom: -24px; right: -24px;
+      background: var(--concrete);
+      color: #fff;
+      padding: 24px;
+      text-align: center;
+      border-left: 4px solid var(--yellow);
+    }
+    .keunggulan-badge .big { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: var(--yellow); }
+    .keunggulan-badge .small { font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: #aaa; }
+    .keunggulan-list { list-style: none; margin: 36px 0 40px; display: flex; flex-direction: column; gap: 18px; }
+    .keunggulan-list li {
+      display: flex; align-items: flex-start; gap: 16px;
+      font-size: 0.92rem; color: var(--mid-gray); line-height: 1.6;
+    }
+    .keunggulan-list li .icon {
+      width: 28px; height: 28px; flex-shrink: 0;
+      background: var(--yellow); border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; color: var(--concrete);
+    }
+    .keunggulan-list li strong { color: var(--concrete); }
+
+    /* ─── CTA BAND ─── */
+    .cta-band {
+      background: var(--brick);
+      padding: 80px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .cta-band-text .label {
+      font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 10px;
+    }
+    .cta-band-text h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: #fff;
+      line-height: 1.05;
+    }
+    .btn-white {
+      background: #fff;
+      color: var(--brick);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 16px 40px;
+      border-radius: 2px;
+      white-space: nowrap;
+      transition: background .2s;
+    }
+    .btn-white:hover { background: var(--bone); }
+
+    /* ─── KONTAK ─── */
+    .kontak { padding: 96px 8%; }
+    .kontak-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .kontak-info h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem;
+      margin-bottom: 24px;
+      line-height: 1.05;
+    }
+    .kontak-info h2 span { color: var(--brick); }
+    .kontak-info p { font-size: 0.9rem; color: var(--mid-gray); line-height: 1.7; margin-bottom: 36px; }
+    .kontak-detail { display: flex; flex-direction: column; gap: 20px; }
+    .kontak-item { display: flex; align-items: center; gap: 14px; }
+    .kontak-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: var(--concrete);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .kontak-item-text .title { font-weight: 700; font-size: 0.85rem; color: var(--concrete); }
+    .kontak-item-text .val { font-size: 0.88rem; color: var(--mid-gray); margin-top: 2px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--concrete); margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%; padding: 12px 16px;
+      border: 1.5px solid var(--light-gray);
+      border-radius: 2px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--concrete);
+      background: #fff;
+      transition: border-color .2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--yellow); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .btn-submit {
+      width: 100%;
+      background: var(--concrete);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 15px;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background .2s;
+    }
+    .btn-submit:hover { background: var(--brick); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #1a1a1a;
+      padding: 64px 8% 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-brand .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: var(--yellow);
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+    .footer-brand .logo span { color: #fff; }
+    .footer-brand p { font-size: 0.85rem; color: #777; line-height: 1.7; }
+    .footer-col h4 {
+      font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase;
+      color: #555; margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 0.85rem; color: #888; transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--yellow); }
+    .footer-bottom {
+      border-top: 1px solid #2a2a2a;
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p { font-size: 0.8rem; color: #555; }
+    .footer-socials { display: flex; gap: 16px; }
+    .footer-socials a {
+      width: 36px; height: 36px;
+      background: #2a2a2a;
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      color: #888; font-size: 0.85rem;
+      transition: background .2s, color .2s;
+    }
+    .footer-socials a:hover { background: var(--yellow); color: var(--concrete); }
+
+    /* ─── WHATSAPP FLOAT ─── */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 56px; height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 0 4px 16px rgba(37,211,102,.4);
+      z-index: 200;
+      transition: transform .2s;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { min-height: 300px; }
+      .hero-badge { left: 20px; bottom: 20px; }
+      .galeri-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .galeri-item:first-child { grid-row: auto; }
+      .keunggulan { grid-template-columns: 1fr; }
+      .keunggulan-img { display: none; }
+      .kontak-wrap { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .proses-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .galeri-grid { grid-template-columns: 1fr; }
+      .stat-divider { display: none; }
+      .cta-band { flex-direction: column; text-align: center; }
+      .proses-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#home" class="nav-logo">BANGUN<span>JAYA</span></a>
+    <div class="nav-links">
+      <a href="#home">Beranda</a>
+      <a href="#layanan">Layanan</a>
+      <a href="#cara-kerja">Cara Kerja</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#keunggulan">Keunggulan</a>
+      <a href="#testimoni">Testimoni</a>
+      <a href="#kontak" class="nav-cta">Hubungi Kami</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Tukang Profesional & Terpercaya</div>
+      <h1 class="hero-heading">
+        BANGUN<br>
+        RUMAH<br>
+        <em>IMPIAN</em><br>
+        ANDA
+      </h1>
+      <p class="hero-desc">
+        Kami hadir untuk mewujudkan setiap sudut rumah Anda — dari pondasi hingga finishing — dengan tenaga ahli berpengalaman, material berkualitas, dan hasil yang memuaskan.
+      </p>
+      <div class="hero-actions">
+        <a href="#kontak" class="btn-primary">
+          <span>Minta Penawaran</span>
+        </a>
+        <a href="#layanan" class="btn-outline">Lihat Layanan</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-tape"></div>
+      <img
+        src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&auto=format&fit=crop"
+        alt="Tukang bangunan profesional sedang bekerja"
+        loading="eager"
+      />
+      <div class="hero-badge">
+        <div class="num">15+</div>
+        <div class="label">Tahun Pengalaman</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num">850+</div>
+      <div class="stat-label">Proyek Selesai</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Klien Puas</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">30+</div>
+      <div class="stat-label">Tenaga Ahli</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Kota Dijangkau</div>
+    </div>
+  </div>
+
+  <!-- LAYANAN -->
+  <section class="layanan" id="layanan">
+    <div class="section-header">
+      <div class="section-tag">Apa yang Kami Kerjakan</div>
+      <h2 class="section-title">LAYANAN <span>KAMI</span></h2>
+      <p class="section-sub">Dari renovasi kecil hingga pembangunan gedung, kami siap menangani semua kebutuhan konstruksi Anda.</p>
+    </div>
+    <div class="layanan-grid">
+      <div class="layanan-card">
+        <div class="card-icon">🏗️</div>
+        <div class="card-title">Bangun Rumah Baru</div>
+        <p class="card-desc">Pembangunan rumah dari nol dengan perencanaan matang, material terpilih, dan pengerjaan teliti sesuai standar konstruksi.</p>
+        <a href="#kontak" class="card-link">Konsultasi Gratis</a>
+      </div>
+      <div class="layanan-card">
+        <div class="card-icon">🔨</div>
+        <div class="card-title">Renovasi & Perbaikan</div>
+        <p class="card-desc">Renovasi total maupun parsial — dapur, kamar mandi, teras, dinding retak, atap bocor — kami tangani cepat dan rapi.</p>
+        <a href="#kontak" class="card-link">Konsultasi Gratis</a>
+      </div>
+      <div class="layanan-card">
+        <div class="card-icon">🧱</div>
+        <div class="card-title">Pasang Keramik & Plester</div>
+        <p class="card-desc">Pemasangan keramik lantai dan dinding, plesteran, acian, hingga nat rapi. Hasil halus dan presisi dijamin.</p>
+        <a href="#kontak" class="card-link">Konsultasi Gratis</a>
+      </div>
+      <div class="layanan-card">
+        <div class="card-icon">🪟</div>
+        <div class="card-title">Kusen, Pintu & Jendela</div>
+        <p class="card-desc">Pemasangan dan perbaikan kusen kayu atau aluminium, pintu, jendela dengan finishing yang rapi dan tahan lama.</p>
+        <a href="#kontak" class="card-link">Konsultasi Gratis</a>
+      </div>
+      <div class="layanan-card">
+        <div class="card-icon">🏠</div>
+        <div class="card-title">Atap & Plafon</div>
+        <p class="card-desc">Penggantian genteng, pemasangan rangka baja ringan, plafon gypsum, GRC, hingga waterproofing atap dak beton.</p>
+        <a href="#kontak" class="card-link">Konsultasi Gratis</a>
+      </div>
+      <div class="layanan-card">
+        <div class="card-icon">🎨</div>
+        <div class="card-title">Pengecatan & Finishing</div>
+        <p class="card-desc">Pengecatan interior dan eksterior dengan berbagai merek cat pilihan. Dinding bersih, rata, dan warna merata tanpa belang.</p>
+        <a href="#kontak" class="card-link">Konsultasi Gratis</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARA KERJA -->
+  <section class="cara-kerja" id="cara-kerja">
+    <div class="section-header">
+      <div class="section-tag">Proses Kami</div>
+      <h2 class="section-title">CARA KERJA <span style="color:var(--yellow)">KAMI</span></h2>
+      <p class="section-sub" style="color:#888">Proses transparan dan terstruktur agar proyek Anda berjalan lancar dari awal hingga selesai.</p>
+    </div>
+    <div class="proses-grid">
+      <div class="proses-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Konsultasi & Survey</div>
+        <p class="step-desc">Kami kunjungi lokasi Anda secara gratis untuk memahami kebutuhan dan mengukur luas area kerja.</p>
+      </div>
+      <div class="proses-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Estimasi & Penawaran</div>
+        <p class="step-desc">Kami beri Rincian Anggaran Biaya (RAB) yang transparan — tidak ada biaya tersembunyi.</p>
+      </div>
+      <div class="proses-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Perjanjian & Penjadwalan</div>
+        <p class="step-desc">Kontrak kerja resmi ditandatangani, jadwal pengerjaan disepakati bersama sesuai kebutuhan Anda.</p>
+      </div>
+      <div class="proses-step">
+        <div class="step-num">04</div>
+        <div class="step-title">Pengerjaan Profesional</div>
+        <p class="step-desc">Tim kami bekerja tepat waktu dengan pengawasan ketat. Progress proyek dilaporkan secara berkala.</p>
+      </div>
+      <div class="proses-step">
+        <div class="step-num">05</div>
+        <div class="step-title">Serah Terima & Garansi</div>
+        <p class="step-desc">Proyek selesai tepat waktu. Kami berikan garansi pengerjaan selama 1–3 tahun sesuai jenis pekerjaan.</p>
+      </div>
+      <div class="proses-step">
+        <div class="step-num">06</div>
+        <div class="step-title">Purna Jual & Perawatan</div>
+        <p class="step-desc">Layanan tidak berhenti setelah serah terima. Kami siap membantu konsultasi dan perbaikan lanjutan kapan pun Anda butuhkan.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERI -->
+  <section class="galeri" id="galeri">
+    <div class="section-header">
+      <div class="section-tag">Hasil Pekerjaan Kami</div>
+      <h2 class="section-title">GALERI <span>PROYEK</span></h2>
+      <p class="section-sub">Beberapa hasil karya nyata yang telah kami kerjakan untuk klien di berbagai kota.</p>
+    </div>
+    <div class="galeri-grid">
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&auto=format&fit=crop" alt="Rumah modern hasil renovasi" />
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&auto=format&fit=crop" alt="Pengerjaan konstruksi" />
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&auto=format&fit=crop" alt="Interior renovasi dapur" />
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&auto=format&fit=crop" alt="Pemasangan keramik" />
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=500&auto=format&fit=crop" alt="Pengerjaan atap" />
+      </div>
+    </div>
+  </section>
+
+  <!-- KEUNGGULAN -->
+  <section class="keunggulan" id="keunggulan">
+    <div class="keunggulan-img">
+      <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=700&auto=format&fit=crop" alt="Tim tukang profesional" />
+      <div class="keunggulan-badge">
+        <div class="big">98%</div>
+        <div class="small">Tingkat Kepuasan<br>Pelanggan</div>
+      </div>
+    </div>
+    <div class="keunggulan-content">
+      <div class="section-tag">Mengapa Pilih Kami</div>
+      <h2 class="section-title" style="text-align:left">KEUNGGULAN<br><span>BANGUN JAYA</span></h2>
+      <p class="section-sub" style="text-align:left;margin:14px 0 0">Kami bukan sekadar tukang — kami mitra terpercaya yang berkomitmen pada kualitas, kejujuran, dan ketepatan waktu.</p>
+      <ul class="keunggulan-list">
+        <li>
+          <div class="icon">✓</div>
+          <div><strong>Tenaga Ahli Bersertifikat</strong> — Setiap tukang telah melewati seleksi keahlian dan berpengalaman minimal 5 tahun.</div>
+        </li>
+        <li>
+          <div class="icon">✓</div>
+          <div><strong>Material Berkualitas</strong> — Kami hanya pakai material SNI dengan suplier terpercaya, tidak ada material abal-abal.</div>
+        </li>
+        <li>
+          <div class="icon">✓</div>
+          <div><strong>Harga Transparan</strong> — RAB terperinci diberikan sebelum proyek dimulai. Tidak ada biaya kejutan di tengah jalan.</div>
+        </li>
+        <li>
+          <div class="icon">✓</div>
+          <div><strong>Tepat Waktu</strong> — Jadwal pengerjaan kami patuhi dengan sistem monitoring proyek berkala.</div>
+        </li>
+        <li>
+          <div class="icon">✓</div>
+          <div><strong>Garansi Pengerjaan</strong> — Kami berikan garansi hasil kerja hingga 3 tahun untuk ketenangan pikiran Anda.</div>
+        </li>
+      </ul>
+      <a href="#kontak" class="btn-primary">Konsultasi Sekarang</a>
+    </div>
+  </section>
+
+  <!-- TESTIMONI -->
+  <section class="testimoni" id="testimoni">
+    <div class="section-header">
+      <div class="section-tag">Kata Pelanggan Kami</div>
+      <h2 class="section-title">TESTIMONI <span>NYATA</span></h2>
+      <p class="section-sub">Kepercayaan pelanggan adalah aset terbesar kami. Inilah yang mereka rasakan.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">Renovasi dapur dan kamar mandi selesai dalam 2 minggu, lebih cepat dari estimasi. Hasilnya sangat memuaskan, rapi dan bersih. Pekerjanya juga sopan dan bertanggung jawab.</p>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&auto=format&fit=crop&crop=face" alt="Budi Santoso" />
+          <div>
+            <div class="testi-name">Budi Santoso</div>
+            <div class="testi-loc">📍 Purwokerto, Jawa Tengah</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">Sudah 3x pakai jasa Bangun Jaya untuk berbagai perbaikan rumah. Selalu puas hasilnya. Yang paling saya suka adalah mereka jujur soal biaya — tidak ada mark up yang aneh-aneh.</p>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&auto=format&fit=crop&crop=face" alt="Sari Wijayanti" />
+          <div>
+            <div class="testi-name">Sari Wijayanti</div>
+            <div class="testi-loc">📍 Cilacap, Jawa Tengah</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">Bangun ruko 2 lantai, prosesnya sangat profesional. Ada laporan perkembangan setiap minggu, bisa tanya-tanya kapan saja. Selesai tepat waktu dan kualitasnya jauh melebihi ekspektasi.</p>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&auto=format&fit=crop&crop=face" alt="Hendra Gunawan" />
+          <div>
+            <div class="testi-name">Hendra Gunawan</div>
+            <div class="testi-loc">📍 Purbalingga, Jawa Tengah</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <div class="cta-band-text">
+      <div class="label">Mulai Proyek Anda Hari Ini</div>
+      <h2>SURVEY & KONSULTASI<br>100% GRATIS</h2>
+    </div>
+    <a href="#kontak" class="btn-white">Hubungi Kami Sekarang →</a>
+  </div>
+
+  <!-- KONTAK -->
+  <section class="kontak" id="kontak">
+    <div class="kontak-wrap">
+      <div class="kontak-info">
+        <div class="section-tag">Hubungi Kami</div>
+        <h2>SIAP <span>MEMBANTU</span><br>PROYEK ANDA</h2>
+        <p>Ceritakan kebutuhan Anda dan tim kami akan menghubungi dalam 1×24 jam untuk diskusi lebih lanjut — gratis dan tanpa kewajiban.</p>
+        <div class="kontak-detail">
+          <div class="kontak-item">
+            <div class="kontak-icon">📞</div>
+            <div class="kontak-item-text">
+              <div class="title">Telepon / WhatsApp</div>
+              <div class="val">+62 812-3456-7890</div>
+            </div>
+          </div>
+          <div class="kontak-item">
+            <div class="kontak-icon">📧</div>
+            <div class="kontak-item-text">
+              <div class="title">Email</div>
+              <div class="val">info@bangunjayas.id</div>
+            </div>
+          </div>
+          <div class="kontak-item">
+            <div class="kontak-icon">📍</div>
+            <div class="kontak-item-text">
+              <div class="title">Alamat Kantor</div>
+              <div class="val">Jl. Gerilya No. 45, Purwokerto, Jawa Tengah</div>
+            </div>
+          </div>
+          <div class="kontak-item">
+            <div class="kontak-icon">⏰</div>
+            <div class="kontak-item-text">
+              <div class="title">Jam Operasional</div>
+              <div class="val">Senin – Sabtu, 07.00 – 17.00 WIB</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="kontak-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nama Lengkap</label>
+            <input type="text" placeholder="Contoh: Budi Santoso" />
+          </div>
+          <div class="form-group">
+            <label>No. WhatsApp</label>
+            <input type="tel" placeholder="+62 8xx-xxxx-xxxx" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="email@contoh.com" />
+        </div>
+        <div class="form-group">
+          <label>Jenis Layanan</label>
+          <select>
+            <option value="">-- Pilih Layanan --</option>
+            <option>Bangun Rumah Baru</option>
+            <option>Renovasi & Perbaikan</option>
+            <option>Pasang Keramik & Plester</option>
+            <option>Kusen, Pintu & Jendela</option>
+            <option>Atap & Plafon</option>
+            <option>Pengecatan & Finishing</option>
+            <option>Lainnya</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Lokasi Proyek</label>
+          <input type="text" placeholder="Kota / Kecamatan" />
+        </div>
+        <div class="form-group">
+          <label>Deskripsi Kebutuhan</label>
+          <textarea placeholder="Ceritakan detail proyek Anda — luas area, kondisi saat ini, dan hasil yang diinginkan..."></textarea>
+        </div>
+        <button class="btn-submit">Kirim Permintaan → Gratis</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">BANGUN<span>JAYA</span></div>
+        <p>Jasa tukang bangunan profesional dengan pengalaman 15 tahun. Dipercaya oleh 500+ klien di Jawa Tengah.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="#">Bangun Rumah Baru</a></li>
+          <li><a href="#">Renovasi Rumah</a></li>
+          <li><a href="#">Pasang Keramik</a></li>
+          <li><a href="#">Atap & Plafon</a></li>
+          <li><a href="#">Pengecatan</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Perusahaan</h4>
+        <ul>
+          <li><a href="#">Tentang Kami</a></li>
+          <li><a href="#">Galeri Proyek</a></li>
+          <li><a href="#">Testimoni</a></li>
+          <li><a href="#">Karir</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informasi</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Cara Kerja</a></li>
+          <li><a href="#">Syarat & Ketentuan</a></li>
+          <li><a href="#">Kebijakan Privasi</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Bangun Jaya. Hak cipta dilindungi.</p>
+      <div class="footer-socials">
+        <a href="#" title="Instagram">IG</a>
+        <a href="#" title="Facebook">FB</a>
+        <a href="#" title="YouTube">YT</a>
+        <a href="#" title="TikTok">TK</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/6281234567890?text=Halo%20Bangun%20Jaya%2C%20saya%20ingin%20konsultasi%20proyek%20bangunan." class="wa-float" title="Chat WhatsApp" target="_blank">
+    💬
+  </a>
+
+</body>
+</html>

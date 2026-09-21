@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arinta Realty — Agen Properti Independen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0D1B2A;
+      --navy-mid:#162336;
+      --gold:    #C9A84C;
+      --gold-lt: #E2C97A;
+      --ivory:   #F8F5EF;
+      --stone:   #EAE5DC;
+      --muted:   #6B7280;
+      --white:   #FFFFFF;
+      --radius:  6px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--ivory); color: var(--navy); }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 70px;
+      background: rgba(13,27,42,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.25);
+      transition: background 0.3s;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      color: var(--white); font-size: 1.35rem; font-weight: 700;
+      letter-spacing: 0.02em; text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.78); text-decoration: none;
+      font-size: 0.875rem; font-weight: 500; letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold); color: var(--navy);
+      padding: 0.55rem 1.4rem; border-radius: var(--radius);
+      font-size: 0.85rem; font-weight: 600; text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--gold-lt); transform: translateY(-1px); }
+
+    /* hamburger */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center;
+      overflow: hidden; padding-top: 70px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1600&q=80');
+      background-size: cover; background-position: center;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(110deg, rgba(13,27,42,0.88) 45%, rgba(13,27,42,0.45) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 640px; padding: 0 5% 0 8%;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--gold); font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      margin-bottom: 1.4rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 28px; height: 1px; background: var(--gold);
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 700; color: var(--white);
+      line-height: 1.12; margin-bottom: 1.3rem;
+    }
+    .hero h1 em { color: var(--gold); font-style: italic; }
+    .hero p {
+      color: rgba(255,255,255,0.75); font-size: 1.05rem;
+      line-height: 1.7; margin-bottom: 2.2rem; max-width: 480px;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold); color: var(--navy);
+      padding: 0.85rem 2rem; border-radius: var(--radius);
+      font-weight: 600; font-size: 0.95rem; text-decoration: none;
+      display: inline-block; transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--gold-lt); transform: translateY(-2px); }
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,0.45); color: var(--white);
+      padding: 0.85rem 2rem; border-radius: var(--radius);
+      font-weight: 500; font-size: 0.95rem; text-decoration: none;
+      display: inline-block; transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.12); }
+
+    .hero-stats {
+      position: absolute; bottom: 3rem; left: 8%; right: 5%;
+      display: flex; gap: 3rem; z-index: 2;
+    }
+    .stat { border-left: 2px solid var(--gold); padding-left: 1rem; }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700; color: var(--white); line-height: 1;
+    }
+    .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.6); margin-top: 0.3rem; letter-spacing: 0.05em; }
+
+    /* ── SEARCH BAR ── */
+    .search-section {
+      background: var(--navy); padding: 2.5rem 8%;
+    }
+    .search-bar {
+      display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-end;
+    }
+    .search-field { flex: 1; min-width: 180px; }
+    .search-field label {
+      display: block; color: rgba(255,255,255,0.55);
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .search-field select, .search-field input {
+      width: 100%; padding: 0.75rem 1rem;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius); color: var(--white);
+      font-family: 'Inter', sans-serif; font-size: 0.9rem;
+      outline: none; transition: border-color 0.2s;
+      appearance: none; -webkit-appearance: none;
+    }
+    .search-field select:focus, .search-field input:focus { border-color: var(--gold); }
+    .search-field select option { background: var(--navy); }
+    .search-btn {
+      background: var(--gold); color: var(--navy); border: none;
+      padding: 0.75rem 2rem; border-radius: var(--radius);
+      font-weight: 600; font-size: 0.9rem; cursor: pointer;
+      transition: background 0.2s; white-space: nowrap;
+    }
+    .search-btn:hover { background: var(--gold-lt); }
+
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 8%; }
+    .section-label {
+      font-size: 0.72rem; font-weight: 600; color: var(--gold);
+      letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 0.9rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700; color: var(--navy); line-height: 1.2;
+    }
+    .section-sub {
+      color: var(--muted); font-size: 0.97rem; line-height: 1.7;
+      max-width: 520px; margin-top: 0.8rem;
+    }
+
+    /* ── SERVICES ── */
+    .services-section { background: var(--ivory); }
+    .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1.5rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .service-card {
+      background: var(--white); border: 1px solid var(--stone);
+      border-radius: 10px; padding: 2.2rem 1.8rem;
+      transition: box-shadow 0.25s, transform 0.2s;
+    }
+    .service-card:hover { box-shadow: 0 12px 36px rgba(13,27,42,0.1); transform: translateY(-4px); }
+    .service-icon {
+      width: 52px; height: 52px; border-radius: 10px;
+      background: linear-gradient(135deg, rgba(201,168,76,0.18), rgba(201,168,76,0.06));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 1.4rem;
+      border: 1px solid rgba(201,168,76,0.3);
+    }
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 600; color: var(--navy);
+      margin-bottom: 0.7rem;
+    }
+    .service-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.65; }
+
+    /* ── LISTINGS ── */
+    .listings-section { background: var(--stone); }
+    .listings-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
+    .tabs { display: flex; gap: 0.25rem; background: rgba(13,27,42,0.07); padding: 0.3rem; border-radius: 8px; }
+    .tab-btn {
+      padding: 0.45rem 1.1rem; border-radius: 6px; border: none;
+      font-family: 'Inter', sans-serif; font-size: 0.83rem; font-weight: 500;
+      cursor: pointer; background: transparent; color: var(--muted); transition: all 0.2s;
+    }
+    .tab-btn.active { background: var(--navy); color: var(--white); }
+
+    .listings-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.8rem; }
+    .prop-card {
+      background: var(--white); border-radius: 12px; overflow: hidden;
+      box-shadow: 0 2px 12px rgba(13,27,42,0.07); transition: box-shadow 0.25s, transform 0.2s;
+    }
+    .prop-card:hover { box-shadow: 0 16px 40px rgba(13,27,42,0.14); transform: translateY(-5px); }
+    .prop-img-wrap { position: relative; overflow: hidden; height: 220px; }
+    .prop-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .prop-card:hover .prop-img-wrap img { transform: scale(1.04); }
+    .prop-badge {
+      position: absolute; top: 14px; left: 14px;
+      background: var(--navy); color: var(--gold);
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+      padding: 0.3rem 0.75rem; border-radius: 4px; text-transform: uppercase;
+    }
+    .prop-badge.hot { background: #C0392B; color: var(--white); }
+    .prop-fav {
+      position: absolute; top: 12px; right: 14px;
+      width: 34px; height: 34px; border-radius: 50%;
+      background: rgba(255,255,255,0.9); display: flex; align-items: center;
+      justify-content: center; cursor: pointer; font-size: 1rem;
+      transition: background 0.2s;
+    }
+    .prop-fav:hover { background: var(--white); }
+    .prop-body { padding: 1.4rem 1.5rem 1.6rem; }
+    .prop-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem;
+    }
+    .prop-name { font-size: 0.97rem; font-weight: 600; color: var(--navy); margin-bottom: 0.3rem; }
+    .prop-location {
+      color: var(--muted); font-size: 0.82rem; margin-bottom: 1.1rem;
+      display: flex; align-items: center; gap: 0.3rem;
+    }
+    .prop-specs {
+      display: flex; gap: 1.3rem;
+      padding-top: 1rem; border-top: 1px solid var(--stone);
+    }
+    .spec { display: flex; align-items: center; gap: 0.35rem; color: var(--muted); font-size: 0.82rem; }
+
+    .view-all-wrap { text-align: center; margin-top: 3rem; }
+    .btn-ghost {
+      border: 1.5px solid var(--navy); color: var(--navy);
+      padding: 0.8rem 2.2rem; border-radius: var(--radius);
+      font-weight: 600; font-size: 0.9rem; text-decoration: none;
+      display: inline-block; transition: background 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { background: var(--navy); color: var(--white); }
+
+    /* ── WHY US ── */
+    .why-section {
+      background: var(--navy);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    }
+    .why-img-col { position: relative; }
+    .why-main-img {
+      width: 100%; border-radius: 12px;
+      aspect-ratio: 4/5; object-fit: cover;
+    }
+    .why-accent-img {
+      position: absolute; width: 55%; bottom: -2rem; right: -2rem;
+      border-radius: 10px; border: 5px solid var(--navy);
+      aspect-ratio: 1; object-fit: cover;
+    }
+    .why-badge {
+      position: absolute; top: -1.2rem; left: -1.2rem;
+      background: var(--gold); color: var(--navy);
+      padding: 1.2rem; border-radius: 10px; text-align: center;
+      min-width: 110px;
+    }
+    .why-badge-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700; display: block; line-height: 1;
+    }
+    .why-badge-lbl { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em; margin-top: 0.2rem; }
+
+    .why-text-col .section-label { color: var(--gold); }
+    .why-text-col .section-title { color: var(--white); }
+    .why-text-col .section-sub { color: rgba(255,255,255,0.65); }
+
+    .why-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.4rem; }
+    .why-item { display: flex; gap: 1.1rem; align-items: flex-start; }
+    .why-dot {
+      width: 38px; height: 38px; flex-shrink: 0; border-radius: 50%;
+      background: rgba(201,168,76,0.15); border: 1.5px solid rgba(201,168,76,0.4);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: 1rem; margin-top: 0.1rem;
+    }
+    .why-item h4 { color: var(--white); font-size: 0.97rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .why-item p { color: rgba(255,255,255,0.58); font-size: 0.87rem; line-height: 1.6; }
+
+    /* ── TESTIMONIALS ── */
+    .testi-section { background: var(--ivory); }
+    .testi-header { text-align: center; margin-bottom: 3.5rem; }
+    .testi-header .section-sub { margin: 0.8rem auto 0; }
+    .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .testi-card {
+      background: var(--white); border: 1px solid var(--stone);
+      border-radius: 12px; padding: 2rem;
+    }
+    .testi-stars { color: var(--gold); font-size: 0.95rem; letter-spacing: 0.05em; margin-bottom: 1.1rem; }
+    .testi-text { color: var(--navy); font-size: 0.92rem; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 0.9rem; }
+    .testi-avatar {
+      width: 44px; height: 44px; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--stone);
+    }
+    .testi-name { font-size: 0.9rem; font-weight: 600; color: var(--navy); }
+    .testi-role { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── AGENT / CTA ── */
+    .agent-section {
+      background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy) 100%);
+      text-align: center; padding: 6rem 8%;
+    }
+    .agent-img {
+      width: 110px; height: 110px; border-radius: 50%; object-fit: cover;
+      border: 4px solid var(--gold); margin: 0 auto 1.5rem;
+      display: block;
+    }
+    .agent-section .section-label { justify-content: center; display: flex; }
+    .agent-section .section-title { color: var(--white); text-align: center; margin-bottom: 0.6rem; }
+    .agent-section .section-sub { color: rgba(255,255,255,0.65); text-align: center; margin: 0 auto 2.5rem; }
+    .agent-contacts { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .contact-chip {
+      display: flex; align-items: center; gap: 0.6rem;
+      background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.2);
+      color: var(--white); padding: 0.7rem 1.4rem; border-radius: 40px;
+      font-size: 0.88rem; text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .contact-chip:hover { background: rgba(201,168,76,0.2); border-color: var(--gold); }
+
+    /* ── CONTACT FORM ── */
+    .contact-section {
+      background: var(--stone);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+    }
+    .contact-info .section-sub { margin-top: 0.8rem; }
+    .contact-details { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.1rem; }
+    .contact-row { display: flex; align-items: center; gap: 1rem; }
+    .c-icon {
+      width: 44px; height: 44px; background: var(--navy); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .c-label { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.15rem; }
+    .c-value { font-size: 0.95rem; font-weight: 500; color: var(--navy); }
+
+    .contact-form { background: var(--white); border-radius: 12px; padding: 2.5rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-group label { font-size: 0.8rem; font-weight: 500; color: var(--navy); }
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 0.75rem 1rem; border: 1.5px solid var(--stone);
+      border-radius: var(--radius); font-family: 'Inter', sans-serif;
+      font-size: 0.9rem; color: var(--navy); background: var(--ivory);
+      outline: none; transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--gold); background: var(--white);
+    }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-submit {
+      background: var(--navy); color: var(--white); border: none;
+      padding: 0.9rem 2rem; border-radius: var(--radius); width: 100%;
+      font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 600;
+      cursor: pointer; margin-top: 0.5rem;
+      transition: background 0.2s;
+    }
+    .form-submit:hover { background: var(--gold); color: var(--navy); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,0.6);
+      padding: 4rem 8% 2rem;
+    }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand .nav-logo { display: inline-block; margin-bottom: 1rem; }
+    .footer-brand p { font-size: 0.88rem; line-height: 1.7; max-width: 240px; }
+    .footer-col h4 {
+      color: var(--white); font-size: 0.88rem; font-weight: 600;
+      letter-spacing: 0.05em; margin-bottom: 1.1rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.87rem;
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin-bottom: 1.5rem; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { font-size: 0.82rem; }
+    .social-links { display: flex; gap: 0.8rem; }
+    .social-link {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,0.1); display: flex; align-items: center;
+      justify-content: center; text-decoration: none; font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .social-link:hover { background: var(--gold); }
+
+    /* ── FLOATING WA ── */
+    .wa-float {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 200;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: #25D366; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.45); text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: pulse-wa 2.5s infinite;
+    }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 10px 30px rgba(37,211,102,0.6); }
+    @keyframes pulse-wa {
+      0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.45); }
+      50% { box-shadow: 0 6px 30px rgba(37,211,102,0.75), 0 0 0 8px rgba(37,211,102,0.15); }
+    }
+    .wa-float svg { width: 28px; height: 28px; fill: white; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .why-section, .contact-section { grid-template-columns: 1fr; gap: 3rem; }
+      .why-img-col { display: none; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .hero-stats { gap: 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 4rem 5%; }
+      .hero-content { padding: 0 5%; }
+      .search-section { padding: 2rem 5%; }
+      .hero-stats { gap: 1.2rem; bottom: 2rem; left: 5%; }
+      .stat-number { font-size: 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+
+    /* scroll reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Arinta <span>Realty</span></a>
+  <ul class="nav-links">
+    <li><a href="#layanan">Layanan</a></li>
+    <li><a href="#properti">Properti</a></li>
+    <li><a href="#tentang">Tentang</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+  </ul>
+  <a class="nav-cta" href="#kontak">Konsultasi Gratis</a>
+  <div class="hamburger" onclick="this.classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content reveal">
+    <div class="hero-eyebrow">Agen Properti Independen Terpercaya</div>
+    <h1>Temukan Hunian <em>Impian</em> Anda Bersama Kami</h1>
+    <p>Kami hadir untuk membantu Anda menemukan, membeli, dan menjual properti dengan proses yang transparan, cepat, dan bebas stres.</p>
+    <div class="hero-actions">
+      <a href="#properti" class="btn-primary">Lihat Properti</a>
+      <a href="#kontak" class="btn-outline">Konsultasi Gratis</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat reveal">
+      <div class="stat-number">450+</div>
+      <div class="stat-label">Properti Terjual</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-number">12 Thn</div>
+      <div class="stat-label">Pengalaman</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-number">98%</div>
+      <div class="stat-label">Klien Puas</div>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH BAR -->
+<div class="search-section">
+  <div class="search-bar">
+    <div class="search-field">
+      <label>Tipe Properti</label>
+      <select>
+        <option>Semua Tipe</option>
+        <option>Rumah</option>
+        <option>Apartemen</option>
+        <option>Ruko</option>
+        <option>Tanah</option>
+        <option>Villa</option>
+      </select>
+    </div>
+    <div class="search-field">
+      <label>Kota / Lokasi</label>
+      <input type="text" placeholder="cth. Jakarta Selatan" />
+    </div>
+    <div class="search-field">
+      <label>Rentang Harga</label>
+      <select>
+        <option>Semua Harga</option>
+        <option>Di bawah Rp 500 Jt</option>
+        <option>Rp 500 Jt – 1 M</option>
+        <option>Rp 1 M – 3 M</option>
+        <option>Rp 3 M – 5 M</option>
+        <option>Di atas Rp 5 M</option>
+      </select>
+    </div>
+    <div class="search-field">
+      <label>Status</label>
+      <select>
+        <option>Dijual & Disewa</option>
+        <option>Dijual</option>
+        <option>Disewa</option>
+      </select>
+    </div>
+    <button class="search-btn">🔍 Cari Properti</button>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="layanan" class="services-section">
+  <div class="services-header">
+    <div>
+      <div class="section-label">Layanan Kami</div>
+      <h2 class="section-title">Solusi Properti Lengkap<br>dari Satu Tangan</h2>
+    </div>
+    <p class="section-sub">Kami melayani seluruh proses, dari pencarian hingga serah terima kunci, sehingga Anda bisa fokus pada hal yang paling penting.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">🏠</div>
+      <h3>Jual & Beli Properti</h3>
+      <p>Kami bantu Anda mendapatkan harga terbaik—baik sebagai penjual maupun pembeli—dengan negosiasi profesional dan jaringan calon pembeli yang luas.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🔑</div>
+      <h3>Sewa & Kelola Properti</h3>
+      <p>Percayakan pengelolaan unit sewa Anda kepada kami. Mulai dari mencari penyewa, penandatanganan kontrak, hingga pemeliharaan rutin.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">📋</div>
+      <h3>Konsultasi & Valuasi</h3>
+      <p>Dapatkan estimasi nilai pasar properti Anda secara akurat berdasarkan data transaksi terkini dan kondisi pasar setempat.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🏦</div>
+      <h3>Bantuan KPR & Legalitas</h3>
+      <p>Kami bermitra dengan berbagai bank untuk memudahkan proses pengajuan KPR, serta memastikan semua dokumen legal bersih dan aman.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🗺️</div>
+      <h3>Survei & Tur Properti</h3>
+      <p>Jadwalkan kunjungan langsung atau tur virtual 360° untuk melihat properti secara mendetail sebelum memutuskan.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">📈</div>
+      <h3>Investasi Properti</h3>
+      <p>Kami membantu investor mengidentifikasi peluang properti dengan potensi apresiasi tinggi dan return on investment yang optimal.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LISTINGS -->
+<section id="properti" class="listings-section">
+  <div class="listings-header">
+    <div>
+      <div class="section-label">Daftar Properti</div>
+      <h2 class="section-title">Properti Pilihan Terbaru</h2>
+    </div>
+    <div class="tabs">
+      <button class="tab-btn active" onclick="setTab(this)">Semua</button>
+      <button class="tab-btn" onclick="setTab(this)">Dijual</button>
+      <button class="tab-btn" onclick="setTab(this)">Disewa</button>
+    </div>
+  </div>
+  <div class="listings-grid">
+
+    <div class="prop-card reveal">
+      <div class="prop-img-wrap">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Rumah Modern BSD" loading="lazy" />
+        <span class="prop-badge hot">🔥 Hot</span>
+        <span class="prop-fav">♡</span>
+      </div>
+      <div class="prop-body">
+        <div class="prop-price">Rp 2,35 Miliar</div>
+        <div class="prop-name">Rumah Modern 2 Lantai</div>
+        <div class="prop-location">📍 BSD City, Tangerang Selatan</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 4 KT</div>
+          <div class="spec">🚿 3 KM</div>
+          <div class="spec">📐 180 m²</div>
+          <div class="spec">🚗 2 Garasi</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prop-card reveal">
+      <div class="prop-img-wrap">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Villa Puncak" loading="lazy" />
+        <span class="prop-badge">Dijual</span>
+        <span class="prop-fav">♡</span>
+      </div>
+      <div class="prop-body">
+        <div class="prop-price">Rp 4,8 Miliar</div>
+        <div class="prop-name">Villa Mewah View Pegunungan</div>
+        <div class="prop-location">📍 Puncak, Bogor</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 5 KT</div>
+          <div class="spec">🚿 4 KM</div>
+          <div class="spec">📐 320 m²</div>
+          <div class="spec">🏊 Kolam</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prop-card reveal">
+      <div class="prop-img-wrap">
+        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80" alt="Apartemen Jakarta" loading="lazy" />
+        <span class="prop-badge">Disewa</span>
+        <span class="prop-fav">♡</span>
+      </div>
+      <div class="prop-body">
+        <div class="prop-price">Rp 8 Jt / bulan</div>
+        <div class="prop-name">Apartemen Studio Furnished</div>
+        <div class="prop-location">📍 Sudirman, Jakarta Pusat</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 1 KT</div>
+          <div class="spec">🚿 1 KM</div>
+          <div class="spec">📐 38 m²</div>
+          <div class="spec">🏙 City View</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prop-card reveal">
+      <div class="prop-img-wrap">
+        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&q=80" alt="Rumah Klasik Bandung" loading="lazy" />
+        <span class="prop-badge hot">🔥 Hot</span>
+        <span class="prop-fav">♡</span>
+      </div>
+      <div class="prop-body">
+        <div class="prop-price">Rp 1,75 Miliar</div>
+        <div class="prop-name">Rumah Asri Cluster Premium</div>
+        <div class="prop-location">📍 Dago, Bandung</div>
+        <div class="prop-specs">
+          <div class="spec">🛏 3 KT</div>
+          <div class="spec">🚿 2 KM</div>
+          <div class="spec">📐 120 m²</div>
+          <div class="spec">🌿 Taman</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prop-card reveal">
+      <div class="prop-img-wrap">
+        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="Ruko Strategis" loading="lazy" />
+        <span class="prop-badge">Dijual</span>
+        <span class="prop-fav">♡</span>
+      </div>
+      <div class="prop-body">
+        <div class="prop-price">Rp 3,2 Miliar</div>
+        <div class="prop-name">Ruko 3 Lantai Lokasi Strategis</div>
+        <div class="prop-location">📍 Bekasi Barat, Bekasi</div>
+        <div class="prop-specs">
+          <div class="spec">🏢 3 Lantai</div>
+          <div class="spec">📐 200 m²</div>
+          <div class="spec">🚗 5 Parkir</div>
+          <div class="spec">⚡ PLN 3500</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prop-card reveal">
+      <div class="prop-img-wrap">
+        <img src="https://images.unsplash.com/photo-1416331108676-a22ccb276e35?w=600&q=80" alt="Tanah Kavling" loading="lazy" />
+        <span class="prop-badge">Dijual</span>
+        <span class="prop-fav">♡</span>
+      </div>
+      <div class="prop-body">
+        <div class="prop-price">Rp 650 Juta</div>
+        <div class="prop-name">Kavling Siap Bangun SHM</div>
+        <div class="prop-location">📍 Cibubur, Jakarta Timur</div>
+        <div class="prop-specs">
+          <div class="spec">📐 250 m²</div>
+          <div class="spec">📄 SHM</div>
+          <div class="spec">🛣 Hook</div>
+          <div class="spec">💧 Air PDAM</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="view-all-wrap">
+    <a href="#" class="btn-ghost">Lihat Semua Properti →</a>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="tentang" class="why-section">
+  <div class="why-img-col reveal">
+    <img class="why-main-img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&q=80" alt="Agen Properti Profesional" />
+    <img class="why-accent-img" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&q=80" alt="Serah Terima Kunci" />
+    <div class="why-badge">
+      <span class="why-badge-num">450+</span>
+      <div class="why-badge-lbl">Transaksi Sukses</div>
+    </div>
+  </div>
+  <div class="why-text-col reveal">
+    <div class="section-label">Mengapa Kami?</div>
+    <h2 class="section-title">Independen. Jujur.<br>Selalu di Sisi Anda.</h2>
+    <p class="section-sub">Sebagai agen independen, kami tidak terikat pada satu pengembang. Artinya, kami bebas merekomendasikan properti yang benar-benar sesuai kebutuhan Anda.</p>
+    <div class="why-list">
+      <div class="why-item">
+        <div class="why-dot">✦</div>
+        <div>
+          <h4>Tanpa Konflik Kepentingan</h4>
+          <p>Kami bekerja murni untuk kepentingan klien, bukan pengembang. Rekomendasi kami selalu objektif dan berbasis data pasar nyata.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-dot">✦</div>
+        <div>
+          <h4>Proses Transparan & Aman</h4>
+          <p>Setiap tahap transaksi didokumentasikan dengan jelas. Kami memastikan semua aspek legal sudah bersih sebelum Anda menandatangani apapun.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-dot">✦</div>
+        <div>
+          <h4>Respons Cepat 7 Hari Seminggu</h4>
+          <p>Tim kami siap dihubungi setiap hari, termasuk akhir pekan dan hari libur. Karena peluang properti tidak mengenal hari libur.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-dot">✦</div>
+        <div>
+          <h4>Jaringan Luas, Hasil Nyata</h4>
+          <p>Dengan database lebih dari 2.000 listing aktif dan 500+ koneksi notaris & bank, proses Anda berlangsung lebih cepat dan mudah.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="testi-header">
+    <div class="section-label" style="justify-content:center;display:flex;">Testimoni Klien</div>
+    <h2 class="section-title">Apa Kata Mereka?</h2>
+    <p class="section-sub">Kepercayaan klien adalah aset terbesar kami. Simak pengalaman mereka.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Proses jual rumah kami sangat cepat, hanya 3 minggu sudah ada pembeli serius. Arinta Realty sangat profesional dan komunikasinya selalu proaktif. Sangat direkomendasikan!"</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Dina S" />
+        <div>
+          <div class="testi-name">Dina Saraswati</div>
+          <div class="testi-role">Penjual, Jakarta Selatan</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Sebagai first-time buyer, saya sangat terbantu. Mereka menjelaskan proses KPR dari A-Z, menemani survei, bahkan membantu negosiasi harga hingga turun 8%. Luar biasa!"</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Budi H" />
+        <div>
+          <div class="testi-name">Budi Hartono</div>
+          <div class="testi-role">Pembeli, BSD City</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Saya menyewakan 3 unit apartemen via Arinta Realty dan tidak pernah ada masalah. Semua penyewa terseleksi dengan baik dan kontrak dibuat secara profesional."</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Rina P" />
+        <div>
+          <div class="testi-name">Rina Pertiwi</div>
+          <div class="testi-role">Investor, Jakarta Pusat</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENT CTA -->
+<section class="agent-section">
+  <img class="agent-img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80" alt="Arinta Dewi, Agen Properti" />
+  <div class="section-label">Agen Anda</div>
+  <h2 class="section-title">Arinta Dewi, S.E.</h2>
+  <p class="section-sub">Agen properti bersertifikat dengan 12 tahun pengalaman di pasar properti Jabodetabek & Bandung. Siap membantu Anda menemukan solusi properti terbaik.</p>
+  <div class="agent-contacts">
+    <a href="tel:+6281234567890" class="contact-chip">📞 +62 812-3456-7890</a>
+    <a href="mailto:arinta@arinta-realty.id" class="contact-chip">✉️ arinta@arinta-realty.id</a>
+    <a href="https://wa.me/6281234567890" class="contact-chip">💬 WhatsApp Sekarang</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="kontak" class="contact-section">
+  <div class="contact-info">
+    <div class="section-label">Hubungi Kami</div>
+    <h2 class="section-title">Konsultasi Properti<br>Gratis &amp; Tanpa Komitmen</h2>
+    <p class="section-sub">Ceritakan kebutuhan properti Anda. Kami akan memberikan analisis pasar dan rekomendasi terbaik dalam 1×24 jam.</p>
+    <div class="contact-details">
+      <div class="contact-row">
+        <div class="c-icon">📍</div>
+        <div>
+          <div class="c-label">Kantor</div>
+          <div class="c-value">Jl. Kemang Raya No. 88, Jakarta Selatan 12730</div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="c-icon">📞</div>
+        <div>
+          <div class="c-label">Telepon / WhatsApp</div>
+          <div class="c-value">+62 812-3456-7890</div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="c-icon">⏰</div>
+        <div>
+          <div class="c-label">Jam Layanan</div>
+          <div class="c-value">Senin – Minggu, 08.00 – 20.00 WIB</div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="c-icon">✉️</div>
+        <div>
+          <div class="c-label">Email</div>
+          <div class="c-value">info@arinta-realty.id</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contact-form">
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:1.5rem;color:var(--navy)">Kirim Pesan</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Nama Lengkap</label>
+        <input type="text" placeholder="Budi Santoso" />
+      </div>
+      <div class="form-group">
+        <label>Nomor HP / WA</label>
+        <input type="tel" placeholder="08xx-xxxx-xxxx" />
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="budi@email.com" />
+      </div>
+      <div class="form-group">
+        <label>Kebutuhan</label>
+        <select>
+          <option>Pilih kebutuhan...</option>
+          <option>Beli Properti</option>
+          <option>Jual Properti</option>
+          <option>Sewa Properti</option>
+          <option>Investasi Properti</option>
+          <option>Konsultasi KPR</option>
+          <option>Lainnya</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label>Pesan / Deskripsi Properti yang Dicari</label>
+        <textarea placeholder="Ceritakan properti yang Anda cari atau pertanyaan yang ingin Anda ajukan..."></textarea>
+      </div>
+    </div>
+    <button class="form-submit" onclick="handleSubmit(event)">Kirim Pesan → Gratis Konsultasi</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a class="nav-logo" href="#">Arinta <span>Realty</span></a>
+      <p>Agen properti independen terpercaya di Jabodetabek & Bandung. Melayani dengan hati, mengutamakan kepentingan Anda.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Layanan</h4>
+      <ul>
+        <li><a href="#">Jual Properti</a></li>
+        <li><a href="#">Beli Properti</a></li>
+        <li><a href="#">Sewa Properti</a></li>
+        <li><a href="#">Konsultasi KPR</a></li>
+        <li><a href="#">Valuasi Properti</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Area Layanan</h4>
+      <ul>
+        <li><a href="#">Jakarta</a></li>
+        <li><a href="#">Bogor</a></li>
+        <li><a href="#">Depok</a></li>
+        <li><a href="#">Tangerang</a></li>
+        <li><a href="#">Bekasi</a></li>
+        <li><a href="#">Bandung</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Perusahaan</h4>
+      <ul>
+        <li><a href="#">Tentang Kami</a></li>
+        <li><a href="#">Blog Properti</a></li>
+        <li><a href="#">Tips KPR</a></li>
+        <li><a href="#">Karir</a></li>
+        <li><a href="#">Syarat & Ketentuan</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr class="footer-divider" />
+  <div class="footer-bottom">
+    <p>© 2025 Arinta Realty. Seluruh hak cipta dilindungi. Agen Properti Berlisensi REI.</p>
+    <div class="social-links">
+      <a class="social-link" href="#" title="Instagram">📷</a>
+      <a class="social-link" href="#" title="Facebook">📘</a>
+      <a class="social-link" href="#" title="YouTube">▶️</a>
+      <a class="social-link" href="#" title="TikTok">🎵</a>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WA BUTTON -->
+<a class="wa-float" href="https://wa.me/6281234567890" title="Chat WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
+
+<script>
+  // Tab switcher
+  function setTab(btn) {
+    btn.closest('.tabs').querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Favorite toggle
+  document.querySelectorAll('.prop-fav').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.textContent = btn.textContent === '♡' ? '❤️' : '♡';
+    });
+  });
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target;
+    btn.textContent = '✅ Pesan Terkirim! Kami akan segera menghubungi Anda.';
+    btn.style.background = '#27ae60';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Kirim Pesan → Gratis Konsultasi';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 4000);
+  }
+
+  // Nav scroll effect
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.background = window.scrollY > 60 ? 'rgba(13,27,42,0.98)' : 'rgba(13,27,42,0.92)';
+  });
+</script>
+</body>
+</html>

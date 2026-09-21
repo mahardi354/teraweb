@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klinik Gigi Senyum Sehat — Dokter Gigi Purwokerto</title>
+<meta name="description" content="Klinik Gigi Senyum Sehat melayani pemeriksaan gigi, scaling, veneer, behel, dan cabut gigi di Purwokerto. Dokter gigi berpengalaman, klinik nyaman, harga transparan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white:    #FAFAFA;
+    --offwhite: #F0F6FF;
+    --blue:     #1B6CA8;
+    --blue-d:   #134F7A;
+    --blue-l:   #EBF4FF;
+    --teal:     #0D9488;
+    --teal-l:   #CCFBF1;
+    --gray:     #64748B;
+    --gray-l:   #F1F5F9;
+    --dark:     #0F172A;
+    --border:   #E2EAF4;
+    --font-d:   'Playfair Display', serif;
+    --font-b:   'Inter', sans-serif;
+    --radius:   10px;
+    --shadow:   0 2px 16px rgba(27,108,168,0.08);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-b); background: var(--white); color: var(--dark); line-height: 1.6; }
+  img { display: block; max-width: 100%; }
+  a { text-decoration: none; color: inherit; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 68px;
+    background: rgba(250,250,250,0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 1px 12px rgba(27,108,168,0.07);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .nav-logo-icon {
+    width: 36px; height: 36px;
+    background: var(--blue);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .nav-logo-icon svg { width: 20px; height: 20px; fill: white; }
+  .nav-logo-text {
+    font-family: var(--font-d);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--blue-d);
+    line-height: 1.2;
+  }
+  .nav-logo-sub {
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--gray);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--blue); }
+  .nav-cta {
+    background: var(--blue);
+    color: white !important;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    display: flex; align-items: center; gap: 7px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--blue-d) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    padding: 68px 5% 0;
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    gap: 0;
+    align-items: stretch;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle bg decoration */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--blue-l) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 48px 80px 0;
+    position: relative; z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--blue-l);
+    color: var(--blue);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+    width: fit-content;
+    border: 1px solid rgba(27,108,168,0.15);
+  }
+  .hero-badge-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--teal);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero h1 {
+    font-family: var(--font-d);
+    font-size: clamp(2.4rem, 3.8vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--dark);
+    margin-bottom: 20px;
+  }
+  .hero h1 span { color: var(--blue); }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    color: var(--gray);
+    line-height: 1.75;
+    max-width: 460px;
+    margin-bottom: 40px;
+  }
+
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 9px;
+    background: var(--blue);
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 13px 26px;
+    border-radius: 8px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--blue-d); transform: translateY(-1px); }
+
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 9px;
+    background: transparent;
+    color: var(--blue);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 13px 26px;
+    border-radius: 8px;
+    border: 1.5px solid var(--blue);
+    transition: background 0.2s;
+  }
+  .btn-outline:hover { background: var(--blue-l); }
+
+  .hero-trust {
+    display: flex; align-items: center; gap: 20px;
+    flex-wrap: wrap;
+  }
+  .hero-trust-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.82rem;
+    color: var(--gray);
+    font-weight: 500;
+  }
+  .hero-trust-item svg { width: 16px; height: 16px; color: var(--teal); flex-shrink: 0; }
+  .hero-trust-divider { width: 1px; height: 16px; background: var(--border); }
+
+  /* Hero photo panel */
+  .hero-right {
+    position: relative;
+    background: var(--blue-l);
+    overflow: hidden;
+  }
+  .hero-right img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+  /* Gradient bottom fade */
+  .hero-right::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 120px;
+    background: linear-gradient(to top, var(--blue-l), transparent);
+  }
+
+  /* Floating card on photo */
+  .hero-float-card {
+    position: absolute;
+    bottom: 32px; left: -24px;
+    background: white;
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    box-shadow: 0 8px 32px rgba(27,108,168,0.18);
+    z-index: 2;
+    min-width: 200px;
+    border-left: 3px solid var(--teal);
+  }
+  .hero-float-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 6px;
+  }
+  .hero-float-value {
+    font-family: var(--font-d);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1;
+  }
+  .hero-float-sub {
+    font-size: 0.75rem;
+    color: var(--gray);
+    margin-top: 3px;
+  }
+
+  /* ── LAYANAN ── */
+  .layanan-section {
+    padding: 96px 5%;
+    background: var(--white);
+  }
+  .layanan-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-header { margin-bottom: 52px; }
+  .section-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-bottom: 14px;
+  }
+  .eyebrow-line { width: 28px; height: 2px; background: var(--teal); }
+  .eyebrow-text {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+  .section-title {
+    font-family: var(--font-d);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--dark);
+  }
+  .section-sub {
+    font-size: 0.97rem;
+    color: var(--gray);
+    margin-top: 10px;
+    max-width: 500px;
+    line-height: 1.7;
+  }
+
+  .layanan-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .layanan-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+    cursor: default;
+  }
+  .layanan-card:hover {
+    border-color: var(--blue);
+    box-shadow: var(--shadow);
+    transform: translateY(-3px);
+  }
+
+  .layanan-icon-wrap {
+    width: 52px; height: 52px;
+    border-radius: 12px;
+    background: var(--blue-l);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+  .layanan-icon-wrap svg { width: 26px; height: 26px; }
+
+  .layanan-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+  .layanan-desc {
+    font-size: 0.85rem;
+    color: var(--gray);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .layanan-price {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--blue);
+    background: var(--blue-l);
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 100px;
+  }
+
+  /* ── KEUNGGULAN ── */
+  .keunggulan-section {
+    background: var(--blue);
+    padding: 96px 5%;
+    position: relative;
+    overflow: hidden;
+  }
+  .keunggulan-section::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+    pointer-events: none;
+  }
+  .keunggulan-section::after {
+    content: '';
+    position: absolute;
+    bottom: -120px; left: -60px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+    pointer-events: none;
+  }
+  .keunggulan-inner {
+    max-width: 1200px; margin: 0 auto;
+    position: relative; z-index: 1;
+  }
+  .keunggulan-inner .section-title { color: white; }
+  .keunggulan-inner .eyebrow-text { color: var(--teal-l); }
+  .keunggulan-inner .eyebrow-line { background: var(--teal-l); }
+  .keunggulan-inner .section-sub { color: rgba(255,255,255,0.65); }
+
+  .keunggulan-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 52px;
+    background: rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .keunggulan-item {
+    background: rgba(255,255,255,0.05);
+    padding: 36px 28px;
+    transition: background 0.2s;
+  }
+  .keunggulan-item:hover { background: rgba(255,255,255,0.1); }
+
+  .keunggulan-num {
+    font-family: var(--font-d);
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .keunggulan-num span {
+    font-size: 1.4rem;
+    color: rgba(255,255,255,0.6);
+  }
+  .keunggulan-label {
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 8px;
+  }
+  .keunggulan-desc {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+  }
+
+  /* ── DOKTER ── */
+  .dokter-section {
+    padding: 96px 5%;
+    background: var(--gray-l);
+  }
+  .dokter-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .dokter-photo-wrap {
+    position: relative;
+  }
+  .dokter-photo {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 16px;
+    box-shadow: 0 16px 48px rgba(27,108,168,0.15);
+  }
+  .dokter-credential {
+    position: absolute;
+    bottom: -20px; right: -20px;
+    background: white;
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    box-shadow: 0 8px 32px rgba(27,108,168,0.15);
+    border-top: 3px solid var(--blue);
+  }
+  .dokter-credential-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 4px;
+  }
+  .dokter-credential-value {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--blue-d);
+  }
+
+  .dokter-content {}
+  .dokter-name {
+    font-family: var(--font-d);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .dokter-title-badge {
+    display: inline-block;
+    background: var(--blue-l);
+    color: var(--blue);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+  .dokter-bio {
+    font-size: 0.95rem;
+    color: var(--gray);
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+  .dokter-list {
+    display: flex; flex-direction: column; gap: 12px;
+    margin-bottom: 36px;
+  }
+  .dokter-list-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 0.88rem;
+    color: var(--dark);
+  }
+  .dokter-list-item svg {
+    width: 18px; height: 18px;
+    color: var(--teal);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .jadwal-box {
+    background: white;
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    border: 1.5px solid var(--border);
+  }
+  .jadwal-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--dark);
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .jadwal-title svg { width: 16px; height: 16px; color: var(--blue); }
+  .jadwal-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .jadwal-item {
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .jadwal-day {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .jadwal-time {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--dark);
+  }
+
+  /* ── TESTIMONI ── */
+  .testi-section {
+    padding: 96px 5%;
+    background: var(--white);
+  }
+  .testi-inner { max-width: 1200px; margin: 0 auto; }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 52px;
+  }
+  .testi-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: box-shadow 0.2s;
+  }
+  .testi-card:hover { box-shadow: var(--shadow); }
+  .testi-stars { color: #F59E0B; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 14px; }
+  .testi-text {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.75;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  .testi-divider { height: 1px; background: var(--border); margin-bottom: 16px; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--blue-l);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.88rem;
+    color: var(--blue);
+    flex-shrink: 0;
+  }
+  .testi-name { font-weight: 700; font-size: 0.88rem; color: var(--dark); }
+  .testi-role { font-size: 0.75rem; color: var(--gray); margin-top: 2px; }
+
+  /* ── FAQ ── */
+  .faq-section {
+    padding: 96px 5%;
+    background: var(--offwhite);
+  }
+  .faq-inner { max-width: 780px; margin: 0 auto; }
+  .faq-list { margin-top: 48px; display: flex; flex-direction: column; gap: 12px; }
+
+  .faq-item {
+    background: white;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--border);
+    overflow: hidden;
+  }
+  .faq-q {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 24px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--dark);
+    cursor: pointer;
+    transition: background 0.2s;
+    gap: 12px;
+  }
+  .faq-q:hover { background: var(--blue-l); }
+  .faq-q svg { width: 18px; height: 18px; color: var(--blue); flex-shrink: 0; transition: transform 0.3s; }
+  .faq-item.open .faq-q svg { transform: rotate(45deg); }
+  .faq-a {
+    font-size: 0.88rem;
+    color: var(--gray);
+    line-height: 1.75;
+    padding: 0 24px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.2s;
+  }
+  .faq-item.open .faq-a {
+    max-height: 300px;
+    padding: 0 24px 20px;
+  }
+
+  /* ── CTA ── */
+  .cta-section {
+    padding: 96px 5%;
+    background: linear-gradient(135deg, var(--blue-d) 0%, var(--blue) 60%, #1E7FC2 100%);
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 800px; height: 800px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.06);
+    pointer-events: none;
+  }
+  .cta-inner { max-width: 620px; margin: 0 auto; position: relative; z-index: 1; }
+  .cta-title {
+    font-family: var(--font-d);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .cta-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+  .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-wa {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #25D366;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 14px 30px;
+    border-radius: 8px;
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+  }
+  .btn-wa:hover { background: #20C35E; transform: translateY(-2px); }
+  .btn-wa svg { width: 22px; height: 22px; fill: white; }
+  .cta-note { margin-top: 20px; font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    padding: 44px 5%;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+  }
+  .footer-logo {
+    font-family: var(--font-d);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+  }
+  .footer-info { font-size: 0.78rem; color: rgba(255,255,255,0.35); line-height: 1.8; text-align: center; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 0.78rem; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+  .footer-links a:hover { color: white; }
+
+  /* ── FLOATING WA ── */
+  .wa-float {
+    position: fixed; bottom: 28px; right: 28px; z-index: 200;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #25D366;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .wa-float:hover { transform: scale(1.1); box-shadow: 0 8px 28px rgba(37,211,102,0.55); }
+  .wa-float svg { width: 28px; height: 28px; fill: white; }
+  .wa-float::before {
+    content: '';
+    position: absolute; inset: -4px;
+    border-radius: 50%;
+    border: 2px solid rgba(37,211,102,0.5);
+    animation: waPulse 2.5s ease-out infinite;
+  }
+  @keyframes waPulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 60px 0; }
+    .nav-links { display: none; }
+    .layanan-grid { grid-template-columns: 1fr; }
+    .keunggulan-grid { grid-template-columns: repeat(2,1fr); }
+    .dokter-inner { grid-template-columns: 1fr; gap: 40px; }
+    .dokter-photo-wrap { max-width: 320px; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-links { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8 2 6 5 6 8c0 1.5.5 3 1 4l1 6c.2 1 1 2 2 2h4c1 0 1.8-1 2-2l1-6c.5-1 1-2.5 1-4 0-3-2-6-6-6zm-2 12l-.7-4.2C9.1 9.3 9 8.7 9 8c0-1.7 1.3-3 3-3s3 1.3 3 3c0 .7-.1 1.3-.3 1.8L14 14h-4z"/></svg>
+    </div>
+    <div>
+      <div class="nav-logo-text">Senyum Sehat</div>
+      <div class="nav-logo-sub">Klinik Gigi Purwokerto</div>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#layanan">Layanan</a>
+    <a href="#dokter">Dokter</a>
+    <a href="#testimoni">Testimoni</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://wa.me/6281234567890?text=Halo+Klinik+Senyum+Sehat,+saya+ingin+buat+janji" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.27 6.27l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Buat Janji
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      Buka Hari Ini · Senin–Sabtu
+    </div>
+    <h1>Senyum Percaya Diri<br>Dimulai dari <span>Gigi Sehat</span></h1>
+    <p class="hero-desc">Klinik Gigi Senyum Sehat melayani pemeriksaan, perawatan, dan estetika gigi dengan dokter gigi berpengalaman di Purwokerto. Nyaman, higienis, harga terjangkau.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/6281234567890?text=Halo+Klinik+Senyum+Sehat,+saya+ingin+buat+janji+temu" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Buat Janji via WA
+      </a>
+      <a href="#layanan" class="btn-outline">Lihat Layanan</a>
+    </div>
+    <div class="hero-trust">
+      <div class="hero-trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Dokter gigi bersertifikat
+      </div>
+      <div class="hero-trust-divider"></div>
+      <div class="hero-trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Alat steril standar WHO
+      </div>
+      <div class="hero-trust-divider"></div>
+      <div class="hero-trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Tanpa antrian panjang
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=900&q=80" alt="Dokter gigi profesional Purwokerto">
+    <div class="hero-float-card">
+      <div class="hero-float-label">Pasien Puas</div>
+      <div class="hero-float-value">1.200<span>+</span></div>
+      <div class="hero-float-sub">sejak 2015</div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYANAN -->
+<section id="layanan" class="layanan-section">
+  <div class="layanan-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Apa yang kami tangani</span>
+      </div>
+      <h2 class="section-title">Layanan Lengkap<br>Dalam Satu Klinik</h2>
+      <p class="section-sub">Dari perawatan rutin hingga estetika gigi, semua tersedia dengan standar higienis dan dokter berpengalaman.</p>
+    </div>
+    <div class="layanan-grid">
+      <div class="layanan-card">
+        <div class="layanan-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1B6CA8" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </div>
+        <div class="layanan-name">Pemeriksaan & Konsultasi</div>
+        <p class="layanan-desc">Pemeriksaan kondisi gigi menyeluruh, rontgen gigi, dan konsultasi rencana perawatan terbaik untuk Anda.</p>
+        <span class="layanan-price">Mulai Rp 50.000</span>
+      </div>
+      <div class="layanan-card">
+        <div class="layanan-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1B6CA8" stroke-width="1.8" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="layanan-name">Scaling / Pembersihan</div>
+        <p class="layanan-desc">Pembersihan karang gigi dan plak dengan alat ultrasonik. Gigi lebih bersih, napas lebih segar.</p>
+        <span class="layanan-price">Mulai Rp 150.000</span>
+      </div>
+      <div class="layanan-card">
+        <div class="layanan-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1B6CA8" stroke-width="1.8" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="layanan-name">Tambal Gigi</div>
+        <p class="layanan-desc">Penambalan gigi berlubang dengan bahan komposit sewarna gigi. Estetis, tahan lama, tidak terlihat.</p>
+        <span class="layanan-price">Mulai Rp 200.000</span>
+      </div>
+      <div class="layanan-card">
+        <div class="layanan-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1B6CA8" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div class="layanan-name">Veneer Gigi</div>
+        <p class="layanan-desc">Lapisan porselen tipis untuk memperbaiki warna, bentuk, dan kesejajaran gigi. Hasil natural dan tahan lama.</p>
+        <span class="layanan-price">Mulai Rp 1.500.000/gigi</span>
+      </div>
+      <div class="layanan-card">
+        <div class="layanan-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1B6CA8" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="layanan-name">Behel / Orthodonti</div>
+        <p class="layanan-desc">Perawatan behel konvensional dan transparan untuk merapikan susunan gigi secara bertahap dan aman.</p>
+        <span class="layanan-price">Mulai Rp 5.000.000</span>
+      </div>
+      <div class="layanan-card">
+        <div class="layanan-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1B6CA8" stroke-width="1.8" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="layanan-name">Cabut Gigi & Bedah Minor</div>
+        <p class="layanan-desc">Pencabutan gigi termasuk gigi bungsu impaksi dengan anestesi lokal. Prosedur cepat, minim rasa sakit.</p>
+        <span class="layanan-price">Mulai Rp 100.000</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEUNGGULAN -->
+<section class="keunggulan-section">
+  <div class="keunggulan-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Mengapa pilih kami</span>
+      </div>
+      <h2 class="section-title">Bukan Sekadar<br>Klinik Biasa</h2>
+      <p class="section-sub">Kami berkomitmen memberikan perawatan gigi terbaik dengan pengalaman yang nyaman dan menyenangkan.</p>
+    </div>
+    <div class="keunggulan-grid">
+      <div class="keunggulan-item">
+        <div class="keunggulan-num">9<span>thn</span></div>
+        <div class="keunggulan-label">Pengalaman Praktik</div>
+        <p class="keunggulan-desc">Drg. Amelia telah menangani ribuan kasus dari rutin hingga kompleks sejak 2015.</p>
+      </div>
+      <div class="keunggulan-item">
+        <div class="keunggulan-num">1.200<span>+</span></div>
+        <div class="keunggulan-label">Pasien Tertangani</div>
+        <p class="keunggulan-desc">Ribuan keluarga di Purwokerto dan sekitarnya sudah mempercayakan perawatan gigi mereka.</p>
+      </div>
+      <div class="keunggulan-item">
+        <div class="keunggulan-num">4.9<span>★</span></div>
+        <div class="keunggulan-label">Rating Google</div>
+        <p class="keunggulan-desc">Penilaian tinggi dari pasien nyata — kejujuran dan kualitas yang konsisten.</p>
+      </div>
+      <div class="keunggulan-item">
+        <div class="keunggulan-num">0<span>antri</span></div>
+        <div class="keunggulan-label">Sistem Janji Temu</div>
+        <p class="keunggulan-desc">Booking via WhatsApp, datang tepat waktu, langsung dilayani tanpa tunggu lama.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOKTER -->
+<section id="dokter" class="dokter-section">
+  <div class="dokter-inner">
+    <div class="dokter-photo-wrap">
+      <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80" alt="Drg. Amelia Putri - Dokter Gigi Purwokerto" class="dokter-photo">
+      <div class="dokter-credential">
+        <div class="dokter-credential-title">Nomor SIP</div>
+        <div class="dokter-credential-value">Aktif & Terverifikasi</div>
+      </div>
+    </div>
+    <div class="dokter-content">
+      <div class="section-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Kenali dokter Anda</span>
+      </div>
+      <h2 class="dokter-name">drg. Amelia Putri, Sp.KG</h2>
+      <span class="dokter-title-badge">Spesialis Konservasi Gigi</span>
+      <p class="dokter-bio">Lulus dari Fakultas Kedokteran Gigi Universitas Gadjah Mada tahun 2014, kemudian menyelesaikan spesialisasi Konservasi Gigi pada 2018. Drg. Amelia percaya bahwa perawatan gigi yang baik dimulai dari komunikasi yang jujur antara dokter dan pasien.</p>
+      <div class="dokter-list">
+        <div class="dokter-list-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Lulus FKG Universitas Gadjah Mada (2014)
+        </div>
+        <div class="dokter-list-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Spesialis Konservasi Gigi — RSGM Prof. Soedomo (2018)
+        </div>
+        <div class="dokter-list-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Anggota aktif PDGI Cabang Banyumas
+        </div>
+        <div class="dokter-list-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Pelatihan Estetika Gigi & Veneer — Singapura (2022)
+        </div>
+      </div>
+      <div class="jadwal-box">
+        <div class="jadwal-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Jadwal Praktik
+        </div>
+        <div class="jadwal-grid">
+          <div class="jadwal-item">
+            <span class="jadwal-day">Senin – Jumat</span>
+            <span class="jadwal-time">08.00 – 12.00 & 16.00 – 20.00</span>
+          </div>
+          <div class="jadwal-item">
+            <span class="jadwal-day">Sabtu</span>
+            <span class="jadwal-time">08.00 – 13.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section id="testimoni" class="testi-section">
+  <div class="testi-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Kata pasien kami</span>
+      </div>
+      <h2 class="section-title">Mereka Sudah<br>Merasakan Manfaatnya</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Pertama kali ke dokter gigi setelah bertahun-tahun karena takut. Drg. Amelia sangat sabar menjelaskan prosedurnya dan sama sekali tidak terasa sakit. Sekarang saya rutin kontrol setiap 6 bulan."</p>
+        <div class="testi-divider"></div>
+        <div class="testi-author">
+          <div class="testi-avatar">RA</div>
+          <div>
+            <div class="testi-name">Rina Andriani</div>
+            <div class="testi-role">Scaling + Tambal · Purwokerto</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Veneer 4 gigi depan saya hasilnya memuaskan sekali — natural, tidak keliatan palsu. Harganya juga transparan dari awal, tidak ada biaya tambahan mendadak. Sangat direkomendasikan!"</p>
+        <div class="testi-divider"></div>
+        <div class="testi-author">
+          <div class="testi-avatar">DK</div>
+          <div>
+            <div class="testi-name">Dian Kartika</div>
+            <div class="testi-role">Veneer · Sokaraja</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Bawa anak saya yang 8 tahun untuk cabut gigi susu. Dokternya sangat ramah sama anak-anak, anaknya malah minta balik lagi. Kliniknya bersih dan tidak lama nunggu karena pakai sistem janji."</p>
+        <div class="testi-divider"></div>
+        <div class="testi-author">
+          <div class="testi-avatar">BS</div>
+          <div>
+            <div class="testi-name">Bambang Supriyadi</div>
+            <div class="testi-role">Cabut Gigi Anak · Banyumas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq-section">
+  <div class="faq-inner">
+    <div class="section-header" style="text-align:center">
+      <div class="section-eyebrow" style="justify-content:center">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Pertanyaan umum</span>
+        <div class="eyebrow-line"></div>
+      </div>
+      <h2 class="section-title">Ada yang Ingin<br>Ditanyakan?</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Apakah perlu buat janji dulu atau bisa langsung datang?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">Kami sangat menyarankan buat janji terlebih dahulu via WhatsApp agar tidak menunggu. Namun pasien tanpa janji tetap kami layani sesuai ketersediaan waktu dokter, dengan estimasi menunggu 15–30 menit.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Apakah klinik menerima BPJS Kesehatan?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">Untuk saat ini klinik kami belum bekerja sama dengan BPJS Kesehatan. Namun kami menyediakan layanan dengan harga yang transparan dan terjangkau, serta berbagai pilihan pembayaran termasuk transfer bank, QRIS, dan kartu debit/kredit.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Berapa lama proses pemasangan veneer?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">Proses veneer biasanya memerlukan 2–3 kali kunjungan. Kunjungan pertama untuk konsultasi dan pengambilan cetakan, kunjungan kedua untuk pemasangan sementara, dan kunjungan ketiga untuk pemasangan permanen. Total proses sekitar 1–2 minggu.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Apakah anak-anak bisa ditangani di sini?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">Ya, kami melayani pasien dari segala usia termasuk anak-anak mulai usia 3 tahun. Dokter kami berpengalaman dalam menangani pasien anak dengan pendekatan yang ramah dan tidak menakutkan.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Bagaimana cara pembayarannya?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">Kami menerima pembayaran tunai, transfer bank (BCA, BNI, Mandiri, BRI), QRIS, serta kartu debit dan kredit. Untuk perawatan besar seperti behel atau implan, tersedia cicilan 0% dengan kartu kredit tertentu.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2 class="cta-title">Siap untuk Senyum<br>yang Lebih Sehat?</h2>
+    <p class="cta-sub">Jadwalkan kunjungan pertama Anda sekarang. Konsultasi awal gratis — kami bantu tentukan perawatan yang paling tepat.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/6281234567890?text=Halo+Klinik+Senyum+Sehat,+saya+ingin+buat+janji+temu.+Apakah+ada+slot+yang+tersedia?" class="btn-wa">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.504 1.132 6.748 3.056 9.372L1.056 30.86l5.624-1.972C9.12 30.584 12.44 32 16.004 32 24.828 32 32 24.824 32 16S24.828 0 16.004 0zm9.408 22.588c-.392 1.108-1.944 2.024-3.188 2.292-.848.18-1.956.324-5.688-1.22-4.776-1.98-7.856-6.832-8.092-7.148-.228-.316-1.916-2.548-1.916-4.86 0-2.312 1.212-3.44 1.64-3.876.392-.4.856-.5 1.14-.5.284 0 .568.004.816.016.26.012.608-.1.952.724.36.844 1.224 2.992 1.332 3.208.108.216.18.468.036.748-.136.288-.204.464-.408.716-.2.244-.42.544-.6.732-.2.208-.408.432-.176.848.232.408 1.032 1.7 2.216 2.752 1.524 1.356 2.808 1.776 3.216 1.976.408.2.648.168.888-.1.244-.276 1.044-1.216 1.32-1.632.276-.416.552-.348.932-.208.384.14 2.428 1.148 2.844 1.36.416.208.692.312.796.484.1.176.1 1.016-.296 2.088z"/></svg>
+        Buat Janji via WhatsApp
+      </a>
+    </div>
+    <p class="cta-note">Respons dalam 1 jam · Senin–Sabtu 08.00–20.00</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Klinik Gigi Senyum Sehat</div>
+    <div class="footer-info">
+      Jl. Dr. Soeparno No. 12, Purwokerto Utara, Banyumas 53122<br>
+      ☎ (0281) 987-6543 · 📱 0812-3456-7890
+    </div>
+    <div class="footer-links">
+      <a href="#layanan">Layanan</a>
+      <a href="#dokter">Dokter</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WA -->
+<a href="https://wa.me/6281234567890?text=Halo+Klinik+Senyum+Sehat" class="wa-float" title="Chat WhatsApp">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.504 1.132 6.748 3.056 9.372L1.056 30.86l5.624-1.972C9.12 30.584 12.44 32 16.004 32 24.828 32 32 24.824 32 16S24.828 0 16.004 0zm9.408 22.588c-.392 1.108-1.944 2.024-3.188 2.292-.848.18-1.956.324-5.688-1.22-4.776-1.98-7.856-6.832-8.092-7.148-.228-.316-1.916-2.548-1.916-4.86 0-2.312 1.212-3.44 1.64-3.876.392-.4.856-.5 1.14-.5.284 0 .568.004.816.016.26.012.608-.1.952.724.36.844 1.224 2.992 1.332 3.208.108.216.18.468.036.748-.136.288-.204.464-.408.716-.2.244-.42.544-.6.732-.2.208-.408.432-.176.848.232.408 1.032 1.7 2.216 2.752 1.524 1.356 2.808 1.776 3.216 1.976.408.2.648.168.888-.1.244-.276 1.044-1.216 1.32-1.632.276-.416.552-.348.932-.208.384.14 2.428 1.148 2.844 1.36.416.208.692.312.796.484.1.176.1 1.016-.296 2.088z"/></svg>
+</a>
+
+<script>
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+
+</body>
+</html>

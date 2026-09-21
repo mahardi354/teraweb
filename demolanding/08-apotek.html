@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apotek Sehat Abadi — Apotek Purwokerto 24 Jam</title>
+<meta name="description" content="Apotek Sehat Abadi Purwokerto. Obat resep & bebas lengkap, vitamin, alat kesehatan. Apoteker berpengalaman, harga terjangkau, bisa pesan via WhatsApp, buka 24 jam.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#0F7B5C;
+  --green-dark:#0A5E45;
+  --green-mid:#158A68;
+  --green-light:#E8F5F0;
+  --green-pale:#F2FAF7;
+  --green-border:#C3E8DC;
+  --teal:#0D9488;
+  --white:#FFFFFF;
+  --gray:#F8FAFB;
+  --gray-mid:#F1F5F9;
+  --border:#E2EAF0;
+  --text:#0F1F2E;
+  --text-mid:#445566;
+  --text-muted:#8899AA;
+  --red-cross:#E53E3E;
+  --blue-rx:#2563EB;
+  --blue-pale:#EFF6FF;
+  --yellow:#F59E0B;
+  --yellow-pale:#FFFBEB;
+}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border);box-shadow:0 1px 12px rgba(15,123,92,.06)}
+.nav-top{background:var(--green);padding:6px 0}
+.nav-top-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
+.nav-top-left{display:flex;gap:20px}
+.nav-top-item{display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,.85);font-weight:500}
+.nav-top-badge{background:rgba(255,255,255,.2);border-radius:100px;padding:2px 10px;font-size:11px;color:#fff;font-weight:700}
+.nav-main{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-cross{width:38px;height:38px;background:var(--green);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-cross svg{width:22px;height:22px;color:#fff}
+.logo-text{display:flex;flex-direction:column;line-height:1;gap:2px}
+.logo-name{font-weight:800;font-size:17px;color:var(--text);letter-spacing:-0.2px}
+.logo-sub{font-size:10px;color:var(--green);font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{color:var(--text-mid);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s}
+.nav-links a:hover{color:var(--green)}
+.nav-cta{background:var(--green);color:#fff!important;padding:9px 20px;border-radius:8px;font-weight:700!important;transition:background .2s!important}
+.nav-cta:hover{background:var(--green-dark)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,var(--green) 0%,var(--green-mid) 100%);min-height:86vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-pattern{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);background-size:32px 32px;pointer-events:none}
+.hero-blob{position:absolute;right:-80px;bottom:-80px;width:500px;height:500px;background:rgba(255,255,255,.05);border-radius:50%;pointer-events:none}
+.hero-blob2{position:absolute;left:-60px;top:-60px;width:300px;height:300px;background:rgba(255,255,255,.04);border-radius:50%;pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;padding:80px 24px;width:100%;display:grid;grid-template-columns:1fr 460px;gap:60px;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:100px;padding:7px 16px;margin-bottom:22px}
+.hero-badge-dot{width:8px;height:8px;border-radius:50%;background:#4ADE80;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(1.15)}}
+.hero-badge span{font-size:12px;color:#fff;font-weight:600;letter-spacing:.5px}
+.hero-h1{font-weight:800;font-size:clamp(38px,5vw,62px);line-height:1.1;color:#fff;margin-bottom:18px;letter-spacing:-0.5px}
+.hero-h1 span{color:#86EFAC}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.75);line-height:1.8;max-width:440px;margin-bottom:36px;font-weight:400}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:44px}
+.btn-white{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--green);padding:14px 26px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;transition:all .2s}
+.btn-white:hover{background:var(--green-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.btn-outline-white{display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(255,255,255,.35);color:rgba(255,255,255,.9);padding:13px 22px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;transition:all .2s}
+.btn-outline-white:hover{border-color:rgba(255,255,255,.7);color:#fff;background:rgba(255,255,255,.08)}
+.hero-microstats{display:flex;gap:0;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:12px;overflow:hidden}
+.hero-ms{flex:1;padding:16px 12px;text-align:center;border-right:1px solid rgba(255,255,255,.12)}
+.hero-ms:last-child{border-right:none}
+.hero-ms-num{font-weight:800;font-size:24px;color:#fff;line-height:1}
+.hero-ms-num span{color:#86EFAC}
+.hero-ms-label{font-size:11px;color:rgba(255,255,255,.6);margin-top:3px;font-weight:500}
+
+/* Hero kanan */
+.hero-right{display:flex;flex-direction:column;gap:14px}
+.hero-photo{width:100%;border-radius:16px;overflow:hidden;aspect-ratio:4/3;border:3px solid rgba(255,255,255,.2)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-photo .img-fb{display:none;width:100%;height:100%;background:var(--green-dark);align-items:center;justify-content:center;font-size:80px}
+.hero-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hero-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:16px;display:flex;gap:10px;align-items:flex-start}
+.hero-card-icon{font-size:22px;flex-shrink:0}
+.hero-card-title{font-weight:700;font-size:13px;color:#fff;margin-bottom:2px}
+.hero-card-desc{font-size:11px;color:rgba(255,255,255,.6);line-height:1.4}
+
+/* ── SECTION ── */
+.section{padding:88px 0}
+.section-inner{max-width:1100px;margin:0 auto;padding:0 24px}
+.section-eyebrow{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.section-eyebrow::before{content:'';width:20px;height:2px;background:var(--green);border-radius:2px;flex-shrink:0}
+.section-title{font-weight:800;font-size:clamp(26px,3.5vw,40px);color:var(--text);line-height:1.15;margin-bottom:12px;letter-spacing:-0.3px}
+.section-sub{font-size:16px;color:var(--text-mid);max-width:500px;line-height:1.8;font-weight:400}
+.bg-gray{background:var(--gray)}
+.bg-green{background:var(--green-light);border-top:1px solid var(--green-border);border-bottom:1px solid var(--green-border)}
+.bg-green-dark{background:var(--green)}
+
+/* ── KATEGORI OBAT ── */
+.kat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+.kat-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:24px 20px;text-align:center;transition:all .25s;cursor:default;position:relative;overflow:hidden}
+.kat-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.kat-card:hover{border-color:var(--green-border);transform:translateY(-4px);box-shadow:0 12px 32px rgba(15,123,92,.1)}
+.kat-card:hover::before{transform:scaleX(1)}
+.kat-icon{font-size:40px;margin-bottom:14px;display:block}
+.kat-name{font-weight:700;font-size:15px;color:var(--text);margin-bottom:6px}
+.kat-desc{font-size:13px;color:var(--text-muted);line-height:1.5}
+.kat-tag{display:inline-block;background:var(--green-light);color:var(--green);font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;margin-top:10px}
+
+/* ── LAYANAN UNGGULAN ── */
+.layanan-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
+.layanan-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:26px;display:flex;gap:18px;align-items:flex-start;transition:all .2s;border-left:4px solid transparent}
+.layanan-card:hover{border-color:var(--green-border);border-left-color:var(--green);box-shadow:0 6px 24px rgba(15,123,92,.08)}
+.layanan-icon{width:50px;height:50px;background:var(--green-light);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;transition:.2s}
+.layanan-card:hover .layanan-icon{background:var(--green);font-size:24px}
+.layanan-title{font-weight:700;font-size:16px;color:var(--text);margin-bottom:6px}
+.layanan-desc{font-size:13px;color:var(--text-mid);line-height:1.7}
+.layanan-badge{display:inline-flex;align-items:center;gap:5px;background:var(--green-light);border-radius:4px;padding:3px 10px;font-size:11px;color:var(--green);font-weight:700;margin-top:10px}
+
+/* ── CARA PESAN ── */
+.stepper{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:52px;position:relative}
+.stepper::before{content:'';position:absolute;top:32px;left:12.5%;right:12.5%;height:2px;background:var(--green-border);z-index:0}
+.step{text-align:center;padding:0 16px;position:relative;z-index:1}
+.step-num{width:64px;height:64px;border-radius:50%;background:var(--white);border:3px solid var(--green-border);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-weight:800;font-size:20px;color:var(--green);position:relative;z-index:1;transition:.3s}
+.step.active .step-num{background:var(--green);border-color:var(--green);color:#fff;box-shadow:0 4px 16px rgba(15,123,92,.3)}
+.step-icon{font-size:24px;margin-bottom:16px}
+.step-title{font-weight:700;font-size:15px;color:var(--text);margin-bottom:8px}
+.step-desc{font-size:13px;color:var(--text-mid);line-height:1.6}
+
+/* ── APOTEKER ── */
+.apoteker-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.apoteker-card{background:var(--white);border-radius:16px;border:1px solid var(--border);overflow:hidden;transition:all .25s;text-align:center}
+.apoteker-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(15,123,92,.1);border-color:var(--green-border)}
+.apoteker-photo{height:200px;overflow:hidden;background:var(--green-light);position:relative}
+.apoteker-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s}
+.apoteker-photo .img-fb{display:none;width:100%;height:100%;align-items:center;justify-content:center;font-size:64px;background:var(--green-light)}
+.apoteker-card:hover .apoteker-photo img{transform:scale(1.05)}
+.apoteker-stra{position:absolute;top:10px;right:10px;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:4px 10px;border-radius:100px;letter-spacing:.5px}
+.apoteker-info{padding:20px 18px}
+.apoteker-name{font-weight:700;font-size:17px;color:var(--text);margin-bottom:4px}
+.apoteker-role{font-size:12px;color:var(--green);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+.apoteker-spec{font-size:13px;color:var(--text-mid);line-height:1.5}
+.apoteker-shift{display:inline-flex;align-items:center;gap:6px;background:var(--green-light);border-radius:100px;padding:5px 12px;font-size:12px;color:var(--green);font-weight:600;margin-top:12px}
+
+/* ── PRODUK UNGGULAN ── */
+.produk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+.produk-card{background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .2s}
+.produk-card:hover{border-color:var(--green-border);box-shadow:0 8px 24px rgba(15,123,92,.1)}
+.produk-img{height:150px;background:var(--green-light);overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+.produk-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.produk-img .img-fb{display:none;width:100%;height:100%;align-items:center;justify-content:center;font-size:52px;background:var(--green-light)}
+.produk-card:hover .produk-img img{transform:scale(1.05)}
+.produk-label{position:absolute;top:8px;left:8px;font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;letter-spacing:.5px}
+.produk-label.rx{background:var(--blue-pale);color:var(--blue-rx)}
+.produk-label.bebas{background:var(--green-light);color:var(--green)}
+.produk-label.alkes{background:var(--yellow-pale);color:var(--yellow)}
+.produk-body{padding:16px}
+.produk-name{font-weight:700;font-size:14px;color:var(--text);margin-bottom:4px;line-height:1.3}
+.produk-desc{font-size:12px;color:var(--text-muted);line-height:1.5;margin-bottom:12px}
+.produk-footer{display:flex;align-items:center;justify-content:space-between}
+.produk-price{font-weight:800;font-size:16px;color:var(--green)}
+.produk-btn{background:var(--green-light);color:var(--green);border:none;padding:6px 12px;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;transition:background .2s}
+.produk-btn:hover{background:var(--green);color:#fff}
+
+/* ── INFO PENTING ── */
+.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.info-card{border-radius:14px;padding:26px;border:1px solid}
+.info-card.rx{background:var(--blue-pale);border-color:#BFDBFE}
+.info-card.bebas{background:var(--green-light);border-color:var(--green-border)}
+.info-card.darurat{background:#FFF5F5;border-color:#FED7D7}
+.info-icon{font-size:32px;margin-bottom:14px}
+.info-title{font-weight:700;font-size:16px;margin-bottom:10px}
+.info-card.rx .info-title{color:var(--blue-rx)}
+.info-card.bebas .info-title{color:var(--green)}
+.info-card.darurat .info-title{color:var(--red-cross)}
+.info-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.info-list li{font-size:13px;color:var(--text-mid);line-height:1.5;display:flex;gap:8px;align-items:flex-start}
+.info-list li::before{content:'•';color:currentColor;flex-shrink:0;font-weight:700}
+.info-card.rx .info-list li::before{color:var(--blue-rx)}
+.info-card.bebas .info-list li::before{color:var(--green)}
+.info-card.darurat .info-list li::before{color:var(--red-cross)}
+
+/* ── TESTIMONI ── */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.testi-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:26px;position:relative}
+.testi-card:hover{border-color:var(--green-border)}
+.testi-quote{font-size:48px;color:var(--green-border);line-height:.8;font-family:Georgia,serif;position:absolute;top:16px;right:20px;font-weight:700}
+.testi-stars{color:var(--yellow);font-size:15px;letter-spacing:1px;margin-bottom:14px}
+.testi-text{font-size:14px;color:var(--text-mid);line-height:1.8;font-style:italic;margin-bottom:18px}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-av{width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--green-light)}
+.testi-av img{width:100%;height:100%;object-fit:cover;display:block}
+.testi-av .img-fb{display:none;width:100%;height:100%;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:var(--green)}
+.testi-name{font-weight:700;font-size:14px;color:var(--text)}
+.testi-label{font-size:12px;color:var(--text-muted)}
+
+/* ── JAM & KONTAK ── */
+.jam-kontak-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:48px}
+.jam-card{background:var(--white);border-radius:14px;border:1px solid var(--border);overflow:hidden}
+.jam-card-head{background:var(--green);padding:18px 24px;display:flex;align-items:center;gap:10px}
+.jam-card-head-title{font-weight:700;font-size:16px;color:#fff}
+.jam-row{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;border-bottom:1px solid var(--border)}
+.jam-row:last-child{border-bottom:none}
+.jam-row.today{background:var(--green-pale)}
+.jam-day{font-size:14px;color:var(--text-mid);font-weight:500}
+.jam-row.today .jam-day{color:var(--green);font-weight:700}
+.jam-time{font-weight:700;font-size:16px;color:var(--text)}
+.jam-open{display:inline-flex;align-items:center;gap:6px;background:var(--green-pale);border:1px solid var(--green-border);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;color:var(--green);margin-bottom:14px}
+.jam-open-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 1.5s infinite}
+.kontak-card{background:var(--white);border-radius:14px;border:1px solid var(--border);overflow:hidden}
+.kontak-row{display:flex;gap:16px;padding:18px 24px;border-bottom:1px solid var(--border);align-items:flex-start}
+.kontak-row:last-child{border-bottom:none}
+.kontak-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.kontak-body strong{display:block;font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px}
+.kontak-body p{font-size:13px;color:var(--text-mid);line-height:1.6}
+.kontak-wa-btn{display:flex;align-items:center;justify-content:space-between;background:var(--green);color:#fff;padding:14px 20px;text-decoration:none;font-weight:700;font-size:14px;transition:background .2s}
+.kontak-wa-btn:hover{background:var(--green-dark)}
+
+/* ── FAQ ── */
+.faq-list{max-width:720px;margin:48px auto 0;display:flex;flex-direction:column;gap:6px}
+.faq-item{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.faq-item.open{border-color:var(--green-border)}
+.faq-q{width:100%;background:none;border:none;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;color:var(--text);font-size:15px;font-weight:700;text-align:left;gap:12px;font-family:'Plus Jakarta Sans',sans-serif;transition:color .2s}
+.faq-q:hover{color:var(--green)}
+.faq-arrow{color:var(--text-muted);transition:transform .3s,color .2s;flex-shrink:0}
+.faq-item.open .faq-arrow{transform:rotate(180deg);color:var(--green)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a-inner{padding:0 22px 18px;font-size:14px;color:var(--text-mid);line-height:1.8;border-top:1px solid var(--border)}
+.faq-item.open .faq-a{max-height:300px}
+
+/* ── CTA ── */
+.cta-section{background:var(--green);padding:88px 0;text-align:center;position:relative;overflow:hidden}
+.cta-pattern{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px);background-size:32px 32px;pointer-events:none}
+.cta-section .section-eyebrow{color:rgba(255,255,255,.7);justify-content:center}
+.cta-section .section-eyebrow::before{background:rgba(255,255,255,.5)}
+.cta-section .section-title{color:#fff;max-width:600px;margin:0 auto 14px}
+.cta-section .section-title span{color:#86EFAC}
+.cta-section .section-sub{color:rgba(255,255,255,.7);max-width:460px;margin:0 auto 40px}
+.cta-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.btn-big{padding:17px 36px;font-size:16px}
+.btn-outline-white-cta{display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(255,255,255,.35);color:rgba(255,255,255,.9);padding:16px 28px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;transition:all .2s}
+.btn-outline-white-cta:hover{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.1)}
+
+/* ── FOOTER ── */
+footer{background:#0A1A2E;padding:52px 0 24px}
+.footer-inner{max-width:1100px;margin:0 auto;padding:0 24px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,.45);line-height:1.8;margin-top:14px;max-width:260px}
+.footer-col h4{font-weight:700;font-size:14px;color:#fff;margin-bottom:16px;letter-spacing:.3px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul li a{font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
+.footer-col ul li a:hover{color:#86EFAC}
+.footer-disclaimer{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:14px 18px;margin-bottom:28px}
+.footer-disclaimer p{font-size:12px;color:rgba(255,255,255,.4);line-height:1.6}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,.35)}
+.footer-bottom a{color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s}
+.footer-bottom a:hover{color:#86EFAC}
+
+/* ── WA FLOAT ── */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:14px 20px 14px 16px;border-radius:100px;text-decoration:none;font-weight:700;font-size:14px;box-shadow:0 8px 32px rgba(37,211,102,.4);transition:all .2s}
+.wa-float:hover{background:#1EB850;transform:translateY(-3px)}
+.wa-float svg{width:22px;height:22px}
+
+/* ── MOBILE ── */
+@media(max-width:1024px){.footer-top{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:40px}
+  .hero-right{order:-1;max-width:420px;margin:0 auto}
+  .kat-grid{grid-template-columns:1fr 1fr}
+  .produk-grid{grid-template-columns:1fr 1fr}
+  .apoteker-grid{grid-template-columns:1fr 1fr}
+  .stepper{grid-template-columns:1fr 1fr;gap:24px}
+  .stepper::before{display:none}
+  .layanan-grid{grid-template-columns:1fr}
+  .info-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .nav-top-left{gap:12px}
+  .jam-kontak-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr;gap:28px}
+  .section{padding:60px 0}
+  .hero-microstats{flex-wrap:wrap}
+  .hero-ms{width:50%;border-bottom:1px solid rgba(255,255,255,.12)}
+}
+@media(max-width:560px){
+  .kat-grid{grid-template-columns:1fr 1fr}
+  .produk-grid{grid-template-columns:1fr 1fr}
+  .apoteker-grid{grid-template-columns:1fr}
+  .hero-cards{grid-template-columns:1fr}
+  .stepper{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-top">
+    <div class="nav-top-inner">
+      <div class="nav-top-left">
+        <div class="nav-top-item">
+          <span>🕐</span> Buka Setiap Hari 24 Jam
+        </div>
+        <div class="nav-top-item">
+          <span>📍</span> Jl. Sudirman No. 45, Purwokerto
+        </div>
+        <div class="nav-top-item">
+          <span>📱</span> 0857-4355-3879
+        </div>
+      </div>
+      <div class="nav-top-badge">⚕️ Apoteker Berpengalaman</div>
+    </div>
+  </div>
+  <div class="nav-main">
+    <a href="#" class="nav-logo">
+      <div class="logo-cross">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z"/></svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-name">Apotek Sehat Abadi</span>
+        <span class="logo-sub">Buka 24 Jam</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#produk">Produk</a></li>
+      <li><a href="#layanan">Layanan</a></li>
+      <li><a href="#cara-pesan">Cara Pesan</a></li>
+      <li><a href="#apoteker">Apoteker</a></li>
+      <li><a href="https://wa.me/6285743553879?text=Halo%20Apotek%20Sehat%20Abadi%2C%20saya%20mau%20tanya%20obat" class="nav-cta">Pesan via WA</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu(this)"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-blob"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span>Buka 24 Jam · 7 Hari Seminggu</span>
+      </div>
+      <h1 class="hero-h1">Apotek Terpercaya<br><span>Purwokerto</span><br>Siap Melayani</h1>
+      <p class="hero-sub">Obat resep, obat bebas, vitamin, dan alat kesehatan lengkap. Apoteker berpengalaman siap konsultasi — kapan saja Anda membutuhkan.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/6285743553879?text=Halo%20Apotek%20Sehat%20Abadi%2C%20saya%20mau%20pesan%20obat" class="btn-white btn-big">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.855L.057 23.886a.5.5 0 0 0 .611.637l6.218-1.637A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.925 0-3.727-.524-5.271-1.432l-.338-.2-4.066 1.07 1.009-3.985-.218-.344A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Pesan Obat via WA
+        </a>
+        <a href="#layanan" class="btn-outline-white">Lihat Layanan</a>
+      </div>
+      <div class="hero-microstats">
+        <div class="hero-ms"><div class="hero-ms-num">15<span>+</span></div><div class="hero-ms-label">Tahun Berdiri</div></div>
+        <div class="hero-ms"><div class="hero-ms-num">3.000<span>+</span></div><div class="hero-ms-label">Jenis Produk</div></div>
+        <div class="hero-ms"><div class="hero-ms-num">24<span>jam</span></div><div class="hero-ms-label">Buka Setiap Hari</div></div>
+        <div class="hero-ms"><div class="hero-ms-num">3</div><div class="hero-ms-label">Apoteker Aktif</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1585435557343-3b092031a831?w=600&h=450&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Apotek Sehat Abadi Purwokerto">
+        <div class="img-fb">🏥</div>
+      </div>
+      <div class="hero-cards">
+        <div class="hero-card">
+          <div class="hero-card-icon">💊</div>
+          <div>
+            <div class="hero-card-title">Obat Resep & Bebas</div>
+            <div class="hero-card-desc">Stok lengkap dari pabrik resmi</div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon">🚚</div>
+          <div>
+            <div class="hero-card-title">Antar ke Rumah</div>
+            <div class="hero-card-desc">Radius 5km area Purwokerto</div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon">👨‍⚕️</div>
+          <div>
+            <div class="hero-card-title">Konsultasi Gratis</div>
+            <div class="hero-card-desc">Apoteker siap menjawab</div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon">🧾</div>
+          <div>
+            <div class="hero-card-title">Terima BPJS</div>
+            <div class="hero-card-desc">Resep BPJS dilayani</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KATEGORI PRODUK -->
+<section class="section" id="produk">
+  <div class="section-inner">
+    <div class="section-eyebrow">Kategori Produk</div>
+    <h2 class="section-title">3.000+ Produk Tersedia</h2>
+    <p class="section-sub">Semua kebutuhan kesehatan keluarga tersedia — dari obat harian, vitamin, hingga alat kesehatan medis.</p>
+    <div class="kat-grid">
+      <div class="kat-card">
+        <span class="kat-icon">💊</span>
+        <div class="kat-name">Obat Resep (Rx)</div>
+        <div class="kat-desc">Antibiotik, antihipertensi, diabetes, jantung, dan lainnya sesuai resep dokter</div>
+        <span class="kat-tag">Butuh Resep Dokter</span>
+      </div>
+      <div class="kat-card">
+        <span class="kat-icon">🧴</span>
+        <div class="kat-name">Obat Bebas & OTC</div>
+        <div class="kat-desc">Paracetamol, antasida, vitamin, obat batuk, flu, dan obat bebas terbatas lainnya</div>
+        <span class="kat-tag">Tanpa Resep</span>
+      </div>
+      <div class="kat-card">
+        <span class="kat-icon">🩺</span>
+        <div class="kat-name">Alat Kesehatan</div>
+        <div class="kat-desc">Tensimeter, glukoset, termometer, nebulizer, oximeter, dan alkes lainnya</div>
+        <span class="kat-tag">Stok Ready</span>
+      </div>
+      <div class="kat-card">
+        <span class="kat-icon">💪</span>
+        <div class="kat-name">Vitamin & Suplemen</div>
+        <div class="kat-desc">Multivitamin, suplemen imun, kalsium, omega-3, probiotik untuk semua usia</div>
+        <span class="kat-tag">Tersedia Lengkap</span>
+      </div>
+      <div class="kat-card">
+        <span class="kat-icon">🤱</span>
+        <div class="kat-name">Ibu & Bayi</div>
+        <div class="kat-desc">Susu formula, vitamin ibu hamil, popok, perlengkapan bayi, dan MPASI</div>
+        <span class="kat-tag">Stok Lengkap</span>
+      </div>
+      <div class="kat-card">
+        <span class="kat-icon">🌿</span>
+        <div class="kat-name">Herbal & Jamu</div>
+        <div class="kat-desc">Produk herbal terstandarisasi, jamu tradisional, minyak esensial, dan suplemen alam</div>
+        <span class="kat-tag">Terstandarisasi</span>
+      </div>
+      <div class="kat-card">
+        <span class="kat-icon">🩹</span>
+        <div class="kat-name">Perawatan Luka</div>
+        <div class="kat-desc">Perban, plester, antiseptik, salep luka, dan perlengkapan P3K lengkap</div>
+        <span class="kat-tag">Stok Ready</span>
+      </div>
+      <div class="kat-card">
+        <span class="kat-icon">✨</span>
+        <div class="kat-name">Skincare & Personal Care</div>
+        <div class="kat-desc">Produk perawatan kulit, tabir surya, pembersih, dan personal care berstandar medis</div>
+        <span class="kat-tag">Brand Terpilih</span>
+      </div>
+    </div>
+
+    <!-- Produk laris -->
+    <div style="margin-top:48px">
+      <h3 style="font-weight:800;font-size:20px;color:var(--text);margin-bottom:24px">Produk Paling Dicari</h3>
+      <div class="produk-grid">
+        <div class="produk-card">
+          <div class="produk-img">
+            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=250&fit=crop&q=80"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Paracetamol">
+            <div class="img-fb">💊</div>
+            <span class="produk-label bebas">Bebas</span>
+          </div>
+          <div class="produk-body">
+            <div class="produk-name">Paracetamol 500mg Generik</div>
+            <div class="produk-desc">Pereda demam dan nyeri. Strip isi 10 tablet.</div>
+            <div class="produk-footer">
+              <div class="produk-price">Rp 3.500</div>
+              <a href="https://wa.me/6285743553879?text=Saya%20mau%20pesan%20Paracetamol%20500mg" class="produk-btn">Pesan</a>
+            </div>
+          </div>
+        </div>
+        <div class="produk-card">
+          <div class="produk-img">
+            <img src="https://images.unsplash.com/photo-1550572017-4fcdbb59cc32?w=400&h=250&fit=crop&q=80"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Vitamin C">
+            <div class="img-fb">🍊</div>
+            <span class="produk-label bebas">Bebas</span>
+          </div>
+          <div class="produk-body">
+            <div class="produk-name">Vitamin C 1000mg Effervescent</div>
+            <div class="produk-desc">Daya tahan tubuh, antioksidan. Rasa jeruk.</div>
+            <div class="produk-footer">
+              <div class="produk-price">Rp 45.000</div>
+              <a href="https://wa.me/6285743553879?text=Saya%20mau%20pesan%20Vitamin%20C%201000mg" class="produk-btn">Pesan</a>
+            </div>
+          </div>
+        </div>
+        <div class="produk-card">
+          <div class="produk-img">
+            <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400&h=250&fit=crop&q=80"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Tensimeter">
+            <div class="img-fb">🩺</div>
+            <span class="produk-label alkes">Alkes</span>
+          </div>
+          <div class="produk-body">
+            <div class="produk-name">Tensimeter Digital Omron</div>
+            <div class="produk-desc">Pengukur tekanan darah otomatis, garansi resmi.</div>
+            <div class="produk-footer">
+              <div class="produk-price">Rp 350.000</div>
+              <a href="https://wa.me/6285743553879?text=Saya%20mau%20tanya%20Tensimeter%20Digital%20Omron" class="produk-btn">Pesan</a>
+            </div>
+          </div>
+        </div>
+        <div class="produk-card">
+          <div class="produk-img">
+            <img src="https://images.unsplash.com/photo-1576671081837-49000212a370?w=400&h=250&fit=crop&q=80"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Masker medis">
+            <div class="img-fb">😷</div>
+            <span class="produk-label alkes">Alkes</span>
+          </div>
+          <div class="produk-body">
+            <div class="produk-name">Masker Medis 3-Ply (50 pcs)</div>
+            <div class="produk-desc">Masker medis berstandar. Sertifikat Kemenkes.</div>
+            <div class="produk-footer">
+              <div class="produk-price">Rp 28.000</div>
+              <a href="https://wa.me/6285743553879?text=Saya%20mau%20pesan%20Masker%20Medis%2050pcs" class="produk-btn">Pesan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYANAN -->
+<section class="section bg-green" id="layanan">
+  <div class="section-inner">
+    <div class="section-eyebrow">Layanan Kami</div>
+    <h2 class="section-title">Lebih dari Sekadar<br>Jual Obat</h2>
+    <p class="section-sub">Kami hadir sebagai mitra kesehatan keluarga Anda — bukan hanya menjual obat, tapi memastikan Anda menggunakannya dengan benar.</p>
+    <div class="layanan-grid">
+      <div class="layanan-card">
+        <div class="layanan-icon">👨‍⚕️</div>
+        <div>
+          <div class="layanan-title">Konsultasi Apoteker Gratis</div>
+          <div class="layanan-desc">Tanya langsung ke apoteker soal dosis, interaksi obat, efek samping, atau pilihan obat yang tepat untuk kondisi Anda. Gratis tanpa perlu beli obat dulu.</div>
+          <div class="layanan-badge">✅ Gratis</div>
+        </div>
+      </div>
+      <div class="layanan-card">
+        <div class="layanan-icon">🚚</div>
+        <div>
+          <div class="layanan-title">Antar Obat ke Rumah</div>
+          <div class="layanan-desc">Tidak bisa keluar rumah? Pesan via WhatsApp, lampirkan foto resep jika ada, dan kami antar dalam 30–60 menit untuk area Purwokerto radius 5km.</div>
+          <div class="layanan-badge">📍 Radius 5km</div>
+        </div>
+      </div>
+      <div class="layanan-card">
+        <div class="layanan-icon">🧾</div>
+        <div>
+          <div class="layanan-title">Pelayanan Resep BPJS</div>
+          <div class="layanan-desc">Kami bekerjasama dengan BPJS Kesehatan sebagai apotek mitra. Bawa kartu BPJS dan resep dokter dari fasilitas kesehatan tingkat 1 atau rujukan.</div>
+          <div class="layanan-badge">🏥 Apotek Mitra BPJS</div>
+        </div>
+      </div>
+      <div class="layanan-card">
+        <div class="layanan-icon">📋</div>
+        <div>
+          <div class="layanan-title">Obat Racikan & Formulasi</div>
+          <div class="layanan-desc">Melayani pembuatan obat racikan sesuai resep dokter — salep, kapsul, puyer, dan larutan. Dikerjakan apoteker bersertifikat dengan alat steril.</div>
+          <div class="layanan-badge">⏱ Selesai 1–2 Jam</div>
+        </div>
+      </div>
+      <div class="layanan-card">
+        <div class="layanan-icon">🩸</div>
+        <div>
+          <div class="layanan-title">Cek Kesehatan Dasar</div>
+          <div class="layanan-desc">Cek gula darah, tekanan darah, kolesterol, dan asam urat langsung di apotek. Tidak perlu ke klinik untuk pemeriksaan rutin — cepat, murah, dan akurat.</div>
+          <div class="layanan-badge">💉 Tanpa Janji</div>
+        </div>
+      </div>
+      <div class="layanan-card">
+        <div class="layanan-icon">🌙</div>
+        <div>
+          <div class="layanan-title">Buka 24 Jam Setiap Hari</div>
+          <div class="layanan-desc">Darurat obat tengah malam? Kami tetap buka. Apotek kami beroperasi penuh 24 jam, 7 hari seminggu — termasuk hari libur nasional. Apoteker selalu ada.</div>
+          <div class="layanan-badge">🌟 Tidak Pernah Tutup</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARA PESAN -->
+<section class="section" id="cara-pesan">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:0">
+      <div class="section-eyebrow" style="justify-content:center">Cara Pesan</div>
+      <h2 class="section-title">Pesan Obat via WhatsApp<br>Sangat Mudah</h2>
+      <p class="section-sub" style="margin:0 auto">Tidak perlu keluar rumah — obat Anda tiba dalam 30–60 menit untuk area Purwokerto.</p>
+    </div>
+    <div class="stepper">
+      <div class="step active">
+        <div class="step-num">1</div>
+        <div class="step-icon">💬</div>
+        <div class="step-title">Chat WhatsApp</div>
+        <div class="step-desc">Kirim pesan ke nomor kami. Sebutkan nama obat atau keluhan yang Anda alami.</div>
+      </div>
+      <div class="step active">
+        <div class="step-num">2</div>
+        <div class="step-icon">📸</div>
+        <div class="step-title">Kirim Foto Resep</div>
+        <div class="step-desc">Jika obat memerlukan resep, foto dan kirimkan resep dokter Anda via WhatsApp.</div>
+      </div>
+      <div class="step active">
+        <div class="step-num">3</div>
+        <div class="step-icon">✅</div>
+        <div class="step-title">Konfirmasi & Bayar</div>
+        <div class="step-desc">Kami konfirmasi ketersediaan, total harga, dan estimasi waktu. Bayar via transfer atau tunai saat terima.</div>
+      </div>
+      <div class="step active">
+        <div class="step-num">4</div>
+        <div class="step-icon">🚚</div>
+        <div class="step-title">Terima di Rumah</div>
+        <div class="step-desc">Obat dikemas rapi dan diantar ke alamat Anda dalam 30–60 menit. Ambil di apotek juga bisa!</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="https://wa.me/6285743553879?text=Halo%20Apotek%20Sehat%20Abadi%2C%20saya%20mau%20pesan%20obat" class="btn-white" style="background:var(--green);color:#fff;display:inline-flex;padding:16px 32px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;align-items:center;gap:10px;transition:all .2s">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.855L.057 23.886a.5.5 0 0 0 .611.637l6.218-1.637A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.925 0-3.727-.524-5.271-1.432l-.338-.2-4.066 1.07 1.009-3.985-.218-.344A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Mulai Pesan Sekarang
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- INFO PENTING -->
+<section class="section bg-gray">
+  <div class="section-inner">
+    <div class="section-eyebrow">Panduan Pembelian</div>
+    <h2 class="section-title">Yang Perlu Anda Ketahui</h2>
+    <p class="section-sub">Informasi penting tentang pembelian obat agar penggunaan obat Anda aman dan sesuai aturan.</p>
+    <div class="info-grid">
+      <div class="info-card rx">
+        <div class="info-icon">🔵</div>
+        <div class="info-title">Obat Keras (Resep / Rx)</div>
+        <ul class="info-list">
+          <li>Harus disertai resep dokter yang masih berlaku</li>
+          <li>Foto resep bisa dikirim via WhatsApp sebelum datang</li>
+          <li>Resep asli wajib diserahkan saat pengambilan</li>
+          <li>Konsultasikan dosis dan efek samping ke apoteker</li>
+          <li>Tidak boleh dibeli berulang tanpa resep baru</li>
+        </ul>
+      </div>
+      <div class="info-card bebas">
+        <div class="info-icon">🟢</div>
+        <div class="info-title">Obat Bebas & Bebas Terbatas</div>
+        <ul class="info-list">
+          <li>Dapat dibeli tanpa resep dokter</li>
+          <li>Baca aturan pakai dan dosis pada kemasan</li>
+          <li>Perhatikan kontraindikasi dan batas usia</li>
+          <li>Konsultasikan ke apoteker jika ragu</li>
+          <li>Simpan sesuai petunjuk penyimpanan di label</li>
+        </ul>
+      </div>
+      <div class="info-card darurat">
+        <div class="info-icon">🔴</div>
+        <div class="info-title">Kondisi Darurat & 24 Jam</div>
+        <ul class="info-list">
+          <li>Kami buka 24 jam termasuk tengah malam</li>
+          <li>Apoteker selalu hadir di setiap shift</li>
+          <li>Stok obat-obatan esensial selalu tersedia</li>
+          <li>Antar darurat tersedia malam hari (konfirmasi via WA)</li>
+          <li>Hubungi segera jika butuh bantuan emergensi</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APOTEKER -->
+<section class="section" id="apoteker">
+  <div class="section-inner">
+    <div class="section-eyebrow">Tim Apoteker</div>
+    <h2 class="section-title">Apoteker Bersertifikat<br>Siap Melayani Anda</h2>
+    <p class="section-sub">Setiap shift dijaga apoteker berlisensi — bukan sekadar pramuniaga. Konsultasi Anda ditangani profesional.</p>
+    <div class="apoteker-grid">
+      <div class="apoteker-card">
+        <div class="apoteker-photo">
+          <img src="https://i.pravatar.cc/400?img=47"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="Apt. Dewi Rahayu">
+          <div class="img-fb">👩‍⚕️</div>
+          <div class="apoteker-stra">STRA Aktif</div>
+        </div>
+        <div class="apoteker-info">
+          <div class="apoteker-name">Apt. Dewi Rahayu, S.Farm.</div>
+          <div class="apoteker-role">Apoteker Penanggung Jawab</div>
+          <div class="apoteker-spec">Spesialis obat kronis, konsultasi hipertensi dan diabetes. 12 tahun pengalaman di apotek komunitas.</div>
+          <div class="apoteker-shift">⏰ Shift Pagi 07.00–15.00</div>
+        </div>
+      </div>
+      <div class="apoteker-card">
+        <div class="apoteker-photo">
+          <img src="https://i.pravatar.cc/400?img=48"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="Apt. Rini Susanti">
+          <div class="img-fb">👩‍⚕️</div>
+          <div class="apoteker-stra">STRA Aktif</div>
+        </div>
+        <div class="apoteker-info">
+          <div class="apoteker-name">Apt. Rini Susanti, S.Farm.</div>
+          <div class="apoteker-role">Apoteker Klinis</div>
+          <div class="apoteker-spec">Ahli formulasi obat racikan dan konsultasi ibu & anak. Berpengalaman menangani pasien pediatri.</div>
+          <div class="apoteker-shift">⏰ Shift Siang 15.00–23.00</div>
+        </div>
+      </div>
+      <div class="apoteker-card">
+        <div class="apoteker-photo">
+          <img src="https://i.pravatar.cc/400?img=12"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="Apt. Budi Santoso">
+          <div class="img-fb">👨‍⚕️</div>
+          <div class="apoteker-stra">STRA Aktif</div>
+        </div>
+        <div class="apoteker-info">
+          <div class="apoteker-name">Apt. Budi Santoso, S.Farm.</div>
+          <div class="apoteker-role">Apoteker Malam</div>
+          <div class="apoteker-spec">Berpengalaman menangani kondisi darurat dan kebutuhan obat malam hari. Konsultasi 24 jam siap membantu.</div>
+          <div class="apoteker-shift">⏰ Shift Malam 23.00–07.00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section class="section bg-green">
+  <div class="section-inner">
+    <div style="text-align:center;margin-bottom:0">
+      <div class="section-eyebrow" style="justify-content:center">Testimoni</div>
+      <h2 class="section-title">Kata Pelanggan Kami</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Beli obat untuk bapak yang hipertensi sudah bertahun-tahun di sini. Apotekernya sabar menjelaskan aturan minum dan tidak pernah salah kasih obat. Harganya juga bersaing."</div>
+        <div class="testi-author">
+          <div class="testi-av">
+            <img src="https://i.pravatar.cc/100?img=5" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="">
+            <div class="img-fb">SR</div>
+          </div>
+          <div>
+            <div class="testi-name">Siti Rahayu</div>
+            <div class="testi-label">Pelanggan Setia · 5 tahun</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Tengah malam anak saya demam tinggi. Telepon dulu, stok obatnya ada, langsung diantar ke rumah dalam 30 menit. Sangat membantu, tidak perlu panik cari apotek buka malam."</div>
+        <div class="testi-author">
+          <div class="testi-av">
+            <img src="https://i.pravatar.cc/100?img=9" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="">
+            <div class="img-fb">AN</div>
+          </div>
+          <div>
+            <div class="testi-name">Ahmad Nugroho</div>
+            <div class="testi-label">Pelanggan · Antar Malam Hari</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Cek gula darah dan tensi di sini, langsung dikonsultasikan ke apoteker tanpa bayar ekstra. Hasilnya lengkap dan ada penjelasan apa yang perlu dilakukan. Sangat recommended!"</div>
+        <div class="testi-author">
+          <div class="testi-av">
+            <img src="https://i.pravatar.cc/100?img=16" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="">
+            <div class="img-fb">WP</div>
+          </div>
+          <div>
+            <div class="testi-name">Wahyu Purnomo</div>
+            <div class="testi-label">Pelanggan · Cek Kesehatan Rutin</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JAM & KONTAK -->
+<section class="section bg-gray">
+  <div class="section-inner">
+    <div class="section-eyebrow">Kontak & Lokasi</div>
+    <h2 class="section-title">Kami Selalu Ada<br>Kapan pun Anda Butuh</h2>
+    <div class="jam-kontak-grid">
+      <div>
+        <div class="jam-open"><span class="jam-open-dot"></span>Sedang Buka — 24 Jam</div>
+        <div class="jam-card">
+          <div class="jam-card-head">
+            <span>🕐</span><span class="jam-card-head-title">Jam Operasional</span>
+          </div>
+          <div class="jam-row today"><span class="jam-day">Setiap Hari ← Termasuk Hari Ini</span><span class="jam-time">24 Jam</span></div>
+          <div class="jam-row"><span class="jam-day">Hari Libur Nasional</span><span class="jam-time">Tetap Buka 24 Jam</span></div>
+          <div class="jam-row"><span class="jam-day">Konsultasi Apoteker</span><span class="jam-time">Setiap Shift</span></div>
+          <div class="jam-row"><span class="jam-day">Layanan Antar</span><span class="jam-time">06.00–24.00</span></div>
+        </div>
+      </div>
+      <div class="kontak-card">
+        <div class="kontak-row">
+          <span class="kontak-icon">📍</span>
+          <div class="kontak-body">
+            <strong>Alamat</strong>
+            <p>Jl. Jendral Sudirman No. 45, Purwokerto Selatan, Kabupaten Banyumas, Jawa Tengah</p>
+          </div>
+        </div>
+        <div class="kontak-row">
+          <span class="kontak-icon">📱</span>
+          <div class="kontak-body">
+            <strong>WhatsApp / Telepon</strong>
+            <p>0857-4355-3879 — Chat WA untuk pesan obat, konsultasi, dan antar ke rumah</p>
+          </div>
+        </div>
+        <div class="kontak-row">
+          <span class="kontak-icon">💳</span>
+          <div class="kontak-body">
+            <strong>Pembayaran</strong>
+            <p>Cash, QRIS, Transfer Bank (BCA/BRI/Mandiri/BNI), dan BPJS Kesehatan</p>
+          </div>
+        </div>
+        <a href="https://wa.me/6285743553879?text=Halo%20Apotek%20Sehat%20Abadi%2C%20saya%20mau%20pesan%20obat" class="kontak-wa-btn">
+          <span>💬 Chat WhatsApp Sekarang</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-inner">
+    <div style="text-align:center">
+      <div class="section-eyebrow" style="justify-content:center">FAQ</div>
+      <h2 class="section-title">Pertanyaan yang Sering Ditanya</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah bisa pesan obat resep via WhatsApp tanpa datang langsung?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Bisa. Foto dan kirimkan resep dokter via WhatsApp. Apoteker kami akan memverifikasi resep, konfirmasi ketersediaan obat, dan menyiapkan pesanan. Resep asli wajib diserahkan saat obat diantar atau saat Anda mengambil langsung ke apotek.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Berapa biaya antar obat ke rumah?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Untuk area Purwokerto dalam radius 3km, ongkos kirim Rp 5.000. Radius 3–5km dikenakan Rp 10.000. Di luar radius 5km bisa menggunakan ojek online atas nama pembeli. Tidak ada minimum pembelian untuk layanan antar.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah menerima resep dari dokter luar kota?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Ya, kami menerima resep dari dokter manapun — baik dari kota lain maupun dokter praktik mandiri — selama resep memenuhi syarat formal (nama dokter, tanggal, stempel praktek, dan tanda tangan). Apoteker akan memverifikasi keaslian resep sebelum menyiapkan obat.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Bagaimana cara cek stok obat sebelum datang?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Chat kami via WhatsApp dan sebutkan nama obat yang Anda cari. Kami balas dalam beberapa menit di jam operasional. Untuk obat yang tidak tersedia, kami bantu carikan alternatif yang setara atau informasikan estimasi kedatangan stok.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah bisa konsultasi obat tanpa membeli?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Tentu. Konsultasi apoteker di apotek kami sepenuhnya gratis dan tidak mengharuskan Anda membeli obat. Anda bisa datang langsung atau chat via WhatsApp untuk bertanya soal obat, dosis, interaksi, atau pilihan produk yang tepat.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah melayani resep BPJS dan obat program pemerintah?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Ya. Kami adalah apotek mitra BPJS Kesehatan yang terdaftar. Bawa kartu BPJS aktif dan resep dari fasilitas kesehatan tingkat pertama (Puskesmas/klinik) atau resep rujukan. Pastikan obat yang diresepkan masuk dalam Formularium Nasional (Fornas).</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-pattern"></div>
+  <div class="section-inner" style="position:relative;z-index:1">
+    <div class="section-eyebrow">Butuh Obat Sekarang?</div>
+    <h2 class="section-title">Kami Buka <span>24 Jam</span><br>Siap Melayani Anda</h2>
+    <p class="section-sub">Pesan via WhatsApp — sebutkan obat yang dibutuhkan, kami siapkan dan antar ke rumah Anda.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/6285743553879?text=Halo%20Apotek%20Sehat%20Abadi%2C%20saya%20mau%20pesan%20obat" class="btn-white btn-big" style="color:var(--green)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.855L.057 23.886a.5.5 0 0 0 .611.637l6.218-1.637A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.925 0-3.727-.524-5.271-1.432l-.338-.2-4.066 1.07 1.009-3.985-.218-.344A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Pesan Obat via WhatsApp
+      </a>
+      <a href="tel:+6285743553879" class="btn-outline-white-cta">📞 Telepon Sekarang</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" style="text-decoration:none">
+          <div class="logo-cross">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:22px;height:22px;color:#fff"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z"/></svg>
+          </div>
+          <div class="logo-text">
+            <span class="logo-name" style="color:#fff">Apotek Sehat Abadi</span>
+            <span class="logo-sub">Buka 24 Jam</span>
+          </div>
+        </a>
+        <p>Apotek terpercaya Purwokerto sejak 2009. Apoteker bersertifikat, stok lengkap, buka 24 jam setiap hari.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Produk</h4>
+        <ul>
+          <li><a href="#produk">Obat Resep (Rx)</a></li>
+          <li><a href="#produk">Obat Bebas OTC</a></li>
+          <li><a href="#produk">Alat Kesehatan</a></li>
+          <li><a href="#produk">Vitamin & Suplemen</a></li>
+          <li><a href="#produk">Ibu & Bayi</a></li>
+          <li><a href="#produk">Herbal & Jamu</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="#layanan">Konsultasi Apoteker</a></li>
+          <li><a href="#layanan">Antar ke Rumah</a></li>
+          <li><a href="#layanan">Resep BPJS</a></li>
+          <li><a href="#layanan">Obat Racikan</a></li>
+          <li><a href="#layanan">Cek Kesehatan</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informasi</h4>
+        <ul>
+          <li><a href="#cara-pesan">Cara Pesan WA</a></li>
+          <li><a href="#apoteker">Tim Apoteker</a></li>
+          <li><a href="#kontak">Jam & Lokasi</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="https://wa.me/6285743553879">Hubungi via WA</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      <p>⚕️ <strong style="color:rgba(255,255,255,.6)">Disclaimer Kesehatan:</strong> Informasi pada website ini bersifat umum dan tidak menggantikan saran medis profesional. Konsultasikan kondisi kesehatan Anda dengan dokter atau apoteker. Pembelian obat keras wajib disertai resep dokter yang sah.</p>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Apotek Sehat Abadi. Purwokerto, Banyumas. Izin Apotek No. APT-33020/2009.</p>
+      <p>Website oleh <a href="https://buatwebsitemurah.com" target="_blank">Nusaweb Studio</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/6285743553879?text=Halo%20Apotek%20Sehat%20Abadi%2C%20saya%20mau%20pesan%20obat" class="wa-float" target="_blank">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.855L.057 23.886a.5.5 0 0 0 .611.637l6.218-1.637A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.925 0-3.727-.524-5.271-1.432l-.338-.2-4.066 1.07 1.009-3.985-.218-.344A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  Pesan Obat
+</a>
+
+<script>
+function toggleFaq(btn){
+  const item=btn.parentElement,isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+function toggleMenu(el){
+  const links=document.querySelector('.nav-links'),isVisible=links.style.display==='flex';
+  links.style.display=isVisible?'none':'flex';
+  if(!isVisible)Object.assign(links.style,{flexDirection:'column',position:'absolute',top:'64px',left:'0',right:'0',background:'#fff',padding:'16px 24px 24px',borderBottom:'1px solid #E2EAF0',gap:'18px',boxShadow:'0 8px 24px rgba(0,0,0,.08)'});
+}
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}}),{threshold:0.07});
+document.querySelectorAll('.kat-card,.produk-card,.layanan-card,.apoteker-card,.testi-card,.step,.info-card').forEach((el,i)=>{
+  el.style.opacity='0';el.style.transform='translateY(16px)';
+  el.style.transition=`opacity .4s ease ${i*.04}s,transform .4s ease ${i*.04}s`;
+  obs.observe(el);
+});
+</script>
+</body>
+</html>

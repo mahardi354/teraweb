@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumina Events — Wedding & Event Planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#15120F;
+    --black2:#1C1814;
+    --ivory:#F3EEE3;
+    --gold:#C9A24B;
+    --wine:#7A3030;
+    --muted:#A89A82;
+    --line:rgba(243,238,227,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--black); color:var(--ivory); font-family:'Work Sans',sans-serif; line-height:1.65; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond', serif;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+  .eyebrow{text-transform:uppercase; letter-spacing:0.28em; font-size:0.72rem; color:var(--gold); font-weight:500;}
+
+  header{position:sticky; top:0; z-index:60; background:rgba(21,18,15,0.85); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  nav{display:flex; align-items:center; justify-content:space-between; padding:22px 32px; max-width:1180px; margin:0 auto;}
+  .logo{font-family:'Cormorant Garamond',serif; font-size:1.5rem; letter-spacing:0.05em; font-weight:500;}
+  .logo span{color:var(--gold);}
+  .navlinks{display:flex; gap:38px; font-size:0.85rem; letter-spacing:0.04em; text-transform:uppercase;}
+  .navlinks a{opacity:0.8;}
+  .navlinks a:hover{opacity:1; color:var(--gold);}
+  .cta-btn{border:1px solid var(--gold); color:var(--gold); padding:10px 24px; font-size:0.8rem; letter-spacing:0.08em; text-transform:uppercase;}
+  .cta-btn:hover{background:var(--gold); color:var(--black);}
+
+  /* HERO */
+  .hero{position:relative; min-height:92vh; display:flex; align-items:center; overflow:hidden;}
+  .hero-bg{position:absolute; inset:0; z-index:0;}
+  .hero-bg img{width:100%; height:100%; object-fit:cover; filter:brightness(0.42) saturate(0.9);}
+  .hero-bg::after{content:'';}
+  .hero-content{position:relative; z-index:2; max-width:680px; padding:0 32px;}
+  .hero-content h1{font-size:clamp(2.8rem,6vw,5rem); font-weight:500; line-height:1.05; margin:20px 0 26px; font-style:italic;}
+  .hero-content p{font-size:1.05rem; color:var(--muted); max-width:480px; margin-bottom:34px;}
+  .hero-actions{display:flex; gap:18px; align-items:center; flex-wrap:wrap;}
+  .btn-gold{background:var(--gold); color:var(--black); padding:15px 32px; font-size:0.82rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;}
+  .btn-gold:hover{background:#e0bc6c;}
+  .btn-line{border-bottom:1px solid var(--ivory); padding-bottom:4px; font-size:0.85rem; letter-spacing:0.05em;}
+
+  .invite-card{
+    position:absolute; right:8%; bottom:10%; width:230px; background:var(--ivory); color:var(--black);
+    padding:26px 22px; transform:rotate(-4deg); box-shadow:0 30px 60px -20px rgba(0,0,0,0.5); z-index:3;
+    border:1px solid rgba(0,0,0,0.08);
+  }
+  .invite-card .ic-eyebrow{font-size:0.6rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--wine); margin-bottom:8px;}
+  .invite-card h4{font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-style:italic; margin-bottom:10px; line-height:1.2;}
+  .invite-card .ic-date{font-size:0.78rem; color:#444;}
+
+  /* MARQUEE */
+  .marquee-wrap{border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:16px 0; overflow:hidden;}
+  .marquee{display:flex; gap:56px; white-space:nowrap; animation:scroll 30s linear infinite; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.1rem; color:var(--muted);}
+  @keyframes scroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+  section{padding:110px 0;}
+  .section-head{max-width:600px; margin:0 auto 60px; text-align:center;}
+  .section-head h2{font-size:clamp(2rem,3.6vw,3rem); font-weight:500; margin-top:14px;}
+  .center{text-align:center;}
+
+  /* SERVICES */
+  .services{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .service{background:var(--black); padding:44px 36px; transition:background .3s ease;}
+  .service:hover{background:var(--black2);}
+  .service .num{font-family:'Cormorant Garamond',serif; font-size:0.9rem; color:var(--gold); margin-bottom:18px; letter-spacing:0.05em;}
+  .service h3{font-size:1.5rem; font-weight:500; margin-bottom:12px;}
+  .service p{color:var(--muted); font-size:0.92rem;}
+
+  /* GALLERY */
+  .gallery{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  .gallery .g1{grid-column:span 2; grid-row:span 2; aspect-ratio:1/1;}
+  .gallery .g2{aspect-ratio:1/1;}
+  .gallery img{width:100%; height:100%; object-fit:cover; filter:saturate(0.92);}
+  .gallery > div{overflow:hidden; position:relative;}
+  .gallery > div::after{content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.45) 100%); opacity:0; transition:opacity .3s;}
+  .gallery > div:hover::after{opacity:1;}
+
+  /* TIMELINE - legit sequence: rundown acara */
+  .timeline{max-width:760px; margin:0 auto;}
+  .t-item{display:grid; grid-template-columns:120px 1fr; gap:28px; padding:30px 0; border-bottom:1px solid var(--line); position:relative;}
+  .t-item:last-child{border-bottom:none;}
+  .t-time{font-family:'Cormorant Garamond',serif; color:var(--gold); font-size:1.2rem; font-style:italic;}
+  .t-body h4{font-size:1.2rem; font-weight:500; margin-bottom:6px;}
+  .t-body p{color:var(--muted); font-size:0.92rem;}
+
+  /* TESTIMONIAL */
+  .testi-wrap{max-width:760px; margin:0 auto; text-align:center;}
+  .testi-quote{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(1.4rem,2.6vw,2rem); line-height:1.5; margin-bottom:28px;}
+  .testi-name{color:var(--gold); font-size:0.85rem; letter-spacing:0.06em; text-transform:uppercase;}
+
+  /* CTA */
+  .cta-section{background:var(--wine); position:relative; overflow:hidden;}
+  .cta-section .wrap{text-align:center; position:relative; z-index:2;}
+  .cta-section h2{font-size:clamp(2rem,4vw,3.2rem); font-weight:500; margin-bottom:20px;}
+  .cta-section p{color:#E7D2D2; margin-bottom:34px; max-width:480px; margin-left:auto; margin-right:auto;}
+
+  footer{padding:70px 0 30px; border-top:1px solid var(--line);}
+  .foot-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr; gap:40px; margin-bottom:50px;}
+  footer h4{font-size:0.78rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold); margin-bottom:16px;}
+  footer ul{list-style:none; display:flex; flex-direction:column; gap:10px; font-size:0.9rem; color:var(--muted);}
+  .foot-bottom{display:flex; justify-content:space-between; font-size:0.78rem; color:var(--muted); border-top:1px solid var(--line); padding-top:26px; flex-wrap:wrap; gap:10px;}
+
+  @media (max-width:900px){
+    .services{grid-template-columns:1fr;}
+    .gallery{grid-template-columns:repeat(2,1fr);}
+    .gallery .g1{grid-column:span 2;}
+    .invite-card{display:none;}
+    .navlinks{display:none;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:560px){
+    .t-item{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">Lumina <span>Events</span></div>
+    <div class="navlinks">
+      <a href="#layanan">Layanan</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#rundown">Rundown</a>
+      <a href="#kontak">Kontak</a>
+    </div>
+    <a href="#kontak" class="cta-btn">Konsultasi</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"><img src="https://picsum.photos/seed/event-elegant-venue/1600/1000" alt="Venue acara elegan"></div>
+  <div class="hero-content">
+    <div class="eyebrow">Wedding & Corporate Event Planner</div>
+    <h1>Setiap momen layak dirayakan dengan sempurna.</h1>
+    <p>Lumina Events merancang dan mengeksekusi pernikahan, gathering perusahaan, dan perayaan privat — dari konsep hingga hari-H berjalan tanpa cela.</p>
+    <div class="hero-actions">
+      <a href="#kontak" class="btn-gold">Jadwalkan Konsultasi</a>
+      <a href="#galeri" class="btn-line">Lihat portofolio acara →</a>
+    </div>
+  </div>
+  <div class="invite-card">
+    <div class="ic-eyebrow">Save the date</div>
+    <h4>Pernikahan Adinda & Reza</h4>
+    <div class="ic-date">12 Oktober 2026 — Bali</div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee">
+    <span>Wedding</span><span>Gala Dinner</span><span>Product Launch</span><span>Birthday Celebration</span><span>Corporate Gathering</span>
+    <span>Wedding</span><span>Gala Dinner</span><span>Product Launch</span><span>Birthday Celebration</span><span>Corporate Gathering</span>
+  </div>
+</div>
+
+<section id="layanan">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Layanan Kami</div>
+      <h2>Dirancang sesuai visi Anda</h2>
+    </div>
+    <div class="services">
+      <div class="service">
+        <div class="num">Layanan 01</div>
+        <h3>Wedding Planning</h3>
+        <p>Perencanaan penuh dari konsep, vendor, hingga koordinasi hari pernikahan.</p>
+      </div>
+      <div class="service">
+        <div class="num">Layanan 02</div>
+        <h3>Corporate Event</h3>
+        <p>Gathering, peluncuran produk, dan konferensi yang berjalan rapi dan berkesan.</p>
+      </div>
+      <div class="service">
+        <div class="num">Layanan 03</div>
+        <h3>Private Celebration</h3>
+        <p>Ulang tahun, anniversary, dan perayaan privat dengan detail personal.</p>
+      </div>
+      <div class="service">
+        <div class="num">Layanan 04</div>
+        <h3>Venue & Dekorasi</h3>
+        <p>Kurasi venue dan styling dekorasi yang menyatu dengan tema acara Anda.</p>
+      </div>
+      <div class="service">
+        <div class="num">Layanan 05</div>
+        <h3>Koordinasi Hari-H</h3>
+        <p>Tim lapangan memastikan rundown berjalan tepat waktu tanpa Anda repot.</p>
+      </div>
+      <div class="service">
+        <div class="num">Layanan 06</div>
+        <h3>Dokumentasi</h3>
+        <p>Kurasi fotografer & videografer terbaik untuk mengabadikan momen Anda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeri">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Portofolio</div>
+      <h2>Acara yang telah kami wujudkan</h2>
+    </div>
+    <div class="gallery">
+      <div class="g1"><img src="https://picsum.photos/seed/gallery-wedding-main/800/800" alt="Wedding utama"></div>
+      <div class="g2"><img src="https://picsum.photos/seed/gallery-decor/400/400" alt="Dekorasi acara"></div>
+      <div class="g2"><img src="https://picsum.photos/seed/gallery-corporate/400/400" alt="Corporate event"></div>
+      <div class="g2"><img src="https://picsum.photos/seed/gallery-dinner/400/400" alt="Gala dinner"></div>
+      <div class="g2"><img src="https://picsum.photos/seed/gallery-birthday/400/400" alt="Perayaan ulang tahun"></div>
+    </div>
+  </div>
+</section>
+
+<section id="rundown" style="background:var(--black2);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Contoh Rundown</div>
+      <h2>Hari-H berjalan sesuai rencana</h2>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-time">07.00</div>
+        <div class="t-body"><h4>Tim tiba & setup venue</h4><p>Dekorasi, sound system, dan area tamu disiapkan sesuai konsep.</p></div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">10.00</div>
+        <div class="t-body"><h4>Persiapan pengantin</h4><p>Koordinator mendampingi proses rias dan persiapan keluarga.</p></div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">13.00</div>
+        <div class="t-body"><h4>Akad / pemberkatan</h4><p>Prosesi inti berjalan khidmat dengan pengawasan tim penuh.</p></div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">18.00</div>
+        <div class="t-body"><h4>Resepsi & hiburan</h4><p>Tamu disambut, MC dan hiburan mengisi sesi resepsi malam.</p></div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">21.30</div>
+        <div class="t-body"><h4>Penutupan & bongkar venue</h4><p>Tim membersihkan dan membongkar venue tanpa membebani keluarga.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap testi-wrap">
+    <div class="eyebrow">Testimoni</div>
+    <p class="testi-quote" style="margin-top:20px;">"Lumina Events mengerti detail kecil yang kami inginkan. Hari pernikahan kami berjalan lancar, kami benar-benar bisa menikmati momennya."</p>
+    <div class="testi-name">Adinda & Reza — Pernikahan, Bali</div>
+  </div>
+</section>
+
+<section class="cta-section" id="kontak">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#E7D2D2;">Mulai Rencanakan</div>
+    <h2>Ceritakan visi acara Anda kepada kami</h2>
+    <p>Konsultasi awal gratis — kami bantu susun konsep dan estimasi budget.</p>
+    <a href="#" class="btn-gold">Hubungi via WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="margin-bottom:14px;">Lumina <span>Events</span></div>
+        <p style="color:var(--muted); font-size:0.88rem; max-width:260px;">Wedding & event planner untuk momen yang dirancang dengan presisi dan rasa.</p>
+      </div>
+      <div>
+        <h4>Layanan</h4>
+        <ul><li><a href="#layanan">Wedding</a></li><li><a href="#layanan">Corporate Event</a></li><li><a href="#layanan">Private Celebration</a></li></ul>
+      </div>
+      <div>
+        <h4>Perusahaan</h4>
+        <ul><li><a href="#galeri">Portofolio</a></li><li><a href="#">Tim Kami</a></li><li><a href="#">Karir</a></li></ul>
+      </div>
+      <div>
+        <h4>Kontak</h4>
+        <ul><li>hello@luminaevents.id</li><li>+62 812 3456 7890</li><li>Jakarta, Indonesia</li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Lumina Events. Semua hak dilindungi.</span>
+      <span>Setiap detail, dirancang dengan rasa.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

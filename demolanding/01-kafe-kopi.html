@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kopikal — Kedai Kopi Specialty Purwokerto</title>
+<meta name="description" content="Kopikal Purwokerto. Specialty coffee dari petani lokal Jawa Tengah. Espresso, manual brew, kopi susu, cold brew. Ruang kerja nyaman, WiFi kencang. Buka setiap hari.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --esp:    #0F0A06;
+  --esp-m:  #1C1209;
+  --esp-l:  #2D1B0E;
+  --crema:  #D4A843;
+  --crema-d:#B8912E;
+  --crema-l:#F5E6B8;
+  --crema-p:#FDF8ED;
+  --milk:   #FAF8F5;
+  --milk-d: #F2EDE6;
+  --milk-m: #E8E0D5;
+  --border: #DDD6CB;
+  --text:   #1A1209;
+  --text-m: #4A3F32;
+  --text-t: #8C7A68;
+  --white:  #FFFFFF;
+  --green:  #2D6A4F;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--milk);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+.container{max-width:1140px;margin:0 auto;padding:0 28px}
+
+/* TYPE */
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--crema);margin-bottom:12px}
+.eyebrow::before{content:'';width:20px;height:1px;background:var(--crema)}
+.h2{font-family:'Fraunces',serif;font-size:clamp(28px,4vw,46px);color:var(--text);line-height:1.1;font-weight:400}
+.h2 em{font-style:italic;color:var(--esp-l)}
+.lead{font-size:16px;color:var(--text-m);line-height:1.85;max-width:500px;font-weight:300}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:13px;border-radius:4px;border:none;cursor:pointer;transition:all .22s;letter-spacing:.3px}
+.btn-crema{background:var(--crema);color:var(--esp);padding:13px 24px}
+.btn-crema:hover{background:var(--crema-d);transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,168,67,.35)}
+.btn-dark{background:var(--esp);color:#fff;padding:13px 24px}
+.btn-dark:hover{background:var(--esp-m);transform:translateY(-2px)}
+.btn-ol{background:transparent;color:var(--esp);border:1.5px solid var(--esp);padding:12px 22px}
+.btn-ol:hover{background:var(--esp);color:#fff}
+.btn-ol-w{background:transparent;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.3);padding:12px 22px}
+.btn-ol-w:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.65)}
+.btn-lg{padding:16px 34px;font-size:15px}
+.btn-sm{padding:8px 16px;font-size:12px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;transition:all .35s}
+nav.scrolled{background:rgba(15,10,6,.96);backdrop-filter:blur(20px);box-shadow:0 1px 24px rgba(0,0,0,.3)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+.nav-logo{display:flex;align-items:center;gap:12px;cursor:pointer}
+.logo-mark{width:38px;height:38px;background:var(--crema);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:var(--esp);font-weight:700;flex-shrink:0}
+.logo-name{font-family:'Fraunces',serif;font-size:22px;color:#fff;font-weight:400;letter-spacing:-.3px}
+.logo-name span{color:var(--crema);font-style:italic}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:rgba(255,255,255,.7);transition:color .2s;letter-spacing:.3px}
+.nav-links a:hover{color:var(--crema)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-wa{display:flex;align-items:center;gap:7px;background:var(--crema);color:var(--esp);padding:9px 18px;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:.3px;transition:background .2s}
+.nav-wa:hover{background:var(--crema-d)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:1.5px;background:rgba(255,255,255,.8);border-radius:2px}
+
+/* HERO — Asymmetric editorial */
+.hero{background:var(--esp);min-height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;position:relative}
+.hero-left{display:flex;flex-direction:column;justify-content:flex-end;padding:120px 56px 80px 28px;position:relative;z-index:2;max-width:640px;margin-left:auto}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:24px}
+.hero-ey-line{width:32px;height:1px;background:var(--crema);opacity:.6}
+.hero-ey-text{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.hero-h1{font-family:'Fraunces',serif;font-size:clamp(54px,7vw,88px);color:#fff;line-height:1.0;font-weight:300;letter-spacing:-1.5px;margin-bottom:28px}
+.hero-h1 em{font-style:italic;color:var(--crema);display:block;font-size:clamp(60px,8vw,100px)}
+.hero-sub{font-size:16px;color:rgba(255,255,255,.55);line-height:1.85;max-width:380px;margin-bottom:42px;font-weight:300}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:64px}
+.hero-stats{display:flex;gap:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,.08)}
+.hero-stat-num{font-family:'Fraunces',serif;font-size:28px;color:#fff;line-height:1;margin-bottom:3px}
+.hero-stat-num span{color:var(--crema);font-style:italic}
+.hero-stat-label{font-size:11px;color:rgba(255,255,255,.4);font-weight:500;letter-spacing:.5px}
+.hero-right{position:relative;overflow:hidden}
+.hero-photo{width:100%;height:100%;position:absolute;inset:0}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.75) saturate(1.1)}
+.hero-photo .img-fb{display:none;width:100%;height:100%;background:linear-gradient(135deg,var(--esp-l),var(--esp));align-items:center;justify-content:center;font-size:120px}
+.hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--esp) 0%,transparent 30%)}
+.brew-card{position:absolute;bottom:52px;left:-24px;background:#fff;border-radius:12px;padding:18px 20px;box-shadow:0 16px 52px rgba(0,0,0,.25);min-width:220px;z-index:10}
+.bc-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--crema-d);margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.bc-dot{width:5px;height:5px;border-radius:50%;background:var(--crema);animation:bcpulse 2s infinite}
+@keyframes bcpulse{0%,100%{opacity:1}50%{opacity:.3}}
+.bc-origin{font-family:'Fraunces',serif;font-size:18px;color:var(--text);font-weight:400;margin-bottom:2px}
+.bc-process{font-size:12px;color:var(--text-t);margin-bottom:10px}
+.bc-notes{display:flex;flex-wrap:wrap;gap:4px}
+.bc-note{background:var(--crema-p);color:var(--crema-d);font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;letter-spacing:.3px}
+.open-badge{position:absolute;top:120px;right:24px;display:flex;align-items:center;gap:7px;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:8px 14px;z-index:10}
+.ob-dot{width:7px;height:7px;border-radius:50%;background:#4ADE80;animation:bcpulse 1.5s infinite}
+.ob-text{font-size:11px;font-weight:600;color:#fff}
+
+/* STRIPS & SECTIONS */
+.about-strip{background:var(--crema);padding:18px 0}
+.about-strip-inner{display:flex;justify-content:center;flex-wrap:wrap;gap:36px}
+.asi{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--esp);letter-spacing:.3px}
+.section{padding:104px 0}
+.bg-dark{background:var(--esp)}
+.bg-milk{background:var(--milk)}
+.bg-milk-dk{background:var(--milk-d)}
+
+/* MENU */
+.menu-tabs{display:flex;gap:4px;margin-bottom:40px;flex-wrap:wrap}
+.mtab{padding:10px 20px;border-radius:4px;border:1px solid var(--border);font-size:13px;font-weight:700;color:var(--text-m);cursor:pointer;transition:all .18s;background:var(--white);font-family:'DM Sans',sans-serif;letter-spacing:.2px}
+.mtab:hover{border-color:var(--esp-l);color:var(--esp)}
+.mtab.active{background:var(--esp);border-color:var(--esp);color:#fff}
+.menu-panel{display:none}
+.menu-panel.active{display:grid}
+.menu-grid{grid-template-columns:repeat(3,1fr);gap:18px}
+.menu-grid-2{grid-template-columns:repeat(2,1fr);gap:18px}
+.menu-card{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all .25s}
+.menu-card:hover{border-color:var(--crema-l);transform:translateY(-4px);box-shadow:0 12px 36px rgba(15,10,6,.1)}
+.mc-photo{height:170px;overflow:hidden;background:var(--milk-d);position:relative}
+.mc-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.menu-card:hover .mc-photo img{transform:scale(1.05)}
+.mc-photo .img-fb{display:none;width:100%;height:100%;background:var(--esp-l);align-items:center;justify-content:center;font-size:56px}
+.mc-tag{position:absolute;top:10px;left:10px;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:100px}
+.mc-tag-origin{background:var(--esp);color:var(--crema)}
+.mc-tag-rec{background:var(--crema);color:var(--esp)}
+.mc-tag-cold{background:#1E3A5F;color:#BAE6FD}
+.mc-body{padding:18px 16px}
+.mc-name{font-family:'Fraunces',serif;font-size:19px;color:var(--text);font-weight:400;margin-bottom:5px;line-height:1.2}
+.mc-desc{font-size:12px;color:var(--text-t);line-height:1.6;margin-bottom:12px}
+.mc-notes{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.mc-note{background:var(--milk-d);color:var(--text-m);font-size:10px;font-weight:600;padding:3px 8px;border-radius:100px;letter-spacing:.2px}
+.mc-note.fruity{background:#FEF3C7;color:#92400E}
+.mc-note.floral{background:#FCE7F3;color:#9D174D}
+.mc-note.choco{background:#FEF2F2;color:#7F1D1D}
+.mc-note.nutty{background:#FFFBEB;color:#78350F}
+.mc-note.earthy{background:#F0FDF4;color:#166534}
+.mc-footer{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--border)}
+.mc-price{font-family:'Fraunces',serif;font-size:20px;color:var(--esp-l);font-weight:400}
+.mc-order{background:var(--esp);color:#fff;padding:7px 14px;border-radius:4px;font-size:11px;font-weight:700;transition:background .18s;letter-spacing:.3px}
+.mc-order:hover{background:var(--esp-m)}
+
+/* BREWING */
+.brew-methods-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:52px}
+.brew-m-card{background:var(--esp-m);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:28px 20px;text-align:center;transition:all .25s;cursor:default}
+.brew-m-card:hover{background:var(--esp-l);border-color:rgba(212,168,67,.3);transform:translateY(-4px)}
+.bmc-icon{font-size:42px;margin-bottom:16px;line-height:1}
+.bmc-name{font-family:'Fraunces',serif;font-size:17px;color:#fff;margin-bottom:6px;font-weight:400}
+.bmc-desc{font-size:12px;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:14px}
+.bmc-time{display:inline-flex;align-items:center;gap:5px;background:rgba(212,168,67,.15);border:1px solid rgba(212,168,67,.2);color:var(--crema);font-size:11px;font-weight:700;padding:4px 10px;border-radius:100px}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-photo-col{position:relative}
+.about-photo-main{border-radius:10px;overflow:hidden;aspect-ratio:4/5}
+.about-photo-main img{width:100%;height:100%;object-fit:cover;display:block}
+.about-photo-main .img-fb{display:none;width:100%;height:100%;background:var(--esp-l);align-items:center;justify-content:center;font-size:80px}
+.about-photo-accent{position:absolute;bottom:-24px;right:-24px;width:160px;border-radius:10px;overflow:hidden;border:4px solid var(--milk);box-shadow:0 8px 32px rgba(0,0,0,.14)}
+.about-photo-accent img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.about-photo-accent .img-fb{display:none;width:100%;aspect-ratio:1;background:var(--crema-p);align-items:center;justify-content:center;font-size:36px}
+.origin-card{position:absolute;top:28px;left:-28px;background:var(--esp);border-radius:10px;padding:16px 18px;box-shadow:0 8px 24px rgba(0,0,0,.25);min-width:160px}
+.origin-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--crema);margin-bottom:6px}
+.origin-value{font-family:'Fraunces',serif;font-size:15px;color:#fff;margin-bottom:2px}
+.origin-sub{font-size:11px;color:rgba(255,255,255,.45)}
+.about-quote{font-family:'Fraunces',serif;font-size:clamp(20px,2.5vw,26px);color:var(--text);font-style:italic;line-height:1.45;margin-bottom:20px;font-weight:300}
+.about-body{font-size:15px;color:var(--text-m);line-height:1.85;margin-bottom:16px;font-weight:300}
+.about-pillars{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.apillar{background:var(--milk-d);border-radius:8px;padding:18px 16px;border:1px solid var(--border);transition:.2s}
+.apillar:hover{background:var(--esp);border-color:var(--esp)}
+.apillar:hover .apillar-title{color:#fff}
+.apillar:hover .apillar-desc{color:rgba(255,255,255,.55)}
+.apillar-icon{font-size:20px;margin-bottom:8px}
+.apillar-title{font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px}
+.apillar-desc{font-size:12px;color:var(--text-t);line-height:1.5}
+
+/* GALERI */
+.galeri-mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto;gap:10px;margin-top:52px}
+.gi{border-radius:8px;overflow:hidden;position:relative;cursor:pointer}
+.gi.tall{grid-row:span 2}
+.gi.wide{grid-column:span 2}
+.gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.gi:not(.tall) img{aspect-ratio:1}
+.gi.tall img{aspect-ratio:1/2}
+.gi.wide img{aspect-ratio:2/1}
+.gi .img-fb{display:none;background:var(--esp-l);align-items:center;justify-content:center;font-size:48px;aspect-ratio:1}
+.gi.tall .img-fb{aspect-ratio:1/2}
+.gi.wide .img-fb{aspect-ratio:2/1}
+.gi:hover img{transform:scale(1.06)}
+.gi-ov{position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(15,10,6,.75));opacity:0;transition:opacity .3s;display:flex;flex-direction:column;justify-content:flex-end;padding:14px}
+.gi:hover .gi-ov{opacity:1}
+.gi-label{font-family:'Fraunces',serif;font-size:14px;color:#fff;font-style:italic}
+
+/* LOYALTY */
+.loyalty-wrap{background:var(--esp);border-radius:16px;padding:48px;display:grid;grid-template-columns:1fr 380px;gap:52px;align-items:center;max-width:920px;margin:0 auto;position:relative;overflow:hidden}
+.loyalty-wrap::before{content:'KOPIKAL';position:absolute;right:-40px;top:50%;transform:translateY(-50%) rotate(90deg);font-family:'Fraunces',serif;font-style:italic;font-size:100px;color:rgba(255,255,255,.03);font-weight:700;white-space:nowrap;pointer-events:none}
+.loyalty-title{font-family:'Fraunces',serif;font-size:32px;color:#fff;font-weight:300;margin-bottom:10px;line-height:1.2}
+.loyalty-title em{font-style:italic;color:var(--crema)}
+.loyalty-sub{font-size:15px;color:rgba(255,255,255,.5);line-height:1.8;margin-bottom:28px;font-weight:300}
+.loyalty-perks{display:flex;flex-direction:column;gap:10px}
+.loyalty-perk{display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,.7)}
+.lp-icon{width:32px;height:32px;flex-shrink:0;background:rgba(212,168,67,.15);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px}
+.stamp-card{background:var(--crema-p);border-radius:12px;padding:24px;border:2px solid var(--crema-l)}
+.sc-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.sc-brand{font-family:'Fraunces',serif;font-size:16px;color:var(--esp);font-weight:700}
+.sc-sub{font-size:10px;color:var(--text-t);font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.sc-progress{background:var(--crema);color:var(--esp);font-size:10px;font-weight:800;padding:3px 8px;border-radius:100px}
+.stamps-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px}
+.stamp{aspect-ratio:1;border-radius:8px;border:2px dashed var(--crema-l);display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;transition:all .2s;background:var(--white)}
+.stamp.filled{background:var(--esp);border-color:var(--esp);animation:stampIn .3s ease}
+.stamp.reward{background:var(--crema);border-color:var(--crema-d);font-size:22px}
+@keyframes stampIn{0%{transform:scale(.6);opacity:.5}100%{transform:scale(1);opacity:1}}
+.sc-reward-text{font-size:12px;color:var(--text-t);text-align:center;line-height:1.5}
+.sc-reward-text strong{color:var(--esp);font-weight:700}
+.sc-cta-row{display:flex;gap:8px;margin-top:14px}
+.sc-reset{flex:1;background:var(--milk-d);color:var(--text-m);border:none;border-radius:6px;padding:10px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:background .15s}
+.sc-reset:hover{background:var(--border)}
+.sc-wa{flex:2;background:var(--esp);color:#fff;border:none;border-radius:6px;padding:10px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:background .15s}
+.sc-wa:hover{background:var(--esp-l)}
+
+/* TESTIMONI */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px}
+.testi-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:26px;position:relative;overflow:hidden;transition:all .25s}
+.testi-card:hover{border-color:var(--crema-l);box-shadow:0 8px 28px rgba(15,10,6,.08)}
+.testi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--crema),transparent)}
+.testi-stars{color:var(--crema-d);font-size:14px;letter-spacing:1px;margin-bottom:12px}
+.testi-qmark{position:absolute;top:18px;right:18px;font-family:'Fraunces',serif;font-style:italic;font-size:56px;color:var(--milk-m);line-height:.7}
+.testi-text{font-size:14px;color:var(--text-m);line-height:1.8;font-style:italic;margin-bottom:18px;font-weight:300}
+.testi-author{display:flex;align-items:center;gap:10px}
+.testi-av{width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--milk-d)}
+.testi-av img{width:100%;height:100%;object-fit:cover}
+.testi-av .img-fb{display:none;width:100%;height:100%;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:14px;font-style:italic;color:var(--esp-l)}
+.testi-name{font-weight:700;font-size:14px;color:var(--text)}
+.testi-tag{background:var(--milk-d);color:var(--text-t);font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px;margin-top:2px;display:inline-block}
+
+/* JAM & KONTAK */
+.jam-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:52px}
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.ic-head{background:var(--esp);padding:15px 22px;display:flex;align-items:center;gap:9px}
+.ic-head-title{font-weight:600;font-size:16px;color:#fff}
+.jam-row{display:flex;justify-content:space-between;align-items:center;padding:13px 22px;border-bottom:1px solid var(--border)}
+.jam-row:last-child{border-bottom:none}
+.jam-row.today{background:var(--crema-p)}
+.jam-day{font-size:14px;color:var(--text-m);font-weight:500}
+.jam-row.today .jam-day{color:var(--crema-d);font-weight:700}
+.jam-time{font-family:'Fraunces',serif;font-size:17px;color:var(--text);font-weight:400}
+.open-now{display:inline-flex;align-items:center;gap:7px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:6px;padding:7px 14px;font-size:12px;font-weight:700;color:var(--green);margin-bottom:14px}
+.on-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.kontak-row{display:flex;gap:14px;padding:15px 22px;border-bottom:1px solid var(--border);align-items:flex-start}
+.kontak-row:last-of-type{border-bottom:none}
+.kico{width:36px;height:36px;flex-shrink:0;background:var(--milk-d);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;margin-top:2px}
+.kbody strong{display:block;font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px}
+.kbody p{font-size:13px;color:var(--text-m);line-height:1.6;font-weight:300}
+.wa-row{display:flex;align-items:center;justify-content:space-between;background:var(--esp);color:#fff;padding:15px 22px;font-weight:700;font-size:14px;transition:background .2s}
+.wa-row:hover{background:var(--esp-l)}
+
+/* FAQ */
+.faq-wrap{max-width:680px;margin:52px auto 0;display:flex;flex-direction:column;gap:5px}
+.faq-item{background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.faq-item.open{border-color:var(--crema-l)}
+.faq-q{width:100%;background:none;border:none;padding:17px 22px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;color:var(--text);font-size:15px;font-weight:600;text-align:left;gap:12px;font-family:'DM Sans',sans-serif;transition:color .2s}
+.faq-q:hover{color:var(--crema-d)}
+.faq-arrow{color:var(--text-t);transition:transform .3s,color .2s;flex-shrink:0}
+.faq-item.open .faq-arrow{transform:rotate(180deg);color:var(--crema-d)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a-inner{padding:0 22px 18px;font-size:14px;color:var(--text-m);line-height:1.8;border-top:1px solid var(--border);font-weight:300}
+.faq-item.open .faq-a{max-height:260px}
+
+/* CTA */
+.cta-sec{position:relative;padding:112px 0;text-align:center;overflow:hidden}
+.cta-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cta-bg .img-fb{position:absolute;inset:0;display:none;background:linear-gradient(135deg,var(--esp),var(--esp-l));align-items:center;justify-content:center;font-size:80px}
+.cta-overlay{position:absolute;inset:0;background:rgba(10,7,3,.8)}
+.cta-inner{position:relative;z-index:1;padding:0 28px}
+.cta-ey{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:16px;justify-content:center}
+.cta-ey::before,.cta-ey::after{content:'';width:20px;height:1px;background:rgba(255,255,255,.25)}
+.cta-h2{font-family:'Fraunces',serif;font-size:clamp(30px,5vw,58px);color:#fff;font-weight:300;font-style:italic;max-width:600px;margin:0 auto 16px;line-height:1.15}
+.cta-h2 em{font-style:normal;color:var(--crema)}
+.cta-sub{font-size:17px;color:rgba(255,255,255,.5);max-width:400px;margin:0 auto 44px;line-height:1.8;font-weight:300}
+.cta-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+
+/* FOOTER */
+footer{background:var(--esp);padding:60px 0 24px}
+.footer-top{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.fbrand-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.fbrand-name{font-family:'Fraunces',serif;font-size:22px;color:#fff;font-weight:400}
+.fbrand-name span{color:var(--crema);font-style:italic}
+.fbrand p{font-size:13px;color:rgba(255,255,255,.38);line-height:1.8;max-width:250px;font-weight:300}
+.fsocial{display:flex;gap:10px;margin-top:16px}
+.fsoc{width:34px;height:34px;background:rgba(255,255,255,.06);border-radius:50%;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:15px;transition:background .2s;cursor:pointer}
+.fsoc:hover{background:rgba(212,168,67,.2)}
+.fcol h4{font-family:'Fraunces',serif;font-size:16px;color:#fff;font-weight:400;margin-bottom:14px}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.fcol ul li a{font-size:13px;color:rgba(255,255,255,.38);transition:color .2s;font-weight:300}
+.fcol ul li a:hover{color:var(--crema)}
+.fbottom{border-top:1px solid rgba(255,255,255,.07);padding-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.fbottom p{font-size:12px;color:rgba(255,255,255,.25);font-weight:300}
+.fbottom a{color:rgba(255,255,255,.25);transition:color .2s}
+.fbottom a:hover{color:var(--crema)}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;display:flex;align-items:center;gap:9px;background:#25D366;color:#fff;padding:13px 20px 13px 15px;border-radius:100px;font-weight:700;font-size:14px;box-shadow:0 8px 28px rgba(37,211,102,.4);transition:all .2s}
+.wa-float:hover{background:#1EB850;transform:translateY(-3px)}
+.wa-float svg{width:20px;height:20px}
+
+/* RESPONSIVE */
+@media(max-width:1024px){.footer-top{grid-template-columns:1fr 1fr};.loyalty-wrap{grid-template-columns:1fr;gap:32px}}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding:120px 28px 52px;max-width:100%}
+  .hero-right{height:340px;position:relative}
+  .hero-photo{position:absolute;inset:0}
+  .hero-photo::after{background:linear-gradient(0deg,rgba(15,10,6,.9) 0%,transparent 60%)}
+  .brew-card{left:16px;bottom:20px}
+  .about-grid{grid-template-columns:1fr;gap:48px}
+  .about-photo-col{max-width:420px}
+  .menu-grid{grid-template-columns:1fr 1fr}
+  .menu-grid-2{grid-template-columns:1fr 1fr}
+  .galeri-mosaic{grid-template-columns:1fr 1fr}
+  .gi.tall{grid-row:span 1}.gi.tall img,.gi.tall .img-fb{aspect-ratio:1}
+  .gi.wide{grid-column:span 1}.gi.wide img,.gi.wide .img-fb{aspect-ratio:1}
+  .testi-grid{grid-template-columns:1fr}
+  .jam-grid{grid-template-columns:1fr}
+  .brew-methods-grid{grid-template-columns:1fr 1fr}
+  .loyalty-wrap{grid-template-columns:1fr;padding:32px}
+}
+@media(max-width:768px){
+  .nav-links,.nav-right{display:none}
+  .hamburger{display:flex}
+  .section{padding:72px 0}
+  .footer-top{grid-template-columns:1fr;gap:28px}
+  .menu-grid{grid-template-columns:1fr}
+  .menu-grid-2{grid-template-columns:1fr}
+  .hero-stats{gap:24px;flex-wrap:wrap}
+}
+@media(max-width:560px){.brew-methods-grid{grid-template-columns:1fr 1fr};.about-pillars{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <div class="container nav-inner">
+    <div class="nav-logo">
+      <div class="logo-mark">K</div>
+      <div class="logo-name">Kopi<span>kal</span></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#galeri">Galeri</a></li>
+      <li><a href="#loyalty">Loyalty</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#menu" class="btn btn-ol-w btn-sm">Lihat Menu</a>
+      <a href="https://wa.me/6285743553879?text=Halo%20Kopikal%2C%20saya%20mau%20pesan" class="nav-wa">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.855L.057 23.886a.5.5 0 0 0 .611.637l6.218-1.637A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.925 0-3.727-.524-5.271-1.432l-.338-.2-4.066 1.07 1.009-3.985-.218-.344A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Pesan via WA
+      </a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu(this)"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="hero-ey-line"></div>
+      <span class="hero-ey-text">Specialty Coffee · Purwokerto · Est. 2018</span>
+    </div>
+    <h1 class="hero-h1">Setiap Tegukan<br><em>Bercerita</em></h1>
+    <p class="hero-sub">Kopi single origin dari petani lokal Jawa Tengah, diseduh dengan metode yang tepat oleh barista terlatih. Bukan sekadar kafein — ini pengalaman.</p>
+    <div class="hero-ctas">
+      <a href="#menu" class="btn btn-crema btn-lg">Jelajahi Menu</a>
+      <a href="#tentang" class="btn btn-ol-w btn-lg">Cerita Kami</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hero-stat-num">6<span>+</span></div><div class="hero-stat-label">Tahun Beroperasi</div></div>
+      <div><div class="hero-stat-num">12<span>+</span></div><div class="hero-stat-label">Origin Kopi</div></div>
+      <div><div class="hero-stat-num">4.9<span>★</span></div><div class="hero-stat-label">Rating Google</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo">
+      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&h=1100&fit=crop&q=90"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Kopi specialty Kopikal">
+      <div class="img-fb">☕</div>
+    </div>
+    <div class="brew-card">
+      <div class="bc-label"><span class="bc-dot"></span>Today's Brew</div>
+      <div class="bc-origin">Flores Bajawa</div>
+      <div class="bc-process">Natural · Medium Roast</div>
+      <div class="bc-notes">
+        <span class="bc-note">Dark Chocolate</span>
+        <span class="bc-note">Caramel</span>
+        <span class="bc-note">Brown Sugar</span>
+      </div>
+    </div>
+    <div class="open-badge"><div class="ob-dot"></div><span class="ob-text">Buka Sekarang · s/d 22.00</span></div>
+  </div>
+</section>
+
+<!-- ABOUT STRIP -->
+<div class="about-strip">
+  <div class="container about-strip-inner">
+    <div class="asi"><span>☕</span>Single Origin Bersertifikat</div>
+    <div class="asi"><span>📶</span>WiFi Fiber 100 Mbps</div>
+    <div class="asi"><span>🔌</span>Stop Kontak di Setiap Meja</div>
+    <div class="asi"><span>🚗</span>Parkir Luas Gratis</div>
+    <div class="asi"><span>🎵</span>Live Music Jumat & Sabtu</div>
+  </div>
+</div>
+
+<!-- MENU -->
+<section class="section bg-milk" id="menu">
+  <div class="container">
+    <div class="eyebrow">Menu Kami</div>
+    <h2 class="h2" style="margin-bottom:8px">Kopi yang <em>Dihormati</em>,<br>Minuman yang Dinikmati</h2>
+    <p class="lead" style="margin-bottom:36px">Semua kopi kami bersumber dari petani terseleksi. Setiap menu memiliki tasting notes unik untuk memandu pilihan Anda.</p>
+    <div class="menu-tabs">
+      <button class="mtab active" onclick="showMenu('espresso',this)">☕ Espresso Based</button>
+      <button class="mtab" onclick="showMenu('manual',this)">🫗 Manual Brew</button>
+      <button class="mtab" onclick="showMenu('cold',this)">🧊 Cold Brew & Iced</button>
+      <button class="mtab" onclick="showMenu('nonkopi',this)">🍵 Non-Kopi & Makanan</button>
+    </div>
+
+    <!-- ESPRESSO -->
+    <div class="menu-panel active menu-grid" id="menu-espresso">
+      <div class="menu-card">
+        <div class="mc-photo"><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500&h=300&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Espresso"><div class="img-fb">☕</div><span class="mc-tag mc-tag-origin">Single Origin</span></div>
+        <div class="mc-body"><div class="mc-name">Signature Espresso</div><div class="mc-desc">Espresso double shot dari blend eksklusif Kopikal — Toraja + Flores. Kuat, bulat, dan berkarakter.</div><div class="mc-notes"><span class="mc-note choco">Dark Chocolate</span><span class="mc-note nutty">Hazelnut</span><span class="mc-note earthy">Earthy</span></div><div class="mc-footer"><div class="mc-price">Rp 22.000</div><a href="https://wa.me/6285743553879?text=Pesan%20Signature%20Espresso" class="mc-order">Pesan</a></div></div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-photo"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=500&h=300&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Kopi Susu"><div class="img-fb">🥛</div><span class="mc-tag mc-tag-rec">Terlaris</span></div>
+        <div class="mc-body"><div class="mc-name">Kopikal Susu</div><div class="mc-desc">Kopi susu khas kami — espresso bold bertemu susu segar full cream dengan sentuhan gula aren lokal.</div><div class="mc-notes"><span class="mc-note nutty">Caramel</span><span class="mc-note choco">Milk Chocolate</span><span class="mc-note fruity">Sweet Vanilla</span></div><div class="mc-footer"><div class="mc-price">Rp 28.000</div><a href="https://wa.me/6285743553879?text=Pesan%20Kopikal%20Susu" class="mc-order">Pesan</a></div></div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-photo"><img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=500&h=300&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Cappuccino"><div class="img-fb">☕</div></div>
+        <div class="mc-body"><div class="mc-name">Cappuccino</div><div class="mc-desc">Ratio espresso, steamed milk, dan microfoam yang sempurna. Klasik tanpa kompromi, dengan latte art pilihan.</div><div class="mc-notes"><span class="mc-note choco">Cocoa</span><span class="mc-note nutty">Toasted Almond</span></div><div class="mc-footer"><div class="mc-price">Rp 32.000</div><a href="https://wa.me/6285743553879?text=Pesan%20Cappuccino" class="mc-order">Pesan</a></div></div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-photo"><img src="https://images.unsplash.com/photo-1485808191679-5f86510bd9d4?w=500&h=300&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Flat White"><div class="img-fb">☕</div></div>
+        <div class="mc-body"><div class="mc-name">Flat White</div><div class="mc-desc">Ristretto double shot dengan susu microfoam minimal — lebih kuat, lebih pekat dari latte biasa. Untuk yang serius.</div><div class="mc-notes"><span class="mc-note choco">Bittersweet</span><span class="mc-note nutty">Walnut</span></div><div class="mc-footer"><div class="mc-price">Rp 34.000</div><a href="https://wa.me/6285743553879?text=Pesan%20Flat%20White" class="mc-order">Pesan</a></div></div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-photo"><img src="https://images.unsplash.com/photo-1561047029-3000c68339ca?w=500&h=300&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Piccolo Latte"><div class="img-fb">☕</div><span class="mc-tag mc-tag-origin">Barista Pick</span></div>
+        <div class="mc-body"><div class="mc-name">Piccolo Latte</div><div class="mc-desc">Ristretto dalam gelas kecil 100ml dengan steamed milk — rasa kopi paling intens dalam format latte.</div><div class="mc-notes"><span class="mc-note choco">Dark Chocolate</span><span class="mc-note earthy">Spiced</span></div><div class="mc-footer"><div class="mc-price">Rp 28.000</div><a href="https://wa.me/6285743553879?text=Pesan%20Piccolo%20Latte" class="mc-order">Pesan</a></div></div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-photo"><img src="https://images.unsplash.com/photo-1616348436168-de43ad0db179?w=500&h=300&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Cortado"><div class="img-fb">☕</div></div>
+        <div class="mc-body"><div class="mc-name">Cortado</div><div class="mc-desc">Equal parts espresso dan warm milk — memotong keasaman espresso tanpa menenggelamkan rasanya. Elegan, simpel.</div><div class="mc-notes"><span class="mc-note fruity">Citrus</span><span class="mc-note choco">Cocoa</span></div><div class="mc-footer"><div class="mc-price">Rp 30.000</div><a href="https://wa.me/6285743553879?text=Pesan%20Cortado" class="mc-order">Pesan</a></div></div>
+      </div>
+    </div>
+
+    <!-- MANUAL BREW -->
+    <div class="menu-panel menu-grid" id="menu-manual">
+      <div class="menu-card">
+        <div class="mc-photo"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&h=300&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="V60"><div class="img-fb">🫗</div><span class="mc-tag mc-tag-origin">Single Origin</span></div>
+        <div class="mc-body"><div class="mc-name">V60 Pour Over</div><div class="mc-desc">Guyuran air panas yang presisi mengekstrak rasa paling bersih dari biji kopi pilihan. Transparansi rasa terbaik.</div><div class="mc-notes"><span class="mc-note floral">Jasmine</span><span class="mc-note floral">Floral</span><span class="mc-note fruity">Peach</span></div><div class="mc-footer"><div class="mc-price">Rp 38.000</div><a href="https://wa.me/6285743553879?text=Pesan%20V60%20Pour%20Over" class="mc-order">Pesan</a></div></div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-photo"><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=500&h=300&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Aeropress"><div class="img-fb">🫗</div></div>
+        <div class="mc-body"><div class="mc-name">Aeropress</div><div class="mc-desc">Tekanan udara menciptakan kopi yang bertekstur, clean, dan rendah keasaman. Metode favorit para traveler kopi dunia.</div><div class="mc-notes"><span class="mc-note choco">Chocolate</span><span class="mc-note earthy">Tobacco</span></div><div class="mc-footer"><div class="mc-price">Rp 35.000</div><a href="https://wa.me/6285743553879?text=Pesan%20Aeropress" class="mc-order">Pesan</a></div></div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-photo"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500&h=300&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="French Press"><div class="img-fb">🫗</div><span class="mc-tag mc-tag-rec">Barista Pick</span></div>
+        <div class="mc-body"><div class="mc-name">French Press</div><div class="mc-desc">Seduhan immersion penuh menghasilkan kopi bertekstur tebal dengan body kuat. Full-bodied, rustic, memuaskan.</div><div class="mc-notes"><span class="mc-note earthy">Earthy</span><span class="mc-note choco">Dark Cacao</span><span class="mc-note nutty">Smoky</span></div><div class="mc-footer"><div class="mc-price">Rp 36.000</div><a href="https://wa.me/6285743553879?text=Pesan%20French%20Press" class="mc-order">Pesan</a></div></div>
+      </div>
+    </div>
+
+    <!-- COLD BREW -->
+    <div class="menu-panel menu-grid" id="menu-cold">
+      <div class="menu-card">
+        <div class="mc-photo"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500&h=300&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Cold Brew"><div class="img-fb">🧊</div><span class="mc-tag mc-tag-cold">18 Jam Brew</span></div>
+        <div class="mc-body"><div class="mc-name">Classic Cold Brew</div><div class="mc-desc">Diseduh selama 18 jam dalam air dingin. Hasilnya: kopi pekat, smooth, rendah asam, dan tidak pahit.</div><div class="mc-notes"><span class="mc-note choco">Dark Chocolate</span><span class="mc-note nutty">Caramel</span></div><div class="mc-footer"><div class="mc-price">Rp 32.000</div><a href="https://wa.me/6285743553879?text=Pesan%20Classic%20Cold%20Brew" class="mc-order">Pesan</a></div></div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-photo"><img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=500&h=300&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Iced Latte"><div class="img-fb">🧊</div><span class="mc-tag mc-tag-rec">Terlaris</span></div>
+        <div class="mc-body"><div class="mc-name">Iced Kopikal Susu</div><div class="mc-desc">Versi dingin dari signature kopi susu kami — espresso segar dituang di atas es batu dan susu segar.</div><div class="mc-notes"><span class="mc-note nutty">Sweet</span><span class="mc-note choco">Milk Choco</span></div><div class="mc-footer"><div class="mc-price">Rp 30.000</div><a href="https://wa.me/6285743553879?text=Pesan%20Iced%20Kopikal%20Susu" class="mc-order">Pesan</a></div></div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-photo"><img src="https://images.unsplash.com/photo-1582888951011-acd85c73d2f5?w=500&h=300&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Cold Brew Tonic"><div class="img-fb">🥤</div><span class="mc-tag mc-tag-cold">Specialty</span></div>
+        <div class="mc-body"><div class="mc-name">Cold Brew Tonic</div><div class="mc-desc">Cold brew disajikan di atas tonic water — bubbly, segar, dengan keasaman unik. Minuman paling Instagramable.</div><div class="mc-notes"><span class="mc-note fruity">Citrus Zest</span><span class="mc-note floral">Floral</span></div><div class="mc-footer"><div class="mc-price">Rp 38.000</div><a href="https://wa.me/6285743553879?text=Pesan%20Cold%20Brew%20Tonic" class="mc-order">Pesan</a></div></div>
+      </div>
+    </div>
+
+    <!-- NON-KOPI -->
+    <div class="menu-panel menu-grid-2" id="menu-nonkopi">
+      <div class="menu-card">
+        <div class="mc-photo"><img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500&h=300&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Matcha Latte"><div class="img-fb">🍵</div></div>
+        <div class="mc-body"><div class="mc-name">Matcha Latte</div><div class="mc-desc">Matcha ceremonial grade dari Shizuoka, dikocok dengan susu oat atau full cream. Creamy, grassy, anti-mainstream.</div><div class="mc-notes"><span class="mc-note earthy">Umami</span><span class="mc-note floral">Grassy</span></div><div class="mc-footer"><div class="mc-price">Rp 35.000</div><a href="https://wa.me/6285743553879?text=Pesan%20Matcha%20Latte" class="mc-order">Pesan</a></div></div>
+      </div>
+      <div class="menu-card">
+        <div class="mc-photo"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&h=300&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Croissant"><div class="img-fb">🥐</div><span class="mc-tag mc-tag-rec">Favorit</span></div>
+        <div class="mc-body"><div class="mc-name">Croissant Butter</div><div class="mc-desc">Croissant fresh-baked setiap pagi — renyah di luar, lembut berlapis di dalam. Teman sempurna espresso pagi hari.</div><div class="mc-notes"><span class="mc-note nutty">Buttery</span><span class="mc-note fruity">Sweet</span></div><div class="mc-footer"><div class="mc-price">Rp 28.000</div><a href="https://wa.me/6285743553879?text=Pesan%20Croissant%20Butter" class="mc-order">Pesan</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BREWING METHODS -->
+<section class="section bg-dark">
+  <div class="container">
+    <div class="eyebrow">Metode Seduh</div>
+    <h2 class="h2" style="color:#fff;margin-bottom:12px">Cara Kami <em style="color:var(--crema)">Menghormati</em><br>Setiap Biji Kopi</h2>
+    <p class="lead" style="color:rgba(255,255,255,.5)">Metode seduh yang berbeda menghasilkan karakter rasa yang berbeda. Kami kuasai semuanya untuk mengoptimalkan setiap biji kopi.</p>
+    <div class="brew-methods-grid">
+      <div class="brew-m-card"><div class="bmc-icon">🫗</div><div class="bmc-name">V60 Pour Over</div><div class="bmc-desc">Guyuran air spiral membuka lapisan rasa secara bertahap. Menghasilkan kopi clean dan bright.</div><div class="bmc-time">⏱ 3–4 menit</div></div>
+      <div class="brew-m-card"><div class="bmc-icon">🔷</div><div class="bmc-name">Aeropress</div><div class="bmc-desc">Tekanan ringan mengekstrak kopi rich dan rendah keasaman. Fleksibel, traveling-friendly.</div><div class="bmc-time">⏱ 1–2 menit</div></div>
+      <div class="brew-m-card"><div class="bmc-icon">🫙</div><div class="bmc-name">French Press</div><div class="bmc-desc">Immersion penuh menghasilkan body tebal dan rasa complex. Rustic, memuaskan, penuh minyak alami.</div><div class="bmc-time">⏱ 4 menit</div></div>
+      <div class="brew-m-card"><div class="bmc-icon">❄️</div><div class="bmc-name">Cold Brew</div><div class="bmc-desc">Ekstraksi lambat 18 jam dalam air dingin menghasilkan kopi smooth, sweet, dan bebas kepahitan.</div><div class="bmc-time">⏱ 18 jam</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section bg-milk" id="tentang">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo-col">
+        <div class="about-photo-main">
+          <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&h=750&fit=crop&q=85" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Barista Kopikal">
+          <div class="img-fb">👨‍🍳</div>
+        </div>
+        <div class="about-photo-accent">
+          <img src="https://images.unsplash.com/photo-1523006149abb8d0f0e5dd97c6d14904ce6c6ae?w=300&h=300&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Biji kopi">
+          <div class="img-fb">🫘</div>
+        </div>
+        <div class="origin-card">
+          <div class="origin-label">Origin Kopi</div>
+          <div class="origin-value">Flores Bajawa</div>
+          <div class="origin-sub">Hari ini · Natural Process</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="eyebrow">Cerita Kami</div>
+        <div class="about-quote">"Kami tidak menjual kopi. Kami menjual percakapan yang terjadi di antara dua cangkir."</div>
+        <p class="about-body">Kopikal lahir dari keresahan sederhana: kenapa kopi bagus susah ditemukan tanpa harus ke Jakarta? Kami percaya Purwokerto layak punya specialty coffee house yang benar — dari origin yang jelas, seduhan yang presisi, dan ruang yang menyambut.</p>
+        <p class="about-body">Sejak 2018, kami bermitra langsung dengan petani kopi di Flores, Toraja, Aceh, dan Jawa. Tidak ada perantara. Harga petani lebih baik, kualitas bagi kita lebih terjamin.</p>
+        <div class="about-pillars">
+          <div class="apillar"><div class="apillar-icon">🌱</div><div class="apillar-title">Farm to Cup</div><div class="apillar-desc">Langsung dari petani, tanpa perantara. Traceability penuh setiap batch.</div></div>
+          <div class="apillar"><div class="apillar-icon">🎓</div><div class="apillar-title">Barista Tersertifikasi</div><div class="apillar-desc">Semua barista kami lulus SCA Foundation dan training internal 3 bulan.</div></div>
+          <div class="apillar"><div class="apillar-icon">🏠</div><div class="apillar-title">Ruang yang Menyambut</div><div class="apillar-desc">Designed untuk kerja, belajar, dan ngobrol. WiFi kencang, socket di mana-mana.</div></div>
+          <div class="apillar"><div class="apillar-icon">♻️</div><div class="apillar-title">Sustainable</div><div class="apillar-desc">Cup daur ulang, ampas kopi jadi kompos, plastik nol untuk makan di tempat.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERI -->
+<section class="section bg-milk-dk" id="galeri">
+  <div class="container">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px">
+      <div><div class="eyebrow">Galeri</div><h2 class="h2" style="margin-bottom:0">Suasana yang <em>Berbicara</em><br>Sendiri</h2></div>
+      <p style="font-size:14px;color:var(--text-t);max-width:280px;line-height:1.7;font-weight:300">Setiap sudut Kopikal dirancang untuk jadi background foto yang bagus — karena pengalaman visual adalah bagian dari nikmatnya kopi.</p>
+    </div>
+    <div class="galeri-mosaic">
+      <div class="gi tall"><img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=400&h=800&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Interior kafe"><div class="img-fb" style="aspect-ratio:1/2">🏠</div><div class="gi-ov"><div class="gi-label">Interior Utama</div></div></div>
+      <div class="gi"><img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=400&h=400&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Latte art"><div class="img-fb">☕</div><div class="gi-ov"><div class="gi-label">Latte Art</div></div></div>
+      <div class="gi"><img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400&h=400&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Barista"><div class="img-fb">👨‍🍳</div><div class="gi-ov"><div class="gi-label">Barista at Work</div></div></div>
+      <div class="gi wide"><img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800&h=400&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Area santai"><div class="img-fb" style="aspect-ratio:2/1">🛋️</div><div class="gi-ov"><div class="gi-label">Ruang Santai</div></div></div>
+      <div class="gi"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&h=400&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Kopi susu"><div class="img-fb">🥛</div><div class="gi-ov"><div class="gi-label">Kopi Susu</div></div></div>
+      <div class="gi"><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=400&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Cold brew"><div class="img-fb">🧊</div><div class="gi-ov"><div class="gi-label">Cold Brew</div></div></div>
+      <div class="gi"><img src="https://images.unsplash.com/photo-1523006149abb8d0f0e5dd97c6d14904ce6c6ae?w=400&h=400&fit=crop&q=80" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Biji kopi"><div class="img-fb">🫘</div><div class="gi-ov"><div class="gi-label">Single Origin Beans</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOYALTY -->
+<section class="section bg-milk" id="loyalty">
+  <div class="container">
+    <div class="loyalty-wrap">
+      <div>
+        <div class="eyebrow" style="color:var(--crema)">Program Loyalitas</div>
+        <div class="loyalty-title">Minum 10 Kopi,<br><em>Yang ke-11 Gratis</em></div>
+        <p class="loyalty-sub">Setiap pembelian minuman mendapat 1 stamp. Kumpulkan 10 stamp, dapatkan 1 minuman apa saja gratis. Coba klik stamp di bawah!</p>
+        <div class="loyalty-perks">
+          <div class="loyalty-perk"><div class="lp-icon">☕</div>10 stamp = 1 minuman gratis pilihan Anda</div>
+          <div class="loyalty-perk"><div class="lp-icon">🎂</div>Minuman gratis di hari ulang tahun Anda</div>
+          <div class="loyalty-perk"><div class="lp-icon">🔔</div>Early access menu baru & event eksklusif</div>
+          <div class="loyalty-perk"><div class="lp-icon">📱</div>Daftar cukup via WhatsApp, tanpa app tambahan</div>
+        </div>
+      </div>
+      <div class="stamp-card">
+        <div class="sc-head"><div><div class="sc-brand">Kopikal</div><div class="sc-sub">Loyalty Card</div></div><div class="sc-progress" id="stampProgress">0 / 10</div></div>
+        <div class="stamps-grid" id="stampsGrid"></div>
+        <div class="sc-reward-text" id="rewardText">Klik stamp untuk coba — kumpulkan <strong>10 stamp</strong> untuk kopi gratis! ☕</div>
+        <div class="sc-cta-row">
+          <button class="sc-reset" onclick="resetStamps()">Reset</button>
+          <button class="sc-wa" onclick="daftarLoyalty()">💬 Daftar via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section class="section bg-milk-dk">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:0"><div class="eyebrow" style="justify-content:center">Kata Mereka</div><h2 class="h2" style="text-align:center;margin-bottom:12px">Pelanggan yang <em>Kembali</em><br>Lagi dan Lagi</h2></div>
+    <div class="testi-grid">
+      <div class="testi-card"><div class="testi-qmark">"</div><div class="testi-stars">★★★★★</div><div class="testi-text">"Pertama kali coba V60 di sini langsung jatuh cinta. Barista-nya mau jelaskan perbedaan origin kopi dengan sabar. Sekarang hampir tiap pagi nongkrong di sini sebelum kerja — WiFi-nya kencang, kursinya nyaman."</div><div class="testi-author"><div class="testi-av"><img src="https://i.pravatar.cc/100?img=12" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt=""><div class="img-fb">FA</div></div><div><div class="testi-name">Fajar Alam</div><div class="testi-tag">Pelanggan Tetap · 2 tahun</div></div></div></div>
+      <div class="testi-card"><div class="testi-qmark">"</div><div class="testi-stars">★★★★★</div><div class="testi-text">"Cold Brew Tonic-nya beda banget dari kafe lain. Bawa teman dari Jakarta ke sini, mereka langsung bilang ini setara kafe Kemang. Packaging pesanannya juga rapi dan ada kartu tasting notes-nya."</div><div class="testi-author"><div class="testi-av"><img src="https://i.pravatar.cc/100?img=47" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt=""><div class="img-fb">NR</div></div><div><div class="testi-name">Nadia Rizky</div><div class="testi-tag">Coffee Enthusiast</div></div></div></div>
+      <div class="testi-card"><div class="testi-qmark">"</div><div class="testi-stars">★★★★★</div><div class="testi-text">"Tempat WFH terbaik di Purwokerto. Stop kontak ada di tiap meja, WiFi konsisten, dan yang paling penting — kopinya tidak bikin kantuk di siang hari. Kopikal Susu-nya adalah comfort drink saya sekarang."</div><div class="testi-author"><div class="testi-av"><img src="https://i.pravatar.cc/100?img=33" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt=""><div class="img-fb">DH</div></div><div><div class="testi-name">Dimas Hendra</div><div class="testi-tag">Remote Worker</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- JAM & LOKASI -->
+<section class="section bg-milk" id="kontak">
+  <div class="container">
+    <div class="eyebrow">Kunjungi Kami</div>
+    <h2 class="h2" style="margin-bottom:12px">Kami Menunggu<br><em>di Cangkir Berikutnya</em></h2>
+    <div class="jam-grid">
+      <div>
+        <div class="open-now"><span class="on-dot"></span>Buka Sekarang · s/d 22.00</div>
+        <div class="info-card">
+          <div class="ic-head"><span>🕐</span><span class="ic-head-title">Jam Operasional</span></div>
+          <div class="jam-row"><span class="jam-day">Senin – Kamis</span><span class="jam-time">08.00 – 22.00</span></div>
+          <div class="jam-row today"><span class="jam-day">Sabtu ← Hari Ini</span><span class="jam-time">09.00 – 24.00</span></div>
+          <div class="jam-row" style="background:var(--crema-p)"><span class="jam-day" style="color:var(--crema-d);font-weight:700">Jumat (Live Music)</span><span class="jam-time" style="color:var(--crema-d)">08.00 – 23.00</span></div>
+          <div class="jam-row"><span class="jam-day">Minggu</span><span class="jam-time">09.00 – 21.00</span></div>
+        </div>
+        <div style="background:var(--esp);border-radius:10px;padding:18px 20px;margin-top:12px;display:flex;align-items:center;gap:14px"><div style="font-size:28px;flex-shrink:0">🎵</div><div><div style="font-family:'Fraunces',serif;font-size:16px;color:#fff;margin-bottom:3px">Live Music Jumat & Sabtu</div><div style="font-size:12px;color:rgba(255,255,255,.5)">Mulai pukul 19.00 — akustik, jazz, dan folk lokal</div></div></div>
+      </div>
+      <div class="info-card">
+        <div class="kontak-row"><div class="kico">📍</div><div class="kbody"><strong>Alamat</strong><p>Jl. Jendral Sudirman No. 123, Purwokerto Selatan, Kabupaten Banyumas, Jawa Tengah 53141</p></div></div>
+        <div class="kontak-row"><div class="kico">📱</div><div class="kbody"><strong>WhatsApp & Instagram</strong><p>WA: 0857-4355-3879 · IG: @kopikal.purwokerto — untuk reservasi, catering kopi, dan kerjasama event</p></div></div>
+        <div class="kontak-row"><div class="kico">🚗</div><div class="kbody"><strong>Parkir & Akses</strong><p>Area parkir motor dan mobil luas (gratis). 5 menit dari alun-alun Purwokerto, dekat jalur angkot utama.</p></div></div>
+        <div class="kontak-row" style="border:none"><div class="kico">📦</div><div class="kbody"><strong>Katering & Acara</strong><p>Tersedia layanan katering kopi untuk event, seminar, dan pernikahan. Minimum 50 porsi. Hubungi kami untuk penawaran.</p></div></div>
+        <a href="https://wa.me/6285743553879?text=Halo%20Kopikal%2C%20saya%20mau%20pesan%20atau%20reservasi%20meja" class="wa-row"><span>💬 Pesan atau Reservasi via WhatsApp</span><span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section bg-milk-dk">
+  <div class="container">
+    <div style="text-align:center"><div class="eyebrow" style="justify-content:center">FAQ</div><h2 class="h2" style="text-align:center">Yang Sering <em>Ditanyakan</em></h2></div>
+    <div class="faq-wrap">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Apa itu specialty coffee dan bedanya dengan kopi biasa?<svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></button><div class="faq-a"><div class="faq-a-inner">Specialty coffee adalah kopi dengan skor 80+ dari SCA (Specialty Coffee Association) — artinya biji kopi yang tumbuh di ketinggian dan iklim optimal, dipanen selektif, dan diproses dengan benar. Berbeda dengan kopi komersial, specialty coffee bisa dilacak hingga ke kebun petaninya. Rasanya lebih kompleks, bersih, dan tidak pahit secara tidak natural.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Apakah bisa minta kopi tanpa sugar?<svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></button><div class="faq-a"><div class="faq-a-inner">Tentu saja! Sebagian besar minuman kami tidak menggunakan gula tambahan secara default. Semua barista kami terlatih untuk menyesuaikan tingkat manis, kekentalan susu, dan jumlah es sesuai preferensi Anda. Tinggal bilang saat memesan.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Apakah ada pilihan susu oat atau almond?<svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></button><div class="faq-a"><div class="faq-a-inner">Ada! Kami menyediakan oat milk sebagai alternatif susu nabati (tambah Rp 5.000). Oat milk lebih creamy dibanding almond milk dan sangat cocok untuk latte — tidak mengalahkan rasa kopi. Tersedia setiap hari.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Bisa pesan bean untuk dibawa pulang?<svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></button><div class="faq-a"><div class="faq-a-inner">Bisa! Kami menjual biji kopi single origin dalam kemasan 200g dan 500g — baik whole bean maupun ground sesuai metode seduh Anda (espresso, V60, french press). Stok berubah mengikuti batch terbaru dari petani. Cek ketersediaan via WhatsApp.</div></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Bagaimana cara join program loyalty?<svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg></button><div class="faq-a"><div class="faq-a-inner">Cukup chat kami via WhatsApp dengan kata "daftar loyalty" — kami akan daftarkan nomor Anda dan kartu stamp fisik bisa diambil langsung di kasir. Setiap pembelian minuman (minimum Rp 20.000) mendapat 1 stamp. Kumpulkan 10, minta 1 minuman gratis pilihan Anda.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <div class="cta-bg"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1600&h=700&fit=crop&q=85" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="CTA kafe"><div class="img-fb">☕</div></div>
+  <div class="cta-overlay"></div>
+  <div class="cta-inner">
+    <div class="cta-ey">Satu Cangkir Lagi</div>
+    <h2 class="cta-h2">Kopi Terbaik Anda<br><em>Menunggu di Kopikal</em></h2>
+    <p class="cta-sub">Reservasi meja, pesan takeaway, atau datang langsung — kami selalu siap menyeduhkan yang terbaik.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/6285743553879?text=Halo%20Kopikal%2C%20saya%20mau%20pesan%20atau%20reservasi" class="btn btn-crema btn-lg"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.855L.057 23.886a.5.5 0 0 0 .611.637l6.218-1.637A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.925 0-3.727-.524-5.271-1.432l-.338-.2-4.066 1.07 1.009-3.985-.218-.344A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>Pesan via WhatsApp</a>
+      <a href="#menu" class="btn btn-ol-w btn-lg">Lihat Menu Lengkap</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="fbrand">
+        <div class="fbrand-logo"><div class="logo-mark" style="width:34px;height:34px;font-size:16px">K</div><div class="fbrand-name">Kopi<span>kal</span></div></div>
+        <p>Specialty coffee dari petani lokal Jawa Tengah. Setiap cangkir adalah cerita yang layak didengar — sejak 2018 di Purwokerto.</p>
+        <div class="fsocial"><div class="fsoc">📸</div><div class="fsoc">▶️</div><div class="fsoc">🐦</div></div>
+      </div>
+      <div class="fcol"><h4>Menu</h4><ul><li><a href="#menu">Espresso Based</a></li><li><a href="#menu">Manual Brew</a></li><li><a href="#menu">Cold Brew & Iced</a></li><li><a href="#menu">Non-Kopi</a></li></ul></div>
+      <div class="fcol"><h4>Tentang</h4><ul><li><a href="#tentang">Cerita Kami</a></li><li><a href="#galeri">Galeri</a></li><li><a href="#loyalty">Loyalty Program</a></li><li><a href="#kontak">Jam & Lokasi</a></li></ul></div>
+      <div class="fcol"><h4>Kontak</h4><ul><li><a href="https://wa.me/6285743553879">💬 WA 0857-4355-3879</a></li><li><a href="#kontak">📍 Purwokerto Selatan</a></li><li><a href="https://wa.me/6285743553879?text=Info%20katering%20kopi%20Kopikal">Katering Event</a></li><li><a href="https://wa.me/6285743553879?text=Beli%20bean%20kopi%20Kopikal">Beli Bean Kopi</a></li></ul></div>
+    </div>
+    <div class="fbottom"><p>© 2024 Kopikal Specialty Coffee. Purwokerto, Banyumas.</p><p>Website oleh <a href="https://buatwebsitemurah.com" target="_blank">Nusaweb Studio</a></p></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6285743553879?text=Halo%20Kopikal%2C%20saya%20mau%20pesan%20atau%20tanya%20menu" class="wa-float" target="_blank">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.855L.057 23.886a.5.5 0 0 0 .611.637l6.218-1.637A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.925 0-3.727-.524-5.271-1.432l-.338-.2-4.066 1.07 1.009-3.985-.218-.344A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  Pesan Kopi
+</a>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>60)});
+
+function showMenu(cat,btn){
+  document.querySelectorAll('.menu-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.mtab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('menu-'+cat).classList.add('active');
+  btn.classList.add('active');
+}
+
+function toggleMenu(el){
+  el.classList.toggle('open');
+}
+
+function toggleFaq(btn){
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  // Tutup semua yang sedang terbuka
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  // Buka yang diklik, kecuali kalau memang sudah terbuka
+  if(!isOpen) item.classList.add('open');
+}
+
+// Stamp loyalty
+let stampCount = 0;
+const MAX_STAMPS = 10;
+
+function initStamps(){
+  const grid = document.getElementById('stampsGrid');
+  grid.innerHTML = '';
+  for(let i=0;i<MAX_STAMPS;i++){
+    const s = document.createElement('div');
+    s.className = 'stamp' + (i===MAX_STAMPS-1?' reward':'') + (i<stampCount?' filled':'');
+    s.textContent = i===MAX_STAMPS-1 ? '🎁' : (i<stampCount ? '☕' : '');
+    s.onclick = ()=>addStamp(i);
+    grid.appendChild(s);
+  }
+  document.getElementById('stampProgress').textContent = stampCount+' / '+MAX_STAMPS;
+  document.getElementById('rewardText').innerHTML = stampCount>=MAX_STAMPS
+    ? '<strong>🎉 Selamat! Kamu dapat 1 minuman gratis!</strong> Tunjukkan ini ke kasir.'
+    : 'Kumpulkan <strong>'+(MAX_STAMPS-stampCount)+' stamp lagi</strong> untuk kopi gratis! ☕';
+}
+
+function addStamp(idx){
+  if(stampCount<MAX_STAMPS && idx===stampCount){ stampCount++; initStamps(); }
+}
+
+function resetStamps(){ stampCount=0; initStamps(); }
+function daftarLoyalty(){ window.open('https://wa.me/6285743553879?text=Halo%20Kopikal%2C%20saya%20mau%20daftar%20program%20loyalty','_blank'); }
+
+initStamps();
+</script>
+</body>
+</html>

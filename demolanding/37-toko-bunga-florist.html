@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sekar — Toko Bunga & Florist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#2B3A2F;
+    --forest-light:#3E5142;
+    --blush:#D98C8C;
+    --blush-deep:#C16C6C;
+    --mustard:#C9972F;
+    --paper:#F8F2E9;
+    --card:#FFFCF6;
+    --ink:#2A2520;
+    --ink-soft:#6B6357;
+    --line:#E4DAC8;
+    --radius-lg:30px;
+    --radius-md:20px;
+    --radius-sm:12px;
+    --shadow-soft:0 22px 48px -22px rgba(43,58,47,0.32);
+    --shadow-tight:0 10px 24px -12px rgba(43,58,47,0.28);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;margin:0 0 .4em;line-height:1.1;color:var(--forest);}
+  p{margin:0 0 1em;color:var(--ink-soft);}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+  .tag-script{font-family:'Caveat',cursive;font-size:1.4rem;color:var(--blush-deep);font-weight:700;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;font-style:italic;font-family:'Fraunces',serif;
+    font-size:1.05rem;color:var(--mustard);margin-bottom:10px;
+  }
+  .eyebrow::before,.eyebrow::after{content:"✦";font-size:.75rem;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:.95rem;
+    padding:14px 28px;border-radius:999px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;
+    transition:transform .15s ease, box-shadow .15s ease, background .2s ease;
+  }
+  .btn:focus-visible{outline:3px solid var(--mustard);outline-offset:2px;}
+  .btn-primary{background:var(--forest);color:#fff;box-shadow:var(--shadow-tight);}
+  .btn-primary:hover{background:#1E2B22;transform:translateY(-2px);}
+  .btn-outline{background:transparent;color:var(--forest);border:2px solid var(--forest);}
+  .btn-outline:hover{background:var(--forest);color:#fff;transform:translateY(-2px);}
+  .btn-blush{background:var(--blush-deep);color:#fff;}
+  .btn-blush:hover{background:#A85656;transform:translateY(-2px);}
+  @media (prefers-reduced-motion: reduce){.btn,*{transition:none !important;}html{scroll-behavior:auto;}}
+
+  /* growth-line signature divider */
+  .stem-divider{padding:6px 0;}
+  .stem-divider svg{width:100%;height:54px;display:block;}
+  .stem-divider path{stroke:var(--forest-light);stroke-width:2;fill:none;opacity:.45;}
+  .stem-divider circle{fill:var(--blush);}
+  .stem-divider .leaf{fill:var(--forest-light);opacity:.5;}
+
+  /* ---------- HEADER ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(248,242,233,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:1200px;margin:0 auto;}
+  .logo{font-family:'Fraunces',serif;font-weight:600;font-size:1.5rem;color:var(--forest);display:flex;align-items:center;gap:8px;}
+  .nav-links{display:flex;gap:30px;}
+  .nav-links a{font-weight:600;font-size:.92rem;color:var(--ink);border-bottom:2px solid transparent;padding:6px 2px;}
+  .nav-links a:hover{border-color:var(--blush-deep);}
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .burger{display:none;background:none;border:none;cursor:pointer;}
+  .burger span{display:block;width:24px;height:3px;background:var(--forest);margin:5px 0;border-radius:2px;}
+  @media (max-width:860px){
+    .nav-links{position:absolute;top:100%;left:0;right:0;background:var(--paper);flex-direction:column;gap:0;max-height:0;overflow:hidden;transition:max-height .3s ease;border-bottom:1px solid var(--line);}
+    .nav-links.open{max-height:340px;}
+    .nav-links a{width:100%;padding:16px 24px;border-bottom:1px solid var(--line);}
+    .burger{display:block;}
+    .nav-cta .btn-outline{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{padding:54px 0 0;overflow:hidden;}
+  .hero-grid{display:grid;grid-template-columns:.95fr 1.05fr;align-items:center;gap:10px;}
+  .hero-text{position:relative;z-index:2;padding-right:20px;}
+  .hero-text h1{font-size:clamp(2.6rem,5vw,4.1rem);font-style:italic;}
+  .hero-text h1 span{font-style:normal;color:var(--blush-deep);}
+  .hero-text p.lead{font-size:1.1rem;max-width:460px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px;}
+  .hero-img-wrap{position:relative;border-radius:var(--radius-lg) 0 0 var(--radius-lg);overflow:hidden;}
+  .hero-img-wrap img{width:100%;height:560px;object-fit:cover;}
+  .hero-badge{
+    position:absolute;left:-26px;bottom:34px;background:var(--card);border-radius:var(--radius-md);
+    box-shadow:var(--shadow-soft);padding:16px 20px;max-width:230px;
+  }
+  .hero-badge .tag-script{display:block;font-size:1.5rem;line-height:1;}
+  .hero-badge small{color:var(--ink-soft);font-size:.8rem;}
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-text{padding-right:0;}
+    .hero-img-wrap{border-radius:var(--radius-lg);margin-top:30px;}
+    .hero-img-wrap img{height:380px;}
+    .hero-badge{left:16px;bottom:-20px;}
+  }
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust{background:var(--forest);color:#fff;padding:26px 0;margin-top:50px;}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;font-size:.88rem;}
+  .trust-grid b{display:block;font-family:'Fraunces',serif;font-size:1.5rem;color:var(--mustard);font-weight:600;}
+  @media (max-width:760px){.trust-grid{grid-template-columns:repeat(2,1fr);row-gap:22px;}}
+
+  section{padding:84px 0;}
+  .sec-head{max-width:640px;margin-bottom:48px;}
+  .sec-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .sec-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);}
+
+  /* ---------- CATEGORIES ---------- */
+  .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .cat-card{position:relative;border-radius:var(--radius-md);overflow:hidden;aspect-ratio:3/4;box-shadow:var(--shadow-tight);}
+  .cat-card img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+  .cat-card:hover img{transform:scale(1.06);}
+  .cat-card .cap{
+    position:absolute;left:0;right:0;bottom:0;padding:20px;
+    background:linear-gradient(to top, rgba(20,26,21,.78), transparent);color:#fff;
+  }
+  .cat-card .cap h3{color:#fff;font-size:1.2rem;margin:0;}
+  .cat-card .cap span{font-size:.8rem;color:#E4D9C6;}
+  @media (max-width:980px){.cat-grid{grid-template-columns:repeat(2,1fr);}}
+
+  /* ---------- BESTSELLER PRODUCTS ---------- */
+  .bg-cream{background:var(--card);}
+  .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .prod-card{background:#fff;border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-tight);position:relative;transition:transform .25s ease,box-shadow .25s ease;}
+  .prod-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft);}
+  .prod-card img{width:100%;height:230px;object-fit:cover;}
+  .prod-badge{
+    position:absolute;top:14px;left:14px;background:var(--blush);color:#fff;
+    font-family:'Caveat',cursive;font-weight:700;font-size:1.05rem;padding:4px 14px 6px;
+    border-radius:999px;transform:rotate(-4deg);
+  }
+  .prod-info{padding:18px 18px 22px;}
+  .prod-info .cat{font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;}
+  .prod-info h4{font-family:'Fraunces',serif;font-size:1.1rem;margin:6px 0 8px;}
+  .prod-info .price{color:var(--forest);font-weight:700;font-size:1.05rem;}
+  @media (max-width:980px){.prod-grid{grid-template-columns:repeat(2,1fr);}}
+
+  /* ---------- CARA PESAN (steps) ---------- */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+  .step{position:relative;padding-left:60px;}
+  .step .num{
+    position:absolute;left:0;top:0;width:42px;height:42px;border-radius:50%;
+    background:var(--forest);color:#fff;display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;
+  }
+  .step h3{font-size:1.15rem;margin-bottom:6px;}
+  @media (max-width:860px){.steps{grid-template-columns:1fr;}}
+
+  /* ---------- ABOUT / ATELIER ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+  .about-grid img{border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);width:100%;height:420px;object-fit:cover;}
+  .about-text blockquote{
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;color:var(--forest);
+    border-left:3px solid var(--blush);padding-left:20px;margin:20px 0;
+  }
+  @media (max-width:900px){.about-grid{grid-template-columns:1fr;}.about-grid img{height:300px;}}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .testi-card{background:var(--card);border-radius:var(--radius-md);padding:28px;box-shadow:var(--shadow-tight);}
+  .testi-card .stars{color:var(--mustard);margin-bottom:10px;}
+  .testi-card p{font-style:italic;color:var(--ink);}
+  .testi-who{display:flex;align-items:center;gap:10px;margin-top:14px;}
+  .testi-avatar{width:38px;height:38px;border-radius:50%;background:#EFE2D2;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--forest);font-family:'Fraunces',serif;}
+  .testi-who b{font-size:.9rem;display:block;}
+  .testi-who span{font-size:.78rem;color:var(--ink-soft);}
+  @media (max-width:900px){.testi-grid{grid-template-columns:1fr;}}
+
+  /* ---------- GALLERY ---------- */
+  .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:160px;gap:14px;}
+  .gal-grid img{width:100%;height:100%;object-fit:cover;border-radius:var(--radius-sm);}
+  .gal-grid .tall{grid-row:span 2;}
+  @media (max-width:760px){.gal-grid{grid-template-columns:repeat(2,1fr);}}
+
+  /* ---------- ORDER / CONTACT FORM ---------- */
+  .order-section{background:var(--forest);color:#fff;}
+  .order-section .eyebrow{color:var(--mustard);}
+  .order-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
+  .order-info h2{color:#fff;}
+  .order-info p{color:#D8DDD5;}
+  .order-list{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:12px;}
+  .order-list li{display:flex;gap:10px;font-size:.95rem;color:#E4E8E0;}
+  form.order{background:var(--card);color:var(--ink);border-radius:var(--radius-lg);padding:34px;box-shadow:var(--shadow-soft);display:grid;gap:16px;}
+  .field{display:grid;gap:6px;}
+  .field label{font-size:.84rem;font-weight:700;color:var(--forest);}
+  .field input,.field select,.field textarea{
+    font-family:'DM Sans',sans-serif;font-size:.95rem;padding:12px 14px;border-radius:var(--radius-sm);
+    border:1.5px solid var(--line);background:var(--paper);color:var(--ink);
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--blush-deep);border-color:var(--blush-deep);}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  form.order .btn{width:100%;margin-top:4px;}
+  @media (max-width:900px){.order-grid{grid-template-columns:1fr;}.field-row{grid-template-columns:1fr;}}
+
+  /* ---------- FAQ ---------- */
+  .faq-wrap{max-width:760px;margin:0 auto;}
+  details{background:var(--card);border-radius:var(--radius-sm);padding:18px 22px;margin-bottom:12px;box-shadow:var(--shadow-tight);}
+  summary{font-family:'Fraunces',serif;font-weight:600;cursor:pointer;font-size:1.05rem;color:var(--forest);list-style:none;display:flex;justify-content:space-between;align-items:center;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";font-size:1.5rem;color:var(--blush-deep);font-family:'DM Sans',sans-serif;}
+  details[open] summary::after{content:"–";}
+  details p{margin:14px 0 0;font-size:.95rem;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#1B2519;color:#B7C0B2;padding:56px 0 24px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;margin-bottom:36px;}
+  .foot-grid h4{color:#fff;font-size:1rem;margin-bottom:14px;font-family:'DM Sans',sans-serif;font-weight:700;}
+  .foot-grid ul{list-style:none;padding:0;margin:0;display:grid;gap:9px;font-size:.9rem;}
+  .foot-grid ul a:hover{color:var(--mustard);}
+  .foot-logo{font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;color:#fff;margin-bottom:10px;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem;}
+
+  .wa-fab{position:fixed;bottom:22px;right:22px;z-index:60;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px -8px rgba(0,0,0,.35);font-size:1.7rem;}
+  .wa-fab:hover{transform:scale(1.07);}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.show{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">🌸 Sekar</div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#kategori">Kategori</a>
+      <a href="#produk">Best Seller</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#testimoni">Testimoni</a>
+      <a href="#pesan">Pesan Bunga</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#pesan" class="btn btn-outline">Pesan Sekarang</a>
+      <button class="burger" id="burgerBtn" aria-label="Buka menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <span class="eyebrow">Toko Bunga & Florist Atelier</span>
+      <h1>Rangkaian bunga yang <span>bicara</span> lebih dari kata-kata.</h1>
+      <p class="lead">Setiap tangkai kami pilih langsung dari petani lokal, dirangkai dengan tangan di hari yang sama, lalu diantar selagi masih segar.</p>
+      <div class="hero-ctas">
+        <a href="#pesan" class="btn btn-primary">Pesan Buket Hari Ini</a>
+        <a href="#kategori" class="btn btn-outline">Lihat Koleksi →</a>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <img src="https://images.unsplash.com/photo-1487070183336-b863922373d4?auto=format&fit=crop&w=1100&q=80" alt="Aneka rangkaian buket bunga segar di depan toko bunga">
+      <div class="hero-badge"><span class="tag-script">Segar tiap hari ✿</span><small>Dipetik & dirangkai pagi ini</small></div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap trust-grid">
+    <div><b>8+</b>Tahun merangkai bunga</div>
+    <div><b>3.000+</b>Buket terkirim</div>
+    <div><b>4.9/5</b>Rating pelanggan</div>
+    <div><b>60 Mnt</b>Pengiriman tercepat</div>
+  </div>
+</div>
+
+<div class="stem-divider wrap"><svg viewBox="0 0 1200 54" preserveAspectRatio="none">
+  <path d="M0 27 C150 27 180 5 230 27 C280 49 330 27 420 27 C480 27 500 10 540 27 C570 40 600 27 700 27 L1200 27"/>
+  <circle cx="230" cy="14" r="5"/>
+  <circle cx="420" cy="27" r="4"/>
+  <ellipse class="leaf" cx="540" cy="14" rx="9" ry="4" transform="rotate(-30 540 14)"/>
+</svg></div>
+
+<section id="kategori">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Koleksi Kami</span>
+      <h2>Setiap momen punya bunganya sendiri.</h2>
+      <p>Dari buket kecil untuk menyapa hari, sampai dekorasi pernikahan skala penuh.</p>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card reveal">
+        <img src="https://images.unsplash.com/photo-1565695951564-007d8f297e48?auto=format&fit=crop&w=500&q=75" alt="Buket bunga warna-warni">
+        <div class="cap"><h3>Buket Tangan</h3><span>24 pilihan</span></div>
+      </div>
+      <div class="cat-card reveal">
+        <img src="https://images.unsplash.com/photo-1600104197373-c07cc35e4f61?auto=format&fit=crop&w=500&q=75" alt="Bunga dalam keranjang anyaman">
+        <div class="cap"><h3>Flower Box</h3><span>18 pilihan</span></div>
+      </div>
+      <div class="cat-card reveal">
+        <img src="https://images.unsplash.com/photo-1639696194673-67b86204b885?auto=format&fit=crop&w=500&q=75" alt="Interior toko bunga penuh warna">
+        <div class="cap"><h3>Wedding & Event</h3><span>Konsultasi khusus</span></div>
+      </div>
+      <div class="cat-card reveal">
+        <img src="https://images.unsplash.com/photo-1589244159943-460088ed5c92?auto=format&fit=crop&w=500&q=75" alt="Bunga segar dalam ember logam">
+        <div class="cap"><h3>Bunga Tabur & Duka</h3><span>12 pilihan</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-cream" id="produk">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Best Seller</span>
+      <h2>Paling sering dipesan minggu ini.</h2>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card reveal">
+        <span class="prod-badge">favorit</span>
+        <img src="https://images.unsplash.com/photo-1619954428481-32c125ae19f8?auto=format&fit=crop&w=500&q=75" alt="Buket bunga merah dan putih">
+        <div class="prod-info"><span class="cat">Buket Tangan</span><h4>Crimson Affection</h4><span class="price">Rp285.000</span></div>
+      </div>
+      <div class="prod-card reveal">
+        <img src="https://images.unsplash.com/photo-1564046710162-5959a502ffe6?auto=format&fit=crop&w=500&q=75" alt="Mawar aneka warna">
+        <div class="prod-info"><span class="cat">Buket Tangan</span><h4>Rainbow Rose Mix</h4><span class="price">Rp325.000</span></div>
+      </div>
+      <div class="prod-card reveal">
+        <span class="prod-badge">baru</span>
+        <img src="https://images.unsplash.com/photo-1615488913817-095134dfeb54?auto=format&fit=crop&w=500&q=75" alt="Buket bunga merah dan hijau di rak putih">
+        <div class="prod-info"><span class="cat">Flower Box</span><h4>Ruby Garden Box</h4><span class="price">Rp365.000</span></div>
+      </div>
+      <div class="prod-card reveal">
+        <img src="https://images.unsplash.com/photo-1619707046314-e76ae25d5ab3?auto=format&fit=crop&w=500&q=75" alt="Buket bunga putih dan ungu">
+        <div class="prod-info"><span class="cat">Buket Tangan</span><h4>Lavender Whisper</h4><span class="price">Rp245.000</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head center reveal" style="margin-left:auto;margin-right:auto;">
+      <span class="eyebrow">Cara Pesan</span>
+      <h2>Tiga langkah, bunga sampai di depan pintu.</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="num">1</div><h3>Pilih Rangkaian</h3><p>Lihat koleksi di atas atau chat kami untuk rekomendasi sesuai budget dan acaramu.</p></div>
+      <div class="step reveal"><div class="num">2</div><h3>Konfirmasi via WhatsApp</h3><p>Kami kirimkan preview rangkaian dan estimasi waktu kirim sebelum kamu bayar.</p></div>
+      <div class="step reveal"><div class="num">3</div><h3>Bunga Diantar Segar</h3><p>Dirangkai di hari yang sama, dikirim oleh kurir kami atau ojek online ke alamat tujuan.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-cream" id="tentang">
+  <div class="wrap about-grid">
+    <img src="https://images.unsplash.com/photo-1531058240690-006c446962d8?auto=format&fit=crop&w=700&q=80" alt="Florist sedang merangkai bunga di meja kerja">
+    <div class="about-text reveal">
+      <span class="eyebrow">Tentang Sekar</span>
+      <h2>Dimulai dari meja dapur kecil, sekarang jadi rumah singgah para pencinta bunga.</h2>
+      <p>Sekar berdiri sejak 2018, lahir dari kebiasaan menaruh setangkai bunga segar di meja setiap pagi. Kini kami bekerja sama dengan petani bunga lokal di sekitar Yogyakarta untuk memastikan setiap rangkaian sampai ke tanganmu dalam kondisi paling segar.</p>
+      <blockquote>"Bunga terbaik bukan yang paling mahal, tapi yang sampai tepat waktu, untuk orang yang tepat."</blockquote>
+      <a href="#pesan" class="btn btn-blush">Kenalan Lebih Jauh</a>
+    </div>
+  </div>
+</section>
+
+<section id="testimoni">
+  <div class="wrap">
+    <div class="sec-head center reveal" style="margin-left:auto;margin-right:auto;">
+      <span class="eyebrow">Testimoni</span>
+      <h2>Cerita dari pelanggan kami.</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Buket ulang tahun ibuku sampai persis seperti foto, bahkan lebih segar dari yang aku bayangkan."</p>
+        <div class="testi-who"><div class="testi-avatar">R</div><div><b>Rani A.</b><span>Jakal, Yogyakarta</span></div></div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Dekorasi bunga untuk akad nikah kami ditangani dengan sangat detail, sesuai mood board yang kami kirim."</p>
+        <div class="testi-who"><div class="testi-avatar">F</div><div><b>Fajar & Tasya</b><span>Pengantin 2025</span></div></div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Respon WhatsApp-nya cepat banget, dan harga selalu disebutkan jujur di awal tanpa biaya tersembunyi."</p>
+        <div class="testi-who"><div class="testi-avatar">B</div><div><b>Bayu S.</b><span>Pelanggan rutin</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-cream">
+  <div class="wrap">
+    <div class="sec-head center reveal" style="margin-left:auto;margin-right:auto;">
+      <span class="eyebrow">Galeri</span>
+      <h2>Sekilas dari studio kami.</h2>
+    </div>
+    <div class="gal-grid">
+      <img class="tall reveal" src="https://images.unsplash.com/photo-1558861122-40aa75d3a841?auto=format&fit=crop&w=500&q=75" alt="Tangga di samping rak bunga">
+      <img class="reveal" src="https://images.unsplash.com/photo-1586704235550-c4267ca3e6e9?auto=format&fit=crop&w=500&q=75" alt="Bunga merah putih di rak besi">
+      <img class="reveal" src="https://images.unsplash.com/photo-1639696194673-67b86204b885?auto=format&fit=crop&w=500&q=75" alt="Interior toko bunga penuh warna">
+      <img class="tall reveal" src="https://images.unsplash.com/photo-1589243853654-393fcf7c870b?auto=format&fit=crop&w=500&q=75" alt="Mawar pink dalam pot beton">
+      <img class="reveal" src="https://images.unsplash.com/photo-1565695951564-007d8f297e48?auto=format&fit=crop&w=500&q=75" alt="Aneka buket bunga warna-warni">
+      <img class="reveal" src="https://images.unsplash.com/photo-1600104197373-c07cc35e4f61?auto=format&fit=crop&w=500&q=75" alt="Bunga kuning pink merah di keranjang">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>Pertanyaan yang sering ditanyakan.</h2>
+    </div>
+    <div class="faq-wrap">
+      <details class="reveal" open>
+        <summary>Berapa lama proses pemesanan sampai pengiriman?</summary>
+        <p>Untuk pemesanan sebelum jam 14.00, buket bisa diantar di hari yang sama. Pemesanan setelah itu akan diproses dan diantar keesokan harinya.</p>
+      </details>
+      <details class="reveal">
+        <summary>Apakah bisa custom warna dan jenis bunga?</summary>
+        <p>Tentu. Kirimkan referensi warna, budget, dan acaranya via WhatsApp, kami akan rekomendasikan kombinasi bunga yang paling sesuai dan tersedia.</p>
+      </details>
+      <details class="reveal">
+        <summary>Apakah melayani dekorasi acara besar seperti pernikahan?</summary>
+        <p>Ya, kami melayani konsultasi dekorasi acara mulai dari akad, resepsi, hingga gathering kantor. Silakan hubungi kami minimal 2 minggu sebelum acara.</p>
+      </details>
+      <details class="reveal">
+        <summary>Bagaimana cara merawat bunga agar tetap segar lebih lama?</summary>
+        <p>Setiap buket disertai kartu perawatan singkat: potong ujung batang setiap 2 hari, ganti air, dan hindari sinar matahari langsung.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="order-section" id="pesan">
+  <div class="wrap order-grid">
+    <div class="order-info reveal">
+      <span class="eyebrow">Pesan Bunga</span>
+      <h2>Isi form, kami konfirmasi rangkaian dan estimasi kirim via WhatsApp.</h2>
+      <p>Ceritakan acara dan budgetmu, tim kami akan bantu pilih rangkaian yang paling pas.</p>
+      <ul class="order-list">
+        <li>📍 Jl. Palagan Tentara Pelajar, Sleman, Yogyakarta</li>
+        <li>🕒 Setiap hari, 08.00 – 19.00 WIB</li>
+        <li>📞 +62 813-2345-6789</li>
+      </ul>
+    </div>
+    <form class="order reveal" id="orderForm">
+      <div class="field">
+        <label for="nama">Nama Pemesan</label>
+        <input type="text" id="nama" required placeholder="Nama lengkap kamu">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="jenis">Jenis Rangkaian</label>
+          <select id="jenis">
+            <option>Buket Tangan</option><option>Flower Box</option><option>Wedding & Event</option><option>Bunga Tabur / Duka</option><option>Lainnya</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="budget">Budget</label>
+          <select id="budget">
+            <option>Rp100rb – 250rb</option><option>Rp250rb – 500rb</option><option>Rp500rb – 1jt</option><option>&gt; Rp1jt</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="tanggal">Tanggal Pengiriman</label>
+        <input type="date" id="tanggal">
+      </div>
+      <div class="field">
+        <label for="catatan">Catatan (warna favorit, ucapan, dll.)</label>
+        <textarea id="catatan" rows="3" placeholder="Contoh: warna pastel, untuk ulang tahun ibu"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Kirim via WhatsApp →</button>
+    </form>
+  </div>
+</section>
+
+<a href="https://wa.me/6281323456789" target="_blank" class="wa-fab" aria-label="Chat WhatsApp">💬</a>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">🌸 Sekar</div>
+        <p style="color:#8B9485;font-size:.9rem;">Toko bunga & florist atelier di Yogyakarta, merangkai cerita lewat setiap tangkai sejak 2018.</p>
+      </div>
+      <div><h4>Navigasi</h4><ul><li><a href="#kategori">Kategori</a></li><li><a href="#produk">Best Seller</a></li><li><a href="#tentang">Tentang</a></li><li><a href="#pesan">Pesan Bunga</a></li></ul></div>
+      <div><h4>Kontak</h4><ul><li>+62 813-2345-6789</li><li>halo@sekarflorist.id</li><li>Sleman, Yogyakarta</li></ul></div>
+      <div><h4>Sosial Media</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li><li><a href="#">Pinterest</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Sekar Florist. Semua hak dilindungi.</span>
+      <span>Demo website ini dibuat oleh [Nama Jasa Pembuatan Website Anda] · Foto: Unsplash</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burgerBtn');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
+  }));
+
+  document.getElementById('orderForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const nama = document.getElementById('nama').value;
+    const jenis = document.getElementById('jenis').value;
+    const budget = document.getElementById('budget').value;
+    const tanggal = document.getElementById('tanggal').value || 'fleksibel';
+    const catatan = document.getElementById('catatan').value || '-';
+    const msg = `Halo Sekar Florist, saya ${nama} ingin pesan:%0AJenis: ${jenis}%0ABudget: ${budget}%0ATanggal Kirim: ${tanggal}%0ACatatan: ${catatan}`;
+    window.open(`https://wa.me/6281323456789?text=${msg}`, '_blank');
+  });
+
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
+    }, {threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('show'));
+  }
+</script>
+
+</body>
+</html>

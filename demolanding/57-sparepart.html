@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpareKing – Sparepart Terpercaya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #1A1F2E;
+      --bg2:      #232940;
+      --card:     #2D3347;
+      --accent:   #F5A623;
+      --accent2:  #E8891A;
+      --text:     #E8EBF0;
+      --muted:    #9AA0B4;
+      --border:   #3A4060;
+      --success:  #2ECC71;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 68px;
+      background: rgba(26,31,46,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 1.7rem; letter-spacing: 0.03em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent); color: #111; font-weight: 700;
+      padding: 0.5rem 1.4rem; border-radius: 6px; font-size: 0.9rem;
+      text-decoration: none; transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--accent2); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 100px 5% 60px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: linear-gradient(135deg, #10141f 0%, #1A1F2E 50%, #22283a 100%);
+    }
+    /* gear SVG pattern overlay */
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='40' cy='40' r='16' fill='none' stroke='%23ffffff08' stroke-width='2'/%3E%3Ccircle cx='40' cy='40' r='8' fill='none' stroke='%23ffffff06' stroke-width='2'/%3E%3Crect x='36' y='10' width='8' height='12' rx='2' fill='%23ffffff05'/%3E%3Crect x='36' y='58' width='8' height='12' rx='2' fill='%23ffffff05'/%3E%3Crect x='10' y='36' width='12' height='8' rx='2' fill='%23ffffff05'/%3E%3Crect x='58' y='36' width='12' height='8' rx='2' fill='%23ffffff05'/%3E%3C/svg%3E");
+      background-size: 80px 80px;
+    }
+    .hero-img {
+      position: absolute; right: 0; top: 0; bottom: 0;
+      width: 52%; z-index: 1;
+      background: url('https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=1000&q=80') center/cover no-repeat;
+      mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 30%, black 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 30%, black 100%);
+      opacity: 0.55;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 620px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(245,166,35,0.15); border: 1px solid rgba(245,166,35,0.4);
+      color: var(--accent); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 999px;
+      margin-bottom: 1.4rem;
+    }
+    .hero-badge::before { content: '●'; font-size: 0.5rem; animation: pulse 1.5s ease infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: clamp(3rem,6vw,5rem);
+      line-height: 1.0; letter-spacing: 0.01em;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero p {
+      font-size: 1.05rem; color: var(--muted); line-height: 1.7;
+      margin-bottom: 2rem; max-width: 480px;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--accent); color: #111; font-weight: 700; font-size: 0.95rem;
+      padding: 0.8rem 1.8rem; border-radius: 8px; text-decoration: none;
+      transition: background .2s, transform .15s;
+    }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: var(--text); font-weight: 600; font-size: 0.95rem;
+      padding: 0.8rem 1.8rem; border-radius: 8px; border: 1.5px solid var(--border);
+      text-decoration: none; transition: border-color .2s, color .2s;
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+    .hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .stat-item { display: flex; flex-direction: column; }
+    .stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 2rem; color: var(--accent);
+    }
+    .stat-label { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 80px 5%; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: clamp(2rem,4vw,2.8rem);
+      line-height: 1.1; margin-bottom: 1rem;
+    }
+    .section-sub { color: var(--muted); font-size: 1rem; line-height: 1.7; max-width: 540px; }
+
+    /* ── BRAND STRIP ── */
+    .brands {
+      background: var(--bg2); padding: 28px 5%;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    }
+    .brands-inner { display: flex; align-items: center; gap: 3rem; overflow: hidden; flex-wrap: wrap; justify-content: center; }
+    .brand-item {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 1.2rem; color: var(--muted); letter-spacing: 0.08em;
+      text-transform: uppercase; opacity: 0.5; transition: opacity .2s;
+      white-space: nowrap;
+    }
+    .brand-item:hover { opacity: 1; color: var(--accent); }
+
+    /* ── KATEGORI ── */
+    .kategori { background: var(--bg2); }
+    .kategori-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; }
+    .cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
+    .cat-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.6rem 1rem;
+      text-align: center; cursor: pointer;
+      transition: border-color .2s, transform .2s, background .2s;
+      text-decoration: none; color: var(--text);
+    }
+    .cat-card:hover { border-color: var(--accent); transform: translateY(-4px); background: #333a58; }
+    .cat-icon { font-size: 2.2rem; margin-bottom: 0.7rem; display: block; }
+    .cat-name { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.3rem; }
+    .cat-count { font-size: 0.75rem; color: var(--muted); }
+
+    /* ── PRODUK UNGGULAN ── */
+    .produk-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; }
+    .filter-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .filter-tab {
+      padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.82rem; font-weight: 600;
+      border: 1.5px solid var(--border); color: var(--muted);
+      cursor: pointer; transition: all .2s; background: none;
+    }
+    .filter-tab.active, .filter-tab:hover { border-color: var(--accent); color: var(--accent); background: rgba(245,166,35,0.1); }
+    .produk-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.2rem; }
+    .produk-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+      transition: transform .2s, border-color .2s, box-shadow .2s;
+    }
+    .produk-card:hover { transform: translateY(-6px); border-color: var(--accent); box-shadow: 0 12px 40px rgba(245,166,35,0.12); }
+    .produk-img {
+      width: 100%; height: 200px; object-fit: cover;
+      display: block; background: #222;
+    }
+    .produk-body { padding: 1.1rem; }
+    .produk-badge {
+      display: inline-block; font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.2rem 0.6rem; border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+    .badge-baru { background: rgba(46,204,113,0.2); color: var(--success); }
+    .badge-sale { background: rgba(245,166,35,0.2); color: var(--accent); }
+    .badge-hot { background: rgba(231,76,60,0.2); color: #E74C3C; }
+    .produk-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem; line-height: 1.4; }
+    .produk-brand { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.6rem; }
+    .produk-stars { color: var(--accent); font-size: 0.8rem; margin-bottom: 0.7rem; }
+    .produk-price-row { display: flex; justify-content: space-between; align-items: center; }
+    .produk-price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 1.3rem; color: var(--accent);
+    }
+    .produk-price-old { font-size: 0.8rem; color: var(--muted); text-decoration: line-through; }
+    .add-cart {
+      background: var(--accent); color: #111; border: none;
+      width: 34px; height: 34px; border-radius: 8px; font-size: 1.1rem;
+      cursor: pointer; transition: background .2s, transform .15s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .add-cart:hover { background: var(--accent2); transform: scale(1.1); }
+
+    /* ── KEUNGGULAN ── */
+    .keunggulan { background: var(--bg2); }
+    .keunggulan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .keunggulan-img-wrap {
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border); height: 440px;
+      position: relative;
+    }
+    .keunggulan-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .keunggulan-badge-overlay {
+      position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem;
+      background: rgba(26,31,46,0.92); backdrop-filter: blur(8px);
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 1rem 1.2rem; display: flex; align-items: center; gap: 1rem;
+    }
+    .overlay-icon { font-size: 2rem; }
+    .overlay-text strong { font-size: 1.05rem; display: block; margin-bottom: 0.15rem; }
+    .overlay-text span { font-size: 0.8rem; color: var(--muted); }
+    .keunggulan-list { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
+    .keunggulan-item { display: flex; gap: 1rem; }
+    .keunggulan-icon-wrap {
+      width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
+      background: rgba(245,166,35,0.12); border: 1px solid rgba(245,166,35,0.25);
+      display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+    }
+    .keunggulan-item h4 { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem; }
+    .keunggulan-item p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── PROMO BANNER ── */
+    .promo {
+      background: linear-gradient(135deg, #1e2436 0%, #252d48 100%);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 60px 5%;
+    }
+    .promo-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+    }
+    .promo-tag {
+      background: var(--accent); color: #111; font-family: 'Barlow Condensed',sans-serif;
+      font-weight: 800; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.3rem 0.8rem; border-radius: 4px; display: inline-block; margin-bottom: 0.8rem;
+    }
+    .promo h2 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+      font-size: clamp(2rem,4vw,3rem); line-height: 1.1; margin-bottom: 0.6rem;
+    }
+    .promo h2 span { color: var(--accent); }
+    .promo p { color: var(--muted); font-size: 0.95rem; }
+    .countdown { display: flex; gap: 1rem; }
+    .countdown-item {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1rem; min-width: 76px; text-align: center;
+    }
+    .countdown-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 2.2rem; color: var(--accent); line-height: 1;
+    }
+    .countdown-label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.2rem; }
+
+    /* ── TESTIMONI ── */
+    .testi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; margin-top: 2.5rem; }
+    .testi-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.6rem;
+    }
+    .testi-stars { color: var(--accent); font-size: 1rem; margin-bottom: 0.8rem; }
+    .testi-text { font-size: 0.9rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.2rem; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 0.8rem; }
+    .testi-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      object-fit: cover; border: 2px solid var(--border);
+    }
+    .testi-name { font-weight: 600; font-size: 0.9rem; }
+    .testi-role { font-size: 0.75rem; color: var(--muted); }
+
+    /* ── CTA FOOTER ── */
+    .cta-section {
+      background: var(--accent);
+      padding: 80px 5%; text-align: center;
+    }
+    .cta-section h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: clamp(2rem,5vw,3.2rem); color: #111;
+      margin-bottom: 0.8rem;
+    }
+    .cta-section p { color: rgba(0,0,0,0.65); font-size: 1.05rem; margin-bottom: 2rem; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .cta-btn-dark {
+      background: #111; color: #fff; font-weight: 700; font-size: 0.95rem;
+      padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none;
+      transition: background .2s, transform .15s;
+    }
+    .cta-btn-dark:hover { background: #222; transform: translateY(-2px); }
+    .cta-btn-outline {
+      background: transparent; color: #111; font-weight: 700; font-size: 0.95rem;
+      padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none;
+      border: 2.5px solid rgba(0,0,0,0.4); transition: border-color .2s;
+    }
+    .cta-btn-outline:hover { border-color: #111; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #10141f; padding: 60px 5% 32px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; margin-top: 0.8rem; max-width: 280px; }
+    .footer-socials { display: flex; gap: 0.7rem; margin-top: 1.2rem; }
+    .social-btn {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--card); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; text-decoration: none; color: var(--muted);
+      transition: border-color .2s, color .2s;
+    }
+    .social-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .footer-col h4 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem;
+      letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul li a { font-size: 0.87rem; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--accent); }
+    .footer-contact-item { display: flex; gap: 0.7rem; align-items: flex-start; margin-bottom: 0.8rem; }
+    .contact-icon { font-size: 1rem; margin-top: 1px; color: var(--accent); flex-shrink: 0; }
+    .footer-contact-item span { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+    .footer-bottom {
+      border-top: 1px solid var(--border); padding-top: 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem; color: var(--muted); flex-wrap: wrap; gap: 0.5rem;
+    }
+    .footer-bottom a { color: var(--muted); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--accent); }
+
+    /* ── FLOATING WA ── */
+    .wa-btn {
+      position: fixed; bottom: 28px; right: 28px; z-index: 99;
+      background: #25D366; color: #fff;
+      width: 56px; height: 56px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      text-decoration: none; transition: transform .2s, box-shadow .2s;
+    }
+    .wa-btn:hover { transform: scale(1.1); box-shadow: 0 8px 28px rgba(37,211,102,0.5); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .keunggulan-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .hero-img { display: none; }
+      .countdown { gap: 0.6rem; }
+      .countdown-item { min-width: 60px; padding: 0.7rem; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.6rem; }
+      .promo-inner { text-align: center; justify-content: center; }
+      .countdown { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#" class="logo">Spare<span>King</span></a>
+  <ul class="nav-links">
+    <li><a href="#kategori">Kategori</a></li>
+    <li><a href="#produk">Produk</a></li>
+    <li><a href="#keunggulan">Tentang Kami</a></li>
+    <li><a href="#testimoni">Testimoni</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+  </ul>
+  <a href="#produk" class="nav-cta">Belanja Sekarang</a>
+  <div class="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="beranda">
+  <div class="hero-bg"></div>
+  <div class="hero-img"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Toko Resmi &amp; Terpercaya</div>
+    <h1>Sparepart<br /><em>Asli &amp; Bergaransi</em><br />Harga Terbaik</h1>
+    <p>Lebih dari 5.000 produk sparepart kendaraan untuk motor &amp; mobil. Original, KW Super, dan aftermarket pilihan — siap kirim ke seluruh Indonesia.</p>
+    <div class="hero-actions">
+      <a href="#produk" class="btn-primary">🔩 Lihat Produk</a>
+      <a href="#kontak" class="btn-secondary">📞 Hubungi Kami</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num" data-target="5000">0</span>
+        <span class="stat-label">Produk Tersedia</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="12000">0</span>
+        <span class="stat-label">Pelanggan Puas</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="8">0</span>
+        <span class="stat-label">Tahun Pengalaman</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND STRIP -->
+<div class="brands">
+  <div class="brands-inner">
+    <div class="brand-item">Yamaha</div>
+    <div class="brand-item">Honda</div>
+    <div class="brand-item">Suzuki</div>
+    <div class="brand-item">Kawasaki</div>
+    <div class="brand-item">Toyota</div>
+    <div class="brand-item">Mitsubishi</div>
+    <div class="brand-item">Nissan</div>
+    <div class="brand-item">Daihatsu</div>
+    <div class="brand-item">NGK</div>
+    <div class="brand-item">Federal</div>
+    <div class="brand-item">AHM</div>
+  </div>
+</div>
+
+<!-- KATEGORI -->
+<section class="kategori" id="kategori">
+  <div class="kategori-header">
+    <div>
+      <div class="section-label">Jelajahi</div>
+      <h2 class="section-title">Kategori Sparepart</h2>
+    </div>
+    <a href="#" class="btn-secondary" style="font-size:0.85rem;padding:0.5rem 1.2rem;">Lihat Semua →</a>
+  </div>
+  <div class="cat-grid">
+    <a href="#" class="cat-card"><span class="cat-icon">🔌</span><div class="cat-name">Kelistrikan</div><div class="cat-count">248 produk</div></a>
+    <a href="#" class="cat-card"><span class="cat-icon">🛞</span><div class="cat-name">Ban &amp; Velg</div><div class="cat-count">185 produk</div></a>
+    <a href="#" class="cat-card"><span class="cat-icon">🔧</span><div class="cat-name">Mesin</div><div class="cat-count">512 produk</div></a>
+    <a href="#" class="cat-card"><span class="cat-icon">💨</span><div class="cat-name">Filter &amp; Udara</div><div class="cat-count">94 produk</div></a>
+    <a href="#" class="cat-card"><span class="cat-icon">🛢️</span><div class="cat-name">Oli &amp; Cairan</div><div class="cat-count">137 produk</div></a>
+    <a href="#" class="cat-card"><span class="cat-icon">⚙️</span><div class="cat-name">Transmisi</div><div class="cat-count">203 produk</div></a>
+    <a href="#" class="cat-card"><span class="cat-icon">🛑</span><div class="cat-name">Rem &amp; Kopling</div><div class="cat-count">168 produk</div></a>
+    <a href="#" class="cat-card"><span class="cat-icon">💡</span><div class="cat-name">Lampu &amp; Aksesoris</div><div class="cat-count">321 produk</div></a>
+  </div>
+</section>
+
+<!-- PRODUK UNGGULAN -->
+<section id="produk">
+  <div class="produk-header">
+    <div>
+      <div class="section-label">Terpopuler</div>
+      <h2 class="section-title">Produk Unggulan</h2>
+    </div>
+    <div class="filter-tabs">
+      <button class="filter-tab active">Semua</button>
+      <button class="filter-tab">Motor</button>
+      <button class="filter-tab">Mobil</button>
+      <button class="filter-tab">Aksesoris</button>
+    </div>
+  </div>
+  <div class="produk-grid">
+    <!-- Card 1 -->
+    <div class="produk-card">
+      <img class="produk-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Kampas Rem" />
+      <div class="produk-body">
+        <span class="produk-badge badge-baru">Baru</span>
+        <div class="produk-name">Kampas Rem Depan Vario 125/150</div>
+        <div class="produk-brand">Honda Genuine Parts</div>
+        <div class="produk-stars">★★★★★ <span style="color:var(--muted)">(128)</span></div>
+        <div class="produk-price-row">
+          <div>
+            <div class="produk-price">Rp 45.000</div>
+            <div class="produk-price-old">Rp 58.000</div>
+          </div>
+          <button class="add-cart">+</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="produk-card">
+      <img class="produk-img" src="https://images.unsplash.com/photo-1615906655593-ad0386982a0f?w=400&q=80" alt="Busi Motor" />
+      <div class="produk-body">
+        <span class="produk-badge badge-hot">Terlaris</span>
+        <div class="produk-name">Busi Iridium NGK CR8EIX</div>
+        <div class="produk-brand">NGK Original</div>
+        <div class="produk-stars">★★★★★ <span style="color:var(--muted)">(342)</span></div>
+        <div class="produk-price-row">
+          <div>
+            <div class="produk-price">Rp 75.000</div>
+            <div class="produk-price-old">Rp 95.000</div>
+          </div>
+          <button class="add-cart">+</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="produk-card">
+      <img class="produk-img" src="https://images.unsplash.com/photo-1609952543555-4e474f0ac40a?w=400&q=80" alt="Filter Oli" />
+      <div class="produk-body">
+        <span class="produk-badge badge-sale">Diskon 20%</span>
+        <div class="produk-name">Filter Oli Mobil Innova / Fortuner</div>
+        <div class="produk-brand">Toyota Genuine Parts</div>
+        <div class="produk-stars">★★★★☆ <span style="color:var(--muted)">(87)</span></div>
+        <div class="produk-price-row">
+          <div>
+            <div class="produk-price">Rp 68.000</div>
+            <div class="produk-price-old">Rp 85.000</div>
+          </div>
+          <button class="add-cart">+</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="produk-card">
+      <img class="produk-img" src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=400&q=80" alt="Aki Motor" />
+      <div class="produk-body">
+        <span class="produk-badge badge-baru">Baru</span>
+        <div class="produk-name">Aki Motor MF GS Astra 5L-BS</div>
+        <div class="produk-brand">GS Astra</div>
+        <div class="produk-stars">★★★★★ <span style="color:var(--muted)">(215)</span></div>
+        <div class="produk-price-row">
+          <div>
+            <div class="produk-price">Rp 185.000</div>
+            <div class="produk-price-old">Rp 210.000</div>
+          </div>
+          <button class="add-cart">+</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 5 -->
+    <div class="produk-card">
+      <img class="produk-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80" alt="Rantai Motor" />
+      <div class="produk-body">
+        <span class="produk-badge badge-hot">Terlaris</span>
+        <div class="produk-name">Rantai Motor RK 428 HSB 120L</div>
+        <div class="produk-brand">RK Chain Japan</div>
+        <div class="produk-stars">★★★★★ <span style="color:var(--muted)">(193)</span></div>
+        <div class="produk-price-row">
+          <div>
+            <div class="produk-price">Rp 145.000</div>
+            <div class="produk-price-old">Rp 180.000</div>
+          </div>
+          <button class="add-cart">+</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 6 -->
+    <div class="produk-card">
+      <img class="produk-img" src="https://images.unsplash.com/photo-1546975490-a79abdd54c48?w=400&q=80" alt="Lampu LED" />
+      <div class="produk-body">
+        <span class="produk-badge badge-sale">Diskon 15%</span>
+        <div class="produk-name">Lampu LED H4 Motor 35W Hi/Lo</div>
+        <div class="produk-brand">Osram</div>
+        <div class="produk-stars">★★★★☆ <span style="color:var(--muted)">(76)</span></div>
+        <div class="produk-price-row">
+          <div>
+            <div class="produk-price">Rp 95.000</div>
+            <div class="produk-price-old">Rp 112.000</div>
+          </div>
+          <button class="add-cart">+</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 7 -->
+    <div class="produk-card">
+      <img class="produk-img" src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=400&q=80" alt="Oli Mesin" />
+      <div class="produk-body">
+        <span class="produk-badge badge-hot">Terlaris</span>
+        <div class="produk-name">Oli Mesin AHM MPX2 800ml</div>
+        <div class="produk-brand">Astra Honda Motor</div>
+        <div class="produk-stars">★★★★★ <span style="color:var(--muted)">(408)</span></div>
+        <div class="produk-price-row">
+          <div>
+            <div class="produk-price">Rp 38.000</div>
+            <div class="produk-price-old">Rp 45.000</div>
+          </div>
+          <button class="add-cart">+</button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 8 -->
+    <div class="produk-card">
+      <img class="produk-img" src="https://images.unsplash.com/photo-1517524285303-d6fc683dddf8?w=400&q=80" alt="Shockbreaker" />
+      <div class="produk-body">
+        <span class="produk-badge badge-baru">Baru</span>
+        <div class="produk-name">Shockbreaker Belakang Beat FI</div>
+        <div class="produk-brand">YSS Thailand</div>
+        <div class="produk-stars">★★★★★ <span style="color:var(--muted)">(55)</span></div>
+        <div class="produk-price-row">
+          <div>
+            <div class="produk-price">Rp 320.000</div>
+            <div class="produk-price-old">Rp 395.000</div>
+          </div>
+          <button class="add-cart">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEUNGGULAN -->
+<section class="keunggulan" id="keunggulan">
+  <div class="keunggulan-grid">
+    <div class="keunggulan-img-wrap">
+      <img src="https://images.unsplash.com/photo-1530046339160-ce3e530de191?w=800&q=80" alt="Mekanik profesional" />
+      <div class="keunggulan-badge-overlay">
+        <div class="overlay-icon">✅</div>
+        <div class="overlay-text">
+          <strong>Garansi Keaslian Produk</strong>
+          <span>Setiap produk bersertifikat &amp; bergaransi resmi</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="section-label">Kenapa Pilih Kami?</div>
+      <h2 class="section-title">Toko Sparepart<br />Yang Bisa Dipercaya</h2>
+      <p class="section-sub">Kami berdiri sejak 2016, melayani ribuan mekanik dan bengkel di seluruh Indonesia dengan produk yang sudah terbukti kualitasnya.</p>
+      <div class="keunggulan-list">
+        <div class="keunggulan-item">
+          <div class="keunggulan-icon-wrap">🔍</div>
+          <div>
+            <h4>Produk 100% Asli & Terjamin</h4>
+            <p>Semua produk kami bersumber langsung dari distributor resmi dan dilengkapi sertifikat keaslian. Tidak ada produk palsu.</p>
+          </div>
+        </div>
+        <div class="keunggulan-item">
+          <div class="keunggulan-icon-wrap">🚚</div>
+          <div>
+            <h4>Pengiriman Cepat ke Seluruh Indonesia</h4>
+            <p>Bekerjasama dengan JNE, J&T, SiCepat, dan Gojek untuk memastikan pesanan sampai tepat waktu dengan aman.</p>
+          </div>
+        </div>
+        <div class="keunggulan-item">
+          <div class="keunggulan-icon-wrap">💬</div>
+          <div>
+            <h4>Konsultasi Gratis dengan Teknisi</h4>
+            <p>Tim teknisi berpengalaman kami siap membantu memilih sparepart yang tepat untuk kendaraan Anda via WhatsApp.</p>
+          </div>
+        </div>
+        <div class="keunggulan-item">
+          <div class="keunggulan-icon-wrap">↩️</div>
+          <div>
+            <h4>Garansi Retur 7 Hari</h4>
+            <p>Produk cacat atau tidak sesuai? Kami siap menukar tanpa ribet. Kepuasan Anda adalah prioritas utama kami.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO BANNER -->
+<div class="promo" id="promo">
+  <div class="promo-inner">
+    <div>
+      <div class="promo-tag">⚡ Flash Sale</div>
+      <h2>Diskon Hingga <span>40%</span><br />Sparepart Pilihan!</h2>
+      <p>Penawaran terbatas — jangan sampai kehabisan stok unggulan.</p>
+    </div>
+    <div class="countdown">
+      <div class="countdown-item"><div class="countdown-num" id="cd-h">08</div><div class="countdown-label">Jam</div></div>
+      <div class="countdown-item"><div class="countdown-num" id="cd-m">45</div><div class="countdown-label">Menit</div></div>
+      <div class="countdown-item"><div class="countdown-num" id="cd-s">30</div><div class="countdown-label">Detik</div></div>
+    </div>
+    <a href="#produk" class="btn-primary" style="font-size:1rem;padding:1rem 2rem;">Klaim Promo →</a>
+  </div>
+</div>
+
+<!-- TESTIMONI -->
+<section id="testimoni">
+  <div class="section-label">Kata Mereka</div>
+  <h2 class="section-title">Testimoni Pelanggan</h2>
+  <p class="section-sub">Ribuan mekanik dan pemilik kendaraan sudah mempercayai SpareKing sebagai mitra sparepart mereka.</p>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-text">"Udah langganan lebih dari 3 tahun. Produknya asli semua, pengiriman cepet, dan respon CS-nya ramah banget. Highly recommended buat para mekanik!"</div>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt="Budi" />
+        <div><div class="testi-name">Budi Santoso</div><div class="testi-role">Pemilik Bengkel, Semarang</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-text">"Pesan filter oli Innova malem, paginya udah nyampe. Harganya juga lebih murah dari toko offline deket rumah. Ga akan pindah ke toko lain deh!"</div>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80" alt="Dewi" />
+        <div><div class="testi-name">Dewi Rahayu</div><div class="testi-role">Pelanggan, Yogyakarta</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-text">"Saya konsultasi dulu sebelum beli shockbreaker, dibantu teknisinya pilih yang cocok. Terpasang mulus, motor jadi enak banget dikendarai. Mantap!"</div>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80" alt="Andi" />
+        <div><div class="testi-name">Andi Pramono</div><div class="testi-role">Mekanik Freelance, Solo</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<div class="cta-section">
+  <h2>Siap Temukan Sparepart<br />Yang Kamu Butuhkan?</h2>
+  <p>Hubungi kami sekarang atau langsung pilih produk dari katalog kami. Konsultasi gratis!</p>
+  <div class="cta-buttons">
+    <a href="https://wa.me/6281234567890" class="cta-btn-dark">💬 Chat WhatsApp</a>
+    <a href="#produk" class="cta-btn-outline">🔩 Lihat Katalog</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="kontak">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo" style="font-size:1.5rem;">Spare<span>King</span></a>
+      <p>Toko sparepart kendaraan motor &amp; mobil terpercaya sejak 2016. Menyediakan ribuan produk original dengan harga kompetitif dan pelayanan terbaik.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn">📘</a>
+        <a href="#" class="social-btn">📸</a>
+        <a href="#" class="social-btn">🐦</a>
+        <a href="#" class="social-btn">▶️</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Produk</h4>
+      <ul>
+        <li><a href="#">Sparepart Motor</a></li>
+        <li><a href="#">Sparepart Mobil</a></li>
+        <li><a href="#">Oli &amp; Cairan</a></li>
+        <li><a href="#">Aksesoris</a></li>
+        <li><a href="#">Alat Bengkel</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Informasi</h4>
+      <ul>
+        <li><a href="#">Tentang Kami</a></li>
+        <li><a href="#">Cara Pemesanan</a></li>
+        <li><a href="#">Kebijakan Retur</a></li>
+        <li><a href="#">Garansi Produk</a></li>
+        <li><a href="#">Blog Otomotif</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Hubungi Kami</h4>
+      <div class="footer-contact-item">
+        <span class="contact-icon">📍</span>
+        <span>Jl. Otomotif Raya No. 88, Semarang, Jawa Tengah 50131</span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="contact-icon">📞</span>
+        <span>0812-3456-7890 (WhatsApp)<br />Senin–Sabtu: 08.00–17.00</span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="contact-icon">📧</span>
+        <span>info@spareking.co.id</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 SpareKing. Hak Cipta Dilindungi.</span>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="#">Kebijakan Privasi</a>
+      <a href="#">Syarat &amp; Ketentuan</a>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WA -->
+<a href="https://wa.me/6281234567890" class="wa-btn" title="Chat WhatsApp">💬</a>
+
+<script>
+  /* ── Animated counter ── */
+  const counters = document.querySelectorAll('.stat-num[data-target]');
+  const formatNum = n => n >= 1000 ? (n/1000).toFixed(n % 1000 === 0 ? 0 : 1) + 'K+' : n + '+';
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.dataset.target);
+      let current = 0;
+      const step = target / 60;
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = formatNum(Math.round(current));
+        if (current >= target) clearInterval(timer);
+      }, 16);
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => observer.observe(c));
+
+  /* ── Filter tabs ── */
+  document.querySelectorAll('.filter-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  /* ── Countdown timer ── */
+  let totalSec = 8 * 3600 + 45 * 60 + 30;
+  const pad = n => String(n).padStart(2,'0');
+  setInterval(() => {
+    if (totalSec <= 0) return;
+    totalSec--;
+    document.getElementById('cd-h').textContent = pad(Math.floor(totalSec/3600));
+    document.getElementById('cd-m').textContent = pad(Math.floor((totalSec%3600)/60));
+    document.getElementById('cd-s').textContent = pad(totalSec%60);
+  }, 1000);
+
+  /* ── Add to cart feedback ── */
+  document.querySelectorAll('.add-cart').forEach(btn => {
+    btn.addEventListener('click', function() {
+      this.textContent = '✓';
+      this.style.background = '#2ECC71';
+      setTimeout(() => { this.textContent = '+'; this.style.background = ''; }, 1500);
+    });
+  });
+
+  /* ── Navbar scroll effect ── */
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.borderBottomColor = window.scrollY > 40 ? 'var(--accent)' : 'var(--border)';
+  });
+</script>
+</body>
+</html>

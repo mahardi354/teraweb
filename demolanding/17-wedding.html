@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eternal Moments — Fotografer & Wedding Organizer Purwokerto</title>
+<meta name="description" content="Eternal Moments Purwokerto. Fotografer pernikahan, wedding organizer, dokumentasi prewedding & akad. Tangkap momen terbaik hari istimewa Anda. Konsultasi gratis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brown:#2D1B0E;
+  --brown-mid:#3D2510;
+  --brown-light:#6B4226;
+  --brown-muted:#A07850;
+  --gold:#C9A96E;
+  --gold-dark:#A8854A;
+  --gold-light:#E8C98A;
+  --gold-pale:#FBF5EB;
+  --gold-glow:rgba(201,169,110,0.15);
+  --cream:#FEFEFE;
+  --cream-warm:#FAF6F0;
+  --cream-mid:#F3EDE3;
+  --border:#E8DDD0;
+  --text:#2D1B0E;
+  --text-mid:#6B5040;
+  --text-muted:#A09080;
+  --white:#FFFFFF;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--text);font-family:'Lato',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:all .4s}
+nav.scrolled{background:rgba(254,254,254,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);box-shadow:0 2px 20px rgba(45,27,14,.06)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{display:flex;flex-direction:column;text-decoration:none;line-height:1;gap:2px}
+.logo-name{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:var(--cream);transition:color .3s;letter-spacing:.5px}
+nav.scrolled .logo-name{color:var(--brown)}
+.logo-sub{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.6);transition:color .3s}
+nav.scrolled .logo-sub{color:var(--gold)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.5px;transition:color .3s}
+nav.scrolled .nav-links a{color:var(--text-mid)}
+.nav-links a:hover{color:var(--gold)!important}
+.nav-cta{background:var(--gold);color:var(--brown)!important;padding:9px 22px;border-radius:3px;font-weight:700!important;letter-spacing:.5px!important;transition:background .2s!important}
+.nav-cta:hover{background:var(--gold-dark)!important;color:var(--brown)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--cream);border-radius:2px;transition:.3s}
+nav.scrolled .hamburger span{background:var(--brown)}
+
+/* ── HERO ── */
+.hero{height:100vh;min-height:600px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.hero-bg .img-fb{display:none;width:100%;height:100%;background:linear-gradient(135deg,#2D1B0E,#5C3420);align-items:center;justify-content:center;font-size:100px}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,10,5,.3) 0%,rgba(20,10,5,.55) 50%,rgba(20,10,5,.7) 100%)}
+.hero-content{position:relative;z-index:1;text-align:center;padding:0 24px;max-width:860px}
+.hero-ornament{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:24px;color:var(--gold);font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:400}
+.hero-ornament-line{width:48px;height:1px;background:var(--gold);opacity:.7}
+.hero-h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(52px,8vw,100px);line-height:.95;color:var(--white);margin-bottom:20px;letter-spacing:-1px}
+.hero-h1 em{font-style:italic;color:var(--gold-light)}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.75);line-height:1.8;max-width:520px;margin:0 auto 40px;font-weight:300;letter-spacing:.3px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-bottom:64px}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--brown);padding:15px 32px;border-radius:3px;font-weight:700;font-size:14px;text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:all .2s}
+.btn-gold:hover{background:var(--gold-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,169,110,.35)}
+.btn-outline-gold{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(201,169,110,.6);color:rgba(255,255,255,.85);padding:14px 28px;border-radius:3px;font-weight:700;font-size:14px;text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:all .2s}
+.btn-outline-gold:hover{border-color:var(--gold);color:var(--gold)}
+.hero-scroll{display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.5);font-size:11px;letter-spacing:2px;text-transform:uppercase}
+.hero-scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,.4),transparent);animation:scrolldown 2s infinite}
+@keyframes scrolldown{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ── ORNAMENT DIVIDER ── */
+.ornament-divider{display:flex;align-items:center;justify-content:center;gap:16px;color:var(--gold);font-size:14px;margin:0 0 48px}
+.od-line{flex:1;max-width:120px;height:1px;background:linear-gradient(to right,transparent,var(--gold))}
+.od-line.right{background:linear-gradient(to left,transparent,var(--gold))}
+
+/* ── SECTION ── */
+.section{padding:96px 0}
+.section-inner{max-width:1100px;margin:0 auto;padding:0 28px}
+.section-center{text-align:center}
+.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.section-title{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(32px,4vw,52px);color:var(--brown);line-height:1.1;margin-bottom:14px;letter-spacing:-.3px}
+.section-title em{font-style:italic;color:var(--gold)}
+.section-sub{font-size:16px;color:var(--text-mid);max-width:520px;line-height:1.9;font-weight:300}
+.section-sub.center{margin:0 auto}
+.bg-warm{background:var(--cream-warm);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.bg-brown{background:var(--brown)}
+
+/* ── TRUST STRIP ── */
+.trust-strip{background:var(--brown);padding:18px 0}
+.trust-inner{max-width:1100px;margin:0 auto;padding:0 28px;display:flex;flex-wrap:wrap;justify-content:center;gap:36px}
+.trust-item{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.75);font-size:13px;font-weight:700;letter-spacing:.3px}
+.trust-item span:first-child{color:var(--gold)}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-photos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.about-photo{border-radius:4px;overflow:hidden}
+.about-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.about-photo:hover img{transform:scale(1.04)}
+.about-photo.tall{grid-row:span 2}
+.about-photo.tall img{height:100%}
+.about-photo .img-fb{display:none;background:var(--cream-mid);align-items:center;justify-content:center;font-size:48px}
+.about-photo.tall .img-fb{height:320px}
+.about-photo:not(.tall) .img-fb{height:160px}
+.about-stat-row{display:flex;gap:32px;margin-top:36px;padding-top:36px;border-top:1px solid var(--border)}
+.about-stat-num{font-family:'Playfair Display',serif;font-weight:700;font-size:36px;color:var(--brown);line-height:1}
+.about-stat-num span{color:var(--gold)}
+.about-stat-label{font-size:12px;color:var(--text-muted);margin-top:4px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+
+/* ── LAYANAN ── */
+.layanan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:0;background:var(--border)}
+.layanan-card{background:var(--cream);padding:40px 36px;transition:.25s;position:relative;overflow:hidden}
+.layanan-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.layanan-card:hover{background:var(--gold-pale)}
+.layanan-card:hover::before{transform:scaleX(1)}
+.layanan-num{font-family:'Playfair Display',serif;font-weight:700;font-size:56px;color:var(--border);line-height:1;margin-bottom:-8px}
+.layanan-card:hover .layanan-num{color:var(--gold-light)}
+.layanan-icon{font-size:32px;margin-bottom:16px}
+.layanan-name{font-family:'Playfair Display',serif;font-weight:600;font-size:21px;color:var(--brown);margin-bottom:12px}
+.layanan-desc{font-size:14px;color:var(--text-mid);line-height:1.8;font-weight:300;margin-bottom:16px}
+.layanan-includes{list-style:none;display:flex;flex-direction:column;gap:6px}
+.layanan-includes li{font-size:13px;color:var(--text-mid);display:flex;gap:8px}
+.layanan-includes li::before{content:'✦';color:var(--gold);flex-shrink:0;font-size:9px;margin-top:4px}
+
+/* ── PORTOFOLIO ── */
+.porto-masonry{columns:3;gap:12px;margin-top:52px}
+.porto-item{break-inside:avoid;margin-bottom:12px;border-radius:4px;overflow:hidden;position:relative;cursor:pointer}
+.porto-item img{width:100%;display:block;transition:transform .5s ease}
+.porto-item .img-fb{display:none;background:var(--cream-mid);align-items:center;justify-content:center;font-size:48px}
+.porto-item:hover img{transform:scale(1.04)}
+.porto-overlay{position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(45,27,14,.75));opacity:0;transition:opacity .3s;display:flex;flex-direction:column;justify-content:flex-end;padding:20px}
+.porto-item:hover .porto-overlay{opacity:1}
+.porto-caption{color:rgba(255,255,255,.9);font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.porto-sub{color:rgba(255,255,255,.6);font-size:12px;margin-top:3px}
+
+/* ── PAKET ── */
+.paket-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px;align-items:start}
+.paket-card{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:36px 30px;position:relative;transition:.25s}
+.paket-card.featured{background:var(--brown);border-color:var(--brown);transform:translateY(-12px);box-shadow:0 24px 64px rgba(45,27,14,.25)}
+.paket-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--brown);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 18px;border-radius:100px;white-space:nowrap}
+.paket-name{font-family:'Playfair Display',serif;font-weight:700;font-size:22px;color:var(--brown);margin-bottom:6px}
+.paket-card.featured .paket-name{color:var(--cream)}
+.paket-tagline{font-size:13px;color:var(--text-muted);margin-bottom:24px;font-weight:300}
+.paket-card.featured .paket-tagline{color:rgba(255,255,255,.5)}
+.paket-price{font-family:'Playfair Display',serif;font-weight:700;font-size:36px;color:var(--brown);line-height:1;margin-bottom:4px}
+.paket-card.featured .paket-price{color:var(--gold)}
+.paket-price-note{font-size:12px;color:var(--text-muted);margin-bottom:28px;font-weight:300}
+.paket-card.featured .paket-price-note{color:rgba(255,255,255,.4)}
+.paket-divider{height:1px;background:var(--border);margin-bottom:24px}
+.paket-card.featured .paket-divider{background:rgba(255,255,255,.12)}
+.paket-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.paket-list li{font-size:14px;color:var(--text-mid);display:flex;gap:10px;align-items:flex-start}
+.paket-card.featured .paket-list li{color:rgba(255,255,255,.7)}
+.paket-list li .check{color:var(--gold);flex-shrink:0;font-size:12px;margin-top:3px}
+.paket-cta{display:block;text-align:center;padding:13px;border-radius:3px;font-weight:700;font-size:14px;letter-spacing:.5px;text-decoration:none;transition:all .2s}
+.paket-cta.outline{border:1px solid var(--border);color:var(--brown)}
+.paket-cta.outline:hover{border-color:var(--gold);background:var(--gold-pale)}
+.paket-cta.solid{background:var(--gold);color:var(--brown)}
+.paket-cta.solid:hover{background:var(--gold-dark)}
+
+/* ── TIMELINE ── */
+.timeline{position:relative;max-width:780px;margin:52px auto 0;padding-left:48px}
+.timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--gold) 10%,var(--gold) 90%,transparent)}
+.tl-item{position:relative;margin-bottom:48px}
+.tl-item:last-child{margin-bottom:0}
+.tl-dot{position:absolute;left:-37px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--cream);border:2px solid var(--gold);z-index:1}
+.tl-item.active .tl-dot{background:var(--gold);box-shadow:0 0 0 4px rgba(201,169,110,.2)}
+.tl-num{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.tl-title{font-family:'Playfair Display',serif;font-weight:600;font-size:19px;color:var(--brown);margin-bottom:8px}
+.tl-desc{font-size:14px;color:var(--text-mid);line-height:1.8;font-weight:300}
+
+/* ── TESTIMONI ── */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.testi-card{background:var(--cream);border:1px solid var(--border);border-radius:4px;padding:32px;position:relative}
+.testi-quote-mark{font-family:'Playfair Display',serif;font-size:72px;color:var(--gold-pale);line-height:.7;position:absolute;top:20px;right:22px;font-weight:700}
+.testi-stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:14px}
+.testi-text{font-size:14px;color:var(--text-mid);line-height:1.9;font-style:italic;margin-bottom:22px;font-weight:300}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-av{width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--border)}
+.testi-av img{width:100%;height:100%;object-fit:cover;display:block}
+.testi-av .img-fb{display:none;width:100%;height:100%;background:var(--gold-pale);align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--gold)}
+.testi-name{font-weight:700;font-size:14px;color:var(--brown)}
+.testi-event{font-size:12px;color:var(--text-muted);margin-top:2px}
+
+/* ── TEAM ── */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:52px}
+.team-card{text-align:center}
+.team-photo{width:100%;aspect-ratio:3/4;border-radius:4px;overflow:hidden;margin-bottom:16px;position:relative}
+.team-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s}
+.team-photo .img-fb{display:none;width:100%;height:100%;background:var(--cream-mid);align-items:center;justify-content:center;font-size:56px}
+.team-card:hover .team-photo img{transform:scale(1.04)}
+.team-name{font-family:'Playfair Display',serif;font-weight:600;font-size:17px;color:var(--brown);margin-bottom:4px}
+.team-role{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.team-spec{font-size:13px;color:var(--text-muted);font-weight:300}
+
+/* ── KONTAK ── */
+.kontak-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.kontak-info{display:flex;flex-direction:column;gap:28px}
+.kontak-row{display:flex;gap:18px;align-items:flex-start}
+.kontak-icon-wrap{width:44px;height:44px;background:var(--gold-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.kontak-body strong{display:block;font-weight:700;font-size:14px;color:var(--brown);margin-bottom:4px;letter-spacing:.2px}
+.kontak-body p{font-size:14px;color:var(--text-mid);line-height:1.6;font-weight:300}
+.kontak-form{background:var(--cream-warm);border:1px solid var(--border);border-radius:4px;padding:36px}
+.form-title{font-family:'Playfair Display',serif;font-weight:600;font-size:22px;color:var(--brown);margin-bottom:6px}
+.form-sub{font-size:13px;color:var(--text-muted);margin-bottom:28px;font-weight:300}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--text-mid);margin-bottom:7px}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:var(--cream);border:1px solid var(--border);border-radius:3px;padding:12px 16px;font-size:14px;color:var(--brown);font-family:'Lato',sans-serif;transition:border .2s;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-submit{width:100%;background:var(--gold);color:var(--brown);border:none;padding:15px;border-radius:3px;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:background .2s;font-family:'Lato',sans-serif}
+.form-submit:hover{background:var(--gold-dark)}
+
+/* ── FAQ ── */
+.faq-list{max-width:700px;margin:48px auto 0;display:flex;flex-direction:column;gap:4px}
+.faq-item{background:var(--cream);border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.faq-item.open{border-color:var(--gold)}
+.faq-q{width:100%;background:none;border:none;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;color:var(--brown);font-size:15px;font-weight:700;text-align:left;gap:12px;font-family:'Lato',sans-serif;transition:color .2s}
+.faq-q:hover{color:var(--gold-dark)}
+.faq-arrow{color:var(--text-muted);transition:transform .3s,color .2s;flex-shrink:0}
+.faq-item.open .faq-arrow{transform:rotate(180deg);color:var(--gold)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a-inner{padding:0 24px 18px;font-size:14px;color:var(--text-mid);line-height:1.8;border-top:1px solid var(--border);font-weight:300}
+.faq-item.open .faq-a{max-height:280px}
+
+/* ── CTA ── */
+.cta-section{position:relative;padding:120px 0;text-align:center;overflow:hidden}
+.cta-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cta-bg .img-fb{position:absolute;inset:0;display:none;background:linear-gradient(135deg,#2D1B0E,#5C3420);align-items:center;justify-content:center;font-size:80px}
+.cta-overlay{position:absolute;inset:0;background:rgba(20,10,5,.72)}
+.cta-inner{position:relative;z-index:1;padding:0 24px}
+.cta-section .section-eyebrow{color:var(--gold-light)}
+.cta-section .section-title{color:var(--white);margin:0 auto 14px}
+.cta-section .section-title em{color:var(--gold-light)}
+.cta-section .section-sub{color:rgba(255,255,255,.65);margin:0 auto 40px}
+.cta-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+
+/* ── FOOTER ── */
+footer{background:var(--brown);padding:60px 0 24px}
+.footer-inner{max-width:1100px;margin:0 auto;padding:0 28px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;margin-bottom:52px}
+.footer-brand-name{font-family:'Playfair Display',serif;font-weight:700;font-size:22px;color:var(--cream);margin-bottom:4px}
+.footer-brand-sub{font-size:10px;color:var(--gold);font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,.45);line-height:1.8;max-width:260px;font-weight:300}
+.footer-col h4{font-family:'Playfair Display',serif;font-size:15px;color:var(--cream);margin-bottom:18px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul li a{font-size:13px;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s;font-weight:300}
+.footer-col ul li a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,.3);font-weight:300}
+.footer-bottom a{color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
+.footer-bottom a:hover{color:var(--gold)}
+
+/* ── WA FLOAT ── */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:14px 20px 14px 16px;border-radius:100px;text-decoration:none;font-weight:700;font-size:14px;box-shadow:0 8px 32px rgba(37,211,102,.4);transition:all .2s}
+.wa-float:hover{background:#1EB850;transform:translateY(-3px)}
+.wa-float svg{width:22px;height:22px}
+
+/* ── MOBILE ── */
+@media(max-width:1024px){.footer-top{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-photos{order:-1}
+  .layanan-grid{grid-template-columns:1fr}
+  .porto-masonry{columns:2}
+  .paket-grid{grid-template-columns:1fr;max-width:440px;margin-left:auto;margin-right:auto}
+  .paket-card.featured{transform:none}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .kontak-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .section{padding:64px 0}
+  .hero-h1{font-size:clamp(42px,12vw,70px)}
+  .porto-masonry{columns:2}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .footer-top{grid-template-columns:1fr;gap:28px}
+  .form-row{grid-template-columns:1fr}
+  .trust-inner{gap:20px}
+}
+@media(max-width:480px){
+  .porto-masonry{columns:1}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .hero-actions{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <span class="logo-name">Eternal Moments</span>
+      <span class="logo-sub">Photography · Wedding</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#layanan">Layanan</a></li>
+      <li><a href="#porto">Portofolio</a></li>
+      <li><a href="#paket">Paket</a></li>
+      <li><a href="#tim">Tim</a></li>
+      <li><a href="#kontak" class="nav-cta">Konsultasi Gratis</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu(this)"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&h=900&fit=crop&q=85"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+         alt="Wedding photography hero">
+    <div class="img-fb">💍</div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-ornament">
+      <div class="hero-ornament-line"></div>
+      Purwokerto · Est. 2014
+      <div class="hero-ornament-line"></div>
+    </div>
+    <h1 class="hero-h1">Abadikan<br><em>Momen</em><br>Terindah</h1>
+    <p class="hero-sub">Fotografer & Wedding Organizer profesional yang mengabadikan setiap detil pernikahan Anda dengan sentuhan artistik dan penuh cinta.</p>
+    <div class="hero-actions">
+      <a href="#kontak" class="btn-gold">Konsultasi Gratis</a>
+      <a href="#porto" class="btn-outline-gold">Lihat Portofolio</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      Scroll
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item"><span>✦</span> 200+ Pernikahan Didokumentasikan</div>
+    <div class="trust-item"><span>✦</span> 10 Tahun Pengalaman</div>
+    <div class="trust-item"><span>✦</span> Tim 8 Profesional</div>
+    <div class="trust-item"><span>✦</span> Garansi Kepuasan</div>
+    <div class="trust-item"><span>✦</span> Konsultasi Gratis</div>
+  </div>
+</div>
+
+<!-- TENTANG -->
+<section class="section" id="tentang">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-photos">
+        <div class="about-photo tall" style="grid-row:span 2">
+          <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&h=640&fit=crop&q=80"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Wedding photo">
+          <div class="img-fb" style="height:320px">👰</div>
+        </div>
+        <div class="about-photo">
+          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=240&fit=crop&q=80"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Wedding detail">
+          <div class="img-fb" style="height:160px">💒</div>
+        </div>
+        <div class="about-photo">
+          <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=400&h=240&fit=crop&q=80"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Wedding reception">
+          <div class="img-fb" style="height:160px">🌹</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-eyebrow">Tentang Kami</div>
+        <h2 class="section-title">Kami Percaya Setiap<br>Momen <em>Berharga</em></h2>
+        <p style="font-size:16px;color:var(--text-mid);line-height:1.9;margin-bottom:20px;font-weight:300">Eternal Moments lahir dari satu keyakinan: setiap pernikahan adalah cerita unik yang layak diabadikan dengan indah. Sejak 2014, kami telah menjadi bagian dari ratusan momen bahagia di Banyumas dan sekitarnya.</p>
+        <p style="font-size:16px;color:var(--text-mid);line-height:1.9;font-weight:300">Bukan sekadar memotret — kami hadir dari perencanaan hingga hari H, memastikan setiap detail tertangkap dan setiap kenangan tersimpan selamanya.</p>
+        <div class="about-stat-row">
+          <div>
+            <div class="about-stat-num">200<span>+</span></div>
+            <div class="about-stat-label">Pernikahan</div>
+          </div>
+          <div>
+            <div class="about-stat-num">10<span>+</span></div>
+            <div class="about-stat-label">Tahun Aktif</div>
+          </div>
+          <div>
+            <div class="about-stat-num">4.9<span>★</span></div>
+            <div class="about-stat-label">Rating Google</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYANAN -->
+<section class="section bg-warm" id="layanan" style="padding:0">
+  <div class="ornament-divider" style="padding-top:96px;margin-bottom:48px">
+    <div class="od-line"></div>
+    <span>✦ Layanan Kami ✦</span>
+    <div class="od-line right"></div>
+  </div>
+  <div class="section-inner section-center" style="margin-bottom:52px">
+    <h2 class="section-title">Wujudkan Pernikahan<br>Impian Anda</h2>
+    <p class="section-sub center">Dari dokumentasi hingga pengelolaan acara penuh — kami tangani dengan tim berpengalaman dan peralatan profesional.</p>
+  </div>
+  <div class="layanan-grid">
+    <div class="layanan-card">
+      <div class="layanan-num">01</div>
+      <div class="layanan-icon">📸</div>
+      <div class="layanan-name">Foto & Video Pernikahan</div>
+      <div class="layanan-desc">Dokumentasi penuh hari pernikahan Anda — dari persiapan pagi hingga resepsi malam. Gaya sinematik modern dengan sentuhan editorial.</div>
+      <ul class="layanan-includes">
+        <li>2 fotografer + 1 videografer</li>
+        <li>Liputan penuh 8–12 jam</li>
+        <li>Edited gallery 300+ foto</li>
+        <li>Video highlight 5–10 menit</li>
+        <li>File digital resolusi penuh</li>
+      </ul>
+    </div>
+    <div class="layanan-card">
+      <div class="layanan-num">02</div>
+      <div class="layanan-icon">💑</div>
+      <div class="layanan-name">Prewedding Photography</div>
+      <div class="layanan-desc">Sesi foto romantis sebelum hari H — di lokasi pilihan Anda, dengan konsep yang disesuaikan karakter pasangan. Momen yang lebih santai dan personal.</div>
+      <ul class="layanan-includes">
+        <li>1 fotografer profesional</li>
+        <li>Sesi 3–5 jam outdoor/indoor</li>
+        <li>100+ foto editd retouched</li>
+        <li>Konsultasi konsep & styling</li>
+        <li>Album digital premium</li>
+      </ul>
+    </div>
+    <div class="layanan-card">
+      <div class="layanan-num">03</div>
+      <div class="layanan-icon">💍</div>
+      <div class="layanan-name">Wedding Organizer</div>
+      <div class="layanan-desc">Kami tangani seluruh persiapan dan koordinasi hari H — dari vendor management, dekorasi, katering, hingga rundown acara yang berjalan mulus.</div>
+      <ul class="layanan-includes">
+        <li>Konsultasi & perencanaan penuh</li>
+        <li>Koordinasi semua vendor</li>
+        <li>Dekorasi & floral arrangement</li>
+        <li>On-site coordinator hari H</li>
+        <li>Rundown & briefing tim</li>
+      </ul>
+    </div>
+    <div class="layanan-card">
+      <div class="layanan-num">04</div>
+      <div class="layanan-icon">🎬</div>
+      <div class="layanan-name">Cinematic Wedding Film</div>
+      <div class="layanan-desc">Video pernikahan berkualitas film layar lebar. Bukan sekedar rekaman — tapi narasi visual yang akan Anda tonton ulang bertahun-tahun kemudian.</div>
+      <ul class="layanan-includes">
+        <li>2 videografer sinematik</li>
+        <li>Drone footage (jika tersedia)</li>
+        <li>Full day & night coverage</li>
+        <li>Full film 20–30 menit</li>
+        <li>Highlight reel 5 menit</li>
+      </ul>
+    </div>
+    <div class="layanan-card">
+      <div class="layanan-num">05</div>
+      <div class="layanan-icon">📖</div>
+      <div class="layanan-name">Wedding Album Premium</div>
+      <div class="layanan-desc">Cetak kenangan pernikahan Anda dalam album fisik berkualitas tinggi — layflat hardcover dengan pilihan ukuran dan desain layout eksklusif.</div>
+      <ul class="layanan-includes">
+        <li>Album layflat hardcover</li>
+        <li>Ukuran 30x30cm atau 40x30cm</li>
+        <li>20–40 halaman desain custom</li>
+        <li>Pilihan cover kulit & kain</li>
+        <li>Tersedia cetak tambahan</li>
+      </ul>
+    </div>
+    <div class="layanan-card">
+      <div class="layanan-num">06</div>
+      <div class="layanan-icon">🎪</div>
+      <div class="layanan-name">Dekorasi & Venue Styling</div>
+      <div class="layanan-desc">Tim dekorator kami mewujudkan tema impian Anda — dari intimate garden wedding hingga grand ballroom mewah. Konsultasi konsep gratis.</div>
+      <ul class="layanan-includes">
+        <li>Konsultasi tema & moodboard</li>
+        <li>Backdrop & arch dekorasi</li>
+        <li>Floral arrangement fresh</li>
+        <li>Table setting & centerpiece</li>
+        <li>Lighting & ambiance setup</li>
+      </ul>
+    </div>
+  </div>
+  <div style="padding-bottom:96px"></div>
+</section>
+
+<!-- PORTOFOLIO -->
+<section class="section" id="porto">
+  <div class="section-inner section-center">
+    <div class="ornament-divider" style="margin-bottom:24px">
+      <div class="od-line"></div>
+      <span>✦ Portofolio ✦</span>
+      <div class="od-line right"></div>
+    </div>
+    <h2 class="section-title">Cerita di Balik<br>Setiap <em>Foto</em></h2>
+    <p class="section-sub center">Setiap foto yang kami ambil menyimpan satu cerita. Inilah sebagian dari ratusan cerita yang telah kami abadikan.</p>
+  </div>
+  <div class="section-inner">
+    <div class="porto-masonry">
+      <div class="porto-item">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=500&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Wedding ceremony">
+        <div class="img-fb" style="height:300px">👰</div>
+        <div class="porto-overlay"><div class="porto-caption">Wedding Ceremony</div><div class="porto-sub">Ratna & Budi · 2024</div></div>
+      </div>
+      <div class="porto-item">
+        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=500&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Bride portrait">
+        <div class="img-fb" style="height:420px">💐</div>
+        <div class="porto-overlay"><div class="porto-caption">Bride Portrait</div><div class="porto-sub">Sari & Andi · 2024</div></div>
+      </div>
+      <div class="porto-item">
+        <img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=500&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Couple prewedding">
+        <div class="img-fb" style="height:260px">💑</div>
+        <div class="porto-overlay"><div class="porto-caption">Prewedding</div><div class="porto-sub">Dewi & Riko · 2023</div></div>
+      </div>
+      <div class="porto-item">
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=500&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Wedding reception">
+        <div class="img-fb" style="height:200px">🎊</div>
+        <div class="porto-overlay"><div class="porto-caption">Wedding Reception</div><div class="porto-sub">Lina & Hendra · 2024</div></div>
+      </div>
+      <div class="porto-item">
+        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=500&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Wedding detail">
+        <div class="img-fb" style="height:280px">🌸</div>
+        <div class="porto-overlay"><div class="porto-caption">Wedding Detail</div><div class="porto-sub">Yuni & Fauzan · 2023</div></div>
+      </div>
+      <div class="porto-item">
+        <img src="https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?w=500&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Wedding first dance">
+        <div class="img-fb" style="height:360px">💃</div>
+        <div class="porto-overlay"><div class="porto-caption">First Dance</div><div class="porto-sub">Putri & Doni · 2024</div></div>
+      </div>
+      <div class="porto-item">
+        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=500&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Wedding kiss">
+        <div class="img-fb" style="height:240px">💍</div>
+        <div class="porto-overlay"><div class="porto-caption">The Kiss</div><div class="porto-sub">Ayu & Bagas · 2024</div></div>
+      </div>
+      <div class="porto-item">
+        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=500&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Wedding decoration">
+        <div class="img-fb" style="height:200px">🌺</div>
+        <div class="porto-overlay"><div class="porto-caption">Dekorasi Venue</div><div class="porto-sub">Nadia & Farid · 2023</div></div>
+      </div>
+      <div class="porto-item">
+        <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=500&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Wedding family">
+        <div class="img-fb" style="height:300px">👨‍👩‍👧‍👦</div>
+        <div class="porto-overlay"><div class="porto-caption">Family Portrait</div><div class="porto-sub">Rina & Yoga · 2024</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAKET -->
+<section class="section bg-warm" id="paket">
+  <div class="section-inner section-center">
+    <div class="ornament-divider" style="margin-bottom:24px">
+      <div class="od-line"></div>
+      <span>✦ Paket & Harga ✦</span>
+      <div class="od-line right"></div>
+    </div>
+    <h2 class="section-title">Pilih Paket yang<br>Sesuai <em>Impian Anda</em></h2>
+    <p class="section-sub center">Semua paket sudah termasuk revisi editing, konsultasi pra-acara, dan garansi kepuasan.</p>
+  </div>
+  <div class="section-inner">
+    <div class="paket-grid">
+      <div class="paket-card">
+        <div class="paket-name">Silver</div>
+        <div class="paket-tagline">Untuk pernikahan intimate & sederhana</div>
+        <div class="paket-price">Rp 3,5 Jt</div>
+        <div class="paket-price-note">Foto pernikahan saja</div>
+        <div class="paket-divider"></div>
+        <ul class="paket-list">
+          <li><span class="check">✦</span> 1 fotografer profesional</li>
+          <li><span class="check">✦</span> Liputan 6 jam</li>
+          <li><span class="check">✦</span> 150+ foto edited</li>
+          <li><span class="check">✦</span> Akad & resepsi</li>
+          <li><span class="check">✦</span> File digital via Google Drive</li>
+          <li><span class="check">✦</span> Revisi editing 1x</li>
+        </ul>
+        <a href="https://wa.me/6285743553879?text=Halo%2C%20saya%20tertarik%20dengan%20Paket%20Silver%20Eternal%20Moments" class="paket-cta outline">Pilih Paket Silver</a>
+      </div>
+      <div class="paket-card featured">
+        <div class="paket-badge">Paling Populer</div>
+        <div class="paket-name">Gold</div>
+        <div class="paket-tagline">Foto + video untuk kenangan lengkap</div>
+        <div class="paket-price">Rp 8,5 Jt</div>
+        <div class="paket-price-note">Foto & video highlight</div>
+        <div class="paket-divider"></div>
+        <ul class="paket-list">
+          <li><span class="check">✦</span> 2 fotografer + 1 videografer</li>
+          <li><span class="check">✦</span> Liputan penuh 10 jam</li>
+          <li><span class="check">✦</span> 300+ foto edited</li>
+          <li><span class="check">✦</span> Video highlight 5–7 menit</li>
+          <li><span class="check">✦</span> Prewedding 3 jam</li>
+          <li><span class="check">✦</span> 1 album cetak 30x30cm</li>
+          <li><span class="check">✦</span> Revisi editing 2x</li>
+          <li><span class="check">✦</span> Drone footage (kondisional)</li>
+        </ul>
+        <a href="https://wa.me/6285743553879?text=Halo%2C%20saya%20tertarik%20dengan%20Paket%20Gold%20Eternal%20Moments" class="paket-cta solid">Pilih Paket Gold</a>
+      </div>
+      <div class="paket-card">
+        <div class="paket-name">Platinum</div>
+        <div class="paket-tagline">Foto + video + wedding organizer penuh</div>
+        <div class="paket-price">Rp 18 Jt</div>
+        <div class="paket-price-note">All-in wedding package</div>
+        <div class="paket-divider"></div>
+        <ul class="paket-list">
+          <li><span class="check">✦</span> Semua isi Paket Gold</li>
+          <li><span class="check">✦</span> Wedding Organizer full service</li>
+          <li><span class="check">✦</span> Koordinasi semua vendor</li>
+          <li><span class="check">✦</span> Dekorasi tema pilihan</li>
+          <li><span class="check">✦</span> Cinematic film 20–30 menit</li>
+          <li><span class="check">✦</span> 2 album cetak premium</li>
+          <li><span class="check">✦</span> On-site coordinator hari H</li>
+        </ul>
+        <a href="https://wa.me/6285743553879?text=Halo%2C%20saya%20tertarik%20dengan%20Paket%20Platinum%20Eternal%20Moments" class="paket-cta outline">Pilih Paket Platinum</a>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:32px;font-size:14px;color:var(--text-muted);font-weight:300">Semua harga dapat disesuaikan dengan kebutuhan. <a href="https://wa.me/6285743553879?text=Halo%2C%20saya%20mau%20konsultasi%20paket%20pernikahan" style="color:var(--gold-dark);font-weight:700;text-decoration:none">Konsultasi gratis →</a></p>
+  </div>
+</section>
+
+<!-- PROSES / TIMELINE -->
+<section class="section" id="proses">
+  <div class="section-inner section-center" style="margin-bottom:0">
+    <div class="ornament-divider" style="margin-bottom:24px">
+      <div class="od-line"></div>
+      <span>✦ Cara Kerja ✦</span>
+      <div class="od-line right"></div>
+    </div>
+    <h2 class="section-title">Proses Mudah dari<br>Konsultasi hingga <em>Hari H</em></h2>
+    <p class="section-sub center">Kami dampingi dari awal — tidak ada yang perlu Anda khawatirkan.</p>
+  </div>
+  <div class="section-inner">
+    <div class="timeline">
+      <div class="tl-item active">
+        <div class="tl-dot"></div>
+        <div class="tl-num">Langkah 01</div>
+        <div class="tl-title">Konsultasi & Kenali Pasangan</div>
+        <div class="tl-desc">Sesi konsultasi gratis — tatap muka atau via WhatsApp. Kami mendengarkan cerita, impian, dan konsep pernikahan Anda agar hasil dokumentasi benar-benar mencerminkan kepribadian pasangan.</div>
+      </div>
+      <div class="tl-item active">
+        <div class="tl-dot"></div>
+        <div class="tl-num">Langkah 02</div>
+        <div class="tl-title">Pemilihan Paket & Booking</div>
+        <div class="tl-desc">Kami rekomendasikan paket yang paling sesuai kebutuhan dan anggaran. Konfirmasi booking dengan DP 30% untuk mengamankan tanggal hari H Anda — slot terbatas per bulan.</div>
+      </div>
+      <div class="tl-item active">
+        <div class="tl-dot"></div>
+        <div class="tl-num">Langkah 03</div>
+        <div class="tl-title">Perencanaan & Koordinasi</div>
+        <div class="tl-desc">Untuk paket WO: kami koordinasi semua vendor, buat rundown, dan briefing tim. Untuk paket foto: kami diskusi lokasi, konsep, dan timeline liputan H-30 sebelum hari pernikahan.</div>
+      </div>
+      <div class="tl-item active">
+        <div class="tl-dot"></div>
+        <div class="tl-num">Langkah 04</div>
+        <div class="tl-title">Sesi Prewedding (Jika Ada)</div>
+        <div class="tl-desc">Sesi foto santai yang membangun kepercayaan diri pasangan sebelum hari H. Kami pilihkan lokasi dan waktu terbaik — golden hour selalu menjadi favorit kami.</div>
+      </div>
+      <div class="tl-item active">
+        <div class="tl-dot"></div>
+        <div class="tl-num">Langkah 05</div>
+        <div class="tl-title">Hari Pernikahan</div>
+        <div class="tl-desc">Tim kami hadir sejak persiapan pagi. Tidak ada yang terlewat — dari ekspresi haru saat akad, hingga tawa bahagia di resepsi. Anda fokus menikmati, kami yang abadikan.</div>
+      </div>
+      <div class="tl-item active">
+        <div class="tl-dot"></div>
+        <div class="tl-num">Langkah 06</div>
+        <div class="tl-title">Editing & Serah Terima</div>
+        <div class="tl-desc">Foto dan video siap dalam 14–21 hari kerja. Anda terima gallery online preview, lalu download file resolusi penuh. Revisi gratis hingga Anda puas — kepuasan Anda adalah prioritas kami.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIM -->
+<section class="section bg-warm" id="tim">
+  <div class="section-inner section-center">
+    <div class="section-eyebrow">Tim Kami</div>
+    <h2 class="section-title">Orang-orang di Balik<br><em>Setiap Momen</em></h2>
+    <p class="section-sub center">8 profesional dengan keahlian berbeda yang bekerja bersama untuk satu tujuan: pernikahan impian Anda.</p>
+  </div>
+  <div class="section-inner">
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo">
+          <img src="https://i.pravatar.cc/400?img=33"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Arif Setiawan">
+          <div class="img-fb">📸</div>
+        </div>
+        <div class="team-name">Arif Setiawan</div>
+        <div class="team-role">Lead Photographer</div>
+        <div class="team-spec">Spesialis candid & editorial. 10+ tahun dokumentasi pernikahan.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo">
+          <img src="https://i.pravatar.cc/400?img=47"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Maya Sari">
+          <div class="img-fb">💍</div>
+        </div>
+        <div class="team-name">Maya Sari</div>
+        <div class="team-role">Wedding Organizer</div>
+        <div class="team-spec">Ahli perencanaan & koordinasi. Detail-oriented, tenang di bawah tekanan.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo">
+          <img src="https://i.pravatar.cc/400?img=52"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Deni Pratama">
+          <div class="img-fb">🎬</div>
+        </div>
+        <div class="team-name">Deni Pratama</div>
+        <div class="team-role">Videografer Sinematik</div>
+        <div class="team-spec">Spesialis cinematic wedding film & drone footage.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo">
+          <img src="https://i.pravatar.cc/400?img=48"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Putri Lestari">
+          <div class="img-fb">🌸</div>
+        </div>
+        <div class="team-name">Putri Lestari</div>
+        <div class="team-role">Dekorator & Florist</div>
+        <div class="team-spec">Kreator dekorasi dan floral arrangement untuk berbagai tema.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section class="section">
+  <div class="section-inner section-center">
+    <div class="ornament-divider" style="margin-bottom:24px">
+      <div class="od-line"></div>
+      <span>✦ Kata Mereka ✦</span>
+      <div class="od-line right"></div>
+    </div>
+    <h2 class="section-title">Cerita dari Pasangan<br>yang Telah <em>Mempercayai</em> Kami</h2>
+  </div>
+  <div class="section-inner">
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-quote-mark">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Kami sama sekali tidak menyangka hasilnya akan seindah ini. Arif berhasil menangkap momen-momen yang bahkan kami sendiri tidak sadar terjadi — ekspresi mama waktu akad, senyum ayah yang biasanya jarang terlihat. Foto-foto itu sekarang jadi yang paling kami jaga."</div>
+        <div class="testi-author">
+          <div class="testi-av">
+            <img src="https://i.pravatar.cc/100?img=5" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="">
+            <div class="img-fb">RA</div>
+          </div>
+          <div>
+            <div class="testi-name">Ratna & Andi</div>
+            <div class="testi-event">Wedding · Februari 2024 · Paket Gold</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote-mark">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Pakai WO dari Eternal Moments adalah keputusan terbaik. Maya ngurusin semua — dari koordinasi katering, dekorasi, sampai rundown acara yang mepet. Kami tinggal datang dan menikmati. Tidak ada drama, tidak ada panik."</div>
+        <div class="testi-author">
+          <div class="testi-av">
+            <img src="https://i.pravatar.cc/100?img=9" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="">
+            <div class="img-fb">DS</div>
+          </div>
+          <div>
+            <div class="testi-name">Dewi & Surya</div>
+            <div class="testi-event">Wedding · Maret 2024 · Paket Platinum</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote-mark">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Video cinematic dari Deni luar biasa. Kami nonton waktu ulang tahun pernikahan pertama, langsung nangis berdua. Kualitas gambarnya seperti film beneran — lighting, angle, musik yang dipilih semuanya pas banget dengan nuansa hari itu."</div>
+        <div class="testi-author">
+          <div class="testi-av">
+            <img src="https://i.pravatar.cc/100?img=16" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="">
+            <div class="img-fb">FH</div>
+          </div>
+          <div>
+            <div class="testi-name">Fira & Hendra</div>
+            <div class="testi-event">Wedding · Oktober 2023 · Paket Gold</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section class="section bg-warm" id="kontak">
+  <div class="section-inner">
+    <div class="kontak-grid">
+      <div>
+        <div class="section-eyebrow">Mulai Perjalanan</div>
+        <h2 class="section-title">Ceritakan Impian<br><em>Pernikahan Anda</em></h2>
+        <p style="font-size:15px;color:var(--text-mid);line-height:1.9;margin-bottom:36px;font-weight:300">Konsultasi pertama sepenuhnya gratis dan tanpa kewajiban apapun. Kami senang mendengar cerita Anda dan membantu mewujudkan hari istimewa yang tidak akan terlupakan.</p>
+        <div class="kontak-info">
+          <div class="kontak-row">
+            <div class="kontak-icon-wrap">📱</div>
+            <div class="kontak-body">
+              <strong>WhatsApp</strong>
+              <p>0857-4355-3879 — Respon cepat, konsultasi langsung dengan tim</p>
+            </div>
+          </div>
+          <div class="kontak-row">
+            <div class="kontak-icon-wrap">📍</div>
+            <div class="kontak-body">
+              <strong>Studio</strong>
+              <p>Jl. Gatot Subroto No. 12, Purwokerto Utara, Banyumas</p>
+            </div>
+          </div>
+          <div class="kontak-row">
+            <div class="kontak-icon-wrap">📸</div>
+            <div class="kontak-body">
+              <strong>Instagram</strong>
+              <p>@eternal.moments.pwt — Lihat portofolio terbaru kami</p>
+            </div>
+          </div>
+          <div class="kontak-row">
+            <div class="kontak-icon-wrap">📅</div>
+            <div class="kontak-body">
+              <strong>Ketersediaan</strong>
+              <p>Slot terbatas — booking minimal H-60 untuk tanggal yang diinginkan</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="kontak-form">
+        <div class="form-title">Kirim Pesan</div>
+        <div class="form-sub">Isi form ini dan kami balas dalam 1×24 jam — atau langsung WhatsApp untuk respons lebih cepat.</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nama Anda</label>
+            <input type="text" placeholder="Nama mempelai wanita">
+          </div>
+          <div class="form-group">
+            <label>Nama Pasangan</label>
+            <input type="text" placeholder="Nama mempelai pria">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Nomor WhatsApp</label>
+          <input type="tel" placeholder="0857-xxxx-xxxx">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Tanggal Pernikahan</label>
+            <input type="date">
+          </div>
+          <div class="form-group">
+            <label>Paket yang Diminati</label>
+            <select>
+              <option value="">Pilih paket...</option>
+              <option>Paket Silver — Foto Only</option>
+              <option>Paket Gold — Foto + Video</option>
+              <option>Paket Platinum — All In</option>
+              <option>Belum tahu, mau konsultasi</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Cerita Singkat</label>
+          <textarea placeholder="Ceritakan sedikit tentang konsep pernikahan impian Anda, lokasi acara, jumlah tamu, dll..."></textarea>
+        </div>
+        <button class="form-submit" onclick="submitForm()">Kirim Pesan ✦</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="section-inner section-center">
+    <div class="section-eyebrow">FAQ</div>
+    <h2 class="section-title">Pertanyaan yang Sering<br>Ditanyakan Pasangan</h2>
+  </div>
+  <div class="section-inner">
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Berapa jauh H sebelumnya harus booking?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Kami sangat menyarankan booking minimal 2–3 bulan sebelum hari H, terutama untuk tanggal-tanggal populer (Sabtu-Minggu, hari baik Jawa, akhir tahun). Booking dilakukan dengan DP 30% dari total paket. Makin cepat booking, makin tenang persiapan Anda.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Berapa lama hasil foto dan video selesai?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Foto siap dalam 14–21 hari kerja setelah hari pernikahan. Video highlight membutuhkan 21–30 hari, sedangkan cinematic film 30–45 hari. Kami mengirimkan preview gallery online terlebih dahulu sebelum file final — Anda bisa request revisi editing sebelum file final dikirim.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah bisa request gaya foto atau referensi tertentu?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Tentu. Kami sangat menganjurkan Anda membuat moodboard atau mengumpulkan referensi foto dari Pinterest/Instagram. Diskusikan di sesi konsultasi awal — tim kami akan menyesuaikan pendekatan, gaya editing, dan angle yang paling sesuai dengan visi Anda.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah melayani lokasi di luar Purwokerto?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Ya. Kami melayani seluruh wilayah Banyumas, Cilacap, Purbalingga, Banjarnegara, dan Kebumen tanpa biaya tambahan. Untuk lokasi di luar Jawa Tengah, ada biaya perjalanan dan akomodasi yang akan dibahas saat konsultasi. Kami pernah bekerja hingga Lombok dan Bali.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Bagaimana jika cuaca hujan saat hari pernikahan?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Kami sudah siapkan rencana cadangan untuk setiap skenario cuaca. Tim kami memiliki perlengkapan tahan cuaca dan pengalaman mengambil foto indah bahkan saat hujan. Hujan justru sering menghasilkan foto yang dramatis dan berbeda. Tidak ada pembatalan karena cuaca — kami tetap hadir dan bekerja.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-bg">
+    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=1400&h=700&fit=crop&q=80"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Wedding CTA">
+    <div class="img-fb">💍</div>
+  </div>
+  <div class="cta-overlay"></div>
+  <div class="cta-inner">
+    <div class="section-eyebrow" style="justify-content:center;margin-bottom:12px">Mulai Perjalanan Anda</div>
+    <h2 class="section-title" style="color:#fff;max-width:640px;margin:0 auto 14px">Hari Istimewa Anda<br>Layak Diabadikan dengan <em>Sempurna</em></h2>
+    <p class="section-sub" style="color:rgba(255,255,255,.65);margin:0 auto 40px;max-width:480px">Konsultasi gratis — tidak ada kewajiban apapun. Ceritakan impian pernikahan Anda dan biarkan kami yang mewujudkannya.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/6285743553879?text=Halo%20Eternal%20Moments%2C%20saya%20mau%20konsultasi%20paket%20pernikahan%20gratis" class="btn-gold btn-big">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.855L.057 23.886a.5.5 0 0 0 .611.637l6.218-1.637A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.925 0-3.727-.524-5.271-1.432l-.338-.2-4.066 1.07 1.009-3.985-.218-.344A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Konsultasi Gratis via WA
+      </a>
+      <a href="#porto" class="btn-outline-gold">Lihat Portofolio</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-name">Eternal Moments</div>
+        <div class="footer-brand-sub">Photography · Wedding Organizer</div>
+        <p>Mengabadikan momen terbaik pernikahan Anda di Purwokerto dan sekitarnya sejak 2014. 200+ pasangan telah mempercayakan hari istimewa mereka kepada kami.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="#layanan">Foto Pernikahan</a></li>
+          <li><a href="#layanan">Prewedding</a></li>
+          <li><a href="#layanan">Wedding Organizer</a></li>
+          <li><a href="#layanan">Cinematic Film</a></li>
+          <li><a href="#layanan">Wedding Album</a></li>
+          <li><a href="#layanan">Dekorasi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Paket</h4>
+        <ul>
+          <li><a href="#paket">Paket Silver</a></li>
+          <li><a href="#paket">Paket Gold</a></li>
+          <li><a href="#paket">Paket Platinum</a></li>
+          <li><a href="#kontak">Paket Custom</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informasi</h4>
+        <ul>
+          <li><a href="#porto">Portofolio</a></li>
+          <li><a href="#tim">Tim Kami</a></li>
+          <li><a href="#proses">Cara Kerja</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="https://wa.me/6285743553879">WhatsApp Kami</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Eternal Moments. Purwokerto, Banyumas. All rights reserved.</p>
+      <p>Website oleh <a href="https://buatwebsitemurah.com" target="_blank">Nusaweb Studio</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/6285743553879?text=Halo%20Eternal%20Moments%2C%20saya%20mau%20konsultasi%20pernikahan" class="wa-float" target="_blank">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.855L.057 23.886a.5.5 0 0 0 .611.637l6.218-1.637A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.925 0-3.727-.524-5.271-1.432l-.338-.2-4.066 1.07 1.009-3.985-.218-.344A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  Konsultasi Gratis
+</a>
+
+<script>
+// Nav scroll effect
+window.addEventListener('scroll',()=>{
+  const nav=document.getElementById('mainNav');
+  nav.classList.toggle('scrolled',window.scrollY>60);
+});
+
+function toggleFaq(btn){
+  const item=btn.parentElement,isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+function toggleMenu(el){
+  const nav=document.getElementById('mainNav');
+  const links=document.querySelector('.nav-links');
+  const isVisible=links.style.display==='flex';
+  links.style.display=isVisible?'none':'flex';
+  if(!isVisible){
+    const bg=nav.classList.contains('scrolled')?'rgba(254,254,254,.98)':'rgba(45,27,14,.97)';
+    Object.assign(links.style,{flexDirection:'column',position:'absolute',top:'72px',left:'0',right:'0',background:bg,padding:'16px 28px 28px',gap:'18px',borderBottom:'1px solid rgba(201,169,110,.2)'});
+  }
+}
+
+function submitForm(){
+  alert('Pesan terkirim! Tim kami akan menghubungi Anda dalam 1×24 jam. Atau langsung chat WhatsApp untuk respons lebih cepat. ✦');
+}
+
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}
+}),{threshold:0.07});
+document.querySelectorAll('.layanan-card,.porto-item,.paket-card,.testi-card,.team-card,.tl-item,.about-photo').forEach((el,i)=>{
+  el.style.opacity='0';el.style.transform='translateY(18px)';
+  el.style.transition=`opacity .5s ease ${i*.05}s,transform .5s ease ${i*.05}s`;
+  obs.observe(el);
+});
+</script>
+</body>
+</html>

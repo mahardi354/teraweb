@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMT Amanah Sejahtera — Koperasi Simpan Pinjam Syariah Terpercaya</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal: #0B7A6B;
+    --teal-dark: #085A4E;
+    --teal-light: #14A88F;
+    --teal-pale: #E6F4F2;
+    --gold: #E8A020;
+    --gold-light: #FBD16E;
+    --dark: #1A2E2B;
+    --text: #2D3F3D;
+    --muted: #6B8280;
+    --bg: #F8FFFE;
+    --white: #FFFFFF;
+    --border: #D0E8E4;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+  /* NAV */
+  nav {
+    background: var(--white); position: sticky; top: 0; z-index: 100;
+    padding: 0 60px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 2px solid var(--teal);
+    box-shadow: 0 2px 12px rgba(11,122,107,0.08);
+  }
+  .nav-left { display: flex; align-items: center; gap: 48px; }
+  .nav-logo { display: flex; align-items: center; gap: 14px; padding: 18px 0; text-decoration: none; }
+  .logo-icon {
+    width: 44px; height: 44px; background: var(--teal);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; border-radius: 8px;
+  }
+  .logo-text { line-height: 1.1; }
+  .logo-text .name { font-size: 1rem; font-weight: 700; color: var(--teal-dark); letter-spacing: 0.3px; }
+  .logo-text .tagline { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.8px; }
+  .nav-links { display: flex; gap: 4px; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem; font-weight: 500; color: var(--text);
+    text-decoration: none; padding: 8px 16px; border-radius: 6px;
+    transition: all 0.2s;
+  }
+  .nav-links a:hover { background: var(--teal-pale); color: var(--teal); }
+  .nav-right { display: flex; gap: 12px; align-items: center; }
+  .btn-outline-teal {
+    border: 1.5px solid var(--teal); color: var(--teal);
+    padding: 9px 22px; font-size: 0.82rem; font-weight: 600;
+    text-decoration: none; border-radius: 6px; transition: all 0.2s;
+  }
+  .btn-outline-teal:hover { background: var(--teal-pale); }
+  .btn-teal {
+    background: var(--teal); color: var(--white);
+    padding: 9px 22px; font-size: 0.82rem; font-weight: 600;
+    text-decoration: none; border-radius: 6px; transition: all 0.2s;
+  }
+  .btn-teal:hover { background: var(--teal-dark); }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 50%, #1AB5A0 100%);
+    padding: 80px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    min-height: 88vh; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: rgba(255,255,255,0.04); pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -150px; left: -80px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: rgba(255,255,255,0.03); pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 2; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+    color: white; padding: 6px 16px; border-radius: 100px;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.5px;
+    margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-family: 'Lora', serif; font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 600; color: var(--white); line-height: 1.15; margin-bottom: 20px;
+  }
+  .hero h1 span { color: var(--gold-light); }
+  .hero p { font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 40px; max-width: 460px; }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-white {
+    background: var(--white); color: var(--teal-dark);
+    padding: 14px 32px; font-size: 0.88rem; font-weight: 700;
+    text-decoration: none; border-radius: 8px; transition: all 0.2s;
+  }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+  .btn-ghost-white {
+    border: 2px solid rgba(255,255,255,0.4); color: var(--white);
+    padding: 14px 32px; font-size: 0.88rem; font-weight: 600;
+    text-decoration: none; border-radius: 8px; transition: all 0.2s;
+  }
+  .btn-ghost-white:hover { background: rgba(255,255,255,0.1); }
+  .hero-trust {
+    margin-top: 48px; display: flex; gap: 32px;
+  }
+  .trust-item .val {
+    font-size: 1.8rem; font-weight: 800; color: var(--gold-light); line-height: 1;
+  }
+  .trust-item .lbl {
+    font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 4px;
+  }
+  .hero-image { position: relative; z-index: 2; }
+  .hero-card {
+    background: var(--white); border-radius: 16px; overflow: hidden;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.25);
+  }
+  .hero-card img { width: 100%; height: 340px; object-fit: cover; display: block; }
+  .card-info {
+    padding: 24px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .info-box { background: var(--teal-pale); border-radius: 10px; padding: 16px; }
+  .info-box .val { font-size: 1.3rem; font-weight: 700; color: var(--teal-dark); }
+  .info-box .lbl { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+  .info-box.gold-box { background: #FFF8E6; }
+  .info-box.gold-box .val { color: #B07800; }
+
+  /* SECTION BASE */
+  section { padding: 80px 60px; }
+
+  /* PRODUK */
+  .produk { background: var(--white); }
+  .section-eyebrow {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Lora', serif; font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 600; color: var(--dark);
+    margin-bottom: 16px;
+  }
+  .section-sub { font-size: 0.95rem; color: var(--muted); max-width: 520px; line-height: 1.8; }
+  .produk-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+  .produk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .produk-card {
+    border: 1.5px solid var(--border); border-radius: 16px; overflow: hidden;
+    transition: all 0.3s; cursor: pointer;
+  }
+  .produk-card:hover {
+    border-color: var(--teal); box-shadow: 0 8px 32px rgba(11,122,107,0.12);
+    transform: translateY(-4px);
+  }
+  .produk-img { width: 100%; height: 180px; object-fit: cover; display: block; }
+  .produk-body { padding: 28px; }
+  .produk-icon {
+    width: 48px; height: 48px; background: var(--teal-pale);
+    border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; margin-bottom: 16px;
+  }
+  .produk-body h3 { font-size: 1.1rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+  .produk-body p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+  .produk-highlight {
+    background: var(--teal-pale); border-radius: 8px; padding: 12px 16px;
+    font-size: 0.8rem; color: var(--teal-dark); font-weight: 600;
+  }
+
+  /* CARA DAFTAR */
+  .cara-daftar { background: var(--teal-pale); }
+  .steps-wrapper { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 56px; position: relative; }
+  .steps-wrapper::before {
+    content: '';
+    position: absolute; top: 36px; left: calc(12.5%); right: calc(12.5%);
+    height: 2px; background: linear-gradient(to right, var(--teal) 0%, var(--teal-light) 100%);
+    z-index: 0;
+  }
+  .step { text-align: center; padding: 0 20px; position: relative; z-index: 1; }
+  .step-num {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: var(--teal); color: white;
+    font-size: 1.5rem; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px; box-shadow: 0 4px 16px rgba(11,122,107,0.3);
+  }
+  .step h3 { font-size: 0.95rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+  .step p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+  /* KALKULATOR */
+  .kalkulator { background: var(--white); }
+  .kalk-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .kalk-form { background: var(--white); border: 1.5px solid var(--border); border-radius: 20px; padding: 40px; }
+  .kalk-form h3 { font-size: 1.1rem; font-weight: 700; color: var(--dark); margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+  .form-group select, .form-group input[type="range"] {
+    width: 100%; padding: 12px 16px; border: 1.5px solid var(--border);
+    border-radius: 8px; font-size: 0.9rem; color: var(--dark);
+    font-family: 'Plus Jakarta Sans', sans-serif; outline: none;
+    transition: border-color 0.2s; background: var(--bg);
+  }
+  .form-group select:focus { border-color: var(--teal); }
+  input[type="range"] {
+    padding: 6px 0; background: none; border: none;
+    accent-color: var(--teal);
+  }
+  .range-labels { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+  .range-val { font-size: 1.2rem; font-weight: 700; color: var(--teal-dark); margin-bottom: 4px; }
+  .kalk-result { background: var(--teal-dark); border-radius: 16px; padding: 36px; color: white; }
+  .kalk-result h3 { font-size: 1rem; font-weight: 600; opacity: 0.8; margin-bottom: 8px; }
+  .result-angsuran { font-size: 2.5rem; font-weight: 800; color: var(--gold-light); margin-bottom: 4px; }
+  .result-per { font-size: 0.85rem; opacity: 0.7; margin-bottom: 32px; }
+  .result-detail { display: flex; flex-direction: column; gap: 16px; }
+  .result-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.88rem;
+  }
+  .result-row .label { opacity: 0.75; }
+  .result-row .val { font-weight: 700; color: var(--gold-light); }
+  .btn-daftar-kalk {
+    display: block; width: 100%; text-align: center;
+    background: var(--gold); color: var(--dark);
+    padding: 14px; border-radius: 8px; font-weight: 700; font-size: 0.9rem;
+    text-decoration: none; margin-top: 24px; transition: all 0.2s;
+  }
+  .btn-daftar-kalk:hover { background: var(--gold-light); }
+
+  /* TESTIMONI */
+  .testimoni { background: #F0FAF8; }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+  .testi-card { background: var(--white); border-radius: 16px; padding: 32px; border: 1px solid var(--border); }
+  .testi-stars { color: var(--gold); font-size: 1rem; margin-bottom: 16px; }
+  .testi-text { font-size: 0.9rem; color: var(--text); line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+  .testi-person { display: flex; align-items: center; gap: 14px; }
+  .testi-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+  .testi-name { font-size: 0.88rem; font-weight: 700; color: var(--dark); }
+  .testi-role { font-size: 0.75rem; color: var(--muted); }
+
+  /* CTA BANNER */
+  .cta-banner {
+    background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+    padding: 80px 60px; text-align: center;
+  }
+  .cta-banner h2 {
+    font-family: 'Lora', serif; font-size: clamp(1.8rem, 3vw, 2.8rem);
+    color: var(--white); margin-bottom: 16px;
+  }
+  .cta-banner p { color: rgba(255,255,255,0.8); max-width: 500px; margin: 0 auto 40px; }
+  .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  /* FOOTER */
+  footer { background: var(--dark); padding: 60px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 48px; }
+  .footer-logo { margin-bottom: 16px; }
+  .footer-logo .name { font-size: 1.1rem; font-weight: 700; color: var(--white); }
+  .footer-logo .tagline { font-size: 0.72rem; color: var(--teal-light); letter-spacing: 0.5px; }
+  .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-top: 12px; }
+  .footer-col h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--teal-light); margin-bottom: 20px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col ul li a { font-size: 0.85rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: var(--white); }
+  .ijin-box { background: rgba(255,255,255,0.06); border-radius: 10px; padding: 16px; font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-top: 12px; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08); margin-top: 48px; padding-top: 28px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.78rem; color: rgba(255,255,255,0.4);
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links, .nav-right { display: none; }
+    section { padding: 48px 20px; }
+    .hero { padding: 60px 20px; grid-template-columns: 1fr; min-height: auto; }
+    .hero-image { display: none; }
+    .produk-grid, .steps-wrapper, .testi-grid { grid-template-columns: 1fr; }
+    .steps-wrapper::before { display: none; }
+    .kalk-inner { grid-template-columns: 1fr; gap: 32px; }
+    footer { padding: 40px 20px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    .produk-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .cta-banner { padding: 48px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <a href="#" class="nav-logo">
+      <div class="logo-icon">🕌</div>
+      <div class="logo-text">
+        <div class="name">BMT Amanah Sejahtera</div>
+        <div class="tagline">Koperasi Simpan Pinjam Syariah</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#produk">Produk</a></li>
+      <li><a href="#cara-daftar">Cara Daftar</a></li>
+      <li><a href="#kalkulator">Simulasi</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <a href="#" class="btn-outline-teal">Masuk Anggota</a>
+    <a href="#cara-daftar" class="btn-teal">Daftar Sekarang</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge">✅ Terdaftar & Diawasi OJK</div>
+    <h1>Solusi Keuangan <span>Syariah</span> untuk Usaha & Keluarga Anda</h1>
+    <p>BMT Amanah Sejahtera hadir sebagai mitra keuangan yang halal, transparan, dan menguntungkan. Simpanan aman, pembiayaan mudah, bagi hasil optimal.</p>
+    <div class="hero-actions">
+      <a href="#cara-daftar" class="btn-white">Gabung Sekarang</a>
+      <a href="#produk" class="btn-ghost-white">Lihat Produk</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item"><div class="val">12.400+</div><div class="lbl">Anggota Aktif</div></div>
+      <div class="trust-item"><div class="val">Rp 48M</div><div class="lbl">Aset Kelolaan</div></div>
+      <div class="trust-item"><div class="val">18 Thn</div><div class="lbl">Berdiri & Terpercaya</div></div>
+    </div>
+  </div>
+  <div class="hero-image">
+    <div class="hero-card">
+      <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&q=80" alt="Pelayanan BMT">
+      <div class="card-info">
+        <div class="info-box">
+          <div class="val">8%/thn</div>
+          <div class="lbl">Bagi Hasil Simpanan Deposito</div>
+        </div>
+        <div class="info-box gold-box">
+          <div class="val">0.9%/bln</div>
+          <div class="lbl">Margin Pembiayaan Murabahah</div>
+        </div>
+        <div class="info-box">
+          <div class="val">1 Hari</div>
+          <div class="lbl">Proses Pencairan Dana</div>
+        </div>
+        <div class="info-box gold-box">
+          <div class="val">100%</div>
+          <div class="lbl">Berbasis Prinsip Syariah</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUK -->
+<section class="produk" id="produk">
+  <div class="produk-header">
+    <div>
+      <div class="section-eyebrow">Produk Layanan</div>
+      <h2 class="section-title">Pilihan Produk<br>Sesuai Kebutuhan Anda</h2>
+    </div>
+    <p class="section-sub">Semua produk kami berdasarkan akad syariah yang jelas, halal, dan menguntungkan untuk kedua belah pihak.</p>
+  </div>
+  <div class="produk-grid">
+    <div class="produk-card">
+      <img class="produk-img" src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&q=80" alt="Simpanan">
+      <div class="produk-body">
+        <div class="produk-icon">🏦</div>
+        <h3>Simpanan Wadiah</h3>
+        <p>Simpan uang Anda dengan aman. Dana dapat ditarik kapan saja. Mendapat bonus berdasarkan kebijakan BMT.</p>
+        <div class="produk-highlight">✅ Setoran awal hanya Rp 25.000</div>
+      </div>
+    </div>
+    <div class="produk-card">
+      <img class="produk-img" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="Deposito">
+      <div class="produk-body">
+        <div class="produk-icon">📈</div>
+        <h3>Deposito Mudharabah</h3>
+        <p>Investasikan dana Anda dengan tenor 3, 6, atau 12 bulan. Nikmati bagi hasil yang kompetitif dan halal.</p>
+        <div class="produk-highlight">✅ Bagi hasil hingga 8% per tahun</div>
+      </div>
+    </div>
+    <div class="produk-card">
+      <img class="produk-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Pembiayaan">
+      <div class="produk-body">
+        <div class="produk-icon">💰</div>
+        <h3>Pembiayaan Murabahah</h3>
+        <p>Modal usaha atau kebutuhan konsumtif dengan akad jual beli yang transparan. Proses cepat, syarat mudah.</p>
+        <div class="produk-highlight">✅ Pencairan 1 hari kerja</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARA DAFTAR -->
+<section class="cara-daftar" id="cara-daftar">
+  <div style="text-align:center; margin-bottom: 0;">
+    <div class="section-eyebrow" style="text-align:center;">Proses Mudah</div>
+    <h2 class="section-title" style="text-align:center;">Mulai Jadi Anggota<br>dalam 4 Langkah</h2>
+  </div>
+  <div class="steps-wrapper">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Daftar Online / Datang Langsung</h3>
+      <p>Isi formulir pendaftaran anggota. Bisa melalui website atau datang ke kantor kami.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Siapkan Dokumen</h3>
+      <p>KTP, KK, dan pas foto 3x4. Untuk pembiayaan usaha tambahkan surat izin usaha.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Verifikasi & Survei</h3>
+      <p>Tim kami akan menghubungi dan memverifikasi data dalam 1-2 hari kerja.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h3>Akad & Dana Cair</h3>
+      <p>Penandatanganan akad syariah dan dana siap digunakan. Selamat jadi anggota!</p>
+    </div>
+  </div>
+</section>
+
+<!-- KALKULATOR -->
+<section class="kalkulator" id="kalkulator">
+  <div class="kalk-inner">
+    <div>
+      <div class="section-eyebrow">Simulasi Pembiayaan</div>
+      <h2 class="section-title">Hitung Angsuran<br>Anda Sekarang</h2>
+      <p style="color:var(--muted);font-size:0.95rem;line-height:1.8;margin-top:16px;">Gunakan kalkulator ini untuk menghitung estimasi angsuran pembiayaan murabahah sesuai kebutuhan Anda. Konsultasikan dengan petugas kami untuk penawaran terbaik.</p>
+      <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&q=80" alt="Konsultasi Keuangan" style="width:100%;border-radius:12px;margin-top:28px;height:220px;object-fit:cover;">
+    </div>
+    <div>
+      <div class="kalk-form">
+        <h3>🧮 Simulasi Pembiayaan Murabahah</h3>
+        <div class="form-group">
+          <label>Jenis Pembiayaan</label>
+          <select id="jenis">
+            <option>Modal Usaha</option>
+            <option>Konsumtif (Barang)</option>
+            <option>Renovasi Rumah</option>
+            <option>Pendidikan</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Jumlah Pembiayaan: <span class="range-val" id="jumlah-val">Rp 10.000.000</span></label>
+          <input type="range" id="jumlah" min="1" max="100" value="10" oninput="hitung()">
+          <div class="range-labels"><span>Rp 1 Juta</span><span>Rp 100 Juta</span></div>
+        </div>
+        <div class="form-group">
+          <label>Tenor: <span class="range-val" id="tenor-val">12 Bulan</span></label>
+          <input type="range" id="tenor" min="3" max="36" value="12" step="3" oninput="hitung()">
+          <div class="range-labels"><span>3 Bulan</span><span>36 Bulan</span></div>
+        </div>
+      </div>
+      <div class="kalk-result">
+        <h3>Estimasi Angsuran Bulanan</h3>
+        <div class="result-angsuran" id="hasil-angsuran">Rp 892.000</div>
+        <div class="result-per">per bulan selama <span id="hasil-tenor">12</span> bulan</div>
+        <div class="result-detail">
+          <div class="result-row">
+            <span class="label">Pokok Pembiayaan</span>
+            <span class="val" id="hasil-pokok">Rp 10.000.000</span>
+          </div>
+          <div class="result-row">
+            <span class="label">Margin (0.9%/bulan)</span>
+            <span class="val" id="hasil-margin">Rp 700.000</span>
+          </div>
+          <div class="result-row">
+            <span class="label">Total Kewajiban</span>
+            <span class="val" id="hasil-total">Rp 10.700.000</span>
+          </div>
+        </div>
+        <a href="#cara-daftar" class="btn-daftar-kalk">🚀 Ajukan Pembiayaan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section class="testimoni" id="testimoni">
+  <div style="text-align:center; margin-bottom:0;">
+    <div class="section-eyebrow" style="text-align:center;">Testimoni Anggota</div>
+    <h2 class="section-title" style="text-align:center;">Mereka Sudah Merasakan<br>Manfaatnya</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Alhamdulillah, dengan pembiayaan dari BMT Amanah, warung makan saya bisa buka cabang baru. Prosesnya cepat, berkah, tidak ada bunga riba!"</p>
+      <div class="testi-person">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&q=80" alt="Ibu Fatimah">
+        <div>
+          <div class="testi-name">Ibu Fatimah Azzahra</div>
+          <div class="testi-role">Anggota sejak 2019 · Pedagang Kuliner</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Deposito di BMT Amanah bagi hasilnya lebih bagus dari bank konvensional, dan yang penting halal. Sudah 5 tahun saya percayakan tabungan keluarga di sini."</p>
+      <div class="testi-person">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Bapak Hendra">
+        <div>
+          <div class="testi-name">Bapak Hendra Kusuma</div>
+          <div class="testi-role">Anggota sejak 2018 · Guru SD</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Butuh modal cepat untuk kulakan barang lebaran, langsung hubungi BMT Amanah. Satu hari sudah cair! Petugasnya ramah dan prosesnya transparan."</p>
+      <div class="testi-person">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Ibu Sri">
+        <div>
+          <div class="testi-name">Ibu Sri Mulyani</div>
+          <div class="testi-role">Anggota sejak 2021 · Pedagang Batik</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner" id="kontak">
+  <div class="section-eyebrow" style="text-align:center;color:var(--gold-light);">Bergabung Sekarang</div>
+  <h2>Siap Wujudkan Keuangan<br>yang Berkah & Sejahtera?</h2>
+  <p>Tim kami siap membantu Anda setiap hari kerja pukul 08.00–16.00. Konsultasi gratis tanpa syarat!</p>
+  <div class="cta-actions">
+    <a href="https://wa.me/6281234567890" class="btn-white">💬 Hubungi via WhatsApp</a>
+    <a href="#cara-daftar" class="btn-ghost-white">Daftar Anggota Online</a>
+  </div>
+  <div style="margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:700px;margin-left:auto;margin-right:auto;">
+    <div style="background:rgba(255,255,255,0.1);border-radius:12px;padding:20px;">
+      <div style="font-size:1.4rem;margin-bottom:6px;">🏢</div>
+      <div style="font-size:0.82rem;font-weight:600;color:white;margin-bottom:4px;">Kantor Pusat</div>
+      <div style="font-size:0.78rem;color:rgba(255,255,255,0.7);">Jl. Raya Magelang No.45, Yogyakarta</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.1);border-radius:12px;padding:20px;">
+      <div style="font-size:1.4rem;margin-bottom:6px;">📞</div>
+      <div style="font-size:0.82rem;font-weight:600;color:white;margin-bottom:4px;">Telepon / WA</div>
+      <div style="font-size:0.78rem;color:rgba(255,255,255,0.7);">0812-3456-7890</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.1);border-radius:12px;padding:20px;">
+      <div style="font-size:1.4rem;margin-bottom:6px;">⏰</div>
+      <div style="font-size:0.82rem;font-weight:600;color:white;margin-bottom:4px;">Jam Operasional</div>
+      <div style="font-size:0.78rem;color:rgba(255,255,255,0.7);">Senin–Sabtu, 08.00–16.00</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <div class="name">BMT Amanah Sejahtera</div>
+        <div class="tagline">Koperasi Simpan Pinjam Syariah · Est. 2006</div>
+      </div>
+      <p>Lembaga keuangan syariah yang berdedikasi melayani masyarakat dengan prinsip amanah, transparan, dan mengutamakan kemaslahatan umat.</p>
+      <div class="ijin-box">
+        📋 Izin Kemenkop No. 503/2006<br>
+        🔒 Diawasi OJK RI<br>
+        ✅ Anggota Dewan Koperasi Indonesia
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Produk</h4>
+      <ul>
+        <li><a href="#">Simpanan Wadiah</a></li>
+        <li><a href="#">Deposito Mudharabah</a></li>
+        <li><a href="#">Pembiayaan Murabahah</a></li>
+        <li><a href="#">Pembiayaan Ijarah</a></li>
+        <li><a href="#">Zakat & Infaq</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Perusahaan</h4>
+      <ul>
+        <li><a href="#">Tentang Kami</a></li>
+        <li><a href="#">Struktur Pengurus</a></li>
+        <li><a href="#">Laporan Keuangan</a></li>
+        <li><a href="#">RAT Tahunan</a></li>
+        <li><a href="#">Lowongan</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Cabang Kami</h4>
+      <ul>
+        <li><a href="#">Kantor Pusat – Sleman</a></li>
+        <li><a href="#">Cabang Bantul</a></li>
+        <li><a href="#">Cabang Kulonprogo</a></li>
+        <li><a href="#">Cabang Gunungkidul</a></li>
+        <li><a href="#">Cabang Kota Yogya</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 BMT Amanah Sejahtera. Hak cipta dilindungi.</span>
+    <span>Website oleh <strong style="color:var(--teal-light);">WebStudio Anda</strong></span>
+  </div>
+</footer>
+
+<script>
+  function hitung() {
+    const jumlah = document.getElementById('jumlah').value * 1000000;
+    const tenor = parseInt(document.getElementById('tenor').value);
+    const margin = 0.009; // 0.9% per bulan
+    const totalMargin = jumlah * margin * tenor;
+    const total = jumlah + totalMargin;
+    const angsuran = total / tenor;
+
+    document.getElementById('jumlah-val').textContent = 'Rp ' + (jumlah/1000000).toFixed(0) + '.000.000';
+    document.getElementById('tenor-val').textContent = tenor + ' Bulan';
+    document.getElementById('hasil-angsuran').textContent = 'Rp ' + Math.round(angsuran).toLocaleString('id-ID');
+    document.getElementById('hasil-tenor').textContent = tenor;
+    document.getElementById('hasil-pokok').textContent = 'Rp ' + jumlah.toLocaleString('id-ID');
+    document.getElementById('hasil-margin').textContent = 'Rp ' + Math.round(totalMargin).toLocaleString('id-ID');
+    document.getElementById('hasil-total').textContent = 'Rp ' + Math.round(total).toLocaleString('id-ID');
+  }
+  hitung();
+</script>
+
+</body>
+</html>

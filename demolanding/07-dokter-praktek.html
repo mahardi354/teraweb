@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dr. Anisa Rahayu, Sp.PD — Praktek Dokter Spesialis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:      #1A6B72;
+      --teal-md:   #2D9BA3;
+      --teal-lt:   #E8F4F5;
+      --teal-pale: #F0F8F9;
+      --sage:      #5B8A6F;
+      --sage-lt:   #EDF4F0;
+      --ink:       #1C2B3A;
+      --ink-md:    #3D5166;
+      --ink-lt:    #6B7F92;
+      --white:     #FFFFFF;
+      --gray-bg:   #F7F9FC;
+      --gray-line: #E2E8EF;
+      --warm:      #FDF8F3;
+      --amber:     #E8A84C;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--teal);
+      padding: 10px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12px; color: rgba(255,255,255,0.85);
+      flex-wrap: wrap; gap: 8px;
+    }
+    .topbar-left { display: flex; gap: 28px; }
+    .topbar-item { display: flex; align-items: center; gap: 6px; }
+    .topbar-right { display: flex; gap: 20px; align-items: center; }
+    .topbar a { color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s; }
+    .topbar a:hover { color: #fff; }
+    .emergency-badge {
+      background: #E53E3E; color: #fff;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
+      padding: 4px 12px; border-radius: 2px;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-line);
+      padding: 0 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      box-shadow: 0 1px 12px rgba(26,107,114,0.06);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 14px; padding: 16px 0; text-decoration: none; }
+    .nav-logo-icon {
+      width: 44px; height: 44px; background: var(--teal);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .nav-brand-text { }
+    .nav-brand-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 17px; color: var(--ink); line-height: 1.2; display: block;
+    }
+    .nav-brand-sub { font-size: 11px; color: var(--ink-lt); letter-spacing: 0.04em; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 13px; font-weight: 500; color: var(--ink-md);
+      text-decoration: none; padding: 24px 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.25s, border-color 0.25s;
+      display: block;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--teal); border-bottom-color: var(--teal); }
+    .nav-cta {
+      background: var(--teal); color: #fff;
+      font-size: 13px; font-weight: 500;
+      padding: 10px 22px; border-radius: 6px;
+      text-decoration: none; white-space: nowrap;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .nav-cta:hover { background: var(--teal-md); transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { width: 24px; height: 2px; background: var(--ink); display: block; border-radius: 2px; transition: all 0.3s; }
+
+    /* ── MOBILE MENU ── */
+    .mobile-nav {
+      position: fixed; inset: 0; background: var(--white); z-index: 99;
+      display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 28px;
+      opacity: 0; pointer-events: none; transition: opacity 0.35s;
+    }
+    .mobile-nav.open { opacity: 1; pointer-events: all; }
+    .mobile-nav a {
+      font-family: 'DM Serif Display', serif; font-size: 32px;
+      color: var(--ink); text-decoration: none; transition: color 0.2s;
+    }
+    .mobile-nav a:hover { color: var(--teal); }
+    .mobile-nav .nav-cta { font-family: 'DM Sans', sans-serif; font-size: 15px; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--teal-pale);
+      min-height: 92vh;
+      display: grid; grid-template-columns: 1fr 480px;
+      align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; right: 460px; top: 0; bottom: 0; width: 1px;
+      background: var(--gray-line);
+    }
+    .hero-left { padding: 80px 64px 80px 80px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--teal-lt); color: var(--teal);
+      font-size: 12px; font-weight: 500; letter-spacing: 0.05em;
+      padding: 6px 14px; border-radius: 20px;
+      margin-bottom: 28px;
+    }
+    .hero-badge-dot { width: 7px; height: 7px; background: var(--teal-md); border-radius: 50%; animation: blink 2s ease-in-out infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(34px, 4.5vw, 56px);
+      font-weight: 400; line-height: 1.15; color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .hero h1 em { color: var(--teal); font-style: italic; }
+    .hero-desc {
+      font-size: 16px; font-weight: 300; color: var(--ink-md);
+      line-height: 1.75; max-width: 480px; margin-bottom: 36px;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 52px; }
+    .btn-primary {
+      background: var(--teal); color: #fff;
+      font-size: 14px; font-weight: 500; padding: 14px 28px; border-radius: 8px;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      box-shadow: 0 4px 16px rgba(26,107,114,0.25);
+    }
+    .btn-primary:hover { background: var(--teal-md); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,107,114,0.3); }
+    .btn-outline {
+      border: 1.5px solid var(--teal); color: var(--teal);
+      font-size: 14px; font-weight: 500; padding: 14px 28px; border-radius: 8px;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      transition: background 0.25s, color 0.25s;
+    }
+    .btn-outline:hover { background: var(--teal-lt); }
+    .hero-trust { display: flex; gap: 32px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 8px; }
+    .trust-icon { font-size: 18px; }
+    .trust-text { }
+    .trust-num { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--ink); line-height: 1; }
+    .trust-label { font-size: 11px; color: var(--ink-lt); margin-top: 1px; }
+
+    /* HERO RIGHT — Jadwal + foto */
+    .hero-right {
+      background: var(--white);
+      height: 100%; padding: 60px 40px 60px 40px;
+      display: flex; flex-direction: column; gap: 28px;
+      border-left: 1px solid var(--gray-line);
+      position: relative;
+    }
+    .doctor-photo-wrap {
+      position: relative; border-radius: 16px; overflow: hidden;
+      flex-shrink: 0;
+    }
+    .doctor-photo {
+      width: 100%; height: 240px; object-fit: cover; object-position: top;
+      display: block;
+    }
+    .photo-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(26,107,114,0.85), transparent);
+      padding: 20px 16px 16px;
+    }
+    .doctor-name-card {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px; color: #fff; line-height: 1.2;
+    }
+    .doctor-spec-card { font-size: 12px; color: rgba(255,255,255,0.8); margin-top: 3px; }
+
+    /* JADWAL CARD */
+    .schedule-card { }
+    .schedule-title {
+      font-size: 13px; font-weight: 600; color: var(--ink);
+      margin-bottom: 14px; letter-spacing: 0.03em;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .schedule-title::after { content: ''; flex: 1; height: 1px; background: var(--gray-line); }
+    .schedule-rows { display: flex; flex-direction: column; gap: 0; }
+    .schedule-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gray-line);
+      transition: background 0.2s;
+    }
+    .schedule-row:last-child { border-bottom: none; }
+    .sched-day { font-size: 13px; font-weight: 500; color: var(--ink-md); }
+    .sched-time { font-size: 12px; color: var(--teal); font-weight: 500; }
+    .sched-status {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.06em;
+      padding: 3px 10px; border-radius: 10px;
+    }
+    .sched-status.open { background: #ECFDF5; color: #059669; }
+    .sched-status.full { background: #FEF2F2; color: #DC2626; }
+    .sched-status.closed { background: var(--gray-bg); color: var(--ink-lt); }
+
+    .wa-book {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: #25D366; color: #fff;
+      font-size: 13px; font-weight: 600;
+      padding: 13px 20px; border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.25s, transform 0.2s;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+    }
+    .wa-book:hover { background: #1ebe5d; transform: translateY(-1px); }
+
+    /* ── SECTION COMMONS ── */
+    .section { padding: 96px 80px; }
+    .section-sm { padding: 72px 80px; }
+    .section-eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 400; color: var(--ink); line-height: 1.2;
+      margin-bottom: 18px;
+    }
+    .section-title em { font-style: italic; color: var(--teal); }
+    .section-desc { font-size: 15px; color: var(--ink-md); line-height: 1.8; max-width: 560px; }
+    .teal-rule { width: 40px; height: 3px; background: var(--teal); border-radius: 2px; margin-bottom: 24px; }
+
+    /* ── ABOUT ── */
+    .about { background: var(--white); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start;
+      max-width: 1140px; margin: 0 auto;
+    }
+    .about-img-stack { position: relative; }
+    .about-img-main {
+      width: 100%; border-radius: 16px;
+      object-fit: cover; height: 480px; display: block;
+    }
+    .about-img-inset {
+      position: absolute; bottom: -24px; right: -24px;
+      width: 44%; border-radius: 12px;
+      object-fit: cover; height: 200px;
+      border: 4px solid var(--white);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+    .about-credential-strip {
+      position: absolute; top: 24px; left: -20px;
+      background: var(--teal); color: #fff;
+      padding: 14px 18px; border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(26,107,114,0.3);
+    }
+    .cred-icon { font-size: 22px; margin-bottom: 4px; }
+    .cred-text { font-size: 11px; font-weight: 500; white-space: nowrap; }
+    .about-right { padding-top: 8px; }
+    .about-quote {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px; font-style: italic;
+      color: var(--teal); line-height: 1.6;
+      border-left: 3px solid var(--teal);
+      padding-left: 20px; margin-bottom: 28px;
+    }
+    .about-body { font-size: 15px; color: var(--ink-md); line-height: 1.85; margin-bottom: 32px; }
+    .edu-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+    .edu-item {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 16px; background: var(--gray-bg); border-radius: 10px;
+    }
+    .edu-icon { font-size: 22px; flex-shrink: 0; }
+    .edu-degree { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .edu-school { font-size: 12px; color: var(--ink-lt); }
+    .certif-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .certif-tag {
+      background: var(--teal-lt); color: var(--teal);
+      font-size: 11px; font-weight: 500; letter-spacing: 0.04em;
+      padding: 6px 14px; border-radius: 20px;
+    }
+
+    /* ── LAYANAN ── */
+    .layanan { background: var(--gray-bg); }
+    .layanan-inner { max-width: 1140px; margin: 0 auto; }
+    .layanan-header {
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: end; margin-bottom: 56px; gap: 24px;
+    }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .service-card {
+      background: var(--white); border-radius: 14px;
+      padding: 32px 28px;
+      border: 1px solid var(--gray-line);
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: var(--teal);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover { border-color: var(--teal-lt); transform: translateY(-4px); box-shadow: 0 12px 36px rgba(26,107,114,0.1); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon-wrap {
+      width: 52px; height: 52px; background: var(--teal-lt);
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      font-size: 24px; margin-bottom: 20px;
+    }
+    .service-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px; color: var(--ink); margin-bottom: 12px;
+    }
+    .service-desc { font-size: 13px; color: var(--ink-md); line-height: 1.75; margin-bottom: 20px; }
+    .service-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .service-tag {
+      font-size: 10px; font-weight: 500;
+      background: var(--sage-lt); color: var(--sage);
+      padding: 4px 10px; border-radius: 10px;
+    }
+
+    /* ── JADWAL LENGKAP ── */
+    .jadwal { background: var(--teal); color: #fff; }
+    .jadwal-inner {
+      max-width: 1140px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.2fr;
+      gap: 80px; align-items: center;
+    }
+    .jadwal .section-eyebrow { color: rgba(255,255,255,0.6); }
+    .jadwal .section-title { color: #fff; }
+    .jadwal .section-desc { color: rgba(255,255,255,0.75); }
+    .jadwal .teal-rule { background: rgba(255,255,255,0.4); }
+    .jadwal-contact { margin-top: 40px; display: flex; flex-direction: column; gap: 14px; }
+    .jadwal-contact-item {
+      display: flex; align-items: center; gap: 14px;
+      background: rgba(255,255,255,0.1); border-radius: 10px;
+      padding: 14px 18px;
+    }
+    .jci-icon { font-size: 18px; }
+    .jci-label { font-size: 10px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em; }
+    .jci-val { font-size: 14px; font-weight: 500; color: #fff; }
+    .full-schedule-table {
+      background: var(--white); border-radius: 16px;
+      overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    }
+    .fst-header {
+      background: var(--ink); padding: 20px 28px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .fst-title { font-family: 'DM Serif Display', serif; font-size: 20px; color: #fff; }
+    .fst-subtitle { font-size: 12px; color: rgba(255,255,255,0.5); }
+    .fst-row {
+      display: grid; grid-template-columns: 1.4fr 1fr 1fr;
+      padding: 16px 28px; border-bottom: 1px solid var(--gray-line);
+      align-items: center; transition: background 0.2s;
+    }
+    .fst-row:hover { background: var(--teal-pale); }
+    .fst-row:last-child { border-bottom: none; }
+    .fst-head {
+      background: var(--gray-bg);
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--ink-lt);
+    }
+    .fst-head:hover { background: var(--gray-bg); }
+    .fst-day { font-size: 14px; font-weight: 500; color: var(--ink); }
+    .fst-time-range { font-size: 13px; color: var(--teal); font-weight: 500; }
+    .fst-slot { font-size: 12px; color: var(--ink-lt); }
+    .fst-status-chip {
+      display: inline-block; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.06em; padding: 4px 12px; border-radius: 10px;
+    }
+    .chip-open { background: #ECFDF5; color: #059669; }
+    .chip-limited { background: #FFFBEB; color: #D97706; }
+    .chip-full { background: #FEF2F2; color: #DC2626; }
+    .chip-off { background: var(--gray-bg); color: var(--ink-lt); }
+    .fst-footer { padding: 16px 28px; background: var(--teal-pale); font-size: 12px; color: var(--ink-lt); }
+
+    /* ── TESTIMONIALS ── */
+    .reviews { background: var(--warm); }
+    .reviews-inner { max-width: 1140px; margin: 0 auto; }
+    .reviews-header { text-align: center; margin-bottom: 56px; }
+    .reviews-header .section-desc { margin: 0 auto; }
+    .reviews-header .teal-rule { margin: 0 auto 24px; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .review-card {
+      background: var(--white); border-radius: 14px; padding: 32px;
+      border: 1px solid var(--gray-line);
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .review-card:hover { box-shadow: 0 8px 32px rgba(26,107,114,0.1); transform: translateY(-3px); }
+    .review-stars { color: var(--amber); font-size: 14px; letter-spacing: 3px; margin-bottom: 16px; }
+    .review-text {
+      font-family: 'DM Serif Display', serif;
+      font-size: 16px; font-weight: 400; font-style: italic;
+      color: var(--ink); line-height: 1.7; margin-bottom: 24px;
+    }
+    .review-divider { height: 1px; background: var(--gray-line); margin-bottom: 20px; }
+    .review-author { display: flex; align-items: center; gap: 12px; }
+    .review-avatar {
+      width: 44px; height: 44px; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--teal-lt);
+    }
+    .review-initial {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--teal); color: #fff;
+      font-family: 'DM Serif Display', serif; font-size: 20px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .review-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+    .review-meta { font-size: 12px; color: var(--ink-lt); margin-top: 2px; }
+    .reviews-rating-bar {
+      margin-top: 56px; background: var(--teal); border-radius: 14px;
+      padding: 32px 48px;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+      text-align: center;
+    }
+    .rating-item { }
+    .rating-num {
+      font-family: 'DM Serif Display', serif; font-size: 42px;
+      color: #fff; line-height: 1; margin-bottom: 6px;
+    }
+    .rating-label { font-size: 12px; color: rgba(255,255,255,0.65); }
+
+    /* ── FAQ ── */
+    .faq { background: var(--white); }
+    .faq-inner { max-width: 800px; margin: 0 auto; }
+    .faq-header { text-align: center; margin-bottom: 48px; }
+    .faq-header .teal-rule { margin: 0 auto 24px; }
+    .faq-list { display: flex; flex-direction: column; gap: 0; }
+    .faq-item {
+      border-bottom: 1px solid var(--gray-line);
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%; background: none; border: none;
+      padding: 22px 0; text-align: left; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500;
+      color: var(--ink); transition: color 0.25s;
+    }
+    .faq-q:hover { color: var(--teal); }
+    .faq-q.open { color: var(--teal); }
+    .faq-icon {
+      width: 28px; height: 28px; background: var(--teal-lt);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 16px; color: var(--teal);
+      transition: transform 0.35s, background 0.25s;
+    }
+    .faq-q.open .faq-icon { transform: rotate(45deg); background: var(--teal); color: #fff; }
+    .faq-a {
+      font-size: 14px; color: var(--ink-md); line-height: 1.8;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s;
+    }
+    .faq-a.open { max-height: 200px; padding-bottom: 20px; }
+
+    /* ── MAP & LOKASI ── */
+    .lokasi { background: var(--gray-bg); }
+    .lokasi-inner {
+      max-width: 1140px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.4fr;
+      gap: 60px; align-items: start;
+    }
+    .info-blocks { display: flex; flex-direction: column; gap: 20px; margin-top: 32px; }
+    .info-block {
+      display: flex; gap: 16px;
+      background: var(--white); border-radius: 12px; padding: 20px;
+      border: 1px solid var(--gray-line);
+      align-items: flex-start;
+    }
+    .info-block-icon {
+      width: 44px; height: 44px; background: var(--teal-lt);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .info-block-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-lt); margin-bottom: 4px; }
+    .info-block-val { font-size: 14px; font-weight: 500; color: var(--ink); line-height: 1.5; }
+    .map-wrap {
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--gray-line);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
+    .map-placeholder {
+      width: 100%; height: 400px;
+      background: var(--teal-pale);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 16px;
+      position: relative; overflow: hidden;
+    }
+    .map-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(var(--teal-lt) 1px, transparent 1px),
+                        linear-gradient(90deg, var(--teal-lt) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .map-pin { font-size: 48px; position: relative; z-index: 1; animation: bounce 2s ease-in-out infinite; }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .map-label {
+      position: relative; z-index: 1;
+      background: var(--teal); color: #fff;
+      font-size: 13px; font-weight: 500; padding: 8px 20px; border-radius: 20px;
+    }
+    .map-address {
+      position: relative; z-index: 1;
+      font-size: 12px; color: var(--ink-lt); text-align: center;
+    }
+    .map-action {
+      display: block; padding: 14px; text-align: center;
+      background: var(--ink); color: #fff; text-decoration: none;
+      font-size: 13px; font-weight: 500;
+      transition: background 0.25s;
+    }
+    .map-action:hover { background: var(--teal); }
+
+    /* ── CTA BOOK ── */
+    .cta-book {
+      background: linear-gradient(135deg, var(--ink) 0%, var(--teal) 100%);
+      padding: 96px 80px; text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-book::before {
+      content: '✚'; font-size: 300px; opacity: 0.03; color: #fff;
+      position: absolute; right: -60px; top: -60px; line-height: 1;
+    }
+    .cta-book .section-eyebrow { color: rgba(255,255,255,0.55); }
+    .cta-book .section-title { color: #fff; max-width: 560px; margin: 0 auto 16px; }
+    .cta-book .section-desc { color: rgba(255,255,255,0.7); margin: 0 auto 44px; text-align: center; }
+    .cta-book-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      background: #fff; color: var(--teal);
+      font-size: 14px; font-weight: 600; padding: 14px 30px; border-radius: 8px;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.25); }
+    .btn-ghost-white {
+      border: 1.5px solid rgba(255,255,255,0.4); color: #fff;
+      font-size: 14px; font-weight: 500; padding: 14px 30px; border-radius: 8px;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .btn-ghost-white:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink); color: rgba(255,255,255,0.65);
+      padding: 72px 80px 32px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px; padding-bottom: 56px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 32px;
+    }
+    .footer-brand { }
+    .footer-logo {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+    }
+    .footer-logo-icon {
+      width: 40px; height: 40px; background: var(--teal);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .footer-logo-name {
+      font-family: 'DM Serif Display', serif; font-size: 18px; color: #fff;
+    }
+    .footer-tagline { font-size: 13px; line-height: 1.8; max-width: 300px; margin-bottom: 28px; }
+    .footer-socials { display: flex; gap: 10px; }
+    .fsoc {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: rgba(255,255,255,0.07);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; text-decoration: none;
+      transition: background 0.25s;
+    }
+    .fsoc:hover { background: var(--teal); }
+    .footer-col h5 {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #fff; margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a {
+      font-size: 13px; color: rgba(255,255,255,0.55); text-decoration: none;
+      transition: color 0.25s;
+    }
+    .footer-col a:hover { color: var(--teal-md); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+      font-size: 12px;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--teal-md); }
+    .made-by { margin-top: 8px; text-align: center; font-size: 11px; color: rgba(255,255,255,0.2); }
+    .made-by a { color: var(--teal-md); text-decoration: none; }
+
+    /* ── WA FLOAT ── */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 200;
+      background: #25D366; color: #fff;
+      width: 58px; height: 58px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+      animation: pulse-wa 2.5s ease-in-out infinite;
+      transition: transform 0.2s;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+    @keyframes pulse-wa {
+      0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}
+      50%{box-shadow:0 6px 40px rgba(37,211,102,0.75)}
+    }
+    .wa-tooltip {
+      position: absolute; right: 70px; top: 50%;
+      transform: translateY(-50%);
+      background: var(--ink); color: #fff;
+      font-size: 12px; font-weight: 500; white-space: nowrap;
+      padding: 8px 14px; border-radius: 8px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .wa-float:hover .wa-tooltip { opacity: 1; }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero::before { display: none; }
+      .hero-left { padding: 80px 48px 40px; }
+      .hero-right { border-left: none; border-top: 1px solid var(--gray-line); padding: 40px 48px 60px; flex-direction: row; flex-wrap: wrap; gap: 32px; }
+      .doctor-photo-wrap { flex: 0 0 260px; }
+      .schedule-card, .wa-book { flex: 1 1 260px; }
+      .jadwal-inner { grid-template-columns: 1fr; gap: 48px; }
+      .lokasi-inner { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-img-stack { max-width: 500px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .topbar { display: none; }
+      nav { padding: 0 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .section, .section-sm { padding: 64px 24px; }
+      .hero-left { padding: 64px 24px 40px; }
+      .hero-right { padding: 32px 24px 56px; flex-direction: column; }
+      .doctor-photo-wrap { flex: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .reviews-rating-bar { grid-template-columns: repeat(2, 1fr); }
+      .cta-book { padding: 72px 24px; }
+      footer { padding: 56px 24px 28px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/6281234567890?text=Halo%20Dok,%20saya%20ingin%20membuat%20janji%20konsultasi" class="wa-float" target="_blank" aria-label="Chat WhatsApp">
+  💬
+  <span class="wa-tooltip">Chat via WhatsApp</span>
+</a>
+
+<!-- MOBILE MENU -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#tentang" onclick="closeMobile()">Tentang</a>
+  <a href="#layanan" onclick="closeMobile()">Layanan</a>
+  <a href="#jadwal" onclick="closeMobile()">Jadwal</a>
+  <a href="#lokasi" onclick="closeMobile()">Lokasi</a>
+  <a href="#kontak" class="nav-cta" onclick="closeMobile()">Buat Janji</a>
+</div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <div class="topbar-item">📍 Jl. Sehat Raya No. 12, Purwokerto</div>
+    <div class="topbar-item">🕐 Senin–Sabtu: 08.00 – 20.00 WIB</div>
+    <div class="topbar-item">📞 <a href="tel:+62281123456">(0281) 123-456</a></div>
+  </div>
+  <div class="topbar-right">
+    <span class="emergency-badge">🚨 Darurat: 0812-3456-7890</span>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="mainNav">
+  <a href="#" class="nav-brand">
+    <div class="nav-logo-icon">🩺</div>
+    <div class="nav-brand-text">
+      <span class="nav-brand-name">dr. Anisa Rahayu, Sp.PD</span>
+      <span class="nav-brand-sub">Spesialis Penyakit Dalam — Praktek Mandiri</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#tentang">Tentang</a></li>
+    <li><a href="#layanan">Layanan</a></li>
+    <li><a href="#jadwal">Jadwal</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#lokasi">Lokasi</a></li>
+  </ul>
+  <a href="https://wa.me/6281234567890" class="nav-cta" target="_blank">📅 Buat Janji</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      Praktek Buka Hari Ini · Sabtu 08.00 – 14.00
+    </div>
+    <h1>Kesehatan Anda,<br>Prioritas <em>Utama</em> Kami</h1>
+    <p class="hero-desc">Penanganan medis yang komprehensif, personal, dan berbasis bukti — oleh dokter spesialis penyakit dalam berpengalaman lebih dari 12 tahun.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/6281234567890" class="btn-primary" target="_blank">📅 Buat Janji Sekarang</a>
+      <a href="#layanan" class="btn-outline">Lihat Layanan</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <span class="trust-icon">👥</span>
+        <div class="trust-text">
+          <div class="trust-num">4.800+</div>
+          <div class="trust-label">Pasien Ditangani</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">⭐</span>
+        <div class="trust-text">
+          <div class="trust-num">4.9/5</div>
+          <div class="trust-label">Rating Google</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon">🏅</span>
+        <div class="trust-text">
+          <div class="trust-num">12 Th</div>
+          <div class="trust-label">Pengalaman</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO RIGHT: Foto Dokter + Jadwal -->
+  <div class="hero-right">
+    <div class="doctor-photo-wrap">
+      <img
+        src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80"
+        alt="dr. Anisa Rahayu" class="doctor-photo" loading="eager"
+      />
+      <div class="photo-overlay">
+        <div class="doctor-name-card">dr. Anisa Rahayu, Sp.PD</div>
+        <div class="doctor-spec-card">Spesialis Penyakit Dalam · IDI No. 12345/P/2012</div>
+      </div>
+    </div>
+
+    <div class="schedule-card">
+      <div class="schedule-title">📅 Jadwal Praktek Minggu Ini</div>
+      <div class="schedule-rows">
+        <div class="schedule-row">
+          <span class="sched-day">Senin</span>
+          <span class="sched-time">08.00 – 12.00</span>
+          <span class="sched-status open">BUKA</span>
+        </div>
+        <div class="schedule-row">
+          <span class="sched-day">Selasa</span>
+          <span class="sched-time">16.00 – 20.00</span>
+          <span class="sched-status open">BUKA</span>
+        </div>
+        <div class="schedule-row">
+          <span class="sched-day">Rabu</span>
+          <span class="sched-time">08.00 – 12.00</span>
+          <span class="sched-status full">PENUH</span>
+        </div>
+        <div class="schedule-row">
+          <span class="sched-day">Kamis</span>
+          <span class="sched-time">16.00 – 20.00</span>
+          <span class="sched-status open">BUKA</span>
+        </div>
+        <div class="schedule-row">
+          <span class="sched-day">Jum'at</span>
+          <span class="sched-time">08.00 – 11.00</span>
+          <span class="sched-status open">BUKA</span>
+        </div>
+        <div class="schedule-row">
+          <span class="sched-day">Sabtu</span>
+          <span class="sched-time">08.00 – 14.00</span>
+          <span class="sched-status open">BUKA</span>
+        </div>
+      </div>
+    </div>
+
+    <a href="https://wa.me/6281234567890?text=Halo%20Dok,%20saya%20ingin%20reservasi%20hari%20ini" class="wa-book" target="_blank">
+      💬 Reservasi via WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about section" id="tentang">
+  <div class="about-grid">
+    <div class="about-img-stack reveal">
+      <img
+        src="https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=700&q=80"
+        alt="Dokter Praktek" class="about-img-main" loading="lazy"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&q=80"
+        alt="Ruang Konsultasi" class="about-img-inset" loading="lazy"
+      />
+      <div class="about-credential-strip">
+        <div class="cred-icon">🏥</div>
+        <div class="cred-text">IDI Member</div>
+      </div>
+    </div>
+
+    <div class="about-right reveal reveal-d1">
+      <p class="section-eyebrow">Tentang Dokter</p>
+      <div class="teal-rule"></div>
+      <h2 class="section-title">Lebih dari Sekadar<br><em>Pemeriksaan Medis</em></h2>
+      <blockquote class="about-quote">
+        "Saya percaya bahwa hubungan dokter-pasien yang baik adalah pondasi dari penyembuhan yang sesungguhnya."
+      </blockquote>
+      <p class="about-body">
+        dr. Anisa Rahayu, Sp.PD adalah dokter spesialis penyakit dalam lulusan Universitas Indonesia dengan pengalaman klinis lebih dari 12 tahun. Sebelum membuka praktek mandiri, beliau bertugas di RSUP Fatmawati Jakarta dan menjadi staf pengajar di Fakultas Kedokteran UI.
+      </p>
+
+      <div class="edu-list">
+        <div class="edu-item">
+          <span class="edu-icon">🎓</span>
+          <div>
+            <div class="edu-degree">S1 Kedokteran Umum — Cum Laude</div>
+            <div class="edu-school">Universitas Indonesia, 2008</div>
+          </div>
+        </div>
+        <div class="edu-item">
+          <span class="edu-icon">🏅</span>
+          <div>
+            <div class="edu-degree">Spesialis Penyakit Dalam (Sp.PD)</div>
+            <div class="edu-school">FKUI — RSCM Jakarta, 2014</div>
+          </div>
+        </div>
+        <div class="edu-item">
+          <span class="edu-icon">🌐</span>
+          <div>
+            <div class="edu-degree">Fellowship Internal Medicine</div>
+            <div class="edu-school">National University Hospital, Singapura, 2016</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="certif-row">
+        <span class="certif-tag">✓ IDI Terdaftar</span>
+        <span class="certif-tag">✓ BPJS Bermitra</span>
+        <span class="certif-tag">✓ Asuransi Swasta</span>
+        <span class="certif-tag">✓ STR Aktif</span>
+        <span class="certif-tag">✓ SIP Aktif</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYANAN -->
+<section class="layanan section" id="layanan">
+  <div class="layanan-inner">
+    <div class="layanan-header">
+      <div class="reveal">
+        <p class="section-eyebrow">Layanan Medis</p>
+        <div class="teal-rule"></div>
+        <h2 class="section-title">Apa yang Kami <em>Tangani</em></h2>
+      </div>
+      <a href="#kontak" class="btn-outline reveal">Konsultasi Dulu →</a>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon-wrap">🩺</div>
+        <h3 class="service-name">Pemeriksaan Umum</h3>
+        <p class="service-desc">Pemeriksaan kesehatan menyeluruh, screening penyakit tidak menular, dan konsultasi kesehatan preventif untuk semua usia.</p>
+        <div class="service-tags">
+          <span class="service-tag">Medical Check-Up</span>
+          <span class="service-tag">Konsultasi</span>
+          <span class="service-tag">Preventif</span>
+        </div>
+      </div>
+      <div class="service-card reveal reveal-d1">
+        <div class="service-icon-wrap">🫀</div>
+        <h3 class="service-name">Penyakit Kardiovaskular</h3>
+        <p class="service-desc">Penanganan hipertensi, gangguan irama jantung ringan, dan faktor risiko kardiovaskular secara komprehensif.</p>
+        <div class="service-tags">
+          <span class="service-tag">Hipertensi</span>
+          <span class="service-tag">Kolesterol</span>
+          <span class="service-tag">EKG</span>
+        </div>
+      </div>
+      <div class="service-card reveal reveal-d2">
+        <div class="service-icon-wrap">🩸</div>
+        <h3 class="service-name">Diabetes & Metabolik</h3>
+        <p class="service-desc">Manajemen diabetes mellitus tipe 1 & 2, gangguan tiroid, obesitas, dan sindrom metabolik berbasis panduan terkini.</p>
+        <div class="service-tags">
+          <span class="service-tag">Diabetes</span>
+          <span class="service-tag">Tiroid</span>
+          <span class="service-tag">Obesitas</span>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon-wrap">🫁</div>
+        <h3 class="service-name">Penyakit Pernafasan</h3>
+        <p class="service-desc">Diagnosis dan tatalaksana asma, PPOK, pneumonia, dan infeksi saluran napas atas dan bawah secara tepat sasaran.</p>
+        <div class="service-tags">
+          <span class="service-tag">Asma</span>
+          <span class="service-tag">PPOK</span>
+          <span class="service-tag">Infeksi</span>
+        </div>
+      </div>
+      <div class="service-card reveal reveal-d1">
+        <div class="service-icon-wrap">🧠</div>
+        <h3 class="service-name">Gangguan Pencernaan</h3>
+        <p class="service-desc">Penanganan GERD, IBS, gastritis, hepatitis, dan gangguan fungsi hati melalui pendekatan klinis yang terstruktur.</p>
+        <div class="service-tags">
+          <span class="service-tag">GERD</span>
+          <span class="service-tag">Hepatitis</span>
+          <span class="service-tag">Gastritis</span>
+        </div>
+      </div>
+      <div class="service-card reveal reveal-d2">
+        <div class="service-icon-wrap">💉</div>
+        <h3 class="service-name">Vaksinasi Dewasa</h3>
+        <p class="service-desc">Program vaksinasi lengkap untuk dewasa termasuk influenza, pneumonia, hepatitis B, dan vaksin perjalanan.</p>
+        <div class="service-tags">
+          <span class="service-tag">Influenza</span>
+          <span class="service-tag">Hepatitis B</span>
+          <span class="service-tag">Travel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JADWAL LENGKAP -->
+<section class="jadwal section" id="jadwal">
+  <div class="jadwal-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">Jadwal Praktek</p>
+      <div class="teal-rule"></div>
+      <h2 class="section-title">Kapan Kami<br><em>Siap Melayani</em></h2>
+      <p class="section-desc">Reservasi di luar jam praktek pun bisa dilakukan via WhatsApp untuk kunjungan berikutnya.</p>
+      <div class="jadwal-contact">
+        <div class="jadwal-contact-item">
+          <span class="jci-icon">📱</span>
+          <div>
+            <div class="jci-label">WhatsApp / Telp</div>
+            <div class="jci-val">0812-3456-7890</div>
+          </div>
+        </div>
+        <div class="jadwal-contact-item">
+          <span class="jci-icon">📞</span>
+          <div>
+            <div class="jci-label">Telepon Klinik</div>
+            <div class="jci-val">(0281) 123-456</div>
+          </div>
+        </div>
+        <div class="jadwal-contact-item">
+          <span class="jci-icon">✉️</span>
+          <div>
+            <div class="jci-label">Email</div>
+            <div class="jci-val">praktek@dranisa.id</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="full-schedule-table reveal reveal-d1">
+      <div class="fst-header">
+        <div>
+          <div class="fst-title">Jadwal Minggu Ini</div>
+          <div class="fst-subtitle">Status diperbarui setiap hari</div>
+        </div>
+      </div>
+      <div class="fst-row fst-head">
+        <span>Hari</span><span>Jam Praktek</span><span>Status Slot</span>
+      </div>
+      <div class="fst-row">
+        <span class="fst-day">Senin</span>
+        <span class="fst-time-range">08.00 – 12.00 WIB</span>
+        <span class="fst-status-chip chip-open">✓ TERSEDIA</span>
+      </div>
+      <div class="fst-row">
+        <span class="fst-day">Selasa</span>
+        <span class="fst-time-range">16.00 – 20.00 WIB</span>
+        <span class="fst-status-chip chip-open">✓ TERSEDIA</span>
+      </div>
+      <div class="fst-row">
+        <span class="fst-day">Rabu</span>
+        <span class="fst-time-range">08.00 – 12.00 WIB</span>
+        <span class="fst-status-chip chip-full">✗ PENUH</span>
+      </div>
+      <div class="fst-row">
+        <span class="fst-day">Kamis</span>
+        <span class="fst-time-range">16.00 – 20.00 WIB</span>
+        <span class="fst-status-chip chip-limited">⚠ TERBATAS</span>
+      </div>
+      <div class="fst-row">
+        <span class="fst-day">Jum'at</span>
+        <span class="fst-time-range">08.00 – 11.00 WIB</span>
+        <span class="fst-status-chip chip-open">✓ TERSEDIA</span>
+      </div>
+      <div class="fst-row">
+        <span class="fst-day">Sabtu</span>
+        <span class="fst-time-range">08.00 – 14.00 WIB</span>
+        <span class="fst-status-chip chip-open">✓ TERSEDIA</span>
+      </div>
+      <div class="fst-row">
+        <span class="fst-day">Minggu</span>
+        <span class="fst-time-range">—</span>
+        <span class="fst-status-chip chip-off">LIBUR</span>
+      </div>
+      <div class="fst-footer">
+        ⚠️ Hari libur nasional: klinik tutup. Pasien darurat hubungi nomor emergency.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="reviews section-sm" id="ulasan">
+  <div class="reviews-inner">
+    <div class="reviews-header reveal">
+      <p class="section-eyebrow">Ulasan Pasien</p>
+      <div class="teal-rule"></div>
+      <h2 class="section-title">Kata Mereka yang<br>Telah <em>Kami Tangani</em></h2>
+      <p class="section-desc">Kepercayaan pasien adalah kehormatan terbesar kami dalam setiap tindakan medis.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Dokter Anisa sangat teliti dan sabar menjelaskan kondisi saya. Pertama kali merasa benar-benar 'didengar' oleh dokter."</p>
+        <div class="review-divider"></div>
+        <div class="review-author">
+          <div class="review-initial">B</div>
+          <div>
+            <div class="review-name">Bapak Hendra S.</div>
+            <div class="review-meta">Pasien Diabetes · 2 tahun berobat</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal reveal-d1">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Antrian teratur, ruang tunggu nyaman, dokternya tidak terburu-buru. Hipertensi saya akhirnya terkontrol dengan baik."</p>
+        <div class="review-divider"></div>
+        <div class="review-author">
+          <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=80&q=80" alt="Siti" class="review-avatar" loading="lazy" />
+          <div>
+            <div class="review-name">Ibu Siti Rahayu</div>
+            <div class="review-meta">Pasien Hipertensi · Google Review</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal reveal-d2">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Medical check-up paling komprehensif yang pernah saya lakukan. Dokter menjelaskan hasil lab dengan bahasa yang mudah dipahami."</p>
+        <div class="review-divider"></div>
+        <div class="review-author">
+          <div class="review-initial">R</div>
+          <div>
+            <div class="review-name">Rudi Santoso, 34 th</div>
+            <div class="review-meta">Medical Check-Up · Google Review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-rating-bar reveal">
+      <div class="rating-item">
+        <div class="rating-num">4.9</div>
+        <div class="rating-label">⭐ Rating Google</div>
+      </div>
+      <div class="rating-item">
+        <div class="rating-num">312</div>
+        <div class="rating-label">Ulasan Terverifikasi</div>
+      </div>
+      <div class="rating-item">
+        <div class="rating-num">97%</div>
+        <div class="rating-label">Pasien Puas</div>
+      </div>
+      <div class="rating-item">
+        <div class="rating-num">4.800+</div>
+        <div class="rating-label">Pasien Ditangani</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq section-sm" id="faq">
+  <div class="faq-inner">
+    <div class="faq-header reveal">
+      <p class="section-eyebrow">FAQ</p>
+      <div class="teal-rule"></div>
+      <h2 class="section-title">Pertanyaan yang<br>Sering <em>Ditanyakan</em></h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Apakah menerima pasien BPJS?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Ya, kami bermitra dengan BPJS Kesehatan. Pasien BPJS dapat berobat dengan membawa surat rujukan dari Faskes Tingkat 1 (Puskesmas/klinik primer). Pastikan rujukan masih aktif dan sesuai dengan diagnosis yang akan dikonsultasikan.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Bagaimana cara membuat janji temu?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Janji temu dapat dibuat melalui WhatsApp di nomor 0812-3456-7890, telepon klinik di (0281) 123-456, atau langsung datang ke klinik. Reservasi via WhatsApp disarankan untuk memastikan ketersediaan slot praktek.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Asuransi swasta apa saja yang diterima?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Kami menerima berbagai asuransi swasta seperti Prudential, AXA Mandiri, Allianz, Manulife, AIA, Sinarmas, dan lainnya. Harap konfirmasi terlebih dahulu ke nomor klinik kami karena ketersediaan kerjasama dapat berubah.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Berapa lama waktu konsultasi per pasien?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Setiap sesi konsultasi dialokasikan 20–30 menit per pasien untuk memastikan pemeriksaan yang menyeluruh dan tidak terburu-buru. Untuk kasus kompleks atau medical check-up, durasi bisa lebih panjang.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Apakah tersedia layanan home visit?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Layanan home visit tersedia untuk pasien lansia atau pasien yang tidak memungkinkan datang ke klinik, dengan jangkauan wilayah Purwokerto dan sekitarnya. Hubungi kami untuk informasi tarif dan jadwal home visit.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Dokumen apa yang perlu dibawa saat kunjungan?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Pasien baru: KTP/KK dan kartu asuransi. Pasien lama: kartu berobat, resume medis sebelumnya (jika ada). Pasien BPJS: KTP, Kartu BPJS, dan surat rujukan aktif. Membawa catatan obat yang sedang dikonsumsi sangat dianjurkan.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOKASI -->
+<section class="lokasi section" id="lokasi">
+  <div class="lokasi-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">Temukan Kami</p>
+      <div class="teal-rule"></div>
+      <h2 class="section-title">Lokasi <em>Klinik</em></h2>
+      <p class="section-desc">Mudah dijangkau di pusat kota, tersedia area parkir yang memadai untuk kendaraan roda dua dan empat.</p>
+
+      <div class="info-blocks">
+        <div class="info-block">
+          <div class="info-block-icon">📍</div>
+          <div>
+            <div class="info-block-label">Alamat Lengkap</div>
+            <div class="info-block-val">Jl. Sehat Raya No. 12, Kelurahan Purwanegara,<br>Purwokerto Utara, Banyumas 53116</div>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-block-icon">🚗</div>
+          <div>
+            <div class="info-block-label">Akses & Parkir</div>
+            <div class="info-block-val">5 menit dari Alun-alun Purwokerto · Parkir gratis untuk pasien</div>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-block-icon">🕐</div>
+          <div>
+            <div class="info-block-label">Jam Operasional</div>
+            <div class="info-block-val">Senin–Jumat: 08.00–20.00 · Sabtu: 08.00–14.00</div>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-block-icon">♿</div>
+          <div>
+            <div class="info-block-label">Aksesibilitas</div>
+            <div class="info-block-val">Ramah difabel · Tersedia ramp & kursi roda</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal reveal-d1">
+      <div class="map-wrap">
+        <div class="map-placeholder">
+          <div class="map-grid"></div>
+          <div class="map-pin">📍</div>
+          <div class="map-label">Klinik dr. Anisa Rahayu, Sp.PD</div>
+          <div class="map-address">Jl. Sehat Raya No. 12, Purwokerto</div>
+        </div>
+        <a href="https://maps.google.com" target="_blank" class="map-action">
+          🗺️ Buka di Google Maps →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BOOK -->
+<section class="cta-book" id="kontak">
+  <p class="section-eyebrow">Langkah Pertama Menuju Sehat</p>
+  <h2 class="section-title">Jangan Tunda <em>Kesehatan</em> Anda</h2>
+  <p class="section-desc">Konsultasi awal bisa dilakukan hari ini. Tim kami siap membantu menjadwalkan kunjungan yang nyaman untuk Anda.</p>
+  <div class="cta-book-btns">
+    <a href="https://wa.me/6281234567890" class="btn-white" target="_blank">💬 Chat WhatsApp Sekarang</a>
+    <a href="tel:02811234567" class="btn-ghost-white">📞 Telepon Klinik</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <div class="footer-logo-icon">🩺</div>
+        <div class="footer-logo-name">dr. Anisa Rahayu, Sp.PD</div>
+      </div>
+      <p class="footer-tagline">Memberikan pelayanan medis yang hangat, personal, dan berbasis bukti ilmiah untuk setiap pasien yang kami tangani.</p>
+      <div class="footer-socials">
+        <a href="#" class="fsoc" aria-label="Instagram">📸</a>
+        <a href="#" class="fsoc" aria-label="Facebook">👤</a>
+        <a href="#" class="fsoc" aria-label="YouTube">▶️</a>
+        <a href="#" class="fsoc" aria-label="WhatsApp">💬</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Layanan</h5>
+      <ul>
+        <li><a href="#">Pemeriksaan Umum</a></li>
+        <li><a href="#">Penyakit Kardiovaskular</a></li>
+        <li><a href="#">Diabetes & Metabolik</a></li>
+        <li><a href="#">Penyakit Pernafasan</a></li>
+        <li><a href="#">Gangguan Pencernaan</a></li>
+        <li><a href="#">Vaksinasi Dewasa</a></li>
+        <li><a href="#">Home Visit</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Informasi</h5>
+      <ul>
+        <li><a href="#">Profil Dokter</a></li>
+        <li><a href="#">Jadwal Praktek</a></li>
+        <li><a href="#">Cara Daftar BPJS</a></li>
+        <li><a href="#">Artikel Kesehatan</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Kebijakan Privasi</a></li>
+        <li><a href="#">Kontak</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Klinik dr. Anisa Rahayu, Sp.PD. Hak cipta dilindungi.</p>
+    <div style="display:flex; gap:20px;">
+      <a href="#">Syarat & Ketentuan</a>
+      <a href="#">Kebijakan Privasi</a>
+    </div>
+  </div>
+  <p class="made-by">Website ini dibuat oleh <a href="#">Nama Usaha Website Anda</a> · Demo Template</p>
+</footer>
+
+<script>
+  // HAMBURGER / MOBILE MENU
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  let open = false;
+  hamburger.addEventListener('click', () => {
+    open = !open;
+    mobileNav.classList.toggle('open', open);
+    hamburger.children[0].style.transform = open ? 'rotate(45deg) translate(4px, 7px)' : '';
+    hamburger.children[1].style.opacity = open ? '0' : '1';
+    hamburger.children[2].style.transform = open ? 'rotate(-45deg) translate(4px, -7px)' : '';
+  });
+  function closeMobile() {
+    open = false; mobileNav.classList.remove('open');
+    hamburger.children[0].style.transform = '';
+    hamburger.children[1].style.opacity = '1';
+    hamburger.children[2].style.transform = '';
+  }
+
+  // ACTIVE NAV LINK
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + cur) a.classList.add('active');
+    });
+  });
+
+  // SCROLL REVEAL
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // FAQ TOGGLE
+  function toggleFaq(btn) {
+    const ans = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    // close all
+    document.querySelectorAll('.faq-q').forEach(b => {
+      b.classList.remove('open');
+      b.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) { btn.classList.add('open'); ans.classList.add('open'); }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TK & PAUD Ceria Bintang — Yogyakarta</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Fraunces:ital,wght@0,400;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --sun: #F59E0B;
+    --sun-light: #FEF3C7;
+    --sky: #3B82F6;
+    --sky-light: #DBEAFE;
+    --leaf: #10B981;
+    --leaf-light: #D1FAE5;
+    --coral: #F87171;
+    --coral-light: #FEE2E2;
+    --purple: #8B5CF6;
+    --purple-light: #EDE9FE;
+    --warm-bg: #FFFBF5;
+    --card-bg: #FFFFFF;
+    --text: #1C1917;
+    --text-mid: #44403C;
+    --text-light: #78716C;
+    --border: #F0EBE3;
+    --white: #FFFFFF;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Nunito', sans-serif; background: var(--warm-bg); color: var(--text); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: white; border-bottom: 3px solid var(--sun);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%; height: 70px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; }
+  .nav-logo-icon {
+    width: 44px; height: 44px; background: var(--sun); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center; font-size: 22px;
+  }
+  .nav-logo-name { font-weight: 900; font-size: 17px; color: var(--text); line-height: 1.1; }
+  .nav-logo-name span { display: block; font-size: 11px; font-weight: 600; color: var(--text-light); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { color: var(--text-mid); text-decoration: none; font-size: 14px; font-weight: 700; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--sky); }
+  .nav-enroll { background: var(--sky); color: white; padding: 10px 22px; border-radius: 100px; font-size: 13.5px; font-weight: 800; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 12px rgba(59,130,246,0.3); }
+  .nav-enroll:hover { background: #2563EB; transform: translateY(-1px); box-shadow: 0 6px 16px rgba(59,130,246,0.35); }
+
+  /* HERO */
+  .hero { padding: 100px 5% 60px; background: white; position: relative; overflow: hidden; }
+  .hero-blob-1 {
+    position: absolute; top: -100px; right: -80px; width: 480px; height: 480px;
+    background: var(--sun-light); border-radius: 50%; opacity: 0.6;
+  }
+  .hero-blob-2 {
+    position: absolute; bottom: -80px; left: -60px; width: 320px; height: 320px;
+    background: var(--sky-light); border-radius: 50%; opacity: 0.5;
+  }
+  .hero-inner { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 2; }
+  .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--leaf-light); border-radius: 100px; padding: 6px 16px; margin-bottom: 20px; }
+  .hero-tag-emoji { font-size: 16px; }
+  .hero-tag span { font-size: 13px; font-weight: 700; color: #059669; }
+  .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(38px, 5vw, 62px); line-height: 1.15; font-weight: 700; color: var(--text); margin-bottom: 20px; }
+  .hero h1 .color-sun { color: var(--sun); }
+  .hero h1 .color-sky { color: var(--sky); }
+  .hero-sub { font-size: 16.5px; color: var(--text-mid); line-height: 1.75; max-width: 440px; margin-bottom: 36px; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 44px; }
+  .btn-sky { background: var(--sky); color: white; padding: 14px 28px; border-radius: 100px; font-size: 14.5px; font-weight: 800; border: none; cursor: pointer; text-decoration: none; display: inline-block; box-shadow: 0 4px 14px rgba(59,130,246,0.3); transition: all 0.2s; }
+  .btn-sky:hover { background: #2563EB; transform: translateY(-2px); }
+  .btn-outline-sky { border: 2.5px solid var(--sky); color: var(--sky); padding: 13px 28px; border-radius: 100px; font-size: 14.5px; font-weight: 700; background: white; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; }
+  .btn-outline-sky:hover { background: var(--sky-light); }
+  .hero-trust { display: flex; gap: 20px; flex-wrap: wrap; }
+  .trust-pill { display: flex; align-items: center; gap: 7px; background: var(--warm-bg); border: 1.5px solid var(--border); border-radius: 100px; padding: 7px 14px; }
+  .trust-pill span { font-size: 13px; font-weight: 600; color: var(--text-mid); }
+
+  .hero-right { position: relative; }
+  .hero-photo-main { width: 100%; border-radius: 24px; aspect-ratio: 4/5; object-fit: cover; box-shadow: 0 20px 60px rgba(0,0,0,0.12); }
+  .hero-float-card {
+    position: absolute; bottom: -20px; left: -30px;
+    background: white; border-radius: 16px; padding: 16px 20px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12); display: flex; align-items: center; gap: 12px;
+  }
+  .hfc-icon { width: 44px; height: 44px; background: var(--coral-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+  .hfc-num { font-size: 22px; font-weight: 900; color: var(--coral); line-height: 1; }
+  .hfc-lbl { font-size: 11.5px; color: var(--text-light); font-weight: 600; }
+  .hero-float-card2 {
+    position: absolute; top: 30px; right: -20px;
+    background: white; border-radius: 16px; padding: 14px 18px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  }
+  .hfc2-emoji { font-size: 24px; text-align: center; }
+  .hfc2-text { font-size: 12.5px; font-weight: 700; color: var(--text-mid); text-align: center; margin-top: 4px; }
+
+  /* PROGRAM */
+  .program { padding: 80px 5%; background: var(--warm-bg); }
+  .sec-header-fun { text-align: center; margin-bottom: 52px; }
+  .sec-fun-tag { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--sky); background: var(--sky-light); padding: 6px 16px; border-radius: 100px; margin-bottom: 14px; }
+  .sec-fun-title { font-family: 'Fraunces', serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; color: var(--text); margin-bottom: 12px; }
+  .sec-fun-sub { font-size: 16px; color: var(--text-light); max-width: 500px; margin: 0 auto; line-height: 1.7; }
+
+  .program-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 1140px; margin: 0 auto; }
+  .prog-card { background: white; border-radius: 20px; padding: 32px; border: 2px solid var(--border); transition: all 0.25s; }
+  .prog-card:hover { transform: translateY(-4px); }
+  .prog-card.sun { border-color: var(--sun); }
+  .prog-card.sky { border-color: var(--sky); }
+  .prog-card.leaf { border-color: var(--leaf); }
+  .prog-card.coral { border-color: var(--coral); }
+  .prog-emoji { font-size: 40px; margin-bottom: 16px; }
+  .prog-age { font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+  .sun .prog-age { color: var(--sun); }
+  .sky .prog-age { color: var(--sky); }
+  .leaf .prog-age { color: var(--leaf); }
+  .coral .prog-age { color: var(--coral); }
+  .prog-card h3 { font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 10px; }
+  .prog-card p { font-size: 14.5px; color: var(--text-light); line-height: 1.7; margin-bottom: 16px; }
+  .prog-detail { display: flex; gap: 8px; flex-wrap: wrap; }
+  .prog-pill { font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 100px; }
+  .sun .prog-pill { background: var(--sun-light); color: #92400E; }
+  .sky .prog-pill { background: var(--sky-light); color: #1E40AF; }
+  .leaf .prog-pill { background: var(--leaf-light); color: #065F46; }
+  .coral .prog-pill { background: var(--coral-light); color: #991B1B; }
+
+  /* FASILITAS */
+  .fasilitas { padding: 80px 5%; background: white; border-top: 3px dashed var(--border); }
+  .fas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+  .fas-card { text-align: center; padding: 28px 20px; border-radius: 16px; transition: transform 0.25s; }
+  .fas-card:hover { transform: scale(1.05); }
+  .fas-card.c1 { background: var(--sun-light); }
+  .fas-card.c2 { background: var(--sky-light); }
+  .fas-card.c3 { background: var(--leaf-light); }
+  .fas-card.c4 { background: var(--coral-light); }
+  .fas-card.c5 { background: var(--purple-light); }
+  .fas-card.c6 { background: #FCE7F3; }
+  .fas-emoji { font-size: 38px; margin-bottom: 12px; }
+  .fas-card h3 { font-size: 15px; font-weight: 800; color: var(--text); }
+  .fas-card p { font-size: 13px; color: var(--text-light); margin-top: 4px; }
+
+  /* KEUNGGULAN */
+  .keunggulan { padding: 80px 5%; background: var(--sky); }
+  .keu-inner { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .keu-img { width: 100%; border-radius: 24px; aspect-ratio: 4/3; object-fit: cover; }
+  .keu-text .sec-fun-title { color: white; text-align: left; }
+  .keu-text .sec-fun-tag { background: rgba(255,255,255,0.2); color: rgba(255,255,255,0.9); text-align: left; }
+  .keu-list { margin-top: 28px; display: flex; flex-direction: column; gap: 16px; }
+  .keu-item { display: flex; gap: 14px; align-items: flex-start; }
+  .keu-check { width: 28px; height: 28px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; }
+  .keu-item-text strong { display: block; font-size: 15.5px; font-weight: 800; color: white; margin-bottom: 3px; }
+  .keu-item-text span { font-size: 13.5px; color: rgba(255,255,255,0.75); }
+
+  /* GURU */
+  .guru { padding: 80px 5%; background: var(--warm-bg); }
+  .guru-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; }
+  .guru-card { background: white; border-radius: 20px; overflow: hidden; border: 2px solid var(--border); text-align: center; transition: transform 0.25s; }
+  .guru-card:hover { transform: translateY(-4px); }
+  .guru-img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+  .guru-info { padding: 20px; }
+  .guru-name { font-size: 16px; font-weight: 800; color: var(--text); }
+  .guru-role { font-size: 12px; color: var(--sky); font-weight: 700; margin-top: 4px; }
+  .guru-cert { font-size: 12px; color: var(--text-light); margin-top: 6px; }
+
+  /* GALERI */
+  .galeri { padding: 80px 5%; background: white; border-top: 3px dashed var(--border); }
+  .galeri-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: auto auto; gap: 12px; max-width: 1140px; margin: 0 auto; }
+  .galeri-grid .g-img { width: 100%; object-fit: cover; border-radius: 16px; }
+  .g-big { grid-row: span 2; aspect-ratio: 3/4; }
+  .g-sm { aspect-ratio: 4/3; }
+
+  /* PENDAFTARAN */
+  .pendaftaran { padding: 80px 5%; background: var(--warm-bg); }
+  .pend-inner { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
+  .pend-info { background: white; border-radius: 24px; padding: 40px; border: 2px solid var(--border); }
+  .pend-info h3 { font-size: 22px; font-weight: 900; color: var(--text); margin-bottom: 20px; }
+  .info-row { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1.5px dashed var(--border); align-items: flex-start; }
+  .info-row:last-child { border-bottom: none; }
+  .info-icon { font-size: 20px; width: 32px; flex-shrink: 0; }
+  .info-content strong { display: block; font-size: 14px; font-weight: 800; color: var(--text-mid); }
+  .info-content span { font-size: 13.5px; color: var(--text-light); margin-top: 2px; display: block; }
+  .pend-form h2 { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+  .pend-form p { color: var(--text-light); margin-bottom: 28px; font-size: 15px; }
+  .f-field { margin-bottom: 16px; }
+  .f-field label { display: block; font-size: 12.5px; font-weight: 800; color: var(--text-mid); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .f-field input, .f-field select, .f-field textarea {
+    width: 100%; padding: 13px 16px; border: 2px solid var(--border);
+    border-radius: 12px; font-family: 'Nunito', sans-serif; font-size: 14.5px; color: var(--text);
+    outline: none; transition: border-color 0.2s; background: var(--warm-bg);
+  }
+  .f-field input:focus, .f-field select:focus, .f-field textarea:focus { border-color: var(--sky); background: white; }
+  .f-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  /* FOOTER */
+  footer { background: var(--text); padding: 60px 5% 28px; }
+  .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+  .ft-brand { }
+  .ft-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .ft-logo-icon { width: 38px; height: 38px; background: var(--sun); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+  .ft-logo-name { font-weight: 900; font-size: 16px; color: white; }
+  .ft-brand p { color: rgba(255,255,255,0.5); font-size: 14px; line-height: 1.7; }
+  .ft-col h4 { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+  .ft-col a { display: block; color: rgba(255,255,255,0.6); font-size: 14px; text-decoration: none; margin-bottom: 10px; transition: color 0.2s; font-weight: 600; }
+  .ft-col a:hover { color: var(--sun); }
+  .footer-bot { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-bot p { color: rgba(255,255,255,0.3); font-size: 13px; }
+  .ft-social { display: flex; gap: 12px; }
+  .social-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+  .s-ig { background: #E1306C; }
+  .s-fb { background: #1877F2; }
+  .s-wa { background: #25D366; }
+
+  @media (max-width: 900px) {
+    .hero-inner, .keu-inner, .pend-inner, .footer-top { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .galeri-grid { grid-template-columns: 1fr 1fr; }
+    .g-big { grid-row: span 1; aspect-ratio: 4/3; }
+    .nav-links { display: none; }
+    .f-row2 { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">⭐</div>
+    <div>
+      <div class="nav-logo-name">Ceria Bintang</div>
+      <div class="nav-logo-name"><span>TK & PAUD Yogyakarta</span></div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#program">Program</a></li>
+    <li><a href="#fasilitas">Fasilitas</a></li>
+    <li><a href="#guru">Guru</a></li>
+    <li><a href="#galeri">Galeri</a></li>
+  </ul>
+  <a href="#pendaftaran" class="nav-enroll">Daftar Sekarang</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-blob-1"></div>
+  <div class="hero-blob-2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag"><span class="hero-tag-emoji">🌟</span><span>Akreditasi A — Izin Disdik DIY</span></div>
+      <h1>Tempat <span class="color-sun">Bermain</span> dan <span class="color-sky">Belajar</span> dengan Hati</h1>
+      <p class="hero-sub">Ceria Bintang adalah rumah kedua bagi anak Anda — tempat di mana rasa ingin tahu diberi ruang, kreativitas dipupuk, dan setiap anak dihargai apa adanya.</p>
+      <div class="hero-btns">
+        <a href="#pendaftaran" class="btn-sky">Daftar Tahun Ajaran 2025/2026</a>
+        <a href="#program" class="btn-outline-sky">Lihat Program</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-pill"><span>🏆</span><span>Akreditasi A</span></div>
+        <div class="trust-pill"><span>👨‍🏫</span><span>Guru Bersertifikat</span></div>
+        <div class="trust-pill"><span>💚</span><span>Taman & Kolam Bermain</span></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=700&q=80" alt="Anak-anak belajar ceria" class="hero-photo-main">
+      <div class="hero-float-card">
+        <div class="hfc-icon">🎒</div>
+        <div><div class="hfc-num">320+</div><div class="hfc-lbl">Alumni Bahagia</div></div>
+      </div>
+      <div class="hero-float-card2">
+        <div class="hfc2-emoji">⭐⭐⭐⭐⭐</div>
+        <div class="hfc2-text">4.9 / 5 Rating<br>Orang Tua</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="program" id="program">
+  <div class="sec-header-fun">
+    <div class="sec-fun-tag">Program Belajar</div>
+    <h2 class="sec-fun-title">Pilih Program yang Tepat untuk Si Kecil</h2>
+    <p class="sec-fun-sub">Setiap program dirancang sesuai tahap perkembangan anak agar tumbuh optimal</p>
+  </div>
+  <div class="program-grid">
+    <div class="prog-card sun">
+      <div class="prog-emoji">👶</div>
+      <div class="prog-age">Kelompok Bermain</div>
+      <h3>Play Group</h3>
+      <p>Program stimulasi dini berbasis bermain untuk membangun fondasi tumbuh kembang anak sejak usia dini.</p>
+      <div class="prog-detail">
+        <span class="prog-pill">Usia 2–3 tahun</span>
+        <span class="prog-pill">3 hari/minggu</span>
+      </div>
+    </div>
+    <div class="prog-card sky">
+      <div class="prog-emoji">🌱</div>
+      <div class="prog-age">PAUD</div>
+      <h3>Kelas A (TK Kecil)</h3>
+      <p>Eksplorasi melalui seni, musik, dan kegiatan sensorik yang menstimulasi seluruh aspek perkembangan anak.</p>
+      <div class="prog-detail">
+        <span class="prog-pill">Usia 3–4 tahun</span>
+        <span class="prog-pill">5 hari/minggu</span>
+      </div>
+    </div>
+    <div class="prog-card leaf">
+      <div class="prog-emoji">📚</div>
+      <div class="prog-age">TK</div>
+      <h3>Kelas B (TK Besar)</h3>
+      <p>Persiapan komprehensif menuju SD meliputi pre-literasi, pre-numerasi, dan pengembangan karakter anak.</p>
+      <div class="prog-detail">
+        <span class="prog-pill">Usia 5–6 tahun</span>
+        <span class="prog-pill">5 hari/minggu</span>
+      </div>
+    </div>
+    <div class="prog-card coral">
+      <div class="prog-emoji">🎨</div>
+      <div class="prog-age">Ekstrakurikuler</div>
+      <h3>Program Tambahan</h3>
+      <p>Melukis, tari, musik angklung, bahasa Inggris, renang, dan robotika untuk pengembangan bakat si kecil.</p>
+      <div class="prog-detail">
+        <span class="prog-pill">Pilihan bebas</span>
+        <span class="prog-pill">Sabtu</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="fasilitas" id="fasilitas">
+  <div class="sec-header-fun">
+    <div class="sec-fun-tag">Fasilitas</div>
+    <h2 class="sec-fun-title">Lingkungan yang Aman & Menyenangkan</h2>
+    <p class="sec-fun-sub">Fasilitas lengkap yang dirancang khusus untuk mendukung tumbuh kembang anak</p>
+  </div>
+  <div class="fas-grid">
+    <div class="fas-card c1"><div class="fas-emoji">🛝</div><h3>Area Bermain Luar</h3><p>Seluncuran & jungkat-jungkit</p></div>
+    <div class="fas-card c2"><div class="fas-emoji">🎨</div><h3>Studio Seni</h3><p>Melukis & kerajinan tangan</p></div>
+    <div class="fas-card c3"><div class="fas-emoji">📖</div><h3>Perpustakaan Mini</h3><p>500+ buku cerita bergambar</p></div>
+    <div class="fas-card c4"><div class="fas-emoji">🎵</div><h3>Ruang Musik</h3><p>Piano, angklung & gendang</p></div>
+    <div class="fas-card c5"><div class="fas-emoji">🍱</div><h3>Kantin Sehat</h3><p>Menu bergizi tanpa msg</p></div>
+    <div class="fas-card c6"><div class="fas-emoji">🚿</div><h3>Toilet Anak</h3><p>Higienis & mudah diakses</p></div>
+  </div>
+</section>
+
+<section class="keunggulan">
+  <div class="keu-inner">
+    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=700&q=80" alt="Guru dan anak" class="keu-img">
+    <div class="keu-text">
+      <div class="sec-fun-tag">Mengapa Ceria Bintang?</div>
+      <h2 class="sec-fun-title">Lebih dari Sekadar Sekolah</h2>
+      <div class="keu-list">
+        <div class="keu-item"><div class="keu-check">✅</div><div class="keu-item-text"><strong>Rasio Guru : Murid = 1 : 8</strong><span>Setiap anak mendapat perhatian personal dan penuh dari guru kelasnya</span></div></div>
+        <div class="keu-item"><div class="keu-check">✅</div><div class="keu-item-text"><strong>Kurikulum Merdeka Belajar</strong><span>Kami menerapkan Kurikulum Merdeka dengan pendekatan bermain berbasis project</span></div></div>
+        <div class="keu-item"><div class="keu-check">✅</div><div class="keu-item-text"><strong>Laporan Perkembangan Digital</strong><span>Orang tua dapat memantau perkembangan anak setiap hari via aplikasi</span></div></div>
+        <div class="keu-item"><div class="keu-check">✅</div><div class="keu-item-text"><strong>CCTV 24 Jam & Protokol Keselamatan</strong><span>Lingkungan sekolah sepenuhnya terpantau dan memiliki SOP keselamatan ketat</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="guru" id="guru">
+  <div class="sec-header-fun">
+    <div class="sec-fun-tag">Tim Pendidik</div>
+    <h2 class="sec-fun-title">Guru Kami yang Penuh Kasih 💛</h2>
+    <p class="sec-fun-sub">Semua guru kami berpendidikan S1 PAUD/PG-PAUD dan memiliki sertifikasi pendidik</p>
+  </div>
+  <div class="guru-grid">
+    <div class="guru-card">
+      <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=400&q=80" alt="Bu Ani" class="guru-img">
+      <div class="guru-info">
+        <div class="guru-name">Bu Anita Rahayu, S.Pd.</div>
+        <div class="guru-role">Kepala Sekolah</div>
+        <div class="guru-cert">S1 PG-PAUD UNY · 14 Thn Mengajar</div>
+      </div>
+    </div>
+    <div class="guru-card">
+      <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&q=80" alt="Bu Dewi" class="guru-img">
+      <div class="guru-info">
+        <div class="guru-name">Bu Dewi Lestari, S.Pd.</div>
+        <div class="guru-role">Wali Kelas TK B</div>
+        <div class="guru-cert">S1 PG-PAUD UII · 9 Thn Mengajar</div>
+      </div>
+    </div>
+    <div class="guru-card">
+      <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="Bu Sinta" class="guru-img">
+      <div class="guru-info">
+        <div class="guru-name">Bu Sinta Agustina, S.Pd.</div>
+        <div class="guru-role">Wali Kelas TK A</div>
+        <div class="guru-cert">S1 PGSD UNY · 7 Thn Mengajar</div>
+      </div>
+    </div>
+    <div class="guru-card">
+      <img src="https://images.unsplash.com/photo-1521124741347-4c7f0a4e5e2c?w=400&q=80" alt="Bu Reni" class="guru-img">
+      <div class="guru-info">
+        <div class="guru-name">Bu Reni Kusuma, S.Pd.</div>
+        <div class="guru-role">Guru Kelompok Bermain</div>
+        <div class="guru-cert">S1 PG-PAUD UAD · 5 Thn Mengajar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="galeri" id="galeri">
+  <div class="sec-header-fun">
+    <div class="sec-fun-tag">Galeri</div>
+    <h2 class="sec-fun-title">Momen Berharga di Ceria Bintang 📸</h2>
+  </div>
+  <div class="galeri-grid">
+    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=500&q=80" class="g-img g-big" alt="Kegiatan anak">
+    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&q=80" class="g-img g-sm" alt="Kegiatan anak 2">
+    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=500&q=80" class="g-img g-sm" alt="Kegiatan anak 3">
+    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=500&q=80" class="g-img g-sm" alt="Belajar">
+    <img src="https://images.unsplash.com/photo-1540479859555-17af45c78602?w=500&q=80" class="g-img g-sm" alt="Bermain">
+    <img src="https://images.unsplash.com/photo-1471286174890-9c112ac6f8d0?w=500&q=80" class="g-img g-sm" alt="Seni">
+    <img src="https://images.unsplash.com/photo-1546961342-ea5f62d5a27b?w=500&q=80" class="g-img g-sm" alt="Berkebun">
+  </div>
+</section>
+
+<section class="pendaftaran" id="pendaftaran">
+  <div class="pend-inner">
+    <div class="pend-info">
+      <h3>📋 Info Pendaftaran 2025/2026</h3>
+      <div class="info-row"><div class="info-icon">📅</div><div class="info-content"><strong>Periode Pendaftaran</strong><span>1 Februari – 30 April 2025</span></div></div>
+      <div class="info-row"><div class="info-icon">🎒</div><div class="info-content"><strong>Tahun Ajaran Baru</strong><span>Juli 2025</span></div></div>
+      <div class="info-row"><div class="info-icon">💰</div><div class="info-content"><strong>Biaya Pendaftaran</strong><span>Rp 250.000 (non-refundable)</span></div></div>
+      <div class="info-row"><div class="info-icon">📄</div><div class="info-content"><strong>Dokumen yang Diperlukan</strong><span>Fotokopi KK & Akta Kelahiran<br>Pas foto 3x4 (3 lembar)</span></div></div>
+      <div class="info-row"><div class="info-icon">📍</div><div class="info-content"><strong>Alamat Sekolah</strong><span>Jl. Kaliurang KM 8, Ngaglik<br>Sleman, DI Yogyakarta 55581</span></div></div>
+      <div class="info-row"><div class="info-icon">📱</div><div class="info-content"><strong>WhatsApp & Telepon</strong><span>0812-3737-4455</span></div></div>
+      <div class="info-row"><div class="info-icon">⏰</div><div class="info-content"><strong>Jam Sekolah</strong><span>Senin–Jumat: 07.30 – 11.30 WIB</span></div></div>
+    </div>
+    <div class="pend-form">
+      <h2>Daftar <em style="font-style:italic; color:var(--sky);">Sekarang</em> 🎉</h2>
+      <p>Isi formulir berikut dan kami akan menghubungi Anda untuk informasi lengkap</p>
+      <div class="f-row2">
+        <div class="f-field"><label>Nama Ayah/Ibu</label><input type="text" placeholder="Nama orang tua"></div>
+        <div class="f-field"><label>No. WhatsApp</label><input type="text" placeholder="08xx-xxxx-xxxx"></div>
+      </div>
+      <div class="f-field"><label>Nama Anak</label><input type="text" placeholder="Nama lengkap anak"></div>
+      <div class="f-row2">
+        <div class="f-field"><label>Tanggal Lahir Anak</label><input type="date"></div>
+        <div class="f-field"><label>Program yang Diminati</label>
+          <select>
+            <option>Pilih program...</option>
+            <option>Play Group (2–3 tahun)</option>
+            <option>PAUD / Kelas A (3–4 tahun)</option>
+            <option>TK / Kelas B (5–6 tahun)</option>
+          </select>
+        </div>
+      </div>
+      <div class="f-field"><label>Dari Mana Anda Mengetahui Ceria Bintang?</label>
+        <select>
+          <option>Pilih...</option>
+          <option>Rekomendasi teman / keluarga</option>
+          <option>Google / Internet</option>
+          <option>Media sosial (Instagram/Facebook)</option>
+          <option>Papan nama / spanduk</option>
+        </select>
+      </div>
+      <button class="btn-sky" style="width:100%; padding:16px; font-size:15px; border-radius:14px;">🎉 Kirim Formulir Pendaftaran</button>
+      <p style="text-align:center; color:var(--text-light); font-size:13px; margin-top:14px;">Tim kami akan menghubungi dalam 1x24 jam kerja</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="ft-brand">
+      <div class="ft-logo">
+        <div class="ft-logo-icon">⭐</div>
+        <div class="ft-logo-name">TK & PAUD Ceria Bintang</div>
+      </div>
+      <p>Membentuk generasi yang ceria, cerdas, dan berkarakter baik. Karena setiap anak adalah bintang yang menunggu bersinar.</p>
+    </div>
+    <div class="ft-col">
+      <h4>Program</h4>
+      <a href="#">Play Group</a>
+      <a href="#">PAUD / Kelas A</a>
+      <a href="#">TK / Kelas B</a>
+      <a href="#">Ekstrakurikuler</a>
+    </div>
+    <div class="ft-col">
+      <h4>Sekolah</h4>
+      <a href="#">Tentang Kami</a>
+      <a href="#">Galeri Kegiatan</a>
+      <a href="#">Jadwal Belajar</a>
+      <a href="#">Hubungi Kami</a>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <p>© 2025 TK & PAUD Ceria Bintang. Izin Operasional: Disdik Kabupaten Sleman</p>
+    <div class="ft-social">
+      <div class="social-icon s-ig">📸</div>
+      <div class="social-icon s-fb">📘</div>
+      <div class="social-icon s-wa">💬</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

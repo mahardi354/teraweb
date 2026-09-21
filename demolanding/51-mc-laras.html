@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LARAS — MC & Event Host Profesional</title>
+<meta name="description" content="LARAS adalah jasa MC & pembawa acara profesional untuk pernikahan, korporat, ulang tahun, hingga launching produk.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600&family=Big+Shoulders+Text:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --stage:#15120F;
+    --panel:#1E1812;
+    --panel-2:#241C14;
+    --line:rgba(243,236,222,0.10);
+    --gold:#C9A24B;
+    --gold-soft:#E3C77A;
+    --maroon:#8C3B3B;
+    --maroon-soft:#A85050;
+    --ivory:#F4EEDF;
+    --muted:#ABA08D;
+    --radius:18px;
+    --container:1180px;
+    --ease:cubic-bezier(.16,.84,.44,1);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--stage);
+    color:var(--ivory);
+    font-family:'Work Sans',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  button{font-family:inherit;cursor:pointer;}
+  ::selection{background:var(--gold);color:var(--stage);}
+  :focus-visible{outline:2px solid var(--gold-soft);outline-offset:3px;}
+
+  .container{max-width:var(--container);margin:0 auto;padding:0 28px;}
+  .section{padding:108px 0;position:relative;}
+  @media (max-width:720px){ .section{padding:72px 0;} }
+
+  .eyebrow{
+    font-family:'Big Shoulders Text',sans-serif;
+    font-weight:600;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-size:13px;
+    color:var(--gold);
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:22px;height:1px;background:var(--gold);display:inline-block;}
+
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:500;line-height:1.12;letter-spacing:-.01em;}
+  h2{font-size:clamp(32px,4vw,48px);margin-bottom:18px;}
+  h3{font-size:24px;}
+  p{color:var(--muted);}
+  .lede{font-size:18px;max-width:600px;color:var(--muted);}
+
+  /* ---------- BUTTONS ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 28px;border-radius:999px;
+    font-family:'Work Sans',sans-serif;font-weight:600;font-size:15px;
+    border:1px solid transparent;transition:transform .35s var(--ease),background .3s,color .3s,border-color .3s;
+  }
+  .btn-gold{background:var(--gold);color:#1A1410;}
+  .btn-gold:hover{background:var(--gold-soft);transform:translateY(-2px);}
+  .btn-ghost{border-color:var(--line);color:var(--ivory);}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-soft);transform:translateY(-2px);}
+  .btn-wa{background:var(--maroon);color:var(--ivory);}
+  .btn-wa:hover{background:var(--maroon-soft);transform:translateY(-2px);}
+
+  /* ---------- WAVEFORM SIGNATURE ---------- */
+  .waveform{display:flex;align-items:center;gap:4px;height:34px;}
+  .waveform span{
+    width:4px;border-radius:2px;background:var(--gold);
+    animation:eq 1.1s ease-in-out infinite;
+  }
+  .waveform span:nth-child(1){height:30%;animation-delay:-1.1s;}
+  .waveform span:nth-child(2){height:70%;animation-delay:-0.9s;}
+  .waveform span:nth-child(3){height:100%;animation-delay:-0.7s;}
+  .waveform span:nth-child(4){height:55%;animation-delay:-0.5s;}
+  .waveform span:nth-child(5){height:85%;animation-delay:-0.3s;}
+  .waveform span:nth-child(6){height:40%;animation-delay:-0.15s;}
+  .waveform span:nth-child(7){height:65%;animation-delay:0s;}
+  @keyframes eq{0%,100%{transform:scaleY(.35);}50%{transform:scaleY(1);}}
+  @media (prefers-reduced-motion:reduce){ .waveform span{animation:none;transform:scaleY(.7);} }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:22px 0;transition:background .4s,padding .4s,border-color .4s;
+    border-bottom:1px solid transparent;
+  }
+  header.scrolled{background:rgba(21,18,15,0.88);backdrop-filter:blur(10px);padding:14px 0;border-color:var(--line);}
+  .nav-row{display:flex;align-items:center;justify-content:space-between;}
+  .brand{font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:26px;color:var(--ivory);letter-spacing:.01em;}
+  .brand span{color:var(--gold);}
+  nav ul{display:flex;gap:34px;}
+  nav a{font-size:14.5px;color:var(--muted);transition:color .25s;position:relative;}
+  nav a:hover{color:var(--ivory);}
+  .nav-cta{display:flex;align-items:center;gap:18px;}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:6px;}
+  .burger span{width:24px;height:2px;background:var(--ivory);display:block;}
+
+  @media (max-width:880px){
+    nav{position:fixed;inset:0;top:0;background:var(--stage);display:flex;align-items:center;justify-content:center;
+        transform:translateX(100%);transition:transform .45s var(--ease);}
+    nav.open{transform:translateX(0);}
+    nav ul{flex-direction:column;text-align:center;gap:28px;}
+    nav a{font-size:22px;font-family:'Fraunces',serif;}
+    .nav-cta .btn-ghost{display:none;}
+    .burger{display:flex;z-index:120;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh;display:flex;align-items:center;
+    padding-top:130px;padding-bottom:70px;
+    background:
+      radial-gradient(ellipse 60% 50% at 78% 30%, rgba(140,59,59,0.18), transparent 60%),
+      var(--stage);
+    position:relative;overflow:hidden;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;}
+  @media (max-width:920px){ .hero-grid{grid-template-columns:1fr;} .hero-visual{order:-1;} }
+
+  .hero h1{font-size:clamp(38px,5.6vw,64px);margin-bottom:22px;}
+  .hero h1 em{color:var(--gold-soft);font-style:italic;}
+  .hero-ctas{display:flex;gap:16px;margin:34px 0 44px;flex-wrap:wrap;}
+
+  .stats{display:flex;gap:34px;flex-wrap:wrap;}
+  .stat{padding-left:18px;border-left:1px solid var(--line);}
+  .stat:first-child{padding-left:0;border-left:none;}
+  .stat b{display:block;font-family:'Fraunces',serif;font-size:30px;color:var(--gold-soft);font-weight:500;}
+  .stat small{font-family:'Big Shoulders Text',sans-serif;letter-spacing:.08em;text-transform:uppercase;font-size:12px;color:var(--muted);}
+
+  .hero-visual{position:relative;display:flex;justify-content:center;}
+  .spotlight{
+    position:absolute;width:120%;height:120%;top:-10%;left:-10%;
+    background:radial-gradient(circle at 50% 35%, rgba(201,162,75,.30), transparent 55%);
+    filter:blur(6px);
+    animation:pulseGlow 7s ease-in-out infinite;
+  }
+  @keyframes pulseGlow{0%,100%{opacity:.65;transform:scale(1);}50%{opacity:1;transform:scale(1.08);}}
+  @media (prefers-reduced-motion:reduce){ .spotlight{animation:none;} }
+  .portrait-frame{
+    position:relative;width:min(360px,80vw);border-radius:24px;overflow:hidden;
+    border:1px solid var(--line);box-shadow:0 30px 60px -20px rgba(0,0,0,.6);
+  }
+  .portrait-frame img{aspect-ratio:4/5;object-fit:cover;}
+  .portrait-tag{
+    position:absolute;bottom:16px;left:16px;right:16px;
+    background:rgba(21,18,15,.72);backdrop-filter:blur(6px);
+    border:1px solid var(--line);border-radius:14px;padding:12px 14px;
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+  }
+  .portrait-tag span{font-family:'Big Shoulders Text',sans-serif;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center;}
+  @media (max-width:880px){ .about-grid{grid-template-columns:1fr;} }
+  .about-img{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);}
+  .about-img img{aspect-ratio:3/4;object-fit:cover;}
+  .specialty-list{margin:28px 0;display:grid;gap:14px;}
+  .specialty-list li{display:flex;gap:14px;align-items:flex-start;color:var(--ivory);font-size:15.5px;}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);margin-top:7px;flex:none;}
+  .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;}
+  .chip-static{border:1px solid var(--line);border-radius:999px;padding:7px 16px;font-size:13px;color:var(--muted);font-family:'Big Shoulders Text',sans-serif;letter-spacing:.05em;text-transform:uppercase;}
+
+  /* ---------- SERVICES ---------- */
+  .bg-panel{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:48px;}
+  .grid-services{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;}
+  .card{background:var(--panel-2);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .4s var(--ease),border-color .4s;}
+  .card:hover{transform:translateY(-6px);border-color:var(--gold);}
+  .card-img{aspect-ratio:4/3;overflow:hidden;}
+  .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+  .card:hover .card-img img{transform:scale(1.07);}
+  .card-body{padding:22px 24px 26px;}
+  .card-body h3{font-size:20px;margin-bottom:10px;}
+  .card-body p{font-size:14.5px;}
+
+  /* ---------- PORTFOLIO ---------- */
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px;}
+  .chip{
+    border:1px solid var(--line);background:transparent;color:var(--muted);
+    border-radius:999px;padding:9px 20px;font-size:13.5px;font-weight:500;
+    transition:all .3s;
+  }
+  .chip.active,.chip:hover{border-color:var(--gold);color:var(--gold-soft);}
+  .grid-portfolio{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  @media (max-width:920px){ .grid-portfolio{grid-template-columns:repeat(2,1fr);} }
+  .port-item{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:1/1;transition:opacity .3s,transform .3s;}
+  .port-item.hidden{display:none;}
+  .port-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease);}
+  .port-item:hover img{transform:scale(1.08);}
+  .port-overlay{
+    position:absolute;inset:0;background:linear-gradient(to top,rgba(21,18,15,.92),transparent 60%);
+    display:flex;align-items:flex-end;padding:16px;opacity:0;transition:opacity .3s;
+  }
+  .port-item:hover .port-overlay{opacity:1;}
+  .port-overlay p{color:var(--ivory);font-size:13.5px;font-weight:500;margin:0;}
+  .port-overlay small{color:var(--gold-soft);font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-family:'Big Shoulders Text',sans-serif;}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .test-scroller{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:none;}
+  .test-scroller::-webkit-scrollbar{display:none;}
+  .test-card{
+    scroll-snap-align:start;flex:0 0 min(380px,85vw);
+    background:var(--panel-2);border:1px solid var(--line);border-radius:var(--radius);
+    padding:32px;display:flex;flex-direction:column;gap:18px;
+  }
+  .quote-mark{font-family:'Fraunces',serif;font-size:48px;color:var(--gold);line-height:.5;font-style:italic;}
+  .test-card p.quote{color:var(--ivory);font-size:15.5px;flex:1;}
+  .test-who{display:flex;align-items:center;gap:12px;}
+  .test-who img{width:44px;height:44px;border-radius:50%;object-fit:cover;}
+  .test-who b{display:block;font-size:14px;color:var(--ivory);font-weight:600;}
+  .test-who small{color:var(--muted);font-size:12.5px;}
+  .test-nav{display:flex;gap:10px;margin-top:24px;}
+  .test-nav button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ivory);font-size:18px;transition:border-color .3s,color .3s;}
+  .test-nav button:hover{border-color:var(--gold);color:var(--gold-soft);}
+
+  /* ---------- PRICING ---------- */
+  .grid-pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch;}
+  @media (max-width:920px){ .grid-pricing{grid-template-columns:1fr;} }
+  .price-card{
+    background:var(--panel-2);border:1px solid var(--line);border-radius:var(--radius);
+    padding:36px 30px;display:flex;flex-direction:column;position:relative;
+  }
+  .price-card.featured{border-color:var(--gold);background:linear-gradient(160deg,var(--panel-2),rgba(201,162,75,.07));transform:translateY(-10px);}
+  @media (max-width:920px){ .price-card.featured{transform:none;} }
+  .ribbon{position:absolute;top:-13px;right:28px;background:var(--gold);color:#1A1410;font-size:11.5px;font-weight:700;
+    padding:6px 14px;border-radius:999px;font-family:'Big Shoulders Text',sans-serif;letter-spacing:.06em;text-transform:uppercase;}
+  .price-tier{font-family:'Big Shoulders Text',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-size:13px;margin-bottom:10px;}
+  .price-amount{font-family:'Fraunces',serif;font-size:32px;color:var(--ivory);margin-bottom:6px;}
+  .price-amount small{font-family:'Work Sans',sans-serif;font-size:13px;color:var(--muted);font-weight:400;}
+  .price-desc{font-size:14px;margin-bottom:24px;}
+  .price-features{display:grid;gap:13px;margin-bottom:30px;flex:1;}
+  .price-features li{display:flex;gap:10px;font-size:14.5px;color:var(--ivory);align-items:flex-start;}
+  .price-features svg{flex:none;margin-top:3px;}
+  .price-card .btn{justify-content:center;width:100%;}
+
+  /* ---------- PROCESS ---------- */
+  .process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;position:relative;}
+  @media (max-width:920px){ .process-grid{grid-template-columns:1fr;} }
+  .process-grid::before{
+    content:"";position:absolute;top:34px;left:0;right:0;height:1px;background:var(--line);
+  }
+  @media (max-width:920px){ .process-grid::before{display:none;} }
+  .proc-step{position:relative;background:var(--stage);padding-top:0;}
+  .proc-num{
+    font-family:'Fraunces',serif;font-size:42px;color:transparent;
+    -webkit-text-stroke:1.3px var(--gold);font-weight:500;margin-bottom:18px;display:inline-block;
+    background:var(--stage);position:relative;z-index:2;
+  }
+  .proc-step h4{font-size:17px;margin-bottom:8px;color:var(--ivory);}
+  .proc-step p{font-size:13.8px;}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{max-width:760px;}
+  details{border-bottom:1px solid var(--line);padding:22px 0;}
+  summary{
+    list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;
+    font-family:'Fraunces',serif;font-size:18px;color:var(--ivory);gap:20px;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";font-size:22px;color:var(--gold);transition:transform .3s;flex:none;}
+  details[open] summary::after{transform:rotate(45deg);}
+  details p{margin-top:14px;font-size:14.5px;max-width:640px;}
+
+  /* ---------- CTA / CONTACT ---------- */
+  .cta-section{
+    background:linear-gradient(150deg,var(--panel) 0%, rgba(140,59,59,.22) 100%);
+    border-radius:28px;margin:0 auto;max-width:var(--container);padding:64px 48px;
+    border:1px solid var(--line);
+  }
+  @media (max-width:720px){ .cta-section{padding:42px 26px;border-radius:20px;} }
+  .cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+  @media (max-width:880px){ .cta-grid{grid-template-columns:1fr;} }
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+  @media (max-width:480px){ .form-row{grid-template-columns:1fr;} }
+  input,textarea,select{
+    width:100%;background:rgba(244,238,222,.05);border:1px solid var(--line);border-radius:10px;
+    padding:13px 14px;color:var(--ivory);font-family:'Work Sans',sans-serif;font-size:14.5px;
+    transition:border-color .3s;
+  }
+  input::placeholder,textarea::placeholder{color:var(--muted);}
+  input:focus,textarea:focus,select:focus{border-color:var(--gold);outline:none;}
+  textarea{resize:vertical;min-height:90px;margin-bottom:18px;}
+  .form-msg{font-size:13.5px;color:var(--gold-soft);margin-top:12px;display:none;}
+  .form-msg.show{display:block;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:80px 0 30px;border-top:1px solid var(--line);}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:50px;}
+  @media (max-width:880px){ .foot-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:520px){ .foot-grid{grid-template-columns:1fr;} }
+  .foot-grid h5{font-family:'Big Shoulders Text',sans-serif;letter-spacing:.08em;text-transform:uppercase;font-size:12.5px;color:var(--gold);margin-bottom:18px;}
+  .foot-grid ul{display:grid;gap:11px;}
+  .foot-grid a{color:var(--muted);font-size:14px;transition:color .25s;}
+  .foot-grid a:hover{color:var(--ivory);}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;padding-top:26px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);}
+  .socials{display:flex;gap:14px;}
+  .socials a{width:36px;height:36px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:border-color .3s,color .3s;}
+  .socials a:hover{border-color:var(--gold);color:var(--gold-soft);}
+
+  [data-reveal]{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+  [data-reveal].in{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion:reduce){ [data-reveal]{opacity:1;transform:none;transition:none;} }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="site-header">
+  <div class="container nav-row">
+    <a href="#top" class="brand">LARAS<span>.</span></a>
+    <nav id="site-nav">
+      <ul>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#layanan">Layanan</a></li>
+        <li><a href="#portofolio">Portofolio</a></li>
+        <li><a href="#paket">Paket</a></li>
+        <li><a href="#testimoni">Testimoni</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="#kontak" class="btn btn-ghost" style="padding:11px 22px;font-size:14px;">Konsultasi</a>
+      <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-wa" style="padding:11px 22px;font-size:14px;">WhatsApp</a>
+      <button class="burger" id="burger" aria-label="Buka menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">MC & Event Host Profesional — Jakarta &amp; Sekitarnya</p>
+      <h1>Suara yang Menata <em>Irama</em> Setiap Acara Anda.</h1>
+      <p class="lede">LARAS membantu pernikahan, acara korporat, dan momen penting lainnya berjalan hangat, rapi, dan tak terlupakan — dari rundown hingga kata penutup.</p>
+      <div class="hero-ctas">
+        <a href="#kontak" class="btn btn-gold">Konsultasi Gratis</a>
+        <a href="#portofolio" class="btn btn-ghost">Lihat Portofolio</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>180+</b><small>Acara Dipandu</small></div>
+        <div class="stat"><b>9 Thn</b><small>Pengalaman</small></div>
+        <div class="stat"><b>3</b><small>Bahasa Pengantar</small></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="spotlight" aria-hidden="true"></div>
+      <div class="portrait-frame">
+        <img src="https://picsum.photos/seed/laras-hero-mc/640/800" alt="MC LARAS memandu acara di atas panggung" loading="eager">
+        <div class="portrait-tag">
+          <span>Sedang Bertugas</span>
+          <div class="waveform"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TENTANG ============ -->
+<section class="section" id="tentang">
+  <div class="container about-grid">
+    <div class="about-img" data-reveal>
+      <img src="https://picsum.photos/seed/laras-about-portrait/700/900" alt="Potret host LARAS di belakang panggung">
+    </div>
+    <div data-reveal>
+      <p class="eyebrow">Tentang Laras</p>
+      <h2>Bukan Sekadar Memegang Mikrofon</h2>
+      <p class="lede">Saya Raka Mahendra, host &amp; pendiri LARAS. Bersama tim kecil yang solid, kami percaya MC yang baik adalah penyambung antara rundown di atas kertas dan momen yang dirasakan tamu — tepat waktu, hangat, dan tetap berkarakter.</p>
+      <ul class="specialty-list">
+        <li><span class="dot"></span> Pernikahan adat &amp; modern, dari siraman hingga resepsi</li>
+        <li><span class="dot"></span> Acara korporat, seminar, dan konferensi</li>
+        <li><span class="dot"></span> Ulang tahun &amp; gathering keluarga maupun kantor</li>
+        <li><span class="dot"></span> Product launching &amp; brand activation</li>
+        <li><span class="dot"></span> Live streaming &amp; virtual event</li>
+      </ul>
+      <p style="margin-bottom:10px;font-size:13px;color:var(--muted);font-family:'Big Shoulders Text',sans-serif;letter-spacing:.08em;text-transform:uppercase;">Bahasa Pengantar</p>
+      <div class="chips">
+        <span class="chip-static">Bahasa Indonesia</span>
+        <span class="chip-static">English</span>
+        <span class="chip-static">Basa Jawa</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LAYANAN ============ -->
+<section class="section bg-panel" id="layanan">
+  <div class="container">
+    <div class="head-row" data-reveal>
+      <div>
+        <p class="eyebrow">Layanan</p>
+        <h2 style="margin-bottom:0;">Dipercaya untuk Berbagai Jenis Acara</h2>
+      </div>
+      <p class="lede" style="margin:0;">Setiap acara punya tempo sendiri — kami menyesuaikan gaya membawakan acara dengan karakter dan kebutuhan Anda.</p>
+    </div>
+    <div class="grid-services" data-reveal>
+      <div class="card">
+        <div class="card-img"><img src="https://picsum.photos/seed/laras-svc-wedding/600/450" alt="Pernikahan"></div>
+        <div class="card-body"><h3>Pernikahan</h3><p>Mengiringi prosesi adat hingga resepsi modern dengan kehangatan dan kerapian susunan acara.</p></div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://picsum.photos/seed/laras-svc-corporate/600/450" alt="Korporat & Seminar"></div>
+        <div class="card-body"><h3>Korporat &amp; Seminar</h3><p>Memandu rapat tahunan, seminar, dan konferensi dengan tempo profesional dan tepat waktu.</p></div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://picsum.photos/seed/laras-svc-birthday/600/450" alt="Ulang Tahun & Gathering"></div>
+        <div class="card-body"><h3>Ulang Tahun &amp; Gathering</h3><p>Menghidupkan suasana ulang tahun, reuni, dan gathering keluarga maupun kantor.</p></div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://picsum.photos/seed/laras-svc-launch/600/450" alt="Product Launching"></div>
+        <div class="card-body"><h3>Product Launching</h3><p>Mengarahkan momen peluncuran produk agar pesan brand tersampaikan dengan jelas.</p></div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://picsum.photos/seed/laras-svc-gala/600/450" alt="Gala & Awarding Night"></div>
+        <div class="card-body"><h3>Gala &amp; Awarding Night</h3><p>Menjaga keformalan sekaligus kemeriahan malam penghargaan dan gala dinner.</p></div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://picsum.photos/seed/laras-svc-virtual/600/450" alt="Live & Virtual Event"></div>
+        <div class="card-body"><h3>Live &amp; Virtual Event</h3><p>Memandu acara hybrid maupun penuh virtual dengan interaksi yang tetap terasa dekat.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PORTOFOLIO ============ -->
+<section class="section" id="portofolio">
+  <div class="container">
+    <div data-reveal>
+      <p class="eyebrow">Portofolio</p>
+      <h2>Momen-Momen yang Sudah Kami Pandu</h2>
+    </div>
+    <div class="filters" data-reveal>
+      <button class="chip active" data-filter="semua">Semua</button>
+      <button class="chip" data-filter="pernikahan">Pernikahan</button>
+      <button class="chip" data-filter="korporat">Korporat</button>
+      <button class="chip" data-filter="ulang-tahun">Ulang Tahun</button>
+      <button class="chip" data-filter="launching">Launching</button>
+    </div>
+    <div class="grid-portfolio" data-reveal>
+      <div class="port-item" data-cat="pernikahan"><img src="https://picsum.photos/seed/laras-port-1/500/500" alt="Pernikahan Dinda & Bagas"><div class="port-overlay"><div><small>Pernikahan</small><p>Dinda &amp; Bagas — Bandung 2025</p></div></div></div>
+      <div class="port-item" data-cat="korporat"><img src="https://picsum.photos/seed/laras-port-2/500/500" alt="Annual Meeting"><div class="port-overlay"><div><small>Korporat</small><p>Annual Meeting PT Cipta Karya</p></div></div></div>
+      <div class="port-item" data-cat="ulang-tahun"><img src="https://picsum.photos/seed/laras-port-3/500/500" alt="Sweet Seventeen Naya"><div class="port-overlay"><div><small>Ulang Tahun</small><p>Sweet 17th — Naya</p></div></div></div>
+      <div class="port-item" data-cat="launching"><img src="https://picsum.photos/seed/laras-port-4/500/500" alt="Launching Kopi Selasar"><div class="port-overlay"><div><small>Launching</small><p>Launching Kopi Selasar</p></div></div></div>
+      <div class="port-item" data-cat="pernikahan"><img src="https://picsum.photos/seed/laras-port-5/500/500" alt="Pernikahan Adat Jawa"><div class="port-overlay"><div><small>Pernikahan</small><p>Pernikahan Adat — Tasya &amp; Yusuf</p></div></div></div>
+      <div class="port-item" data-cat="korporat"><img src="https://picsum.photos/seed/laras-port-6/500/500" alt="Seminar Nasional"><div class="port-overlay"><div><small>Korporat</small><p>Seminar Nasional Fintech 2025</p></div></div></div>
+      <div class="port-item" data-cat="ulang-tahun"><img src="https://picsum.photos/seed/laras-port-7/500/500" alt="Family Gathering"><div class="port-overlay"><div><small>Ulang Tahun</small><p>Family Gathering — Wijaya Group</p></div></div></div>
+      <div class="port-item" data-cat="launching"><img src="https://picsum.photos/seed/laras-port-8/500/500" alt="Brand Activation"><div class="port-overlay"><div><small>Launching</small><p>Brand Activation — Nuansa Skincare</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONI ============ -->
+<section class="section bg-panel" id="testimoni">
+  <div class="container">
+    <div class="head-row" data-reveal>
+      <div>
+        <p class="eyebrow">Testimoni</p>
+        <h2 style="margin-bottom:0;">Kata Mereka yang Pernah Bekerja Sama</h2>
+      </div>
+      <div class="test-nav">
+        <button id="testPrev" aria-label="Sebelumnya">←</button>
+        <button id="testNext" aria-label="Selanjutnya">→</button>
+      </div>
+    </div>
+    <div class="test-scroller" id="testScroller" data-reveal>
+      <div class="test-card">
+        <div class="quote-mark">“</div>
+        <p class="quote">Laras memandu pernikahan kami dengan sangat hangat. Susunan adat tetap terjaga, tapi suasananya tidak kaku sama sekali.</p>
+        <div class="test-who"><img src="https://i.pravatar.cc/150?img=47" alt=""><div><b>Dinda &amp; Bagas</b><small>Pengantin, Bandung</small></div></div>
+      </div>
+      <div class="test-card">
+        <div class="quote-mark">“</div>
+        <p class="quote">Profesional dan tepat waktu. Rundown selalu dipegang dengan rapi, acara tahunan kami jadi jauh lebih lancar dari tahun-tahun sebelumnya.</p>
+        <div class="test-who"><img src="https://i.pravatar.cc/150?img=12" alt=""><div><b>Hendro Saputra</b><small>Manajer HRD, Cipta Karya</small></div></div>
+      </div>
+      <div class="test-card">
+        <div class="quote-mark">“</div>
+        <p class="quote">Energinya pas — lucu tapi tidak berlebihan. Tamu undangan ulang tahun ibu saya sangat terhibur sepanjang acara.</p>
+        <div class="test-who"><img src="https://i.pravatar.cc/150?img=32" alt=""><div><b>Naya Ramadhani</b><small>Klien Pribadi</small></div></div>
+      </div>
+      <div class="test-card">
+        <div class="quote-mark">“</div>
+        <p class="quote">Komunikasi sebelum hari-H sangat jelas, briefing detail. Hasil di lapangan pun sesuai dengan yang kami rencanakan bersama.</p>
+        <div class="test-who"><img src="https://i.pravatar.cc/150?img=5" alt=""><div><b>Tim Marketing</b><small>Kopi Selasar</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAKET HARGA ============ -->
+<section class="section" id="paket">
+  <div class="container">
+    <div data-reveal>
+      <p class="eyebrow">Paket Harga</p>
+      <h2>Pilih Paket Sesuai Kebutuhan Acara</h2>
+      <p class="lede">Harga indikatif — dapat menyesuaikan lokasi, durasi, dan jumlah tamu. Detail final dibahas saat konsultasi.</p>
+    </div>
+    <div class="grid-pricing" style="margin-top:48px;" data-reveal>
+      <div class="price-card">
+        <p class="price-tier">Esensial</p>
+        <p class="price-amount">Rp 3.500.000 <small>/ acara</small></p>
+        <p class="price-desc">Cocok untuk ulang tahun, gathering kecil, dan acara komunitas.</p>
+        <ul class="price-features">
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#C9A24B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> 1 MC profesional</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#C9A24B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Durasi hingga 3 jam</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#C9A24B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> 1x briefing online</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#C9A24B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Kostum menyesuaikan tema</li>
+        </ul>
+        <a href="#kontak" class="btn btn-ghost">Pilih Paket</a>
+      </div>
+      <div class="price-card featured">
+        <span class="ribbon">Paling Diminati</span>
+        <p class="price-tier">Profesional</p>
+        <p class="price-amount">Rp 6.500.000 <small>/ acara</small></p>
+        <p class="price-desc">Pilihan utama untuk pernikahan dan acara korporat berskala menengah.</p>
+        <ul class="price-features">
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#C9A24B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> 1 MC senior berpengalaman</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#C9A24B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Durasi hingga 6 jam</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#C9A24B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> 2x briefing (online &amp; lokasi)</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#C9A24B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Susun rundown bersama panitia</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#C9A24B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Koordinasi dengan vendor lain</li>
+        </ul>
+        <a href="#kontak" class="btn btn-gold">Pilih Paket</a>
+      </div>
+      <div class="price-card">
+        <p class="price-tier">Eksklusif</p>
+        <p class="price-amount">Rp 12.000.000 <small>/ acara</small></p>
+        <p class="price-desc">Untuk gala, acara multi-hari, atau kebutuhan dwibahasa.</p>
+        <ul class="price-features">
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#C9A24B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Tim MC (2 orang atau lebih)</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#C9A24B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> MC dwibahasa (ID/EN)</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#C9A24B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Survei lokasi langsung</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#C9A24B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Pendamping protokol acara</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16"><path d="M2 8.5 6 12l8-8" stroke="#C9A24B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg> Dokumentasi rundown lengkap</li>
+        </ul>
+        <a href="#kontak" class="btn btn-ghost">Pilih Paket</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROSES KERJA ============ -->
+<section class="section bg-panel">
+  <div class="container">
+    <div data-reveal>
+      <p class="eyebrow">Proses Kerja</p>
+      <h2>Rundown Kerja Sama Kita</h2>
+    </div>
+    <div class="process-grid" style="margin-top:46px;" data-reveal>
+      <div class="proc-step"><span class="proc-num">01</span><h4>Konsultasi Awal</h4><p>Diskusi kebutuhan, tanggal, tema, dan jenis acara Anda.</p></div>
+      <div class="proc-step"><span class="proc-num">02</span><h4>Penyusunan Rundown</h4><p>Menyusun susunan acara bersama Anda atau panitia.</p></div>
+      <div class="proc-step"><span class="proc-num">03</span><h4>Briefing &amp; Gladi</h4><p>Briefing detail H-3, gladi bersih bila diperlukan.</p></div>
+      <div class="proc-step"><span class="proc-num">04</span><h4>Hari Pelaksanaan</h4><p>Memandu acara dari awal hingga akhir sesuai rundown.</p></div>
+      <div class="proc-step"><span class="proc-num">05</span><h4>Evaluasi</h4><p>Masukan singkat dan dokumentasi rundown pasca acara.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section">
+  <div class="container">
+    <div data-reveal>
+      <p class="eyebrow">FAQ</p>
+      <h2>Pertanyaan yang Sering Ditanyakan</h2>
+    </div>
+    <div class="faq-list" style="margin-top:36px;" data-reveal>
+      <details>
+        <summary>Apakah bisa booking mendadak, kurang dari 1 bulan?</summary>
+        <p>Bisa, tergantung ketersediaan jadwal. Untuk acara mendadak, sebaiknya segera hubungi kami via WhatsApp agar bisa dicek ketersediaannya secepatnya.</p>
+      </details>
+      <details>
+        <summary>Apakah MC bisa berbahasa daerah atau bahasa asing?</summary>
+        <p>Ya, kami menyediakan opsi MC berbahasa Indonesia, Inggris, dan Jawa. Kebutuhan bahasa lain dapat didiskusikan saat konsultasi.</p>
+      </details>
+      <details>
+        <summary>Apakah harga sudah termasuk biaya transportasi?</summary>
+        <p>Untuk area Jabodetabek biaya transportasi sudah termasuk. Di luar area tersebut akan dihitung tambahan sesuai jarak lokasi acara.</p>
+      </details>
+      <details>
+        <summary>Bagaimana sistem pembayaran dan DP?</summary>
+        <p>Pembayaran menggunakan sistem DP 50% saat penandatanganan kesepakatan, dan sisanya dilunasi maksimal H-1 sebelum acara.</p>
+      </details>
+      <details>
+        <summary>Apakah bisa request gaya MC tertentu — formal, santai, atau humoris?</summary>
+        <p>Tentu. Gaya membawakan acara akan kami sesuaikan dengan karakter acara dan preferensi Anda, dibahas detail saat sesi briefing.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KONTAK / CTA ============ -->
+<section class="section" id="kontak">
+  <div class="cta-section">
+    <div class="cta-grid">
+      <div>
+        <p class="eyebrow">Kontak</p>
+        <h2>Siap Membuat Acara Anda Berjalan Selaras?</h2>
+        <p class="lede" style="margin-bottom:28px;">Ceritakan rencana acara Anda, kami bantu pikirkan rundown dan kebutuhan MC yang paling pas.</p>
+        <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-wa">Chat via WhatsApp →</a>
+        <div class="waveform" style="margin-top:34px;"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+      <form id="contactForm">
+        <div class="form-row">
+          <input type="text" placeholder="Nama Anda" required>
+          <input type="tel" placeholder="No. WhatsApp" required>
+        </div>
+        <div class="form-row">
+          <select required>
+            <option value="" disabled selected>Jenis Acara</option>
+            <option>Pernikahan</option>
+            <option>Korporat / Seminar</option>
+            <option>Ulang Tahun</option>
+            <option>Product Launching</option>
+            <option>Lainnya</option>
+          </select>
+          <input type="date">
+        </div>
+        <textarea placeholder="Ceritakan singkat tentang acara Anda..."></textarea>
+        <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;">Kirim Pesan</button>
+        <p class="form-msg" id="formMsg">Terima kasih! Pesan demo Anda berhasil "terkirim". Di situs asli, formulir ini akan terhubung ke email/WhatsApp Anda.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="#top" class="brand">LARAS<span>.</span></a>
+        <p style="margin-top:14px;max-width:280px;font-size:14px;">MC &amp; event host profesional untuk pernikahan, korporat, dan momen penting Anda — diiringi rundown yang rapi dan suasana yang selaras.</p>
+        <div class="socials" style="margin-top:20px;">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="TikTok">TT</a>
+          <a href="#" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+      <div>
+        <h5>Navigasi</h5>
+        <ul>
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#layanan">Layanan</a></li>
+          <li><a href="#portofolio">Portofolio</a></li>
+          <li><a href="#paket">Paket Harga</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Layanan</h5>
+        <ul>
+          <li><a href="#layanan">Pernikahan</a></li>
+          <li><a href="#layanan">Korporat &amp; Seminar</a></li>
+          <li><a href="#layanan">Ulang Tahun</a></li>
+          <li><a href="#layanan">Product Launching</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Kontak</h5>
+        <ul>
+          <li>WhatsApp: +62 812-3456-7890</li>
+          <li>Email: halo@laras-mc.id</li>
+          <li>Jakarta &amp; sekitarnya</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 LARAS MC. Seluruh hak cipta dilindungi.</span>
+      <span>Template demo — siap dikustomisasi untuk klien Anda.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Header scroll state
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Mobile nav toggle
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('site-nav');
+  burger.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
+  }));
+
+  // Portfolio filter
+  const chips = document.querySelectorAll('.chip');
+  const items = document.querySelectorAll('.port-item');
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const filter = chip.dataset.filter;
+      items.forEach(item => {
+        item.classList.toggle('hidden', filter !== 'semua' && item.dataset.cat !== filter);
+      });
+    });
+  });
+
+  // Testimonial scroller controls
+  const scroller = document.getElementById('testScroller');
+  document.getElementById('testNext').addEventListener('click', () => scroller.scrollBy({left: 380, behavior:'smooth'}));
+  document.getElementById('testPrev').addEventListener('click', () => scroller.scrollBy({left: -380, behavior:'smooth'}));
+
+  // Fake contact form submit
+  document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('formMsg').classList.add('show');
+    e.target.reset();
+  });
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15});
+  revealEls.forEach(el => io.observe(el));
+</script>
+</body>
+</html>

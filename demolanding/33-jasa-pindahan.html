@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MoverPro – Jasa Pindahan & Ekspedisi Terpercaya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1B2B4B;
+    --navy-mid: #243660;
+    --orange: #F4650C;
+    --orange-light: #FF7A25;
+    --white: #FFFFFF;
+    --gray-bg: #F5F7FA;
+    --gray-text: #6B7280;
+    --gray-line: #E5E7EB;
+    --dark-text: #111827;
+    --radius: 14px;
+    --shadow: 0 4px 24px rgba(27,43,75,0.10);
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: var(--dark-text); background: var(--white); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 6%; height: 68px;
+    background: rgba(27,43,75,0.97); backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo .logo-icon {
+    width: 36px; height: 36px; background: var(--orange); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+  }
+  .nav-logo span { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--white); letter-spacing: -0.5px; }
+  .nav-logo span em { color: var(--orange); font-style: normal; }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-links a { color: rgba(255,255,255,0.78); text-decoration: none; font-size: 0.92rem; font-weight: 500; transition: color .2s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links .btn-nav {
+    background: var(--orange); color: var(--white); padding: 9px 22px;
+    border-radius: 8px; font-weight: 600; font-size: 0.9rem; transition: background .2s, transform .15s;
+  }
+  .nav-links .btn-nav:hover { background: var(--orange-light); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh; background: var(--navy);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 100px 6% 60px; position: relative; overflow: hidden;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(244,101,12,0.18); border: 1px solid rgba(244,101,12,0.35);
+    color: #FFA96A; padding: 6px 14px; border-radius: 99px;
+    font-size: 0.82rem; font-weight: 600; letter-spacing: 0.5px;
+    margin-bottom: 22px; width: fit-content;
+  }
+  .hero-badge span { width: 8px; height: 8px; background: var(--orange); border-radius: 50%; animation: pulse 1.8s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
+
+  .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .hero-left {}
+  h1 {
+    font-family: 'Sora', sans-serif; font-weight: 800;
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    color: var(--white); line-height: 1.13; letter-spacing: -1.5px; margin-bottom: 20px;
+  }
+  h1 .accent { color: var(--orange); }
+  .hero-desc { font-size: 1.05rem; color: rgba(255,255,255,0.68); line-height: 1.75; max-width: 440px; margin-bottom: 36px; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--orange); color: var(--white);
+    padding: 14px 30px; border-radius: 10px; font-size: 1rem;
+    font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    transition: background .2s, transform .15s, box-shadow .2s;
+    box-shadow: 0 4px 20px rgba(244,101,12,0.35);
+  }
+  .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(244,101,12,0.45); }
+  .btn-outline {
+    border: 2px solid rgba(255,255,255,0.3); color: var(--white);
+    padding: 14px 28px; border-radius: 10px; font-size: 1rem; font-weight: 600;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    transition: border-color .2s, background .2s;
+  }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.05); }
+
+  .hero-stats { display: flex; gap: 36px; margin-top: 44px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); }
+  .hero-stat-num { font-family: 'Sora', sans-serif; font-size: 1.7rem; font-weight: 800; color: var(--white); }
+  .hero-stat-num span { color: var(--orange); }
+  .hero-stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+
+  /* Hero Truck SVG Animation */
+  .hero-right { display: flex; justify-content: center; align-items: center; }
+  .truck-scene {
+    width: 100%; max-width: 480px; position: relative;
+  }
+  .truck-scene svg { width: 100%; height: auto; }
+
+  /* Road line animation */
+  .road-lines { animation: roadMove 1.2s linear infinite; }
+  @keyframes roadMove { from{transform:translateX(0)} to{transform:translateX(60px)} }
+
+  /* Truck body slight bob */
+  .truck-body { animation: truckBob 1.6s ease-in-out infinite; transform-origin: center bottom; }
+  @keyframes truckBob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px)} }
+
+  /* Wheel spin */
+  .wheel { animation: wheelSpin 0.9s linear infinite; }
+  @keyframes wheelSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+  /* Clouds drift */
+  .cloud1 { animation: cloudDrift 8s linear infinite; }
+  .cloud2 { animation: cloudDrift 12s linear infinite 2s; }
+  @keyframes cloudDrift { from{transform:translateX(0)} to{transform:translateX(-30px)} }
+
+  /* Hero geometric decorations */
+  .hero-deco { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
+  .deco-1 { width: 400px; height: 400px; background: rgba(244,101,12,0.12); top: -100px; right: -80px; }
+  .deco-2 { width: 300px; height: 300px; background: rgba(36,54,96,0.6); bottom: -60px; left: 30%; }
+
+  /* ── SECTION BASE ── */
+  section { padding: 90px 6%; }
+  .section-label {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--orange); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Sora', sans-serif; font-size: clamp(1.7rem, 3vw, 2.4rem);
+    font-weight: 800; color: var(--navy); line-height: 1.2; letter-spacing: -0.8px;
+    margin-bottom: 16px;
+  }
+  .section-sub { font-size: 1rem; color: var(--gray-text); max-width: 520px; line-height: 1.7; }
+  .section-header { text-align: center; margin-bottom: 56px; }
+  .section-header .section-sub { margin: 0 auto; }
+
+  /* ── BRAND BAR ── */
+  #brands { background: var(--gray-bg); padding: 28px 6%; }
+  .brands-inner { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center; }
+  .brands-label { font-size: 0.82rem; color: var(--gray-text); font-weight: 600; margin-right: 8px; white-space: nowrap; }
+  .brand-logo {
+    background: var(--white); border: 1px solid var(--gray-line); border-radius: 8px;
+    padding: 8px 20px; font-family: 'Sora', sans-serif; font-weight: 700;
+    font-size: 0.85rem; color: var(--navy); opacity: 0.75; transition: opacity .2s;
+  }
+  .brand-logo:hover { opacity: 1; }
+
+  /* ── SERVICES ── */
+  #layanan { background: var(--white); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 24px; }
+  .service-card {
+    background: var(--white); border: 1.5px solid var(--gray-line);
+    border-radius: var(--radius); padding: 32px 28px;
+    transition: border-color .2s, transform .2s, box-shadow .2s;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--orange); transform: scaleX(0); transform-origin: left; transition: transform .3s;
+  }
+  .service-card:hover { border-color: rgba(244,101,12,0.3); transform: translateY(-4px); box-shadow: var(--shadow); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon {
+    width: 52px; height: 52px; background: rgba(244,101,12,0.1); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px;
+  }
+  .service-card h3 { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.08rem; color: var(--navy); margin-bottom: 10px; }
+  .service-card p { font-size: 0.9rem; color: var(--gray-text); line-height: 1.65; }
+
+  /* ── WHY US ── */
+  #keunggulan { background: var(--navy); }
+  #keunggulan .section-title { color: var(--white); }
+  #keunggulan .section-sub { color: rgba(255,255,255,0.6); }
+  .keunggulan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .keunggulan-image { border-radius: 18px; overflow: hidden; }
+  .keunggulan-image img { width: 100%; height: 420px; object-fit: cover; display: block; }
+  .keunggulan-list { display: flex; flex-direction: column; gap: 24px; }
+  .keunggulan-item { display: flex; gap: 18px; align-items: flex-start; }
+  .keunggulan-num {
+    flex-shrink: 0; width: 40px; height: 40px; background: rgba(244,101,12,0.18);
+    border: 1.5px solid rgba(244,101,12,0.4); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Sora', sans-serif; font-weight: 700; color: var(--orange); font-size: 0.9rem;
+  }
+  .keunggulan-item h4 { font-family: 'Sora', sans-serif; font-weight: 700; color: var(--white); margin-bottom: 6px; font-size: 1rem; }
+  .keunggulan-item p { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+  /* ── PROSES ── */
+  #proses { background: var(--gray-bg); }
+  .proses-track {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; margin-top: 56px;
+  }
+  .proses-track::before {
+    content: ''; position: absolute; top: 36px; left: 10%; right: 10%; height: 2px;
+    background: linear-gradient(90deg, var(--orange) 0%, var(--navy) 100%);
+    z-index: 0;
+  }
+  .proses-step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 12px; position: relative; z-index: 1; }
+  .proses-circle {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: var(--white); border: 3px solid var(--orange);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; margin-bottom: 20px; box-shadow: 0 4px 16px rgba(244,101,12,0.2);
+    transition: transform .2s;
+  }
+  .proses-step:hover .proses-circle { transform: scale(1.1); }
+  .proses-step h4 { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.92rem; color: var(--navy); margin-bottom: 8px; }
+  .proses-step p { font-size: 0.82rem; color: var(--gray-text); line-height: 1.5; }
+
+  /* ── GALLERY ── */
+  #galeri { background: var(--white); }
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 240px 240px; gap: 14px; }
+  .gallery-item { border-radius: 12px; overflow: hidden; position: relative; }
+  .gallery-item:first-child { grid-row: 1/3; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+  .gallery-item:hover img { transform: scale(1.05); }
+  .gallery-overlay {
+    position: absolute; inset: 0; background: linear-gradient(to top, rgba(27,43,75,0.7) 0%, transparent 60%);
+    opacity: 0; transition: opacity .3s;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+  /* ── TESTIMONIALS ── */
+  #testimoni { background: var(--gray-bg); }
+  .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+  .testi-card {
+    background: var(--white); border-radius: var(--radius); padding: 30px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06); transition: transform .2s, box-shadow .2s;
+  }
+  .testi-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .testi-stars { color: #FBBF24; font-size: 1rem; margin-bottom: 14px; letter-spacing: 2px; }
+  .testi-text { font-size: 0.93rem; color: var(--dark-text); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar {
+    width: 44px; height: 44px; border-radius: 50%; object-fit: cover;
+    border: 2px solid var(--gray-line);
+  }
+  .testi-name { font-weight: 700; font-size: 0.88rem; color: var(--navy); }
+  .testi-loc { font-size: 0.78rem; color: var(--gray-text); margin-top: 2px; }
+
+  /* ── HARGA ── */
+  #harga { background: var(--white); }
+  .harga-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .harga-card {
+    border: 1.5px solid var(--gray-line); border-radius: var(--radius); padding: 36px 28px;
+    text-align: center; transition: transform .2s, box-shadow .2s;
+    position: relative; overflow: hidden;
+  }
+  .harga-card.featured {
+    background: var(--navy); border-color: var(--navy); transform: scale(1.04);
+    box-shadow: 0 12px 48px rgba(27,43,75,0.22);
+  }
+  .harga-card.featured .harga-name { color: rgba(255,255,255,0.7); }
+  .harga-card.featured .harga-price { color: var(--white); }
+  .harga-card.featured .harga-sub { color: rgba(255,255,255,0.5); }
+  .harga-card.featured .harga-feat { color: rgba(255,255,255,0.8); }
+  .harga-card.featured .harga-feat::before { color: var(--orange); }
+  .harga-badge {
+    position: absolute; top: 16px; right: -28px;
+    background: var(--orange); color: var(--white); font-size: 0.72rem; font-weight: 700;
+    padding: 4px 36px; transform: rotate(45deg); letter-spacing: 1px;
+  }
+  .harga-name { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--gray-text); margin-bottom: 16px; }
+  .harga-price { font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 800; color: var(--navy); }
+  .harga-sub { font-size: 0.82rem; color: var(--gray-text); margin-bottom: 24px; }
+  .harga-feats { list-style: none; text-align: left; margin-bottom: 28px; }
+  .harga-feat {
+    font-size: 0.88rem; color: var(--dark-text); padding: 7px 0;
+    border-bottom: 1px solid var(--gray-line); display: flex; align-items: center; gap: 10px;
+  }
+  .harga-feat::before { content: '✓'; color: var(--orange); font-weight: 700; }
+  .harga-card.featured .harga-feat { border-bottom-color: rgba(255,255,255,0.1); }
+  .btn-harga {
+    display: block; padding: 13px; border-radius: 10px; font-weight: 700; font-size: 0.95rem;
+    text-decoration: none; transition: all .2s;
+  }
+  .btn-harga-outline { border: 2px solid var(--navy); color: var(--navy); }
+  .btn-harga-outline:hover { background: var(--navy); color: var(--white); }
+  .btn-harga-filled { background: var(--orange); color: var(--white); box-shadow: 0 4px 16px rgba(244,101,12,0.35); }
+  .btn-harga-filled:hover { background: var(--orange-light); }
+
+  /* ── CTA BAND ── */
+  #cta {
+    background: linear-gradient(135deg, var(--orange) 0%, #C94E08 100%);
+    padding: 80px 6%; text-align: center;
+  }
+  #cta h2 { font-family: 'Sora', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; color: var(--white); margin-bottom: 14px; letter-spacing: -0.8px; }
+  #cta p { color: rgba(255,255,255,0.85); font-size: 1.05rem; margin-bottom: 36px; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-cta-white { background: var(--white); color: var(--orange); padding: 14px 32px; border-radius: 10px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: transform .15s, box-shadow .2s; box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+  .btn-cta-white:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.18); }
+  .btn-cta-outline { border: 2px solid rgba(255,255,255,0.7); color: var(--white); padding: 14px 32px; border-radius: 10px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: background .2s; }
+  .btn-cta-outline:hover { background: rgba(255,255,255,0.12); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--navy); color: rgba(255,255,255,0.65); padding: 60px 6% 28px; }
+  .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .footer-brand p { font-size: 0.9rem; line-height: 1.7; margin-top: 14px; }
+  .footer-col h5 { font-family: 'Sora', sans-serif; font-weight: 700; color: var(--white); font-size: 0.92rem; margin-bottom: 16px; }
+  .footer-col a { display: block; font-size: 0.87rem; color: rgba(255,255,255,0.6); text-decoration: none; margin-bottom: 10px; transition: color .2s; }
+  .footer-col a:hover { color: var(--orange); }
+  .footer-contact { font-size: 0.87rem; line-height: 1.7; }
+  .footer-contact strong { color: var(--white); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: gap; }
+  .footer-bottom p { font-size: 0.82rem; }
+  .footer-socials { display: flex; gap: 10px; }
+  .social-btn {
+    width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center; font-size: 14px; text-decoration: none;
+    color: rgba(255,255,255,0.7); transition: background .2s, color .2s;
+  }
+  .social-btn:hover { background: var(--orange); color: var(--white); }
+
+  /* WhatsApp Floating */
+  .wa-float {
+    position: fixed; bottom: 28px; right: 28px; z-index: 200;
+    width: 58px; height: 58px; background: #25D366; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.45); text-decoration: none;
+    font-size: 26px; transition: transform .2s, box-shadow .2s;
+    animation: waPop 0.5s cubic-bezier(.34,1.56,.64,1) 1.5s both;
+  }
+  .wa-float:hover { transform: scale(1.12); box-shadow: 0 8px 28px rgba(37,211,102,0.55); }
+  @keyframes waPop { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
+  .wa-tooltip {
+    position: absolute; right: 68px; background: var(--white); color: var(--navy);
+    font-size: 0.8rem; font-weight: 600; padding: 7px 14px; border-radius: 8px;
+    white-space: nowrap; box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    opacity: 0; pointer-events: none; transition: opacity .2s;
+  }
+  .wa-float:hover .wa-tooltip { opacity: 1; }
+
+  /* Scroll reveal (CSS only) */
+  @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+  .fade-up { animation: fadeUp 0.6s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-content { grid-template-columns: 1fr; gap: 40px; }
+    .hero-right { display: none; }
+    .keunggulan-grid { grid-template-columns: 1fr; }
+    .proses-track { grid-template-columns: 1fr 1fr; }
+    .proses-track::before { display: none; }
+    .harga-grid { grid-template-columns: 1fr; }
+    .harga-card.featured { transform: none; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gallery-item:first-child { grid-row: auto; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links a:not(.btn-nav) { display: none; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 70px 5%; }
+    .proses-track { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .hero-stats { flex-wrap: wrap; gap: 20px; }
+    h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="logo-icon">🚛</div>
+    <span>Mover<em>Pro</em></span>
+  </a>
+  <div class="nav-links">
+    <a href="#layanan">Layanan</a>
+    <a href="#proses">Cara Kerja</a>
+    <a href="#testimoni">Testimoni</a>
+    <a href="#harga">Harga</a>
+    <a href="https://wa.me/6281234567890" class="btn-nav">📞 Hubungi Kami</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-deco deco-1"></div>
+  <div class="hero-deco deco-2"></div>
+
+  <div class="hero-badge"><span></span> Jasa Pindahan & Ekspedisi #1 di Indonesia</div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <h1>Pindahan Rumah <span class="accent">Aman,</span> Cepat & Terpercaya</h1>
+      <p class="hero-desc">Percayakan pindahan rumah, kantor, atau pengiriman barang Anda kepada tim profesional kami. Armada lengkap, berpendingin, dengan asuransi penuh — selamat sampai tujuan.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/6281234567890" class="btn-primary">🚚 Minta Penawaran Gratis</a>
+        <a href="#layanan" class="btn-outline">Lihat Layanan →</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">12<span>K+</span></div>
+          <div class="hero-stat-label">Pindahan Sukses</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">98<span>%</span></div>
+          <div class="hero-stat-label">Kepuasan Pelanggan</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">8<span>th</span></div>
+          <div class="hero-stat-label">Pengalaman Operasi</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Animated Truck SVG -->
+    <div class="hero-right">
+      <div class="truck-scene">
+        <svg viewBox="0 0 520 340" xmlns="http://www.w3.org/2000/svg">
+          <!-- Sky background -->
+          <rect width="520" height="280" fill="rgba(36,54,96,0.0)" rx="20"/>
+
+          <!-- Clouds -->
+          <g class="cloud1">
+            <ellipse cx="80" cy="60" rx="45" ry="22" fill="rgba(255,255,255,0.08)"/>
+            <ellipse cx="110" cy="50" rx="35" ry="18" fill="rgba(255,255,255,0.08)"/>
+          </g>
+          <g class="cloud2">
+            <ellipse cx="380" cy="45" rx="55" ry="24" fill="rgba(255,255,255,0.06)"/>
+            <ellipse cx="420" cy="36" rx="38" ry="18" fill="rgba(255,255,255,0.06)"/>
+          </g>
+
+          <!-- Road -->
+          <rect x="0" y="265" width="520" height="75" rx="0" fill="#0F1D36"/>
+          <rect x="0" y="263" width="520" height="6" fill="#243660"/>
+
+          <!-- Road dashes (animated) -->
+          <g class="road-lines">
+            <rect x="-20" y="291" width="50" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+            <rect x="80" y="291" width="50" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+            <rect x="180" y="291" width="50" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+            <rect x="280" y="291" width="50" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+            <rect x="380" y="291" width="50" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+            <rect x="480" y="291" width="50" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+          </g>
+
+          <!-- TRUCK (body group, animated bob) -->
+          <g class="truck-body">
+
+            <!-- Cargo box -->
+            <rect x="60" y="160" width="270" height="105" rx="8" fill="#F4650C"/>
+            <rect x="60" y="160" width="270" height="14" rx="4" fill="#C94E08"/>
+            <!-- Box shading -->
+            <rect x="60" y="160" width="8" height="105" fill="rgba(0,0,0,0.12)"/>
+            <rect x="322" y="160" width="8" height="105" fill="rgba(0,0,0,0.15)"/>
+
+            <!-- Box text label -->
+            <rect x="100" y="188" width="190" height="46" rx="6" fill="rgba(255,255,255,0.13)"/>
+            <text x="195" y="206" text-anchor="middle" font-family="'Sora',sans-serif" font-size="10" font-weight="800" fill="white" letter-spacing="2">MOVER</text>
+            <text x="195" y="222" text-anchor="middle" font-family="'Sora',sans-serif" font-size="8" font-weight="600" fill="rgba(255,255,255,0.8)" letter-spacing="3">PRO</text>
+
+            <!-- Box vertical lines (panels) -->
+            <line x1="160" y1="174" x2="160" y2="265" stroke="rgba(0,0,0,0.1)" stroke-width="1.5"/>
+            <line x1="230" y1="174" x2="230" y2="265" stroke="rgba(0,0,0,0.1)" stroke-width="1.5"/>
+            <line x1="300" y1="174" x2="300" y2="265" stroke="rgba(0,0,0,0.1)" stroke-width="1.5"/>
+
+            <!-- Cab body -->
+            <rect x="330" y="190" width="140" height="75" rx="10" fill="#1B2B4B"/>
+            <!-- Cab roof curve -->
+            <path d="M330 200 Q340 165 380 160 L460 160 Q474 160 474 175 L474 200 Z" fill="#243660"/>
+
+            <!-- Cab window -->
+            <rect x="365" y="173" width="88" height="52" rx="6" fill="#87CEEB" opacity="0.85"/>
+            <rect x="365" y="173" width="88" height="52" rx="6" fill="url(#windshield)"/>
+            <defs>
+              <linearGradient id="windshield" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="rgba(255,255,255,0.35)"/>
+                <stop offset="100%" stop-color="rgba(135,206,235,0.2)"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Window frame -->
+            <rect x="365" y="173" width="88" height="52" rx="6" fill="none" stroke="#1B2B4B" stroke-width="2"/>
+
+            <!-- Headlight -->
+            <rect x="464" y="222" width="18" height="10" rx="3" fill="#FFE066"/>
+            <rect x="464" y="222" width="18" height="10" rx="3" fill="none" stroke="#DAA500" stroke-width="1"/>
+
+            <!-- Grill -->
+            <rect x="464" y="237" width="18" height="22" rx="3" fill="#111827"/>
+            <line x1="464" y1="244" x2="482" y2="244" stroke="#374151" stroke-width="1"/>
+            <line x1="464" y1="251" x2="482" y2="251" stroke="#374151" stroke-width="1"/>
+            <line x1="473" y1="237" x2="473" y2="259" stroke="#374151" stroke-width="1"/>
+
+            <!-- Company logo on cab door -->
+            <circle cx="350" cy="225" r="14" fill="rgba(244,101,12,0.18)" stroke="rgba(244,101,12,0.5)" stroke-width="1.5"/>
+            <text x="350" y="230" text-anchor="middle" font-size="13" fill="#F4650C">🚛</text>
+
+            <!-- Fuel tank -->
+            <rect x="330" y="242" width="30" height="18" rx="5" fill="#374151"/>
+
+            <!-- Step/running board -->
+            <rect x="330" y="258" width="140" height="6" rx="2" fill="#111827"/>
+
+            <!-- Front bumper -->
+            <rect x="464" y="260" width="18" height="7" rx="2" fill="#374151"/>
+
+            <!-- Exhaust pipe -->
+            <rect x="450" y="150" width="6" height="20" rx="3" fill="#374151"/>
+            <!-- Smoke puffs -->
+            <circle cx="453" cy="142" r="6" fill="rgba(255,255,255,0.07)"/>
+            <circle cx="458" cy="132" r="9" fill="rgba(255,255,255,0.05)"/>
+            <circle cx="450" cy="122" r="11" fill="rgba(255,255,255,0.03)"/>
+
+          </g> <!-- end truck-body -->
+
+          <!-- Wheels (outside animation group so they spin around their own centers) -->
+          <!-- Rear wheels -->
+          <g transform="translate(120, 263)">
+            <circle r="28" fill="#1F2937" class="wheel" style="transform-origin:0px 0px"/>
+            <circle r="28" fill="none" stroke="#374151" stroke-width="3" style="transform-origin:0px 0px" class="wheel"/>
+            <circle r="16" fill="#374151" class="wheel" style="transform-origin:0px 0px"/>
+            <circle r="5" fill="#6B7280" class="wheel" style="transform-origin:0px 0px"/>
+            <line x1="0" y1="-22" x2="0" y2="22" stroke="#4B5563" stroke-width="2.5" class="wheel" style="transform-origin:0px 0px"/>
+            <line x1="-22" y1="0" x2="22" y2="0" stroke="#4B5563" stroke-width="2.5" class="wheel" style="transform-origin:0px 0px"/>
+          </g>
+          <g transform="translate(200, 263)">
+            <circle r="28" fill="#1F2937" class="wheel" style="transform-origin:0px 0px"/>
+            <circle r="28" fill="none" stroke="#374151" stroke-width="3" class="wheel" style="transform-origin:0px 0px"/>
+            <circle r="16" fill="#374151" class="wheel" style="transform-origin:0px 0px"/>
+            <circle r="5" fill="#6B7280" class="wheel" style="transform-origin:0px 0px"/>
+            <line x1="0" y1="-22" x2="0" y2="22" stroke="#4B5563" stroke-width="2.5" class="wheel" style="transform-origin:0px 0px"/>
+            <line x1="-22" y1="0" x2="22" y2="0" stroke="#4B5563" stroke-width="2.5" class="wheel" style="transform-origin:0px 0px"/>
+          </g>
+          <!-- Front wheel -->
+          <g transform="translate(418, 263)">
+            <circle r="28" fill="#1F2937" class="wheel" style="transform-origin:0px 0px"/>
+            <circle r="28" fill="none" stroke="#374151" stroke-width="3" class="wheel" style="transform-origin:0px 0px"/>
+            <circle r="16" fill="#374151" class="wheel" style="transform-origin:0px 0px"/>
+            <circle r="5" fill="#6B7280" class="wheel" style="transform-origin:0px 0px"/>
+            <line x1="0" y1="-22" x2="0" y2="22" stroke="#4B5563" stroke-width="2.5" class="wheel" style="transform-origin:0px 0px"/>
+            <line x1="-22" y1="0" x2="22" y2="0" stroke="#4B5563" stroke-width="2.5" class="wheel" style="transform-origin:0px 0px"/>
+          </g>
+
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND BAR -->
+<div id="brands">
+  <div class="brands-inner">
+    <span class="brands-label">Dipercaya oleh:</span>
+    <span class="brand-logo">IKEA Indonesia</span>
+    <span class="brand-logo">Tokopedia</span>
+    <span class="brand-logo">Bank BCA</span>
+    <span class="brand-logo">Astra Group</span>
+    <span class="brand-logo">Pertamina</span>
+    <span class="brand-logo">Kementerian RI</span>
+  </div>
+</div>
+
+<!-- LAYANAN -->
+<section id="layanan">
+  <div class="section-header">
+    <div class="section-label">Layanan Kami</div>
+    <h2 class="section-title">Solusi Lengkap untuk Setiap Kebutuhan Pindahan</h2>
+    <p class="section-sub">Dari pindahan rumah hingga pengiriman kargo besar, semua kami tangani dengan armada modern dan tim berpengalaman.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🏠</div>
+      <h3>Pindahan Rumah</h3>
+      <p>Layanan pindah rumah lengkap mulai dari packing, loading, pengiriman, hingga unpacking di lokasi baru dengan aman dan efisien.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏢</div>
+      <h3>Pindahan Kantor</h3>
+      <p>Relokasi kantor skala kecil hingga besar tanpa mengganggu operasional bisnis Anda. Tim khusus siap weekend & malam hari.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📦</div>
+      <h3>Jasa Packing</h3>
+      <p>Packing profesional menggunakan bubble wrap, karton khusus, dan material pengaman premium untuk barang pecah belah & elektronik.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🚛</div>
+      <h3>Pengiriman Kargo</h3>
+      <p>Jasa ekspedisi kargo darat dengan armada truk berbagai ukuran. Rute utama Jawa-Bali-Sumatera, jadwal reguler setiap hari.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌡️</div>
+      <h3>Kargo Pendingin</h3>
+      <p>Armada berpendingin (cold chain) untuk pengiriman makanan beku, obat-obatan, dan produk yang sensitif terhadap suhu.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🛡️</div>
+      <h3>Penyimpanan & Gudang</h3>
+      <p>Fasilitas gudang bersih & aman untuk penyimpanan sementara atau jangka panjang dengan sistem keamanan 24 jam.</p>
+    </div>
+  </div>
+</section>
+
+<!-- KEUNGGULAN -->
+<section id="keunggulan">
+  <div class="keunggulan-grid">
+    <div class="keunggulan-image">
+      <img src="https://picsum.photos/seed/moving1/700/420" alt="Tim profesional MoverPro sedang packing barang"/>
+    </div>
+    <div>
+      <div class="section-label">Kenapa MoverPro?</div>
+      <h2 class="section-title">Dipercaya Ribuan Pelanggan di Seluruh Indonesia</h2>
+      <p class="section-sub" style="margin-bottom:36px">Kami bukan sekadar mengangkut barang. Kami memindahkan kepercayaan Anda dengan standar tertinggi.</p>
+      <div class="keunggulan-list">
+        <div class="keunggulan-item">
+          <div class="keunggulan-num">01</div>
+          <div>
+            <h4>Asuransi Barang Penuh</h4>
+            <p>Setiap barang diasuransikan sejak keluar dari pintu Anda hingga tiba di tujuan. Ganti rugi langsung tanpa birokrasi berbelit.</p>
+          </div>
+        </div>
+        <div class="keunggulan-item">
+          <div class="keunggulan-num">02</div>
+          <div>
+            <h4>Armada GPS Tracking Real-Time</h4>
+            <p>Pantau posisi truk barang Anda kapan saja lewat aplikasi atau WhatsApp. Tidak ada yang tersembunyi dari Anda.</p>
+          </div>
+        </div>
+        <div class="keunggulan-item">
+          <div class="keunggulan-num">03</div>
+          <div>
+            <h4>Tim Bersertifikat & Terlatih</h4>
+            <p>Seluruh tim kami telah mengikuti pelatihan profesional packing & handling. Berpengalaman lebih dari 5 tahun rata-rata.</p>
+          </div>
+        </div>
+        <div class="keunggulan-item">
+          <div class="keunggulan-num">04</div>
+          <div>
+            <h4>Harga Transparan, Tanpa Biaya Tersembunyi</h4>
+            <p>Survei gratis dan penawaran harga tetap sebelum pekerjaan dimulai. Tidak ada biaya kejutan di akhir.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROSES -->
+<section id="proses">
+  <div class="section-header">
+    <div class="section-label">Cara Kerja</div>
+    <h2 class="section-title">Pindahan Selesai dalam 5 Langkah Mudah</h2>
+    <p class="section-sub">Proses simpel, transparan, dan Anda selalu tahu apa yang terjadi di setiap tahap.</p>
+  </div>
+  <div class="proses-track">
+    <div class="proses-step">
+      <div class="proses-circle">📞</div>
+      <h4>Hubungi Kami</h4>
+      <p>Ceritakan kebutuhan pindahan Anda via WhatsApp atau telepon</p>
+    </div>
+    <div class="proses-step">
+      <div class="proses-circle">📋</div>
+      <h4>Survei & Estimasi</h4>
+      <p>Tim kami survei lokasi (online/offline) & beri penawaran harga pasti</p>
+    </div>
+    <div class="proses-step">
+      <div class="proses-circle">📦</div>
+      <h4>Packing Profesional</h4>
+      <p>Tim packing datang & mengemas semua barang dengan material premium</p>
+    </div>
+    <div class="proses-step">
+      <div class="proses-circle">🚛</div>
+      <h4>Pengiriman & Tracking</h4>
+      <p>Barang diangkut & Anda dapat track real-time lewat WhatsApp</p>
+    </div>
+    <div class="proses-step">
+      <div class="proses-circle">🎉</div>
+      <h4>Sampai & Selesai</h4>
+      <p>Unpacking di lokasi baru, susun ulang, dan Anda langsung bisa tinggal</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALERI -->
+<section id="galeri">
+  <div class="section-header">
+    <div class="section-label">Galeri Proyek</div>
+    <h2 class="section-title">Dokumentasi Pekerjaan Kami</h2>
+    <p class="section-sub">Ratusan proyek pindahan dari skala kecil hingga korporat telah kami selesaikan dengan standar terbaik.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="https://picsum.photos/seed/move10/700/500" alt="Proses pindahan rumah"/>
+      <div class="gallery-overlay"></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://picsum.photos/seed/move11/600/240" alt="Packing profesional"/>
+      <div class="gallery-overlay"></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://picsum.photos/seed/move12/600/240" alt="Pengiriman kargo"/>
+      <div class="gallery-overlay"></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://picsum.photos/seed/move13/600/240" alt="Tim profesional"/>
+      <div class="gallery-overlay"></div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://picsum.photos/seed/move14/600/240" alt="Armada truk"/>
+      <div class="gallery-overlay"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section id="testimoni">
+  <div class="section-header">
+    <div class="section-label">Testimoni</div>
+    <h2 class="section-title">Kata Mereka yang Sudah Percaya</h2>
+    <p class="section-sub">Lebih dari 12.000 pelanggan puas — bukan sekadar klaim, tapi cerita nyata.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Barang-barang saya pindah dari Jakarta ke Surabaya dalam kondisi sempurna. Tim sangat ramah dan profesional. Tidak ada satu pun yang rusak, padahal ada banyak perabot antik!"</p>
+      <div class="testi-author">
+        <img src="https://ui-avatars.com/api/?name=Sari+Dewi&background=F4650C&color=fff&size=88&bold=true" class="testi-avatar" alt="Sari Dewi"/>
+        <div>
+          <div class="testi-name">Sari Dewi Rahayu</div>
+          <div class="testi-loc">Ibu Rumah Tangga · Jakarta → Surabaya</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Relokasi kantor kami dengan 50+ workstation berjalan tanpa hambatan. Tim datang malam hari agar tidak ganggu operasional. Sangat recommended untuk skala korporat!"</p>
+      <div class="testi-author">
+        <img src="https://ui-avatars.com/api/?name=Budi+Santoso&background=1B2B4B&color=fff&size=88&bold=true" class="testi-avatar" alt="Budi Santoso"/>
+        <div>
+          <div class="testi-name">Budi Santoso</div>
+          <div class="testi-loc">General Manager · PT Maju Bersama</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Harganya sangat kompetitif dan tidak ada biaya tambahan tersembunyi. Bisa tracking truk lewat WhatsApp. Akan selalu pakai MoverPro untuk setiap pindahan selanjutnya."</p>
+      <div class="testi-author">
+        <img src="https://ui-avatars.com/api/?name=Ayu+Lestari&background=243660&color=fff&size=88&bold=true" class="testi-avatar" alt="Ayu Lestari"/>
+        <div>
+          <div class="testi-name">Ayu Lestari</div>
+          <div class="testi-loc">Pengusaha Muda · Bandung</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HARGA -->
+<section id="harga">
+  <div class="section-header">
+    <div class="section-label">Paket Harga</div>
+    <h2 class="section-title">Harga Transparan, Sesuai Kebutuhan Anda</h2>
+    <p class="section-sub">Pilih paket yang sesuai, atau hubungi kami untuk penawaran kustom. Survei selalu gratis!</p>
+  </div>
+  <div class="harga-grid">
+    <div class="harga-card">
+      <div class="harga-name">Paket Mini</div>
+      <div class="harga-price">Rp 750K</div>
+      <div class="harga-sub">estimasi per proyek</div>
+      <ul class="harga-feats">
+        <li class="harga-feat">Pindahan 1 kamar kost/studio</li>
+        <li class="harga-feat">1 unit pickup L300</li>
+        <li class="harga-feat">2 orang tenaga angkut</li>
+        <li class="harga-feat">Area dalam kota</li>
+        <li class="harga-feat">Asuransi dasar</li>
+      </ul>
+      <a href="https://wa.me/6281234567890" class="btn-harga btn-harga-outline">Pesan Sekarang</a>
+    </div>
+    <div class="harga-card featured">
+      <div class="harga-badge">TERLARIS</div>
+      <div class="harga-name">Paket Rumah</div>
+      <div class="harga-price">Rp 2,5 Juta</div>
+      <div class="harga-sub">estimasi per proyek</div>
+      <ul class="harga-feats">
+        <li class="harga-feat">Rumah 2–3 kamar tidur</li>
+        <li class="harga-feat">1 unit truk box besar</li>
+        <li class="harga-feat">4–5 orang tenaga angkut</li>
+        <li class="harga-feat">Packing material premium</li>
+        <li class="harga-feat">Asuransi komprehensif</li>
+        <li class="harga-feat">GPS tracking real-time</li>
+      </ul>
+      <a href="https://wa.me/6281234567890" class="btn-harga btn-harga-filled">Pesan Sekarang</a>
+    </div>
+    <div class="harga-card">
+      <div class="harga-name">Paket Korporat</div>
+      <div class="harga-price">Custom</div>
+      <div class="harga-sub">sesuai kebutuhan</div>
+      <ul class="harga-feats">
+        <li class="harga-feat">Kantor / pabrik / gudang</li>
+        <li class="harga-feat">Armada multipel</li>
+        <li class="harga-feat">Tim dedicat + supervisor</li>
+        <li class="harga-feat">Jadwal fleksibel (24/7)</li>
+        <li class="harga-feat">Asuransi all-risk</li>
+        <li class="harga-feat">Laporan dokumentasi lengkap</li>
+      </ul>
+      <a href="https://wa.me/6281234567890" class="btn-harga btn-harga-outline">Minta Penawaran</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <h2>Siap Pindah? Konsultasi Gratis Sekarang!</h2>
+  <p>Tim kami siap membantu Anda 7 hari seminggu, mulai pukul 07.00 – 21.00 WIB</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/6281234567890" class="btn-cta-white">💬 Chat WhatsApp</a>
+    <a href="tel:+6281234567890" class="btn-cta-outline">📞 Telepon Langsung</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" style="margin-bottom:0">
+        <div class="logo-icon">🚛</div>
+        <span style="font-family:'Sora',sans-serif;font-weight:800;font-size:1.2rem;color:white;letter-spacing:-0.5px">Mover<em style="color:var(--orange);font-style:normal">Pro</em></span>
+      </a>
+      <p>Jasa pindahan & ekspedisi terpercaya sejak 2016. Beroperasi di seluruh Jawa, Bali, dan Sumatera dengan 200+ armada aktif.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Layanan</h5>
+      <a href="#">Pindahan Rumah</a>
+      <a href="#">Pindahan Kantor</a>
+      <a href="#">Jasa Packing</a>
+      <a href="#">Pengiriman Kargo</a>
+      <a href="#">Kargo Pendingin</a>
+      <a href="#">Penyimpanan</a>
+    </div>
+    <div class="footer-col">
+      <h5>Perusahaan</h5>
+      <a href="#">Tentang Kami</a>
+      <a href="#">Karir</a>
+      <a href="#">Blog</a>
+      <a href="#">Syarat & Ketentuan</a>
+      <a href="#">Kebijakan Privasi</a>
+    </div>
+    <div class="footer-col">
+      <h5>Hubungi Kami</h5>
+      <div class="footer-contact">
+        <strong>WhatsApp</strong><br>
+        0812-3456-7890<br><br>
+        <strong>Email</strong><br>
+        halo@moverpro.id<br><br>
+        <strong>Kantor Pusat</strong><br>
+        Jl. Gatot Subroto No. 88<br>Jakarta Selatan, 12930
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 MoverPro Indonesia. Semua hak dilindungi.</p>
+    <div class="footer-socials">
+      <a href="#" class="social-btn">f</a>
+      <a href="#" class="social-btn">in</a>
+      <a href="#" class="social-btn">ig</a>
+      <a href="#" class="social-btn">yt</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/6281234567890" class="wa-float" target="_blank" aria-label="Chat WhatsApp">
+  <span class="wa-tooltip">Chat dengan Kami!</span>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
+
+<script>
+  // Smooth nav active state on scroll
+  const navLinks = document.querySelectorAll('.nav-links a:not(.btn-nav)');
+  const sections = document.querySelectorAll('section[id]');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 100) current = sec.id;
+    });
+    navLinks.forEach(link => {
+      link.style.color = link.getAttribute('href') === '#' + current
+        ? 'white' : 'rgba(255,255,255,0.78)';
+    });
+  });
+
+  // Simple scroll reveal using IntersectionObserver
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .keunggulan-item, .proses-step, .testi-card, .harga-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>

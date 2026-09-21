@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SparkClean — Jasa Cleaning Service Profesional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Lora:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sky:     #0EA5E9;
+      --sky-d:   #0284C7;
+      --sky-l:   #BAE6FD;
+      --mint:    #E0F7FA;
+      --frost:   #F0F9FF;
+      --navy:    #1E3A5F;
+      --slate:   #64748B;
+      --muted:   #94A3B8;
+      --white:   #FFFFFF;
+      --green:   #10B981;
+      --yellow:  #F59E0B;
+      --r: 10px;
+      --r-sm: 6px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--white); color: var(--navy); overflow-x: hidden; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 68px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(14,165,233,0.1);
+      transition: box-shadow .3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 24px rgba(14,165,233,.12); }
+    .nav-logo {
+      display: flex; align-items: center; gap: .5rem;
+      font-family: 'Lora', serif; font-size: 1.35rem; color: var(--navy);
+      text-decoration: none;
+    }
+    .logo-spark { color: var(--sky); }
+    .logo-icon {
+      width: 34px; height: 34px; background: var(--sky);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links a { color: var(--slate); font-size: .875rem; font-weight: 500; text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--sky); }
+    .nav-actions { display: flex; align-items: center; gap: .8rem; }
+    .nav-phone { font-size: .85rem; font-weight: 600; color: var(--navy); text-decoration: none; }
+    .nav-cta {
+      background: var(--sky); color: var(--white); font-weight: 600; font-size: .82rem;
+      padding: .55rem 1.3rem; border-radius: 50px; text-decoration: none;
+      transition: background .2s, transform .15s; letter-spacing: .02em;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--sky-d); transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { width: 22px; height: 2px; background: var(--navy); display: block; transition: .3s; border-radius: 2px; }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh; padding-top: 68px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 60px 5% 60px 6%;
+      background: var(--frost);
+      position: relative; z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--sky-l); color: var(--sky-d);
+      font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: .4rem 1rem; border-radius: 50px; margin-bottom: 1.6rem;
+      width: fit-content;
+      animation: fadeUp .7s .2s both;
+    }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sky); }
+    .hero-left h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+      font-weight: 800; line-height: 1.1; color: var(--navy);
+      margin-bottom: 1.2rem;
+      animation: fadeUp .7s .35s both;
+    }
+    .hero-left h1 .highlight {
+      color: var(--sky);
+      font-style: italic;
+      position: relative; display: inline-block;
+    }
+    .hero-left h1 .highlight::after {
+      content: ''; position: absolute; left: 0; bottom: -2px; right: 0; height: 3px;
+      background: var(--sky-l); border-radius: 2px;
+    }
+    .hero-desc {
+      color: var(--slate); font-size: 1rem; line-height: 1.75; max-width: 440px;
+      margin-bottom: 2.2rem;
+      animation: fadeUp .7s .5s both;
+    }
+    .hero-actions { display: flex; gap: .9rem; flex-wrap: wrap; animation: fadeUp .7s .65s both; }
+    .btn-primary {
+      background: var(--sky); color: var(--white); font-weight: 700; font-size: .9rem;
+      padding: .85rem 1.8rem; border-radius: 50px; text-decoration: none; border: none; cursor: pointer;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 16px rgba(14,165,233,.35);
+    }
+    .btn-primary:hover { background: var(--sky-d); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(14,165,233,.45); }
+    .btn-ghost {
+      background: transparent; color: var(--navy); font-weight: 600; font-size: .9rem;
+      padding: .85rem 1.8rem; border-radius: 50px; text-decoration: none;
+      border: 1.5px solid rgba(30,58,95,.2); transition: border-color .2s, color .2s, transform .15s;
+    }
+    .btn-ghost:hover { border-color: var(--sky); color: var(--sky); transform: translateY(-2px); }
+    .hero-trust {
+      display: flex; align-items: center; gap: 1rem; margin-top: 2rem;
+      animation: fadeUp .7s .8s both;
+    }
+    .trust-avatars { display: flex; }
+    .trust-avatars img {
+      width: 34px; height: 34px; border-radius: 50%; object-fit: cover;
+      border: 2px solid white; margin-left: -8px;
+    }
+    .trust-avatars img:first-child { margin-left: 0; }
+    .trust-text { font-size: .8rem; color: var(--slate); line-height: 1.45; }
+    .trust-text strong { color: var(--navy); font-weight: 600; display: block; }
+
+    .hero-right {
+      position: relative; overflow: hidden;
+      background: #c8e8f5;
+    }
+    .hero-right img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      animation: heroSlide .8s .1s both;
+    }
+    @keyframes heroSlide { from { transform: scale(1.08); opacity:.8; } to { transform: scale(1); opacity:1; } }
+    .hero-right-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(240,249,255,.35) 0%, transparent 40%);
+    }
+    .hero-cards {
+      position: absolute; bottom: 2rem; left: 1.5rem; right: 1.5rem;
+      display: flex; gap: .75rem;
+    }
+    .hero-card {
+      background: rgba(255,255,255,.9); backdrop-filter: blur(10px);
+      border-radius: var(--r-sm); padding: .8rem 1rem;
+      display: flex; align-items: center; gap: .7rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,.1); flex: 1;
+      animation: fadeUp .7s 1s both;
+    }
+    .hcard-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .hcard-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--navy); line-height: 1; }
+    .hcard-label { font-size: .7rem; color: var(--slate); margin-top: .1rem; }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+    /* ─── STATS BAR ─── */
+    #stats {
+      background: var(--sky); padding: 1.4rem 5%;
+      display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1.2rem;
+    }
+    .stat-item { text-align: center; color: white; }
+    .stat-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.9rem; font-weight: 800; line-height: 1; }
+    .stat-label { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; opacity: .82; margin-top: .2rem; }
+    .stat-divider { width: 1px; background: rgba(255,255,255,.25); align-self: stretch; }
+
+    /* ─── SECTION COMMON ─── */
+    .section { padding: 88px 5%; }
+    .section-label { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--sky); margin-bottom: .7rem; }
+    .section-title { font-family: 'Lora', serif; font-size: clamp(1.7rem, 3vw, 2.6rem); font-weight: 800; color: var(--navy); line-height: 1.18; margin-bottom: .9rem; }
+    .section-sub { color: var(--slate); font-size: .97rem; line-height: 1.75; max-width: 500px; }
+
+    /* ─── LAYANAN ─── */
+    #layanan { background: var(--frost); }
+    .layanan-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
+    .layanan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+    .layanan-card {
+      background: var(--white); border-radius: var(--r); padding: 2rem 1.8rem;
+      border: 1.5px solid rgba(14,165,233,.1);
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+      cursor: pointer; position: relative; overflow: hidden;
+    }
+    .layanan-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--sky), var(--green));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .3s;
+    }
+    .layanan-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(14,165,233,.12); border-color: rgba(14,165,233,.25); }
+    .layanan-card:hover::before { transform: scaleX(1); }
+    .layanan-icon {
+      width: 52px; height: 52px; border-radius: var(--r-sm);
+      background: var(--mint); display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 1.2rem; transition: background .3s;
+    }
+    .layanan-card:hover .layanan-icon { background: var(--sky-l); }
+    .layanan-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.05rem; font-weight: 800; color: var(--navy); margin-bottom: .6rem; }
+    .layanan-card p { font-size: .85rem; color: var(--slate); line-height: 1.65; margin-bottom: 1.3rem; }
+    .layanan-tag {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .72rem; font-weight: 600; color: var(--sky);
+      text-decoration: none; transition: gap .2s;
+    }
+    .layanan-tag:hover { gap: .7rem; }
+
+    /* ─── CARA KERJA ─── */
+    #cara-kerja { background: var(--white); }
+    .cara-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .cara-img { position: relative; }
+    .cara-img img { width: 100%; height: 480px; object-fit: cover; border-radius: var(--r); display: block; }
+    .cara-badge-float {
+      position: absolute; top: 2rem; right: -1.5rem;
+      background: var(--white); border-radius: var(--r-sm); padding: 1rem 1.3rem;
+      box-shadow: 0 8px 32px rgba(14,165,233,.18);
+      display: flex; align-items: center; gap: .8rem;
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .cara-badge-icon { font-size: 2rem; }
+    .cara-badge-text .num { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--sky); line-height:1; }
+    .cara-badge-text small { font-size:.7rem; color:var(--slate); display:block; }
+    .cara-badge-float2 {
+      position: absolute; bottom: 2rem; left: -1.5rem;
+      background: var(--sky); border-radius: var(--r-sm); padding: .9rem 1.2rem;
+      box-shadow: 0 8px 24px rgba(14,165,233,.3); color: white;
+      animation: float 4s 2s ease-in-out infinite;
+    }
+    .cara-badge-float2 .small-txt { font-size: .7rem; opacity: .85; }
+    .cara-badge-float2 .big-txt { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.1rem; font-weight:800; }
+
+    .cara-steps { display: flex; flex-direction: column; gap: 0; }
+    .cara-step { display: flex; gap: 1.2rem; align-items: flex-start; position: relative; padding-bottom: 2rem; }
+    .cara-step:last-child { padding-bottom: 0; }
+    .step-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+    .step-num {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--sky); color: white;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: .9rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; position: relative; z-index: 1;
+    }
+    .step-line {
+      width: 2px; flex: 1; background: var(--sky-l); margin-top: .3rem;
+      min-height: 2rem;
+    }
+    .cara-step:last-child .step-line { display: none; }
+    .step-body h4 { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:.95rem; color:var(--navy); margin-bottom:.4rem; margin-top:.5rem; }
+    .step-body p { font-size: .85rem; color: var(--slate); line-height: 1.65; }
+
+    /* ─── BEFORE AFTER GALERI ─── */
+    #galeri { background: var(--navy); padding: 88px 5%; }
+    #galeri .section-label { color: var(--sky-l); }
+    #galeri .section-title { color: var(--white); }
+    #galeri .section-sub { color: rgba(255,255,255,.6); }
+    .galeri-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.8rem; }
+    .galeri-pair { border-radius: var(--r); overflow: hidden; position: relative; }
+    .ba-container {
+      position: relative; overflow: hidden; cursor: ew-resize;
+      border-radius: var(--r); height: 280px;
+    }
+    .ba-after, .ba-before {
+      position: absolute; inset: 0;
+    }
+    .ba-after img, .ba-before img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .ba-before { clip-path: inset(0 50% 0 0); transition: clip-path .0s; }
+    .ba-divider {
+      position: absolute; top: 0; bottom: 0; left: 50%;
+      width: 3px; background: white; transform: translateX(-50%);
+      z-index: 10; pointer-events: none;
+    }
+    .ba-handle {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 38px; height: 38px; border-radius: 50%; background: white;
+      z-index: 11; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,.3); pointer-events: none;
+      font-size: .85rem; color: var(--sky-d); font-weight: 700;
+    }
+    .ba-labels { position: absolute; top: .75rem; z-index: 12; display: flex; justify-content: space-between; left: .75rem; right: .75rem; pointer-events: none; }
+    .ba-label {
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: .25rem .65rem; border-radius: 50px;
+    }
+    .ba-label.before { background: rgba(0,0,0,.5); color: white; }
+    .ba-label.after { background: var(--sky); color: white; }
+    .galeri-caption { padding: .9rem 1rem; background: rgba(255,255,255,.07); }
+    .galeri-caption h5 { font-size: .85rem; font-weight: 600; color: white; margin-bottom: .2rem; }
+    .galeri-caption p { font-size: .75rem; color: rgba(255,255,255,.5); }
+
+    /* ─── HARGA / PAKET ─── */
+    #harga { background: var(--frost); }
+    .harga-header { text-align: center; margin-bottom: 3rem; }
+    .harga-header .section-sub { margin: 0 auto; }
+    .harga-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; max-width: 980px; margin: 0 auto; }
+    .harga-card {
+      background: var(--white); border-radius: var(--r); padding: 2.2rem 2rem;
+      border: 1.5px solid rgba(14,165,233,.12);
+      position: relative; transition: transform .3s, box-shadow .3s;
+    }
+    .harga-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(14,165,233,.1); }
+    .harga-card.featured {
+      background: var(--navy); border-color: var(--sky);
+      transform: scale(1.03);
+    }
+    .harga-card.featured:hover { transform: scale(1.03) translateY(-4px); }
+    .featured-tag {
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      background: var(--sky); color: white; font-size: .68rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase; padding: .3rem 1rem; border-radius: 50px;
+      white-space: nowrap;
+    }
+    .harga-name { font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--slate); margin-bottom: .5rem; }
+    .harga-card.featured .harga-name { color: var(--sky-l); }
+    .harga-price { font-family: 'Lora', serif; font-size: 2.2rem; font-weight: 800; color: var(--navy); line-height: 1; margin-bottom: .25rem; }
+    .harga-card.featured .harga-price { color: var(--white); }
+    .harga-per { font-size: .8rem; color: var(--muted); margin-bottom: 1.6rem; }
+    .harga-card.featured .harga-per { color: rgba(255,255,255,.5); }
+    .harga-divider { height: 1px; background: var(--frost); margin-bottom: 1.4rem; }
+    .harga-card.featured .harga-divider { background: rgba(255,255,255,.1); }
+    .harga-features { list-style: none; display: flex; flex-direction: column; gap: .75rem; margin-bottom: 2rem; }
+    .harga-features li { display: flex; align-items: flex-start; gap: .7rem; font-size: .85rem; color: var(--slate); }
+    .harga-card.featured .harga-features li { color: rgba(255,255,255,.75); }
+    .check { color: var(--green); flex-shrink: 0; margin-top: .05rem; font-size: .9rem; }
+    .harga-card.featured .check { color: var(--sky-l); }
+    .btn-harga {
+      width: 100%; padding: .85rem; border-radius: 50px; font-weight: 700; font-size: .88rem;
+      border: 1.5px solid var(--sky); background: transparent; color: var(--sky);
+      cursor: pointer; transition: background .2s, color .2s, transform .15s; text-decoration: none;
+      display: block; text-align: center;
+    }
+    .btn-harga:hover { background: var(--sky); color: white; transform: translateY(-1px); }
+    .btn-harga.featured-btn { background: var(--sky); color: white; border-color: var(--sky); }
+    .btn-harga.featured-btn:hover { background: var(--sky-d); border-color: var(--sky-d); }
+
+    /* ─── TESTIMONI ─── */
+    #testimoni { background: var(--white); }
+    .testi-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2.8rem; flex-wrap: wrap; gap: 1rem; }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+    .testi-card {
+      background: var(--frost); border-radius: var(--r); padding: 1.8rem;
+      border: 1px solid rgba(14,165,233,.08);
+      transition: box-shadow .3s;
+    }
+    .testi-card:hover { box-shadow: 0 8px 28px rgba(14,165,233,.1); }
+    .testi-stars { display: flex; gap: .2rem; margin-bottom: 1rem; font-size: .9rem; color: var(--yellow); }
+    .testi-quote { font-size: .88rem; color: var(--slate); line-height: 1.7; margin-bottom: 1.4rem; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: .85rem; }
+    .testi-avatar { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 2px solid var(--sky-l); }
+    .testi-name { font-size: .88rem; font-weight: 600; color: var(--navy); }
+    .testi-meta { font-size: .75rem; color: var(--muted); margin-top: .15rem; }
+    .verified { font-size: .68rem; color: var(--green); font-weight: 600; margin-top: .2rem; display: flex; align-items: center; gap: .25rem; }
+
+    /* ─── FAQ ─── */
+    #faq { background: var(--frost); }
+    .faq-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .faq-list { display: flex; flex-direction: column; gap: .75rem; margin-top: 2rem; }
+    .faq-item { background: var(--white); border-radius: var(--r-sm); border: 1px solid rgba(14,165,233,.1); overflow: hidden; }
+    .faq-q {
+      padding: 1.1rem 1.4rem; font-weight: 600; font-size: .9rem; color: var(--navy);
+      cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+      transition: color .2s; gap: 1rem;
+    }
+    .faq-q:hover { color: var(--sky); }
+    .faq-icon { font-size: 1.1rem; flex-shrink: 0; transition: transform .3s; color: var(--sky); }
+    .faq-a { padding: 0 1.4rem; font-size: .85rem; color: var(--slate); line-height: 1.7; max-height: 0; overflow: hidden; transition: max-height .4s, padding .3s; }
+    .faq-item.open .faq-a { max-height: 200px; padding-bottom: 1.1rem; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-img { border-radius: var(--r); overflow: hidden; }
+    .faq-img img { width: 100%; height: 380px; object-fit: cover; display: block; }
+
+    /* ─── CTA BAND ─── */
+    #cta {
+      background: linear-gradient(135deg, var(--sky) 0%, var(--sky-d) 100%);
+      padding: 80px 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 3rem; flex-wrap: wrap;
+    }
+    .cta-text h2 { font-family:'Lora',serif; font-size: clamp(1.6rem,3vw,2.4rem); font-weight:800; color:white; max-width:500px; line-height:1.2; }
+    .cta-text p { color: rgba(255,255,255,.75); font-size: .95rem; margin-top: .8rem; }
+    .cta-form { display: flex; gap: .7rem; flex-wrap: wrap; }
+    .cta-input {
+      background: rgba(255,255,255,.15); border: 1.5px solid rgba(255,255,255,.3);
+      color: white; font-family:'Plus Jakarta Sans',sans-serif; font-size: .9rem;
+      padding: .85rem 1.2rem; border-radius: 50px; outline: none; min-width: 200px;
+      transition: border-color .2s, background .2s;
+    }
+    .cta-input::placeholder { color: rgba(255,255,255,.55); }
+    .cta-input:focus { border-color: white; background: rgba(255,255,255,.2); }
+    .btn-cta {
+      background: white; color: var(--sky-d); font-weight: 700; font-size: .88rem;
+      padding: .85rem 1.8rem; border-radius: 50px; border: none; cursor: pointer;
+      transition: transform .15s, box-shadow .2s; white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(0,0,0,.15);
+    }
+    .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,.2); }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--navy); padding: 64px 5% 30px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand { }
+    .footer-logo { font-family:'Lora',serif; font-size:1.3rem; color:white; text-decoration:none; display:flex; align-items:center; gap:.5rem; margin-bottom:1rem; }
+    .footer-logo .logo-spark { color: var(--sky-l); }
+    .footer-desc { color: rgba(255,255,255,.5); font-size: .85rem; line-height: 1.7; max-width: 240px; margin-bottom: 1.4rem; }
+    .footer-contact { display: flex; flex-direction: column; gap: .6rem; }
+    .footer-contact a { color: rgba(255,255,255,.6); font-size: .85rem; text-decoration: none; display: flex; align-items: center; gap: .5rem; transition: color .2s; }
+    .footer-contact a:hover { color: var(--sky-l); }
+    .footer-col h5 { color: rgba(255,255,255,.35); font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .65rem; }
+    .footer-col ul a { color: rgba(255,255,255,.55); font-size: .85rem; text-decoration: none; transition: color .2s; }
+    .footer-col ul a:hover { color: white; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { color: rgba(255,255,255,.3); font-size: .8rem; }
+    .footer-bottom-links { display: flex; gap: 1.5rem; }
+    .footer-bottom-links a { color: rgba(255,255,255,.35); font-size: .8rem; text-decoration: none; transition: color .2s; }
+    .footer-bottom-links a:hover { color: var(--sky-l); }
+    .footer-cert { display: flex; gap: .5rem; margin-top: 1rem; flex-wrap: wrap; }
+    .cert-badge { background: rgba(255,255,255,.08); border-radius: 4px; padding: .3rem .75rem; font-size: .7rem; color: rgba(255,255,255,.5); }
+
+    /* ─── FLOAT WA ─── */
+    .wa-float {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 300;
+      background: #25D366; color: white; width: 58px; height: 58px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      font-size: 1.6rem; transition: transform .2s, box-shadow .2s;
+      animation: pulseWA 2.5s infinite;
+    }
+    .wa-float:hover { transform: scale(1.1); animation: none; box-shadow: 0 6px 28px rgba(37,211,102,.6); }
+    @keyframes pulseWA { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)} 50%{box-shadow:0 4px 32px rgba(37,211,102,.7)} }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 960px) {
+      .nav-links, .nav-phone { display: none; }
+      .hamburger { display: flex; }
+      #hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { height: 340px; }
+      .hero-cards { bottom: 1rem; }
+      .cara-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .cara-badge-float { right: 1rem; }
+      .cara-badge-float2 { left: 1rem; }
+      .layanan-grid { grid-template-columns: 1fr 1fr; }
+      .galeri-grid { grid-template-columns: 1fr; }
+      .harga-grid { grid-template-columns: 1fr; max-width: 400px; }
+      .harga-card.featured { transform: scale(1); }
+      .testi-grid { grid-template-columns: 1fr; }
+      .faq-inner { grid-template-columns: 1fr; }
+      .faq-img { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .stat-divider { display: none; }
+    }
+    @media (max-width: 540px) {
+      .layanan-grid { grid-template-columns: 1fr; }
+      .hero-cards { flex-direction: column; gap: .5rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+      #cta { flex-direction: column; }
+      .cta-form { flex-direction: column; width: 100%; }
+      .cta-input { min-width: unset; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="logo-icon">✨</div>
+    <span><span class="logo-spark">Spark</span>Clean</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#layanan">Layanan</a></li>
+    <li><a href="#cara-kerja">Cara Kerja</a></li>
+    <li><a href="#galeri">Galeri</a></li>
+    <li><a href="#harga">Harga</a></li>
+    <li><a href="#testimoni">Testimoni</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a class="nav-phone" href="tel:02155889900">📞 (021) 5588-9900</a>
+    <a href="#cta" class="nav-cta">Pesan Sekarang</a>
+  </div>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <span class="hero-badge"><span class="badge-dot"></span> Layanan Bersertifikat ISO 9001</span>
+    <h1>Rumah Bersih,<br>Keluarga <span class="highlight">Sehat</span><br>& Bahagia</h1>
+    <p class="hero-desc">SparkClean hadir dengan tim profesional berpengalaman, produk ramah lingkungan, dan jaminan kepuasan 100% untuk setiap sudut ruangan Anda.</p>
+    <div class="hero-actions">
+      <a href="#cta" class="btn-primary">Pesan Cleaning →</a>
+      <a href="#layanan" class="btn-ghost">Lihat Layanan</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-avatars">
+        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&q=80" alt="Pelanggan"/>
+        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=80&q=80" alt="Pelanggan"/>
+        <img src="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=80&q=80" alt="Pelanggan"/>
+        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=80&q=80" alt="Pelanggan"/>
+      </div>
+      <div class="trust-text">
+        <strong>4.9 ⭐ dari 2.400+ ulasan</strong>
+        Dipercaya ribuan keluarga di Jabodetabek
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1527515545081-5db817172677?w=900&q=80" alt="Tim SparkClean bekerja profesional"/>
+    <div class="hero-right-overlay"></div>
+    <div class="hero-cards">
+      <div class="hero-card">
+        <div class="hcard-icon">🏠</div>
+        <div>
+          <div class="hcard-num">12K+</div>
+          <div class="hcard-label">Rumah Dibersihkan</div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hcard-icon">⚡</div>
+        <div>
+          <div class="hcard-num">2 Jam</div>
+          <div class="hcard-label">Rata-rata Selesai</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div id="stats">
+  <div class="stat-item">
+    <div class="stat-num">12.000+</div>
+    <div class="stat-label">Klien Puas</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num">150+</div>
+    <div class="stat-label">Tim Profesional</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num">8 Tahun</div>
+    <div class="stat-label">Pengalaman</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">Garansi Kepuasan</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num">4.9 ★</div>
+    <div class="stat-label">Rating Google</div>
+  </div>
+</div>
+
+<!-- LAYANAN -->
+<section id="layanan" class="section">
+  <div class="layanan-header">
+    <div>
+      <p class="section-label">Yang Kami Kerjakan</p>
+      <h2 class="section-title">Semua Jenis Cleaning<br>Ada di Sini</h2>
+    </div>
+    <a href="#cta" class="btn-ghost">Lihat Semua Layanan →</a>
+  </div>
+  <div class="layanan-grid">
+    <div class="layanan-card reveal">
+      <div class="layanan-icon">🏠</div>
+      <h3>Cleaning Rumah</h3>
+      <p>Pembersihan menyeluruh seluruh area rumah — dari ruang tamu, kamar tidur, dapur, hingga kamar mandi. Cocok untuk perawatan rutin mingguan.</p>
+      <a href="#cta" class="layanan-tag">Pesan Sekarang →</a>
+    </div>
+    <div class="layanan-card reveal">
+      <div class="layanan-icon">🏢</div>
+      <h3>Office Cleaning</h3>
+      <p>Pembersihan kantor profesional sebelum/sesudah jam kerja. Meja, lantai, toilet, pantry, dan ruang rapat dalam kondisi prima setiap hari.</p>
+      <a href="#cta" class="layanan-tag">Pesan Sekarang →</a>
+    </div>
+    <div class="layanan-card reveal">
+      <div class="layanan-icon">🛁</div>
+      <h3>Deep Cleaning</h3>
+      <p>Pembersihan mendalam total seluruh properti, termasuk bagian tersembunyi, sela-sela, plafon, dan area yang jarang terjangkau. Hasil seperti baru.</p>
+      <a href="#cta" class="layanan-tag">Pesan Sekarang →</a>
+    </div>
+    <div class="layanan-card reveal">
+      <div class="layanan-icon">🪟</div>
+      <h3>Cuci Kaca & Jendela</h3>
+      <p>Pembersihan kaca eksterior dan interior gedung bertingkat maupun rumah tinggal. Bebas jamur, noda air, dan debu membandel.</p>
+      <a href="#cta" class="layanan-tag">Pesan Sekarang →</a>
+    </div>
+    <div class="layanan-card reveal">
+      <div class="layanan-icon">🛋️</div>
+      <h3>Cuci Sofa & Kasur</h3>
+      <p>Pembersihan dry cleaning & steam untuk sofa, kasur, karpet, dan kursi. Hilangkan bakteri, tungau, dan bau tak sedap secara permanen.</p>
+      <a href="#cta" class="layanan-tag">Pesan Sekarang →</a>
+    </div>
+    <div class="layanan-card reveal">
+      <div class="layanan-icon">🏗️</div>
+      <h3>After-Renovasi Cleaning</h3>
+      <p>Beres-beres pasca renovasi atau konstruksi — membersihkan debu semen, cat, sisa material, dan memoles permukaan hingga mengkilap.</p>
+      <a href="#cta" class="layanan-tag">Pesan Sekarang →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CARA KERJA -->
+<section id="cara-kerja" class="section">
+  <div class="cara-inner">
+    <div class="cara-img reveal">
+      <img src="https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?w=800&q=80" alt="Tim cleaning profesional SparkClean"/>
+      <div class="cara-badge-float">
+        <div class="cara-badge-icon">✅</div>
+        <div class="cara-badge-text">
+          <div class="num">100%</div>
+          <small>Garansi Kepuasan</small>
+        </div>
+      </div>
+      <div class="cara-badge-float2">
+        <div class="small-txt">Jadwal Fleksibel</div>
+        <div class="big-txt">7 Hari / Minggu</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="section-label">Cara Kerja</p>
+      <h2 class="section-title">Dari Pesan ke Bersih,<br>Semudah 4 Langkah</h2>
+      <p class="section-sub" style="margin-bottom:2rem">Tidak perlu ribet. Pesan online, tim kami datang tepat waktu, hasil terjamin bersih.</p>
+      <div class="cara-steps">
+        <div class="cara-step">
+          <div class="step-left">
+            <div class="step-num">1</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-body">
+            <h4>Pilih Layanan & Jadwal</h4>
+            <p>Pilih jenis cleaning dan tentukan tanggal/jam yang cocok lewat WhatsApp, website, atau telepon — 24/7.</p>
+          </div>
+        </div>
+        <div class="cara-step">
+          <div class="step-left">
+            <div class="step-num">2</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-body">
+            <h4>Konfirmasi & Survei Singkat</h4>
+            <p>Tim kami menghubungi Anda untuk konfirmasi detail, estimasi harga, dan kebutuhan khusus (alergi, hewan peliharaan, dll).</p>
+          </div>
+        </div>
+        <div class="cara-step">
+          <div class="step-left">
+            <div class="step-num">3</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-body">
+            <h4>Tim Datang & Bekerja</h4>
+            <p>Tim profesional kami tiba tepat waktu dengan peralatan lengkap dan produk ramah lingkungan. Anda bisa tinggal atau pergi.</p>
+          </div>
+        </div>
+        <div class="cara-step">
+          <div class="step-left">
+            <div class="step-num">4</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-body">
+            <h4>Inspeksi & Bayar Setelah Puas</h4>
+            <p>Anda inspeksi hasil pekerjaan. Jika ada yang kurang, kami perbaiki saat itu juga. Bayar hanya setelah Anda 100% puas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERI BEFORE/AFTER -->
+<section id="galeri">
+  <p class="section-label">Hasil Nyata</p>
+  <h2 class="section-title">Lihat Perbedaannya Sendiri</h2>
+  <p class="section-sub">Geser slider untuk melihat hasil sebelum dan sesudah cleaning SparkClean.</p>
+  <div class="galeri-grid">
+
+    <div class="galeri-pair reveal">
+      <div class="ba-container" data-ba>
+        <div class="ba-after">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Dapur sesudah"/>
+        </div>
+        <div class="ba-before">
+          <img src="https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?w=600&q=80" alt="Dapur sebelum"/>
+        </div>
+        <div class="ba-divider"></div>
+        <div class="ba-handle">⇔</div>
+        <div class="ba-labels">
+          <span class="ba-label before">Sebelum</span>
+          <span class="ba-label after">Sesudah</span>
+        </div>
+      </div>
+      <div class="galeri-caption">
+        <h5>Dapur Rumah Tangga</h5>
+        <p>Deep Cleaning — 3 jam pengerjaan</p>
+      </div>
+    </div>
+
+    <div class="galeri-pair reveal">
+      <div class="ba-container" data-ba>
+        <div class="ba-after">
+          <img src="https://images.unsplash.com/photo-1564540583246-934409427776?w=600&q=80" alt="Kamar mandi sesudah"/>
+        </div>
+        <div class="ba-before">
+          <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80" alt="Kamar mandi sebelum"/>
+        </div>
+        <div class="ba-divider"></div>
+        <div class="ba-handle">⇔</div>
+        <div class="ba-labels">
+          <span class="ba-label before">Sebelum</span>
+          <span class="ba-label after">Sesudah</span>
+        </div>
+      </div>
+      <div class="galeri-caption">
+        <h5>Kamar Mandi</h5>
+        <p>Bathroom Sanitasi — 2 jam pengerjaan</p>
+      </div>
+    </div>
+
+    <div class="galeri-pair reveal">
+      <div class="ba-container" data-ba>
+        <div class="ba-after">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80" alt="Kantor sesudah"/>
+        </div>
+        <div class="ba-before">
+          <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&q=80" alt="Kantor sebelum"/>
+        </div>
+        <div class="ba-divider"></div>
+        <div class="ba-handle">⇔</div>
+        <div class="ba-labels">
+          <span class="ba-label before">Sebelum</span>
+          <span class="ba-label after">Sesudah</span>
+        </div>
+      </div>
+      <div class="galeri-caption">
+        <h5>Ruang Kantor</h5>
+        <p>Office Cleaning — 4 jam pengerjaan</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HARGA -->
+<section id="harga" class="section">
+  <div class="harga-header">
+    <p class="section-label" style="text-align:center">Paket Harga</p>
+    <h2 class="section-title" style="text-align:center">Transparan, Tanpa Biaya Tersembunyi</h2>
+    <p class="section-sub" style="text-align:center;margin:0 auto">Semua paket sudah termasuk peralatan, produk cleaning, dan asuransi tim kami.</p>
+  </div>
+  <div class="harga-grid">
+    <div class="harga-card reveal">
+      <div class="harga-name">Paket Basic</div>
+      <div class="harga-price">Rp 299K</div>
+      <div class="harga-per">per sesi · rumah s/d 60 m²</div>
+      <div class="harga-divider"></div>
+      <ul class="harga-features">
+        <li><span class="check">✓</span> Sapu & pel seluruh lantai</li>
+        <li><span class="check">✓</span> Lap permukaan & furnitur</li>
+        <li><span class="check">✓</span> Bersihkan 1 kamar mandi</li>
+        <li><span class="check">✓</span> Buang sampah & lap kaca</li>
+        <li><span class="check">✓</span> Durasi ±2 jam (2 orang)</li>
+      </ul>
+      <a href="#cta" class="btn-harga">Pilih Basic</a>
+    </div>
+    <div class="harga-card featured reveal">
+      <span class="featured-tag">⭐ Paling Populer</span>
+      <div class="harga-name">Paket Premium</div>
+      <div class="harga-price" style="color:var(--sky-l)">Rp 599K</div>
+      <div class="harga-per">per sesi · rumah s/d 120 m²</div>
+      <div class="harga-divider"></div>
+      <ul class="harga-features">
+        <li><span class="check">✓</span> Semua yang ada di Basic</li>
+        <li><span class="check">✓</span> Bersihkan semua kamar mandi</li>
+        <li><span class="check">✓</span> Bersihkan dapur menyeluruh</li>
+        <li><span class="check">✓</span> Vakum sofa & karpet</li>
+        <li><span class="check">✓</span> Cuci wastafel & kompor</li>
+        <li><span class="check">✓</span> Durasi ±4 jam (3 orang)</li>
+      </ul>
+      <a href="#cta" class="btn-harga featured-btn">Pilih Premium</a>
+    </div>
+    <div class="harga-card reveal">
+      <div class="harga-name">Paket Deep Clean</div>
+      <div class="harga-price">Rp 999K</div>
+      <div class="harga-per">per sesi · rumah s/d 200 m²</div>
+      <div class="harga-divider"></div>
+      <ul class="harga-features">
+        <li><span class="check">✓</span> Semua yang ada di Premium</li>
+        <li><span class="check">✓</span> Cuci kaca dalam & luar</li>
+        <li><span class="check">✓</span> Bersihkan lemari & laci</li>
+        <li><span class="check">✓</span> Steam sofa & kasur (1 unit)</li>
+        <li><span class="check">✓</span> Poles lantai marmer/keramik</li>
+        <li><span class="check">✓</span> Durasi ±7 jam (4 orang)</li>
+      </ul>
+      <a href="#cta" class="btn-harga">Pilih Deep Clean</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section id="testimoni" class="section">
+  <div class="testi-header">
+    <div>
+      <p class="section-label">Apa Kata Mereka</p>
+      <h2 class="section-title">Pelanggan Setia Kami Berbicara</h2>
+    </div>
+    <div style="text-align:right">
+      <div style="font-family:'Lora',serif;font-size:2.5rem;font-weight:800;color:var(--sky)">4.9</div>
+      <div style="color:var(--yellow);font-size:1rem">★★★★★</div>
+      <div style="font-size:.8rem;color:var(--muted)">dari 2.400+ ulasan</div>
+    </div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"Sudah langganan 2 tahun! Tim SparkClean selalu datang tepat waktu, kerja rapi, dan yang penting jujur — tidak ada barang yang hilang sama sekali."</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=80&q=80" alt="Ibu Rina"/>
+        <div>
+          <div class="testi-name">Ibu Rina Maharani</div>
+          <div class="testi-meta">Tangerang Selatan · Paket Premium</div>
+          <div class="verified">✓ Pelanggan Terverifikasi</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"Kantor kami 3 lantai, tapi mereka beres dalam 5 jam dan hasilnya luar biasa bersih! Karyawan jadi lebih semangat kerja di kantor yang bersih dan wangi."</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&q=80" alt="Pak Dito"/>
+        <div>
+          <div class="testi-name">Dito Prakoso</div>
+          <div class="testi-meta">Sudirman, Jakarta · Office Cleaning</div>
+          <div class="verified">✓ Pelanggan Terverifikasi</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"Habis renovasi rumah, debu dan cat di mana-mana. Dalam sehari SparkClean bikin rumah kita kinclong banget! Produknya juga wangi dan aman untuk anak-anak."</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=80&q=80" alt="Sarah"/>
+        <div>
+          <div class="testi-name">Sarah & Keluarga</div>
+          <div class="testi-meta">Depok · After-Renovasi Cleaning</div>
+          <div class="verified">✓ Pelanggan Terverifikasi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section">
+  <div class="faq-inner">
+    <div>
+      <p class="section-label">Pertanyaan Umum</p>
+      <h2 class="section-title">Yang Sering Ditanyakan</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Apakah saya harus ada di rumah saat cleaning?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">Tidak harus. Anda bisa meninggalkan kunci kepada kami. Tim SparkClean sudah dilatih, diasuransikan, dan menjalani pemeriksaan latar belakang. Banyak pelanggan kami yang pergi bekerja saat kami membersihkan rumah mereka.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Berapa lama proses cleaning berlangsung?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">Tergantung paket dan ukuran area. Paket Basic ±2 jam, Premium ±4 jam, dan Deep Clean ±7 jam. Kami selalu tepat waktu dan tidak terburu-buru demi hasil terbaik.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Produk cleaning apa yang digunakan?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">Kami menggunakan produk eco-friendly yang sudah tersertifikasi BPOM, aman untuk anak-anak, lansia, dan hewan peliharaan. Tidak ada bahan keras berbahaya yang kami bawa ke rumah Anda.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Bagaimana jika ada barang yang rusak atau hasil tidak memuaskan?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">Semua tim kami diasuransikan. Jika ada kerusakan, kami tanggung penuh. Jika hasil cleaning tidak memuaskan, kami akan datang kembali untuk memperbaiki — gratis. Kepuasan Anda adalah jaminan kami.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            Apakah bisa minta jadwal berulang setiap minggu?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">Tentu! Kami memiliki paket berlangganan mingguan dan bulanan dengan harga yang lebih hemat hingga 30%. Tim yang sama akan datang setiap kali sehingga sudah familiar dengan rumah Anda.</div>
+        </div>
+      </div>
+    </div>
+    <div class="faq-img reveal">
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80" alt="Tim SparkClean profesional"/>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-text">
+    <h2>Siap Punya Ruangan Bersih & Sehat Hari Ini?</h2>
+    <p>Konsultasi gratis — respon dalam 5 menit via WhatsApp. Tanpa DP, bayar setelah puas.</p>
+  </div>
+  <div class="cta-form">
+    <input class="cta-input" type="text" placeholder="Nama Anda"/>
+    <input class="cta-input" type="tel" placeholder="No. WhatsApp"/>
+    <button class="btn-cta" onclick="alert('Terima kasih! Tim SparkClean akan menghubungi Anda dalam 5 menit 🧹✨')">Minta Penawaran →</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="footer-logo">
+        <div class="logo-icon" style="width:30px;height:30px;background:var(--sky);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.9rem">✨</div>
+        <span><span class="logo-spark">Spark</span>Clean</span>
+      </a>
+      <p class="footer-desc">Jasa cleaning service profesional terpercaya di Jabodetabek sejak 2017. Bersertifikat ISO 9001, berizin, dan bergaransi.</p>
+      <div class="footer-contact">
+        <a href="tel:02155889900">📞 (021) 5588-9900</a>
+        <a href="mailto:hello@sparkclean.id">✉️ hello@sparkclean.id</a>
+        <a href="#">📍 Jl. Merdeka No. 12, Jakarta Selatan</a>
+        <a href="#">🕗 Setiap Hari, 07.00 – 20.00 WIB</a>
+      </div>
+      <div class="footer-cert">
+        <span class="cert-badge">ISO 9001</span>
+        <span class="cert-badge">BPOM Terdaftar</span>
+        <span class="cert-badge">Anggota ICLEAN</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Layanan</h5>
+      <ul>
+        <li><a href="#">Cleaning Rumah</a></li>
+        <li><a href="#">Office Cleaning</a></li>
+        <li><a href="#">Deep Cleaning</a></li>
+        <li><a href="#">Cuci Kaca</a></li>
+        <li><a href="#">Cuci Sofa & Kasur</a></li>
+        <li><a href="#">After Renovasi</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Perusahaan</h5>
+      <ul>
+        <li><a href="#">Tentang Kami</a></li>
+        <li><a href="#">Tim Kami</a></li>
+        <li><a href="#">Blog & Tips</a></li>
+        <li><a href="#">Karir</a></li>
+        <li><a href="#">Mitra Franchise</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Area Layanan</h5>
+      <ul>
+        <li><a href="#">Jakarta Selatan</a></li>
+        <li><a href="#">Jakarta Barat</a></li>
+        <li><a href="#">Tangerang Selatan</a></li>
+        <li><a href="#">Bekasi</a></li>
+        <li><a href="#">Depok</a></li>
+        <li><a href="#">Bogor</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 SparkClean Indonesia. Seluruh hak cipta dilindungi.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Kebijakan Privasi</a>
+      <a href="#">Syarat & Ketentuan</a>
+      <a href="#">Peta Situs</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WA Float -->
+<a href="https://wa.me/6281234567890?text=Halo+SparkClean,+saya+mau+pesan+cleaning!" class="wa-float" target="_blank" title="Chat WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // Navbar scroll
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Hamburger
+  let navOpen = false;
+  function toggleNav() {
+    navOpen = !navOpen;
+    let links = document.querySelector('.nav-links');
+    if (!links) return;
+    if (navOpen) {
+      links.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:white;padding:1.5rem 5%;gap:1.2rem;z-index:199;border-bottom:1px solid rgba(14,165,233,.15);box-shadow:0 8px 24px rgba(14,165,233,.1);';
+    } else {
+      links.style.cssText = '';
+    }
+  }
+
+  // Before/After Slider
+  document.querySelectorAll('[data-ba]').forEach(container => {
+    const before = container.querySelector('.ba-before');
+    const divider = container.querySelector('.ba-divider');
+    const handle = container.querySelector('.ba-handle');
+    let dragging = false;
+
+    function setPosition(x) {
+      const rect = container.getBoundingClientRect();
+      let pct = Math.max(5, Math.min(95, ((x - rect.left) / rect.width) * 100));
+      before.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+      divider.style.left = pct + '%';
+      handle.style.left = pct + '%';
+    }
+
+    container.addEventListener('mousedown', e => { dragging = true; setPosition(e.clientX); });
+    window.addEventListener('mouseup', () => dragging = false);
+    window.addEventListener('mousemove', e => { if (dragging) setPosition(e.clientX); });
+    container.addEventListener('touchstart', e => { dragging = true; setPosition(e.touches[0].clientX); }, {passive:true});
+    window.addEventListener('touchend', () => dragging = false);
+    window.addEventListener('touchmove', e => { if (dragging) setPosition(e.touches[0].clientX); }, {passive:true});
+  });
+
+  // FAQ Toggle
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Scroll Reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

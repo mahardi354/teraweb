@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FORGE Gym | Fitness Center Yogyakarta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #080808;
+    --bg2: #0F0F0F;
+    --bg3: #161616;
+    --red: #E8001D;
+    --red-dim: #B80018;
+    --white: #FFFFFF;
+    --gray: #3A3A3A;
+    --muted: #7A7A7A;
+    --light: #C8C8C8;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--white); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+  h1, h2, h3 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.04em; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 18px 6%;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(8,8,8,0.9); backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(232,0,29,0.2);
+  }
+  .logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.1em; }
+  .logo span { color: var(--red); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; transition: color .2s; }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta { background: var(--red); color: var(--white); padding: 10px 24px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: background .2s; }
+  .nav-cta:hover { background: var(--red-dim); }
+
+  /* HERO - split layout */
+  .hero {
+    min-height: 100vh; display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 72px;
+    position: relative; overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 6% 80px 8%;
+    position: relative; z-index: 2;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(232,0,29,0.12); border: 1px solid rgba(232,0,29,0.3);
+    padding: 7px 16px; border-radius: 2px; font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); margin-bottom: 28px; width: fit-content;
+  }
+  .hero h1 {
+    font-size: clamp(4rem, 8vw, 7.5rem); line-height: 0.92; color: var(--white); margin-bottom: 28px;
+  }
+  .hero h1 .accent { color: var(--red); display: block; }
+  .hero-desc { font-size: 1rem; color: var(--muted); line-height: 1.7; max-width: 380px; margin-bottom: 40px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .btn-red { background: var(--red); color: white; padding: 14px 34px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: background .2s; }
+  .btn-red:hover { background: var(--red-dim); }
+  .btn-outline { border: 1px solid var(--gray); color: var(--light); padding: 14px 34px; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: border-color .2s, color .2s; }
+  .btn-outline:hover { border-color: var(--white); color: var(--white); }
+  .hero-metrics { display: flex; gap: 36px; margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--gray); }
+  .hero-metric-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.6rem; color: var(--red); line-height: 1; }
+  .hero-metric-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+
+  .hero-right {
+    position: relative; overflow: hidden;
+  }
+  .hero-right img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: brightness(0.6) contrast(1.1);
+  }
+  .hero-right::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 120px; height: 100%;
+    background: linear-gradient(to right, var(--bg), transparent);
+    z-index: 1;
+  }
+  .hero-right::after {
+    content: 'FORGE'; position: absolute; top: 50%; right: -30px;
+    transform: translateY(-50%) rotate(90deg);
+    font-family: 'Bebas Neue', sans-serif; font-size: 8rem;
+    color: rgba(255,255,255,0.04); letter-spacing: 0.1em;
+    z-index: 2; white-space: nowrap;
+  }
+
+  /* PROGRAMS */
+  .programs { padding: 90px 8%; background: var(--bg2); }
+  .sec-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
+  .sec-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 4rem); color: var(--white); line-height: 1; margin-bottom: 10px; }
+  .sec-sub { font-size: 0.95rem; color: var(--muted); line-height: 1.7; max-width: 500px; margin-bottom: 56px; }
+  .programs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--gray); }
+  .prog-card {
+    background: var(--bg3); padding: 40px 32px;
+    position: relative; overflow: hidden; transition: background .3s;
+  }
+  .prog-card:hover { background: #1A1A1A; }
+  .prog-card:hover .prog-num { color: var(--red); }
+  .prog-num { font-family: 'Bebas Neue', sans-serif; font-size: 5rem; color: #1E1E1E; line-height: 1; margin-bottom: -10px; transition: color .3s; }
+  .prog-icon { font-size: 1.8rem; margin-bottom: 16px; }
+  .prog-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--white); margin-bottom: 12px; }
+  .prog-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
+  .prog-sessions { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); }
+
+  /* FACILITIES */
+  .facilities { padding: 90px 8%; }
+  .fac-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 72px; align-items: center; }
+  .fac-list { display: flex; flex-direction: column; gap: 0; margin-top: 40px; }
+  .fac-item {
+    display: flex; gap: 20px; align-items: flex-start; padding: 24px 0;
+    border-bottom: 1px solid var(--gray); cursor: pointer; transition: padding .3s;
+  }
+  .fac-item:hover { padding-left: 8px; }
+  .fac-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--red); min-width: 36px; line-height: 1.2; }
+  .fac-info h4 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+  .fac-info p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+  .fac-img-stack { position: relative; height: 520px; }
+  .fac-img-main { width: 90%; height: 400px; object-fit: cover; border-radius: 4px; filter: brightness(0.85); }
+  .fac-img-accent {
+    position: absolute; bottom: 0; right: 0;
+    width: 52%; height: 220px; object-fit: cover; border-radius: 4px;
+    border: 4px solid var(--bg); filter: brightness(0.9);
+  }
+  .fac-badge {
+    position: absolute; top: 24px; left: 0;
+    background: var(--red); padding: 12px 20px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.06em;
+  }
+
+  /* TRAINERS */
+  .trainers { padding: 90px 8%; background: var(--bg2); }
+  .trainers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 56px; }
+  .trainer-card { position: relative; overflow: hidden; border-radius: 4px; }
+  .trainer-img { width: 100%; height: 320px; object-fit: cover; display: block; filter: brightness(0.7) grayscale(0.3); transition: filter .4s, transform .4s; }
+  .trainer-card:hover .trainer-img { filter: brightness(0.5) grayscale(0); transform: scale(1.04); }
+  .trainer-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,8,8,0.95) 30%, transparent 70%); }
+  .trainer-info { position: absolute; bottom: 24px; left: 20px; right: 20px; }
+  .trainer-spec { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); margin-bottom: 4px; }
+  .trainer-info h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--white); }
+  .trainer-exp { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+
+  /* PRICING */
+  .pricing { padding: 90px 8%; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 56px; border: 1px solid var(--gray); }
+  .price-card { padding: 44px 36px; border-right: 1px solid var(--gray); position: relative; }
+  .price-card:last-child { border-right: none; }
+  .price-card.hot { background: var(--red); }
+  .price-card.hot .price-tier, .price-card.hot .price-feat li { color: rgba(255,255,255,0.7); }
+  .price-card.hot .price-amt, .price-card.hot .price-features li::before { color: white; }
+  .price-tag-hot { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; background: white; color: var(--red); padding: 4px 10px; display: inline-block; margin-bottom: 16px; }
+  .price-tier { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .price-amt { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: var(--white); line-height: 1; }
+  .price-per { font-size: 0.8rem; color: var(--muted); margin-bottom: 32px; }
+  .price-divider { height: 1px; background: rgba(255,255,255,0.12); margin: 24px 0; }
+  .price-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+  .price-features li { font-size: 0.85rem; color: var(--muted); display: flex; gap: 10px; }
+  .price-features li::before { content: '↗'; color: var(--red); flex-shrink: 0; }
+  .price-card.hot .price-features li::before { color: white; }
+
+  /* SCHEDULE */
+  .schedule { padding: 90px 8%; background: var(--bg2); }
+  .schedule-table { width: 100%; border-collapse: collapse; margin-top: 48px; }
+  .schedule-table th { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding: 14px 20px; text-align: left; border-bottom: 1px solid var(--gray); }
+  .schedule-table td { padding: 16px 20px; border-bottom: 1px solid #1E1E1E; font-size: 0.88rem; color: var(--light); }
+  .schedule-table tr:hover td { background: #141414; }
+  .tag-class { display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; }
+  .tag-red { background: rgba(232,0,29,0.15); color: var(--red); }
+  .tag-green { background: rgba(0,200,100,0.12); color: #00C864; }
+  .tag-blue { background: rgba(0,100,255,0.12); color: #4A80FF; }
+
+  /* CTA */
+  .cta-section {
+    position: relative; overflow: hidden;
+    padding: 110px 8%; text-align: center;
+    background: var(--red);
+  }
+  .cta-section::before {
+    content: 'FORGE'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    font-family: 'Bebas Neue', sans-serif; font-size: 22rem; color: rgba(0,0,0,0.15);
+    white-space: nowrap; letter-spacing: 0.1em;
+  }
+  .cta-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 5rem); color: white; position: relative; margin-bottom: 16px; }
+  .cta-section p { color: rgba(255,255,255,0.75); font-size: 1rem; margin-bottom: 36px; position: relative; }
+  .cta-actions { display: flex; gap: 14px; justify-content: center; position: relative; flex-wrap: wrap; }
+  .btn-white { background: white; color: var(--red); padding: 14px 34px; font-size: 0.82rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: opacity .2s; }
+  .btn-white:hover { opacity: 0.9; }
+  .btn-white-outline { border: 2px solid rgba(255,255,255,0.5); color: white; padding: 14px 34px; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: border-color .2s; }
+  .btn-white-outline:hover { border-color: white; }
+
+  /* FOOTER */
+  footer { background: #040404; padding: 60px 8% 28px; border-top: 1px solid #1E1E1E; }
+  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .footer-brand p { font-size: 0.83rem; color: var(--muted); margin-top: 12px; line-height: 1.7; max-width: 240px; }
+  .footer-col h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.1em; color: var(--white); margin-bottom: 18px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul li a { font-size: 0.83rem; color: var(--muted); text-decoration: none; transition: color .2s; }
+  .footer-col ul li a:hover { color: var(--red); }
+  .footer-bottom { border-top: 1px solid #1E1E1E; padding-top: 24px; display: flex; justify-content: space-between; font-size: 0.76rem; color: var(--muted); }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { height: 360px; }
+    .hero-right::after { display: none; }
+    .programs-grid { grid-template-columns: 1fr; gap: 1px; }
+    .fac-layout { grid-template-columns: 1fr; }
+    .fac-img-stack { height: 320px; }
+    .trainers-grid { grid-template-columns: repeat(2, 1fr); }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .price-card { border-right: none; border-bottom: 1px solid var(--gray); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    section { padding: 60px 5%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">FORGE<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#programs">Program</a></li>
+    <li><a href="#facilities">Fasilitas</a></li>
+    <li><a href="#pricing">Harga</a></li>
+    <li><a href="#schedule">Jadwal</a></li>
+  </ul>
+  <a href="#cta" class="nav-cta">Coba Gratis</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">🔥 #1 Fitness Center Yogyakarta</div>
+    <h1>BUILD<br>YOUR<br><span class="accent">BEST.</span></h1>
+    <p class="hero-desc">Gym modern berteknologi tinggi dengan trainer bersertifikat internasional. Capai target tubuhmu bersama komunitas terkuat di Yogyakarta.</p>
+    <div class="hero-actions">
+      <a href="#pricing" class="btn-red">Mulai Sekarang</a>
+      <a href="#programs" class="btn-outline">Lihat Program</a>
+    </div>
+    <div class="hero-metrics">
+      <div>
+        <div class="hero-metric-num">2000+</div>
+        <div class="hero-metric-label">Member Aktif</div>
+      </div>
+      <div>
+        <div class="hero-metric-num">15+</div>
+        <div class="hero-metric-label">Trainer Pro</div>
+      </div>
+      <div>
+        <div class="hero-metric-num">50+</div>
+        <div class="hero-metric-label">Kelas/Minggu</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80" alt="Gym FORGE">
+  </div>
+</div>
+
+<!-- PROGRAMS -->
+<section class="programs" id="programs">
+  <p class="sec-label">Program Latihan</p>
+  <h2 class="sec-title">TEMUKAN PROGRAM<br>YANG TEPAT UNTUKMU</h2>
+  <p class="sec-sub">Dirancang bersama trainer bersertifikat untuk memaksimalkan hasil latihanmu.</p>
+  <div class="programs-grid">
+    <div class="prog-card">
+      <div class="prog-num">01</div>
+      <div class="prog-icon">💪</div>
+      <h3>Strength Training</h3>
+      <p>Program angkat beban terstruktur untuk membangun massa otot dan kekuatan fungsional secara progresif.</p>
+      <div class="prog-sessions">3–5 sesi/minggu · Semua level</div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-num">02</div>
+      <div class="prog-icon">🏃</div>
+      <h3>HIIT & Cardio</h3>
+      <p>High-intensity interval training yang efektif membakar lemak dalam waktu singkat dengan hasil maksimal.</p>
+      <div class="prog-sessions">3–4 sesi/minggu · Intermediate+</div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-num">03</div>
+      <div class="prog-icon">🧘</div>
+      <h3>Yoga & Mobility</h3>
+      <p>Sesi fleksibilitas dan pemulihan untuk menyeimbangkan latihan intensitas tinggi dan mencegah cedera.</p>
+      <div class="prog-sessions">2–3 sesi/minggu · Semua level</div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-num">04</div>
+      <div class="prog-icon">🥊</div>
+      <h3>Boxing & MMA</h3>
+      <p>Kelas tinju dan seni bela diri campuran yang menyenangkan sekaligus membakar kalori secara masif.</p>
+      <div class="prog-sessions">2 sesi/minggu · Pemula OK</div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-num">05</div>
+      <div class="prog-icon">🎯</div>
+      <h3>Personal Training</h3>
+      <p>Satu-satu bersama trainer berdedikasi dengan program yang 100% disesuaikan dengan tujuan pribadimu.</p>
+      <div class="prog-sessions">Fleksibel · Semua level</div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-num">06</div>
+      <div class="prog-icon">🚴</div>
+      <h3>Spinning Class</h3>
+      <p>Kelas cycling indoor energik dengan musik motivasi dan instruktur yang bakar semangat kamu dari awal.</p>
+      <div class="prog-sessions">3 sesi/minggu · Kapasitas 20</div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITIES -->
+<section class="facilities" id="facilities">
+  <div class="fac-layout">
+    <div>
+      <p class="sec-label">Fasilitas</p>
+      <h2 class="sec-title">FASILITAS<br>KELAS DUNIA</h2>
+      <div class="fac-list">
+        <div class="fac-item">
+          <div class="fac-num">01</div>
+          <div class="fac-info">
+            <h4>Zona Beban — 800m²</h4>
+            <p>Peralatan Technogym & Life Fitness terbaru, rack squat, barbel olimpiade, dan area functional training.</p>
+          </div>
+        </div>
+        <div class="fac-item">
+          <div class="fac-num">02</div>
+          <div class="fac-info">
+            <h4>Cardio Zone</h4>
+            <p>50+ unit treadmill, elliptical, dan rowing machine dengan entertainment screen individual.</p>
+          </div>
+        </div>
+        <div class="fac-item">
+          <div class="fac-num">03</div>
+          <div class="fac-info">
+            <h4>Ruang Kelas Premium</h4>
+            <p>3 studio ber-AC dengan lantai parket, sound system JBL, dan cermin full-wall.</p>
+          </div>
+        </div>
+        <div class="fac-item">
+          <div class="fac-num">04</div>
+          <div class="fac-info">
+            <h4>Recovery Zone & Loker</h4>
+            <p>Sauna, foam rolling area, loker premium, shower dengan produk toiletries gratis.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fac-img-stack">
+      <div class="fac-badge">Buka 05.00 – 23.00</div>
+      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=700&q=80" alt="Gym Floor" class="fac-img-main">
+      <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=400&q=80" alt="Training" class="fac-img-accent">
+    </div>
+  </div>
+</section>
+
+<!-- TRAINERS -->
+<section class="trainers" id="trainers">
+  <p class="sec-label">Tim Trainer</p>
+  <h2 class="sec-title">TRAINER BERSERTIFIKAT<br>INTERNASIONAL</h2>
+  <p class="sec-sub">Dipandu oleh para ahli dengan pengalaman membantu ribuan member mencapai target mereka.</p>
+  <div class="trainers-grid">
+    <div class="trainer-card">
+      <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=400&q=80" alt="Trainer 1" class="trainer-img">
+      <div class="trainer-overlay"></div>
+      <div class="trainer-info">
+        <div class="trainer-spec">Strength & Powerlifting</div>
+        <h3>Budi Santoso</h3>
+        <div class="trainer-exp">NSCA-CSCS · 8 tahun</div>
+      </div>
+    </div>
+    <div class="trainer-card">
+      <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?auto=format&fit=crop&w=400&q=80" alt="Trainer 2" class="trainer-img">
+      <div class="trainer-overlay"></div>
+      <div class="trainer-info">
+        <div class="trainer-spec">HIIT & Fat Loss</div>
+        <h3>Sari Rahayu</h3>
+        <div class="trainer-exp">ACE-CPT · 6 tahun</div>
+      </div>
+    </div>
+    <div class="trainer-card">
+      <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=400&q=80" alt="Trainer 3" class="trainer-img">
+      <div class="trainer-overlay"></div>
+      <div class="trainer-info">
+        <div class="trainer-spec">Yoga & Mobility</div>
+        <h3>Dewi Kusuma</h3>
+        <div class="trainer-exp">RYT-200 · 5 tahun</div>
+      </div>
+    </div>
+    <div class="trainer-card">
+      <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=400&q=80" alt="Trainer 4" class="trainer-img">
+      <div class="trainer-overlay"></div>
+      <div class="trainer-info">
+        <div class="trainer-spec">Boxing & MMA</div>
+        <h3>Rizal Hakim</h3>
+        <div class="trainer-exp">Certified Coach · 10 tahun</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <p class="sec-label">Membership</p>
+  <h2 class="sec-title">PILIH PAKET<br>MEMBERSHIP</h2>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-tier">Basic</div>
+      <div class="price-amt">199rb</div>
+      <div class="price-per">per bulan</div>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li>Akses gym area (weekday)</li>
+        <li>Loker & shower</li>
+        <li>1 sesi orientasi gratis</li>
+        <li>Akses app FORGE</li>
+      </ul>
+      <a href="#cta" class="btn-outline" style="display:block;text-align:center;">Daftar</a>
+    </div>
+    <div class="price-card hot">
+      <div class="price-tag-hot">TERLARIS</div>
+      <div class="price-tier" style="color:rgba(255,255,255,0.7)">Pro</div>
+      <div class="price-amt">399rb</div>
+      <div class="price-per" style="color:rgba(255,255,255,0.6)">per bulan</div>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li>Akses penuh 7 hari</li>
+        <li>Semua kelas grup gratis</li>
+        <li>2 sesi PT/bulan</li>
+        <li>Body assessment bulanan</li>
+        <li>Akses sauna & recovery</li>
+      </ul>
+      <a href="#cta" class="btn-white" style="display:block;text-align:center;">Daftar</a>
+    </div>
+    <div class="price-card">
+      <div class="price-tier">Elite</div>
+      <div class="price-amt">799rb</div>
+      <div class="price-per">per bulan</div>
+      <div class="price-divider"></div>
+      <ul class="price-features">
+        <li>Semua benefit Pro</li>
+        <li>8 sesi PT/bulan</li>
+        <li>Meal plan konsultasi gizi</li>
+        <li>Priority booking kelas</li>
+        <li>Guest pass 2x/bulan</li>
+      </ul>
+      <a href="#cta" class="btn-outline" style="display:block;text-align:center;">Daftar</a>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule" id="schedule">
+  <p class="sec-label">Jadwal Kelas</p>
+  <h2 class="sec-title">JADWAL MINGGU INI</h2>
+  <table class="schedule-table">
+    <thead>
+      <tr>
+        <th>Waktu</th>
+        <th>Senin</th>
+        <th>Rabu</th>
+        <th>Jumat</th>
+        <th>Sabtu</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>06:00</td>
+        <td><span class="tag-class tag-red">HIIT Pagi</span></td>
+        <td><span class="tag-class tag-green">Yoga Flow</span></td>
+        <td><span class="tag-class tag-red">HIIT Pagi</span></td>
+        <td><span class="tag-class tag-blue">Spinning</span></td>
+      </tr>
+      <tr>
+        <td>08:00</td>
+        <td><span class="tag-class tag-green">Yoga Flow</span></td>
+        <td><span class="tag-class tag-red">Strength</span></td>
+        <td><span class="tag-class tag-green">Yoga Flow</span></td>
+        <td><span class="tag-class tag-red">Boxing</span></td>
+      </tr>
+      <tr>
+        <td>12:00</td>
+        <td><span class="tag-class tag-blue">Spinning</span></td>
+        <td><span class="tag-class tag-blue">Cardio Mix</span></td>
+        <td><span class="tag-class tag-blue">Spinning</span></td>
+        <td><span class="tag-class tag-green">Mobility</span></td>
+      </tr>
+      <tr>
+        <td>17:00</td>
+        <td><span class="tag-class tag-red">Strength</span></td>
+        <td><span class="tag-class tag-red">Boxing</span></td>
+        <td><span class="tag-class tag-red">Strength</span></td>
+        <td><span class="tag-class tag-red">HIIT Sore</span></td>
+      </tr>
+      <tr>
+        <td>19:00</td>
+        <td><span class="tag-class tag-red">Boxing</span></td>
+        <td><span class="tag-class tag-blue">Spinning</span></td>
+        <td><span class="tag-class tag-blue">Cardio Mix</span></td>
+        <td><span class="tag-class tag-blue">Zumba</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- CTA -->
+<div class="cta-section" id="cta">
+  <h2>SESI TRIAL GRATIS<br>HARI INI</h2>
+  <p>Coba 3 hari gratis tanpa syarat. Rasakan perbedaan FORGE.</p>
+  <div class="cta-actions">
+    <a href="https://wa.me/62812345678" class="btn-white">💬 Daftar via WhatsApp</a>
+    <a href="#" class="btn-white-outline">Kunjungi Gym</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">FORGE<span style="color:var(--red)">.</span></div>
+      <p>Fitness center premium dengan trainer bersertifikat dan fasilitas terlengkap di Yogyakarta.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Program</h4>
+      <ul>
+        <li><a href="#">Strength Training</a></li>
+        <li><a href="#">HIIT & Cardio</a></li>
+        <li><a href="#">Yoga & Mobility</a></li>
+        <li><a href="#">Personal Training</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Info</h4>
+      <ul>
+        <li><a href="#">Tentang FORGE</a></li>
+        <li><a href="#">Trainer</a></li>
+        <li><a href="#">Membership</a></li>
+        <li><a href="#">Blog Fitness</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kontak</h4>
+      <ul>
+        <li><a href="#">Jl. Sudirman No. 45, Yogyakarta</a></li>
+        <li><a href="#">+62 812 3456 7890</a></li>
+        <li><a href="#">info@forgegym.id</a></li>
+        <li><a href="#">Buka 05.00 – 23.00</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 FORGE Fitness Center. All rights reserved.</span>
+    <span>Train Hard. Stay Forged.</span>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.prog-card, .fac-item, .trainer-card, .price-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(28px)';
+    el.style.transition = 'opacity .5s, transform .5s';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>

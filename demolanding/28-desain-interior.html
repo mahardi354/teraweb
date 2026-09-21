@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rupa Studio — Desain Interior</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --linen: #F2EDE6;
+    --linen-dark: #E8E0D5;
+    --charcoal: #1C1C1A;
+    --charcoal-mid: #2E2E2B;
+    --terracotta: #C4673A;
+    --terra-light: #D4855C;
+    --sand: #D4C4AE;
+    --sage: #8A9E95;
+    --white: #FFFFFF;
+    --text-muted: #7A766E;
+    --text-mid: #4A4740;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--linen);
+    color: var(--charcoal);
+    line-height: 1.6;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor-dot {
+    width: 8px; height: 8px;
+    background: var(--terracotta);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s;
+  }
+  .cursor-ring {
+    width: 36px; height: 36px;
+    border: 1.5px solid var(--terracotta);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: all 0.15s ease;
+    opacity: 0.6;
+  }
+  body:has(a:hover) .cursor-ring,
+  body:has(button:hover) .cursor-ring { transform: translate(-50%, -50%) scale(1.8); opacity: 1; }
+
+  /* ===== NAVBAR ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 24px 6%;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: all 0.4s ease;
+  }
+  nav.scrolled {
+    background: rgba(242, 237, 230, 0.95);
+    backdrop-filter: blur(16px);
+    padding: 16px 6%;
+    border-bottom: 1px solid rgba(28, 28, 26, 0.08);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--terracotta); }
+
+  .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-mid);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--charcoal); }
+
+  .nav-cta {
+    background: var(--charcoal) !important;
+    color: var(--linen) !important;
+    padding: 10px 24px;
+    border-radius: 2px;
+    font-size: 0.78rem !important;
+    letter-spacing: 1px !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--terracotta) !important; }
+
+  .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; background: none; border: none; }
+  .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--charcoal); transition: 0.3s; }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+  }
+  .hero-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(28,28,26,0.85) 0%, rgba(28,28,26,0.2) 60%, transparent 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 6% 80px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: flex-end;
+    gap: 40px;
+  }
+
+  .hero-label {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sand);
+    margin-bottom: 24px;
+  }
+  .hero-label::before {
+    content: '';
+    width: 40px; height: 1px;
+    background: var(--terracotta);
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--white);
+    letter-spacing: -1px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--sand);
+  }
+
+  .hero-right {
+    text-align: right;
+    padding-bottom: 8px;
+  }
+  .hero-scroll {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .hero-scroll:hover { color: var(--sand); }
+  .scroll-line {
+    width: 1px; height: 60px;
+    background: rgba(255,255,255,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .scroll-line::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--terracotta);
+    animation: scrollAnim 2s ease infinite;
+  }
+  @keyframes scrollAnim {
+    0% { top: -100%; }
+    100% { top: 100%; }
+  }
+
+  .hero-stats {
+    display: flex; gap: 48px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1;
+  }
+  .hero-stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-top: 6px;
+  }
+
+  /* ===== MARQUEE ===== */
+  .marquee-wrap {
+    background: var(--charcoal);
+    overflow: hidden;
+    padding: 18px 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .marquee-track {
+    display: flex; gap: 0;
+    animation: marquee 28s linear infinite;
+    white-space: nowrap;
+  }
+  .marquee-item {
+    display: flex; align-items: center; gap: 32px;
+    padding: 0 32px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    flex-shrink: 0;
+  }
+  .marquee-dot { color: var(--terracotta); font-size: 1.2rem; }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  /* ===== SECTIONS SHARED ===== */
+  .section-label {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+  .section-label::before {
+    content: '';
+    width: 32px; height: 1px;
+    background: var(--terracotta);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--charcoal);
+    letter-spacing: -0.5px;
+  }
+  .section-title em { font-style: italic; color: var(--terracotta); }
+
+  /* ===== ABOUT ===== */
+  .about {
+    padding: 110px 6%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+    background: var(--white);
+  }
+
+  .about-imgs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    position: relative;
+  }
+  .about-img-main {
+    grid-column: span 2;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+  .about-img-sm {
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+  .about-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 110px; height: 110px;
+    background: var(--terracotta);
+    border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--white);
+    text-align: center;
+  }
+  .about-badge strong { font-size: 2rem; font-weight: 300; line-height: 1; }
+  .about-badge span { font-size: 0.65rem; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.85; }
+
+  .about-content { padding: 20px 0; }
+  .about-text {
+    color: var(--text-mid);
+    font-size: 0.95rem;
+    line-height: 1.85;
+    margin-top: 24px;
+    margin-bottom: 36px;
+  }
+  .about-values {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    margin-bottom: 40px;
+  }
+  .about-value {
+    padding: 20px;
+    border: 1px solid var(--linen-dark);
+    border-radius: 2px;
+    background: var(--linen);
+  }
+  .about-value-icon { font-size: 1.3rem; margin-bottom: 10px; }
+  .about-value strong { display: block; font-size: 0.88rem; font-weight: 600; margin-bottom: 4px; }
+  .about-value span { font-size: 0.78rem; color: var(--text-muted); }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--charcoal);
+    color: var(--white);
+    padding: 14px 32px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.25s;
+  }
+  .btn-primary:hover { background: var(--terracotta); }
+  .btn-primary svg { transition: transform 0.2s; }
+  .btn-primary:hover svg { transform: translateX(5px); }
+
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 1px solid var(--charcoal);
+    color: var(--charcoal);
+    padding: 13px 28px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.25s;
+  }
+  .btn-outline:hover { background: var(--charcoal); color: var(--linen); }
+
+  /* ===== PORTOFOLIO ===== */
+  .portfolio { padding: 110px 6%; background: var(--linen); }
+
+  .portfolio-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 60px; flex-wrap: wrap; gap: 24px;
+  }
+
+  .portfolio-filter {
+    display: flex; gap: 6px; flex-wrap: wrap;
+  }
+  .filter-btn {
+    padding: 8px 20px;
+    border: 1px solid var(--sand);
+    background: transparent;
+    color: var(--text-mid);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--charcoal);
+    border-color: var(--charcoal);
+    color: var(--white);
+  }
+
+  /* Asymmetric grid layout */
+  .portfolio-grid-main {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .portfolio-grid-sub {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .portfolio-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+    background: var(--charcoal-mid);
+    cursor: pointer;
+  }
+  .portfolio-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease, filter 0.4s ease;
+    filter: brightness(0.9) saturate(0.95);
+  }
+  .portfolio-card:hover img { transform: scale(1.05); filter: brightness(0.5) saturate(0.8); }
+
+  .portfolio-card-main { aspect-ratio: 4/3; }
+  .portfolio-card-right { display: flex; flex-direction: column; gap: 16px; }
+  .portfolio-card-sm { aspect-ratio: 3/2; }
+  .portfolio-card-sub { aspect-ratio: 4/3; }
+
+  .card-overlay {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 28px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .portfolio-card:hover .card-overlay { opacity: 1; }
+
+  .card-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--sand);
+    background: rgba(196, 103, 58, 0.4);
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    width: fit-content;
+    border: 1px solid rgba(196, 103, 58, 0.5);
+  }
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.3;
+  }
+  .card-loc {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.55);
+    margin-top: 6px;
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  .portfolio-cta { text-align: center; margin-top: 52px; }
+
+  /* ===== LAYANAN ===== */
+  .layanan {
+    padding: 110px 6%;
+    background: var(--charcoal);
+  }
+  .layanan .section-label { color: rgba(255,255,255,0.4); }
+  .layanan .section-label::before { background: var(--terracotta); }
+  .layanan .section-title { color: var(--white); }
+
+  .layanan-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: flex-end;
+    margin-bottom: 72px;
+  }
+  .layanan-sub {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.92rem;
+    line-height: 1.8;
+    padding-bottom: 4px;
+  }
+
+  .layanan-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .layanan-card {
+    background: var(--charcoal);
+    padding: 44px 36px;
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .layanan-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--terracotta);
+    transition: width 0.4s ease;
+  }
+  .layanan-card:hover { background: var(--charcoal-mid); }
+  .layanan-card:hover::before { width: 100%; }
+
+  .layanan-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.06);
+    line-height: 1;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .layanan-icon {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .layanan-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+
+  .layanan-desc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.75;
+    margin-bottom: 28px;
+  }
+
+  .layanan-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--terracotta);
+    font-weight: 400;
+  }
+  .layanan-price span { font-size: 0.75rem; font-family: 'DM Sans', sans-serif; color: rgba(255,255,255,0.3); margin-left: 4px; }
+
+  /* ===== PROSES ===== */
+  .proses { padding: 110px 6%; background: var(--white); }
+
+  .proses-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+  }
+
+  .proses-img {
+    position: sticky;
+    top: 120px;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border-radius: 2px;
+    width: 100%;
+  }
+
+  .proses-steps { display: flex; flex-direction: column; }
+
+  .proses-step {
+    display: flex; gap: 32px;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--linen-dark);
+    position: relative;
+  }
+  .proses-step:first-child { padding-top: 0; }
+  .proses-step:last-child { border-bottom: none; }
+
+  .step-num-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--linen-dark);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 48px;
+    text-align: right;
+    transition: color 0.3s;
+  }
+  .proses-step:hover .step-num-big { color: var(--terracotta); }
+
+  .step-body { flex: 1; }
+  .step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: var(--charcoal);
+  }
+  .step-desc { font-size: 0.87rem; color: var(--text-muted); line-height: 1.8; }
+
+  /* ===== TESTIMONI ===== */
+  .testimoni { padding: 110px 6%; background: var(--linen); }
+
+  .testi-header { margin-bottom: 64px; }
+
+  .testi-slider { overflow: hidden; }
+  .testi-track {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .testi-card {
+    background: var(--white);
+    padding: 40px 36px;
+    border-radius: 2px;
+    border: 1px solid var(--linen-dark);
+    transition: transform 0.3s;
+  }
+  .testi-card:hover { transform: translateY(-5px); }
+
+  .testi-quote-icon {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--terracotta);
+    line-height: 0.7;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .testi-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    color: var(--charcoal);
+    margin-bottom: 28px;
+  }
+
+  .testi-author {
+    display: flex; align-items: center; gap: 14px;
+    padding-top: 24px;
+    border-top: 1px solid var(--linen-dark);
+  }
+  .testi-avatar {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .testi-name { font-size: 0.9rem; font-weight: 600; color: var(--charcoal); }
+  .testi-project { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+  .testi-stars { color: var(--terracotta); font-size: 0.7rem; letter-spacing: 2px; margin-top: 4px; }
+
+  /* ===== KEUNGGULAN ===== */
+  .keunggulan {
+    padding: 110px 6%;
+    background: var(--linen-dark);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .keung-img { aspect-ratio: 1; object-fit: cover; border-radius: 2px; width: 100%; }
+
+  .keung-items { display: flex; flex-direction: column; gap: 32px; margin-top: 40px; }
+  .keung-item { display: flex; gap: 20px; align-items: flex-start; }
+  .keung-check {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    color: var(--white);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .keung-text strong { display: block; font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
+  .keung-text span { font-size: 0.84rem; color: var(--text-muted); line-height: 1.7; }
+
+  /* ===== CTA BESAR ===== */
+  .cta-big {
+    padding: 140px 6%;
+    background: var(--charcoal);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-bg-text {
+    position: absolute;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18vw;
+    font-weight: 300;
+    color: rgba(255,255,255,0.025);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .cta-big .section-label { justify-content: center; margin-bottom: 24px; }
+  .cta-big .section-label { color: rgba(255,255,255,0.35); }
+  .cta-big .section-label::before { background: var(--terracotta); }
+
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .cta-title em { font-style: italic; color: var(--sand); }
+
+  .cta-sub {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.95rem;
+    max-width: 500px;
+    margin: 0 auto 48px;
+    line-height: 1.8;
+    position: relative;
+  }
+
+  .cta-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; position: relative; }
+
+  .btn-linen {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--linen);
+    color: var(--charcoal);
+    padding: 15px 36px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.25s;
+  }
+  .btn-linen:hover { background: var(--terracotta); color: var(--white); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.75);
+    padding: 14px 32px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.25s;
+  }
+  .btn-ghost:hover { border-color: var(--white); color: var(--white); }
+
+  .cta-contacts {
+    display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+  }
+  .contact-item {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+    color: rgba(255,255,255,0.45);
+    font-size: 0.83rem;
+    transition: color 0.2s;
+  }
+  .contact-item:hover { color: var(--sand); }
+  .contact-item-icon {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--charcoal-mid);
+    padding: 72px 6% 40px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 56px;
+    padding-bottom: 56px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-brand .nav-logo { margin-bottom: 16px; display: block; }
+  .footer-brand p {
+    font-size: 0.84rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.75;
+    max-width: 260px;
+    margin-bottom: 24px;
+  }
+  .footer-socials { display: flex; gap: 10px; }
+  .social-link {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.8rem;
+    transition: all 0.2s;
+  }
+  .social-link:hover { border-color: var(--terracotta); color: var(--terracotta); }
+
+  .footer-col h4 {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 22px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col ul li a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.55);
+    font-size: 0.875rem;
+    transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: var(--sand); }
+
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  }
+  .footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
+  .footer-himpsi {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.2);
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  /* Mobile nav */
+  .mobile-nav {
+    display: none; position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--charcoal);
+    z-index: 200;
+    flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 36px;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-decoration: none;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 1px;
+    transition: color 0.2s;
+  }
+  .mobile-nav a:hover { color: var(--sand); }
+  .mobile-nav-close {
+    position: absolute; top: 28px; right: 6%;
+    background: none; border: none;
+    color: rgba(255,255,255,0.5);
+    font-size: 1.8rem;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    .about { grid-template-columns: 1fr; gap: 56px; }
+    .about-badge { right: 0; }
+    .keunggulan { grid-template-columns: 1fr; }
+    .testi-track { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .layanan-header { grid-template-columns: 1fr; gap: 24px; }
+    .layanan-grid { grid-template-columns: 1fr 1fr; }
+    .proses-wrap { grid-template-columns: 1fr; }
+    .proses-img { position: static; aspect-ratio: 16/9; }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero h1 { font-size: 3rem; }
+    .hero-content { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-stats { gap: 24px; flex-wrap: wrap; }
+    .portfolio-grid-main { grid-template-columns: 1fr; }
+    .portfolio-card-right { flex-direction: row; }
+    .portfolio-card-sm { flex: 1; }
+    .portfolio-grid-sub { grid-template-columns: 1fr 1fr; }
+    .layanan-grid { grid-template-columns: 1fr; }
+    .testi-track { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    body { cursor: auto; }
+    .cursor-dot, .cursor-ring { display: none; }
+    .about-values { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .portfolio-grid-sub { grid-template-columns: 1fr; }
+    .portfolio-card-right { flex-direction: column; }
+    .cta-title { font-size: 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Rupa<span>.</span>Studio</a>
+  <ul class="nav-links">
+    <li><a href="#tentang">Tentang</a></li>
+    <li><a href="#portfolio">Portofolio</a></li>
+    <li><a href="#layanan">Layanan</a></li>
+    <li><a href="#proses">Proses</a></li>
+    <li><a href="#testimoni">Klien</a></li>
+    <li><a href="#kontak" class="nav-cta">Konsultasi</a></li>
+  </ul>
+  <button class="hamburger" onclick="openNav()" aria-label="Buka menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="closeNav()">✕</button>
+  <a href="#tentang" onclick="closeNav()">Tentang</a>
+  <a href="#portfolio" onclick="closeNav()">Portofolio</a>
+  <a href="#layanan" onclick="closeNav()">Layanan</a>
+  <a href="#proses" onclick="closeNav()">Proses</a>
+  <a href="#testimoni" onclick="closeNav()">Klien</a>
+  <a href="#kontak" onclick="closeNav()">Konsultasi →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?w=1800&q=85&auto=format&fit=crop" alt="Interior mewah modern">
+  </div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-label">Studio Desain Interior Jakarta</div>
+      <h1>
+        Ruang yang<br>
+        <em>bercerita</em><br>
+        tentang Anda.
+      </h1>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">12+</div>
+          <div class="hero-stat-label">Tahun Pengalaman</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">320</div>
+          <div class="hero-stat-label">Proyek Selesai</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">15</div>
+          <div class="hero-stat-label">Penghargaan</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <a href="#portfolio" class="hero-scroll">
+        <div class="scroll-line"></div>
+        Scroll
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item">Desain Rumah <span class="marquee-dot">◆</span></div>
+    <div class="marquee-item">Apartemen Premium <span class="marquee-dot">◆</span></div>
+    <div class="marquee-item">Ruang Komersial <span class="marquee-dot">◆</span></div>
+    <div class="marquee-item">Villa & Resort <span class="marquee-dot">◆</span></div>
+    <div class="marquee-item">Kantor Modern <span class="marquee-dot">◆</span></div>
+    <div class="marquee-item">Renovasi Total <span class="marquee-dot">◆</span></div>
+    <div class="marquee-item">3D Visualisasi <span class="marquee-dot">◆</span></div>
+    <div class="marquee-item">Desain Rumah <span class="marquee-dot">◆</span></div>
+    <div class="marquee-item">Apartemen Premium <span class="marquee-dot">◆</span></div>
+    <div class="marquee-item">Ruang Komersial <span class="marquee-dot">◆</span></div>
+    <div class="marquee-item">Villa & Resort <span class="marquee-dot">◆</span></div>
+    <div class="marquee-item">Kantor Modern <span class="marquee-dot">◆</span></div>
+    <div class="marquee-item">Renovasi Total <span class="marquee-dot">◆</span></div>
+    <div class="marquee-item">3D Visualisasi <span class="marquee-dot">◆</span></div>
+  </div>
+</div>
+
+<!-- TENTANG -->
+<section class="about" id="tentang">
+  <div class="about-imgs reveal">
+    <img class="about-img-main" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=700&q=80&auto=format&fit=crop" alt="Ruang tamu desain modern">
+    <img class="about-img-sm" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&q=80&auto=format&fit=crop" alt="Detail interior">
+    <img class="about-img-sm" src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=400&q=80&auto=format&fit=crop" alt="Dapur modern">
+    <div class="about-badge">
+      <strong>12+</strong>
+      <span>Tahun<br>Berkarya</span>
+    </div>
+  </div>
+  <div class="about-content">
+    <div class="section-label reveal">Tentang Kami</div>
+    <h2 class="section-title reveal reveal-delay-1">Desain yang<br>lahir dari <em>mendengar</em></h2>
+    <p class="about-text reveal reveal-delay-2">Rupa Studio didirikan atas satu keyakinan sederhana: ruang yang baik bukan tentang estetika semata, melainkan tentang bagaimana sebuah ruang membuat penghuninya merasa. Kami menggabungkan sensibilitas desain kontemporer dengan kedalaman pemahaman akan gaya hidup klien Indonesia.</p>
+    <div class="about-values reveal reveal-delay-3">
+      <div class="about-value">
+        <div class="about-value-icon">🏛️</div>
+        <strong>Estetika Fungsional</strong>
+        <span>Keindahan yang bisa dipakai sehari-hari</span>
+      </div>
+      <div class="about-value">
+        <div class="about-value-icon">🌿</div>
+        <strong>Material Berkelanjutan</strong>
+        <span>Pilihan material ramah lingkungan</span>
+      </div>
+      <div class="about-value">
+        <div class="about-value-icon">🎯</div>
+        <strong>Detail Presisi</strong>
+        <span>Setiap elemen dipilih dengan cermat</span>
+      </div>
+      <div class="about-value">
+        <div class="about-value-icon">⏱️</div>
+        <strong>Tepat Waktu</strong>
+        <span>Komitmen pada jadwal yang disepakati</span>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-4" style="display: flex; gap: 14px; flex-wrap: wrap;">
+      <a href="#portfolio" class="btn-primary">
+        Lihat Portofolio
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#kontak" class="btn-outline">Konsultasi Gratis</a>
+    </div>
+  </div>
+</section>
+
+<!-- PORTOFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-header">
+    <div>
+      <div class="section-label reveal">Portofolio</div>
+      <h2 class="section-title reveal reveal-delay-1">Karya <em>pilihan</em> kami</h2>
+    </div>
+    <div class="portfolio-filter reveal reveal-delay-2">
+      <button class="filter-btn active" onclick="setFilter(this, 'semua')">Semua</button>
+      <button class="filter-btn" onclick="setFilter(this, 'residensial')">Residensial</button>
+      <button class="filter-btn" onclick="setFilter(this, 'apartemen')">Apartemen</button>
+      <button class="filter-btn" onclick="setFilter(this, 'komersial')">Komersial</button>
+    </div>
+  </div>
+
+  <div class="portfolio-grid-main reveal">
+    <div class="portfolio-card portfolio-card-main">
+      <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=900&q=80&auto=format&fit=crop" alt="Villa Tangerang">
+      <div class="card-overlay">
+        <span class="card-tag">Residensial</span>
+        <div class="card-title">Villa Harmoni, Tangerang</div>
+        <div class="card-loc">📍 BSD City · 2024</div>
+      </div>
+    </div>
+    <div class="portfolio-card-right">
+      <div class="portfolio-card portfolio-card-sm">
+        <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=600&q=80&auto=format&fit=crop" alt="Apartemen Jakarta">
+        <div class="card-overlay">
+          <span class="card-tag">Apartemen</span>
+          <div class="card-title">Apartemen Thamrin, 2BR</div>
+          <div class="card-loc">📍 Jakarta Pusat · 2024</div>
+        </div>
+      </div>
+      <div class="portfolio-card portfolio-card-sm">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80&auto=format&fit=crop" alt="Kantor modern">
+        <div class="card-overlay">
+          <span class="card-tag">Komersial</span>
+          <div class="card-title">Kantor PT. Artha Mandiri</div>
+          <div class="card-loc">📍 SCBD, Jakarta · 2023</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="portfolio-grid-sub reveal reveal-delay-1">
+    <div class="portfolio-card portfolio-card-sub">
+      <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80&auto=format&fit=crop" alt="Rumah Bekasi">
+      <div class="card-overlay">
+        <span class="card-tag">Residensial</span>
+        <div class="card-title">Cluster Elysian, Bekasi</div>
+        <div class="card-loc">📍 Bekasi Barat · 2023</div>
+      </div>
+    </div>
+    <div class="portfolio-card portfolio-card-sub">
+      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80&auto=format&fit=crop" alt="Dapur premium">
+      <div class="card-overlay">
+        <span class="card-tag">Residensial</span>
+        <div class="card-title">Private Residence, Pondok Indah</div>
+        <div class="card-loc">📍 Jakarta Selatan · 2023</div>
+      </div>
+    </div>
+    <div class="portfolio-card portfolio-card-sub">
+      <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=600&q=80&auto=format&fit=crop" alt="Kamar tidur mewah">
+      <div class="card-overlay">
+        <span class="card-tag">Apartemen</span>
+        <div class="card-title">Penthouse Kuningan</div>
+        <div class="card-loc">📍 Jakarta Selatan · 2022</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="portfolio-cta reveal">
+    <a href="#" class="btn-outline">Lihat Semua Proyek (32+)</a>
+  </div>
+</section>
+
+<!-- LAYANAN -->
+<section class="layanan" id="layanan">
+  <div class="layanan-header">
+    <div>
+      <div class="section-label">Layanan</div>
+      <h2 class="section-title reveal">Apa yang kami <em>tawarkan</em></h2>
+    </div>
+    <p class="layanan-sub reveal reveal-delay-2">Dari konsultasi awal hingga pengawasan eksekusi, kami hadir di setiap tahap mewujudkan ruang impian Anda.</p>
+  </div>
+  <div class="layanan-grid">
+    <div class="layanan-card reveal">
+      <span class="layanan-num">01</span>
+      <span class="layanan-icon">🏠</span>
+      <h3 class="layanan-title">Desain Interior Residensial</h3>
+      <p class="layanan-desc">Transformasi rumah, apartemen, atau vila menjadi ruang yang mencerminkan kepribadian dan gaya hidup Anda secara utuh.</p>
+      <div class="layanan-price">Mulai Rp 350.000<span>/ m²</span></div>
+    </div>
+    <div class="layanan-card reveal reveal-delay-1">
+      <span class="layanan-num">02</span>
+      <span class="layanan-icon">🏢</span>
+      <h3 class="layanan-title">Desain Ruang Komersial</h3>
+      <p class="layanan-desc">Kantor, restoran, kafe, dan retail yang dirancang untuk produktivitas, kenyamanan, dan identitas brand yang kuat.</p>
+      <div class="layanan-price">Mulai Rp 450.000<span>/ m²</span></div>
+    </div>
+    <div class="layanan-card reveal reveal-delay-2">
+      <span class="layanan-num">03</span>
+      <span class="layanan-icon">🎨</span>
+      <h3 class="layanan-title">Konsultasi & Konsep</h3>
+      <p class="layanan-desc">Sesi mendalam untuk mengeksplorasi visi Anda, moodboard, palet warna, dan arah desain sebelum eksekusi dimulai.</p>
+      <div class="layanan-price">Rp 1.500.000<span>/ sesi</span></div>
+    </div>
+    <div class="layanan-card reveal reveal-delay-1">
+      <span class="layanan-num">04</span>
+      <span class="layanan-icon">📐</span>
+      <h3 class="layanan-title">Gambar Kerja & 3D Render</h3>
+      <p class="layanan-desc">Visualisasi 3D realistis dan gambar teknis yang siap digunakan kontraktor untuk eksekusi yang presisi dan tanpa ambiguitas.</p>
+      <div class="layanan-price">Rp 2.500.000<span>/ ruangan</span></div>
+    </div>
+    <div class="layanan-card reveal reveal-delay-2">
+      <span class="layanan-num">05</span>
+      <span class="layanan-icon">🪑</span>
+      <h3 class="layanan-title">Pengadaan Furnitur & Dekorasi</h3>
+      <p class="layanan-desc">Kurasi dan pengadaan furnitur, lampu, karpet, dan aksesori dari vendor terpercaya dengan harga yang kompetitif.</p>
+      <div class="layanan-price">Fee 15%<span>dari nilai pengadaan</span></div>
+    </div>
+    <div class="layanan-card reveal reveal-delay-3">
+      <span class="layanan-num">06</span>
+      <span class="layanan-icon">🔧</span>
+      <h3 class="layanan-title">Pengawasan Konstruksi</h3>
+      <p class="layanan-desc">Supervisi lapangan untuk memastikan eksekusi sesuai gambar kerja, tepat waktu, dan memenuhi standar kualitas yang telah ditetapkan.</p>
+      <div class="layanan-price">Mulai Rp 5.000.000<span>/ bulan</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROSES -->
+<section class="proses" id="proses">
+  <div class="proses-wrap">
+    <div class="reveal">
+      <img class="proses-img" src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=600&q=80&auto=format&fit=crop" alt="Proses desain">
+    </div>
+    <div class="proses-steps">
+      <div class="section-label reveal">Proses Kerja</div>
+      <h2 class="section-title reveal reveal-delay-1" style="margin-bottom: 48px;">Perjalanan dari <em>konsep</em> ke kenyataan</h2>
+      <div class="proses-step reveal">
+        <div class="step-num-big">01</div>
+        <div class="step-body">
+          <h3 class="step-title">Konsultasi Awal</h3>
+          <p class="step-desc">Pertemuan pertama untuk memahami kebutuhan, referensi gaya, anggaran, dan timeline proyek Anda. Gratis dan tanpa komitmen.</p>
+        </div>
+      </div>
+      <div class="proses-step reveal reveal-delay-1">
+        <div class="step-num-big">02</div>
+        <div class="step-body">
+          <h3 class="step-title">Konsep & Moodboard</h3>
+          <p class="step-desc">Pengembangan arah desain, palet warna, material, dan moodboard yang merepresentasikan visi Anda dalam format visual.</p>
+        </div>
+      </div>
+      <div class="proses-step reveal reveal-delay-2">
+        <div class="step-num-big">03</div>
+        <div class="step-body">
+          <h3 class="step-title">Desain Detail & 3D</h3>
+          <p class="step-desc">Gambar kerja lengkap, visualisasi 3D realistis, dan spesifikasi material yang siap untuk proses konstruksi dan pengadaan.</p>
+        </div>
+      </div>
+      <div class="proses-step reveal reveal-delay-3">
+        <div class="step-num-big">04</div>
+        <div class="step-body">
+          <h3 class="step-title">Eksekusi & Pengawasan</h3>
+          <p class="step-desc">Koordinasi dengan kontraktor dan vendor, pengawasan berkala, dan quality control di lapangan hingga proyek tuntas.</p>
+        </div>
+      </div>
+      <div class="proses-step reveal reveal-delay-4">
+        <div class="step-num-big">05</div>
+        <div class="step-body">
+          <h3 class="step-title">Serah Terima & Styling</h3>
+          <p class="step-desc">Final styling ruangan, pemotretan profesional, dan sesi walkthrough untuk memastikan Anda puas dengan setiap detail.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section class="testimoni" id="testimoni">
+  <div class="testi-header">
+    <div class="section-label reveal">Kata Klien Kami</div>
+    <h2 class="section-title reveal reveal-delay-1">Cerita di balik <em>setiap ruang</em></h2>
+  </div>
+  <div class="testi-track">
+    <div class="testi-card reveal">
+      <span class="testi-quote-icon">"</span>
+      <p class="testi-text">Rupa Studio benar-benar memahami apa yang kami inginkan bahkan sebelum kami bisa mendeskripsikannya sendiri. Hasilnya melampaui semua ekspektasi kami.</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&q=80&auto=format&fit=crop" alt="Klien">
+        <div>
+          <div class="testi-name">Andini Kusuma</div>
+          <div class="testi-project">Villa Harmoni, BSD City</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal reveal-delay-1">
+      <span class="testi-quote-icon">"</span>
+      <p class="testi-text">Apartemen kami yang tadinya terasa sempit kini terasa dua kali lebih lapang. Kepiawaian tim dalam memaksimalkan ruang sungguh luar biasa.</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80&auto=format&fit=crop" alt="Klien">
+        <div>
+          <div class="testi-name">Bachtiar & Renata</div>
+          <div class="testi-project">Apartemen Thamrin, 2BR</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal reveal-delay-2">
+      <span class="testi-quote-icon">"</span>
+      <p class="testi-text">Kantor baru kami menjadi topik pembicaraan di setiap pertemuan klien. Produktivitas tim meningkat signifikan sejak pindah ke ruangan yang baru.</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80&auto=format&fit=crop" alt="Klien">
+        <div>
+          <div class="testi-name">Hendro Santoso</div>
+          <div class="testi-project">Kantor PT. Artha Mandiri</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEUNGGULAN -->
+<section class="keunggulan">
+  <div class="reveal">
+    <img class="keung-img" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=700&q=80&auto=format&fit=crop" alt="Detail desain interior premium">
+  </div>
+  <div>
+    <div class="section-label reveal">Mengapa Rupa Studio</div>
+    <h2 class="section-title reveal reveal-delay-1">Standar yang tak <em>kami kompromikan</em></h2>
+    <div class="keung-items">
+      <div class="keung-item reveal reveal-delay-1">
+        <div class="keung-check">✓</div>
+        <div class="keung-text">
+          <strong>Tim Multidisiplin Berpengalaman</strong>
+          <span>Arsitek, interior designer, dan project manager dengan portofolio ratusan proyek nasional dan regional.</span>
+        </div>
+      </div>
+      <div class="keung-item reveal reveal-delay-2">
+        <div class="keung-check">✓</div>
+        <div class="keung-text">
+          <strong>Transparansi Anggaran Penuh</strong>
+          <span>RAB terperinci sejak awal, tanpa biaya tersembunyi, dengan pelaporan penggunaan dana secara berkala.</span>
+        </div>
+      </div>
+      <div class="keung-item reveal reveal-delay-3">
+        <div class="keung-check">✓</div>
+        <div class="keung-text">
+          <strong>Garansi Kepuasan 6 Bulan</strong>
+          <span>Kami menanggung perbaikan atas ketidaksesuaian hasil kerja hingga 6 bulan setelah serah terima proyek.</span>
+        </div>
+      </div>
+      <div class="keung-item reveal reveal-delay-4">
+        <div class="keung-check">✓</div>
+        <div class="keung-text">
+          <strong>Akses Vendor & Diskon Material</strong>
+          <span>Jaringan luas dengan produsen dan importir furnitur premium yang memberi Anda harga di bawah retail.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BESAR -->
+<section class="cta-big" id="kontak">
+  <div class="cta-bg-text">Rupa</div>
+  <div class="section-label">Mulai Proyek Anda</div>
+  <h2 class="cta-title">Wujudkan ruang<br><em>impian Anda</em> bersama kami</h2>
+  <p class="cta-sub">Konsultasi pertama gratis. Ceritakan visi Anda dan biarkan kami menunjukkan bagaimana kami bisa mewujudkannya.</p>
+  <div class="cta-actions">
+    <a href="#" class="btn-linen">
+      📅 Jadwalkan Konsultasi Gratis
+    </a>
+    <a href="#" class="btn-ghost">Lihat Paket Layanan</a>
+  </div>
+  <div class="cta-contacts">
+    <a href="tel:+6221123456" class="contact-item">
+      <div class="contact-item-icon">📞</div>
+      (021) 1234-5678
+    </a>
+    <a href="https://wa.me/6281234567890" class="contact-item">
+      <div class="contact-item-icon">💬</div>
+      WhatsApp Studio
+    </a>
+    <a href="mailto:hello@rupastudio.id" class="contact-item">
+      <div class="contact-item-icon">✉️</div>
+      hello@rupastudio.id
+    </a>
+    <span class="contact-item">
+      <div class="contact-item-icon">📍</div>
+      Senopati, Jakarta Selatan
+    </span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo">Rupa<span>.</span>Studio</a>
+      <p>Studio desain interior berbasis di Jakarta, melayani klien di seluruh Indonesia sejak 2012.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-link" title="Instagram">IG</a>
+        <a href="#" class="social-link" title="Pinterest">Pn</a>
+        <a href="#" class="social-link" title="LinkedIn">in</a>
+        <a href="#" class="social-link" title="YouTube">YT</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Layanan</h4>
+      <ul>
+        <li><a href="#">Desain Residensial</a></li>
+        <li><a href="#">Desain Komersial</a></li>
+        <li><a href="#">Konsultasi Desain</a></li>
+        <li><a href="#">3D Visualisasi</a></li>
+        <li><a href="#">Pengawasan Proyek</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Studio</h4>
+      <ul>
+        <li><a href="#">Tentang Kami</a></li>
+        <li><a href="#">Tim Designer</a></li>
+        <li><a href="#">Portofolio</a></li>
+        <li><a href="#">Penghargaan</a></li>
+        <li><a href="#">Blog Desain</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Jam Operasional</h4>
+      <ul>
+        <li><a href="#">Senin – Jumat: 09.00–18.00</a></li>
+        <li><a href="#">Sabtu: 10.00–15.00</a></li>
+        <li><a href="#">Minggu: Tutup</a></li>
+        <li><a href="#" style="color: var(--terracotta); margin-top: 8px; display: block;">Konsultasi Online Tersedia →</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Rupa Studio. Hak cipta dilindungi undang-undang.</p>
+    <div class="footer-himpsi">
+      Anggota HDII (Himpunan Desainer Interior Indonesia) · No. 2024-JKT-0182
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Custom cursor
+  const dot = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX; mouseY = e.clientY;
+    dot.style.left = mouseX + 'px';
+    dot.style.top = mouseY + 'px';
+  });
+
+  function animateCursor() {
+    ringX += (mouseX - ringX) * 0.12;
+    ringY += (mouseY - ringY) * 0.12;
+    ring.style.left = ringX + 'px';
+    ring.style.top = ringY + 'px';
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Mobile nav
+  function openNav() { document.getElementById('mobileNav').classList.add('open'); }
+  function closeNav() { document.getElementById('mobileNav').classList.remove('open'); }
+
+  // Portfolio filter (visual only)
+  function setFilter(btn, cat) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

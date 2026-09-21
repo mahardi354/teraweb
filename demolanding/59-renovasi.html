@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RUPA & RUANG — Jasa Renovasi & Desain Interior</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1A2B3D;
+    --navy-deep:#101C28;
+    --sand:#F2ECE1;
+    --paper:#FBF8F2;
+    --clay:#B0603C;
+    --clay-dark:#8C4B2E;
+    --graphite:#3F3E3A;
+    --graphite-soft:#6B6A64;
+    --line:#CBC0A6;
+    --line-soft:rgba(203,192,166,0.35);
+    --brass:#A98548;
+    --shadow:0 18px 40px -20px rgba(16,28,40,0.35);
+    --radius:2px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;} }
+
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--sand);
+    color:var(--graphite);
+    line-height:1.6;
+    font-size:16px;
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size:42px 42px;
+  }
+
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+
+  .container{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--clay-dark);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:18px;height:1px;background:var(--clay);
+    display:inline-block;
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    color:var(--navy);
+    line-height:1.12;
+  }
+
+  .section-title{
+    font-size:clamp(1.7rem, 3vw, 2.5rem);
+    max-width:640px;
+    margin-bottom:16px;
+  }
+  .section-sub{
+    color:var(--graphite-soft);
+    max-width:560px;
+    font-size:0.98rem;
+  }
+  .section-head{
+    margin-bottom:48px;
+  }
+  .section-head.center{
+    text-align:center;
+    margin-left:auto;margin-right:auto;
+  }
+  .section-head.center .section-sub{margin-left:auto;margin-right:auto;}
+
+  section{
+    padding:88px 0;
+    position:relative;
+  }
+
+  /* ============ HEADER ============ */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(242,236,225,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line-soft);
+    transition:box-shadow .25s ease;
+  }
+  header.scrolled{box-shadow:0 8px 24px -16px rgba(16,28,40,0.3);}
+  .nav-wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;
+    max-width:1180px;margin:0 auto;
+  }
+  .logo{
+    font-family:'Fraunces',serif;font-weight:700;font-size:1.25rem;
+    color:var(--navy);letter-spacing:0.01em;
+  }
+  .logo span{color:var(--clay);}
+  .logo small{
+    display:block;font-family:'IBM Plex Mono',monospace;
+    font-size:0.6rem;letter-spacing:0.14em;color:var(--graphite-soft);
+    text-transform:uppercase;font-weight:400;margin-top:2px;
+  }
+  nav ul{display:flex;gap:30px;align-items:center;}
+  nav a{
+    font-size:0.88rem;font-weight:500;color:var(--graphite);
+    position:relative;padding:4px 0;
+  }
+  nav a::after{
+    content:"";position:absolute;left:0;bottom:-3px;width:0;height:1px;
+    background:var(--clay);transition:width .25s ease;
+  }
+  nav a:hover::after{width:100%;}
+  .nav-right{display:flex;align-items:center;gap:22px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:0.85rem;font-weight:600;
+    padding:12px 22px;border-radius:var(--radius);
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-clay{background:var(--clay);color:#fff;}
+  .btn-clay:hover{background:var(--clay-dark);transform:translateY(-2px);box-shadow:0 12px 20px -10px rgba(140,75,46,0.5);}
+  .btn-outline{border:1px solid var(--navy);color:var(--navy);}
+  .btn-outline:hover{background:var(--navy);color:#fff;}
+  .btn-ghost-light{border:1px solid rgba(242,236,225,0.5);color:var(--sand);}
+  .btn-ghost-light:hover{background:rgba(242,236,225,0.12);}
+
+  .burger{display:none;flex-direction:column;gap:5px;}
+  .burger span{width:22px;height:2px;background:var(--navy);display:block;}
+  .mobile-menu{
+    display:none;flex-direction:column;gap:18px;
+    padding:20px 28px 28px;background:var(--paper);
+    border-top:1px solid var(--line-soft);
+  }
+  .mobile-menu a{font-size:0.95rem;font-weight:500;}
+  .mobile-menu.open{display:flex;}
+
+  /* ============ HERO ============ */
+  .hero{
+    background:var(--navy);
+    background-image:radial-gradient(circle at 80% 20%, rgba(176,96,60,0.18), transparent 55%);
+    color:var(--sand);
+    padding:90px 0 70px;
+    overflow:hidden;
+    position:relative;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:50px;align-items:center;
+  }
+  .hero-blueprint{
+    position:absolute;inset:0;opacity:0.16;pointer-events:none;
+  }
+  .hero-content{position:relative;z-index:2;}
+  .hero-content .eyebrow{color:#D9A07F;}
+  .hero-content .eyebrow::before{background:#D9A07F;}
+  .hero-content h1{
+    color:var(--sand);
+    font-size:clamp(2.2rem, 4.2vw, 3.4rem);
+    margin-bottom:22px;
+  }
+  .hero-content h1 em{
+    font-style:italic;color:#D9A07F;font-weight:500;
+  }
+  .hero-content p{
+    color:#C9CBCF;max-width:480px;margin-bottom:32px;font-size:1.02rem;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px;}
+  .hero-meta{
+    display:flex;gap:28px;font-family:'IBM Plex Mono',monospace;
+    font-size:0.74rem;color:#9099A3;flex-wrap:wrap;
+  }
+  .hero-meta b{color:var(--sand);font-weight:500;}
+
+  .hero-visual{position:relative;z-index:2;}
+  .hero-card{
+    background:var(--paper);
+    border-radius:var(--radius);
+    padding:10px;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.45);
+    transform:rotate(1.2deg);
+  }
+  .hero-card img{border-radius:1px;aspect-ratio:4/3.1;object-fit:cover;}
+  .hero-card-tag{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:12px 8px 4px;
+    font-family:'IBM Plex Mono',monospace;font-size:0.68rem;
+    color:var(--graphite-soft);letter-spacing:0.03em;
+  }
+  .hero-card-tag b{color:var(--navy);font-weight:600;}
+
+  /* ============ STATS ============ */
+  .stats{
+    background:var(--paper);
+    border-bottom:1px solid var(--line-soft);
+    padding:0;
+  }
+  .stats-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    max-width:1180px;margin:0 auto;
+  }
+  .stat{
+    padding:34px 24px;text-align:center;
+    border-right:1px solid var(--line-soft);
+  }
+  .stat:last-child{border-right:none;}
+  .stat .num{
+    font-family:'Fraunces',serif;font-size:2.1rem;font-weight:600;color:var(--clay);
+  }
+  .stat .label{
+    font-family:'IBM Plex Mono',monospace;font-size:0.7rem;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--graphite-soft);margin-top:6px;
+  }
+
+  /* ============ SERVICES ============ */
+  .services-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+  }
+  .service-card{
+    background:var(--paper);border:1px solid var(--line-soft);
+    padding:30px 26px;border-radius:var(--radius);
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    position:relative;
+  }
+  .service-card:hover{
+    transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--clay);
+  }
+  .service-code{
+    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--clay);
+    letter-spacing:0.08em;margin-bottom:14px;display:block;
+  }
+  .service-card h3{font-size:1.18rem;margin-bottom:10px;}
+  .service-card p{font-size:0.92rem;color:var(--graphite-soft);}
+
+  /* ============ PROCESS ============ */
+  .process-track{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:0;
+    position:relative;
+  }
+  .process-track::before{
+    content:"";position:absolute;top:34px;left:0;right:0;height:1px;
+    background:repeating-linear-gradient(90deg, var(--line) 0 8px, transparent 8px 14px);
+    z-index:0;
+  }
+  .process-step{position:relative;z-index:1;padding:0 14px;text-align:left;}
+  .process-num{
+    width:68px;height:68px;border-radius:50%;
+    background:var(--navy);color:var(--sand);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;font-size:0.85rem;
+    margin-bottom:20px;border:4px solid var(--sand);
+  }
+  .process-step h4{font-size:1.02rem;margin-bottom:8px;}
+  .process-step p{font-size:0.86rem;color:var(--graphite-soft);}
+  .process-step .duration{
+    display:inline-block;margin-top:10px;font-family:'IBM Plex Mono',monospace;
+    font-size:0.68rem;color:var(--clay-dark);background:rgba(176,96,60,0.1);
+    padding:3px 8px;border-radius:20px;
+  }
+
+  /* ============ BEFORE / AFTER ============ */
+  .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+  .ba-card{background:var(--paper);border:1px solid var(--line-soft);padding:18px;border-radius:var(--radius);}
+  .ba-compare{
+    position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:1px;
+    cursor:ew-resize;
+  }
+  .ba-compare img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;}
+  .ba-compare .after-img{z-index:1;}
+  .ba-compare .before-img{z-index:2;clip-path:inset(0 50% 0 0);}
+  .ba-handle{
+    position:absolute;top:0;left:50%;height:100%;width:0;z-index:3;
+    transform:translateX(-50%);
+  }
+  .ba-handle::before{
+    content:"";position:absolute;top:0;bottom:0;left:0;width:2px;background:#fff;
+  }
+  .ba-handle::after{
+    content:"⇔";position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    width:38px;height:38px;background:#fff;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:0.95rem;color:var(--navy);box-shadow:0 4px 12px rgba(0,0,0,0.25);
+  }
+  .ba-range{
+    position:absolute;top:0;left:0;width:100%;height:100%;
+    opacity:0;cursor:ew-resize;z-index:4;margin:0;
+  }
+  .ba-tags{display:flex;justify-content:space-between;margin-top:14px;
+    font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.05em;
+    color:var(--graphite-soft);text-transform:uppercase;
+  }
+  .ba-title{margin-top:16px;font-size:1.05rem;font-family:'Fraunces',serif;color:var(--navy);}
+  .ba-desc{font-size:0.86rem;color:var(--graphite-soft);margin-top:4px;}
+
+  /* ============ PORTFOLIO ============ */
+  .filter-bar{display:flex;gap:10px;margin-bottom:32px;flex-wrap:wrap;}
+  .filter-btn{
+    font-family:'IBM Plex Mono',monospace;font-size:0.74rem;letter-spacing:0.04em;
+    padding:9px 18px;border:1px solid var(--line);border-radius:30px;
+    color:var(--graphite-soft);text-transform:uppercase;
+    transition:all .2s ease;
+  }
+  .filter-btn.active, .filter-btn:hover{
+    background:var(--navy);color:var(--sand);border-color:var(--navy);
+  }
+  .portfolio-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+  }
+  .portfolio-item{
+    position:relative;overflow:hidden;border-radius:var(--radius);
+    aspect-ratio:1/1.05;
+  }
+  .portfolio-item:nth-child(odd){grid-row:span 1;}
+  .portfolio-item img{
+    width:100%;height:100%;object-fit:cover;transition:transform .5s ease;
+  }
+  .portfolio-item:hover img{transform:scale(1.08);}
+  .portfolio-overlay{
+    position:absolute;inset:0;background:linear-gradient(180deg, transparent 50%, rgba(16,28,40,0.85) 100%);
+    display:flex;align-items:flex-end;padding:16px;opacity:0;transition:opacity .3s ease;
+  }
+  .portfolio-item:hover .portfolio-overlay{opacity:1;}
+  .portfolio-overlay span{
+    color:var(--sand);font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.04em;
+  }
+  .portfolio-item.hidden{display:none;}
+
+  /* ============ TESTIMONI ============ */
+  .testi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .testi-card{
+    background:var(--paper);border:1px solid var(--line-soft);
+    padding:26px 22px;border-radius:var(--radius);display:flex;flex-direction:column;gap:14px;
+  }
+  .stars{color:var(--clay);font-size:0.85rem;letter-spacing:2px;}
+  .testi-quote{font-size:0.9rem;color:var(--graphite);flex-grow:1;}
+  .testi-person{display:flex;align-items:center;gap:10px;}
+  .testi-person img{width:38px;height:38px;border-radius:50%;object-fit:cover;}
+  .testi-person .name{font-size:0.85rem;font-weight:600;color:var(--navy);}
+  .testi-person .role{font-size:0.74rem;color:var(--graphite-soft);}
+
+  /* ============ PRICING ============ */
+  .price-note{font-size:0.85rem;color:var(--graphite-soft);margin-top:-10px;margin-bottom:40px;max-width:520px;}
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .price-card{
+    background:var(--paper);border:1px solid var(--line-soft);
+    border-radius:var(--radius);padding:34px 28px;position:relative;
+  }
+  .price-card.featured{
+    border-color:var(--clay);background:var(--navy);color:var(--sand);
+    transform:translateY(-10px);box-shadow:var(--shadow);
+  }
+  .price-card.featured .price-amt, .price-card.featured h3{color:var(--sand);}
+  .price-card.featured .price-desc{color:#B9C0C9;}
+  .price-card.featured li{color:#D9DCE0;}
+  .price-tag{
+    position:absolute;top:-13px;right:24px;background:var(--clay);color:#fff;
+    font-family:'IBM Plex Mono',monospace;font-size:0.65rem;padding:5px 12px;
+    border-radius:20px;letter-spacing:0.05em;text-transform:uppercase;
+  }
+  .price-card h3{font-size:1.15rem;margin-bottom:6px;}
+  .price-desc{font-size:0.84rem;color:var(--graphite-soft);margin-bottom:18px;}
+  .price-amt{
+    font-family:'Fraunces',serif;font-size:1.7rem;color:var(--clay);font-weight:600;margin-bottom:4px;
+  }
+  .price-amt span{font-family:'Inter',sans-serif;font-size:0.78rem;color:var(--graphite-soft);font-weight:400;}
+  .price-card.featured .price-amt span{color:#B9C0C9;}
+  .price-card ul{margin:20px 0 26px;display:flex;flex-direction:column;gap:9px;}
+  .price-card li{font-size:0.85rem;display:flex;gap:8px;align-items:baseline;color:var(--graphite-soft);}
+  .price-card li::before{content:"—";color:var(--clay);flex-shrink:0;}
+  .price-card .btn{width:100%;justify-content:center;}
+
+  /* ============ FAQ ============ */
+  .faq-list{max-width:780px;margin:0 auto;}
+  details{
+    border-bottom:1px solid var(--line-soft);padding:20px 0;
+  }
+  summary{
+    font-family:'Fraunces',serif;font-size:1.05rem;color:var(--navy);
+    cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{
+    content:"+";font-family:'IBM Plex Mono',monospace;color:var(--clay);font-size:1.3rem;
+    transition:transform .25s ease;
+  }
+  details[open] summary::after{transform:rotate(45deg);}
+  details p{margin-top:14px;font-size:0.92rem;color:var(--graphite-soft);max-width:640px;}
+
+  /* ============ CTA / CONTACT ============ */
+  .cta-section{background:var(--navy);color:var(--sand);}
+  .cta-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:60px;align-items:flex-start;}
+  .cta-section .eyebrow{color:#D9A07F;}
+  .cta-section .eyebrow::before{background:#D9A07F;}
+  .cta-section h2{color:var(--sand);font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:18px;}
+  .cta-section p{color:#C9CBCF;max-width:420px;margin-bottom:28px;font-size:0.96rem;}
+  .cta-contacts{display:flex;flex-direction:column;gap:14px;margin-top:30px;}
+  .cta-contact-item{
+    font-family:'IBM Plex Mono',monospace;font-size:0.8rem;color:#AEB4BB;display:flex;gap:10px;
+  }
+  .cta-contact-item b{color:var(--sand);font-weight:500;}
+
+  form{
+    background:var(--paper);padding:34px;border-radius:var(--radius);
+  }
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+  .field{display:flex;flex-direction:column;gap:6px;}
+  .field.full{grid-column:1/-1;}
+  label{font-size:0.78rem;font-weight:600;color:var(--navy);}
+  input, select, textarea{
+    font-family:'Inter',sans-serif;font-size:0.92rem;
+    padding:11px 13px;border:1px solid var(--line);border-radius:1px;
+    background:#fff;color:var(--graphite);
+  }
+  input:focus, select:focus, textarea:focus{
+    outline:2px solid var(--clay);outline-offset:1px;border-color:var(--clay);
+  }
+  textarea{resize:vertical;min-height:90px;}
+  .form-submit{width:100%;justify-content:center;margin-top:6px;}
+  .form-msg{
+    margin-top:14px;font-size:0.85rem;color:var(--clay-dark);font-weight:500;display:none;
+  }
+  .form-msg.show{display:block;}
+
+  /* ============ FOOTER ============ */
+  footer{
+    background:var(--navy-deep);color:#9099A3;padding:64px 0 28px;
+  }
+  .footer-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:50px;
+  }
+  .footer-brand .logo{color:var(--sand);}
+  .footer-brand p{font-size:0.86rem;margin-top:14px;max-width:280px;color:#7E8893;}
+  .footer-col h5{
+    font-family:'IBM Plex Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;
+    text-transform:uppercase;color:#C9CBCF;margin-bottom:16px;
+  }
+  .footer-col ul{display:flex;flex-direction:column;gap:10px;}
+  .footer-col a{font-size:0.86rem;transition:color .2s ease;}
+  .footer-col a:hover{color:var(--sand);}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:#5E6A75;
+  }
+
+  /* ============ FADE IN ============ */
+  .fade-in{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .fade-in.visible{opacity:1;transform:translateY(0);}
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:980px){
+    nav, .nav-right .btn-outline{display:none;}
+    .burger{display:flex;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{order:-1;}
+    .stats-grid{grid-template-columns:repeat(2,1fr);}
+    .stat:nth-child(2){border-right:none;}
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+    .process-track{grid-template-columns:1fr 1fr;row-gap:36px;}
+    .process-track::before{display:none;}
+    .ba-grid{grid-template-columns:1fr;}
+    .portfolio-grid{grid-template-columns:repeat(2,1fr);}
+    .testi-grid{grid-template-columns:repeat(2,1fr);}
+    .price-grid{grid-template-columns:1fr;}
+    .price-card.featured{transform:none;}
+    .cta-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:600px){
+    section{padding:60px 0;}
+    .services-grid, .portfolio-grid, .testi-grid{grid-template-columns:1fr;}
+    .process-track{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+    .stats-grid{grid-template-columns:1fr 1fr;}
+    .footer-grid{grid-template-columns:1fr;gap:30px;}
+    .hero-meta{gap:16px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="siteHeader">
+  <div class="nav-wrap">
+    <a href="#top" class="logo">RUPA<span>&</span>RUANG<small>Renovasi · Desain Interior</small></a>
+    <nav>
+      <ul>
+        <li><a href="#layanan">Layanan</a></li>
+        <li><a href="#proses">Proses</a></li>
+        <li><a href="#hasil">Before/After</a></li>
+        <li><a href="#portofolio">Portofolio</a></li>
+        <li><a href="#testimoni">Testimoni</a></li>
+        <li><a href="#harga">Harga</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a href="#kontak" class="btn btn-outline">Hubungi Kami</a>
+      <a href="#kontak" class="btn btn-clay">Konsultasi Gratis</a>
+      <button class="burger" id="burgerBtn" aria-label="Buka menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#layanan">Layanan</a>
+    <a href="#proses">Proses</a>
+    <a href="#hasil">Before/After</a>
+    <a href="#portofolio">Portofolio</a>
+    <a href="#testimoni">Testimoni</a>
+    <a href="#harga">Harga</a>
+    <a href="#faq">FAQ</a>
+    <a href="#kontak" class="btn btn-clay" style="justify-content:center;">Konsultasi Gratis</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <svg class="hero-blueprint" viewBox="0 0 700 500" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <rect x="380" y="60" width="280" height="380" fill="none" stroke="#F2ECE1" stroke-width="1.5"/>
+    <line x1="380" y1="220" x2="660" y2="220" stroke="#F2ECE1" stroke-width="1"/>
+    <line x1="520" y1="60" x2="520" y2="220" stroke="#F2ECE1" stroke-width="1"/>
+    <line x1="380" y1="350" x2="520" y2="350" stroke="#F2ECE1" stroke-width="1"/>
+    <path d="M 520 350 A 40 40 0 0 1 560 390" fill="none" stroke="#F2ECE1" stroke-width="1"/>
+    <path d="M 660 220 A 35 35 0 0 1 660 290" fill="none" stroke="#F2ECE1" stroke-width="1"/>
+    <text x="410" y="150" fill="#F2ECE1" font-family="IBM Plex Mono" font-size="11">KT 1</text>
+    <text x="560" y="150" fill="#F2ECE1" font-family="IBM Plex Mono" font-size="11">KT 2</text>
+    <text x="410" y="295" fill="#F2ECE1" font-family="IBM Plex Mono" font-size="11">R. KELUARGA</text>
+    <text x="560" y="295" fill="#F2ECE1" font-family="IBM Plex Mono" font-size="11">DAPUR</text>
+    <line x1="380" y1="455" x2="660" y2="455" stroke="#F2ECE1" stroke-width="1"/>
+    <text x="495" y="470" fill="#F2ECE1" font-family="IBM Plex Mono" font-size="10">8.40 M</text>
+    <text x="600" y="40" fill="#F2ECE1" font-family="IBM Plex Mono" font-size="10">SKALA 1 : 100</text>
+  </svg>
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <div class="eyebrow">Jasa Renovasi &amp; Desain Interior · Jabodetabek</div>
+      <h1>Setiap renovasi dimulai dari <em>gambar kerja</em> yang tepat.</h1>
+      <p>Kami bantu wujudkan rumah, apartemen, atau ruko Anda — mulai dari survei, desain, RAB, sampai eksekusi di lapangan. Satu tim, satu tanggung jawab dari awal sampai serah terima.</p>
+      <div class="hero-ctas">
+        <a href="#kontak" class="btn btn-clay">Konsultasi Gratis →</a>
+        <a href="#portofolio" class="btn btn-ghost-light">Lihat Portofolio</a>
+      </div>
+      <div class="hero-meta">
+        <span><b>180+</b> proyek selesai</span>
+        <span><b>9 tahun</b> pengalaman tim</span>
+        <span><b>Garansi</b> 1 tahun pasca-renovasi</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <img id="heroImg" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1100&q=80" alt="Ruang keluarga hasil renovasi dengan pencahayaan alami">
+        <div class="hero-card-tag">
+          <span>Renovasi Rumah — <b>Bintaro, 2025</b></span>
+          <span>120 m²</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats" style="padding:0;">
+  <div class="stats-grid">
+    <div class="stat"><div class="num">180+</div><div class="label">Proyek Selesai</div></div>
+    <div class="stat"><div class="num">9 Thn</div><div class="label">Pengalaman Tim</div></div>
+    <div class="stat"><div class="num">4.9/5</div><div class="label">Rating Klien</div></div>
+    <div class="stat"><div class="num">30 Hr</div><div class="label">Rata² Renovasi Dapur</div></div>
+  </div>
+</section>
+
+<!-- ============ LAYANAN ============ -->
+<section id="layanan">
+  <div class="container">
+    <div class="section-head fade-in">
+      <div class="eyebrow">Layanan</div>
+      <h2 class="section-title">Apa yang kami kerjakan</h2>
+      <p class="section-sub">Dari perbaikan kecil sampai bongkar total — kami sesuaikan tim dan pendekatan dengan skala proyek Anda.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <span class="service-code">R-01</span>
+        <h3>Renovasi Rumah Tinggal</h3>
+        <p>Renovasi sebagian atau total: struktur, atap, lantai, sampai dinding — disesuaikan kondisi bangunan eksisting.</p>
+      </div>
+      <div class="service-card fade-in">
+        <span class="service-code">R-02</span>
+        <h3>Desain &amp; Renovasi Interior</h3>
+        <p>Penataan ulang ruang, pemilihan material, dan styling interior agar fungsi dan tampilan rumah lebih maksimal.</p>
+      </div>
+      <div class="service-card fade-in">
+        <span class="service-code">R-03</span>
+        <h3>Renovasi Dapur &amp; Kamar Mandi</h3>
+        <p>Area paling sering direnovasi — kami tangani waterproofing, instalasi pipa, sampai pemilihan sanitary.</p>
+      </div>
+      <div class="service-card fade-in">
+        <span class="service-code">R-04</span>
+        <h3>Furnitur Custom (Built-in)</h3>
+        <p>Kitchen set, lemari, dan partisi dibuat sesuai ukuran ruang — bukan furnitur jadi yang dipaksakan.</p>
+      </div>
+      <div class="service-card fade-in">
+        <span class="service-code">R-05</span>
+        <h3>Renovasi Ruko &amp; Kantor</h3>
+        <p>Renovasi area komersial dengan jadwal kerja yang diatur agar operasional usaha tetap berjalan.</p>
+      </div>
+      <div class="service-card fade-in">
+        <span class="service-code">R-06</span>
+        <h3>Gambar Kerja &amp; RAB</h3>
+        <p>Butuh gambar teknis dan rincian biaya saja? Kami siapkan dokumen lengkap untuk dieksekusi tim manapun.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROSES ============ -->
+<section id="proses" style="background:var(--paper);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);">
+  <div class="container">
+    <div class="section-head fade-in">
+      <div class="eyebrow">Proses Kerja</div>
+      <h2 class="section-title">Dari survei ke serah terima</h2>
+      <p class="section-sub">Lima tahap yang sama untuk setiap proyek, supaya Anda selalu tahu posisi pekerjaan ada di mana.</p>
+    </div>
+    <div class="process-track">
+      <div class="process-step fade-in">
+        <div class="process-num">P-01</div>
+        <h4>Survei &amp; Konsultasi</h4>
+        <p>Tim kami datang langsung mengukur lokasi dan mendengar kebutuhan Anda.</p>
+        <span class="duration">1–3 hari</span>
+      </div>
+      <div class="process-step fade-in">
+        <div class="process-num">P-02</div>
+        <h4>Desain &amp; RAB</h4>
+        <p>Gambar kerja dan rincian anggaran biaya disusun sebelum kontrak ditandatangani.</p>
+        <span class="duration">5–10 hari</span>
+      </div>
+      <div class="process-step fade-in">
+        <div class="process-num">P-03</div>
+        <h4>Kontrak &amp; Jadwal</h4>
+        <p>Kesepakatan tertulis, termin pembayaran, dan jadwal kerja disepakati bersama.</p>
+        <span class="duration">2–3 hari</span>
+      </div>
+      <div class="process-step fade-in">
+        <div class="process-num">P-04</div>
+        <h4>Pelaksanaan Renovasi</h4>
+        <p>Pengerjaan di lapangan dengan update progres berkala lewat foto dan laporan.</p>
+        <span class="duration">Sesuai skala proyek</span>
+      </div>
+      <div class="process-step fade-in">
+        <div class="process-num">P-05</div>
+        <h4>Finishing &amp; Garansi</h4>
+        <p>Pembersihan akhir, serah terima, dan masa garansi pekerjaan selama 1 tahun.</p>
+        <span class="duration">3–5 hari</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BEFORE / AFTER ============ -->
+<section id="hasil">
+  <div class="container">
+    <div class="section-head fade-in">
+      <div class="eyebrow">Hasil Nyata</div>
+      <h2 class="section-title">Geser untuk lihat perubahannya</h2>
+      <p class="section-sub">Bukan rendering — ini foto asli sebelum dan sesudah dari proyek yang sudah kami kerjakan.</p>
+    </div>
+    <div class="ba-grid">
+      <div class="ba-card fade-in">
+        <div class="ba-compare">
+          <img class="after-img" src="https://images.unsplash.com/photo-1556909114-44e3e70034e2?auto=format&fit=crop&w=900&q=80" alt="Ruang tamu setelah renovasi">
+          <img class="before-img" src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=900&q=80" alt="Ruang tamu sebelum renovasi, masih dalam proses pembangunan">
+          <div class="ba-handle"></div>
+          <input type="range" class="ba-range" min="0" max="100" value="50" aria-label="Geser perbandingan sebelum dan sesudah">
+        </div>
+        <div class="ba-tags"><span>Sebelum</span><span>Sesudah</span></div>
+        <div class="ba-title">Renovasi Ruang Keluarga</div>
+        <div class="ba-desc">Tangerang Selatan · Bongkar partisi, plafon baru, tata pencahayaan ulang.</div>
+      </div>
+      <div class="ba-card fade-in">
+        <div class="ba-compare">
+          <img class="after-img" src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=900&q=80" alt="Dapur setelah renovasi">
+          <img class="before-img" src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80" alt="Area dapur sebelum renovasi">
+          <div class="ba-handle"></div>
+          <input type="range" class="ba-range" min="0" max="100" value="50" aria-label="Geser perbandingan sebelum dan sesudah">
+        </div>
+        <div class="ba-tags"><span>Sebelum</span><span>Sesudah</span></div>
+        <div class="ba-title">Renovasi Dapur Tertutup → Terbuka</div>
+        <div class="ba-desc">Bekasi · Kitchen set custom, instalasi listrik baru, ubah jadi open kitchen.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PORTOFOLIO ============ -->
+<section id="portofolio" style="background:var(--paper);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);">
+  <div class="container">
+    <div class="section-head fade-in">
+      <div class="eyebrow">Portofolio</div>
+      <h2 class="section-title">Proyek yang sudah kami kerjakan</h2>
+      <p class="section-sub">Sebagian dari ratusan proyek renovasi dan interior yang telah selesai dalam 9 tahun terakhir.</p>
+    </div>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="semua">Semua</button>
+      <button class="filter-btn" data-filter="rumah">Rumah Tinggal</button>
+      <button class="filter-btn" data-filter="apartemen">Apartemen</button>
+      <button class="filter-btn" data-filter="ruko">Ruko / Kantor</button>
+      <button class="filter-btn" data-filter="dapur">Dapur &amp; KM</button>
+    </div>
+    <div class="portfolio-grid" id="portfolioGrid">
+      <div class="portfolio-item" data-category="rumah">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80" alt="Ruang tamu rumah hasil renovasi">
+        <div class="portfolio-overlay"><span>Rumah Tinggal — Depok</span></div>
+      </div>
+      <div class="portfolio-item" data-category="dapur">
+        <img src="https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?auto=format&fit=crop&w=800&q=80" alt="Dapur modern hasil renovasi">
+        <div class="portfolio-overlay"><span>Renovasi Dapur — Bekasi</span></div>
+      </div>
+      <div class="portfolio-item" data-category="dapur">
+        <img src="https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&w=800&q=80" alt="Kamar mandi hasil renovasi">
+        <div class="portfolio-overlay"><span>Renovasi Kamar Mandi — Bogor</span></div>
+      </div>
+      <div class="portfolio-item" data-category="apartemen">
+        <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=80" alt="Kamar tidur apartemen hasil renovasi">
+        <div class="portfolio-overlay"><span>Interior Apartemen — Jakarta Selatan</span></div>
+      </div>
+      <div class="portfolio-item" data-category="rumah">
+        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80" alt="Ruang keluarga rumah hasil renovasi">
+        <div class="portfolio-overlay"><span>Rumah Tinggal — Bintaro</span></div>
+      </div>
+      <div class="portfolio-item" data-category="apartemen">
+        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=80" alt="Interior apartemen modern">
+        <div class="portfolio-overlay"><span>Interior Apartemen — Alam Sutera</span></div>
+      </div>
+      <div class="portfolio-item" data-category="rumah">
+        <img src="https://images.unsplash.com/photo-1560185007-5f0bb1866cab?auto=format&fit=crop&w=800&q=80" alt="Tampak rumah modern hasil renovasi fasad">
+        <div class="portfolio-overlay"><span>Renovasi Fasad — Tangerang</span></div>
+      </div>
+      <div class="portfolio-item" data-category="ruko">
+        <img src="https://images.unsplash.com/photo-1503174971373-b1f69850bded?auto=format&fit=crop&w=800&q=80" alt="Interior ruko dan kantor hasil renovasi">
+        <div class="portfolio-overlay"><span>Renovasi Ruko — Jakarta Barat</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONI ============ -->
+<section id="testimoni">
+  <div class="container">
+    <div class="section-head center fade-in">
+      <div class="eyebrow" style="justify-content:center;">Testimoni</div>
+      <h2 class="section-title">Apa kata klien kami</h2>
+      <p class="section-sub">Sebagian cerita dari klien yang sudah menyelesaikan proyek renovasi bersama kami.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card fade-in">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote">Tim survei datang tepat waktu, RAB dijelaskan detail per item. Tidak ada biaya tambahan mendadak seperti renovasi sebelumnya.</p>
+        <div class="testi-person">
+          <img src="https://i.pravatar.cc/100?img=12" alt="Foto Dian Pratama">
+          <div><div class="name">Dian Pratama</div><div class="role">Renovasi Rumah, Bintaro</div></div>
+        </div>
+      </div>
+      <div class="testi-card fade-in">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote">Dapur kami yang sempit jadi open kitchen yang nyaman dipakai. Progres dikirim foto setiap minggu, jadi tetap tenang walau jarang ke lokasi.</p>
+        <div class="testi-person">
+          <img src="https://i.pravatar.cc/100?img=5" alt="Foto Sarah Wijaya">
+          <div><div class="name">Sarah Wijaya</div><div class="role">Renovasi Dapur, Bekasi</div></div>
+        </div>
+      </div>
+      <div class="testi-card fade-in">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote">Ruko kami direnovasi tanpa menghentikan operasional toko. Jadwal kerja diatur di luar jam buka — sangat membantu.</p>
+        <div class="testi-person">
+          <img src="https://i.pravatar.cc/100?img=33" alt="Foto Hendra Gunawan">
+          <div><div class="name">Hendra Gunawan</div><div class="role">Renovasi Ruko, Jakarta Barat</div></div>
+        </div>
+      </div>
+      <div class="testi-card fade-in">
+        <div class="stars">★★★★★</div>
+        <p class="testi-quote">Awalnya cuma minta gambar kerja, akhirnya percaya full ke mereka untuk eksekusi juga. Hasilnya rapi dan sesuai jadwal.</p>
+        <div class="testi-person">
+          <img src="https://i.pravatar.cc/100?img=47" alt="Foto Maya Anjani">
+          <div><div class="name">Maya Anjani</div><div class="role">Interior Apartemen, Jaksel</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HARGA ============ -->
+<section id="harga" style="background:var(--paper);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);">
+  <div class="container">
+    <div class="section-head fade-in">
+      <div class="eyebrow">Estimasi Biaya</div>
+      <h2 class="section-title">Pilih paket sesuai kebutuhan</h2>
+      <p class="price-note">Angka di bawah adalah estimasi awal. Harga final menyesuaikan kondisi lapangan, luas area, dan material yang dipilih — dipastikan lewat survei gratis.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card fade-in">
+        <h3>Renovasi Ringan</h3>
+        <p class="price-desc">Perbaikan dan penyegaran tanpa ubah struktur.</p>
+        <div class="price-amt">Rp 2,5 jt <span>/ m²</span></div>
+        <ul>
+          <li>Pengecatan ulang interior &amp; eksterior</li>
+          <li>Perbaikan retak, bocor, dan lantai sebagian</li>
+          <li>Penggantian sanitary standar</li>
+          <li>Estimasi pengerjaan 1–3 minggu</li>
+        </ul>
+        <a href="#kontak" class="btn btn-outline">Pilih Paket Ini</a>
+      </div>
+      <div class="price-card featured fade-in">
+        <span class="price-tag">Paling Diminati</span>
+        <h3>Renovasi Sedang</h3>
+        <p class="price-desc">Perubahan tata ruang dan area basah.</p>
+        <div class="price-amt">Rp 4,2 jt <span>/ m²</span></div>
+        <ul>
+          <li>Renovasi dapur &amp; kamar mandi penuh</li>
+          <li>Pemasangan partisi dan plafon baru</li>
+          <li>Instalasi listrik &amp; pipa ulang sebagian</li>
+          <li>Estimasi pengerjaan 4–8 minggu</li>
+        </ul>
+        <a href="#kontak" class="btn btn-clay">Pilih Paket Ini</a>
+      </div>
+      <div class="price-card fade-in">
+        <h3>Renovasi Total</h3>
+        <p class="price-desc">Bongkar dan desain ulang dari struktur.</p>
+        <div class="price-amt">Rp 6,5 jt <span>/ m²</span></div>
+        <ul>
+          <li>Bongkar total dan rancang ulang layout</li>
+          <li>Interior &amp; furnitur custom menyeluruh</li>
+          <li>Pengurusan dokumen teknis bila diperlukan</li>
+          <li>Estimasi pengerjaan 2–4 bulan</li>
+        </ul>
+        <a href="#kontak" class="btn btn-outline">Pilih Paket Ini</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head center fade-in">
+      <div class="eyebrow" style="justify-content:center;">FAQ</div>
+      <h2 class="section-title">Pertanyaan yang sering ditanyakan</h2>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>Berapa lama proses renovasi rumah?</summary>
+        <p>Tergantung skala pekerjaan. Renovasi ringan biasanya 1–3 minggu, renovasi sedang 4–8 minggu, dan renovasi total bisa 2–4 bulan. Estimasi waktu pasti diberikan setelah survei.</p>
+      </details>
+      <details>
+        <summary>Apakah survei lokasi dikenakan biaya?</summary>
+        <p>Tidak. Survei awal dan konsultasi kebutuhan tidak dikenakan biaya apa pun, termasuk untuk wilayah Jabodetabek.</p>
+      </details>
+      <details>
+        <summary>Apakah bisa renovasi sambil rumah tetap dihuni?</summary>
+        <p>Bisa, untuk renovasi sebagian. Tim kami akan mengatur urutan pekerjaan dan area kerja agar tidak mengganggu aktivitas penghuni rumah.</p>
+      </details>
+      <details>
+        <summary>Bagaimana sistem pembayaran?</summary>
+        <p>Pembayaran dibagi dalam beberapa termin sesuai progres pekerjaan, tercantum jelas di kontrak sebelum proyek dimulai. Tidak ada biaya tersembunyi di luar RAB yang disepakati.</p>
+      </details>
+      <details>
+        <summary>Apakah ada garansi setelah renovasi selesai?</summary>
+        <p>Ya, setiap pekerjaan kami berikan garansi 1 tahun untuk hal-hal seperti kebocoran, keretakan, atau cacat pengerjaan yang bukan disebabkan pemakaian.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA / KONTAK ============ -->
+<section class="cta-section" id="kontak">
+  <div class="container cta-grid">
+    <div>
+      <div class="eyebrow">Mulai Proyek Anda</div>
+      <h2>Siap wujudkan ruang yang Anda bayangkan?</h2>
+      <p>Isi formulir di samping, tim kami akan menghubungi Anda dalam 1 hari kerja untuk menjadwalkan survei gratis.</p>
+      <div class="cta-contacts">
+        <div class="cta-contact-item">☎ <b>+62 812-3456-7890</b></div>
+        <div class="cta-contact-item">✉ <b>halo@rupadanruang.id</b></div>
+        <div class="cta-contact-item">📍 <b>Melayani area Jabodetabek</b></div>
+      </div>
+      <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20konsultasi%20renovasi" class="btn btn-ghost-light" style="margin-top:26px;">Chat via WhatsApp →</a>
+    </div>
+    <form id="contactForm">
+      <div class="form-row">
+        <div class="field"><label for="nama">Nama Lengkap</label><input type="text" id="nama" required placeholder="Nama Anda"></div>
+        <div class="field"><label for="hp">No. WhatsApp</label><input type="tel" id="hp" required placeholder="08xx-xxxx-xxxx"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label for="lokasi">Lokasi Proyek</label><input type="text" id="lokasi" required placeholder="Kota / Kecamatan"></div>
+        <div class="field">
+          <label for="layanan-select">Jenis Layanan</label>
+          <select id="layanan-select">
+            <option>Renovasi Rumah Tinggal</option>
+            <option>Desain &amp; Renovasi Interior</option>
+            <option>Renovasi Dapur &amp; Kamar Mandi</option>
+            <option>Furnitur Custom</option>
+            <option>Renovasi Ruko / Kantor</option>
+            <option>Gambar Kerja &amp; RAB</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field full">
+          <label for="pesan">Ceritakan Kebutuhan Anda</label>
+          <textarea id="pesan" placeholder="Misal: renovasi dapur 12m², ingin jadi open kitchen..."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-clay form-submit">Kirim &amp; Jadwalkan Survei</button>
+      <div class="form-msg" id="formMsg">Terima kasih! Permintaan Anda sudah kami terima — tim kami akan menghubungi dalam 1 hari kerja.</div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#top" class="logo">RUPA<span>&</span>RUANG</a>
+        <p>Jasa renovasi dan desain interior untuk rumah tinggal, apartemen, dan area komersial di Jabodetabek.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Layanan</h5>
+        <ul>
+          <li><a href="#layanan">Renovasi Rumah</a></li>
+          <li><a href="#layanan">Desain Interior</a></li>
+          <li><a href="#layanan">Dapur &amp; Kamar Mandi</a></li>
+          <li><a href="#layanan">Furnitur Custom</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Perusahaan</h5>
+        <ul>
+          <li><a href="#proses">Proses Kerja</a></li>
+          <li><a href="#portofolio">Portofolio</a></li>
+          <li><a href="#testimoni">Testimoni</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Kontak</h5>
+        <ul>
+          <li>Jl. Contoh Raya No. 12, Jakarta Selatan</li>
+          <li>+62 812-3456-7890</li>
+          <li>halo@rupadanruang.id</li>
+          <li>Senin–Sabtu, 09.00–17.00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 RUPA &amp; RUANG. Seluruh hak cipta dilindungi.</span>
+      <span>Halaman demo — gambar dari Unsplash, hanya untuk keperluan portofolio.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Header scroll shadow
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // Mobile menu toggle
+  const burgerBtn = document.getElementById('burgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Before/After sliders
+  document.querySelectorAll('.ba-compare').forEach(compare => {
+    const before = compare.querySelector('.before-img');
+    const handle = compare.querySelector('.ba-handle');
+    const range = compare.querySelector('.ba-range');
+    function update(val){
+      before.style.clipPath = `inset(0 ${100-val}% 0 0)`;
+      handle.style.left = val + '%';
+    }
+    range.addEventListener('input', e => update(e.target.value));
+    update(range.value);
+  });
+
+  // Portfolio filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      portfolioItems.forEach(item => {
+        const match = filter === 'semua' || item.dataset.category === filter;
+        item.classList.toggle('hidden', !match);
+      });
+    });
+  });
+
+  // Contact form (demo only — no backend)
+  const form = document.getElementById('contactForm');
+  const formMsg = document.getElementById('formMsg');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    formMsg.classList.add('show');
+    form.reset();
+    setTimeout(() => formMsg.classList.remove('show'), 6000);
+  });
+
+  // Graceful fallback for broken external images
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('error', function handler(){
+      this.removeEventListener('error', handler);
+      this.style.background = 'linear-gradient(135deg, #1A2B3D, #B0603C)';
+      this.style.minHeight = '160px';
+      this.src = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(
+        `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><rect width="100%" height="100%" fill="%231A2B3D"/></svg>`
+      );
+    });
+  });
+</script>
+
+</body>
+</html>

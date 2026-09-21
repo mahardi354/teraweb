@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aqiqah Berkah – Jasa Aqiqah Terpercaya & Sesuai Syariat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --forest:   #2D5016;
+      --sage:     #7BAE5A;
+      --mint-bg:  #EEF5E8;
+      --cream:    #F9F4EC;
+      --gold:     #C8972A;
+      --gold-lt:  #E8B84B;
+      --brown:    #6B4C1E;
+      --text:     #2A2A2A;
+      --muted:    #6E7D60;
+      --light:    #FFFFFF;
+      --border:   #D9E8CC;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    img { display: block; width: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ─── ORNAMEN SVG inline ─── */
+    .ornamen {
+      display: block;
+      width: 180px;
+      margin: 0 auto 8px;
+      opacity: .55;
+    }
+    .ornamen-left {
+      display: inline-block;
+      width: 120px;
+      opacity: .45;
+      vertical-align: middle;
+    }
+
+    /* ─── TOP BAR ─── */
+    .top-bar {
+      background: var(--forest);
+      color: rgba(255,255,255,.75);
+      font-size: 0.75rem;
+      text-align: center;
+      padding: 8px 5%;
+      letter-spacing: .5px;
+    }
+    .top-bar span { color: var(--gold-lt); font-weight: 600; }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(249,244,236,.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6%;
+      height: 68px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--forest);
+      text-decoration: none;
+    }
+    .nav-logo .logo-icon {
+      width: 38px; height: 38px;
+      background: var(--forest);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .nav-logo .logo-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      display: block;
+      line-height: 1;
+      margin-top: 2px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: .3px;
+      transition: color .2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0; right: 0;
+      height: 2px; background: var(--sage);
+      transform: scaleX(0); transition: transform .2s;
+    }
+    .nav-links a:hover { color: var(--forest); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-cta {
+      background: var(--forest) !important;
+      color: #fff !important;
+      padding: 9px 22px;
+      border-radius: 50px;
+      font-weight: 600 !important;
+      font-size: 0.82rem !important;
+      transition: background .2s, transform .15s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: #3d6b1e !important; transform: translateY(-1px); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: calc(100vh - 100px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .hero-left {
+      background: var(--forest);
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 80px 7% 80px 8%;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Arabesque pattern background */
+    .hero-left::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 80% 20%, rgba(200,151,42,.12) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(123,174,90,.08) 0%, transparent 50%);
+    }
+    .hero-arabic {
+      font-family: 'Amiri', serif;
+      font-size: 1.1rem;
+      color: var(--gold-lt);
+      opacity: .8;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+    .hero-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 4.5vw, 4rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero-heading em {
+      color: var(--gold-lt);
+      font-style: italic;
+      display: block;
+    }
+    .hero-divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-bottom: 24px;
+      border-radius: 2px;
+    }
+    .hero-desc {
+      font-size: 0.97rem;
+      color: rgba(255,255,255,.75);
+      line-height: 1.8;
+      max-width: 420px;
+      margin-bottom: 40px;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 13px 28px;
+      border-radius: 50px;
+      letter-spacing: .3px;
+      transition: opacity .2s, transform .15s;
+      display: inline-flex; align-items: center; gap: 8px;
+      box-shadow: 0 4px 16px rgba(200,151,42,.35);
+    }
+    .btn-gold:hover { opacity: .9; transform: translateY(-2px); }
+    .btn-outline-light {
+      border: 1.5px solid rgba(255,255,255,.35);
+      color: rgba(255,255,255,.85);
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 13px 28px;
+      border-radius: 50px;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-outline-light:hover { border-color: #fff; background: rgba(255,255,255,.08); }
+    .hero-trust {
+      display: flex; gap: 28px; margin-top: 48px; flex-wrap: wrap;
+    }
+    .hero-trust-item .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold-lt);
+      line-height: 1;
+    }
+    .hero-trust-item .lbl {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,.55);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+    .hero-trust-divider { width: 1px; background: rgba(255,255,255,.12); align-self: stretch; }
+    .hero-right { position: relative; min-height: 500px; }
+    .hero-right img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-right-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, var(--forest) 0%, transparent 25%);
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: 36px; right: 36px;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(8px);
+      padding: 18px 22px;
+      border-radius: 12px;
+      border-left: 4px solid var(--gold);
+      box-shadow: 0 8px 32px rgba(0,0,0,.18);
+      min-width: 180px;
+    }
+    .hero-badge .badge-icon { font-size: 1.6rem; margin-bottom: 6px; }
+    .hero-badge .badge-text { font-weight: 700; font-size: 0.88rem; color: var(--forest); }
+    .hero-badge .badge-sub { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+
+    /* ─── MARQUEE STRIP ─── */
+    .marquee-strip {
+      background: var(--gold);
+      padding: 11px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-inner {
+      display: inline-flex; gap: 48px;
+      animation: marquee 20s linear infinite;
+    }
+    .marquee-item {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fff;
+      display: inline-flex; align-items: center; gap: 12px;
+    }
+    .marquee-dot { width: 5px; height: 5px; background: rgba(255,255,255,.5); border-radius: 50%; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ─── SECTION HEADER ─── */
+    .sec-header { text-align: center; margin-bottom: 60px; }
+    .sec-tag {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      position: relative;
+    }
+    .sec-tag::before, .sec-tag::after {
+      content: '✦';
+      margin: 0 8px;
+      font-size: 0.5rem;
+      vertical-align: middle;
+      opacity: .6;
+    }
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--forest);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .sec-sub {
+      font-size: 0.93rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 12px auto 0;
+      line-height: 1.75;
+    }
+    .sec-ornamen {
+      margin: 16px auto 0;
+      width: 200px;
+      height: 16px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 16'%3E%3Cpath d='M0 8 Q25 0 50 8 Q75 16 100 8 Q125 0 150 8 Q175 16 200 8' fill='none' stroke='%237BAE5A' stroke-width='1.5' opacity='.5'/%3E%3Ccircle cx='100' cy='8' r='3' fill='%23C8972A' opacity='.6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    /* ─── LAYANAN / PAKET ─── */
+    .paket { padding: 96px 7%; background: var(--light); }
+    .paket-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .paket-card {
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: box-shadow .3s, transform .3s;
+      background: #fff;
+      position: relative;
+    }
+    .paket-card:hover {
+      box-shadow: 0 16px 48px rgba(45,80,22,.12);
+      transform: translateY(-6px);
+    }
+    .paket-card.featured {
+      border-color: var(--gold);
+      box-shadow: 0 8px 32px rgba(200,151,42,.18);
+    }
+    .paket-ribbon {
+      position: absolute; top: 20px; right: -10px;
+      background: var(--gold);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 5px 16px 5px 12px;
+      border-radius: 3px 0 0 3px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,.15);
+    }
+    .paket-ribbon::after {
+      content: '';
+      position: absolute; right: -8px; top: 0; bottom: 0;
+      border-left: 8px solid var(--gold);
+      border-top: 14px solid transparent;
+      border-bottom: 14px solid transparent;
+    }
+    .paket-img { height: 180px; overflow: hidden; }
+    .paket-img img { height: 100%; transition: transform .4s; }
+    .paket-card:hover .paket-img img { transform: scale(1.06); }
+    .paket-body { padding: 28px; }
+    .paket-icon { font-size: 1.8rem; margin-bottom: 12px; }
+    .paket-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--forest);
+      margin-bottom: 6px;
+    }
+    .paket-hewan {
+      display: inline-block;
+      background: var(--mint-bg);
+      color: var(--forest);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 50px;
+      margin-bottom: 14px;
+    }
+    .paket-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+    .paket-fitur { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 24px; }
+    .paket-fitur li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.83rem; color: var(--text);
+    }
+    .paket-fitur li::before {
+      content: '✓';
+      color: var(--sage);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .paket-price {
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+      display: flex; align-items: flex-end; justify-content: space-between;
+      flex-wrap: wrap; gap: 10px;
+    }
+    .paket-price .price-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+    .paket-price .price-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--forest);
+    }
+    .paket-price .price-val span { font-size: 0.85rem; font-weight: 400; color: var(--muted); }
+    .btn-pesan {
+      display: block; width: 100%;
+      text-align: center;
+      background: var(--forest);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 12px;
+      border-radius: 50px;
+      margin-top: 18px;
+      transition: background .2s, transform .15s;
+    }
+    .btn-pesan:hover { background: #3d6b1e; transform: translateY(-1px); }
+    .paket-card.featured .btn-pesan {
+      background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+      box-shadow: 0 4px 16px rgba(200,151,42,.3);
+    }
+    .paket-card.featured .btn-pesan:hover { opacity: .9; }
+
+    /* ─── KENAPA KAMI ─── */
+    .kenapa {
+      padding: 96px 7%;
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .kenapa-img-wrap { position: relative; }
+    .kenapa-img-main {
+      border-radius: 16px;
+      overflow: hidden;
+      height: 500px;
+    }
+    .kenapa-img-main img { height: 100%; }
+    .kenapa-img-thumb {
+      position: absolute;
+      bottom: -28px; right: -28px;
+      width: 180px; height: 180px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 5px solid var(--cream);
+      box-shadow: 0 8px 24px rgba(0,0,0,.15);
+    }
+    .kenapa-badge-cert {
+      position: absolute;
+      top: 24px; left: -20px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 14px 18px;
+      box-shadow: 0 6px 24px rgba(0,0,0,.12);
+      border-left: 3px solid var(--gold);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--forest);
+    }
+    .kenapa-badge-cert .cert-icon { font-size: 1.4rem; margin-bottom: 4px; }
+    .kenapa-content .sec-header { text-align: left; }
+    .kenapa-content .sec-title { font-size: clamp(1.7rem, 2.8vw, 2.3rem); }
+    .kenapa-content .sec-ornamen { margin-left: 0; }
+    .kenapa-list { list-style: none; margin: 36px 0 40px; display: flex; flex-direction: column; gap: 20px; }
+    .kenapa-list li {
+      display: flex; align-items: flex-start; gap: 16px;
+    }
+    .kenapa-list .k-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: var(--mint-bg);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .kenapa-list .k-title { font-weight: 700; font-size: 0.9rem; color: var(--forest); margin-bottom: 3px; }
+    .kenapa-list .k-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
+
+    /* ─── CARA PEMESANAN ─── */
+    .cara { padding: 96px 7%; background: var(--forest); }
+    .cara .sec-title { color: #fff; }
+    .cara .sec-tag { color: var(--gold-lt); }
+    .cara .sec-sub { color: rgba(255,255,255,.6); }
+    .cara .sec-ornamen { opacity: .4; filter: invert(1); }
+    .cara-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .cara-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 14px;
+      padding: 32px;
+      display: flex; gap: 20px;
+      transition: background .25s;
+    }
+    .cara-card:hover { background: rgba(255,255,255,.1); }
+    .cara-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: .5;
+      line-height: 1;
+      flex-shrink: 0;
+      width: 50px;
+    }
+    .cara-body .c-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .cara-body .c-desc { font-size: 0.85rem; color: rgba(255,255,255,.6); line-height: 1.7; }
+
+    /* ─── GALERI ─── */
+    .galeri { padding: 96px 7%; background: var(--light); }
+    .galeri-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 220px 220px;
+      gap: 8px;
+    }
+    .galeri-item { overflow: hidden; border-radius: 8px; position: relative; }
+    .galeri-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .galeri-item:hover img { transform: scale(1.07); }
+    .galeri-item:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 2; }
+    .galeri-item:nth-child(5) { grid-column: 3 / 5; grid-row: 2 / 3; }
+    .galeri-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(45,80,22,.5) 0%, transparent 60%);
+      opacity: 0; transition: opacity .3s;
+    }
+    .galeri-item:hover .galeri-overlay { opacity: 1; }
+
+    /* ─── TESTIMONI ─── */
+    .testimoni { padding: 96px 7%; background: var(--mint-bg); }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .testi-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(45,80,22,.07);
+      position: relative;
+      transition: box-shadow .3s;
+    }
+    .testi-card:hover { box-shadow: 0 8px 32px rgba(45,80,22,.13); }
+    .testi-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 14px; }
+    .testi-quote-icon {
+      position: absolute; top: 24px; right: 28px;
+      font-family: Georgia, serif;
+      font-size: 5rem;
+      color: var(--mint-bg);
+      line-height: 1;
+    }
+    .testi-text { font-size: 0.88rem; color: #555; line-height: 1.75; margin-bottom: 22px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid var(--border); }
+    .testi-name { font-weight: 700; font-size: 0.85rem; color: var(--forest); }
+    .testi-loc { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+    .testi-tag {
+      display: inline-block;
+      background: var(--mint-bg);
+      color: var(--forest);
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 2px 8px; border-radius: 50px;
+      margin-top: 4px;
+    }
+
+    /* ─── AREA LAYANAN ─── */
+    .area { padding: 80px 7%; background: var(--cream); }
+    .area-list {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    .area-chip {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      color: var(--forest);
+      font-size: 0.82rem; font-weight: 600;
+      padding: 8px 20px; border-radius: 50px;
+      transition: background .2s, border-color .2s;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .area-chip:hover { background: var(--mint-bg); border-color: var(--sage); }
+    .area-chip .dot { width: 7px; height: 7px; background: var(--sage); border-radius: 50%; }
+
+    /* ─── FAQ ─── */
+    .faq { padding: 96px 7%; background: var(--light); }
+    .faq-wrap { max-width: 760px; margin: 56px auto 0; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem; font-weight: 600; color: var(--forest);
+      text-align: left; gap: 12px;
+    }
+    .faq-icon { font-size: 1.2rem; flex-shrink: 0; color: var(--sage); transition: transform .3s; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height .35s ease, padding .3s;
+      font-size: 0.85rem; color: var(--muted); line-height: 1.75;
+      padding: 0 24px;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 24px 20px; }
+    .faq-item.open { border-color: var(--sage); background: var(--mint-bg); }
+
+    /* ─── CTA BAND ─── */
+    .cta-band {
+      background: linear-gradient(135deg, var(--forest) 0%, #3d6b1e 100%);
+      padding: 80px 7%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-band::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 20% 50%, rgba(200,151,42,.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(123,174,90,.1) 0%, transparent 50%);
+    }
+    .cta-band-inner { position: relative; z-index: 1; }
+    .cta-band .arabic-deco { font-family: 'Amiri', serif; font-size: 1.3rem; color: var(--gold-lt); opacity: .6; margin-bottom: 16px; }
+    .cta-band h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700; color: #fff;
+      margin-bottom: 14px; line-height: 1.2;
+    }
+    .cta-band p { font-size: 0.95rem; color: rgba(255,255,255,.7); margin-bottom: 36px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-wa {
+      background: #25D366;
+      color: #fff; font-weight: 700; font-size: 0.95rem;
+      padding: 14px 32px; border-radius: 50px;
+      display: inline-flex; align-items: center; gap: 10px;
+      box-shadow: 0 4px 20px rgba(37,211,102,.35);
+      transition: opacity .2s, transform .15s;
+    }
+    .btn-wa:hover { opacity: .9; transform: translateY(-2px); }
+    .btn-outline-white {
+      border: 1.5px solid rgba(255,255,255,.4);
+      color: #fff; font-weight: 600; font-size: 0.95rem;
+      padding: 14px 32px; border-radius: 50px;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-outline-white:hover { border-color: #fff; background: rgba(255,255,255,.1); }
+
+    /* ─── KONTAK ─── */
+    .kontak { padding: 96px 7%; background: var(--cream); }
+    .kontak-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .kontak-info-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700;
+      color: var(--forest); margin-bottom: 10px;
+    }
+    .kontak-info-sub { font-size: 0.88rem; color: var(--muted); line-height: 1.7; margin-bottom: 36px; }
+    .kontak-detail { display: flex; flex-direction: column; gap: 18px; }
+    .k-item { display: flex; align-items: center; gap: 14px; }
+    .k-icon-wrap {
+      width: 46px; height: 46px; flex-shrink: 0;
+      background: var(--mint-bg);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .k-item-label { font-weight: 700; font-size: 0.82rem; color: var(--forest); }
+    .k-item-val { font-size: 0.85rem; color: var(--muted); margin-top: 2px; }
+    .kontak-sosmed { display: flex; gap: 12px; margin-top: 32px; }
+    .sosmed-btn {
+      width: 40px; height: 40px;
+      background: #fff; border: 1.5px solid var(--border);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      transition: background .2s, border-color .2s;
+    }
+    .sosmed-btn:hover { background: var(--mint-bg); border-color: var(--sage); }
+    /* Form */
+    .kontak-form { background: #fff; padding: 40px; border-radius: 16px; box-shadow: 0 8px 32px rgba(45,80,22,.08); }
+    .form-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700; color: var(--forest);
+      margin-bottom: 6px;
+    }
+    .form-sub { font-size: 0.82rem; color: var(--muted); margin-bottom: 28px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .f-group { margin-bottom: 18px; }
+    .f-group label { display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--forest); margin-bottom: 7px; }
+    .f-group input, .f-group select, .f-group textarea {
+      width: 100%; padding: 11px 15px;
+      border: 1.5px solid var(--border); border-radius: 8px;
+      font-family: 'Inter', sans-serif; font-size: 0.88rem;
+      color: var(--text); background: var(--cream);
+      transition: border-color .2s; outline: none;
+    }
+    .f-group input:focus, .f-group select:focus, .f-group textarea:focus { border-color: var(--sage); background: #fff; }
+    .f-group textarea { resize: vertical; min-height: 110px; }
+    .btn-submit {
+      width: 100%;
+      background: var(--forest);
+      color: #fff; font-weight: 700; font-size: 0.9rem;
+      padding: 14px; border: none; border-radius: 50px;
+      cursor: pointer; letter-spacing: .3px;
+      transition: background .2s;
+    }
+    .btn-submit:hover { background: #3d6b1e; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #1a2e0a;
+      padding: 64px 7% 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-brand .f-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; font-weight: 700;
+      color: var(--gold-lt); margin-bottom: 12px;
+    }
+    .footer-brand p { font-size: 0.82rem; color: #6a8a57; line-height: 1.75; }
+    .footer-brand .f-arabic { font-family: 'Amiri', serif; font-size: 1rem; color: var(--gold); opacity: .6; margin-bottom: 10px; }
+    .footer-col h4 { font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase; color: #4a6a38; margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 0.82rem; color: #6a8a57; transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--gold-lt); }
+    .footer-bottom {
+      border-top: 1px solid #2a3f1a;
+      padding-top: 28px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom p { font-size: 0.78rem; color: #4a6a38; }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-socials a {
+      width: 34px; height: 34px;
+      background: #2a3f1a; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: #6a8a57; font-size: 0.8rem;
+      transition: background .2s, color .2s;
+    }
+    .footer-socials a:hover { background: var(--gold); color: #fff; }
+
+    /* ─── WA FLOAT ─── */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 58px; height: 58px;
+      background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.7rem;
+      box-shadow: 0 4px 20px rgba(37,211,102,.45);
+      z-index: 200; transition: transform .2s;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .paket-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { min-height: 320px; }
+      .kenapa { grid-template-columns: 1fr; }
+      .kenapa-img-wrap { display: none; }
+      .kontak-wrap { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr 1fr; }
+      .galeri-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .galeri-item:nth-child(1),
+      .galeri-item:nth-child(5) { grid-column: auto; grid-row: auto; }
+      .cara-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .paket-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-trust { gap: 16px; }
+      .cta-actions { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    🌙 Layanan Aqiqah Sesuai Syariat Islam — <span>Gratis Konsultasi</span> — Hubungi Kami di +62 812-3456-7890
+  </div>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#home" class="nav-logo">
+      <div class="logo-icon">🌿</div>
+      <div>
+        Aqiqah Berkah
+        <span class="logo-sub">Jasa Aqiqah Terpercaya</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#home">Beranda</a>
+      <a href="#paket">Paket</a>
+      <a href="#kenapa">Keunggulan</a>
+      <a href="#cara">Cara Pesan</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#testimoni">Testimoni</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontak" class="nav-cta">Hubungi Kami</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-left">
+      <div class="hero-arabic">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+      <h1 class="hero-heading">
+        Rayakan Kelahiran Si Kecil<br>dengan
+        <em>Aqiqah yang Berkah</em>
+      </h1>
+      <div class="hero-divider"></div>
+      <p class="hero-desc">
+        Layanan aqiqah lengkap — dari penyembelihan hewan sesuai syariat, pengolahan masakan hingga pengiriman ke tamu. Amanah, higienis, dan penuh keikhlasan.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/6281234567890" class="btn-gold" target="_blank">
+          💬 Pesan via WhatsApp
+        </a>
+        <a href="#paket" class="btn-outline-light">Lihat Paket</a>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-item">
+          <div class="num">1200+</div>
+          <div class="lbl">Aqiqah Selesai</div>
+        </div>
+        <div class="hero-trust-divider"></div>
+        <div class="hero-trust-item">
+          <div class="num">8 Thn</div>
+          <div class="lbl">Pengalaman</div>
+        </div>
+        <div class="hero-trust-divider"></div>
+        <div class="hero-trust-item">
+          <div class="num">100%</div>
+          <div class="lbl">Sesuai Syariat</div>
+        </div>
+        <div class="hero-trust-divider"></div>
+        <div class="hero-trust-item">
+          <div class="num">4.9⭐</div>
+          <div class="lbl">Rating Google</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img
+        src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&auto=format&fit=crop"
+        alt="Hidangan aqiqah lezat"
+      />
+      <div class="hero-right-overlay"></div>
+      <div class="hero-badge">
+        <div class="badge-icon">🐑</div>
+        <div class="badge-text">Hewan Segar & Berkualitas</div>
+        <div class="badge-sub">Disembelih oleh ustadz berpengalaman</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-inner">
+      <!-- set 1 -->
+      <span class="marquee-item">✦ Hewan Premium Pilihan</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Masak & Kirim ke Lokasi</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">✦ Sertifikat Aqiqah Gratis</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Paket Lengkap Nasi Box</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">✦ Dipercaya 1200+ Keluarga</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Konsultasi Gratis 24 Jam</span>
+      <span class="marquee-dot"></span>
+      <!-- set 2 (duplikat untuk loop mulus) -->
+      <span class="marquee-item">✦ Hewan Premium Pilihan</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Masak & Kirim ke Lokasi</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">✦ Sertifikat Aqiqah Gratis</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Paket Lengkap Nasi Box</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">✦ Dipercaya 1200+ Keluarga</span>
+      <span class="marquee-dot"></span>
+      <span class="marquee-item">Konsultasi Gratis 24 Jam</span>
+      <span class="marquee-dot"></span>
+    </div>
+  </div>
+
+  <!-- PAKET -->
+  <section class="paket" id="paket">
+    <div class="sec-header">
+      <div class="sec-tag">Pilihan Paket</div>
+      <h2 class="sec-title">Paket Aqiqah Kami</h2>
+      <p class="sec-sub">Pilih paket yang sesuai kebutuhan. Semua paket sudah termasuk penyembelihan, masak, dan sertifikat aqiqah.</p>
+      <div class="sec-ornamen"></div>
+    </div>
+    <div class="paket-grid">
+
+      <!-- Paket Bayi Laki-laki -->
+      <div class="paket-card featured">
+        <div class="paket-ribbon">Terlaris</div>
+        <div class="paket-img">
+          <img src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=600&auto=format&fit=crop" alt="Kambing aqiqah" />
+        </div>
+        <div class="paket-body">
+          <div class="paket-icon">🐑🐑</div>
+          <div class="paket-name">Paket Putra Lengkap</div>
+          <div class="paket-hewan">2 Ekor Kambing</div>
+          <p class="paket-desc">Paket aqiqah untuk bayi laki-laki sesuai sunnah dengan 2 ekor kambing jantan berkualitas, masak lengkap, dan nasi box untuk tamu undangan.</p>
+          <ul class="paket-fitur">
+            <li>2 ekor kambing jantan premium (25–30 kg)</li>
+            <li>Penyembelihan oleh ustadz bersertifikat</li>
+            <li>Pengolahan menu nasi kebuli + sate + gulai</li>
+            <li>100 porsi nasi box untuk tamu</li>
+            <li>Sertifikat aqiqah bermaterai</li>
+            <li>Dekorasi meja syukuran sederhana</li>
+            <li>Pengiriman ke lokasi (radius 30 km)</li>
+          </ul>
+          <div class="paket-price">
+            <div>
+              <div class="price-label">Mulai dari</div>
+              <div class="price-val">Rp 3,8 Jt <span>/ paket</span></div>
+            </div>
+          </div>
+          <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20memesan%20Paket%20Putra%20Lengkap" class="btn-pesan" target="_blank">
+            Pesan Paket Ini
+          </a>
+        </div>
+      </div>
+
+      <!-- Paket Bayi Perempuan -->
+      <div class="paket-card">
+        <div class="paket-img">
+          <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=600&auto=format&fit=crop" alt="Masakan aqiqah" />
+        </div>
+        <div class="paket-body">
+          <div class="paket-icon">🐑</div>
+          <div class="paket-name">Paket Putri Berkah</div>
+          <div class="paket-hewan">1 Ekor Kambing</div>
+          <p class="paket-desc">Paket aqiqah untuk bayi perempuan dengan 1 ekor kambing betina pilihan, pengolahan lengkap, dan nasi box siap saji.</p>
+          <ul class="paket-fitur">
+            <li>1 ekor kambing betina premium (20–25 kg)</li>
+            <li>Penyembelihan oleh ustadz bersertifikat</li>
+            <li>Pengolahan menu nasi kebuli + gulai + sate</li>
+            <li>50 porsi nasi box untuk tamu</li>
+            <li>Sertifikat aqiqah bermaterai</li>
+            <li>Pengiriman ke lokasi (radius 30 km)</li>
+          </ul>
+          <div class="paket-price">
+            <div>
+              <div class="price-label">Mulai dari</div>
+              <div class="price-val">Rp 2,1 Jt <span>/ paket</span></div>
+            </div>
+          </div>
+          <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20memesan%20Paket%20Putri%20Berkah" class="btn-pesan" target="_blank">
+            Pesan Paket Ini
+          </a>
+        </div>
+      </div>
+
+      <!-- Paket Premium -->
+      <div class="paket-card">
+        <div class="paket-img">
+          <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&auto=format&fit=crop" alt="Sajian premium aqiqah" />
+        </div>
+        <div class="paket-body">
+          <div class="paket-icon">👑</div>
+          <div class="paket-name">Paket Grand Premium</div>
+          <div class="paket-hewan">Custom (2–4 Kambing)</div>
+          <p class="paket-desc">Paket eksklusif untuk syukuran besar dengan menu lengkap, dekorasi profesional, dan dokumentasi foto momen aqiqah si kecil.</p>
+          <ul class="paket-fitur">
+            <li>2–4 ekor kambing pilihan terbaik</li>
+            <li>Penyembelihan + do'a bersama ustadz</li>
+            <li>Menu lengkap: kebuli, gulai, sate, tongseng</li>
+            <li>150–300 porsi nasi box premium</li>
+            <li>Sertifikat + buku do'a bayi</li>
+            <li>Dekorasi syukuran & dokumentasi foto</li>
+            <li>Pengiriman & setup di lokasi acara</li>
+          </ul>
+          <div class="paket-price">
+            <div>
+              <div class="price-label">Mulai dari</div>
+              <div class="price-val">Rp 6,5 Jt <span>/ paket</span></div>
+            </div>
+          </div>
+          <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20info%20Paket%20Grand%20Premium" class="btn-pesan" target="_blank">
+            Pesan Paket Ini
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- KENAPA KAMI -->
+  <section class="kenapa" id="kenapa">
+    <div class="kenapa-img-wrap">
+      <div class="kenapa-img-main">
+        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=700&auto=format&fit=crop" alt="Tim aqiqah profesional" />
+      </div>
+      <div class="kenapa-img-thumb">
+        <img src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?w=300&auto=format&fit=crop" alt="Hewan aqiqah segar" />
+      </div>
+      <div class="kenapa-badge-cert">
+        <div class="cert-icon">📜</div>
+        <div>Bersertifikat MUI</div>
+        <div style="font-size:.7rem;color:var(--muted);font-weight:400;margin-top:2px">Halal & Terpercaya</div>
+      </div>
+    </div>
+    <div class="kenapa-content">
+      <div class="sec-header">
+        <div class="sec-tag">Mengapa Kami</div>
+        <h2 class="sec-title">Amanah adalah<br>Prioritas Kami</h2>
+        <div class="sec-ornamen"></div>
+      </div>
+      <ul class="kenapa-list">
+        <li>
+          <div class="k-icon">🌿</div>
+          <div>
+            <div class="k-title">Hewan Sehat & Sesuai Syarat Aqiqah</div>
+            <div class="k-desc">Kambing kami dipilih langsung dari peternak terpercaya — sehat, tidak cacat, dan memenuhi syarat fiqih aqiqah.</div>
+          </div>
+        </li>
+        <li>
+          <div class="k-icon">🕌</div>
+          <div>
+            <div class="k-title">Penyembelihan oleh Ustadz Berpengalaman</div>
+            <div class="k-desc">Setiap penyembelihan dilakukan oleh ustadz yang kompeten, membaca do'a dengan benar, dan mengikuti tata cara Islam.</div>
+          </div>
+        </li>
+        <li>
+          <div class="k-icon">🍽️</div>
+          <div>
+            <div class="k-title">Masak Higienis, Rasa Lezat</div>
+            <div class="k-desc">Dapur kami higienis dan bersertifikat. Chef berpengalaman memastikan hidangan lezat dan siap disajikan tepat waktu.</div>
+          </div>
+        </li>
+        <li>
+          <div class="k-icon">🚚</div>
+          <div>
+            <div class="k-title">Antar Langsung ke Lokasi</div>
+            <div class="k-desc">Kami urus semuanya — dari masak hingga antar ke rumah Anda. Tidak perlu repot, kami yang tangani.</div>
+          </div>
+        </li>
+        <li>
+          <div class="k-icon">📋</div>
+          <div>
+            <div class="k-title">Sertifikat Aqiqah Resmi</div>
+            <div class="k-desc">Setiap aqiqah dilengkapi sertifikat bermaterai sebagai kenangan dan bukti pelaksanaan syariat untuk buah hati Anda.</div>
+          </div>
+        </li>
+      </ul>
+      <a href="#paket" class="btn-gold">Lihat Paket Aqiqah →</a>
+    </div>
+  </section>
+
+  <!-- CARA PESAN -->
+  <section class="cara" id="cara">
+    <div class="sec-header">
+      <div class="sec-tag">Mudah & Cepat</div>
+      <h2 class="sec-title">Cara Pesan Aqiqah</h2>
+      <p class="sec-sub">Hanya 4 langkah mudah, aqiqah si kecil sudah beres tanpa Anda perlu repot.</p>
+      <div class="sec-ornamen"></div>
+    </div>
+    <div class="cara-grid">
+      <div class="cara-card">
+        <div class="cara-num">01</div>
+        <div class="cara-body">
+          <div class="c-title">Hubungi & Konsultasi</div>
+          <div class="c-desc">Hubungi kami via WhatsApp atau telepon. Ceritakan kebutuhan Anda — kami siap bantu pilihkan paket yang tepat secara gratis.</div>
+        </div>
+      </div>
+      <div class="cara-card">
+        <div class="cara-num">02</div>
+        <div class="cara-body">
+          <div class="c-title">Pilih Paket & Tentukan Tanggal</div>
+          <div class="c-desc">Pilih paket sesuai kebutuhan dan tentukan tanggal pelaksanaan aqiqah. Kami bantu hitung hari aqiqah yang tepat menurut sunnah.</div>
+        </div>
+      </div>
+      <div class="cara-card">
+        <div class="cara-num">03</div>
+        <div class="cara-body">
+          <div class="c-title">DP & Konfirmasi Pesanan</div>
+          <div class="c-desc">Lakukan pembayaran DP untuk mengamankan jadwal. Kami kirimkan konfirmasi resmi beserta detail pesanan Anda.</div>
+        </div>
+      </div>
+      <div class="cara-card">
+        <div class="cara-num">04</div>
+        <div class="cara-body">
+          <div class="c-title">Aqiqah Dilaksanakan & Dikirim</div>
+          <div class="c-desc">Pada hari H, kami sembelih, masak, dan antar hidangan ke lokasi Anda. Sertifikat aqiqah turut dikirimkan bersamanya.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERI -->
+  <section class="galeri" id="galeri">
+    <div class="sec-header">
+      <div class="sec-tag">Dokumentasi Kami</div>
+      <h2 class="sec-title">Galeri Aqiqah</h2>
+      <p class="sec-sub">Setiap momen aqiqah adalah kenangan indah. Berikut sebagian dokumentasi pelaksanaan aqiqah oleh tim kami.</p>
+      <div class="sec-ornamen"></div>
+    </div>
+    <div class="galeri-grid">
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=800&auto=format&fit=crop" alt="Hidangan aqiqah" />
+        <div class="galeri-overlay"></div>
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=500&auto=format&fit=crop" alt="Olahan masakan" />
+        <div class="galeri-overlay"></div>
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&auto=format&fit=crop" alt="Sajian lengkap" />
+        <div class="galeri-overlay"></div>
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=500&auto=format&fit=crop" alt="Menu nasi kebuli" />
+        <div class="galeri-overlay"></div>
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&auto=format&fit=crop" alt="Persiapan aqiqah" />
+        <div class="galeri-overlay"></div>
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&auto=format&fit=crop" alt="Hidangan lezat" />
+        <div class="galeri-overlay"></div>
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=500&auto=format&fit=crop" alt="Kambing aqiqah" />
+        <div class="galeri-overlay"></div>
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=500&auto=format&fit=crop" alt="Nasi box aqiqah" />
+        <div class="galeri-overlay"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONI -->
+  <section class="testimoni" id="testimoni">
+    <div class="sec-header">
+      <div class="sec-tag">Kata Mereka</div>
+      <h2 class="sec-title">Dipercaya Ribuan Keluarga</h2>
+      <p class="sec-sub">Kepercayaan keluarga-keluarga yang mengamanahkan aqiqah kepada kami adalah motivasi terbesar kami.</p>
+      <div class="sec-ornamen"></div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote-icon">"</div>
+        <p class="testi-text">MasyaAllah, pelayanannya luar biasa. Kambing sehat, penyembelihan dilakukan dengan benar, dan masakannya enak banget. Tamu-tamu puji semua. Jazakallahu khair!</p>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&auto=format&fit=crop&crop=face" alt="Ummu Zaid" />
+          <div>
+            <div class="testi-name">Ummu Zaid Nurhayati</div>
+            <div class="testi-loc">📍 Purwokerto, Jawa Tengah</div>
+            <div class="testi-tag">Paket Putra Lengkap</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote-icon">"</div>
+        <p class="testi-text">Kami pesan Paket Putri Berkah untuk aqiqah anak pertama kami. Semuanya berjalan lancar, tepat waktu, dan yang penting sesuai sunnah. Sertifikatnya juga bagus dan bermaterai.</p>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&auto=format&fit=crop&crop=face" alt="Ustadz Hendra" />
+          <div>
+            <div class="testi-name">Hendra Fauzi</div>
+            <div class="testi-loc">📍 Cilacap, Jawa Tengah</div>
+            <div class="testi-tag">Paket Putri Berkah</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote-icon">"</div>
+        <p class="testi-text">Sudah 2 kali aqiqah di sini untuk dua anak kami. Tidak pernah kecewa. Tim mereka profesional, responsif, dan amanah. Harganya juga sangat worth it dengan kualitasnya.</p>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&auto=format&fit=crop&crop=face" alt="Ibu Sari" />
+          <div>
+            <div class="testi-name">Sari Rahmawati</div>
+            <div class="testi-loc">📍 Banyumas, Jawa Tengah</div>
+            <div class="testi-tag">Paket Grand Premium</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREA LAYANAN -->
+  <section class="area" id="area">
+    <div class="sec-header">
+      <div class="sec-tag">Jangkauan Kami</div>
+      <h2 class="sec-title">Area Layanan</h2>
+      <p class="sec-sub">Kami melayani pengiriman dan pelaksanaan aqiqah di berbagai kota dan kabupaten.</p>
+    </div>
+    <div class="area-list">
+      <div class="area-chip"><span class="dot"></span> Purwokerto</div>
+      <div class="area-chip"><span class="dot"></span> Banyumas</div>
+      <div class="area-chip"><span class="dot"></span> Cilacap</div>
+      <div class="area-chip"><span class="dot"></span> Purbalingga</div>
+      <div class="area-chip"><span class="dot"></span> Kebumen</div>
+      <div class="area-chip"><span class="dot"></span> Wonosobo</div>
+      <div class="area-chip"><span class="dot"></span> Banjarnegara</div>
+      <div class="area-chip"><span class="dot"></span> Majenang</div>
+      <div class="area-chip"><span class="dot"></span> Wangon</div>
+      <div class="area-chip"><span class="dot"></span> Ajibarang</div>
+      <div class="area-chip"><span class="dot"></span> Sumpiuh</div>
+      <div class="area-chip"><span class="dot"></span> Sokaraja</div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="sec-header">
+      <div class="sec-tag">Pertanyaan Umum</div>
+      <h2 class="sec-title">FAQ Aqiqah</h2>
+      <p class="sec-sub">Pertanyaan yang sering ditanyakan seputar layanan aqiqah kami.</p>
+      <div class="sec-ornamen"></div>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item open">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Kapan waktu terbaik melaksanakan aqiqah?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Menurut sunnah, aqiqah dilaksanakan pada hari ke-7 setelah kelahiran bayi. Jika tidak memungkinkan, bisa di hari ke-14 atau ke-21. Namun aqiqah tetap sah dilaksanakan kapan saja selagi anak belum baligh. Kami siap bantu menghitung hari yang tepat untuk Anda.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Berapa ekor kambing untuk aqiqah anak laki-laki dan perempuan?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Untuk anak laki-laki disunnahkan 2 ekor kambing, sedangkan untuk anak perempuan 1 ekor kambing. Namun jika belum mampu, anak laki-laki pun boleh dengan 1 ekor. Semua hewan kami pastikan memenuhi syarat syariat.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Apakah bisa pesan mendadak (H-1 atau H-2)?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Kami menyarankan pemesanan minimal H-3 agar persiapan lebih matang. Namun untuk pemesanan mendadak, silakan hubungi kami langsung via WhatsApp — kami akan usahakan semaksimal mungkin sesuai stok yang tersedia.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Apa saja yang termasuk dalam paket aqiqah?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Setiap paket sudah mencakup: hewan kambing pilihan, penyembelihan oleh ustadz, pengolahan masakan (nasi kebuli, gulai, sate), nasi box untuk tamu, sertifikat aqiqah bermaterai, dan pengiriman ke lokasi dalam radius 30 km. Detail lengkap tersedia di masing-masing paket.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Apakah bisa menyaksikan penyembelihan secara langsung?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Tentu saja! Kami sangat terbuka jika keluarga ingin hadir menyaksikan proses penyembelihan. Bahkan sangat dianjurkan agar orang tua bisa ikut berdo'a dan merasakan momen sakral tersebut. Lokasi penyembelihan bisa menyesuaikan permintaan.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Apakah ada garansi kepuasan?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Kami berkomitmen penuh pada kepuasan Anda. Jika ada ketidaksesuaian dari perjanjian awal, kami siap memberikan solusi terbaik. Kami telah melayani 1200+ keluarga dan terus menjaga kepercayaan setiap pelanggan.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <div class="cta-band-inner">
+      <div class="arabic-deco">اللَّهُمَّ بَارِكْ لَنَا</div>
+      <h2>Siap Laksanakan Aqiqah<br>Si Kecil Anda?</h2>
+      <p>Konsultasi gratis, tanpa biaya tambahan. Tim kami siap membantu Anda memilih paket terbaik dan jadwal yang tepat.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20konsultasi%20aqiqah" class="btn-wa" target="_blank">
+          💬 Chat WhatsApp Sekarang
+        </a>
+        <a href="#kontak" class="btn-outline-white">Isi Form Pemesanan</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- KONTAK -->
+  <section class="kontak" id="kontak">
+    <div class="kontak-wrap">
+      <div>
+        <div class="sec-tag" style="font-size:.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px">✦ Hubungi Kami ✦</div>
+        <div class="kontak-info-title">Kami Siap<br>Melayani Anda</div>
+        <p class="kontak-info-sub">Hubungi kami untuk konsultasi gratis. Tim kami akan merespons dalam waktu kurang dari 1 jam di jam operasional.</p>
+        <div class="kontak-detail">
+          <div class="k-item">
+            <div class="k-icon-wrap">📞</div>
+            <div>
+              <div class="k-item-label">Telepon / WhatsApp</div>
+              <div class="k-item-val">+62 812-3456-7890</div>
+            </div>
+          </div>
+          <div class="k-item">
+            <div class="k-icon-wrap">📧</div>
+            <div>
+              <div class="k-item-label">Email</div>
+              <div class="k-item-val">info@aqiqahberkah.id</div>
+            </div>
+          </div>
+          <div class="k-item">
+            <div class="k-icon-wrap">📍</div>
+            <div>
+              <div class="k-item-label">Alamat</div>
+              <div class="k-item-val">Jl. Veteran No. 12, Purwokerto, Banyumas</div>
+            </div>
+          </div>
+          <div class="k-item">
+            <div class="k-icon-wrap">⏰</div>
+            <div>
+              <div class="k-item-label">Jam Operasional</div>
+              <div class="k-item-val">Senin – Minggu, 07.00 – 21.00 WIB</div>
+            </div>
+          </div>
+        </div>
+        <div class="kontak-sosmed">
+          <a href="#" class="sosmed-btn" title="Instagram">📸</a>
+          <a href="#" class="sosmed-btn" title="Facebook">👍</a>
+          <a href="#" class="sosmed-btn" title="YouTube">▶️</a>
+          <a href="#" class="sosmed-btn" title="TikTok">🎵</a>
+        </div>
+      </div>
+      <div class="kontak-form">
+        <div class="form-title">Form Pemesanan Aqiqah</div>
+        <div class="form-sub">Isi form berikut dan kami akan segera menghubungi Anda.</div>
+        <div class="form-row">
+          <div class="f-group">
+            <label>Nama Ayah / Ibu</label>
+            <input type="text" placeholder="Nama lengkap" />
+          </div>
+          <div class="f-group">
+            <label>No. WhatsApp</label>
+            <input type="tel" placeholder="+62 8xx-xxxx-xxxx" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="f-group">
+            <label>Nama Bayi</label>
+            <input type="text" placeholder="Nama si kecil" />
+          </div>
+          <div class="f-group">
+            <label>Jenis Kelamin Bayi</label>
+            <select>
+              <option value="">-- Pilih --</option>
+              <option>Laki-laki</option>
+              <option>Perempuan</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="f-group">
+            <label>Tanggal Lahir Bayi</label>
+            <input type="date" />
+          </div>
+          <div class="f-group">
+            <label>Rencana Tanggal Aqiqah</label>
+            <input type="date" />
+          </div>
+        </div>
+        <div class="f-group">
+          <label>Pilih Paket</label>
+          <select>
+            <option value="">-- Pilih Paket --</option>
+            <option>Paket Putra Lengkap (2 Kambing) – Rp 3,8 Jt</option>
+            <option>Paket Putri Berkah (1 Kambing) – Rp 2,1 Jt</option>
+            <option>Paket Grand Premium (2–4 Kambing) – Rp 6,5 Jt</option>
+            <option>Konsultasi Dulu</option>
+          </select>
+        </div>
+        <div class="f-group">
+          <label>Alamat Pengiriman</label>
+          <input type="text" placeholder="Alamat lengkap tujuan pengiriman" />
+        </div>
+        <div class="f-group">
+          <label>Pesan Tambahan</label>
+          <textarea placeholder="Jumlah tamu, permintaan khusus menu, dll..."></textarea>
+        </div>
+        <button class="btn-submit">🌿 Kirim Pemesanan</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="f-arabic">بِسْمِ اللَّهِ</div>
+        <div class="f-logo">Aqiqah Berkah</div>
+        <p>Jasa aqiqah terpercaya, sesuai syariat, dan amanah. Melayani keluarga-keluarga di Jawa Tengah dengan sepenuh hati sejak 2017.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Paket</h4>
+        <ul>
+          <li><a href="#">Paket Putra Lengkap</a></li>
+          <li><a href="#">Paket Putri Berkah</a></li>
+          <li><a href="#">Paket Grand Premium</a></li>
+          <li><a href="#">Custom Paket</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informasi</h4>
+        <ul>
+          <li><a href="#">Tentang Kami</a></li>
+          <li><a href="#">Cara Pemesanan</a></li>
+          <li><a href="#">Galeri</a></li>
+          <li><a href="#">Testimoni</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <ul>
+          <li><a href="#">+62 812-3456-7890</a></li>
+          <li><a href="#">info@aqiqahberkah.id</a></li>
+          <li><a href="#">Purwokerto, Banyumas</a></li>
+          <li><a href="#">07.00 – 21.00 WIB</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Aqiqah Berkah. Hak Cipta Dilindungi.</p>
+      <div class="footer-socials">
+        <a href="#" title="Instagram">IG</a>
+        <a href="#" title="Facebook">FB</a>
+        <a href="#" title="YouTube">YT</a>
+        <a href="#" title="TikTok">TK</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WA FLOAT -->
+  <a href="https://wa.me/6281234567890?text=Halo%20Aqiqah%20Berkah%2C%20saya%20ingin%20konsultasi%20aqiqah." class="wa-float" title="Chat WhatsApp" target="_blank">💬</a>
+
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+
+</body>
+</html>

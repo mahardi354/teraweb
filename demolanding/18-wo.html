@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahakarya Wedding — Wedding Organizer Profesional</title>
+<meta name="description" content="Mahakarya Wedding melayani pernikahan impian Anda dari awal hingga akhir. Konsep custom, vendor terpercaya, dan tim berpengalaman. Konsultasi gratis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:    #FAF6F1;
+    --ivory:    #FFFDF9;
+    --gold:     #C9A84C;
+    --gold-l:   #F5EDD6;
+    --gold-d:   #9A7A2E;
+    --rose:     #8B5E52;
+    --rose-l:   #F5EDE9;
+    --rose-d:   #6B3F35;
+    --brown:    #3D2B1F;
+    --muted:    #9A8880;
+    --border:   #E8DDD5;
+    --font-d:   'Cormorant Garamond', serif;
+    --font-b:   'Inter', sans-serif;
+    --radius:   4px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-b); background: var(--cream); color: var(--brown); line-height: 1.6; }
+  img { display: block; max-width: 100%; }
+  a { text-decoration: none; color: inherit; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 68px;
+    background: rgba(255,253,249,0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    display: flex; flex-direction: column; align-items: flex-start;
+  }
+  .nav-logo-main {
+    font-family: var(--font-d);
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--brown);
+    line-height: 1;
+  }
+  .nav-logo-sub {
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 3px;
+  }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a {
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-d); }
+  .nav-cta {
+    background: transparent !important;
+    color: var(--brown) !important;
+    border: 1px solid var(--gold) !important;
+    padding: 8px 20px !important;
+    border-radius: 0 !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    transition: background 0.2s, color 0.2s !important;
+  }
+  .nav-cta:hover {
+    background: var(--gold) !important;
+    color: var(--ivory) !important;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center;
+    padding: 68px 5% 80px;
+  }
+  .hero-photo {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(to right, rgba(61,43,31,0.72) 0%, rgba(61,43,31,0.2) 60%, rgba(61,43,31,0.1) 100%),
+      url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1800&q=85') center/cover no-repeat;
+  }
+
+  /* Gold ornament lines */
+  .hero-ornament {
+    position: absolute;
+    top: 50%; left: 5%;
+    transform: translateY(-50%);
+    width: 1px; height: 200px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    opacity: 0.5;
+  }
+  .hero-ornament-h {
+    position: absolute;
+    top: 50%; left: 5%;
+    transform: translateY(-50%) translateX(-1px);
+    height: 1px; width: 40px;
+    background: var(--gold);
+    opacity: 0.4;
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 680px;
+  }
+
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 24px;
+  }
+  .hero-eyebrow-line { width: 40px; height: 1px; background: var(--gold); opacity: 0.8; }
+  .hero-eyebrow-text {
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: var(--font-d);
+    font-size: clamp(2.4rem, 4.5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ivory);
+    letter-spacing: 0.02em;
+    margin-bottom: 24px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--gold);
+    display: block;
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+    color: rgba(255,253,249,0.7);
+    max-width: 460px;
+    line-height: 1.8;
+    margin-bottom: 44px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-actions { display: flex; gap: 16px; align-items: center; }
+
+  .btn-gold {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--gold);
+    color: var(--ivory);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    transition: background 0.2s;
+  }
+  .btn-gold:hover { background: var(--gold-d); }
+
+  .btn-ghost-light {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: rgba(255,253,249,0.7);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255,253,249,0.3);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .btn-ghost-light:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* Scroll hint */
+  .hero-scroll {
+    position: absolute; bottom: 32px; right: 5%;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    z-index: 2;
+  }
+  .hero-scroll-text {
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,253,249,0.4); writing-mode: vertical-rl;
+  }
+  .hero-scroll-line {
+    width: 1px; height: 48px;
+    background: linear-gradient(to bottom, rgba(201,168,76,0.7), transparent);
+    animation: scrollLine 2.5s ease-in-out infinite;
+  }
+  @keyframes scrollLine {
+    0%,100% { transform: scaleY(1); opacity: 1; }
+    50% { transform: scaleY(0.5); opacity: 0.3; }
+  }
+
+  /* ── STATS ── */
+  .stats-bar {
+    background: var(--brown);
+    border-top: 1px solid rgba(201,168,76,0.3);
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+  }
+  .stats-inner {
+    display: grid; grid-template-columns: repeat(4,1fr);
+    max-width: 1100px; margin: 0 auto;
+  }
+  .stat-item {
+    padding: 32px 28px;
+    border-right: 1px solid rgba(255,255,255,0.07);
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-number {
+    font-family: var(--font-d);
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,253,249,0.45);
+    margin-top: 6px;
+  }
+
+  /* ── SECTION UTIL ── */
+  .section { padding: 96px 5%; max-width: 1200px; margin: 0 auto; }
+  .section-full { padding: 96px 5%; }
+
+  .section-header { margin-bottom: 56px; }
+  .section-header.center { text-align: center; }
+  .section-header.center .section-eyebrow { justify-content: center; }
+
+  .section-eyebrow {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 16px;
+  }
+  .eyebrow-line { width: 32px; height: 1px; background: var(--gold); }
+  .eyebrow-text {
+    font-size: 0.68rem; font-weight: 400;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold-d);
+  }
+  .section-title {
+    font-family: var(--font-d);
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--brown);
+    letter-spacing: 0.02em;
+  }
+  .section-title em { font-style: italic; color: var(--rose); }
+  .section-sub {
+    font-size: 0.92rem; color: var(--muted);
+    margin-top: 14px; max-width: 500px; line-height: 1.8;
+    font-weight: 300; letter-spacing: 0.02em;
+  }
+  .section-header.center .section-sub { margin: 14px auto 0; }
+
+  /* ── PAKET ── */
+  .paket-section { background: var(--ivory); }
+  .paket-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .paket-card {
+    background: var(--ivory);
+    padding: 48px 36px;
+    position: relative;
+    transition: background 0.25s;
+  }
+  .paket-card:hover { background: var(--cream); }
+  .paket-card.featured {
+    background: var(--brown);
+  }
+  .paket-card.featured:hover { background: #4A3325; }
+
+  .paket-badge {
+    position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--ivory);
+    font-size: 0.6rem; font-weight: 400;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 4px 16px;
+    white-space: nowrap;
+  }
+
+  .paket-name {
+    font-family: var(--font-d);
+    font-size: 0.75rem; font-weight: 400;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .paket-card.featured .paket-name { color: var(--gold); }
+
+  .paket-title {
+    font-family: var(--font-d);
+    font-size: 2rem; font-weight: 300;
+    color: var(--brown); margin-bottom: 6px;
+  }
+  .paket-card.featured .paket-title { color: var(--ivory); }
+
+  .paket-price {
+    font-family: var(--font-d);
+    font-size: 1.1rem; font-weight: 300;
+    color: var(--muted); margin-bottom: 32px;
+  }
+  .paket-card.featured .paket-price { color: rgba(255,253,249,0.5); }
+
+  .paket-divider { height: 1px; background: var(--border); margin-bottom: 28px; }
+  .paket-card.featured .paket-divider { background: rgba(255,255,255,0.1); }
+
+  .paket-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+  .paket-list-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.6;
+  }
+  .paket-card.featured .paket-list-item { color: rgba(255,253,249,0.65); }
+  .paket-check {
+    width: 14px; height: 14px; flex-shrink: 0; margin-top: 2px;
+    color: var(--gold);
+  }
+
+  .btn-paket {
+    display: block; text-align: center;
+    border: 1px solid var(--gold);
+    color: var(--brown);
+    font-size: 0.72rem; font-weight: 400;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 13px 24px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-paket:hover { background: var(--gold); color: var(--ivory); }
+  .paket-card.featured .btn-paket {
+    background: var(--gold); color: var(--ivory); border-color: var(--gold);
+  }
+  .paket-card.featured .btn-paket:hover { background: var(--gold-d); }
+
+  /* ── PORTOFOLIO ── */
+  .porto-section { background: var(--cream); }
+  .porto-grid {
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-auto-rows: 200px;
+    gap: 6px;
+    margin-top: 52px;
+  }
+  .porto-item {
+    position: relative; overflow: hidden; cursor: pointer;
+  }
+  .porto-item:nth-child(1) { grid-column: span 7; grid-row: span 2; }
+  .porto-item:nth-child(2) { grid-column: span 5; }
+  .porto-item:nth-child(3) { grid-column: span 5; }
+  .porto-item:nth-child(4) { grid-column: span 4; grid-row: span 2; }
+  .porto-item:nth-child(5) { grid-column: span 4; }
+  .porto-item:nth-child(6) { grid-column: span 4; }
+
+  .porto-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    filter: brightness(0.9);
+  }
+  .porto-item:hover img { transform: scale(1.05); filter: brightness(1); }
+
+  .porto-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(61,43,31,0.8) 0%, transparent 55%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 20px;
+    opacity: 0; transition: opacity 0.35s;
+  }
+  .porto-item:hover .porto-overlay { opacity: 1; }
+  .porto-overlay-title {
+    font-family: var(--font-d);
+    font-size: 1.1rem; font-weight: 300; font-style: italic;
+    color: var(--ivory); letter-spacing: 0.04em;
+  }
+  .porto-overlay-meta {
+    font-size: 0.65rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--gold);
+    margin-top: 4px;
+  }
+
+  /* Gold corner on featured item */
+  .porto-item:first-child::before {
+    content: '';
+    position: absolute; top: 16px; left: 16px;
+    width: 32px; height: 32px;
+    border-top: 1px solid var(--gold);
+    border-left: 1px solid var(--gold);
+    opacity: 0.7; z-index: 2;
+  }
+  .porto-item:first-child::after {
+    content: '';
+    position: absolute; bottom: 16px; right: 16px;
+    width: 32px; height: 32px;
+    border-bottom: 1px solid var(--gold);
+    border-right: 1px solid var(--gold);
+    opacity: 0.7; z-index: 2;
+  }
+
+  /* ── ALUR KERJA ── */
+  .alur-section { background: var(--brown); padding: 96px 5%; }
+  .alur-inner { max-width: 1100px; margin: 0 auto; }
+  .alur-inner .section-title { color: var(--ivory); }
+  .alur-inner .eyebrow-text { color: var(--gold); }
+  .alur-inner .eyebrow-line { background: var(--gold); }
+  .alur-inner .section-sub { color: rgba(255,253,249,0.5); }
+
+  .alur-grid {
+    display: grid; grid-template-columns: repeat(5,1fr);
+    gap: 0; margin-top: 64px;
+    position: relative;
+  }
+  .alur-grid::before {
+    content: '';
+    position: absolute;
+    top: 20px; left: 10%; right: 10%;
+    height: 1px;
+    background: repeating-linear-gradient(
+      90deg,
+      rgba(201,168,76,0.5) 0, rgba(201,168,76,0.5) 8px,
+      transparent 8px, transparent 16px
+    );
+  }
+
+  .alur-step {
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; padding: 0 16px;
+  }
+  .alur-node {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--brown);
+    border: 1px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 24px; flex-shrink: 0;
+    position: relative; z-index: 1;
+  }
+  .alur-num {
+    font-family: var(--font-d);
+    font-size: 1rem; font-weight: 300;
+    color: var(--gold); line-height: 1;
+  }
+  .alur-title {
+    font-family: var(--font-d);
+    font-size: 1.05rem; font-weight: 300; font-style: italic;
+    color: var(--ivory); margin-bottom: 8px;
+  }
+  .alur-desc {
+    font-size: 0.78rem; color: rgba(255,253,249,0.45);
+    line-height: 1.7; font-weight: 300;
+  }
+
+  /* ── TESTIMONI ── */
+  .testi-section { background: var(--ivory); padding: 96px 5%; }
+  .testi-inner { max-width: 1200px; margin: 0 auto; }
+  .testi-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 28px; margin-top: 52px;
+  }
+  .testi-card {
+    background: var(--cream);
+    padding: 40px 32px;
+    position: relative;
+    border-bottom: 2px solid var(--gold);
+  }
+  .testi-quote-mark {
+    font-family: var(--font-d);
+    font-size: 5rem; font-weight: 300;
+    color: var(--gold); opacity: 0.25;
+    line-height: 0.6;
+    margin-bottom: 20px;
+  }
+  .testi-text {
+    font-family: var(--font-d);
+    font-size: 1.05rem; font-weight: 300; font-style: italic;
+    color: var(--brown); line-height: 1.8;
+    margin-bottom: 28px;
+  }
+  .testi-author { display: flex; align-items: center; gap: 14px; }
+  .testi-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--gold-l);
+    border: 1px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-d); font-size: 1rem;
+    color: var(--gold-d); flex-shrink: 0;
+  }
+  .testi-name {
+    font-family: var(--font-d);
+    font-size: 1rem; font-weight: 600;
+    color: var(--brown);
+  }
+  .testi-role { font-size: 0.75rem; color: var(--muted); margin-top: 2px; letter-spacing: 0.04em; }
+
+  /* ── CTA ── */
+  .cta-section {
+    position: relative; overflow: hidden;
+    padding: 120px 5%;
+    background: var(--cream);
+    text-align: center;
+  }
+  /* Decorative ornament */
+  .cta-ornament {
+    position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.12);
+    pointer-events: none;
+  }
+  .cta-ornament-2 {
+    position: absolute;
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.07);
+    pointer-events: none;
+  }
+  .cta-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+  .cta-ornament-top {
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    margin-bottom: 32px;
+  }
+  .cta-ornament-line { width: 48px; height: 1px; background: var(--gold); opacity: 0.5; }
+  .cta-ornament-diamond {
+    width: 6px; height: 6px;
+    background: var(--gold); opacity: 0.7;
+    transform: rotate(45deg);
+  }
+  .cta-title {
+    font-family: var(--font-d);
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    font-weight: 300; line-height: 1.15;
+    color: var(--brown); margin-bottom: 20px;
+  }
+  .cta-title em { font-style: italic; color: var(--rose); }
+  .cta-sub {
+    font-size: 0.95rem; color: var(--muted);
+    line-height: 1.8; margin-bottom: 48px;
+    font-weight: 300;
+  }
+  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-wa {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #25D366; color: white;
+    font-size: 0.78rem; font-weight: 400;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 15px 32px;
+    transition: background 0.2s;
+  }
+  .btn-wa:hover { background: #20C35E; }
+  .btn-wa svg { width: 20px; height: 20px; fill: white; flex-shrink: 0; }
+  .cta-note { margin-top: 24px; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.06em; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--brown); padding: 44px 5%; }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+  }
+  .footer-logo {
+    font-family: var(--font-d);
+    font-size: 1.3rem; font-weight: 300;
+    letter-spacing: 0.1em; color: var(--ivory);
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-info { font-size: 0.75rem; color: rgba(255,253,249,0.3); line-height: 1.9; text-align: center; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 0.72rem; letter-spacing: 0.08em; color: rgba(255,253,249,0.35); transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ── FLOATING WA ── */
+  .wa-float {
+    position: fixed; bottom: 28px; right: 28px; z-index: 200;
+    width: 52px; height: 52px; border-radius: 50%;
+    background: #25D366;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    transition: transform 0.2s;
+  }
+  .wa-float:hover { transform: scale(1.1); }
+  .wa-float svg { width: 26px; height: 26px; fill: white; }
+  .wa-float::before {
+    content: ''; position: absolute; inset: -4px;
+    border-radius: 50%;
+    border: 2px solid rgba(37,211,102,0.4);
+    animation: waPulse 2.5s ease-out infinite;
+  }
+  @keyframes waPulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .stats-inner { grid-template-columns: repeat(2,1fr); }
+    .paket-grid { grid-template-columns: 1fr; gap: 1px; }
+    .porto-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
+    .porto-item { grid-column: span 1 !important; grid-row: span 1 !important; }
+    .alur-grid { grid-template-columns: 1fr; gap: 32px; }
+    .alur-grid::before { display: none; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-links { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-main">Mahakarya Wedding</div>
+    <div class="nav-logo-sub">Wedding Organizer</div>
+  </div>
+  <div class="nav-links">
+    <a href="#paket">Paket</a>
+    <a href="#portofolio">Portofolio</a>
+    <a href="#alur">Cara Kerja</a>
+    <a href="#testimoni">Testimoni</a>
+    <a href="https://wa.me/6281234567890?text=Halo+Mahakarya+Wedding,+saya+ingin+konsultasi" class="nav-cta">Konsultasi Gratis</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-photo"></div>
+  <div class="hero-ornament"></div>
+  <div class="hero-ornament-h"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span class="hero-eyebrow-text">Wedding Organizer Profesional</span>
+    </div>
+    <h1>Hari Paling<br>Indah dalam<br><em>Hidup Anda</em></h1>
+    <p class="hero-desc">Kami wujudkan pernikahan impian Anda dari awal hingga hari H — konsep custom, vendor terpercaya, dan tim yang hadir di setiap momen.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/6281234567890?text=Halo+Mahakarya+Wedding,+saya+ingin+konsultasi+pernikahan" class="btn-gold">Konsultasi Gratis</a>
+      <a href="#portofolio" class="btn-ghost-light">Lihat portofolio ↓</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span class="hero-scroll-text">Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-number">320+</div>
+      <div class="stat-label">Pernikahan Selesai</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">8</div>
+      <div class="stat-label">Tahun Pengalaman</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">150+</div>
+      <div class="stat-label">Vendor Terpercaya</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">99%</div>
+      <div class="stat-label">Pasangan Puas</div>
+    </div>
+  </div>
+</div>
+
+<!-- PAKET -->
+<section id="paket" class="paket-section">
+  <div class="section">
+    <div class="section-header center">
+      <div class="section-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Pilihan layanan</span>
+        <div class="eyebrow-line"></div>
+      </div>
+      <h2 class="section-title">Paket <em>Pernikahan</em></h2>
+      <p class="section-sub">Setiap pasangan unik — kami siapkan paket yang bisa disesuaikan dengan kebutuhan dan anggaran Anda.</p>
+    </div>
+    <div class="paket-grid">
+      <!-- Paket Silver -->
+      <div class="paket-card">
+        <div class="paket-name">Silver</div>
+        <div class="paket-title">Intimate Wedding</div>
+        <div class="paket-price">Mulai Rp 15.000.000</div>
+        <div class="paket-divider"></div>
+        <div class="paket-list">
+          <div class="paket-list-item">
+            <svg class="paket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Konsultasi & perencanaan konsep
+          </div>
+          <div class="paket-list-item">
+            <svg class="paket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Koordinasi vendor (katering, dekorasi, dokumentasi)
+          </div>
+          <div class="paket-list-item">
+            <svg class="paket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Tim on-site hari H (2 orang)
+          </div>
+          <div class="paket-list-item">
+            <svg class="paket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Kapasitas hingga 200 tamu
+          </div>
+          <div class="paket-list-item">
+            <svg class="paket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Rundown & timeline acara
+          </div>
+        </div>
+        <a href="https://wa.me/6281234567890?text=Halo,+saya+tertarik+dengan+Paket+Silver" class="btn-paket">Tanya Paket Ini</a>
+      </div>
+
+      <!-- Paket Gold (Featured) -->
+      <div class="paket-card featured">
+        <div class="paket-badge">Paling Diminati</div>
+        <div class="paket-name">Gold</div>
+        <div class="paket-title">Classic Wedding</div>
+        <div class="paket-price">Mulai Rp 30.000.000</div>
+        <div class="paket-divider"></div>
+        <div class="paket-list">
+          <div class="paket-list-item">
+            <svg class="paket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Semua yang ada di paket Silver
+          </div>
+          <div class="paket-list-item">
+            <svg class="paket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Desain dekorasi custom (moodboard + eksekusi)
+          </div>
+          <div class="paket-list-item">
+            <svg class="paket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Tim on-site hari H (4 orang)
+          </div>
+          <div class="paket-list-item">
+            <svg class="paket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Kapasitas hingga 500 tamu
+          </div>
+          <div class="paket-list-item">
+            <svg class="paket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Koordinasi gladi resik
+          </div>
+          <div class="paket-list-item">
+            <svg class="paket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Undangan digital premium
+          </div>
+        </div>
+        <a href="https://wa.me/6281234567890?text=Halo,+saya+tertarik+dengan+Paket+Gold" class="btn-paket">Tanya Paket Ini</a>
+      </div>
+
+      <!-- Paket Platinum -->
+      <div class="paket-card">
+        <div class="paket-name">Platinum</div>
+        <div class="paket-title">Grand Wedding</div>
+        <div class="paket-price">Mulai Rp 60.000.000</div>
+        <div class="paket-divider"></div>
+        <div class="paket-list">
+          <div class="paket-list-item">
+            <svg class="paket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Semua yang ada di paket Gold
+          </div>
+          <div class="paket-list-item">
+            <svg class="paket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Full planning dari awal hingga bulan madu
+          </div>
+          <div class="paket-list-item">
+            <svg class="paket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Tim on-site hari H (8 orang)
+          </div>
+          <div class="paket-list-item">
+            <svg class="paket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Kapasitas tidak terbatas
+          </div>
+          <div class="paket-list-item">
+            <svg class="paket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Koordinasi 2 venue (akad + resepsi)
+          </div>
+          <div class="paket-list-item">
+            <svg class="paket-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Wedding director pribadi
+          </div>
+        </div>
+        <a href="https://wa.me/6281234567890?text=Halo,+saya+tertarik+dengan+Paket+Platinum" class="btn-paket">Tanya Paket Ini</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTOFOLIO -->
+<section id="portofolio" class="porto-section">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Karya kami</span>
+      </div>
+      <h2 class="section-title">320+ Momen<br><em>yang Tak Terlupakan</em></h2>
+      <p class="section-sub">Setiap pernikahan punya ceritanya sendiri. Ini sebagian dari kisah yang sudah kami bantu wujudkan.</p>
+    </div>
+    <div class="porto-grid">
+      <div class="porto-item">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80" alt="Pernikahan garden party">
+        <div class="porto-overlay">
+          <div class="porto-overlay-title">Rangga & Sekar</div>
+          <div class="porto-overlay-meta">Garden Party · Jogja · 2024</div>
+        </div>
+      </div>
+      <div class="porto-item">
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=700&q=80" alt="Pernikahan indoor elegan">
+        <div class="porto-overlay">
+          <div class="porto-overlay-title">Dimas & Laras</div>
+          <div class="porto-overlay-meta">Grand Ballroom · Semarang · 2024</div>
+        </div>
+      </div>
+      <div class="porto-item">
+        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=700&q=80" alt="Dekorasi bunga pernikahan">
+        <div class="porto-overlay">
+          <div class="porto-overlay-title">Budi & Hana</div>
+          <div class="porto-overlay-meta">Intimate Wedding · Solo · 2023</div>
+        </div>
+      </div>
+      <div class="porto-item">
+        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=600&q=80" alt="Momen pernikahan bahagia">
+        <div class="porto-overlay">
+          <div class="porto-overlay-title">Ardi & Nisa</div>
+          <div class="porto-overlay-meta">Outdoor · Purwokerto · 2024</div>
+        </div>
+      </div>
+      <div class="porto-item">
+        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&q=80" alt="Resepsi pernikahan mewah">
+        <div class="porto-overlay">
+          <div class="porto-overlay-title">Fajar & Rini</div>
+          <div class="porto-overlay-meta">Classic · Cilacap · 2023</div>
+        </div>
+      </div>
+      <div class="porto-item">
+        <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=600&q=80" alt="Pernikahan tradisional Jawa">
+        <div class="porto-overlay">
+          <div class="porto-overlay-title">Wahyu & Dewi</div>
+          <div class="porto-overlay-meta">Adat Jawa · Banyumas · 2024</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALUR KERJA -->
+<section id="alur" class="alur-section">
+  <div class="alur-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Bagaimana kami bekerja</span>
+      </div>
+      <h2 class="section-title">Dari <em>Mimpi</em><br>Menjadi Kenyataan</h2>
+      <p class="section-sub">Lima langkah sederhana dari konsultasi pertama hingga momen bahagia hari H.</p>
+    </div>
+    <div class="alur-grid">
+      <div class="alur-step">
+        <div class="alur-node"><span class="alur-num">I</span></div>
+        <div class="alur-title">Konsultasi</div>
+        <p class="alur-desc">Ceritakan impian dan anggaran Anda. Kami dengarkan semuanya tanpa menghakimi.</p>
+      </div>
+      <div class="alur-step">
+        <div class="alur-node"><span class="alur-num">II</span></div>
+        <div class="alur-title">Perencanaan</div>
+        <p class="alur-desc">Kami susun konsep, moodboard, dan timeline detail sesuai keinginan Anda.</p>
+      </div>
+      <div class="alur-step">
+        <div class="alur-node"><span class="alur-num">III</span></div>
+        <div class="alur-title">Vendor & Venue</div>
+        <p class="alur-desc">Kami rekomendasikan dan koordinasikan vendor terbaik sesuai konsep dan budget.</p>
+      </div>
+      <div class="alur-step">
+        <div class="alur-node"><span class="alur-num">IV</span></div>
+        <div class="alur-title">Gladi Resik</div>
+        <p class="alur-desc">Semua detail dicek ulang. Anda datang ke gladi, kami yang urus sisanya.</p>
+      </div>
+      <div class="alur-step">
+        <div class="alur-node"><span class="alur-num">V</span></div>
+        <div class="alur-title">Hari H</div>
+        <p class="alur-desc">Nikmati setiap momen bersama orang-orang tersayang. Biarkan kami yang kerja keras.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section id="testimoni" class="testi-section">
+  <div class="testi-inner">
+    <div class="section-header center">
+      <div class="section-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Kata mereka</span>
+        <div class="eyebrow-line"></div>
+      </div>
+      <h2 class="section-title">Kebahagiaan yang<br><em>Mereka Ceritakan</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-text">Dari awal konsultasi sampai hari H, tim Mahakarya sangat sabar dan detail. Pernikahan kami berjalan mulus bahkan ketika hujan tiba-tiba turun — mereka sudah siapkan solusinya tanpa kami tahu.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RS</div>
+          <div>
+            <div class="testi-name">Rangga & Sekar</div>
+            <div class="testi-role">Garden Party · Yogyakarta · 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-text">Kami pasangan yang banyak maunya tapi bingung soal vendor. Mahakarya bantu dari nol — rekomendasikan katering, fotografer, sampai MC. Hasilnya melebihi ekspektasi kami dan orang tua.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">DL</div>
+          <div>
+            <div class="testi-name">Dimas & Laras</div>
+            <div class="testi-role">Grand Ballroom · Semarang · 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-text">Budget kami terbatas tapi Mahakarya tetap buat pernikahan kami terasa mewah dan berkesan. Mereka tidak pernah memaksakan sesuatu di luar kemampuan kami — justru selalu carikan solusi terbaik.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AN</div>
+          <div>
+            <div class="testi-name">Ardi & Nisa</div>
+            <div class="testi-role">Outdoor Wedding · Purwokerto · 2024</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-ornament"></div>
+  <div class="cta-ornament-2"></div>
+  <div class="cta-inner">
+    <div class="cta-ornament-top">
+      <div class="cta-ornament-line"></div>
+      <div class="cta-ornament-diamond"></div>
+      <div class="cta-ornament-line"></div>
+    </div>
+    <h2 class="cta-title">Siap Wujudkan<br>Pernikahan <em>Impian Anda?</em></h2>
+    <p class="cta-sub">Konsultasi pertama gratis dan tanpa komitmen. Ceritakan impian Anda — biar kami yang pikirkan caranya.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/6281234567890?text=Halo+Mahakarya+Wedding,+saya+ingin+konsultasi+pernikahan+kami.+Apakah+ada+waktu+untuk+diskusi?" class="btn-wa">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.504 1.132 6.748 3.056 9.372L1.056 30.86l5.624-1.972C9.12 30.584 12.44 32 16.004 32 24.828 32 32 24.824 32 16S24.828 0 16.004 0zm9.408 22.588c-.392 1.108-1.944 2.024-3.188 2.292-.848.18-1.956.324-5.688-1.22-4.776-1.98-7.856-6.832-8.092-7.148-.228-.316-1.916-2.548-1.916-4.86 0-2.312 1.212-3.44 1.64-3.876.392-.4.856-.5 1.14-.5.284 0 .568.004.816.016.26.012.608-.1.952.724.36.844 1.224 2.992 1.332 3.208.108.216.18.468.036.748-.136.288-.204.464-.408.716-.2.244-.42.544-.6.732-.2.208-.408.432-.176.848.232.408 1.032 1.7 2.216 2.752 1.524 1.356 2.808 1.776 3.216 1.976.408.2.648.168.888-.1.244-.276 1.044-1.216 1.32-1.632.276-.416.552-.348.932-.208.384.14 2.428 1.148 2.844 1.36.416.208.692.312.796.484.1.176.1 1.016-.296 2.088z"/></svg>
+        Mulai Konsultasi via WhatsApp
+      </a>
+    </div>
+    <p class="cta-note">Respons dalam 1 jam · Senin–Sabtu 09.00–21.00</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Mahakarya <span>Wedding</span></div>
+    <div class="footer-info">
+      Jl. Sudirman No. 88, Purwokerto, Banyumas 53111<br>
+      ☎ (0281) 555-7890 · 📱 0812-3456-7890
+    </div>
+    <div class="footer-links">
+      <a href="#paket">Paket</a>
+      <a href="#portofolio">Portofolio</a>
+      <a href="#testimoni">Testimoni</a>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WA -->
+<a href="https://wa.me/6281234567890?text=Halo+Mahakarya+Wedding" class="wa-float" title="Chat WhatsApp">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.504 1.132 6.748 3.056 9.372L1.056 30.86l5.624-1.972C9.12 30.584 12.44 32 16.004 32 24.828 32 32 24.824 32 16S24.828 0 16.004 0zm9.408 22.588c-.392 1.108-1.944 2.024-3.188 2.292-.848.18-1.956.324-5.688-1.22-4.776-1.98-7.856-6.832-8.092-7.148-.228-.316-1.916-2.548-1.916-4.86 0-2.312 1.212-3.44 1.64-3.876.392-.4.856-.5 1.14-.5.284 0 .568.004.816.016.26.012.608-.1.952.724.36.844 1.224 2.992 1.332 3.208.108.216.18.468.036.748-.136.288-.204.464-.408.716-.2.244-.42.544-.6.732-.2.208-.408.432-.176.848.232.408 1.032 1.7 2.216 2.752 1.524 1.356 2.808 1.776 3.216 1.976.408.2.648.168.888-.1.244-.276 1.044-1.216 1.32-1.632.276-.416.552-.348.932-.208.384.14 2.428 1.148 2.844 1.36.416.208.692.312.796.484.1.176.1 1.016-.296 2.088z"/></svg>
+</a>
+
+</body>
+</html>

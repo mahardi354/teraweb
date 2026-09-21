@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SteelForge – Jasa Las & Fabrikasi Besi Profesional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:    #111315;
+      --dark:     #1C1F24;
+      --dark2:    #252830;
+      --mid:      #3A3D42;
+      --spark:    #F97316;
+      --yellow:   #FFB800;
+      --light:    #E8E8E6;
+      --muted:    #8A8D94;
+      --white:    #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: var(--light);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw;
+      height: 68px;
+      background: rgba(17,19,21,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(249,115,22,0.15);
+    }
+
+    .nav-logo {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--spark); }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--spark); }
+
+    .nav-cta {
+      background: var(--spark);
+      color: var(--white);
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      padding: 9px 22px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background .2s, transform .15s;
+    }
+    .nav-cta:hover { background: #e0621a; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 68px 5vw 0;
+      overflow: hidden;
+      background: var(--black);
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1400&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.18;
+    }
+
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(120deg, rgba(17,19,21,0.95) 55%, rgba(249,115,22,0.08) 100%);
+    }
+
+    /* Spark canvas */
+    #sparks {
+      position: absolute; inset: 0;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 680px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 0.78rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--spark);
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block; width: 30px; height: 2px;
+      background: var(--spark);
+    }
+
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--spark);
+      -webkit-text-stroke: 0px;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--spark);
+      color: var(--white);
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+    }
+    .btn-primary:hover { background: #e0621a; transform: translateY(-2px); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--mid);
+      color: var(--light);
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-ghost:hover { border-color: var(--spark); color: var(--spark); }
+
+    .hero-stats {
+      position: absolute; bottom: 60px; left: 5vw; right: 5vw;
+      z-index: 2;
+      display: flex; gap: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 2rem;
+    }
+    .stat-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--spark);
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-top: 2px;
+    }
+
+    /* ── SECTION COMMONS ── */
+    section { padding: 100px 5vw; }
+
+    .section-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--spark);
+      margin-bottom: 1rem;
+    }
+    .section-eyebrow::before {
+      content: '';
+      display: block; width: 24px; height: 2px;
+      background: var(--spark);
+    }
+
+    h2.section-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 3.5rem;
+    }
+
+    /* ── SERVICES ── */
+    #layanan { background: var(--dark2); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5px;
+    }
+
+    .service-card {
+      background: var(--dark);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform .25s;
+      cursor: default;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--spark);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+    }
+    .service-card:hover { transform: translateY(-4px); }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      width: 52px; height: 52px;
+      margin-bottom: 1.5rem;
+      color: var(--spark);
+    }
+
+    .service-card h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .service-num {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      font-family: 'Oswald', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: rgba(249,115,22,0.07);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    /* ── WHY US ── */
+    #keunggulan { background: var(--black); }
+
+    .why-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .why-image-wrap {
+      position: relative;
+    }
+    .why-image-wrap img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(30%);
+    }
+    .why-badge {
+      position: absolute;
+      bottom: -1.5rem; right: -1.5rem;
+      background: var(--spark);
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+    .why-badge .big { 
+      font-family: 'Oswald', sans-serif; 
+      font-size: 3rem; 
+      font-weight: 700; 
+      color: var(--white); 
+      display: block; 
+      line-height: 1;
+    }
+    .why-badge .small { font-size: 0.75rem; color: rgba(255,255,255,0.8); letter-spacing: 1px; text-transform: uppercase; }
+
+    .why-list { display: flex; flex-direction: column; gap: 2rem; }
+
+    .why-item { display: flex; gap: 1.25rem; align-items: flex-start; }
+    .why-check {
+      width: 40px; height: 40px; min-width: 40px;
+      border: 2px solid var(--spark);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--spark);
+      margin-top: 2px;
+    }
+    .why-item h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+    .why-item p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── PORTFOLIO ── */
+    #portofolio { background: var(--dark2); }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 280px 280px;
+      gap: 6px;
+    }
+
+    .port-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .port-item:first-child {
+      grid-column: span 2;
+      grid-row: span 1;
+    }
+    .port-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease, filter .4s;
+      filter: grayscale(40%);
+    }
+    .port-item:hover img { transform: scale(1.06); filter: grayscale(0%); }
+
+    .port-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(17,19,21,0.85) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity .3s;
+      display: flex; align-items: flex-end;
+      padding: 1.5rem;
+    }
+    .port-item:hover .port-overlay { opacity: 1; }
+
+    .port-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+    .port-label span {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      color: var(--spark);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    /* ── PROCESS ── */
+    #proses { background: var(--black); }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px; left: 12.5%; right: 12.5%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--spark), var(--yellow), var(--spark));
+      z-index: 0;
+    }
+
+    .process-step {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center;
+      padding: 0 1.5rem;
+      position: relative; z-index: 1;
+    }
+    .step-dot {
+      width: 72px; height: 72px;
+      border: 2px solid var(--spark);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--black);
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--spark);
+      margin-bottom: 1.5rem;
+    }
+    .process-step h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.5px;
+    }
+    .process-step p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── TESTIMONIALS ── */
+    #testimoni { background: var(--dark2); }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .testi-card {
+      background: var(--dark);
+      padding: 2rem;
+      border-top: 3px solid var(--spark);
+      position: relative;
+    }
+
+    .testi-stars {
+      color: var(--yellow);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+
+    .testi-text {
+      font-size: 0.92rem;
+      color: var(--light);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .testi-author {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .testi-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--mid);
+      overflow: hidden;
+    }
+    .testi-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .testi-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .testi-role { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background: var(--spark);
+      padding: 80px 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .cta-band h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      max-width: 600px;
+    }
+
+    .btn-dark {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background .2s, transform .15s;
+    }
+    .btn-dark:hover { background: var(--dark2); transform: translateY(-2px); }
+
+    /* ── CONTACT ── */
+    #kontak { background: var(--black); }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .contact-icon {
+      width: 42px; height: 42px; min-width: 42px;
+      border: 1px solid var(--mid);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--spark);
+    }
+    .contact-item h5 {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 4px;
+    }
+    .contact-item p { font-size: 0.95rem; color: var(--light); line-height: 1.6; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--dark2);
+      border: 1px solid var(--mid);
+      color: var(--light);
+      padding: 12px 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color .2s;
+      resize: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--spark); }
+    .form-group select option { background: var(--dark2); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 3rem 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-logo {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--white);
+    }
+    .footer-logo span { color: var(--spark); }
+    .footer-copy { font-size: 0.8rem; color: var(--muted); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--spark); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .why-layout, .contact-layout { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .port-item:first-child { grid-column: span 2; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .process-steps::before { display: none; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+      .why-image-wrap { display: none; }
+    }
+    @media (max-width: 640px) {
+      .nav-links, .nav-cta { display: none; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .port-item:first-child { grid-column: span 1; }
+      .form-row { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">STEEL<span>FORGE</span></a>
+  <ul class="nav-links">
+    <li><a href="#layanan">Layanan</a></li>
+    <li><a href="#keunggulan">Keunggulan</a></li>
+    <li><a href="#portofolio">Portofolio</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+  </ul>
+  <a href="#kontak" class="nav-cta">Konsultasi Gratis</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <canvas id="sparks"></canvas>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Jasa Las & Fabrikasi Besi</div>
+    <h1>Dilas Kuat,<br>Berdiri <em>Selamanya</em></h1>
+    <p class="hero-desc">
+      Kami mengerjakan setiap sambungan dengan presisi tinggi — dari konstruksi berat, 
+      kanopi baja, hingga pagar artistik. Tenaga las bersertifikat, material pilihan, hasil terjamin.
+    </p>
+    <div class="hero-actions">
+      <a href="#kontak" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3-8.59A2 2 0 0 1 3.77 1.4h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.9-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Hubungi Kami
+      </a>
+      <a href="#portofolio" class="btn-ghost">Lihat Portofolio</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">12+</div>
+      <div class="stat-label">Tahun Pengalaman</div>
+    </div>
+    <div>
+      <div class="stat-num">850+</div>
+      <div class="stat-label">Proyek Selesai</div>
+    </div>
+    <div>
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Kepuasan Klien</div>
+    </div>
+    <div>
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Siap Konsultasi</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="layanan">
+  <div class="section-eyebrow">Yang Kami Kerjakan</div>
+  <h2 class="section-title">Layanan Las Kami</h2>
+  <p class="section-sub">Berbagai kebutuhan fabrikasi besi dan baja kami tangani dengan tenaga ahli berpengalaman dan alat las modern.</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-num">01</span>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      <h3>Kanopi & Carport Baja</h3>
+      <p>Pembuatan kanopi baja ringan maupun hollow untuk rumah, ruko, dan gedung komersial. Desain custom sesuai kebutuhan.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">02</span>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>
+      </svg>
+      <h3>Pagar & Railing Besi</h3>
+      <p>Pagar minimalis, klasik, atau artistik dari besi tempa dan hollow. Railing tangga stainless steel atau besi anti-karat.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">03</span>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>
+      </svg>
+      <h3>Konstruksi Baja Berat</h3>
+      <p>Rangka atap baja, mezzanine, platform industri, dan struktur baja untuk bangunan gudang serta pabrik.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">04</span>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+      </svg>
+      <h3>Pintu Besi & Folding Gate</h3>
+      <p>Pintu geser, pintu lipat, dan folding gate otomatis maupun manual untuk rumah, gudang, dan showroom.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">05</span>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+      </svg>
+      <h3>Las Listrik & Argon</h3>
+      <p>Layanan las listrik, MIG/MAG, dan argon (TIG) untuk perbaikan dan fabrikasi material besi, baja, aluminium, dan stainless.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-num">06</span>
+      <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+      </svg>
+      <h3>Furniture & Dekorasi Besi</h3>
+      <p>Rak industri, meja besi, kursi hollow, lampu gantung besi, dan elemen dekorasi interior bergaya industrial modern.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="keunggulan">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;" class="why-layout-outer">
+    <div>
+      <div class="section-eyebrow">Mengapa Pilih Kami</div>
+      <h2 class="section-title">Kualitas Las yang Tidak Perlu<br><em style="color:var(--spark);font-style:normal;">Diragukan</em></h2>
+      <p class="section-sub" style="margin-bottom:2.5rem;">Selama lebih dari satu dekade, kami membangun reputasi dari kekuatan las dan ketepatan waktu pengerjaan.</p>
+
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h4>Tukang Las Bersertifikat</h4>
+            <p>Semua operator las kami memiliki sertifikasi BNSP dan berpengalaman minimal 5 tahun di bidangnya.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h4>Material Premium Anti-Karat</h4>
+            <p>Kami hanya menggunakan besi dan baja berkualitas SNI, cat anti-karat, dan coating galvanis untuk ketahanan jangka panjang.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h4>Pengerjaan Tepat Waktu</h4>
+            <p>Kami berkomitmen pada jadwal yang disepakati. Terlambat? Kami tanggung kompensasinya.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-check">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h4>Garansi Pekerjaan 2 Tahun</h4>
+            <p>Setiap proyek dilindungi garansi struktural 2 tahun. Jika ada masalah, kami perbaiki tanpa biaya tambahan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-image-wrap" style="position:relative;">
+      <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=700&q=80" alt="Proses Pengelasan" />
+      <div class="why-badge">
+        <span class="big">12+</span>
+        <span class="small">Tahun Berpengalaman</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portofolio">
+  <div class="section-eyebrow">Hasil Karya Kami</div>
+  <h2 class="section-title">Portofolio Proyek</h2>
+  <p class="section-sub" style="margin-bottom:2.5rem;">Beberapa hasil pekerjaan terbaik yang telah kami selesaikan untuk klien rumahan hingga industri.</p>
+
+  <div class="portfolio-grid">
+    <div class="port-item">
+      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80" alt="Konstruksi Baja" />
+      <div class="port-overlay">
+        <div class="port-label"><span>Konstruksi</span>Rangka Atap Baja Gudang Industri</div>
+      </div>
+    </div>
+    <div class="port-item">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=500&q=80" alt="Kanopi" />
+      <div class="port-overlay">
+        <div class="port-label"><span>Kanopi</span>Carport Baja Minimalis</div>
+      </div>
+    </div>
+    <div class="port-item">
+      <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=500&q=80" alt="Proses Las" />
+      <div class="port-overlay">
+        <div class="port-label"><span>Las Argon</span>Fabrikasi Pipa Stainless</div>
+      </div>
+    </div>
+    <div class="port-item">
+      <img src="https://images.unsplash.com/photo-1545127398-14699f92334b?auto=format&fit=crop&w=500&q=80" alt="Pagar Besi" />
+      <div class="port-overlay">
+        <div class="port-label"><span>Pagar</span>Pagar Besi Tempa Klasik</div>
+      </div>
+    </div>
+    <div class="port-item">
+      <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=500&q=80" alt="Tangga Besi" />
+      <div class="port-overlay">
+        <div class="port-label"><span>Interior</span>Railing Tangga Stainless</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="proses">
+  <div style="text-align:center;margin-bottom:4rem;">
+    <div class="section-eyebrow" style="justify-content:center;">Cara Kerja Kami</div>
+    <h2 class="section-title">Proses Pengerjaan</h2>
+    <p class="section-sub" style="margin:0 auto;">Dari konsultasi hingga pemasangan, setiap tahap dikerjakan dengan standar yang ketat.</p>
+  </div>
+
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-dot">01</div>
+      <h4>Konsultasi & Survey</h4>
+      <p>Diskusi kebutuhan dan kunjungan lokasi untuk pengukuran akurat tanpa biaya.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-dot">02</div>
+      <h4>Desain & Penawaran</h4>
+      <p>Kami buat gambar desain dan rincian harga yang transparan dalam 1x24 jam.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-dot">03</div>
+      <h4>Fabrikasi & Produksi</h4>
+      <p>Pengerjaan di workshop dengan mesin las modern dan kontrol kualitas ketat.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-dot">04</div>
+      <h4>Pemasangan & Finishing</h4>
+      <p>Instalasi di lokasi, pengecatan finishing, dan pembersihan area kerja.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimoni">
+  <div class="section-eyebrow">Kata Klien</div>
+  <h2 class="section-title">Apa Kata Mereka</h2>
+  <p class="section-sub" style="margin-bottom:3rem;">Kepercayaan klien adalah aset terbesar kami.</p>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Kanopi baja yang dipasang sudah 3 tahun, tidak ada karat sama sekali. Pengerjaannya rapi dan selesai lebih cepat dari estimasi. Sangat puas!"</p>
+      <div class="testi-author">
+        <div class="testi-avatar"><img src="https://i.pravatar.cc/100?img=11" alt="Budi" /></div>
+        <div>
+          <div class="testi-name">Budi Santoso</div>
+          <div class="testi-role">Pemilik Rumah, Semarang</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Kami percayakan konstruksi baja gudang 800m² ke SteelForge. Hasilnya memuaskan, harga bersaing, dan tim sangat profesional. Akan kami ajak kerja sama lagi."</p>
+      <div class="testi-author">
+        <div class="testi-avatar"><img src="https://i.pravatar.cc/100?img=32" alt="Hendra" /></div>
+        <div>
+          <div class="testi-name">Hendra Wijaya</div>
+          <div class="testi-role">Direktur PT Maju Makmur</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Pagar besi tempa-nya bagus banget, persis seperti desain yang saya minta. Tukang lasnya detail dan serius. Lingkungan kerja juga bersih setelah selesai."</p>
+      <div class="testi-author">
+        <div class="testi-avatar"><img src="https://i.pravatar.cc/100?img=47" alt="Sari" /></div>
+        <div>
+          <div class="testi-name">Sari Dewi</div>
+          <div class="testi-role">Pemilik Villa, Ungaran</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Siap Mulai Proyek Las Anda?<br>Konsultasi Sekarang — Gratis!</h2>
+  <a href="#kontak" class="btn-dark">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3-8.59A2 2 0 0 1 3.77 1.4h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.9-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Hubungi Sekarang
+  </a>
+</div>
+
+<!-- CONTACT -->
+<section id="kontak">
+  <div class="section-eyebrow">Hubungi Kami</div>
+  <h2 class="section-title">Dapatkan Penawaran</h2>
+  <p class="section-sub" style="margin-bottom:3rem;">Isi form di bawah atau hubungi kami langsung. Kami akan respon dalam 30 menit di jam kerja.</p>
+
+  <div class="contact-layout">
+    <div class="contact-info">
+      <h3>Informasi Kontak</h3>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3-8.59A2 2 0 0 1 3.77 1.4h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.9-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div>
+          <h5>Telepon / WhatsApp</h5>
+          <p>+62 812-3456-7890</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <h5>Lokasi Workshop</h5>
+          <p>Jl. Industri Barat No. 47,<br>Semarang, Jawa Tengah</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div>
+          <h5>Jam Operasional</h5>
+          <p>Senin – Sabtu: 07.00 – 17.00<br>Minggu & Libur: Khusus darurat</p>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <h5>Email</h5>
+          <p>info@steelforge.id</p>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nama Lengkap</label>
+          <input type="text" placeholder="Budi Santoso" />
+        </div>
+        <div class="form-group">
+          <label>No. WhatsApp</label>
+          <input type="tel" placeholder="0812-xxxx-xxxx" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Jenis Layanan</label>
+        <select>
+          <option value="">-- Pilih Layanan --</option>
+          <option>Kanopi & Carport Baja</option>
+          <option>Pagar & Railing Besi</option>
+          <option>Konstruksi Baja Berat</option>
+          <option>Pintu Besi & Folding Gate</option>
+          <option>Las Listrik & Argon</option>
+          <option>Furniture & Dekorasi Besi</option>
+          <option>Lainnya</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Deskripsi Proyek</label>
+        <textarea rows="5" placeholder="Ceritakan kebutuhan proyek Anda: ukuran, lokasi, target selesai, dll."></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="align-self:flex-start;cursor:pointer;border:none;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Kirim Pesan
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">STEEL<span>FORGE</span></div>
+  <div class="footer-copy">© 2024 SteelForge. Bengkel Las & Fabrikasi Besi Profesional.</div>
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="#layanan">Layanan</a>
+    <a href="#portofolio">Portofolio</a>
+    <a href="#kontak">Kontak</a>
+  </div>
+</footer>
+
+<script>
+/* ── SPARK CANVAS ANIMATION ── */
+const canvas = document.getElementById('sparks');
+const ctx = canvas.getContext('2d');
+let sparks = [];
+let animId;
+
+function resize() {
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
+
+function Spark() {
+  this.x = Math.random() * canvas.width * 0.7 + canvas.width * 0.15;
+  this.y = Math.random() * canvas.height * 0.6 + canvas.height * 0.2;
+  this.vx = (Math.random() - 0.5) * 3;
+  this.vy = -Math.random() * 4 - 1;
+  this.life = 1;
+  this.decay = Math.random() * 0.02 + 0.008;
+  this.size = Math.random() * 2.5 + 0.5;
+  this.color = Math.random() > 0.5 ? '#F97316' : '#FFB800';
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  if (sparks.length < 60 && Math.random() < 0.4) {
+    sparks.push(new Spark());
+  }
+
+  sparks = sparks.filter(s => s.life > 0);
+  sparks.forEach(s => {
+    s.x += s.vx;
+    s.y += s.vy;
+    s.vy += 0.05; // gravity
+    s.vx *= 0.99;
+    s.life -= s.decay;
+
+    ctx.save();
+    ctx.globalAlpha = s.life * 0.8;
+    ctx.fillStyle = s.color;
+    ctx.shadowBlur = 8;
+    ctx.shadowColor = s.color;
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  });
+
+  animId = requestAnimationFrame(animate);
+}
+
+window.addEventListener('resize', resize);
+resize();
+animate();
+
+/* ── SMOOTH NAV ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+/* ── FORM SUBMIT ── */
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type="submit"]');
+  btn.innerHTML = '✓ Pesan Terkirim!';
+  btn.style.background = '#22c55e';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Kirim Pesan';
+    btn.style.background = 'var(--spark)';
+    btn.disabled = false;
+  }, 3000);
+}
+
+/* ── SCROLL REVEAL ── */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.service-card, .why-item, .testi-card, .process-step, .port-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>

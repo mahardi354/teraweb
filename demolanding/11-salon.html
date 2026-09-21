@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mawar Beauty Salon — Salon Kecantikan Purwokerto</title>
+<meta name="description" content="Mawar Beauty Salon Purwokerto. Creambath, hair coloring, facial, manicure, eyelash extension. Beautician berpengalaman. Buka setiap hari 09.00–20.00.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#FDFAF7;
+  --cream-mid:#F5EFE8;
+  --cream-dark:#EDE4D8;
+  --rose:#C4849A;
+  --rose-dark:#A8667E;
+  --rose-light:#DBA8BA;
+  --rose-pale:#F9EFF3;
+  --rose-glow:rgba(196,132,154,0.12);
+  --brown:#2C1F1A;
+  --brown-mid:#4A3530;
+  --brown-light:#7A6058;
+  --brown-muted:#A8958E;
+  --white:#FFFFFF;
+  --gold-accent:#C9A96E;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--brown);font-family:'Nunito Sans',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:rgba(253,250,247,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--cream-dark)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-flower{width:38px;height:38px;background:var(--rose);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.logo-text{display:flex;flex-direction:column;line-height:1;gap:2px}
+.logo-name{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:20px;color:var(--brown);letter-spacing:0.5px}
+.logo-tagline{font-size:10px;color:var(--rose);font-weight:600;letter-spacing:2.5px;text-transform:uppercase}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--brown-light);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s;letter-spacing:0.2px}
+.nav-links a:hover{color:var(--rose)}
+.nav-cta{background:var(--rose);color:var(--white)!important;padding:9px 20px;border-radius:100px;font-weight:700!important;transition:background .2s!important;letter-spacing:0!important}
+.nav-cta:hover{background:var(--rose-dark)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--brown);border-radius:2px}
+
+/* ── HERO ── */
+.hero{min-height:92vh;display:flex;align-items:center;background:var(--cream);overflow:hidden;position:relative}
+.hero-ribbon{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--rose-light),var(--rose),var(--rose-light))}
+.hero-inner{max-width:1100px;margin:0 auto;padding:80px 24px;width:100%;display:grid;grid-template-columns:1fr 480px;gap:64px;align-items:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:20px}
+.eyebrow-dot{width:8px;height:8px;border-radius:50%;background:var(--rose)}
+.eyebrow-text{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--rose)}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(48px,6vw,78px);line-height:1.05;color:var(--brown);margin-bottom:20px;letter-spacing:-0.5px}
+.hero-h1 em{color:var(--rose);font-style:italic}
+.hero-sub{font-size:17px;color:var(--brown-light);line-height:1.8;max-width:420px;margin-bottom:36px;font-weight:400}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:48px}
+.btn-rose{display:inline-flex;align-items:center;gap:10px;background:var(--rose);color:var(--white);padding:15px 28px;border-radius:100px;font-weight:700;font-size:15px;text-decoration:none;transition:all .2s;font-family:'Nunito Sans',sans-serif}
+.btn-rose:hover{background:var(--rose-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(196,132,154,.35)}
+.btn-outline-rose{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--rose);color:var(--rose);padding:14px 24px;border-radius:100px;font-weight:700;font-size:15px;text-decoration:none;transition:all .2s}
+.btn-outline-rose:hover{background:var(--rose-pale);transform:translateY(-1px)}
+.hero-trust{display:flex;gap:32px;flex-wrap:wrap}
+.trust-item-hero{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--brown-light);font-weight:600}
+.trust-dot{width:6px;height:6px;border-radius:50%;background:var(--rose)}
+
+/* Hero foto */
+.hero-photo-wrap{position:relative}
+.hero-photo-main{width:100%;aspect-ratio:3/4;border-radius:24px;overflow:hidden;position:relative}
+.hero-photo-main img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.hero-photo-main .img-fallback{display:none;width:100%;height:100%;background:var(--rose-pale);align-items:center;justify-content:center;font-size:80px}
+.hero-badge{position:absolute;bottom:24px;left:-24px;background:var(--white);border-radius:16px;padding:16px 20px;box-shadow:0 8px 32px rgba(44,31,26,.12);display:flex;align-items:center;gap:12px}
+.hero-badge-icon{font-size:28px}
+.hero-badge-text{display:flex;flex-direction:column}
+.hero-badge-num{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:22px;color:var(--brown);line-height:1}
+.hero-badge-label{font-size:11px;color:var(--brown-muted);font-weight:600}
+.hero-badge2{position:absolute;top:24px;right:-20px;background:var(--rose);border-radius:12px;padding:12px 16px;box-shadow:0 4px 20px rgba(196,132,154,.4);color:var(--white);text-align:center}
+.hero-badge2-num{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:22px;line-height:1}
+.hero-badge2-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;opacity:.85}
+
+/* ── SECTION WRAPPER ── */
+.section{padding:88px 0}
+.section-inner{max-width:1100px;margin:0 auto;padding:0 24px}
+.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.section-eyebrow::before{content:'';width:24px;height:2px;background:var(--rose);border-radius:2px}
+.section-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(32px,4vw,50px);color:var(--brown);line-height:1.1;margin-bottom:14px}
+.section-sub{font-size:16px;color:var(--brown-light);max-width:500px;line-height:1.8}
+
+/* ── PINK BG SECTION ── */
+.section-pink{background:var(--rose-pale);border-top:1px solid var(--cream-dark);border-bottom:1px solid var(--cream-dark)}
+
+/* ── LAYANAN ── */
+.layanan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.layanan-card{background:var(--white);border-radius:20px;overflow:hidden;border:1px solid var(--cream-dark);transition:all .25s;cursor:default}
+.layanan-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(196,132,154,.18);border-color:var(--rose-light)}
+.layanan-img{height:180px;overflow:hidden;position:relative;background:var(--cream-mid)}
+.layanan-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .5s}
+.layanan-img .img-fb{display:none;width:100%;height:100%;align-items:center;justify-content:center;font-size:48px;background:var(--cream-mid)}
+.layanan-card:hover .layanan-img img{transform:scale(1.06)}
+.layanan-body{padding:24px}
+.layanan-tag{display:inline-block;background:var(--rose-pale);color:var(--rose);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:100px;margin-bottom:12px}
+.layanan-name{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:21px;color:var(--brown);margin-bottom:8px;line-height:1.2}
+.layanan-desc{font-size:13px;color:var(--brown-light);line-height:1.7;margin-bottom:16px}
+.layanan-price{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:18px;color:var(--rose)}
+
+/* ── UNGGULAN ── */
+.unggulan-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:0}
+.unggulan-photo{position:relative}
+.unggulan-photo-main{width:100%;aspect-ratio:4/5;border-radius:24px;overflow:hidden}
+.unggulan-photo-main img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.unggulan-photo-main .img-fb{display:none;width:100%;height:100%;background:var(--cream-mid);align-items:center;justify-content:center;font-size:80px}
+.unggulan-photo-accent{position:absolute;bottom:-20px;right:-20px;width:180px;aspect-ratio:1;border-radius:16px;overflow:hidden;border:4px solid var(--white)}
+.unggulan-photo-accent img{width:100%;height:100%;object-fit:cover;display:block}
+.unggulan-photo-accent .img-fb{display:none;width:100%;height:100%;background:var(--rose-pale);align-items:center;justify-content:center;font-size:36px}
+.unggulan-list{display:flex;flex-direction:column;gap:20px;margin-top:32px}
+.unggulan-item{display:flex;gap:14px;align-items:flex-start}
+.unggulan-icon{width:44px;height:44px;background:var(--rose-pale);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.unggulan-text h4{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:18px;color:var(--brown);margin-bottom:4px}
+.unggulan-text p{font-size:13px;color:var(--brown-light);line-height:1.6}
+
+/* ── PAKET / MENU ── */
+.menu-tabs{display:flex;gap:8px;margin-bottom:36px;flex-wrap:wrap}
+.menu-tab{padding:10px 22px;border-radius:100px;border:1.5px solid var(--cream-dark);font-size:14px;font-weight:700;color:var(--brown-light);cursor:pointer;transition:all .2s;background:var(--white)}
+.menu-tab.active,.menu-tab:hover{background:var(--rose);border-color:var(--rose);color:var(--white)}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.menu-card{background:var(--white);border-radius:16px;border:1px solid var(--cream-dark);padding:24px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;transition:all .2s}
+.menu-card:hover{border-color:var(--rose-light);background:var(--rose-pale)}
+.menu-card.featured{border-color:var(--rose);background:linear-gradient(135deg,var(--rose-pale),var(--white))}
+.menu-info{}
+.menu-name{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:18px;color:var(--brown);margin-bottom:4px}
+.menu-desc{font-size:13px;color:var(--brown-light);line-height:1.5}
+.menu-duration{font-size:12px;color:var(--brown-muted);margin-top:6px;font-weight:600}
+.menu-price-col{text-align:right;flex-shrink:0}
+.menu-price{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:20px;color:var(--rose);white-space:nowrap}
+.menu-badge{display:inline-block;background:var(--rose);color:var(--white);font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;margin-top:4px}
+
+/* ── GALERI ── */
+.galeri-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:12px;margin-top:48px}
+.galeri-item{border-radius:16px;overflow:hidden;position:relative;cursor:pointer}
+.galeri-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;aspect-ratio:1}
+.galeri-item.tall img{aspect-ratio:2/3}
+.galeri-item.wide{grid-column:span 2}
+.galeri-item.wide img{aspect-ratio:2/1}
+.galeri-item:hover img{transform:scale(1.06)}
+.galeri-item .img-fb{display:none;width:100%;aspect-ratio:1;background:var(--cream-mid);align-items:center;justify-content:center;font-size:48px}
+.galeri-item.wide .img-fb{aspect-ratio:2/1}
+.galeri-overlay{position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(44,31,26,.6));opacity:0;transition:opacity .3s}
+.galeri-item:hover .galeri-overlay{opacity:1}
+.galeri-caption{position:absolute;bottom:0;left:0;right:0;padding:16px;color:var(--white);font-size:13px;font-weight:600;transform:translateY(8px);opacity:0;transition:all .3s}
+.galeri-item:hover .galeri-caption{transform:translateY(0);opacity:1}
+
+/* ── TESTIMONI ── */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px;margin-top:48px}
+.testi-card{background:var(--white);border-radius:20px;padding:28px;border:1px solid var(--cream-dark);position:relative;overflow:hidden}
+.testi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--rose-light),var(--rose))}
+.testi-top{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.testi-avatar{width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--cream-dark)}
+.testi-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.testi-avatar .img-fb{display:none;width:100%;height:100%;background:var(--rose-pale);align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--rose)}
+.testi-meta-name{font-weight:700;font-size:15px;color:var(--brown)}
+.testi-meta-tag{display:inline-block;background:var(--rose-pale);color:var(--rose);font-size:11px;font-weight:700;padding:2px 8px;border-radius:100px;margin-top:3px}
+.testi-stars{margin-left:auto;color:var(--gold-accent);font-size:14px;letter-spacing:1px}
+.testi-text{font-size:14px;color:var(--brown-light);line-height:1.8;font-style:italic}
+
+/* ── TIM ── */
+.tim-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:48px}
+.tim-card{background:var(--white);border-radius:20px;overflow:hidden;border:1px solid var(--cream-dark);text-align:center;transition:all .25s}
+.tim-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(196,132,154,.15);border-color:var(--rose-light)}
+.tim-photo{height:200px;overflow:hidden;background:var(--cream-mid)}
+.tim-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s}
+.tim-photo .img-fb{display:none;width:100%;height:100%;align-items:center;justify-content:center;font-size:56px;background:var(--rose-pale)}
+.tim-card:hover .tim-photo img{transform:scale(1.05)}
+.tim-info{padding:20px 16px}
+.tim-name{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:19px;color:var(--brown);margin-bottom:4px}
+.tim-role{font-size:12px;color:var(--rose);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+.tim-spec{font-size:13px;color:var(--brown-light);line-height:1.5}
+
+/* ── JAM BUKA ── */
+.jam-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:48px;align-items:start}
+.jam-card{background:var(--white);border-radius:20px;border:1px solid var(--cream-dark);overflow:hidden}
+.jam-card-header{padding:20px 24px;background:var(--rose);color:var(--white);display:flex;align-items:center;gap:12px}
+.jam-card-header-icon{font-size:20px}
+.jam-card-header-title{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:19px}
+.jam-row{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;border-bottom:1px solid var(--cream-dark)}
+.jam-row:last-child{border-bottom:none}
+.jam-row.today{background:var(--rose-pale)}
+.jam-day{font-size:14px;color:var(--brown-light);font-weight:600}
+.jam-row.today .jam-day{color:var(--rose)}
+.jam-time{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:17px;color:var(--brown)}
+.info-card{background:var(--white);border-radius:20px;border:1px solid var(--cream-dark);padding:28px;display:flex;flex-direction:column;gap:20px}
+.info-row{display:flex;gap:14px;align-items:flex-start}
+.info-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.info-body strong{display:block;font-weight:700;font-size:14px;color:var(--brown);margin-bottom:3px}
+.info-body p{font-size:13px;color:var(--brown-light);line-height:1.6}
+.open-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);border-radius:100px;padding:6px 14px;font-size:12px;font-weight:700;color:#16A34A;margin-bottom:16px}
+.open-dot{width:7px;height:7px;border-radius:50%;background:#22C55E;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ── FAQ ── */
+.faq-list{max-width:700px;margin:48px auto 0;display:flex;flex-direction:column;gap:6px}
+.faq-item{background:var(--white);border:1px solid var(--cream-dark);border-radius:14px;overflow:hidden}
+.faq-item.open{border-color:var(--rose-light)}
+.faq-q{width:100%;background:none;border:none;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;color:var(--brown);font-size:15px;font-weight:700;text-align:left;gap:16px;font-family:'Nunito Sans',sans-serif;transition:color .2s}
+.faq-q:hover{color:var(--rose)}
+.faq-arrow{color:var(--brown-muted);transition:transform .3s,color .2s;flex-shrink:0}
+.faq-item.open .faq-arrow{transform:rotate(180deg);color:var(--rose)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a-inner{padding:0 24px 20px;font-size:14px;color:var(--brown-light);line-height:1.8;border-top:1px solid var(--cream-dark)}
+.faq-item.open .faq-a{max-height:300px}
+
+/* ── CTA ── */
+.cta-section{background:var(--brown);padding:96px 0;text-align:center;position:relative;overflow:hidden}
+.cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(196,132,154,.15),transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(196,132,154,.1),transparent 60%);pointer-events:none}
+.cta-section .section-eyebrow{color:var(--rose-light);justify-content:center}
+.cta-section .section-eyebrow::before{background:var(--rose-light)}
+.cta-section .section-title{color:var(--white);max-width:580px;margin:0 auto 14px}
+.cta-section .section-title em{color:var(--rose-light);font-style:italic}
+.cta-section .section-sub{color:rgba(255,255,255,.6);max-width:440px;margin:0 auto 40px}
+.cta-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.btn-big{padding:17px 36px;font-size:16px}
+.btn-white{background:var(--white);color:var(--brown)!important;}
+.btn-white:hover{background:var(--cream)!important}
+.btn-outline-white{border:1.5px solid rgba(255,255,255,.3);color:var(--white);padding:16px 28px;border-radius:100px;font-size:15px;font-weight:700;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-outline-white:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6)}
+
+/* ── FOOTER ── */
+footer{background:var(--brown);border-top:1px solid rgba(255,255,255,.08);padding:52px 0 24px}
+.footer-inner{max-width:1100px;margin:0 auto;padding:0 24px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:52px;margin-bottom:44px}
+.footer-brand p{font-size:14px;color:rgba(255,255,255,.5);line-height:1.8;margin-top:14px;max-width:280px}
+.footer-col h4{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:17px;color:var(--white);margin-bottom:16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul li a{font-size:14px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.footer-col ul li a:hover{color:var(--rose-light)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:13px;color:rgba(255,255,255,.4)}
+.footer-bottom a{color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s}
+.footer-bottom a:hover{color:var(--rose-light)}
+
+/* ── WA FLOAT ── */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:14px 20px 14px 16px;border-radius:100px;text-decoration:none;font-weight:700;font-size:14px;box-shadow:0 8px 32px rgba(37,211,102,.4);transition:all .2s}
+.wa-float:hover{background:#1EB850;transform:translateY(-3px)}
+.wa-float svg{width:22px;height:22px}
+
+/* ── MOBILE ── */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:40px}
+  .hero-photo-wrap{order:-1;max-width:360px;margin:0 auto}
+  .hero-badge{bottom:16px;left:0}
+  .hero-badge2{top:16px;right:0}
+  .unggulan-grid{grid-template-columns:1fr}
+  .unggulan-photo{max-width:400px;margin:0 auto}
+  .layanan-grid{grid-template-columns:1fr 1fr}
+  .galeri-grid{grid-template-columns:1fr 1fr}
+  .galeri-item.wide{grid-column:span 2}
+  .galeri-item.tall img{aspect-ratio:1}
+  .galeri-item.wide img{aspect-ratio:2/1}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .layanan-grid{grid-template-columns:1fr}
+  .tim-grid{grid-template-columns:1fr 1fr}
+  .jam-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr;gap:28px}
+  .section{padding:60px 0}
+  .hero-trust{gap:16px}
+}
+@media(max-width:480px){
+  .tim-grid{grid-template-columns:1fr}
+  .galeri-grid{grid-template-columns:1fr}
+  .galeri-item.wide{grid-column:span 1}
+  .galeri-item.wide img{aspect-ratio:1}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="logo-flower">🌸</div>
+      <div class="logo-text">
+        <span class="logo-name">Mawar Beauty</span>
+        <span class="logo-tagline">Salon & Spa</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#layanan">Layanan</a></li>
+      <li><a href="#paket">Paket & Harga</a></li>
+      <li><a href="#galeri">Galeri</a></li>
+      <li><a href="#tim">Tim Kami</a></li>
+      <li><a href="https://wa.me/6285743553879?text=Halo%20Mawar%20Beauty%2C%20saya%20mau%20booking%20perawatan" class="nav-cta">Booking</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu(this)">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-ribbon"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="eyebrow-dot"></div>
+        <span class="eyebrow-text">Salon Kecantikan Purwokerto</span>
+      </div>
+      <h1 class="hero-h1">Tampil Cantik,<br>Rasakan <em>Perawatan</em><br>Terbaik</h1>
+      <p class="hero-sub">Dari rambut hingga kuku — semua kebutuhan kecantikan Anda kami tangani dengan produk premium dan beautician berpengalaman.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/6285743553879?text=Halo%20Mawar%20Beauty%2C%20saya%20mau%20booking%20perawatan" class="btn-rose btn-big">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.855L.057 23.886a.5.5 0 0 0 .611.637l6.218-1.637A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.925 0-3.727-.524-5.271-1.432l-.338-.2-4.066 1.07 1.009-3.985-.218-.344A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Booking Sekarang
+        </a>
+        <a href="#layanan" class="btn-outline-rose">Lihat Layanan</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item-hero"><div class="trust-dot"></div>10+ Tahun Berpengalaman</div>
+        <div class="trust-item-hero"><div class="trust-dot"></div>Produk Premium</div>
+        <div class="trust-item-hero"><div class="trust-dot"></div>Beautician Bersertifikat</div>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-main">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=800&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Salon kecantikan perawatan rambut">
+        <div class="img-fallback">💆‍♀️</div>
+      </div>
+      <div class="hero-badge">
+        <div class="hero-badge-icon">⭐</div>
+        <div class="hero-badge-text">
+          <div class="hero-badge-num">4.9 / 5</div>
+          <div class="hero-badge-label">Rating Google</div>
+        </div>
+      </div>
+      <div class="hero-badge2">
+        <div class="hero-badge2-num">300+</div>
+        <div class="hero-badge2-label">Pelanggan / Bulan</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYANAN -->
+<section class="section" id="layanan">
+  <div class="section-inner">
+    <div class="section-eyebrow">Layanan Kami</div>
+    <h2 class="section-title">Semua Kebutuhan<br>Kecantikan di Satu Tempat</h2>
+    <p class="section-sub">Dari perawatan rambut, wajah, kuku, hingga perawatan tubuh — semua tersedia dengan kualitas terbaik.</p>
+    <div class="layanan-grid">
+      <div class="layanan-card">
+        <div class="layanan-img">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&h=300&fit=crop&q=80"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="Perawatan rambut">
+          <div class="img-fb">💇‍♀️</div>
+        </div>
+        <div class="layanan-body">
+          <span class="layanan-tag">Rambut</span>
+          <div class="layanan-name">Perawatan Rambut</div>
+          <div class="layanan-desc">Creambath, hair mask, keratin, rebonding, smoothing, dan coloring. Rambut sehat, berkilau, dan mudah ditata setiap hari.</div>
+          <div class="layanan-price">Mulai Rp 50.000</div>
+        </div>
+      </div>
+      <div class="layanan-card">
+        <div class="layanan-img">
+          <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500&h=300&fit=crop&q=80"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="Facial treatment">
+          <div class="img-fb">✨</div>
+        </div>
+        <div class="layanan-body">
+          <span class="layanan-tag">Wajah</span>
+          <div class="layanan-name">Facial & Perawatan Wajah</div>
+          <div class="layanan-desc">Facial deep cleansing, treatment acne, brightening, anti-aging, dan LED therapy. Kulit bersih, cerah, dan terawat.</div>
+          <div class="layanan-price">Mulai Rp 80.000</div>
+        </div>
+      </div>
+      <div class="layanan-card">
+        <div class="layanan-img">
+          <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=300&fit=crop&q=80"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="Nail art manicure pedicure">
+          <div class="img-fb">💅</div>
+        </div>
+        <div class="layanan-body">
+          <span class="layanan-tag">Kuku</span>
+          <div class="layanan-name">Nail Art & Manicure</div>
+          <div class="layanan-desc">Manicure, pedicure, gel polish, nail art, dan nail extension. Kuku cantik dan rapi untuk tampilan yang sempurna.</div>
+          <div class="layanan-price">Mulai Rp 45.000</div>
+        </div>
+      </div>
+      <div class="layanan-card">
+        <div class="layanan-img">
+          <img src="https://images.unsplash.com/photo-1583001308847-4c2d75e0bfc2?w=500&h=300&fit=crop&q=80"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="Eyelash extension">
+          <div class="img-fb">👁️</div>
+        </div>
+        <div class="layanan-body">
+          <span class="layanan-tag">Mata</span>
+          <div class="layanan-name">Eyelash Extension & Tinting</div>
+          <div class="layanan-desc">Sambung bulu mata natural, classic, volume, dan mega volume. Mata terlihat lebih besar dan ekspresif tanpa maskara.</div>
+          <div class="layanan-price">Mulai Rp 120.000</div>
+        </div>
+      </div>
+      <div class="layanan-card">
+        <div class="layanan-img">
+          <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=500&h=300&fit=crop&q=80"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="Hair styling blowdry">
+          <div class="img-fb">💨</div>
+        </div>
+        <div class="layanan-body">
+          <span class="layanan-tag">Styling</span>
+          <div class="layanan-name">Hair Styling & Blowdry</div>
+          <div class="layanan-desc">Blowdry, curling, straightening, dan styling untuk acara khusus. Tampil sempurna di hari pernikahan, wisuda, atau pesta.</div>
+          <div class="layanan-price">Mulai Rp 60.000</div>
+        </div>
+      </div>
+      <div class="layanan-card">
+        <div class="layanan-img">
+          <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=500&h=300&fit=crop&q=80"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="Body massage spa">
+          <div class="img-fb">🧖‍♀️</div>
+        </div>
+        <div class="layanan-body">
+          <span class="layanan-tag">Tubuh</span>
+          <div class="layanan-name">Body Treatment & Massage</div>
+          <div class="layanan-desc">Body scrub, body massage relaksasi, lulur tradisional, dan body wrap. Tubuh segar, kulit halus, dan pikiran rileks.</div>
+          <div class="layanan-price">Mulai Rp 100.000</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAKET & HARGA -->
+<section class="section section-pink" id="paket">
+  <div class="section-inner">
+    <div class="section-eyebrow">Paket & Harga</div>
+    <h2 class="section-title">Pilih Paket<br>Sesuai Kebutuhan</h2>
+    <p class="section-sub">Semua harga sudah termasuk produk — tidak ada biaya tambahan tersembunyi.</p>
+    <div class="menu-tabs" id="menuTabs">
+      <div class="menu-tab active" onclick="switchTab('rambut')">✂️ Rambut</div>
+      <div class="menu-tab" onclick="switchTab('wajah')">✨ Wajah</div>
+      <div class="menu-tab" onclick="switchTab('kuku')">💅 Kuku</div>
+      <div class="menu-tab" onclick="switchTab('spesial')">🌸 Spesial</div>
+    </div>
+
+    <div id="tab-rambut" class="menu-grid">
+      <div class="menu-card featured">
+        <div class="menu-info">
+          <div class="menu-name">Creambath + Hair Mask</div>
+          <div class="menu-desc">Perawatan lengkap rambut rontok & kering</div>
+          <div class="menu-duration">⏱ 60–75 menit</div>
+        </div>
+        <div class="menu-price-col">
+          <div class="menu-price">Rp 85.000</div>
+          <div class="menu-badge">Terlaris</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-info">
+          <div class="menu-name">Rebonding / Smoothing</div>
+          <div class="menu-desc">Rambut lurus sempurna, tahan 4–6 bulan</div>
+          <div class="menu-duration">⏱ 3–4 jam</div>
+        </div>
+        <div class="menu-price-col"><div class="menu-price">Mulai 250K</div></div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-info">
+          <div class="menu-name">Hair Coloring</div>
+          <div class="menu-desc">Full color atau highlight, 50+ pilihan warna</div>
+          <div class="menu-duration">⏱ 2–3 jam</div>
+        </div>
+        <div class="menu-price-col"><div class="menu-price">Mulai 150K</div></div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-info">
+          <div class="menu-name">Keratin Treatment</div>
+          <div class="menu-desc">Rambut halus, anti-frizz, tahan 3–4 bulan</div>
+          <div class="menu-duration">⏱ 2–3 jam</div>
+        </div>
+        <div class="menu-price-col"><div class="menu-price">Mulai 200K</div></div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-info">
+          <div class="menu-name">Potong + Blowdry</div>
+          <div class="menu-desc">Potong model terbaru + styling rapih</div>
+          <div class="menu-duration">⏱ 60 menit</div>
+        </div>
+        <div class="menu-price-col"><div class="menu-price">Rp 75.000</div></div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-info">
+          <div class="menu-name">Cuci + Blowdry</div>
+          <div class="menu-desc">Rambut bersih dan rapi dalam waktu singkat</div>
+          <div class="menu-duration">⏱ 30–45 menit</div>
+        </div>
+        <div class="menu-price-col"><div class="menu-price">Rp 45.000</div></div>
+      </div>
+    </div>
+
+    <div id="tab-wajah" class="menu-grid" style="display:none">
+      <div class="menu-card featured">
+        <div class="menu-info">
+          <div class="menu-name">Facial Deep Cleansing</div>
+          <div class="menu-desc">Bersihkan komedo, pori tersumbat & sel kulit mati</div>
+          <div class="menu-duration">⏱ 60 menit</div>
+        </div>
+        <div class="menu-price-col">
+          <div class="menu-price">Rp 100.000</div>
+          <div class="menu-badge">Terlaris</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-info">
+          <div class="menu-name">Facial Brightening</div>
+          <div class="menu-desc">Kulit cerah dan bercahaya, cocok untuk kulit kusam</div>
+          <div class="menu-duration">⏱ 75 menit</div>
+        </div>
+        <div class="menu-price-col"><div class="menu-price">Rp 130.000</div></div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-info">
+          <div class="menu-name">Facial Acne Treatment</div>
+          <div class="menu-desc">Atasi jerawat dan bekas jerawat secara bertahap</div>
+          <div class="menu-duration">⏱ 75 menit</div>
+        </div>
+        <div class="menu-price-col"><div class="menu-price">Rp 120.000</div></div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-info">
+          <div class="menu-name">Eyebrow Shaping</div>
+          <div class="menu-desc">Threading atau waxing + tint alis sesuai bentuk wajah</div>
+          <div class="menu-duration">⏱ 30 menit</div>
+        </div>
+        <div class="menu-price-col"><div class="menu-price">Rp 40.000</div></div>
+      </div>
+    </div>
+
+    <div id="tab-kuku" class="menu-grid" style="display:none">
+      <div class="menu-card featured">
+        <div class="menu-info">
+          <div class="menu-name">Manicure + Gel Polish</div>
+          <div class="menu-desc">Perawatan tangan + cat kuku gel tahan 2–3 minggu</div>
+          <div class="menu-duration">⏱ 60 menit</div>
+        </div>
+        <div class="menu-price-col">
+          <div class="menu-price">Rp 90.000</div>
+          <div class="menu-badge">Favorit</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-info">
+          <div class="menu-name">Pedicure + Gel Polish</div>
+          <div class="menu-desc">Perawatan kaki + cat kuku gel tahan lama</div>
+          <div class="menu-duration">⏱ 75 menit</div>
+        </div>
+        <div class="menu-price-col"><div class="menu-price">Rp 95.000</div></div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-info">
+          <div class="menu-name">Nail Art Desain</div>
+          <div class="menu-desc">Motif custom, ombre, marble, floral, dan lainnya</div>
+          <div class="menu-duration">⏱ 45–90 menit</div>
+        </div>
+        <div class="menu-price-col"><div class="menu-price">Mulai 20K/kuku</div></div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-info">
+          <div class="menu-name">Eyelash Extension Classic</div>
+          <div class="menu-desc">Sambung bulu mata natural, tahan 3–4 minggu</div>
+          <div class="menu-duration">⏱ 90–120 menit</div>
+        </div>
+        <div class="menu-price-col"><div class="menu-price">Rp 150.000</div></div>
+      </div>
+    </div>
+
+    <div id="tab-spesial" class="menu-grid" style="display:none">
+      <div class="menu-card featured">
+        <div class="menu-info">
+          <div class="menu-name">Paket Pengantin</div>
+          <div class="menu-desc">Facial + creambath + manicure + nail art + riasan</div>
+          <div class="menu-duration">⏱ Sehari penuh</div>
+        </div>
+        <div class="menu-price-col">
+          <div class="menu-price">Mulai 500K</div>
+          <div class="menu-badge">Paket Lengkap</div>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-info">
+          <div class="menu-name">Paket Wisuda</div>
+          <div class="menu-desc">Hair styling + makeup natural elegan untuk wisuda</div>
+          <div class="menu-duration">⏱ 2–3 jam</div>
+        </div>
+        <div class="menu-price-col"><div class="menu-price">Mulai 200K</div></div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-info">
+          <div class="menu-name">Paket Relaksasi</div>
+          <div class="menu-desc">Creambath + facial + body massage — lengkap dari kepala sampai kaki</div>
+          <div class="menu-duration">⏱ 3 jam</div>
+        </div>
+        <div class="menu-price-col"><div class="menu-price">Rp 280.000</div></div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-info">
+          <div class="menu-name">Member Bulanan</div>
+          <div class="menu-desc">4x facial + 2x creambath + manicure dalam sebulan</div>
+          <div class="menu-duration">⏱ Fleksibel</div>
+        </div>
+        <div class="menu-price-col"><div class="menu-price">Rp 350.000</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEUNGGULAN -->
+<section class="section" id="keunggulan">
+  <div class="section-inner">
+    <div class="unggulan-grid">
+      <div class="unggulan-photo">
+        <div class="unggulan-photo-main">
+          <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&h=750&fit=crop&q=80"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="Tim beautician Mawar Beauty Salon">
+          <div class="img-fb">👩‍🔬</div>
+        </div>
+        <div class="unggulan-photo-accent">
+          <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=300&h=300&fit=crop&q=80"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="Interior salon">
+          <div class="img-fb">🌸</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-eyebrow">Kenapa Mawar Beauty?</div>
+        <h2 class="section-title">Lebih dari Sekadar<br>Salon Biasa</h2>
+        <div class="unggulan-list">
+          <div class="unggulan-item">
+            <div class="unggulan-icon">🎓</div>
+            <div class="unggulan-text">
+              <h4>Beautician Bersertifikat</h4>
+              <p>Semua beautician kami memiliki sertifikasi kecantikan resmi dan terus mengikuti pelatihan terkini agar selalu up-to-date dengan tren kecantikan.</p>
+            </div>
+          </div>
+          <div class="unggulan-item">
+            <div class="unggulan-icon">🧴</div>
+            <div class="unggulan-text">
+              <h4>Produk Premium Terpercaya</h4>
+              <p>Kami hanya menggunakan produk bermerek dan sudah teruji — Wella, L'Oréal Professionnel, O'right, dan brand premium lainnya. Aman untuk semua jenis rambut dan kulit.</p>
+            </div>
+          </div>
+          <div class="unggulan-item">
+            <div class="unggulan-icon">🏠</div>
+            <div class="unggulan-text">
+              <h4>Suasana Nyaman & Bersih</h4>
+              <p>Ruangan bersih, aroma terapi, musik relaksasi, dan fasilitas lengkap. Setiap alat disterilisasi sebelum digunakan — kesehatan Anda prioritas utama kami.</p>
+            </div>
+          </div>
+          <div class="unggulan-item">
+            <div class="unggulan-icon">💬</div>
+            <div class="unggulan-text">
+              <h4>Konsultasi Gratis Sebelum Treatment</h4>
+              <p>Setiap pelanggan mendapat konsultasi awal sebelum treatment dimulai — kami pastikan layanan yang dipilih benar-benar sesuai kondisi rambut dan kulit Anda.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERI -->
+<section class="section section-pink" id="galeri">
+  <div class="section-inner">
+    <div class="section-eyebrow">Galeri</div>
+    <h2 class="section-title">Hasil Perawatan<br>Pelanggan Kami</h2>
+    <p class="section-sub">Foto-foto nyata dari hasil kerja beautician kami — bisa jadi referensi treatment yang ingin Anda coba.</p>
+    <div class="galeri-grid">
+      <div class="galeri-item tall">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&h=750&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Hair coloring hasil">
+        <div class="img-fb">💇‍♀️</div>
+        <div class="galeri-overlay"></div>
+        <div class="galeri-caption">Hair Coloring — Balayage</div>
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=500&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Nail art hasil">
+        <div class="img-fb">💅</div>
+        <div class="galeri-overlay"></div>
+        <div class="galeri-caption">Nail Art — Motif Floral</div>
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500&h=500&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Facial treatment">
+        <div class="img-fb">✨</div>
+        <div class="galeri-overlay"></div>
+        <div class="galeri-caption">Facial Deep Cleansing</div>
+      </div>
+      <div class="galeri-item wide">
+        <img src="https://images.unsplash.com/photo-1583001308847-4c2d75e0bfc2?w=800&h=400&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Eyelash extension">
+        <div class="img-fb">👁️</div>
+        <div class="galeri-overlay"></div>
+        <div class="galeri-caption">Eyelash Extension — Volume</div>
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=500&h=500&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Hair styling">
+        <div class="img-fb">💨</div>
+        <div class="galeri-overlay"></div>
+        <div class="galeri-caption">Hair Styling — Blowdry Keriting</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIM -->
+<section class="section" id="tim">
+  <div class="section-inner">
+    <div class="section-eyebrow">Tim Kami</div>
+    <h2 class="section-title">Beautician Profesional<br>di Balik Setiap Perawatan</h2>
+    <div class="tim-grid">
+      <div class="tim-card">
+        <div class="tim-photo">
+          <img src="https://i.pravatar.cc/400?img=47"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="Sari Dewi">
+          <div class="img-fb">👩</div>
+        </div>
+        <div class="tim-info">
+          <div class="tim-name">Sari Dewi</div>
+          <div class="tim-role">Head Beautician</div>
+          <div class="tim-spec">Spesialis hair coloring, balayage, dan perawatan rambut rusak. 10 tahun pengalaman.</div>
+        </div>
+      </div>
+      <div class="tim-card">
+        <div class="tim-photo">
+          <img src="https://i.pravatar.cc/400?img=44"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="Rina Permata">
+          <div class="img-fb">👩</div>
+        </div>
+        <div class="tim-info">
+          <div class="tim-name">Rina Permata</div>
+          <div class="tim-role">Facial Specialist</div>
+          <div class="tim-spec">Ahli facial dan perawatan kulit bermasalah. Tersertifikasi dermal therapist.</div>
+        </div>
+      </div>
+      <div class="tim-card">
+        <div class="tim-photo">
+          <img src="https://i.pravatar.cc/400?img=48"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="Anisa Putri">
+          <div class="img-fb">👩</div>
+        </div>
+        <div class="tim-info">
+          <div class="tim-name">Anisa Putri</div>
+          <div class="tim-role">Nail Artist</div>
+          <div class="tim-spec">Spesialis nail art dan eyelash extension. Karyanya sering jadi referensi di Instagram.</div>
+        </div>
+      </div>
+      <div class="tim-card">
+        <div class="tim-photo">
+          <img src="https://i.pravatar.cc/400?img=43"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="Wulan Sari">
+          <div class="img-fb">👩</div>
+        </div>
+        <div class="tim-info">
+          <div class="tim-name">Wulan Sari</div>
+          <div class="tim-role">Hair Stylist</div>
+          <div class="tim-spec">Spesialis styling rambut untuk acara pernikahan, wisuda, dan pesta. Tersertifikasi hair artistry.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section class="section section-pink">
+  <div class="section-inner">
+    <div class="section-eyebrow">Testimoni</div>
+    <h2 class="section-title">Apa Kata Pelanggan Kami</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="testi-avatar">
+            <img src="https://i.pravatar.cc/100?img=5"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+                 alt="Pelanggan">
+            <div class="img-fb">RN</div>
+          </div>
+          <div>
+            <div class="testi-meta-name">Ratna Ningrum</div>
+            <div class="testi-meta-tag">Hair Coloring</div>
+          </div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+        <div class="testi-text">"Sudah 3 tahun langganan di Mawar Beauty. Creambath dan hair mask-nya enak banget, rambut jadi jauh lebih sehat dan tidak rontok lagi. Mbak Sari orangnya teliti dan sabar."</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="testi-avatar">
+            <img src="https://i.pravatar.cc/100?img=9"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+                 alt="Pelanggan">
+            <div class="img-fb">DL</div>
+          </div>
+          <div>
+            <div class="testi-meta-name">Dewi Lestari</div>
+            <div class="testi-meta-tag">Facial + Nail Art</div>
+          </div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+        <div class="testi-text">"Facial-nya beda sama tempat lain — hasilnya kelihatan langsung setelah satu sesi. Nail art-nya juga cakep banget, desainnya persis yang aku minta. Pasti balik lagi!"</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="testi-avatar">
+            <img src="https://i.pravatar.cc/100?img=16"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+                 alt="Pelanggan">
+            <div class="img-fb">FS</div>
+          </div>
+          <div>
+            <div class="testi-meta-name">Fitri Susanti</div>
+            <div class="testi-meta-tag">Paket Wisuda</div>
+          </div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+        <div class="testi-text">"Pakai paket wisuda di sini dan hasilnya memuaskan banget! Makeupnya natural tapi tetap kelihatan di foto. Mbak Wulan sangat profesional dan sabar menghadapi permintaan saya."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JAM BUKA -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-eyebrow">Info & Booking</div>
+    <h2 class="section-title">Jam Buka & Cara<br>Booking Perawatan</h2>
+    <div class="jam-grid">
+      <div>
+        <div class="open-badge"><span class="open-dot"></span>Sedang Buka</div>
+        <div class="jam-card">
+          <div class="jam-card-header">
+            <span class="jam-card-header-icon">🕐</span>
+            <span class="jam-card-header-title">Jadwal Operasional</span>
+          </div>
+          <div class="jam-row"><span class="jam-day">Senin – Jumat</span><span class="jam-time">09.00 – 20.00</span></div>
+          <div class="jam-row today"><span class="jam-day">Sabtu ← Hari Ini</span><span class="jam-time">09.00 – 20.00</span></div>
+          <div class="jam-row"><span class="jam-day">Minggu</span><span class="jam-time">09.00 – 18.00</span></div>
+          <div class="jam-row"><span class="jam-day">Hari Libur Nasional</span><span class="jam-time">10.00 – 17.00</span></div>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-row">
+          <span class="info-icon">📍</span>
+          <div class="info-body">
+            <strong>Alamat</strong>
+            <p>Jl. Jendral Sudirman No. 22, Purwokerto Utara, Kabupaten Banyumas, Jawa Tengah</p>
+          </div>
+        </div>
+        <div class="info-row">
+          <span class="info-icon">📱</span>
+          <div class="info-body">
+            <strong>WhatsApp / Telpon</strong>
+            <p>0857-4355-3879 — Booking via WA lebih cepat dibalas</p>
+          </div>
+        </div>
+        <div class="info-row">
+          <span class="info-icon">💡</span>
+          <div class="info-body">
+            <strong>Tips Booking</strong>
+            <p>Untuk treatment panjang (rebonding, keratin, paket pengantin) booking H-1 agar waktu bisa disiapkan dengan optimal.</p>
+          </div>
+        </div>
+        <a href="https://wa.me/6285743553879?text=Halo%20Mawar%20Beauty%2C%20saya%20mau%20booking%20perawatan" class="btn-rose" style="justify-content:center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.855L.057 23.886a.5.5 0 0 0 .611.637l6.218-1.637A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.925 0-3.727-.524-5.271-1.432l-.338-.2-4.066 1.07 1.009-3.985-.218-.344A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Booking via WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-pink">
+  <div class="section-inner">
+    <div style="text-align:center">
+      <div class="section-eyebrow" style="justify-content:center">FAQ</div>
+      <h2 class="section-title">Pertanyaan yang Sering Ditanya</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah perlu booking dulu atau bisa langsung datang?
+          <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Bisa keduanya. Walk-in diterima sesuai ketersediaan beautician. Namun untuk treatment panjang seperti rebonding, keratin, smoothing, atau paket pengantin — wajib booking minimal H-1 agar waktu dan produk bisa disiapkan optimal.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah produk yang digunakan aman untuk ibu hamil?
+          <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Untuk ibu hamil, kami menyarankan konsultasi terlebih dahulu sebelum treatment. Beberapa layanan seperti coloring dan chemical treatment sebaiknya dihindari di trimester pertama. Kami memiliki rangkaian produk organik yang lebih aman untuk ibu hamil — informasikan kondisi Anda saat booking.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Berapa lama hasil rebonding/smoothing bertahan?
+          <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Rebonding umumnya bertahan 4–6 bulan, smoothing 3–5 bulan, dan keratin 3–4 bulan — tergantung jenis rambut dan perawatan di rumah. Kami berikan panduan perawatan pasca-treatment dan rekomendasi produk rumahan agar hasilnya lebih tahan lama.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Bisakah saya request beautician tertentu?
+          <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Bisa. Sebutkan nama beautician yang Anda inginkan saat booking via WhatsApp. Kami usahakan sesuai jadwal — jika sedang penuh, kami informasikan slot waktu yang tersedia agar Anda bisa menyesuaikan.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah ada promo atau kartu member?
+          <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Ada! Member Mawar Beauty mendapat diskon 10% untuk semua layanan, poin reward yang bisa ditukar treatment gratis, dan akses ke promo eksklusif. Daftar di kasir atau tanyakan via WhatsApp. Ada juga promo ulang tahun dan paket bundling hemat setiap bulannya.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="section-inner" style="position:relative;z-index:1">
+    <div class="section-eyebrow">Siap Tampil Cantik?</div>
+    <h2 class="section-title">Booking Sekarang,<br>Rasakan <em>Perawatan Terbaik</em></h2>
+    <p class="section-sub">Chat kami via WhatsApp — pilih layanan, tentukan waktu, dan kami siapkan segalanya untuk Anda.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/6285743553879?text=Halo%20Mawar%20Beauty%2C%20saya%20mau%20booking%20perawatan" class="btn-rose btn-big">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.855L.057 23.886a.5.5 0 0 0 .611.637l6.218-1.637A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.925 0-3.727-.524-5.271-1.432l-.338-.2-4.066 1.07 1.009-3.985-.218-.344A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Booking via WhatsApp
+      </a>
+      <a href="tel:+6285743553879" class="btn-outline-white btn-big">📞 Telepon Langsung</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" style="text-decoration:none">
+          <div class="logo-flower">🌸</div>
+          <div class="logo-text">
+            <span class="logo-name" style="color:var(--white)">Mawar Beauty</span>
+            <span class="logo-tagline">Salon & Spa</span>
+          </div>
+        </a>
+        <p>Salon kecantikan kepercayaan wanita Purwokerto sejak 2014. Produk premium, beautician bersertifikat, dan suasana nyaman.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="#layanan">Perawatan Rambut</a></li>
+          <li><a href="#layanan">Facial & Wajah</a></li>
+          <li><a href="#layanan">Nail Art & Manicure</a></li>
+          <li><a href="#layanan">Eyelash Extension</a></li>
+          <li><a href="#layanan">Hair Styling</a></li>
+          <li><a href="#layanan">Body Treatment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informasi</h4>
+        <ul>
+          <li><a href="#paket">Paket & Harga</a></li>
+          <li><a href="#galeri">Galeri</a></li>
+          <li><a href="#tim">Tim Beautician</a></li>
+          <li><a href="#jam-buka">Jam Buka</a></li>
+          <li><a href="https://wa.me/6285743553879">Hubungi via WA</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Mawar Beauty Salon. Purwokerto, Banyumas.</p>
+      <p>Website oleh <a href="https://buatwebsitemurah.com" target="_blank">Nusaweb Studio</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/6285743553879?text=Halo%20Mawar%20Beauty%2C%20saya%20mau%20tanya%20tentang%20layanan%20salon" class="wa-float" target="_blank">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.855L.057 23.886a.5.5 0 0 0 .611.637l6.218-1.637A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.925 0-3.727-.524-5.271-1.432l-.338-.2-4.066 1.07 1.009-3.985-.218-.344A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  Booking Sekarang
+</a>
+
+<script>
+function toggleFaq(btn){
+  const item=btn.parentElement,isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+function toggleMenu(el){
+  const links=document.querySelector('.nav-links'),isVisible=links.style.display==='flex';
+  links.style.display=isVisible?'none':'flex';
+  if(!isVisible)Object.assign(links.style,{flexDirection:'column',position:'absolute',top:'68px',left:'0',right:'0',background:'rgba(253,250,247,0.98)',padding:'16px 24px 24px',borderBottom:'1px solid #EDE4D8',gap:'18px'});
+}
+function switchTab(id){
+  document.querySelectorAll('[id^="tab-"]').forEach(el=>el.style.display='none');
+  document.getElementById('tab-'+id).style.display='grid';
+  document.querySelectorAll('.menu-tab').forEach(el=>el.classList.remove('active'));
+  event.target.classList.add('active');
+}
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}}),{threshold:0.08});
+document.querySelectorAll('.layanan-card,.tim-card,.testi-card,.unggulan-item,.menu-card').forEach((el,i)=>{
+  el.style.opacity='0';el.style.transform='translateY(16px)';
+  el.style.transition=`opacity .4s ease ${i*.05}s, transform .4s ease ${i*.05}s`;
+  obs.observe(el);
+});
+</script>
+</body>
+</html>

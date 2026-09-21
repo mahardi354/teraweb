@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Villa Nusantara — Penginapan Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1a2744;
+    --navy-light: #243360;
+    --gold: #c9a84c;
+    --gold-light: #e2c47a;
+    --cream: #f8f4ed;
+    --warm-white: #fdfbf8;
+    --text-dark: #1a1a1a;
+    --text-mid: #4a4a4a;
+    --text-light: #8a8a8a;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--warm-white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 20px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: transparent;
+    transition: background 0.4s ease, padding 0.4s ease;
+  }
+  nav.scrolled {
+    background: rgba(26, 39, 68, 0.96);
+    backdrop-filter: blur(12px);
+    padding: 14px 60px;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    padding: 10px 24px !important;
+    font-weight: 500 !important;
+    letter-spacing: 1px !important;
+    transition: background 0.3s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=85');
+    background-size: cover; background-position: center;
+    transform: scale(1.05);
+    transition: transform 8s ease-out;
+  }
+  .hero-bg.loaded { transform: scale(1); }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom,
+      rgba(26,39,68,0.55) 0%,
+      rgba(26,39,68,0.35) 40%,
+      rgba(26,39,68,0.7) 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    text-align: center;
+    padding: 0 20px;
+    animation: fadeUp 1s ease 0.3s both;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 11px; font-weight: 500; letter-spacing: 4px;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ''; width: 40px; height: 1px; background: var(--gold);
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 8vw, 88px);
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    max-width: 480px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+  }
+  .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 16px 36px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: 2px solid var(--gold);
+  }
+  .btn-primary:hover { background: var(--gold-light); border-color: var(--gold-light); }
+  .btn-outline {
+    background: transparent;
+    color: #fff;
+    padding: 16px 36px;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.5);
+    transition: all 0.3s;
+  }
+  .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+  /* BOOKING BAR */
+  .booking-bar {
+    background: var(--navy);
+    padding: 28px 60px;
+    display: flex; gap: 0; align-items: stretch;
+  }
+  .booking-field {
+    flex: 1;
+    padding: 0 28px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .booking-field:first-child { padding-left: 0; }
+  .booking-field label {
+    display: block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .booking-field input, .booking-field select {
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    width: 100%;
+    cursor: pointer;
+  }
+  .booking-field select option { background: var(--navy); color: #fff; }
+  .booking-btn {
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    padding: 0 40px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-left: 28px;
+  }
+  .booking-btn:hover { background: var(--gold-light); }
+
+  /* SECTION BASE */
+  section { padding: 100px 60px; }
+  .section-eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: 4px;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(34px, 4vw, 52px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  /* ABOUT */
+  .about { background: var(--cream); }
+  .about-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .about-text p {
+    font-size: 16px; line-height: 1.85; color: var(--text-mid);
+    font-weight: 300; margin-bottom: 20px;
+  }
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px;
+  }
+  .stat-item { border-left: 2px solid var(--gold); padding-left: 20px; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px; font-weight: 300; color: var(--navy);
+  }
+  .stat-label { font-size: 12px; color: var(--text-light); letter-spacing: 1px; margin-top: 4px; }
+  .about-images {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    position: relative;
+  }
+  .about-images img {
+    width: 100%; aspect-ratio: 3/4; object-fit: cover;
+    display: block;
+  }
+  .about-images img:first-child { margin-top: 40px; }
+  .about-badge {
+    position: absolute; bottom: -20px; left: -20px;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 24px 28px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.6;
+  }
+
+  /* ROOMS */
+  .rooms { background: var(--warm-white); }
+  .rooms-inner { max-width: 1200px; margin: 0 auto; }
+  .rooms-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
+  .rooms-header a {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+    transition: opacity 0.3s;
+  }
+  .rooms-header a:hover { opacity: 0.7; }
+  .rooms-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  }
+  .room-card { background: #fff; overflow: hidden; }
+  .room-img {
+    position: relative; overflow: hidden;
+    aspect-ratio: 4/3;
+  }
+  .room-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.6s ease;
+    display: block;
+  }
+  .room-card:hover .room-img img { transform: scale(1.06); }
+  .room-tag {
+    position: absolute; top: 20px; left: 20px;
+    background: var(--navy); color: var(--gold);
+    font-size: 10px; font-weight: 500; letter-spacing: 2px;
+    text-transform: uppercase; padding: 6px 14px;
+  }
+  .room-info { padding: 28px 28px 32px; }
+  .room-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 400; color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .room-info p { font-size: 14px; color: var(--text-mid); line-height: 1.7; margin-bottom: 20px; }
+  .room-amenities {
+    display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px;
+  }
+  .amenity {
+    font-size: 11px; color: var(--text-light); letter-spacing: 0.5px;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .amenity::before { content: '✓'; color: var(--gold); font-size: 10px; }
+  .room-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid #f0ece4; }
+  .room-price { font-family: 'Cormorant Garamond', serif; }
+  .room-price .from { font-size: 11px; color: var(--text-light); display: block; }
+  .room-price .price { font-size: 28px; font-weight: 400; color: var(--navy); }
+  .room-price .night { font-size: 13px; color: var(--text-light); }
+  .room-book {
+    background: var(--navy);
+    color: #fff;
+    padding: 10px 22px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.3s;
+    border: 2px solid var(--navy);
+  }
+  .room-book:hover { background: transparent; color: var(--navy); }
+
+  /* EXPERIENCE */
+  .experience { background: var(--navy); padding: 100px 60px; }
+  .exp-inner { max-width: 1200px; margin: 0 auto; }
+  .exp-inner .section-title { color: #fff; }
+  .exp-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: rgba(255,255,255,0.08);
+    margin-top: 60px;
+  }
+  .exp-item {
+    background: var(--navy);
+    padding: 48px 36px;
+    text-align: center;
+    transition: background 0.3s;
+  }
+  .exp-item:hover { background: var(--navy-light); }
+  .exp-icon {
+    font-size: 36px; margin-bottom: 20px;
+    display: block;
+  }
+  .exp-item h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; color: var(--gold-light);
+    margin-bottom: 12px; font-weight: 400;
+  }
+  .exp-item p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.8; }
+
+  /* GALLERY */
+  .gallery { background: var(--cream); padding: 100px 0; }
+  .gallery-header { padding: 0 60px; margin-bottom: 48px; }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 300px 300px;
+    gap: 6px;
+  }
+  .gallery-item { overflow: hidden; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block; }
+  .gallery-item:hover img { transform: scale(1.04); }
+  .gallery-item.tall { grid-row: span 2; }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--warm-white); }
+  .test-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
+  .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 56px; }
+  .test-card { background: var(--cream); padding: 36px 28px; position: relative; }
+  .test-card::before {
+    content: '"';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px; line-height: 0.5;
+    color: var(--gold); opacity: 0.4;
+    position: absolute; top: 24px; left: 20px;
+  }
+  .test-stars { color: var(--gold); font-size: 14px; margin-bottom: 16px; }
+  .test-card p { font-size: 14px; line-height: 1.8; color: var(--text-mid); font-style: italic; }
+  .test-author { margin-top: 24px; padding-top: 20px; border-top: 1px solid #e8e2d8; }
+  .test-author strong { display: block; font-size: 14px; color: var(--navy); font-weight: 500; }
+  .test-author span { font-size: 12px; color: var(--text-light); }
+
+  /* CTA */
+  .cta-section {
+    position: relative;
+    padding: 120px 60px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .cta-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1920&q=80');
+    background-size: cover; background-position: center;
+    background-attachment: fixed;
+  }
+  .cta-overlay {
+    position: absolute; inset: 0;
+    background: rgba(26,39,68,0.82);
+  }
+  .cta-content { position: relative; z-index: 2; }
+  .cta-content .section-eyebrow { color: var(--gold-light); }
+  .cta-content .section-title { color: #fff; margin-bottom: 16px; }
+  .cta-content p { color: rgba(255,255,255,0.7); font-size: 16px; margin-bottom: 40px; }
+
+  /* FOOTER */
+  footer {
+    background: #0f1829;
+    color: rgba(255,255,255,0.6);
+    padding: 72px 60px 36px;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px;
+    max-width: 1200px; margin: 0 auto;
+    padding-bottom: 56px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-brand .nav-logo { margin-bottom: 16px; display: block; }
+  .footer-brand p { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.5); }
+  .footer-col h4 {
+    font-size: 11px; font-weight: 500; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+  .footer-col ul a:hover { color: #fff; }
+  .footer-bottom {
+    max-width: 1200px; margin: 0 auto;
+    padding-top: 28px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px;
+  }
+
+  /* WATERMARK DEMO */
+  .demo-badge {
+    position: fixed; bottom: 24px; right: 24px; z-index: 999;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 10px 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    pointer-events: none;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    nav.scrolled { padding: 12px 24px; }
+    .nav-links { display: none; }
+    section { padding: 72px 24px; }
+    .booking-bar { flex-direction: column; padding: 28px 24px; gap: 20px; }
+    .booking-field { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 0 0 16px; }
+    .booking-btn { margin-left: 0; padding: 16px; }
+    .about-inner { grid-template-columns: 1fr; gap: 48px; }
+    .rooms-grid { grid-template-columns: 1fr; }
+    .rooms-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .exp-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .gallery-item.tall { grid-row: span 1; }
+    .test-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    .cta-bg { background-attachment: scroll; }
+  }
+</style>
+</head>
+<body>
+
+<!-- DEMO BADGE -->
+<div class="demo-badge">Demo Website</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">Villa <span>Nusantara</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Beranda</a></li>
+    <li><a href="#">Kamar</a></li>
+    <li><a href="#">Fasilitas</a></li>
+    <li><a href="#">Galeri</a></li>
+    <li><a href="#">Tentang</a></li>
+    <li><a href="#" class="nav-cta">Pesan Sekarang</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Penginapan Premium di Jantung Alam</div>
+    <h1>Melarikan Diri ke<br><em>Kedamaian Sejati</em></h1>
+    <p class="hero-sub">Rasakan kemewahan yang menyatu dengan alam — di mana setiap detail dirancang untuk memperbarui jiwa Anda.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary">Pesan Kamar</a>
+      <a href="#" class="btn-outline">Jelajahi Villa</a>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING BAR -->
+<div class="booking-bar">
+  <div class="booking-field">
+    <label>Check In</label>
+    <input type="date" value="2024-12-20">
+  </div>
+  <div class="booking-field">
+    <label>Check Out</label>
+    <input type="date" value="2024-12-23">
+  </div>
+  <div class="booking-field">
+    <label>Tamu</label>
+    <select>
+      <option>2 Tamu</option>
+      <option>1 Tamu</option>
+      <option>3 Tamu</option>
+      <option>4 Tamu</option>
+    </select>
+  </div>
+  <div class="booking-field">
+    <label>Tipe Kamar</label>
+    <select>
+      <option>Semua Tipe</option>
+      <option>Deluxe Room</option>
+      <option>Junior Suite</option>
+      <option>Villa Suite</option>
+    </select>
+  </div>
+  <button class="booking-btn">Cek Ketersediaan</button>
+</div>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <p class="section-eyebrow">Cerita Kami</p>
+      <h2 class="section-title">Tempat di Mana<br><em>Kemewahan Bertemu</em><br>Ketenangan Alam</h2>
+      <p>Villa Nusantara berdiri di atas lahan seluas 2 hektar yang dikelilingi hamparan sawah hijau dan perbukitan tropis. Kami percaya bahwa liburan sejati bukan hanya tentang tempat tidur yang nyaman — melainkan tentang pengalaman yang mengubah cara pandang Anda.</p>
+      <p>Setiap villa dirancang oleh arsitek lokal dengan memadukan estetika kontemporer dan kearifan arsitektur tradisional Jawa, menciptakan ruang yang hangat, autentik, dan tak tertandingi.</p>
+      <div class="about-stats">
+        <div class="stat-item">
+          <div class="stat-num">12</div>
+          <div class="stat-label">Unit Villa Eksklusif</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">98%</div>
+          <div class="stat-label">Tingkat Kepuasan Tamu</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">8+</div>
+          <div class="stat-label">Tahun Berpengalaman</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">4.9★</div>
+          <div class="stat-label">Rating Google Review</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-images">
+      <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80" alt="Interior Villa">
+      <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&q=80" alt="Kolam Renang">
+      <div class="about-badge">✦ Terbaik<br>di Kelasnya</div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOMS -->
+<section class="rooms">
+  <div class="rooms-inner">
+    <div class="rooms-header">
+      <div>
+        <p class="section-eyebrow">Akomodasi</p>
+        <h2 class="section-title">Pilih <em>Kamar</em> Anda</h2>
+      </div>
+      <a href="#">Lihat Semua Kamar →</a>
+    </div>
+    <div class="rooms-grid">
+      <!-- Room 1 -->
+      <div class="room-card">
+        <div class="room-img">
+          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=700&q=80" alt="Deluxe Room">
+          <div class="room-tag">Deluxe Room</div>
+        </div>
+        <div class="room-info">
+          <h3>Deluxe Garden View</h3>
+          <p>Kamar luas dengan pemandangan taman tropis yang menenangkan dan balkon pribadi.</p>
+          <div class="room-amenities">
+            <span class="amenity">Wi-Fi Cepat</span>
+            <span class="amenity">AC</span>
+            <span class="amenity">TV 55"</span>
+            <span class="amenity">Bathtub</span>
+          </div>
+          <div class="room-footer">
+            <div class="room-price">
+              <span class="from">mulai dari</span>
+              <span class="price">Rp 850K</span>
+              <span class="night">/malam</span>
+            </div>
+            <a href="#" class="room-book">Pesan</a>
+          </div>
+        </div>
+      </div>
+      <!-- Room 2 -->
+      <div class="room-card">
+        <div class="room-img">
+          <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=700&q=80" alt="Junior Suite">
+          <div class="room-tag">Junior Suite</div>
+        </div>
+        <div class="room-info">
+          <h3>Junior Suite Pool Access</h3>
+          <p>Suite mewah dengan akses langsung ke kolam renang privat dan pemandangan sawah.</p>
+          <div class="room-amenities">
+            <span class="amenity">Pool Access</span>
+            <span class="amenity">Minibar</span>
+            <span class="amenity">Breakfast</span>
+            <span class="amenity">Butler</span>
+          </div>
+          <div class="room-footer">
+            <div class="room-price">
+              <span class="from">mulai dari</span>
+              <span class="price">Rp 1.4jt</span>
+              <span class="night">/malam</span>
+            </div>
+            <a href="#" class="room-book">Pesan</a>
+          </div>
+        </div>
+      </div>
+      <!-- Room 3 -->
+      <div class="room-card">
+        <div class="room-img">
+          <img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=700&q=80" alt="Villa Suite">
+          <div class="room-tag">Villa Suite</div>
+        </div>
+        <div class="room-info">
+          <h3>Private Villa Suite</h3>
+          <p>Villa berdiri sendiri dengan 2 kamar tidur, dapur, dan kolam renang pribadi nan eksklusif.</p>
+          <div class="room-amenities">
+            <span class="amenity">Private Pool</span>
+            <span class="amenity">2 Bedroom</span>
+            <span class="amenity">Full Kitchen</span>
+            <span class="amenity">Concierge</span>
+          </div>
+          <div class="room-footer">
+            <div class="room-price">
+              <span class="from">mulai dari</span>
+              <span class="price">Rp 3.2jt</span>
+              <span class="night">/malam</span>
+            </div>
+            <a href="#" class="room-book">Pesan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience">
+  <div class="exp-inner">
+    <p class="section-eyebrow">Pengalaman Kami</p>
+    <h2 class="section-title" style="color:#fff;">Lebih dari Sekadar<br><em>Tempat Menginap</em></h2>
+    <div class="exp-grid">
+      <div class="exp-item">
+        <span class="exp-icon">🍳</span>
+        <h3>Sarapan Chef Pribadi</h3>
+        <p>Nikmati sarapan segar yang disiapkan oleh chef berpengalaman dengan menu pilihan setiap harinya.</p>
+      </div>
+      <div class="exp-item">
+        <span class="exp-icon">💆</span>
+        <h3>Spa & Wellness</h3>
+        <p>Relaksasi total dengan perawatan spa tradisional Jawa dan yoga saat fajar bersama instruktur bersertifikat.</p>
+      </div>
+      <div class="exp-item">
+        <span class="exp-icon">🚴</span>
+        <h3>Wisata Sepeda</h3>
+        <p>Jelajahi desa-desa sekitar dan persawahan hijau dengan panduan lokal yang berpengalaman dan ramah.</p>
+      </div>
+      <div class="exp-item">
+        <span class="exp-icon">🌅</span>
+        <h3>Sunrise Trekking</h3>
+        <p>Saksikan matahari terbit yang memukau dari puncak bukit sambil ditemani secangkir kopi lokal premium.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="gallery-header">
+    <p class="section-eyebrow">Galeri</p>
+    <h2 class="section-title">Sekilas <em>Keindahan</em> Villa</h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item tall">
+      <img src="https://images.unsplash.com/photo-1580041065738-e72023775cdc?w=900&q=80" alt="Villa Exterior">
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=600&q=80" alt="Spa">
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80" alt="Dining">
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1615460549969-36fa19521a4f?w=600&q=80" alt="Pool">
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=600&q=80" alt="Room View">
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="test-inner">
+    <p class="section-eyebrow">Ulasan Tamu</p>
+    <h2 class="section-title">Yang Mereka<br><em>Rasakan</em></h2>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p>Pengalaman menginap yang benar-benar tak terlupakan. Stafnya sangat ramah dan profesional, sarapannya luar biasa enak!</p>
+        <div class="test-author">
+          <strong>Sari Dewi</strong>
+          <span>Jakarta · Mei 2024</span>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p>Villa ini adalah surga tersembunyi. Pemandangan sawah dari kamar membuat kami malas untuk keluar. Pasti akan kembali!</p>
+        <div class="test-author">
+          <strong>Budi & Rina</strong>
+          <span>Surabaya · April 2024</span>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p>Fasilitas bintang lima dengan nuansa kampung yang hangat. Spa-nya luar biasa! Ini liburan terbaik kami sekeluarga.</p>
+        <div class="test-author">
+          <strong>Keluarga Santoso</strong>
+          <span>Bandung · Maret 2024</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="cta-overlay"></div>
+  <div class="cta-content">
+    <p class="section-eyebrow">Pesan Sekarang</p>
+    <h2 class="section-title">Mulai Perjalanan<br>Tak Terlupakan Anda</h2>
+    <p>Dapatkan diskon 20% untuk pemesanan lebih dari 3 malam. Penawaran terbatas!</p>
+    <a href="#" class="btn-primary">Reservasi Sekarang</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="nav-logo">Villa <span style="color:var(--gold)">Nusantara</span></span>
+      <p>Penginapan premium di tengah keindahan alam Jawa yang autentik, memberikan pengalaman menginap tak terlupakan.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigasi</h4>
+      <ul>
+        <li><a href="#">Beranda</a></li>
+        <li><a href="#">Kamar & Suite</a></li>
+        <li><a href="#">Fasilitas</a></li>
+        <li><a href="#">Galeri</a></li>
+        <li><a href="#">Kontak</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Layanan</h4>
+      <ul>
+        <li><a href="#">Spa & Wellness</a></li>
+        <li><a href="#">Wisata Lokal</a></li>
+        <li><a href="#">Catering & Event</a></li>
+        <li><a href="#">Transfer Bandara</a></li>
+        <li><a href="#">Paket Honeymoon</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kontak</h4>
+      <ul>
+        <li><a href="#">📍 Jl. Raya Ubud No. 88</a></li>
+        <li><a href="#">📞 +62 812-3456-7890</a></li>
+        <li><a href="#">✉️ info@villanusantara.id</a></li>
+        <li><a href="#">📷 @villanusantara</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Villa Nusantara. Hak cipta dilindungi.</span>
+    <span>Dibuat dengan ♥ oleh <strong style="color:var(--gold)">WebKu Studio</strong></span>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  });
+  // Hero image load
+  const heroBg = document.getElementById('heroBg');
+  setTimeout(() => heroBg.classList.add('loaded'), 100);
+</script>
+</body>
+</html>

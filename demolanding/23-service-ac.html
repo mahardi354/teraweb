@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FrostCool — Jasa Service AC Profesional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue-deep:  #0C2340;
+      --blue-mid:   #0A3358;
+      --blue-sky:   #0EA5E9;
+      --blue-light: #38BDF8;
+      --blue-pale:  #E0F2FE;
+      --blue-frost: #F0F9FF;
+      --slate:      #64748B;
+      --slate-lt:   #94A3B8;
+      --white:      #FFFFFF;
+      --yellow:     #FCD34D;
+      --green:      #10B981;
+      --red-soft:   #EF4444;
+      --radius-sm:  6px;
+      --radius:     10px;
+      --radius-lg:  16px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--blue-frost); color: var(--blue-deep); overflow-x: hidden; }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6%; height: 68px;
+      background: rgba(12, 35, 64, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(14, 165, 233, 0.2);
+      transition: background 0.3s;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.6rem;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 36px; height: 36px; background: var(--blue-sky);
+      border-radius: 8px; display: flex; align-items: center;
+      justify-content: center; font-size: 1.1rem;
+    }
+    .logo-text {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.25rem; font-weight: 800; color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .logo-text span { color: var(--blue-sky); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75); text-decoration: none;
+      font-size: 0.875rem; font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue-light); }
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-phone {
+      color: var(--blue-light); font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; display: flex; align-items: center; gap: 0.4rem;
+    }
+    .nav-cta {
+      background: var(--blue-sky); color: var(--white);
+      padding: 0.5rem 1.3rem; border-radius: var(--radius-sm);
+      font-size: 0.85rem; font-weight: 600; text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--blue-light); transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 22px; height: 2px; background: var(--white); border-radius: 2px; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; min-height: 100vh;
+      background: linear-gradient(160deg, var(--blue-deep) 0%, var(--blue-mid) 55%, #083B5E 100%);
+      display: flex; align-items: center;
+      padding: 100px 6% 80px;
+      overflow: hidden;
+    }
+    /* Background bubbles — frost aesthetic */
+    .hero::before {
+      content: '';
+      position: absolute; top: -200px; right: -150px;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(14,165,233,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -150px; left: -100px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(56,189,248,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(14,165,233,0.15); border: 1px solid rgba(14,165,233,0.4);
+      color: var(--blue-light); padding: 0.4rem 1rem; border-radius: 40px;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+    .badge-dot { width: 7px; height: 7px; background: var(--blue-sky); border-radius: 50%; animation: blink 1.8s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .hero h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+      font-weight: 800; color: var(--white);
+      line-height: 1.1; letter-spacing: -0.03em;
+      margin-bottom: 1.3rem;
+    }
+    .hero h1 .highlight {
+      color: var(--blue-sky);
+      display: block;
+    }
+    .hero p {
+      color: rgba(255,255,255,0.68); font-size: 1rem;
+      line-height: 1.75; margin-bottom: 2.2rem; max-width: 460px;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .btn-hero {
+      background: var(--blue-sky); color: var(--white);
+      padding: 0.9rem 2rem; border-radius: var(--radius-sm);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700; font-size: 0.95rem; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 0 0 0 rgba(14,165,233,0.5);
+    }
+    .btn-hero:hover {
+      background: var(--blue-light); transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(14,165,233,0.4);
+    }
+    .btn-wa {
+      background: #25D366; color: var(--white);
+      padding: 0.9rem 2rem; border-radius: var(--radius-sm);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700; font-size: 0.95rem; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-wa:hover { background: #22C55E; transform: translateY(-2px); }
+    .hero-trust { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .trust-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      color: rgba(255,255,255,0.6); font-size: 0.82rem;
+    }
+    .trust-item span:first-child { color: var(--blue-light); font-size: 1rem; }
+
+    /* Hero right — AC visual card */
+    .hero-visual { position: relative; }
+    .ac-card-main {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: var(--radius-lg); overflow: hidden;
+      backdrop-filter: blur(8px);
+    }
+    .ac-card-main img {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;
+      opacity: 0.88;
+    }
+    .ac-card-overlay {
+      padding: 1.4rem 1.6rem;
+    }
+    .ac-status {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1.1rem;
+    }
+    .ac-status-text { color: var(--white); font-size: 0.85rem; font-weight: 600; }
+    .status-chip {
+      display: flex; align-items: center; gap: 0.4rem;
+      background: rgba(16,185,129,0.2); border: 1px solid rgba(16,185,129,0.4);
+      color: #34D399; padding: 0.28rem 0.8rem; border-radius: 20px;
+      font-size: 0.73rem; font-weight: 600;
+    }
+    .status-dot { width: 6px; height: 6px; background: #34D399; border-radius: 50%; animation: blink 1.5s infinite; }
+    /* Temp meter */
+    .temp-row { display: flex; gap: 1rem; }
+    .temp-box {
+      flex: 1; background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius); padding: 0.9rem 1rem;
+      text-align: center;
+    }
+    .temp-val {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.8rem; font-weight: 800; color: var(--blue-light);
+      line-height: 1;
+    }
+    .temp-label { color: rgba(255,255,255,0.5); font-size: 0.72rem; margin-top: 0.25rem; }
+
+    /* Floating cards */
+    .float-card {
+      position: absolute;
+      background: var(--white); border-radius: var(--radius);
+      padding: 0.9rem 1.1rem;
+      box-shadow: 0 12px 40px rgba(12,35,64,0.35);
+      display: flex; align-items: center; gap: 0.7rem;
+    }
+    .float-card-1 { bottom: -1.5rem; left: -2rem; }
+    .float-card-2 { top: -1.2rem; right: -1.5rem; }
+    .float-icon { font-size: 1.4rem; }
+    .float-title { font-size: 0.78rem; font-weight: 700; color: var(--blue-deep); }
+    .float-sub { font-size: 0.7rem; color: var(--slate); }
+
+    /* ── SECTION BASE ── */
+    .section-wrap { padding: 5.5rem 6%; }
+    .section-label {
+      font-size: 0.72rem; font-weight: 700; color: var(--blue-sky);
+      letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.7rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .section-label::before { content: ''; width: 20px; height: 2px; background: var(--blue-sky); border-radius: 2px; }
+    .section-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+      font-weight: 800; color: var(--blue-deep);
+      line-height: 1.18; letter-spacing: -0.025em;
+    }
+    .section-sub {
+      color: var(--slate); font-size: 0.97rem; line-height: 1.75;
+      max-width: 500px; margin-top: 0.7rem;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--blue-deep);
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .stat-item {
+      padding: 2rem 2.5rem; text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2.2rem; font-weight: 800;
+      color: var(--blue-sky); line-height: 1;
+      display: block; margin-bottom: 0.3rem;
+    }
+    .stat-lbl { color: rgba(255,255,255,0.55); font-size: 0.82rem; }
+
+    /* ── LAYANAN ── */
+    .layanan-section { background: var(--white); }
+    .layanan-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem; }
+    .layanan-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .layanan-card {
+      border: 1.5px solid var(--blue-pale);
+      border-radius: var(--radius-lg); padding: 2rem;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .layanan-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--blue-sky), var(--blue-light));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .layanan-card:hover::before { transform: scaleX(1); }
+    .layanan-card:hover {
+      border-color: rgba(14,165,233,0.35);
+      box-shadow: 0 12px 40px rgba(14,165,233,0.12);
+      transform: translateY(-4px);
+    }
+    .layanan-icon {
+      width: 56px; height: 56px;
+      background: var(--blue-pale); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; margin-bottom: 1.4rem;
+    }
+    .layanan-card h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem; font-weight: 700; color: var(--blue-deep);
+      margin-bottom: 0.6rem;
+    }
+    .layanan-card p { color: var(--slate); font-size: 0.88rem; line-height: 1.65; margin-bottom: 1.2rem; }
+    .layanan-price {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem; font-weight: 700; color: var(--blue-sky);
+    }
+    .layanan-price span { font-size: 0.75rem; font-weight: 400; color: var(--slate-lt); margin-left: 0.3rem; }
+
+    /* ── PROCESS ── */
+    .process-section { background: var(--blue-frost); }
+    .process-header { text-align: center; margin-bottom: 4rem; }
+    .process-header .section-label { justify-content: center; }
+    .process-header .section-sub { margin: 0.7rem auto 0; }
+    .process-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+      position: relative;
+    }
+    .process-steps::before {
+      content: ''; position: absolute; top: 36px; left: 12.5%; right: 12.5%; height: 2px;
+      background: linear-gradient(90deg, var(--blue-sky), var(--blue-light));
+      z-index: 0;
+    }
+    .step-card { text-align: center; position: relative; z-index: 1; }
+    .step-num {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: var(--blue-deep); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.3rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.4rem; font-weight: 800;
+      border: 4px solid var(--blue-frost);
+      box-shadow: 0 0 0 2px var(--blue-sky);
+    }
+    .step-num.active { background: var(--blue-sky); }
+    .step-card h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem; font-weight: 700; color: var(--blue-deep);
+      margin-bottom: 0.5rem;
+    }
+    .step-card p { color: var(--slate); font-size: 0.86rem; line-height: 1.6; }
+
+    /* ── PAKET HARGA ── */
+    .paket-section { background: var(--white); }
+    .paket-header { text-align: center; margin-bottom: 3.5rem; }
+    .paket-header .section-label { justify-content: center; }
+    .paket-header .section-sub { margin: 0.7rem auto 0; }
+    .paket-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+    .paket-card {
+      border: 1.5px solid var(--blue-pale); border-radius: var(--radius-lg);
+      padding: 2.2rem; position: relative; overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.25s;
+    }
+    .paket-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(14,165,233,0.12); }
+    .paket-card.featured {
+      background: var(--blue-deep); border-color: var(--blue-sky);
+      box-shadow: 0 12px 48px rgba(14,165,233,0.25);
+    }
+    .paket-popular {
+      position: absolute; top: 1.3rem; right: -2.2rem;
+      background: var(--blue-sky); color: var(--white);
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
+      padding: 0.3rem 2.8rem; transform: rotate(35deg);
+      text-transform: uppercase;
+    }
+    .paket-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--blue-sky); margin-bottom: 0.5rem;
+    }
+    .paket-price {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2.4rem; font-weight: 800; line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .paket-card:not(.featured) .paket-price { color: var(--blue-deep); }
+    .paket-card.featured .paket-price { color: var(--white); }
+    .paket-unit { font-size: 0.82rem; color: var(--slate-lt); margin-bottom: 1.5rem; }
+    .paket-card.featured .paket-unit { color: rgba(255,255,255,0.55); }
+    .paket-divider { border: none; border-top: 1px solid var(--blue-pale); margin-bottom: 1.5rem; }
+    .paket-card.featured .paket-divider { border-color: rgba(255,255,255,0.12); }
+    .paket-features { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+    .paket-features li {
+      display: flex; align-items: flex-start; gap: 0.7rem;
+      font-size: 0.88rem; line-height: 1.5;
+    }
+    .paket-card:not(.featured) .paket-features li { color: var(--slate); }
+    .paket-card.featured .paket-features li { color: rgba(255,255,255,0.8); }
+    .feat-check { color: var(--green); font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; }
+    .paket-card.featured .feat-check { color: #34D399; }
+    .btn-paket {
+      display: block; text-align: center; text-decoration: none;
+      padding: 0.85rem; border-radius: var(--radius-sm);
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.9rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .paket-card:not(.featured) .btn-paket {
+      background: var(--blue-pale); color: var(--blue-deep);
+    }
+    .paket-card:not(.featured) .btn-paket:hover { background: var(--blue-sky); color: var(--white); }
+    .paket-card.featured .btn-paket {
+      background: var(--blue-sky); color: var(--white);
+    }
+    .paket-card.featured .btn-paket:hover { background: var(--blue-light); }
+
+    /* ── AREA LAYANAN ── */
+    .area-section { background: var(--blue-deep); padding: 5.5rem 6%; }
+    .area-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center; }
+    .area-text .section-title { color: var(--white); }
+    .area-text .section-sub { color: rgba(255,255,255,0.6); }
+    .area-list { margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+    .area-chip {
+      display: flex; align-items: center; gap: 0.5rem;
+      background: rgba(14,165,233,0.1); border: 1px solid rgba(14,165,233,0.25);
+      color: rgba(255,255,255,0.8); padding: 0.6rem 1rem; border-radius: 40px;
+      font-size: 0.83rem; font-weight: 500;
+    }
+    .area-chip span:first-child { color: var(--blue-sky); }
+    .area-img-col { position: relative; }
+    .area-img {
+      width: 100%; border-radius: var(--radius-lg); aspect-ratio: 4/3; object-fit: cover;
+      border: 2px solid rgba(14,165,233,0.2);
+    }
+    .area-cta-box {
+      position: absolute; bottom: -1.5rem; left: 50%; transform: translateX(-50%);
+      background: var(--blue-sky); color: var(--white);
+      padding: 1.2rem 2rem; border-radius: var(--radius);
+      display: flex; align-items: center; gap: 1rem;
+      white-space: nowrap; box-shadow: 0 12px 40px rgba(14,165,233,0.45);
+    }
+    .area-cta-icon { font-size: 1.8rem; }
+    .area-cta-text { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.82rem; font-weight: 700; }
+    .area-cta-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; font-weight: 800; }
+
+    /* ── TESTIMONI ── */
+    .testi-section { background: var(--blue-frost); padding: 5.5rem 6%; }
+    .testi-header { text-align: center; margin-bottom: 3.5rem; }
+    .testi-header .section-label { justify-content: center; }
+    .testi-header .section-sub { margin: 0.7rem auto 0; }
+    .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .testi-card {
+      background: var(--white); border: 1px solid var(--blue-pale);
+      border-radius: var(--radius-lg); padding: 2rem;
+      transition: box-shadow 0.25s;
+    }
+    .testi-card:hover { box-shadow: 0 10px 36px rgba(14,165,233,0.1); }
+    .testi-quote { font-size: 2rem; color: var(--blue-sky); line-height: 1; margin-bottom: 0.8rem; }
+    .testi-text { color: var(--blue-deep); font-size: 0.92rem; line-height: 1.72; margin-bottom: 1.5rem; }
+    .testi-stars { color: var(--yellow); font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: 1.2rem; }
+    .testi-author { display: flex; align-items: center; gap: 0.85rem; }
+    .testi-avatar { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 2px solid var(--blue-pale); }
+    .testi-name { font-size: 0.9rem; font-weight: 700; color: var(--blue-deep); }
+    .testi-loc { font-size: 0.76rem; color: var(--slate); }
+
+    /* ── FAQ ── */
+    .faq-section { background: var(--white); padding: 5.5rem 6%; }
+    .faq-inner { display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: start; }
+    .faq-list { display: flex; flex-direction: column; gap: 0; }
+    .faq-item { border-bottom: 1px solid var(--blue-pale); }
+    .faq-q {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 0; cursor: pointer;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem; font-weight: 700; color: var(--blue-deep);
+      gap: 1rem;
+    }
+    .faq-q:hover { color: var(--blue-sky); }
+    .faq-toggle {
+      width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+      background: var(--blue-pale); display: flex; align-items: center;
+      justify-content: center; font-size: 1.1rem; color: var(--blue-sky);
+      transition: background 0.2s, transform 0.3s;
+    }
+    .faq-a {
+      color: var(--slate); font-size: 0.88rem; line-height: 1.7;
+      max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s;
+      padding-bottom: 0;
+    }
+    .faq-item.open .faq-a { max-height: 200px; padding-bottom: 1.2rem; }
+    .faq-item.open .faq-toggle { background: var(--blue-sky); color: var(--white); transform: rotate(45deg); }
+
+    /* ── BOOKING FORM ── */
+    .booking-section { background: var(--blue-deep); padding: 5.5rem 6%; }
+    .booking-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; max-width: 1100px; margin: 0 auto; }
+    .booking-text .section-title { color: var(--white); }
+    .booking-text .section-sub { color: rgba(255,255,255,0.6); }
+    .booking-perks { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.1rem; }
+    .perk { display: flex; align-items: center; gap: 0.9rem; }
+    .perk-icon {
+      width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+      background: rgba(14,165,233,0.15); border: 1px solid rgba(14,165,233,0.3);
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+    }
+    .perk-title { color: var(--white); font-size: 0.92rem; font-weight: 600; }
+    .perk-desc { color: rgba(255,255,255,0.55); font-size: 0.8rem; }
+    .booking-form {
+      background: var(--white); border-radius: var(--radius-lg); padding: 2.5rem;
+    }
+    .booking-form h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.2rem; font-weight: 800; color: var(--blue-deep);
+      margin-bottom: 1.8rem;
+    }
+    .form-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .fg { display: flex; flex-direction: column; gap: 0.4rem; }
+    .fg.full { grid-column: 1 / -1; }
+    .fg label { font-size: 0.78rem; font-weight: 600; color: var(--blue-deep); letter-spacing: 0.02em; }
+    .fg input, .fg select, .fg textarea {
+      padding: 0.75rem 1rem; border: 1.5px solid var(--blue-pale);
+      border-radius: var(--radius-sm); font-family: 'Inter', sans-serif;
+      font-size: 0.88rem; color: var(--blue-deep); background: var(--blue-frost);
+      outline: none; transition: border-color 0.2s, background 0.2s;
+      width: 100%;
+    }
+    .fg input:focus, .fg select:focus, .fg textarea:focus {
+      border-color: var(--blue-sky); background: var(--white);
+    }
+    .fg textarea { resize: vertical; min-height: 90px; }
+    .form-submit2 {
+      background: var(--blue-sky); color: var(--white); border: none;
+      padding: 1rem; border-radius: var(--radius-sm); width: 100%;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 700;
+      cursor: pointer; margin-top: 0.5rem;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .form-submit2:hover {
+      background: var(--blue-light);
+      box-shadow: 0 6px 24px rgba(14,165,233,0.4);
+    }
+    .form-note { text-align: center; color: var(--slate-lt); font-size: 0.76rem; margin-top: 0.8rem; }
+
+    /* ── FOOTER ── */
+    footer { background: #071929; color: rgba(255,255,255,0.55); padding: 4rem 6% 2rem; }
+    .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand { }
+    .footer-brand .nav-logo { display: inline-flex; margin-bottom: 1rem; }
+    .footer-brand p { font-size: 0.86rem; line-height: 1.72; max-width: 240px; }
+    .footer-col h4 { color: var(--white); font-size: 0.86rem; font-weight: 700; margin-bottom: 1.1rem; letter-spacing: 0.03em; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--blue-light); }
+    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin-bottom: 1.5rem; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { font-size: 0.8rem; }
+    .social-row { display: flex; gap: 0.7rem; }
+    .soc {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; font-size: 0.88rem; color: rgba(255,255,255,0.6);
+      transition: background 0.2s, color 0.2s;
+    }
+    .soc:hover { background: var(--blue-sky); color: var(--white); border-color: transparent; }
+
+    /* ── FLOATING WA ── */
+    .wa-float {
+      position: fixed; bottom: 1.8rem; right: 1.8rem; z-index: 300;
+      background: #25D366; border-radius: 50%;
+      width: 58px; height: 58px; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+      text-decoration: none; animation: waPulse 2.5s infinite;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+    @keyframes waPulse {
+      0%,100%{ box-shadow: 0 6px 24px rgba(37,211,102,0.5); }
+      50%{ box-shadow: 0 6px 28px rgba(37,211,102,0.7), 0 0 0 8px rgba(37,211,102,0.12); }
+    }
+    .wa-float svg { width: 28px; height: 28px; fill: white; }
+    .wa-tooltip {
+      position: absolute; right: 68px; top: 50%; transform: translateY(-50%);
+      background: var(--blue-deep); color: var(--white);
+      padding: 0.4rem 0.9rem; border-radius: 6px; font-size: 0.8rem; font-weight: 600;
+      white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s;
+    }
+    .wa-float:hover .wa-tooltip { opacity: 1; }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-visual { display: none; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .process-steps::before { display: none; }
+      .faq-inner, .booking-inner, .area-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .stats-bar { grid-template-columns: 1fr 1fr; }
+      .stat-item { border-right: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); }
+    }
+    @media (max-width: 700px) {
+      .nav-links, .nav-phone { display: none; }
+      .hamburger { display: flex; }
+      .section-wrap { padding: 4rem 5%; }
+      .booking-section, .area-section, .faq-section, .testi-section, .paket-section { padding: 4rem 5%; }
+      .process-steps { grid-template-columns: 1fr; }
+      .stats-bar { grid-template-columns: 1fr 1fr; }
+      .form-row2 { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .hero-actions { flex-direction: column; }
+      .btn-hero, .btn-wa { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="logo-icon">❄️</div>
+    <span class="logo-text">Frost<span>Cool</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#layanan">Layanan</a></li>
+    <li><a href="#paket">Paket Harga</a></li>
+    <li><a href="#area">Area</a></li>
+    <li><a href="#booking">Booking</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="nav-phone" href="tel:+6281234567890">📞 0812-3456-7890</a>
+    <a class="nav-cta" href="#booking">Booking Sekarang</a>
+  </div>
+  <div class="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-badge"><span class="badge-dot"></span> Respon Cepat · Teknisi Bersertifikat</div>
+      <h1>
+        AC Bermasalah?<br>
+        <span class="highlight">Kami Datang<br>dalam 2 Jam.</span>
+      </h1>
+      <p>Service AC profesional untuk rumah dan bisnis Anda. Berpengalaman 10+ tahun, teknisi bergaransi, dan harga transparan tanpa biaya tersembunyi.</p>
+      <div class="hero-actions">
+        <a href="#booking" class="btn-hero">📅 Booking Service</a>
+        <a href="https://wa.me/6281234567890" class="btn-wa">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Chat WhatsApp
+        </a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item"><span>✅</span> Garansi 30 Hari</div>
+        <div class="trust-item"><span>⚡</span> Respon &lt; 2 Jam</div>
+        <div class="trust-item"><span>🔧</span> Semua Merk AC</div>
+        <div class="trust-item"><span>💳</span> Bayar Setelah Beres</div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="ac-card-main">
+        <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=700&q=80" alt="Teknisi Service AC" />
+        <div class="ac-card-overlay">
+          <div class="ac-status">
+            <span class="ac-status-text">Status Pendingin</span>
+            <span class="status-chip"><span class="status-dot"></span> Optimal</span>
+          </div>
+          <div class="temp-row">
+            <div class="temp-box">
+              <div class="temp-val">18°</div>
+              <div class="temp-label">Suhu Set</div>
+            </div>
+            <div class="temp-box">
+              <div class="temp-val">23°</div>
+              <div class="temp-label">Suhu Ruangan</div>
+            </div>
+            <div class="temp-box">
+              <div class="temp-val">92%</div>
+              <div class="temp-label">Efisiensi</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="float-card float-card-1">
+        <div class="float-icon">⏱️</div>
+        <div>
+          <div class="float-title">Respon Cepat</div>
+          <div class="float-sub">Teknisi tiba dalam 2 jam</div>
+        </div>
+      </div>
+      <div class="float-card float-card-2">
+        <div class="float-icon">🌟</div>
+        <div>
+          <div class="float-title">Rating 4.9/5</div>
+          <div class="float-sub">dari 1.200+ ulasan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item reveal">
+    <span class="stat-num">8.500+</span>
+    <div class="stat-lbl">AC Berhasil Diservis</div>
+  </div>
+  <div class="stat-item reveal">
+    <span class="stat-num">10 Thn</span>
+    <div class="stat-lbl">Pengalaman Lapangan</div>
+  </div>
+  <div class="stat-item reveal">
+    <span class="stat-num">4.9 ⭐</span>
+    <div class="stat-lbl">Rating Rata-rata</div>
+  </div>
+  <div class="stat-item reveal">
+    <span class="stat-num">&lt; 2 Jam</span>
+    <div class="stat-lbl">Waktu Respons</div>
+  </div>
+</div>
+
+<!-- LAYANAN -->
+<section id="layanan" class="section-wrap layanan-section">
+  <div class="layanan-header">
+    <div>
+      <div class="section-label">Layanan Kami</div>
+      <h2 class="section-title">Semua Kebutuhan AC<br>Ada di Sini</h2>
+    </div>
+    <p class="section-sub">Dari servis rutin hingga perbaikan darurat, kami menangani semua merk dan tipe AC untuk hunian maupun komersial.</p>
+  </div>
+  <div class="layanan-grid">
+    <div class="layanan-card reveal">
+      <div class="layanan-icon">🧹</div>
+      <h3>Cuci AC</h3>
+      <p>Pembersihan menyeluruh filter, evaporator, dan kondensor menggunakan teknologi steam bertekanan tinggi. AC kembali dingin maksimal.</p>
+      <div class="layanan-price">Mulai Rp 80.000 <span>/ unit</span></div>
+    </div>
+    <div class="layanan-card reveal">
+      <div class="layanan-icon">🔧</div>
+      <h3>Servis & Tune-Up</h3>
+      <p>Pengecekan menyeluruh sistem kelistrikan, freon, kompresor, dan komponen internal. Deteksi masalah sebelum makin parah.</p>
+      <div class="layanan-price">Mulai Rp 120.000 <span>/ unit</span></div>
+    </div>
+    <div class="layanan-card reveal">
+      <div class="layanan-icon">❄️</div>
+      <h3>Isi Freon</h3>
+      <p>Pengisian ulang refrigerant dengan freon original berkualitas. Tersedia berbagai jenis freon: R22, R32, R410A, dan R-600A.</p>
+      <div class="layanan-price">Mulai Rp 150.000 <span>/ pengisian</span></div>
+    </div>
+    <div class="layanan-card reveal">
+      <div class="layanan-icon">🏗️</div>
+      <h3>Pasang AC Baru</h3>
+      <p>Instalasi AC baru lengkap dengan pipa, kabel, braket, dan pengujian sistem. Rapi, aman, dan bergaransi.</p>
+      <div class="layanan-price">Mulai Rp 350.000 <span>/ unit</span></div>
+    </div>
+    <div class="layanan-card reveal">
+      <div class="layanan-icon">🔌</div>
+      <h3>Perbaikan Kerusakan</h3>
+      <p>Diagnosa dan perbaikan kompresor mati, kebocoran freon, AC tidak dingin, remot error, dan berbagai kerusakan lainnya.</p>
+      <div class="layanan-price">Mulai Rp 200.000 <span>+ spare part</span></div>
+    </div>
+    <div class="layanan-card reveal">
+      <div class="layanan-icon">🏢</div>
+      <h3>Servis AC Komersial</h3>
+      <p>Perawatan AC central, split duct, dan VRV/VRF untuk gedung perkantoran, hotel, restoran, dan ruko. Kontrak maintenance tersedia.</p>
+      <div class="layanan-price">Hubungi Kami <span>untuk penawaran</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section-wrap process-section">
+  <div class="process-header">
+    <div class="section-label">Cara Kerja</div>
+    <h2 class="section-title">Proses Mudah, Beres Cepat</h2>
+    <p class="section-sub">Dari pemesanan hingga selesai servis, semua transparan dan tanpa ribet.</p>
+  </div>
+  <div class="process-steps">
+    <div class="step-card reveal">
+      <div class="step-num active">1</div>
+      <h4>Hubungi / Booking</h4>
+      <p>Hubungi kami via WhatsApp, telepon, atau isi form booking online. Ceritakan kondisi AC Anda.</p>
+    </div>
+    <div class="step-card reveal">
+      <div class="step-num">2</div>
+      <h4>Jadwal & Konfirmasi</h4>
+      <p>Tim kami mengkonfirmasi jadwal kedatangan teknisi dalam hitungan menit, sesuai waktu pilihan Anda.</p>
+    </div>
+    <div class="step-card reveal">
+      <div class="step-num">3</div>
+      <h4>Diagnosa & Servis</h4>
+      <p>Teknisi datang, melakukan pemeriksaan, memberikan estimasi biaya transparan sebelum mengerjakan.</p>
+    </div>
+    <div class="step-card reveal">
+      <div class="step-num">4</div>
+      <h4>Beres & Garansi</h4>
+      <p>Servis selesai, AC kembali dingin. Anda mendapatkan garansi layanan tertulis selama 30 hari.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PAKET HARGA -->
+<section id="paket" class="paket-section">
+  <div class="paket-header">
+    <div class="section-label">Paket Harga</div>
+    <h2 class="section-title">Transparan. Tanpa Kejutan.</h2>
+    <p class="section-sub">Pilih paket yang sesuai kebutuhan. Semua harga sudah termasuk jasa — Anda hanya bayar spare part jika ada penggantian.</p>
+  </div>
+  <div class="paket-grid">
+    <div class="paket-card reveal">
+      <div class="paket-name">Paket Hemat</div>
+      <div class="paket-price">Rp 80rb</div>
+      <div class="paket-unit">per unit AC</div>
+      <hr class="paket-divider" />
+      <ul class="paket-features">
+        <li><span class="feat-check">✓</span> Cuci filter & cover</li>
+        <li><span class="feat-check">✓</span> Pembersihan indoor unit</li>
+        <li><span class="feat-check">✓</span> Cek suhu & performa dasar</li>
+        <li><span class="feat-check">✓</span> Garansi 14 hari</li>
+      </ul>
+      <a href="#booking" class="btn-paket">Pilih Paket Ini</a>
+    </div>
+    <div class="paket-card featured reveal">
+      <div class="paket-popular">Terlaris</div>
+      <div class="paket-name">Paket Lengkap</div>
+      <div class="paket-price">Rp 200rb</div>
+      <div class="paket-unit">per unit AC</div>
+      <hr class="paket-divider" />
+      <ul class="paket-features">
+        <li><span class="feat-check">✓</span> Semua layanan Paket Hemat</li>
+        <li><span class="feat-check">✓</span> Cuci evaporator & kondensor</li>
+        <li><span class="feat-check">✓</span> Cek & top-up freon (jika perlu)</li>
+        <li><span class="feat-check">✓</span> Cek kelistrikan & kapasitor</li>
+        <li><span class="feat-check">✓</span> Laporan kondisi AC</li>
+        <li><span class="feat-check">✓</span> Garansi 30 hari</li>
+      </ul>
+      <a href="#booking" class="btn-paket">Pilih Paket Ini</a>
+    </div>
+    <div class="paket-card reveal">
+      <div class="paket-name">Paket Bulanan</div>
+      <div class="paket-price">Rp 500rb</div>
+      <div class="paket-unit">per bulan / 2 unit</div>
+      <hr class="paket-divider" />
+      <ul class="paket-features">
+        <li><span class="feat-check">✓</span> Servis rutin setiap bulan</li>
+        <li><span class="feat-check">✓</span> Prioritas respon darurat</li>
+        <li><span class="feat-check">✓</span> Diskon 15% spare part</li>
+        <li><span class="feat-check">✓</span> Laporan kondisi bulanan</li>
+        <li><span class="feat-check">✓</span> Garansi penuh sepanjang kontrak</li>
+      </ul>
+      <a href="#booking" class="btn-paket">Pilih Paket Ini</a>
+    </div>
+  </div>
+</section>
+
+<!-- AREA -->
+<section id="area" class="area-section">
+  <div class="area-inner">
+    <div class="area-text reveal">
+      <div class="section-label">Area Layanan</div>
+      <h2 class="section-title" style="color:var(--white)">Kami Melayani<br>Wilayah Ini</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.6)">Teknisi kami tersebar di berbagai titik kota agar respons tetap cepat ke lokasi Anda.</p>
+      <div class="area-list">
+        <div class="area-chip"><span>📍</span> Jakarta Selatan</div>
+        <div class="area-chip"><span>📍</span> Jakarta Timur</div>
+        <div class="area-chip"><span>📍</span> Jakarta Barat</div>
+        <div class="area-chip"><span>📍</span> Jakarta Utara</div>
+        <div class="area-chip"><span>📍</span> Jakarta Pusat</div>
+        <div class="area-chip"><span>📍</span> Depok</div>
+        <div class="area-chip"><span>📍</span> Bekasi</div>
+        <div class="area-chip"><span>📍</span> Tangerang</div>
+        <div class="area-chip"><span>📍</span> Tangerang Selatan</div>
+        <div class="area-chip"><span>📍</span> Bogor</div>
+      </div>
+    </div>
+    <div class="area-img-col reveal">
+      <img class="area-img" src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=700&q=80" alt="Teknisi AC sedang bekerja" />
+      <div class="area-cta-box">
+        <div class="area-cta-icon">📞</div>
+        <div>
+          <div class="area-cta-text">Hubungi Sekarang</div>
+          <div class="area-cta-num">0812-3456-7890</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section class="testi-section">
+  <div class="testi-header">
+    <div class="section-label">Testimoni</div>
+    <h2 class="section-title">Dipercaya Ribuan Pelanggan</h2>
+    <p class="section-sub">Pengalaman nyata dari pelanggan yang sudah mempercayakan AC mereka kepada FrostCool.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-quote">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">AC saya sudah tidak dingin hampir sebulan. Coba hubungi FrostCool pagi hari, siangnya sudah dikunjungi teknisi. Harga sesuai yang disampaikan di awal, tidak ada biaya tambahan yang mengejutkan. Recommended banget!</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Rina" />
+        <div>
+          <div class="testi-name">Rina Maharani</div>
+          <div class="testi-loc">📍 Kebayoran Baru, Jaksel</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-quote">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">Teknisinya sangat profesional dan menjelaskan masalah AC dengan detail sebelum mengerjakan. Ada 3 unit AC di kantor saya yang semuanya sudah diservis. Hasilnya memuaskan dan garansinya juga terbukti dipakai ketika ada masalah kecil.</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80" alt="Dika" />
+        <div>
+          <div class="testi-name">Dika Pratama</div>
+          <div class="testi-loc">📍 Gading Serpong, Tangerang</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-quote">"</div>
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">Sudah 2 tahun langganan paket bulanan di FrostCool. AC rumah selalu terjaga, jarang ada masalah. Kalau pun ada gangguan, langsung ditangani prioritas. Harga kontraknya juga sangat terjangkau dibanding layanan lain.</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80" alt="Sari" />
+        <div>
+          <div class="testi-name">Sari Wulandari</div>
+          <div class="testi-loc">📍 Cinere, Depok</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="reveal">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Pertanyaan yang Sering Ditanyakan</h2>
+      <p class="section-sub">Tidak menemukan jawaban yang Anda cari? Hubungi kami via WhatsApp.</p>
+      <a href="https://wa.me/6281234567890" class="btn-wa" style="margin-top:2rem;display:inline-flex;">💬 Tanya via WhatsApp</a>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item open">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Berapa lama proses servis AC?
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">Cuci AC standar membutuhkan waktu sekitar 45–90 menit per unit. Untuk perbaikan kerusakan, tergantung tingkat kerusakan — bisa 1–3 jam. Kami selalu menginformasikan estimasi waktu sebelum memulai pekerjaan.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Apakah semua merk AC dilayani?
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">Ya, kami melayani semua merk AC populer di Indonesia: Daikin, Panasonic, Sharp, LG, Samsung, Mitsubishi, Gree, Midea, Aux, dan lainnya. Teknisi kami berpengalaman dengan berbagai tipe dan kapasitas AC.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Garansi seperti apa yang diberikan?
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">Kami memberikan garansi jasa selama 14–30 hari (tergantung paket). Jika AC kembali bermasalah dalam masa garansi akibat pekerjaan kami, kami datang kembali tanpa biaya tambahan. Garansi spare part mengikuti ketentuan produsen.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Apakah ada biaya survei atau diagnosa?
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">Tidak ada biaya survei! Teknisi datang, memeriksa kondisi AC, dan memberikan estimasi biaya. Anda bisa setuju atau menolak sebelum pekerjaan dimulai. Biaya baru ditagihkan setelah servis selesai dan Anda puas.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Metode pembayaran apa yang diterima?
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">Kami menerima pembayaran tunai, transfer bank (BCA, Mandiri, BNI, BRI), dan dompet digital (GoPay, OVO, DANA, ShopeePay, QRIS). Pembayaran dilakukan setelah pekerjaan selesai dan Anda puas dengan hasilnya.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING FORM -->
+<section id="booking" class="booking-section">
+  <div class="booking-inner">
+    <div class="booking-text reveal">
+      <div class="section-label">Booking Online</div>
+      <h2 class="section-title" style="color:var(--white)">Jadwalkan Servis<br>AC Anda Sekarang</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.6)">Isi form di samping dan tim kami akan mengkonfirmasi jadwal dalam 15 menit.</p>
+      <div class="booking-perks">
+        <div class="perk">
+          <div class="perk-icon">⚡</div>
+          <div>
+            <div class="perk-title">Konfirmasi 15 Menit</div>
+            <div class="perk-desc">Tim kami merespons dengan cepat di hari kerja & akhir pekan</div>
+          </div>
+        </div>
+        <div class="perk">
+          <div class="perk-icon">💰</div>
+          <div>
+            <div class="perk-title">Estimasi Harga Transparan</div>
+            <div class="perk-desc">Biaya dikonfirmasi sebelum dikerjakan, tidak ada kejutan</div>
+          </div>
+        </div>
+        <div class="perk">
+          <div class="perk-icon">🛡️</div>
+          <div>
+            <div class="perk-title">Teknisi Bersertifikat</div>
+            <div class="perk-desc">Semua teknisi terlatih, beridentitas, dan diasuransikan</div>
+          </div>
+        </div>
+        <div class="perk">
+          <div class="perk-icon">🔄</div>
+          <div>
+            <div class="perk-title">Garansi Layanan 30 Hari</div>
+            <div class="perk-desc">Bermasalah lagi dalam garansi? Kami datang kembali gratis</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="booking-form reveal">
+      <h3>📅 Form Booking Service AC</h3>
+      <div class="form-row2">
+        <div class="fg">
+          <label>Nama Lengkap</label>
+          <input type="text" placeholder="Budi Santoso" />
+        </div>
+        <div class="fg">
+          <label>No. HP / WhatsApp</label>
+          <input type="tel" placeholder="08xx-xxxx-xxxx" />
+        </div>
+        <div class="fg">
+          <label>Jenis Layanan</label>
+          <select>
+            <option>Pilih layanan...</option>
+            <option>Cuci AC</option>
+            <option>Servis & Tune-Up</option>
+            <option>Isi Freon</option>
+            <option>Pasang AC Baru</option>
+            <option>Perbaikan Kerusakan</option>
+            <option>Servis AC Komersial</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Jumlah Unit AC</label>
+          <select>
+            <option>1 unit</option>
+            <option>2 unit</option>
+            <option>3 unit</option>
+            <option>4+ unit</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Tanggal Pilihan</label>
+          <input type="date" />
+        </div>
+        <div class="fg">
+          <label>Waktu Pilihan</label>
+          <select>
+            <option>Pilih waktu...</option>
+            <option>08.00 – 10.00</option>
+            <option>10.00 – 12.00</option>
+            <option>13.00 – 15.00</option>
+            <option>15.00 – 17.00</option>
+            <option>17.00 – 19.00</option>
+          </select>
+        </div>
+        <div class="fg full">
+          <label>Alamat Lengkap</label>
+          <input type="text" placeholder="Jl. Contoh No. 1, Kelurahan, Kecamatan, Kota" />
+        </div>
+        <div class="fg full">
+          <label>Keluhan / Keterangan Tambahan</label>
+          <textarea placeholder="Ceritakan kondisi AC Anda (misal: tidak dingin, bunyi berisik, remot error, bocor, dll)..."></textarea>
+        </div>
+      </div>
+      <button class="form-submit2" onclick="handleBook(event)">📅 Kirim Permintaan Booking</button>
+      <p class="form-note">🔒 Data Anda aman dan hanya digunakan untuk keperluan booking</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a class="nav-logo" href="#">
+        <div class="logo-icon">❄️</div>
+        <span class="logo-text">Frost<span>Cool</span></span>
+      </a>
+      <p>Jasa service AC profesional terpercaya dengan 10 tahun pengalaman. Melayani Jabodetabek 7 hari seminggu.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Layanan</h4>
+      <ul>
+        <li><a href="#">Cuci AC</a></li>
+        <li><a href="#">Servis & Tune-Up</a></li>
+        <li><a href="#">Isi Freon</a></li>
+        <li><a href="#">Pasang AC Baru</a></li>
+        <li><a href="#">Servis Komersial</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Informasi</h4>
+      <ul>
+        <li><a href="#">Tentang Kami</a></li>
+        <li><a href="#">Cara Kerja</a></li>
+        <li><a href="#">Paket Harga</a></li>
+        <li><a href="#">Area Layanan</a></li>
+        <li><a href="#">Blog Tips AC</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kontak</h4>
+      <ul>
+        <li><a href="tel:+6281234567890">📞 0812-3456-7890</a></li>
+        <li><a href="https://wa.me/6281234567890">💬 WhatsApp</a></li>
+        <li><a href="mailto:cs@frostcool.id">✉️ cs@frostcool.id</a></li>
+        <li><a href="#">📍 Lihat Lokasi</a></li>
+        <li><a href="#">⏰ Buka 08.00–20.00</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr class="footer-divider" />
+  <div class="footer-bottom">
+    <p>© 2025 FrostCool. Jasa Service AC Profesional. Semua hak dilindungi.</p>
+    <div class="social-row">
+      <a class="soc" href="#" title="Instagram">📷</a>
+      <a class="soc" href="#" title="Facebook">📘</a>
+      <a class="soc" href="#" title="TikTok">🎵</a>
+      <a class="soc" href="#" title="YouTube">▶️</a>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WA -->
+<a class="wa-float" href="https://wa.me/6281234567890" title="Chat WhatsApp">
+  <div class="wa-tooltip">Chat Sekarang</div>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
+
+<script>
+  // Scroll reveal
+  const revEls = document.querySelectorAll('.reveal');
+  const revObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  revEls.forEach(el => revObs.observe(el));
+
+  // Nav bg on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.background = window.scrollY > 60
+      ? 'rgba(12,35,64,0.99)'
+      : 'rgba(12,35,64,0.95)';
+  });
+
+  // FAQ toggle
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Booking submit
+  function handleBook(e) {
+    const btn = e.target;
+    btn.textContent = '✅ Booking Terkirim! Kami akan konfirmasi dalam 15 menit.';
+    btn.style.background = '#10B981';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = '📅 Kirim Permintaan Booking';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 5000);
+  }
+
+  // Set min date to today for booking form
+  const dateInput = document.querySelector('input[type="date"]');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+    dateInput.value = today;
+  }
+</script>
+</body>
+</html>

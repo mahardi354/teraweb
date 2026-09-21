@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurelia Aesthetic Clinic — Klinik Kecantikan Purwokerto</title>
+<meta name="description" content="Aurelia Aesthetic Clinic Purwokerto. Dokter estetika berpengalaman. Treatment laser, botox, filler, peeling, & skincare medis. Konsultasi gratis. Buka 6 hari seminggu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────
+   TOKEN SYSTEM
+───────────────────────────────────────── */
+:root {
+  /* Palette */
+  --sage:       #3D6B5E;
+  --sage-dark:  #2C5044;
+  --sage-mid:   #4E7D70;
+  --sage-light: #EBF2F0;
+  --sage-pale:  #F3F8F6;
+  --gold:       #C8A96E;
+  --gold-dark:  #A8884E;
+  --gold-light: #E6CFA0;
+  --gold-pale:  #FBF6EE;
+  --white:      #FEFEFE;
+  --gray:       #F6F7F9;
+  --border:     #E8ECE8;
+  --text:       #1C2B27;
+  --text-mid:   #4A5E59;
+  --text-muted: #8DA09A;
+  /* Type scale */
+  --fs-display: clamp(48px, 6.5vw, 82px);
+  --fs-h2:      clamp(30px, 4vw, 48px);
+  --fs-h3:      clamp(18px, 2vw, 24px);
+  --fs-body:    16px;
+  --fs-small:   13px;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0 }
+html { scroll-behavior:smooth }
+body {
+  background: var(--white);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: var(--fs-body);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+img { display:block; max-width:100% }
+a { text-decoration:none }
+
+/* ─────────────────────────────────────────
+   UTILITY
+───────────────────────────────────────── */
+.container { max-width:1120px; margin:0 auto; padding:0 28px }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px; height: 1px;
+  background: var(--gold);
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: var(--fs-h2);
+  color: var(--text);
+  line-height: 1.1;
+  letter-spacing: -0.3px;
+}
+.section-title em { font-style:italic; color:var(--sage) }
+.section-sub {
+  font-size: 16px;
+  color: var(--text-mid);
+  font-weight: 300;
+  line-height: 1.85;
+  max-width: 520px;
+}
+.divider-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: var(--gold);
+  font-size: 14px;
+  padding: 16px 0;
+}
+.divider-ornament::before,
+.divider-ornament::after {
+  content: '';
+  flex: 1;
+  max-width: 80px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+/* ─────────────────────────────────────────
+   BUTTONS
+───────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  border-radius: 4px;
+  transition: all 0.25s;
+  cursor: pointer;
+  border: none;
+}
+.btn-sage {
+  background: var(--sage);
+  color: #fff;
+  padding: 15px 30px;
+}
+.btn-sage:hover { background: var(--sage-dark); transform:translateY(-2px); box-shadow: 0 8px 24px rgba(61,107,94,.28) }
+.btn-gold {
+  background: var(--gold);
+  color: var(--text);
+  padding: 15px 30px;
+}
+.btn-gold:hover { background: var(--gold-dark); transform:translateY(-2px); box-shadow: 0 8px 24px rgba(200,169,110,.35) }
+.btn-outline {
+  background: transparent;
+  color: var(--sage);
+  border: 1.5px solid var(--sage);
+  padding: 14px 28px;
+}
+.btn-outline:hover { background: var(--sage); color:#fff }
+.btn-outline-white {
+  background: transparent;
+  color: rgba(255,255,255,.88);
+  border: 1.5px solid rgba(255,255,255,.35);
+  padding: 14px 28px;
+}
+.btn-outline-white:hover { background: rgba(255,255,255,.12); border-color:rgba(255,255,255,.7); color:#fff }
+.btn-lg { padding: 17px 38px; font-size: 15px }
+
+/* ─────────────────────────────────────────
+   NAV
+───────────────────────────────────────── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(254,254,254,.97);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 16px rgba(61,107,94,.05);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+.nav-logo { display:flex; align-items:center; gap:14px }
+.nav-logo-icon {
+  width: 40px; height: 40px;
+  background: var(--sage);
+  border-radius: 50%;
+  display: flex; align-items:center; justify-content:center;
+  font-size: 18px; flex-shrink:0;
+}
+.nav-logo-text {}
+.nav-logo-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--text);
+  line-height: 1;
+}
+.nav-logo-sub {
+  font-size: 10px;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.nav-links { display:flex; gap:28px; list-style:none }
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-mid);
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--sage) }
+.nav-actions { display:flex; align-items:center; gap:12px }
+.nav-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--sage);
+  color: #fff;
+  padding: 9px 18px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background .2s;
+}
+.nav-wa:hover { background: var(--sage-dark) }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px }
+.hamburger span { display:block; width:24px; height:1.5px; background:var(--text); border-radius:2px }
+
+/* ─────────────────────────────────────────
+   HERO — Signature diagonal split
+───────────────────────────────────────── */
+.hero {
+  min-height: 92vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+/* Dark sage left panel */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 58%;
+  background: var(--sage-dark);
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+  z-index: 0;
+}
+/* Diagonal gold accent line */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: calc(58% - 2px);
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--gold) 20%, var(--gold) 80%, transparent);
+  clip-path: polygon(0 0, 100% 0, 65% 100%, -35% 100%);
+  z-index: 1;
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 0;
+  align-items: center;
+  min-height: 92vh;
+  position: relative;
+  z-index: 2;
+  padding: 80px 28px;
+}
+.hero-left { padding-right: 64px }
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 20px;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--gold);
+}
+.hero-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: var(--fs-display);
+  line-height: 1.0;
+  color: #fff;
+  margin-bottom: 22px;
+  letter-spacing: -1px;
+}
+.hero-h1 em { font-style:italic; color:var(--gold-light) }
+.hero-sub {
+  font-size: 16px;
+  color: rgba(255,255,255,.68);
+  line-height: 1.85;
+  max-width: 400px;
+  margin-bottom: 36px;
+  font-weight: 300;
+}
+.hero-ctas { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:52px }
+.hero-stats { display:flex; gap:40px }
+.hero-stat {}
+.hero-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 36px;
+  color: #fff;
+  line-height: 1;
+}
+.hero-stat-num span { color:var(--gold-light) }
+.hero-stat-label {
+  font-size: 12px;
+  color: rgba(255,255,255,.5);
+  font-weight: 500;
+  margin-top: 3px;
+  letter-spacing: 0.3px;
+}
+
+/* Hero right — foto + floating cards */
+.hero-right { position:relative; height:560px }
+.hero-photo {
+  position: absolute;
+  top: 0; right: -28px;
+  width: calc(100% + 28px);
+  height: 100%;
+  overflow: hidden;
+  border-radius: 2px 0 0 2px;
+}
+.hero-photo img {
+  width:100%; height:100%;
+  object-fit:cover;
+  object-position:center top;
+}
+.hero-photo .img-fb {
+  display:none;
+  width:100%; height:100%;
+  background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
+  align-items:center;
+  justify-content:center;
+  font-size: 80px;
+}
+/* Floating trust card */
+.hero-trust-card {
+  position: absolute;
+  bottom: 40px;
+  left: -36px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px 22px;
+  box-shadow: 0 16px 48px rgba(44,80,68,.18);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 260px;
+  z-index: 10;
+}
+.htc-icon {
+  width: 46px; height: 46px;
+  background: var(--sage-light);
+  border-radius: 50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size: 20px; flex-shrink:0;
+}
+.htc-title { font-weight:700; font-size:14px; color:var(--text); margin-bottom:2px }
+.htc-sub { font-size:12px; color:var(--text-muted) }
+/* Floating rating card */
+.hero-rating-card {
+  position: absolute;
+  top: 32px;
+  left: -48px;
+  background: var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  box-shadow: 0 8px 28px rgba(200,169,110,.4);
+  z-index: 10;
+  text-align: center;
+}
+.hrc-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--text);
+  line-height: 1;
+}
+.hrc-stars { font-size:14px; color:var(--text); letter-spacing:2px; margin:2px 0 }
+.hrc-label { font-size:10px; color:var(--text); font-weight:600; letter-spacing:1px; text-transform:uppercase }
+
+/* ─────────────────────────────────────────
+   ABOUT STRIP
+───────────────────────────────────────── */
+.about-strip {
+  background: var(--sage);
+  padding: 20px 0;
+}
+.about-strip-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 36px;
+}
+.as-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,.8);
+  font-size: 13px;
+  font-weight: 500;
+}
+.as-item svg { color:var(--gold-light); flex-shrink:0 }
+
+/* ─────────────────────────────────────────
+   SECTIONS — common spacing
+───────────────────────────────────────── */
+.section { padding: 96px 0 }
+.section-sm { padding: 72px 0 }
+.bg-gray { background: var(--gray) }
+.bg-pale { background: var(--sage-pale) }
+.bg-sage { background: var(--sage) }
+.bg-dark { background: var(--sage-dark) }
+
+/* ─────────────────────────────────────────
+   ABOUT / CLINIC
+───────────────────────────────────────── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+.about-photo-stack { position:relative }
+.about-photo-main {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 400px;
+}
+.about-photo-main img { width:100%; height:100%; object-fit:cover }
+.about-photo-main .img-fb {
+  display:none; width:100%; height:100%;
+  background:var(--sage-light);
+  align-items:center; justify-content:center; font-size:80px;
+}
+.about-photo-accent {
+  position: absolute;
+  bottom: -20px; right: 0;
+  width: 180px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 4px solid #fff;
+  box-shadow: 0 8px 28px rgba(0,0,0,.12);
+}
+.about-photo-accent img { width:100%; aspect-ratio:1; object-fit:cover }
+.about-photo-accent .img-fb {
+  display:none; width:100%;
+  aspect-ratio:1;
+  background:var(--gold-pale);
+  align-items:center; justify-content:center; font-size:40px;
+}
+.about-text {}
+.about-text .section-sub { margin-bottom:24px }
+.about-pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 32px;
+}
+.about-pillar {
+  background: var(--sage-pale);
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  transition: border-color .2s;
+}
+.about-pillar:hover { border-color:var(--sage-light) }
+.ap-icon { font-size:24px; margin-bottom:10px }
+.ap-title { font-weight:700; font-size:14px; color:var(--text); margin-bottom:4px }
+.ap-desc { font-size:13px; color:var(--text-muted); line-height:1.5 }
+
+/* ─────────────────────────────────────────
+   DOKTER
+───────────────────────────────────────── */
+.dokter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 52px;
+}
+.dokter-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all .25s;
+}
+.dokter-card:hover { transform:translateY(-6px); box-shadow:0 16px 48px rgba(61,107,94,.12); border-color:rgba(61,107,94,.2) }
+.dokter-photo {
+  height: 260px;
+  overflow: hidden;
+  background: var(--sage-light);
+  position: relative;
+}
+.dokter-photo img {
+  width:100%; height:100%;
+  object-fit:cover; object-position:center top;
+  transition: transform .5s;
+}
+.dokter-card:hover .dokter-photo img { transform:scale(1.04) }
+.dokter-photo .img-fb {
+  display:none; width:100%; height:100%;
+  align-items:center; justify-content:center;
+  font-size:72px; background:var(--sage-light);
+}
+.dokter-stra {
+  position: absolute;
+  top: 12px; right: 12px;
+  background: var(--sage);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+.dokter-info { padding: 22px 20px }
+.dokter-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.dokter-role {
+  font-size: 12px;
+  color: var(--gold-dark);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.dokter-spec { font-size:13px; color:var(--text-muted); line-height:1.6 }
+
+/* ─────────────────────────────────────────
+   TREATMENT — 3D flip cards
+───────────────────────────────────────── */
+.treatment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 52px;
+}
+.flip-card {
+  height: 320px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%; height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner { transform:rotateY(180deg) }
+.flip-front, .flip-back {
+  position: absolute;
+  width: 100%; height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+/* Front */
+.flip-front {
+  background: var(--white);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 28px;
+  text-align: center;
+  gap: 0;
+}
+.ff-icon {
+  font-size: 48px;
+  margin-bottom: 18px;
+  line-height: 1;
+}
+.ff-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.ff-tagline {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+.ff-hint {
+  font-size: 11px;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.ff-hint::before { content:''; width:16px; height:1px; background:var(--gold) }
+.ff-hint::after  { content:''; width:16px; height:1px; background:var(--gold) }
+/* Back */
+.flip-back {
+  background: var(--sage);
+  transform: rotateY(180deg);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.fb-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 14px;
+}
+.fb-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.fb-list li {
+  font-size: 13px;
+  color: rgba(255,255,255,.78);
+  display: flex;
+  gap: 8px;
+  line-height: 1.4;
+}
+.fb-list li::before { content:'✦'; color:var(--gold-light); font-size:9px; margin-top:3px; flex-shrink:0 }
+.fb-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--gold-light);
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.fb-cta {
+  background: var(--gold);
+  color: var(--text);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 100px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  transition: background .2s;
+}
+.fb-cta:hover { background:var(--gold-dark) }
+
+/* ─────────────────────────────────────────
+   GALERI — sebelum/sesudah feel
+───────────────────────────────────────── */
+.galeri-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.galeri-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto;
+  gap: 12px;
+}
+.galeri-item {
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.galeri-item.tall { grid-row: span 2 }
+.galeri-item.wide { grid-column: span 2 }
+.galeri-item img {
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+  transition: transform .5s ease;
+}
+.galeri-item.tall img,
+.galeri-item:not(.tall):not(.wide) img { aspect-ratio: auto }
+.galeri-item.wide img { aspect-ratio: auto }
+.galeri-item img { aspect-ratio:1 }
+.galeri-item.tall img { aspect-ratio: 1/2 }
+.galeri-item.wide img { aspect-ratio: 2/1 }
+.galeri-item .img-fb {
+  display:none;
+  background:var(--sage-light);
+  align-items:center; justify-content:center;
+  font-size:48px;
+  aspect-ratio:1;
+}
+.galeri-item.tall .img-fb { aspect-ratio:1/2 }
+.galeri-item.wide .img-fb { aspect-ratio:2/1 }
+.galeri-item:hover img { transform:scale(1.06) }
+.galeri-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(transparent 50%, rgba(44,80,68,.72));
+  opacity:0; transition:opacity .3s;
+  display:flex; flex-direction:column;
+  justify-content:flex-end;
+  padding:16px;
+}
+.galeri-item:hover .galeri-overlay { opacity:1 }
+.galeri-caption { font-size:12px; font-weight:700; color:#fff; letter-spacing:.5px; text-transform:uppercase }
+.galeri-sub { font-size:11px; color:rgba(255,255,255,.65); margin-top:2px }
+
+/* ─────────────────────────────────────────
+   TESTIMONI
+───────────────────────────────────────── */
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 52px;
+}
+.testi-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px;
+  position: relative;
+  transition: border-color .25s, box-shadow .25s;
+}
+.testi-card:hover { border-color:rgba(61,107,94,.25); box-shadow:0 8px 28px rgba(61,107,94,.08) }
+.testi-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  color: var(--sage-light);
+  line-height: .7;
+  position:absolute; top:18px; right:22px;
+  font-weight:700;
+}
+.testi-stars { color:var(--gold); font-size:14px; letter-spacing:2px; margin-bottom:14px }
+.testi-text {
+  font-size:14px; color:var(--text-mid);
+  line-height:1.85; font-style:italic;
+  margin-bottom:22px; font-weight:300;
+}
+.testi-author { display:flex; align-items:center; gap:12px }
+.testi-av {
+  width:42px; height:42px;
+  border-radius:50%; overflow:hidden;
+  border:2px solid var(--border); flex-shrink:0;
+}
+.testi-av img { width:100%; height:100%; object-fit:cover }
+.testi-av .img-fb {
+  display:none; width:100%; height:100%;
+  background:var(--sage-light);
+  align-items:center; justify-content:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px; font-weight:700;
+  color:var(--sage);
+}
+.testi-name { font-weight:700; font-size:14px; color:var(--text) }
+.testi-tag {
+  display:inline-block;
+  background:var(--sage-pale);
+  color:var(--sage);
+  font-size:11px; font-weight:700;
+  padding:2px 8px; border-radius:100px;
+  margin-top:3px;
+}
+
+/* ─────────────────────────────────────────
+   PAKET
+───────────────────────────────────────── */
+.paket-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 52px;
+  align-items: start;
+}
+.paket-card {
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:32px 28px;
+  transition:all .25s;
+  position:relative;
+}
+.paket-card:hover { box-shadow:0 12px 36px rgba(61,107,94,.1); border-color:rgba(61,107,94,.25) }
+.paket-card.featured {
+  background:var(--sage);
+  border-color:var(--sage);
+  transform:translateY(-10px);
+  box-shadow:0 20px 56px rgba(61,107,94,.28);
+}
+.paket-badge {
+  position:absolute; top:-13px; left:50%;
+  transform:translateX(-50%);
+  background:var(--gold);
+  color:var(--text);
+  font-size:10px; font-weight:700;
+  letter-spacing:1.5px; text-transform:uppercase;
+  padding:5px 16px; border-radius:100px;
+  white-space:nowrap;
+}
+.paket-name {
+  font-family:'Cormorant Garamond',serif;
+  font-weight:600; font-size:22px;
+  color:var(--text); margin-bottom:6px;
+}
+.paket-card.featured .paket-name { color:#fff }
+.paket-tagline { font-size:13px; color:var(--text-muted); margin-bottom:22px; font-weight:300 }
+.paket-card.featured .paket-tagline { color:rgba(255,255,255,.55) }
+.paket-price {
+  font-family:'Cormorant Garamond',serif;
+  font-weight:700; font-size:38px;
+  color:var(--text); line-height:1; margin-bottom:4px;
+}
+.paket-card.featured .paket-price { color:var(--gold-light) }
+.paket-price-note { font-size:12px; color:var(--text-muted); margin-bottom:26px; font-weight:300 }
+.paket-card.featured .paket-price-note { color:rgba(255,255,255,.4) }
+.paket-div { height:1px; background:var(--border); margin-bottom:22px }
+.paket-card.featured .paket-div { background:rgba(255,255,255,.15) }
+.paket-list { list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:26px }
+.paket-list li {
+  font-size:14px; color:var(--text-mid);
+  display:flex; gap:10px; align-items:flex-start;
+}
+.paket-card.featured .paket-list li { color:rgba(255,255,255,.75) }
+.paket-list li .check { color:var(--sage); flex-shrink:0; margin-top:2px }
+.paket-card.featured .paket-list li .check { color:var(--gold-light) }
+.paket-cta-outline {
+  display:block; text-align:center;
+  padding:13px; border-radius:4px;
+  border:1.5px solid var(--border);
+  color:var(--text); font-weight:600; font-size:14px;
+  transition:all .2s;
+}
+.paket-cta-outline:hover { border-color:var(--sage); color:var(--sage) }
+.paket-cta-solid {
+  display:block; text-align:center;
+  padding:13px; border-radius:4px;
+  background:var(--gold); color:var(--text);
+  font-weight:700; font-size:14px;
+  transition:background .2s;
+}
+.paket-cta-solid:hover { background:var(--gold-dark) }
+
+/* ─────────────────────────────────────────
+   JAM & KONTAK
+───────────────────────────────────────── */
+.jam-kontak-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:36px;
+  margin-top:52px;
+  align-items:start;
+}
+.jam-card {
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+}
+.jam-head {
+  background:var(--sage);
+  padding:16px 22px;
+  display:flex; align-items:center; gap:10px;
+}
+.jam-head-title { font-weight:600; font-size:16px; color:#fff }
+.jam-row {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:14px 22px; border-bottom:1px solid var(--border);
+}
+.jam-row:last-child { border-bottom:none }
+.jam-row.today { background:var(--sage-pale) }
+.jam-day { font-size:14px; color:var(--text-mid); font-weight:500 }
+.jam-row.today .jam-day { color:var(--sage); font-weight:700 }
+.jam-time {
+  font-family:'Cormorant Garamond',serif;
+  font-weight:600; font-size:17px; color:var(--text);
+}
+.jam-closed { color:var(--text-muted)!important; font-style:italic; font-size:14px!important; font-family:'DM Sans',sans-serif!important }
+.open-badge {
+  display:inline-flex; align-items:center; gap:7px;
+  background:var(--sage-pale); border:1px solid rgba(61,107,94,.2);
+  border-radius:100px; padding:7px 14px;
+  font-size:12px; font-weight:700; color:var(--sage);
+  margin-bottom:14px;
+}
+.open-dot {
+  width:7px; height:7px; border-radius:50%; background:var(--sage);
+  animation:blink 1.5s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+.kontak-card {
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+}
+.kontak-row {
+  display:flex; gap:16px;
+  padding:18px 22px; border-bottom:1px solid var(--border);
+  align-items:flex-start;
+}
+.kontak-row:last-of-type { border-bottom:none }
+.kontak-icon {
+  width:40px; height:40px; flex-shrink:0;
+  background:var(--sage-light);
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:16px; margin-top:2px;
+}
+.kontak-body strong { display:block; font-weight:700; font-size:14px; color:var(--text); margin-bottom:3px }
+.kontak-body p { font-size:13px; color:var(--text-mid); line-height:1.6; font-weight:300 }
+.kontak-wa-btn {
+  display:flex; align-items:center; justify-content:space-between;
+  background:var(--sage); color:#fff;
+  padding:16px 22px; font-weight:600; font-size:15px;
+  transition:background .2s;
+}
+.kontak-wa-btn:hover { background:var(--sage-dark) }
+
+/* ─────────────────────────────────────────
+   FAQ
+───────────────────────────────────────── */
+.faq-wrap { max-width:720px; margin:48px auto 0 }
+.faq-item {
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:8px;
+  overflow:hidden;
+  margin-bottom:6px;
+}
+.faq-item.open { border-color:rgba(61,107,94,.3) }
+.faq-q {
+  width:100%; background:none; border:none;
+  padding:18px 22px;
+  display:flex; justify-content:space-between; align-items:center;
+  cursor:pointer; color:var(--text);
+  font-size:15px; font-weight:600;
+  text-align:left; gap:12px;
+  font-family:'DM Sans',sans-serif; transition:color .2s;
+}
+.faq-q:hover { color:var(--sage) }
+.faq-arrow { color:var(--text-muted); transition:transform .3s,color .2s; flex-shrink:0 }
+.faq-item.open .faq-arrow { transform:rotate(180deg); color:var(--gold) }
+.faq-a { max-height:0; overflow:hidden; transition:max-height .35s ease }
+.faq-a-inner {
+  padding:0 22px 18px;
+  font-size:14px; color:var(--text-mid);
+  line-height:1.8; border-top:1px solid var(--border);
+  font-weight:300;
+}
+.faq-item.open .faq-a { max-height:300px }
+
+/* ─────────────────────────────────────────
+   CTA
+───────────────────────────────────────── */
+.cta-section { position:relative; padding:112px 0; text-align:center; overflow:hidden }
+.cta-bg img {
+  position:absolute; inset:0;
+  width:100%; height:100%; object-fit:cover;
+}
+.cta-bg .img-fb {
+  position:absolute; inset:0;
+  display:none; background:linear-gradient(135deg,var(--sage-dark),#1a3d32);
+  align-items:center; justify-content:center; font-size:80px;
+}
+.cta-overlay { position:absolute; inset:0; background:rgba(28,43,39,.74) }
+.cta-inner { position:relative; z-index:1; padding:0 28px }
+.cta-eyebrow {
+  display:inline-flex; align-items:center; gap:10px;
+  font-size:11px; font-weight:600;
+  letter-spacing:2.5px; text-transform:uppercase;
+  color:var(--gold-light); margin-bottom:16px; justify-content:center;
+}
+.cta-eyebrow::before,.cta-eyebrow::after {
+  content:''; width:24px; height:1px; background:var(--gold);
+}
+.cta-title {
+  font-family:'Cormorant Garamond',serif;
+  font-weight:600; font-size:var(--fs-h2);
+  color:#fff; max-width:600px;
+  margin:0 auto 14px; line-height:1.1;
+}
+.cta-title em { color:var(--gold-light); font-style:italic }
+.cta-sub {
+  font-size:16px; color:rgba(255,255,255,.65);
+  max-width:440px; margin:0 auto 40px;
+  line-height:1.8; font-weight:300;
+}
+.cta-actions { display:flex; flex-wrap:wrap; gap:14px; justify-content:center }
+
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
+footer { background:var(--sage-dark); padding:60px 0 24px }
+.footer-top {
+  display:grid;
+  grid-template-columns:2.2fr 1fr 1fr 1fr;
+  gap:52px;
+  margin-bottom:48px;
+}
+.footer-brand-name {
+  font-family:'Cormorant Garamond',serif;
+  font-weight:600; font-size:21px;
+  color:#fff; margin-bottom:4px;
+}
+.footer-brand-sub {
+  font-size:10px; color:var(--gold-light);
+  font-weight:600; letter-spacing:3px;
+  text-transform:uppercase; margin-bottom:16px;
+}
+.footer-brand p {
+  font-size:13px; color:rgba(255,255,255,.45);
+  line-height:1.8; max-width:260px; font-weight:300;
+}
+.footer-col h4 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px; color:#fff;
+  margin-bottom:16px; font-weight:600;
+}
+.footer-col ul { list-style:none; display:flex; flex-direction:column; gap:10px }
+.footer-col ul li a {
+  font-size:13px; color:rgba(255,255,255,.45);
+  transition:color .2s; font-weight:300;
+}
+.footer-col ul li a:hover { color:var(--gold-light) }
+.footer-disclaimer {
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:6px; padding:14px 18px;
+  margin-bottom:24px;
+}
+.footer-disclaimer p { font-size:12px; color:rgba(255,255,255,.35); line-height:1.6 }
+.footer-bottom {
+  border-top:1px solid rgba(255,255,255,.08);
+  padding-top:20px;
+  display:flex; justify-content:space-between;
+  align-items:center; flex-wrap:wrap; gap:12px;
+}
+.footer-bottom p { font-size:12px; color:rgba(255,255,255,.3); font-weight:300 }
+.footer-bottom a { color:rgba(255,255,255,.3); transition:color .2s }
+.footer-bottom a:hover { color:var(--gold-light) }
+
+/* ─────────────────────────────────────────
+   WA FLOAT
+───────────────────────────────────────── */
+.wa-float {
+  position:fixed; bottom:28px; right:28px; z-index:999;
+  display:flex; align-items:center; gap:10px;
+  background:#25D366; color:#fff;
+  padding:14px 20px 14px 16px; border-radius:100px;
+  text-decoration:none; font-weight:700; font-size:14px;
+  box-shadow:0 8px 32px rgba(37,211,102,.4);
+  transition:all .2s;
+}
+.wa-float:hover { background:#1EB850; transform:translateY(-3px) }
+.wa-float svg { width:22px; height:22px }
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media(max-width:1024px) {
+  .footer-top { grid-template-columns:1fr 1fr }
+}
+@media(max-width:900px) {
+  .hero::before { width:100%; clip-path:none }
+  .hero::after { display:none }
+  .hero-inner { grid-template-columns:1fr; min-height:auto; padding:100px 28px 60px }
+  .hero-left { padding-right:0 }
+  .hero-right { height:380px; max-width:480px; margin:0 auto }
+  .hero-photo { right:0; width:100%; border-radius:8px }
+  .hero-trust-card { left:0; bottom:-20px }
+  .hero-rating-card { display:none }
+  .about-grid { grid-template-columns:1fr; gap:40px }
+  .about-photo-stack { max-width:420px }
+  .dokter-grid { grid-template-columns:1fr 1fr }
+  .treatment-grid { grid-template-columns:1fr 1fr }
+  .galeri-grid { grid-template-columns:1fr 1fr }
+  .galeri-item.tall { grid-row:span 1 }
+  .galeri-item.tall img,.galeri-item.tall .img-fb { aspect-ratio:1 }
+  .testi-grid { grid-template-columns:1fr }
+  .paket-grid { grid-template-columns:1fr; max-width:440px; margin-left:auto; margin-right:auto }
+  .paket-card.featured { transform:none }
+  .jam-kontak-grid { grid-template-columns:1fr }
+}
+@media(max-width:768px) {
+  .nav-links,.nav-actions { display:none }
+  .hamburger { display:flex }
+  .section { padding:64px 0 }
+  .treatment-grid { grid-template-columns:1fr 1fr }
+  .footer-top { grid-template-columns:1fr; gap:28px }
+  .about-pillars { grid-template-columns:1fr }
+  .galeri-item.wide { grid-column:span 1 }
+  .galeri-item.wide img,.galeri-item.wide .img-fb { aspect-ratio:1 }
+}
+@media(max-width:560px) {
+  .treatment-grid { grid-template-columns:1fr }
+  .dokter-grid { grid-template-columns:1fr }
+  .hero-stats { gap:24px; flex-wrap:wrap }
+  .hero-ctas { flex-direction:column; max-width:280px }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">🌿</div>
+      <div class="nav-logo-text">
+        <div class="nav-logo-name">Aurelia Aesthetic Clinic</div>
+        <div class="nav-logo-sub">Medical Beauty · Est. 2015</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#treatment">Treatment</a></li>
+      <li><a href="#dokter">Dokter</a></li>
+      <li><a href="#galeri">Galeri</a></li>
+      <li><a href="#paket">Paket</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#kontak" class="btn btn-outline" style="padding:8px 18px;font-size:13px">Jam Buka</a>
+      <a href="https://wa.me/6285743553879?text=Halo%20Aurelia%20Aesthetic%20Clinic%2C%20saya%20mau%20konsultasi%20gratis" class="nav-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.855L.057 23.886a.5.5 0 0 0 .611.637l6.218-1.637A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.925 0-3.727-.524-5.271-1.432l-.338-.2-4.066 1.07 1.009-3.985-.218-.344A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Konsultasi Gratis
+      </a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu(this)"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Klinik Kecantikan Medis Purwokerto</div>
+      <h1 class="hero-h1">
+        Cantik yang<br>
+        <em>Sesungguhnya</em><br>
+        Dimulai di Sini
+      </h1>
+      <p class="hero-sub">Perawatan estetika medis oleh dokter berlisensi — dari laser, botox, filler, hingga skincare terapeutik. Hasilnya nyata, aman, dan tahan lama.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/6285743553879?text=Halo%20Aurelia%2C%20saya%20mau%20jadwalkan%20konsultasi%20gratis" class="btn btn-gold btn-lg">Konsultasi Gratis</a>
+        <a href="#treatment" class="btn btn-outline-white btn-lg">Lihat Treatment</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">9<span>+</span></div>
+          <div class="hero-stat-label">Tahun Berpengalaman</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">4.8<span>★</span></div>
+          <div class="hero-stat-label">Rating Google</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">5K<span>+</span></div>
+          <div class="hero-stat-label">Pasien Puas</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=700&h=900&fit=crop&q=85"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Dokter klinik kecantikan Aurelia">
+        <div class="img-fb">💆‍♀️</div>
+      </div>
+      <div class="hero-rating-card">
+        <div class="hrc-num">4.8</div>
+        <div class="hrc-stars">★★★★★</div>
+        <div class="hrc-label">Google Reviews</div>
+      </div>
+      <div class="hero-trust-card">
+        <div class="htc-icon">👩‍⚕️</div>
+        <div>
+          <div class="htc-title">Dokter Berlisensi SIP Aktif</div>
+          <div class="htc-sub">Semua treatment oleh dokter terlatih</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT STRIP ── -->
+<div class="about-strip">
+  <div class="container about-strip-inner">
+    <div class="as-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      Terdaftar di Kemenkes RI
+    </div>
+    <div class="as-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Alat Medis Tersertifikasi
+    </div>
+    <div class="as-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Konsultasi Tidak Perlu Antri Lama
+    </div>
+    <div class="as-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      Produk Skincare Original BPOM
+    </div>
+    <div class="as-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      3 Dokter Estetika Aktif
+    </div>
+  </div>
+</div>
+
+<!-- ── TENTANG KLINIK ── -->
+<section class="section" id="tentang">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo-stack">
+        <div class="about-photo-main">
+          <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=500&h=660&fit=crop&q=80"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="Interior klinik Aurelia">
+          <div class="img-fb">🏥</div>
+        </div>
+        <div class="about-photo-accent">
+          <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=300&fit=crop&q=80"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="Alat perawatan klinik">
+          <div class="img-fb">🔬</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="eyebrow">Tentang Aurelia</div>
+        <h2 class="section-title" style="margin-bottom:18px">Klinik Estetika Medis<br>yang <em>Memahami</em> Anda</h2>
+        <p class="section-sub" style="margin-bottom:16px">Aurelia Aesthetic Clinic hadir sejak 2015 sebagai klinik kecantikan berbasis medis di Purwokerto. Kami percaya kecantikan sejati lahir dari perawatan yang tepat — bukan sekadar tren.</p>
+        <p class="section-sub">Setiap treatment dirancang personal sesuai kondisi kulit Anda oleh dokter berlisensi, menggunakan alat dan produk berstandar medis internasional.</p>
+        <div class="about-pillars">
+          <div class="about-pillar">
+            <div class="ap-icon">🔬</div>
+            <div class="ap-title">Berbasis Ilmu Medis</div>
+            <div class="ap-desc">Setiap keputusan perawatan berdasarkan diagnosis klinis, bukan asumsi.</div>
+          </div>
+          <div class="about-pillar">
+            <div class="ap-icon">✨</div>
+            <div class="ap-title">Hasil Terukur</div>
+            <div class="ap-desc">Progress foto dan catatan klinis tersimpan untuk setiap pasien.</div>
+          </div>
+          <div class="about-pillar">
+            <div class="ap-icon">🛡️</div>
+            <div class="ap-title">Aman & Tersertifikasi</div>
+            <div class="ap-desc">Terdaftar Kemenkes, alat medis berlisensi, produk resmi BPOM.</div>
+          </div>
+          <div class="about-pillar">
+            <div class="ap-icon">💬</div>
+            <div class="ap-title">Konsultasi Terbuka</div>
+            <div class="ap-desc">Diskusi jujur soal harapan, risiko, dan alternatif sebelum treatment.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DOKTER ── -->
+<section class="section bg-gray" id="dokter">
+  <div class="container">
+    <div class="eyebrow">Tim Dokter</div>
+    <h2 class="section-title" style="margin-bottom:12px">Di Tangan Dokter yang<br><em>Tepat</em> dan Terpercaya</h2>
+    <p class="section-sub">Setiap dokter kami memiliki SIP aktif, pelatihan estetika medis tersertifikasi, dan pengalaman bertahun-tahun menangani berbagai kondisi kulit.</p>
+    <div class="dokter-grid">
+      <div class="dokter-card">
+        <div class="dokter-photo">
+          <img src="https://i.pravatar.cc/400?img=47"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="dr. Amelia Putri">
+          <div class="img-fb">👩‍⚕️</div>
+          <div class="dokter-stra">SIP Aktif</div>
+        </div>
+        <div class="dokter-info">
+          <div class="dokter-name">dr. Amelia Putri, Sp.KK</div>
+          <div class="dokter-role">Dokter Kulit & Estetika</div>
+          <div class="dokter-spec">Spesialis kulit medis dan tindakan laser. 12 tahun pengalaman menangani acne scar, hiperpigmentasi, dan anti-aging.</div>
+        </div>
+      </div>
+      <div class="dokter-card">
+        <div class="dokter-photo">
+          <img src="https://i.pravatar.cc/400?img=44"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="dr. Ririn Cahyani">
+          <div class="img-fb">👩‍⚕️</div>
+          <div class="dokter-stra">SIP Aktif</div>
+        </div>
+        <div class="dokter-info">
+          <div class="dokter-name">dr. Ririn Cahyani</div>
+          <div class="dokter-role">Dokter Estetika Medis</div>
+          <div class="dokter-spec">Ahli filler dan botox, serta perawatan wajah non-bedah. Bersertifikat aesthetic medicine dari PERDOSKI.</div>
+        </div>
+      </div>
+      <div class="dokter-card">
+        <div class="dokter-photo">
+          <img src="https://i.pravatar.cc/400?img=48"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="dr. Sinta Lestari">
+          <div class="img-fb">👩‍⚕️</div>
+          <div class="dokter-stra">SIP Aktif</div>
+        </div>
+        <div class="dokter-info">
+          <div class="dokter-name">dr. Sinta Lestari</div>
+          <div class="dokter-role">Dokter Kecantikan & Anti-Aging</div>
+          <div class="dokter-spec">Berfokus pada peremajaan kulit holistik — skincare plan, peeling kimia, dan terapi regeneratif untuk semua jenis kulit.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TREATMENT (flip cards) ── -->
+<section class="section" id="treatment">
+  <div class="container">
+    <div class="eyebrow">Treatment Unggulan</div>
+    <h2 class="section-title" style="margin-bottom:12px">Solusi untuk Setiap<br><em>Kondisi Kulit</em> Anda</h2>
+    <p class="section-sub">Arahkan kursor ke kartu untuk melihat detail dan harga treatment. Semua dilakukan oleh dokter bersertifikat.</p>
+    <div class="treatment-grid">
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <div class="ff-icon">⚡</div>
+            <div class="ff-name">Laser Skin Rejuvenation</div>
+            <div class="ff-tagline">Peremajaan kulit dengan teknologi laser terkini untuk wajah cerah dan muda</div>
+            <div class="ff-hint">Lihat Detail</div>
+          </div>
+          <div class="flip-back">
+            <div class="fb-name">Laser Skin Rejuvenation</div>
+            <ul class="fb-list">
+              <li>Merangsang produksi kolagen alami</li>
+              <li>Meratakan tekstur & tone kulit</li>
+              <li>Mengurangi pori-pori besar</li>
+              <li>Efektif untuk flek & bekas jerawat</li>
+              <li>Downtime minimal 1–2 hari</li>
+            </ul>
+            <div class="fb-price">
+              <span>Mulai Rp 450.000</span>
+              <a href="https://wa.me/6285743553879?text=Saya%20tertarik%20dengan%20Laser%20Skin%20Rejuvenation%20di%20Aurelia" class="fb-cta">Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <div class="ff-icon">💉</div>
+            <div class="ff-name">Botox & Anti-Wrinkle</div>
+            <div class="ff-tagline">Relaksasi otot wajah untuk kulit tampak lebih muda dan segar secara natural</div>
+            <div class="ff-hint">Lihat Detail</div>
+          </div>
+          <div class="flip-back">
+            <div class="fb-name">Botox & Anti-Wrinkle</div>
+            <ul class="fb-list">
+              <li>Melembutkan kerutan dahi & crow's feet</li>
+              <li>Efek terlihat dalam 5–7 hari</li>
+              <li>Tahan 4–6 bulan per sesi</li>
+              <li>Produk Botox / Dysport berlisensi</li>
+              <li>Tanpa masa pemulihan panjang</li>
+            </ul>
+            <div class="fb-price">
+              <span>Mulai Rp 1.200.000</span>
+              <a href="https://wa.me/6285743553879?text=Saya%20tertarik%20dengan%20Botox%20di%20Aurelia" class="fb-cta">Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <div class="ff-icon">💧</div>
+            <div class="ff-name">Dermal Filler</div>
+            <div class="ff-tagline">Menambah volume wajah, mengisi cekungan, dan membentuk kontur secara natural</div>
+            <div class="ff-hint">Lihat Detail</div>
+          </div>
+          <div class="flip-back">
+            <div class="fb-name">Dermal Filler</div>
+            <ul class="fb-list">
+              <li>Mengisi nasolabial fold & pipi</li>
+              <li>Pembentukan bibir & dagu non-bedah</li>
+              <li>Filler HA (Hyaluronic Acid) premium</li>
+              <li>Hasil natural, tahan 9–12 bulan</li>
+              <li>Reversible dengan enzim hyaluronidase</li>
+            </ul>
+            <div class="fb-price">
+              <span>Mulai Rp 1.500.000</span>
+              <a href="https://wa.me/6285743553879?text=Saya%20tertarik%20dengan%20Filler%20di%20Aurelia" class="fb-cta">Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <div class="ff-icon">✨</div>
+            <div class="ff-name">Chemical Peeling</div>
+            <div class="ff-tagline">Eksfoliasi medis mendalam untuk kulit lebih cerah, bersih, dan bebas flek</div>
+            <div class="ff-hint">Lihat Detail</div>
+          </div>
+          <div class="flip-back">
+            <div class="fb-name">Chemical Peeling</div>
+            <ul class="fb-list">
+              <li>Tersedia: AHA, BHA, TCA, Jessner</li>
+              <li>Memudarkan flek hitam & bekas luka</li>
+              <li>Mengecilkan pori-pori</li>
+              <li>Mengatasi kulit kusam & kasar</li>
+              <li>Cocok untuk acne & hiperpigmentasi</li>
+            </ul>
+            <div class="fb-price">
+              <span>Mulai Rp 350.000</span>
+              <a href="https://wa.me/6285743553879?text=Saya%20tertarik%20dengan%20Chemical%20Peeling%20di%20Aurelia" class="fb-cta">Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <div class="ff-icon">🌊</div>
+            <div class="ff-name">Hydrafacial</div>
+            <div class="ff-tagline">Deep cleansing, eksfoliasi, dan hidrasi intensif dalam satu sesi treatment mewah</div>
+            <div class="ff-hint">Lihat Detail</div>
+          </div>
+          <div class="flip-back">
+            <div class="fb-name">Hydrafacial</div>
+            <ul class="fb-list">
+              <li>3-in-1: cleanse, exfoliate, hydrate</li>
+              <li>Cocok semua jenis kulit termasuk sensitif</li>
+              <li>Mengangkat komedo & sel mati</li>
+              <li>Infus serum antioksidan & peptide</li>
+              <li>Tanpa downtime, bisa langsung beraktivitas</li>
+            </ul>
+            <div class="fb-price">
+              <span>Mulai Rp 580.000</span>
+              <a href="https://wa.me/6285743553879?text=Saya%20tertarik%20dengan%20Hydrafacial%20di%20Aurelia" class="fb-cta">Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-front">
+            <div class="ff-icon">🏥</div>
+            <div class="ff-name">Acne Treatment</div>
+            <div class="ff-tagline">Program komprehensif mengatasi jerawat aktif dan bekas luka secara tuntas</div>
+            <div class="ff-hint">Lihat Detail</div>
+          </div>
+          <div class="flip-back">
+            <div class="fb-name">Acne Treatment</div>
+            <ul class="fb-list">
+              <li>Analisis jenis & tingkat keparahan acne</li>
+              <li>Kombinasi laser + peeling + injeksi</li>
+              <li>Skincare plan medis personal</li>
+              <li>Mengatasi acne cystic & hormonal</li>
+              <li>Pantau progres tiap kunjungan</li>
+            </ul>
+            <div class="fb-price">
+              <span>Mulai Rp 300.000/sesi</span>
+              <a href="https://wa.me/6285743553879?text=Saya%20tertarik%20dengan%20Acne%20Treatment%20di%20Aurelia" class="fb-cta">Booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <p style="text-align:center;margin-top:32px;font-size:14px;color:var(--text-muted);font-weight:300">Tidak yakin treatment mana yang cocok? <a href="https://wa.me/6285743553879?text=Saya%20mau%20konsultasi%20treatment%20yang%20sesuai%20kondisi%20kulit%20saya" style="color:var(--sage);font-weight:600;text-decoration:none">Konsultasi gratis dengan dokter kami →</a></p>
+  </div>
+</section>
+
+<!-- ── GALERI ── -->
+<section class="section bg-pale" id="galeri">
+  <div class="container">
+    <div class="galeri-header">
+      <div>
+        <div class="eyebrow">Galeri Klinik</div>
+        <h2 class="section-title">Suasana & Hasil<br><em>Nyata</em> Kami</h2>
+      </div>
+      <p class="section-sub" style="max-width:380px">Dokumentasi treatment dan suasana klinik. Foto pasien ditampilkan atas persetujuan yang bersangkutan.</p>
+    </div>
+    <div class="galeri-grid">
+      <div class="galeri-item tall">
+        <img src="https://images.unsplash.com/photo-1614859324967-bdf413c35a5b?w=400&h=800&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Facial treatment">
+        <div class="img-fb">💆‍♀️</div>
+        <div class="galeri-overlay"><div class="galeri-caption">Facial Treatment</div><div class="galeri-sub">Hydrafacial Session</div></div>
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=400&h=400&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Laser treatment">
+        <div class="img-fb">✨</div>
+        <div class="galeri-overlay"><div class="galeri-caption">Laser Therapy</div><div class="galeri-sub">Skin Rejuvenation</div></div>
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=400&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Skincare treatment">
+        <div class="img-fb">🧴</div>
+        <div class="galeri-overlay"><div class="galeri-caption">Skincare Medis</div><div class="galeri-sub">Chemical Peeling</div></div>
+      </div>
+      <div class="galeri-item wide">
+        <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=800&h=400&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Ruang klinik">
+        <div class="img-fb">🏥</div>
+        <div class="galeri-overlay"><div class="galeri-caption">Treatment Room</div><div class="galeri-sub">Ruang Tindakan Steril</div></div>
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1606902965551-dce093cda6eb?w=400&h=400&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Skincare produk">
+        <div class="img-fb">💊</div>
+        <div class="galeri-overlay"><div class="galeri-caption">Medical Skincare</div><div class="galeri-sub">Produk Resmi BPOM</div></div>
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=400&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Konsultasi dokter">
+        <div class="img-fb">👩‍⚕️</div>
+        <div class="galeri-overlay"><div class="galeri-caption">Konsultasi Dokter</div><div class="galeri-sub">Analisis Kulit Personal</div></div>
+      </div>
+      <div class="galeri-item">
+        <img src="https://images.unsplash.com/photo-1560750133-9d9e0fc94b7a?w=400&h=400&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Injeksi treatment">
+        <div class="img-fb">💉</div>
+        <div class="galeri-overlay"><div class="galeri-caption">Injeksi Estetika</div><div class="galeri-sub">Filler & Botox</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONI ── -->
+<section class="section">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:0">
+      <div class="divider-ornament">✦</div>
+      <div class="eyebrow" style="justify-content:center">Testimoni Pasien</div>
+      <h2 class="section-title" style="margin-bottom:12px">Yang Mereka Rasakan<br><em>Sendiri</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Sudah 2 tahun rutin perawatan di Aurelia untuk masalah acne scar saya. Hasilnya benar-benar nyata — flek berangsur memudar dan kulit jauh lebih rata. dr. Amelia selalu sabar menjelaskan progress dan kenapa tiap tindakan dipilih."</div>
+        <div class="testi-author">
+          <div class="testi-av">
+            <img src="https://i.pravatar.cc/100?img=5" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="">
+            <div class="img-fb">DP</div>
+          </div>
+          <div>
+            <div class="testi-name">Dewi Puspita</div>
+            <div class="testi-tag">Laser + Acne Treatment</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Pertama kali coba filler untuk garis senyum di sini. Saya takut awalnya tapi dr. Ririn sangat tenang dan profesional — menjelaskan semuanya dari awal. Hasilnya natural banget, tidak terlihat 'diisi' sama sekali. Puas!"</div>
+        <div class="testi-author">
+          <div class="testi-av">
+            <img src="https://i.pravatar.cc/100?img=9" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="">
+            <div class="img-fb">RK</div>
+          </div>
+          <div>
+            <div class="testi-name">Ratna Kusumawardani</div>
+            <div class="testi-tag">Dermal Filler</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Hydrafacial di sini beda banget sama salon biasa. Dikerjain sama dokter langsung, hasilnya lebih intens. Kulit langsung cerah dan lembab setelah satu sesi. Jadi langganan bulanan sekarang — tidak mau pindah ke mana-mana."</div>
+        <div class="testi-author">
+          <div class="testi-av">
+            <img src="https://i.pravatar.cc/100?img=16" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="">
+            <div class="img-fb">YN</div>
+          </div>
+          <div>
+            <div class="testi-name">Yuli Nuraini</div>
+            <div class="testi-tag">Hydrafacial</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PAKET ── -->
+<section class="section bg-gray" id="paket">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:0">
+      <div class="eyebrow" style="justify-content:center">Paket Perawatan</div>
+      <h2 class="section-title" style="margin-bottom:12px">Investasi untuk Kulit<br>yang <em>Sehat & Bersinar</em></h2>
+      <p class="section-sub" style="margin:0 auto">Paket perawatan terkurasi — lebih hemat, lebih terstruktur, hasil lebih optimal.</p>
+    </div>
+    <div class="paket-grid">
+      <div class="paket-card">
+        <div class="paket-name">Paket Starter</div>
+        <div class="paket-tagline">Untuk pertama kali perawatan klinik</div>
+        <div class="paket-price">Rp 750.000</div>
+        <div class="paket-price-note">2 sesi treatment pilihan</div>
+        <div class="paket-div"></div>
+        <ul class="paket-list">
+          <li><span class="check">✦</span> Konsultasi dokter (gratis)</li>
+          <li><span class="check">✦</span> Analisis kondisi kulit</li>
+          <li><span class="check">✦</span> 1x Hydrafacial</li>
+          <li><span class="check">✦</span> 1x Chemical Peeling dasar</li>
+          <li><span class="check">✦</span> Skincare plan 1 bulan</li>
+        </ul>
+        <a href="https://wa.me/6285743553879?text=Saya%20mau%20tanya%20Paket%20Starter%20Aurelia" class="paket-cta-outline">Tanya Detail</a>
+      </div>
+      <div class="paket-card featured">
+        <div class="paket-badge">Paling Populer</div>
+        <div class="paket-name">Paket Glow Up</div>
+        <div class="paket-tagline">Program intensif 3 bulan untuk transformasi nyata</div>
+        <div class="paket-price">Rp 3.200.000</div>
+        <div class="paket-price-note">8 sesi + evaluasi rutin</div>
+        <div class="paket-div"></div>
+        <ul class="paket-list">
+          <li><span class="check">✦</span> Konsultasi dokter setiap kunjungan</li>
+          <li><span class="check">✦</span> 4x Laser Rejuvenation</li>
+          <li><span class="check">✦</span> 2x Chemical Peeling</li>
+          <li><span class="check">✦</span> 2x Hydrafacial</li>
+          <li><span class="check">✦</span> Foto progress dokumentasi</li>
+          <li><span class="check">✦</span> Skincare plan 3 bulan</li>
+          <li><span class="check">✦</span> Hemat Rp 600.000 vs satuan</li>
+        </ul>
+        <a href="https://wa.me/6285743553879?text=Saya%20mau%20booking%20Paket%20Glow%20Up%20Aurelia" class="paket-cta-solid">Booking Sekarang</a>
+      </div>
+      <div class="paket-card">
+        <div class="paket-name">Paket Premium</div>
+        <div class="paket-tagline">Anti-aging & sculpting lengkap untuk hasil maksimal</div>
+        <div class="paket-price">Rp 6.500.000</div>
+        <div class="paket-price-note">Semua treatment termasuk injeksi</div>
+        <div class="paket-div"></div>
+        <ul class="paket-list">
+          <li><span class="check">✦</span> Semua isi Paket Glow Up</li>
+          <li><span class="check">✦</span> 1x Botox area pilihan</li>
+          <li><span class="check">✦</span> 1x Filler 1 syringe</li>
+          <li><span class="check">✦</span> 2x PRP Therapy</li>
+          <li><span class="check">✦</span> Home care kit skincare</li>
+          <li><span class="check">✦</span> Priority booking & konsultasi</li>
+        </ul>
+        <a href="https://wa.me/6285743553879?text=Saya%20mau%20tanya%20Paket%20Premium%20Aurelia" class="paket-cta-outline">Tanya Detail</a>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:28px;font-size:13px;color:var(--text-muted);font-weight:300">Harga dapat berubah. Konsultasi dulu untuk mendapat rekomendasi paket yang paling sesuai kondisi kulit Anda. <a href="https://wa.me/6285743553879?text=Saya%20mau%20konsultasi%20paket%20perawatan%20Aurelia" style="color:var(--sage);font-weight:600;text-decoration:none">Chat kami →</a></p>
+  </div>
+</section>
+
+<!-- ── JAM & KONTAK ── -->
+<section class="section" id="kontak">
+  <div class="container">
+    <div class="eyebrow">Lokasi & Jadwal</div>
+    <h2 class="section-title" style="margin-bottom:12px">Kunjungi Kami atau<br><em>Booking</em> via WhatsApp</h2>
+    <div class="jam-kontak-grid">
+      <div>
+        <div class="open-badge"><span class="open-dot"></span>Sedang Buka Hari Ini</div>
+        <div class="jam-card">
+          <div class="jam-head"><span>🕐</span><span class="jam-head-title">Jam Praktik Dokter</span></div>
+          <div class="jam-row"><span class="jam-day">Senin – Rabu</span><span class="jam-time">09.00 – 17.00</span></div>
+          <div class="jam-row today"><span class="jam-day">Sabtu ← Hari Ini</span><span class="jam-time">09.00 – 17.00</span></div>
+          <div class="jam-row"><span class="jam-day">Kamis – Jumat</span><span class="jam-time">09.00 – 19.00</span></div>
+          <div class="jam-row"><span class="jam-day">Minggu</span><span class="jam-time jam-closed">Libur</span></div>
+          <div style="padding:14px 22px;font-size:12px;color:var(--text-muted);border-top:1px solid var(--border)">
+            ⚠️ Jadwal praktik setiap dokter berbeda. Hubungi kami untuk memastikan ketersediaan dokter yang Anda inginkan.
+          </div>
+        </div>
+      </div>
+      <div class="kontak-card">
+        <div class="kontak-row">
+          <div class="kontak-icon">📍</div>
+          <div class="kontak-body">
+            <strong>Alamat Klinik</strong>
+            <p>Jl. Prof. Dr. HR. Bunyamin No. 88, Purwokerto Utara, Kabupaten Banyumas, Jawa Tengah 53122</p>
+          </div>
+        </div>
+        <div class="kontak-row">
+          <div class="kontak-icon">📱</div>
+          <div class="kontak-body">
+            <strong>WhatsApp / Telepon</strong>
+            <p>0857-4355-3879 — Chat untuk booking, tanya harga, atau konsultasi singkat via WA</p>
+          </div>
+        </div>
+        <div class="kontak-row">
+          <div class="kontak-icon">📋</div>
+          <div class="kontak-body">
+            <strong>Reservasi & Booking</strong>
+            <p>Disarankan booking H-1 agar dokter & treatment room siap. Walk-in diterima sesuai ketersediaan.</p>
+          </div>
+        </div>
+        <div class="kontak-row" style="border:none">
+          <div class="kontak-icon">💳</div>
+          <div class="kontak-body">
+            <strong>Metode Pembayaran</strong>
+            <p>Cash, QRIS, Transfer Bank (BCA / BRI / Mandiri / BNI), Kartu Debit / Kredit</p>
+          </div>
+        </div>
+        <a href="https://wa.me/6285743553879?text=Halo%20Aurelia%20Aesthetic%20Clinic%2C%20saya%20mau%20booking%20konsultasi" class="kontak-wa-btn">
+          <span>💬 Booking via WhatsApp Sekarang</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="section bg-pale">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:0">
+      <div class="eyebrow" style="justify-content:center">FAQ</div>
+      <h2 class="section-title" style="margin-bottom:12px">Pertanyaan yang Sering<br><em>Ditanyakan</em> Pasien</h2>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah semua treatment harus dilakukan oleh dokter?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Ya. Di Aurelia Aesthetic Clinic, semua tindakan estetika medis — termasuk laser, injeksi botox/filler, peeling kimia, dan hydrafacial — dilakukan langsung oleh dokter berlisensi dengan SIP aktif. Ini bukan hanya standar kami, tapi juga regulasi Kemenkes RI untuk praktik estetika medis.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah konsultasi pertama berbayar?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Konsultasi pertama sepenuhnya gratis dan tanpa kewajiban untuk langsung treatment. Dokter akan menganalisis kondisi kulit Anda, mendengarkan keluhan dan harapan, lalu merekomendasikan treatment yang sesuai beserta estimasi biaya dan jadwal — semuanya transparan sebelum Anda memutuskan.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Berapa lama efek treatment seperti botox dan filler bertahan?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Botox umumnya bertahan 4–6 bulan tergantung area dan metabolisme tubuh. Filler HA (hyaluronic acid) bertahan 9–18 bulan. Laser rejuvenation dan chemical peeling bersifat kumulatif — hasilnya meningkat seiring sesi dan dapat bertahan lama dengan perawatan rumahan yang tepat.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah ada efek samping atau risiko yang perlu diketahui?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Setiap prosedur estetika memiliki risiko tertentu yang akan dijelaskan dokter secara lengkap sebelum tindakan. Risiko umum seperti kemerahan, bengkak ringan, atau rasa tidak nyaman umumnya bersifat sementara. Kami memiliki protokol penanganan pasca-treatment dan Anda bisa menghubungi klinik kapanpun ada keluhan.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah ibu hamil dan menyusui boleh treatment?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Sebagian besar treatment estetika medis — termasuk laser, injeksi, dan chemical peeling — tidak direkomendasikan untuk ibu hamil dan menyusui. Namun ada beberapa skincare treatment gentle yang aman. Informasikan kondisi kehamilan/menyusui saat konsultasi agar dokter dapat memberikan rekomendasi yang aman.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Bisakah membawa referensi foto atau hasil yang diinginkan?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Sangat dianjurkan. Membawa referensi foto membantu dokter memahami ekspektasi Anda dengan lebih baik. Dokter akan mengevaluasi apakah hasil yang diinginkan realistis sesuai kondisi kulit Anda, dan memberikan penjelasan jujur tentang apa yang bisa dan tidak bisa dicapai — untuk menghindari ekspektasi yang tidak sesuai.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <div class="cta-bg">
+    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&h=700&fit=crop&q=80"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+         alt="CTA background">
+    <div class="img-fb">💆‍♀️</div>
+  </div>
+  <div class="cta-overlay"></div>
+  <div class="cta-inner">
+    <div class="cta-eyebrow">Mulai Perjalanan Anda</div>
+    <h2 class="cta-title">Kulit Sehat adalah<br><em>Investasi Terbaik</em> Anda</h2>
+    <p class="cta-sub">Konsultasi gratis — tidak ada kewajiban apapun. Ceritakan kondisi kulit Anda dan biarkan dokter kami merancang solusi yang tepat.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/6285743553879?text=Halo%20Aurelia%20Aesthetic%20Clinic%2C%20saya%20mau%20konsultasi%20gratis%20dengan%20dokter" class="btn btn-gold btn-lg">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.855L.057 23.886a.5.5 0 0 0 .611.637l6.218-1.637A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.925 0-3.727-.524-5.271-1.432l-.338-.2-4.066 1.07 1.009-3.985-.218-.344A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Konsultasi Gratis via WA
+      </a>
+      <a href="#treatment" class="btn btn-outline-white btn-lg">Lihat Semua Treatment</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-name">Aurelia Aesthetic Clinic</div>
+        <div class="footer-brand-sub">Medical Beauty · Purwokerto</div>
+        <p>Klinik kecantikan berbasis medis di Purwokerto sejak 2015. Dokter berlisensi, alat tersertifikasi, produk resmi BPOM. Cantik yang aman dan terpercaya.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Treatment</h4>
+        <ul>
+          <li><a href="#treatment">Laser Rejuvenation</a></li>
+          <li><a href="#treatment">Botox & Anti-Wrinkle</a></li>
+          <li><a href="#treatment">Dermal Filler</a></li>
+          <li><a href="#treatment">Chemical Peeling</a></li>
+          <li><a href="#treatment">Hydrafacial</a></li>
+          <li><a href="#treatment">Acne Treatment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Klinik</h4>
+        <ul>
+          <li><a href="#tentang">Tentang Aurelia</a></li>
+          <li><a href="#dokter">Tim Dokter</a></li>
+          <li><a href="#galeri">Galeri</a></li>
+          <li><a href="#paket">Paket Perawatan</a></li>
+          <li><a href="#kontak">Jam & Lokasi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informasi</h4>
+        <ul>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="https://wa.me/6285743553879">Booking via WA</a></li>
+          <li><a href="#kontak">Kontak Klinik</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      <p>⚕️ <strong style="color:rgba(255,255,255,.6)">Disclaimer Medis:</strong> Informasi pada halaman ini bersifat umum dan tidak menggantikan konsultasi medis profesional. Hasil treatment dapat berbeda untuk setiap individu tergantung kondisi kulit, kesehatan, dan faktor lainnya. Semua tindakan estetika medis dilakukan atas konsultasi dan rekomendasi dokter berlisensi.</p>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Aurelia Aesthetic Clinic. Purwokerto, Banyumas. Izin Klinik No. KL-33020/2015.</p>
+      <p>Website oleh <a href="https://buatwebsitemurah.com" target="_blank">Nusaweb Studio</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- ── WA FLOAT ── -->
+<a href="https://wa.me/6285743553879?text=Halo%20Aurelia%20Aesthetic%20Clinic%2C%20saya%20mau%20konsultasi%20gratis" class="wa-float" target="_blank">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.855L.057 23.886a.5.5 0 0 0 .611.637l6.218-1.637A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.925 0-3.727-.524-5.271-1.432l-.338-.2-4.066 1.07 1.009-3.985-.218-.344A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  Konsultasi Gratis
+</a>
+
+<script>
+function toggleFaq(btn){
+  const item=btn.parentElement,isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+function toggleMenu(el){
+  const nav=document.querySelector('nav');
+  const links=document.querySelector('.nav-links');
+  const actions=document.querySelector('.nav-actions');
+  const isVisible=links.style.display==='flex';
+  [links,actions].forEach(el=>{
+    el.style.display=isVisible?'none':'flex';
+    if(!isVisible)Object.assign(el.style,{flexDirection:'column',position:'absolute',top:'70px',left:'0',right:'0',background:'rgba(254,254,254,.98)',padding:'16px 28px 24px',borderBottom:'1px solid var(--border)',gap:'16px',boxShadow:'0 8px 24px rgba(0,0,0,.08)',zIndex:'200'});
+  });
+}
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}
+}),{threshold:0.07});
+document.querySelectorAll('.flip-card,.dokter-card,.testi-card,.paket-card,.galeri-item,.about-pillar').forEach((el,i)=>{
+  el.style.opacity='0';
+  el.style.transform='translateY(18px)';
+  el.style.transition=`opacity .45s ease ${i*0.05}s, transform .45s ease ${i*0.05}s`;
+  obs.observe(el);
+});
+</script>
+</body>
+</html>

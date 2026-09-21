@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beresin Laundry — Laundry Kiloan Antar Jemput Gratis</title>
+<meta name="description" content="Laundry kiloan harian dengan antar jemput gratis. Cuci, kering, lipat rapi, wangi tahan lama. Pesan via WhatsApp, beres dalam hitungan jam.">
+
+<!--
+  ===========================================================================
+  CATATAN UNTUK YANG MENGEDIT TEMPLATE INI (developer/penjual jasa website):
+  Ganti semua data placeholder di bawah ini sebelum dikirim ke klien:
+  1. Nomor WhatsApp  : cari "6281234567890" (ada di banyak tempat, pakai Ctrl+F)
+  2. Nama bisnis      : cari "Beresin Laundry"
+  3. Alamat & area     : bagian #area-layanan
+  4. Akun Instagram/TikTok : bagian footer, masih "#"
+  5. Warna brand bisa diganti di :root pada bagian CSS (variabel --indigo, --sun, --tomato)
+  Semua foto memakai Unsplash (free license, gratis untuk komersial, tanpa atribusi wajib).
+  ===========================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================= RESET ============================= */
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+ul{margin:0;padding:0;list-style:none;}
+button{font-family:inherit;cursor:pointer;}
+h1,h2,h3,p{margin:0;}
+
+/* ============================= TOKENS ============================= */
+:root{
+  --linen:#FBF8F2;
+  --card:#FFFFFF;
+  --indigo:#1E3A6E;
+  --indigo-deep:#142A52;
+  --sun:#F4B53D;
+  --tomato:#E8623D;
+  --ink:#16213A;
+  --muted:#5E6E8C;
+  --line:rgba(22,33,58,.14);
+  --radius:16px;
+  --maxw:1180px;
+  --shadow:0 18px 36px -22px rgba(22,33,58,.38);
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}
+}
+
+body{
+  background:var(--linen);
+  color:var(--ink);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+.font-display{font-family:'Anton',sans-serif; font-weight:400; letter-spacing:.5px; text-transform:uppercase;}
+.font-mono{font-family:'Space Mono',monospace;}
+
+.eyebrow{
+  font-family:'Space Mono',monospace;
+  font-size:.78rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--tomato);
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-weight:700;
+}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--tomato);display:inline-block;}
+
+.container{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+.section{padding:88px 0;}
+@media (max-width:720px){.section{padding:60px 0;}}
+
+.section-head{max-width:640px; margin-bottom:48px;}
+.section-head h2{font-size:clamp(1.9rem,4vw,2.6rem); margin-top:10px; line-height:1.15;}
+.section-head p{color:var(--muted); margin-top:14px; font-size:1.04rem;}
+.section-head.center{margin-inline:auto; text-align:center;}
+
+a:focus-visible, button:focus-visible, summary:focus-visible{
+  outline:3px solid var(--sun);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+/* ============================= BUTTONS ============================= */
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 26px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:.95rem;
+  white-space:nowrap;
+  border:2px solid transparent;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.btn:active{transform:translateY(1px);}
+.btn-primary{background:var(--sun); color:var(--ink);}
+.btn-primary:hover{box-shadow:0 14px 24px -10px rgba(244,181,61,.7); transform:translateY(-2px);}
+.btn-outline{border-color:var(--indigo); color:var(--indigo); background:transparent;}
+.btn-outline:hover{background:var(--indigo); color:#fff;}
+.btn-light{background:#fff; color:var(--indigo);}
+.btn-light:hover{transform:translateY(-2px); box-shadow:0 14px 24px -10px rgba(0,0,0,.3);}
+.btn svg{width:18px;height:18px;flex-shrink:0;}
+
+/* ============================= NAV ============================= */
+.nav{
+  position:sticky; top:0; z-index:60;
+  background:rgba(251,248,242,.86);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid transparent;
+  transition:border-color .25s ease, box-shadow .25s ease;
+}
+.nav.is-scrolled{border-color:var(--line); box-shadow:0 6px 18px -14px rgba(22,33,58,.4);}
+.nav-inner{
+  max-width:var(--maxw); margin:0 auto; padding:16px 24px;
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+}
+.brand{display:flex; align-items:center; gap:10px; font-family:'Anton',sans-serif; font-size:1.3rem; letter-spacing:.5px;}
+.brand-mark{
+  width:34px; height:34px; border-radius:50%;
+  background:var(--indigo); color:var(--sun);
+  display:flex; align-items:center; justify-content:center;
+  position:relative; flex-shrink:0;
+}
+.brand-mark svg{width:18px;height:18px;}
+.brand span{color:var(--tomato);}
+
+.nav-links{display:flex; align-items:center; gap:30px; font-weight:600; font-size:.94rem;}
+.nav-links a{position:relative; padding:4px 0; color:var(--ink);}
+.nav-links a::after{
+  content:""; position:absolute; left:0; bottom:-2px; height:2px; width:0%;
+  background:var(--tomato); transition:width .2s ease;
+}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{display:flex; align-items:center; gap:14px;}
+.nav-burger{display:none; background:none; border:none; padding:6px;}
+.nav-burger svg{width:26px;height:26px;}
+
+@media (max-width:880px){
+  .nav-links{
+    position:fixed; inset:0 0 auto 0; top:70px;
+    background:var(--linen); flex-direction:column; align-items:flex-start;
+    padding:24px; gap:18px; border-bottom:1px solid var(--line);
+    transform:translateY(-110%); transition:transform .25s ease;
+    box-shadow:0 20px 30px -20px rgba(0,0,0,.25);
+  }
+  .nav-links.is-open{transform:translateY(0);}
+  .nav-burger{display:inline-flex;}
+  .nav-cta .btn-outline{display:none;}
+}
+
+/* ============================= HERO ============================= */
+.hero{padding:64px 0 0;}
+.hero-grid{
+  display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center;
+}
+@media (max-width:920px){.hero-grid{grid-template-columns:1fr; gap:40px;}}
+
+.hero h1{
+  font-size:clamp(2.4rem,5.4vw,4rem);
+  line-height:1.04;
+  margin-top:18px;
+}
+.hero h1 .accent{color:var(--tomato);}
+.hero p.lead{margin-top:20px; font-size:1.12rem; color:var(--muted); max-width:480px;}
+.hero-ctas{display:flex; flex-wrap:wrap; gap:14px; margin-top:30px;}
+
+.trust-strip{
+  display:flex; flex-wrap:wrap; gap:28px; margin-top:42px;
+  padding-top:26px; border-top:1px dashed var(--line);
+}
+.trust-item{display:flex; flex-direction:column; gap:2px;}
+.trust-item b{font-family:'Space Mono',monospace; font-size:1.3rem;}
+.trust-item span{font-size:.82rem; color:var(--muted);}
+
+.hero-visual{position:relative;}
+.hero-photo-frame{
+  border-radius:26px; overflow:hidden; position:relative;
+  box-shadow:var(--shadow);
+  aspect-ratio:4/4.6;
+}
+.hero-photo-frame img{width:100%; height:100%; object-fit:cover;}
+
+.hero-tag{
+  position:absolute; left:-18px; bottom:-26px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:16px 20px 16px 26px;
+  width:208px;
+  box-shadow:var(--shadow);
+  transform:rotate(-6deg);
+  transition:transform .3s ease;
+}
+.hero-visual:hover .hero-tag{transform:rotate(-2deg) translateY(-4px);}
+.hero-tag::before{
+  content:""; position:absolute; left:10px; top:50%; width:14px; height:14px;
+  border-radius:50%; background:var(--linen); border:1px solid var(--line);
+  transform:translateY(-50%);
+}
+.hero-tag .tag-no{font-family:'Space Mono',monospace; font-size:.7rem; color:var(--muted);}
+.hero-tag .tag-price{font-family:'Anton',sans-serif; font-size:1.5rem; color:var(--indigo); margin-top:2px;}
+.hero-tag .tag-sub{font-size:.74rem; color:var(--muted); margin-top:2px;}
+
+.hero-badge{
+  position:absolute; top:18px; right:18px;
+  background:var(--sun); color:var(--ink);
+  font-family:'Space Mono',monospace; font-weight:700; font-size:.74rem;
+  padding:8px 12px; border-radius:999px;
+  box-shadow:0 8px 18px -8px rgba(0,0,0,.3);
+}
+
+/* ============================= MARQUEE ============================= */
+.marquee-wrap{
+  background:var(--indigo); color:var(--linen);
+  overflow:hidden; position:relative; padding:15px 0; margin-top:64px;
+}
+.marquee-wrap::before,.marquee-wrap::after{
+  content:""; position:absolute; left:0; right:0; height:6px;
+  background-image:radial-gradient(circle, var(--linen) 2.4px, transparent 2.6px);
+  background-size:18px 6px; background-repeat:repeat-x; opacity:.55;
+}
+.marquee-wrap::before{top:-3px;}
+.marquee-wrap::after{bottom:-3px;}
+.marquee-track{display:flex; gap:48px; width:max-content; animation:scroll-left 26s linear infinite;}
+.marquee-track span{
+  font-family:'Space Mono',monospace; font-size:.85rem; letter-spacing:.04em;
+  display:flex; align-items:center; gap:12px; white-space:nowrap;
+}
+.marquee-track span::after{content:"✦"; color:var(--sun);}
+@keyframes scroll-left{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+
+/* ============================= TICKET SYSTEM (signature) ============================= */
+.tiket{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:30px 28px 26px;
+  box-shadow:0 1px 0 rgba(22,33,58,.04), var(--shadow);
+  transform:rotate(var(--r,-1.4deg));
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.tiket:hover, .tiket:focus-within{transform:rotate(0deg) translateY(-4px);}
+.tiket::before,.tiket::after{
+  content:""; position:absolute; top:50%; width:22px; height:22px;
+  background:var(--linen); border-radius:50%; transform:translateY(-50%);
+  box-shadow:inset 0 0 0 1px var(--line);
+}
+.tiket::before{left:-11px;}
+.tiket::after{right:-11px;}
+.tiket-stub{
+  display:flex; align-items:center; justify-content:space-between;
+  border-bottom:1px dashed var(--line); padding-bottom:14px; margin-bottom:16px;
+}
+.tiket-no{font-family:'Space Mono',monospace; font-size:.72rem; color:var(--muted);}
+.tiket-icon{
+  width:44px; height:44px; border-radius:12px;
+  background:var(--linen); display:flex; align-items:center; justify-content:center;
+  color:var(--indigo); flex-shrink:0;
+}
+.tiket-icon svg{width:22px;height:22px;}
+
+/* ============================= LAYANAN ============================= */
+.layanan-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:30px;}
+@media (max-width:980px){.layanan-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:600px){.layanan-grid{grid-template-columns:1fr;}}
+
+.layanan-photo{
+  border-radius:10px; overflow:hidden; aspect-ratio:16/10; margin-bottom:16px;
+}
+.layanan-photo img{width:100%; height:100%; object-fit:cover;}
+.layanan-card h3{font-size:1.05rem; font-weight:800;}
+.layanan-card .desc{color:var(--muted); font-size:.92rem; margin-top:6px; min-height:42px;}
+.layanan-price{
+  font-family:'Space Mono',monospace; font-weight:700; font-size:1.45rem;
+  color:var(--indigo); margin-top:14px; display:flex; align-items:baseline; gap:6px;
+}
+.layanan-price small{font-size:.68rem; color:var(--muted); font-weight:400;}
+.layanan-time{
+  display:inline-flex; align-items:center; gap:6px; margin-top:12px;
+  font-size:.78rem; font-family:'Space Mono',monospace; color:var(--tomato); font-weight:700;
+}
+.layanan-time svg{width:14px;height:14px;}
+
+/* ============================= CARA PESAN ============================= */
+.proses-chain{
+  position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:30px;
+}
+.proses-chain::before{
+  content:""; position:absolute; top:54px; left:6%; right:6%; height:0;
+  border-top:2px dashed var(--line); z-index:0;
+}
+@media (max-width:920px){
+  .proses-chain{grid-template-columns:1fr; gap:22px;}
+  .proses-chain::before{display:none;}
+}
+.proses-step{position:relative; z-index:1;}
+.proses-num{
+  width:46px;height:46px; border-radius:50%; background:var(--indigo); color:var(--sun);
+  font-family:'Space Mono',monospace; font-weight:700; font-size:1.1rem;
+  display:flex; align-items:center; justify-content:center; margin-bottom:18px;
+  box-shadow:0 10px 18px -8px rgba(30,58,110,.5);
+}
+.proses-step h3{font-size:1.02rem; font-weight:800; margin-bottom:8px;}
+.proses-step p{color:var(--muted); font-size:.92rem;}
+
+/* ============================= KENAPA / FITUR ============================= */
+.fitur-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:26px;}
+@media (max-width:980px){.fitur-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:600px){.fitur-grid{grid-template-columns:1fr;}}
+.fitur-card{
+  background:var(--card); border:1px solid var(--line); border-radius:14px; padding:26px;
+}
+.fitur-card .ic{
+  width:42px;height:42px; border-radius:50%; background:var(--linen); color:var(--tomato);
+  display:flex; align-items:center; justify-content:center; margin-bottom:16px;
+}
+.fitur-card .ic svg{width:22px;height:22px;}
+.fitur-card h3{font-size:.98rem; font-weight:800; margin-bottom:6px;}
+.fitur-card p{font-size:.88rem; color:var(--muted);}
+
+/* ============================= GALERI ============================= */
+.galeri-grid{
+  display:grid; grid-template-columns:repeat(6,1fr); grid-auto-rows:140px; gap:14px;
+}
+.galeri-grid a{border-radius:12px; overflow:hidden; position:relative; display:block;}
+.galeri-grid img{width:100%; height:100%; object-fit:cover; transition:transform .4s ease;}
+.galeri-grid a:hover img{transform:scale(1.08);}
+.g1{grid-column:1/4; grid-row:1/3;}
+.g2{grid-column:4/7; grid-row:1/2;}
+.g3{grid-column:4/6; grid-row:2/3;}
+.g4{grid-column:6/7; grid-row:2/3;}
+.g5{grid-column:1/3; grid-row:3/4;}
+.g6{grid-column:3/7; grid-row:3/4;}
+@media (max-width:760px){
+  .galeri-grid{grid-template-columns:repeat(2,1fr); grid-auto-rows:160px;}
+  .g1,.g2,.g3,.g4,.g5,.g6{grid-column:auto; grid-row:auto;}
+}
+
+/* ============================= HARGA (STRUK) ============================= */
+.harga-wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:start;}
+@media (max-width:920px){.harga-wrap{grid-template-columns:1fr;}}
+
+.struk{
+  position:relative;
+  background:var(--card); border:1px solid var(--line);
+  padding:46px 32px 30px;
+  clip-path:polygon(0% 3%,5% 0%,10% 3%,15% 0%,20% 3%,25% 0%,30% 3%,35% 0%,40% 3%,45% 0%,50% 3%,55% 0%,60% 3%,65% 0%,70% 3%,75% 0%,80% 3%,85% 0%,90% 3%,95% 0%,100% 3%,100% 100%,0% 100%);
+}
+.struk-head{text-align:center; margin-bottom:22px;}
+.struk-head .nm{font-family:'Anton',sans-serif; font-size:1.4rem; letter-spacing:1px;}
+.struk-head .dt{font-family:'Space Mono',monospace; font-size:.74rem; color:var(--muted); margin-top:4px;}
+.struk-row{
+  display:flex; align-items:baseline; gap:8px; padding:9px 0;
+  font-family:'Space Mono',monospace; font-size:.9rem;
+}
+.struk-row .leader{flex:1; border-bottom:2px dotted var(--line); transform:translateY(-4px);}
+.struk-row .nominal{font-weight:700; color:var(--indigo); white-space:nowrap;}
+.struk-foot{
+  margin-top:20px; padding-top:16px; border-top:1px dashed var(--line);
+  font-size:.8rem; color:var(--muted); text-align:center;
+}
+
+.harga-note{display:flex; flex-direction:column; gap:18px;}
+.note-item{display:flex; gap:14px; align-items:flex-start;}
+.note-item .ic{
+  width:38px;height:38px; flex-shrink:0; border-radius:50%; background:var(--indigo); color:var(--sun);
+  display:flex; align-items:center; justify-content:center;
+}
+.note-item .ic svg{width:18px;height:18px;}
+.note-item h4{font-size:.95rem; font-weight:800;}
+.note-item p{font-size:.86rem; color:var(--muted); margin-top:3px;}
+
+/* ============================= TESTIMONI ============================= */
+.testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:30px;}
+@media (max-width:920px){.testi-grid{grid-template-columns:1fr; max-width:480px; margin:0 auto;}}
+.testi-card{--r:1.2deg;}
+.testi-card:nth-child(2){--r:-1.6deg;}
+.testi-card:nth-child(3){--r:1.8deg;}
+.testi-stars{color:var(--sun); display:flex; gap:3px; margin-bottom:14px;}
+.testi-stars svg{width:16px;height:16px;}
+.testi-quote{font-size:.96rem; color:var(--ink);}
+.testi-who{display:flex; align-items:center; gap:12px; margin-top:20px; padding-top:16px; border-top:1px dashed var(--line);}
+.avatar{
+  width:40px;height:40px; border-radius:50%; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Space Mono',monospace; font-weight:700; color:#fff; font-size:.85rem;
+}
+.testi-who .nm{font-weight:800; font-size:.88rem;}
+.testi-who .rl{font-size:.78rem; color:var(--muted);}
+.verified{
+  margin-left:auto; font-family:'Space Mono',monospace; font-size:.65rem; color:#1F8A5C;
+  display:flex; align-items:center; gap:4px; white-space:nowrap;
+}
+.verified svg{width:12px;height:12px;}
+
+/* ============================= AREA LAYANAN ============================= */
+.area-wrap{display:grid; grid-template-columns:.9fr 1.1fr; gap:48px; align-items:center;}
+@media (max-width:920px){.area-wrap{grid-template-columns:1fr;}}
+.area-list{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+.area-list li{
+  display:flex; align-items:center; gap:10px; font-weight:600; font-size:.92rem;
+  background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px 14px;
+}
+.area-list li svg{width:16px;height:16px; color:var(--tomato); flex-shrink:0;}
+.area-visual{
+  position:relative; aspect-ratio:1/1; border-radius:22px; background:var(--indigo);
+  display:flex; align-items:center; justify-content:center; overflow:hidden;
+}
+.area-visual svg{width:60%; height:60%; opacity:.9;}
+.area-visual::before{
+  content:""; position:absolute; inset:0;
+  background-image:radial-gradient(circle, rgba(255,255,255,.18) 1.5px, transparent 1.6px);
+  background-size:22px 22px;
+}
+.area-pin{
+  position:absolute; background:var(--sun); color:var(--ink); border-radius:50%;
+  width:46px;height:46px; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 10px 20px -8px rgba(0,0,0,.5);
+}
+.area-pin svg{width:22px;height:22px;}
+
+/* ============================= FAQ ============================= */
+.faq-list{max-width:760px; margin:0 auto; display:flex; flex-direction:column; gap:14px;}
+.faq-item{
+  background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  transition:border-color .25s ease, box-shadow .25s ease;
+}
+.faq-item.is-open{border-color:var(--indigo); box-shadow:0 14px 28px -20px rgba(22,33,58,.4);}
+.faq-q{
+  width:100%; background:none; border:none; cursor:pointer; padding:20px 24px;
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  font-weight:700; font-size:.98rem; color:var(--ink); font-family:inherit; text-align:left;
+}
+.faq-q .tiket-no-faq{
+  font-family:'Space Mono',monospace; font-weight:700; font-size:.74rem; color:var(--muted);
+  margin-right:12px;
+}
+.chev{transition:transform .3s ease; flex-shrink:0; display:flex;}
+.chev svg{width:18px;height:18px; color:var(--tomato);}
+.faq-item.is-open .chev{transform:rotate(180deg);}
+.faq-panel{
+  display:grid; grid-template-rows:0fr;
+  transition:grid-template-rows .32s ease;
+}
+.faq-item.is-open .faq-panel{grid-template-rows:1fr;}
+.faq-panel > div{overflow:hidden;}
+.faq-body{padding:0 24px 22px; color:var(--muted); font-size:.92rem;}
+
+/* ============================= CTA BANNER ============================= */
+.cta-banner{
+  background:var(--indigo); color:var(--linen); border-radius:28px;
+  padding:64px 48px; margin:0 24px; text-align:center; position:relative; overflow:hidden;
+}
+.cta-banner::before{
+  content:""; position:absolute; inset:0;
+  background-image:radial-gradient(circle, rgba(255,255,255,.08) 1.6px, transparent 1.8px);
+  background-size:20px 20px;
+}
+.cta-banner-inner{position:relative; z-index:1; max-width:560px; margin:0 auto;}
+.cta-banner h2{font-size:clamp(1.8rem,4vw,2.6rem); line-height:1.1;}
+.cta-banner h2 .accent{color:var(--sun);}
+.cta-banner p{margin-top:14px; color:#C9D3E8;}
+.cta-banner .btn{margin-top:28px;}
+
+/* ============================= FOOTER ============================= */
+footer{background:var(--ink); color:#AEB9D4; position:relative; margin-top:90px;}
+footer::before{
+  content:""; position:absolute; top:-1px; left:0; right:0; height:14px;
+  background:var(--linen);
+  clip-path:polygon(0% 0%,5% 100%,10% 0%,15% 100%,20% 0%,25% 100%,30% 0%,35% 100%,40% 0%,45% 100%,50% 0%,55% 100%,60% 0%,65% 100%,70% 0%,75% 100%,80% 0%,85% 100%,90% 0%,95% 100%,100% 0%);
+}
+.footer-inner{padding:80px 24px 30px;}
+.footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px;}
+@media (max-width:820px){.footer-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:540px){.footer-grid{grid-template-columns:1fr;}}
+.footer-brand{display:flex; align-items:center; gap:10px; font-family:'Anton',sans-serif; font-size:1.25rem; color:#fff;}
+.footer-grid p{font-size:.88rem; margin-top:14px; max-width:280px; color:#9AA6C4;}
+.footer-grid h4{color:#fff; font-size:.84rem; letter-spacing:.06em; text-transform:uppercase; margin-bottom:16px; font-family:'Space Mono',monospace;}
+.footer-grid li{margin-bottom:10px; font-size:.9rem;}
+.footer-grid a:hover{color:#fff;}
+.footer-social{display:flex; gap:12px; margin-top:18px;}
+.footer-social a{
+  width:36px;height:36px; border-radius:50%; background:rgba(255,255,255,.08);
+  display:flex; align-items:center; justify-content:center;
+}
+.footer-social a svg{width:17px;height:17px;}
+.footer-social a:hover{background:var(--tomato);}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1); margin-top:50px; padding-top:24px;
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:.78rem; font-family:'Space Mono',monospace;
+}
+
+/* ============================= WA FLOAT ============================= */
+.wa-float{
+  position:fixed; bottom:24px; right:24px; z-index:70;
+  width:60px; height:60px; border-radius:50%;
+  background:#25D366; color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 14px 30px -10px rgba(0,0,0,.45);
+  animation:wa-pulse 2.6s ease-in-out infinite;
+}
+.wa-float svg{width:28px;height:28px;}
+@keyframes wa-pulse{0%,100%{box-shadow:0 14px 30px -10px rgba(0,0,0,.45);} 50%{box-shadow:0 14px 30px -10px rgba(37,211,102,.7);}}
+
+/* ============================= SCROLL REVEAL ============================= */
+[data-reveal]{opacity:0; transform:translateY(22px); transition:opacity .6s ease, transform .6s ease;}
+[data-reveal].is-visible{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- ============================= NAV ============================= -->
+<nav class="nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="#" class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16v6a8 8 0 0 1-16 0V4z"/><circle cx="12" cy="13" r="3"/></svg>
+      </span>
+      Beresin<span>Laundry</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#layanan">Layanan</a></li>
+      <li><a href="#cara-pesan">Cara Pesan</a></li>
+      <li><a href="#harga">Harga</a></li>
+      <li><a href="#galeri">Galeri</a></li>
+      <li><a href="#testimoni">Testimoni</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#harga" class="btn btn-outline">Lihat Harga</a>
+      <a href="https://wa.me/6281234567890?text=Halo%20Beresin%20Laundry%2C%20saya%20mau%20jemput%20laundry" class="btn btn-primary" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.32 4.94L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm5.83 14.1c-.25.7-1.45 1.33-2 1.42-.52.08-1.18.11-1.9-.12-.44-.14-1-.32-1.73-.62-3.04-1.31-5.02-4.38-5.17-4.58-.15-.2-1.23-1.63-1.23-3.1 0-1.48.78-2.2 1.05-2.5.28-.3.6-.37.8-.37h.58c.18 0 .43-.02.66.5.27.6.9 2.1.98 2.25.08.15.13.33.03.53-.1.2-.16.32-.31.49-.16.18-.32.4-.46.54-.15.15-.3.31-.13.6.18.3.81 1.34 1.74 2.18 1.2 1.07 2.21 1.4 2.52 1.55.31.15.49.13.67-.08.18-.2.78-.9.99-1.21.21-.31.42-.26.7-.16.28.1 1.78.84 2.08.99.3.15.5.23.57.36.08.13.08.74-.17 1.43z"/></svg>
+        Pesan via WA
+      </a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Buka menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ============================= HERO ============================= -->
+<header class="hero">
+  <div class="container hero-grid">
+    <div data-reveal>
+      <span class="eyebrow">Laundry Kiloan · Antar Jemput Gratis</span>
+      <h1 class="font-display">Cuci Beres,<br>Tinggal <span class="accent">Pakai.</span></h1>
+      <p class="lead">Laundry kiloan harian dengan jemput-antar gratis di area Kota. Ditimbang langsung di depanmu, dicuci bersih, dilipat rapi, wangi tahan sampai 3 hari. Mendadak butuh cepat? Express selesai 6 jam.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/6281234567890?text=Halo%20Beresin%20Laundry%2C%20saya%20mau%20jemput%20laundry" class="btn btn-primary" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.32 4.94L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm5.83 14.1c-.25.7-1.45 1.33-2 1.42-.52.08-1.18.11-1.9-.12-.44-.14-1-.32-1.73-.62-3.04-1.31-5.02-4.38-5.17-4.58-.15-.2-1.23-1.63-1.23-3.1 0-1.48.78-2.2 1.05-2.5.28-.3.6-.37.8-.37h.58c.18 0 .43-.02.66.5.27.6.9 2.1.98 2.25.08.15.13.33.03.53-.1.2-.16.32-.31.49-.16.18-.32.4-.46.54-.15.15-.3.31-.13.6.18.3.81 1.34 1.74 2.18 1.2 1.07 2.21 1.4 2.52 1.55.31.15.49.13.67-.08.18-.2.78-.9.99-1.21.21-.31.42-.26.7-.16.28.1 1.78.84 2.08.99.3.15.5.23.57.36.08.13.08.74-.17 1.43z"/></svg>
+          Pesan Jemput Sekarang
+        </a>
+        <a href="#harga" class="btn btn-outline">Lihat Daftar Harga</a>
+      </div>
+      <div class="trust-strip">
+        <div class="trust-item"><b>4.9/5</b><span>dari 800+ pelanggan</span></div>
+        <div class="trust-item"><b>12.000kg+</b><span>dicuci tiap bulan</span></div>
+        <div class="trust-item"><b>&lt;5 menit</b><span>rata-rata respon WA</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual" data-reveal>
+      <div class="hero-photo-frame">
+        <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=1200&auto=format&fit=crop" alt="Tumpukan baju bersih dilipat rapi warna-warni" loading="eager">
+        <span class="hero-badge">✓ Bebas Noda Garansi</span>
+      </div>
+      <div class="hero-tag">
+        <div class="tag-no">TIKET #00128</div>
+        <div class="tag-price">Rp 7.000<small>/kg</small></div>
+        <div class="tag-sub">Estimasi selesai 1 hari</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Antar Jemput Gratis</span><span>Bebas Noda, Garansi Ganti Rugi</span><span>Wangi Tahan 3 Hari</span><span>Express 6 Jam</span><span>Timbangan Digital di Depan Mata</span>
+      <span>Antar Jemput Gratis</span><span>Bebas Noda, Garansi Ganti Rugi</span><span>Wangi Tahan 3 Hari</span><span>Express 6 Jam</span><span>Timbangan Digital di Depan Mata</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============================= LAYANAN ============================= -->
+<section class="section" id="layanan">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Layanan</span>
+      <h2 class="font-display">Pilih Paket Sesuai Kebutuhan</h2>
+      <p>Empat tiket layanan, satu tujuan: cucianmu beres tanpa ribet. Semua harga sudah termasuk cuci, kering, dan pengemasan.</p>
+    </div>
+
+    <div class="layanan-grid">
+      <article class="tiket" data-reveal style="--r:-1.6deg">
+        <div class="tiket-stub">
+          <span class="tiket-no">TIKET 01</span>
+          <span class="tiket-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h16v6a8 8 0 0 1-16 0V4z"/><circle cx="12" cy="13" r="3"/></svg></span>
+        </div>
+        <div class="layanan-photo"><img src="https://images.unsplash.com/photo-1604176354204-9268737828e4?q=80&w=900&auto=format&fit=crop" alt="Laundry kiloan reguler" loading="lazy"></div>
+        <h3>Cuci Reguler</h3>
+        <p class="desc">Cuci + kering + lipat rapi. Pilihan paling hemat untuk laundry harian.</p>
+        <div class="layanan-price">Rp 7.000<small>/kg</small></div>
+        <div class="layanan-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> Selesai 2 hari</div>
+      </article>
+
+      <article class="tiket" data-reveal style="--r:1.4deg">
+        <div class="tiket-stub">
+          <span class="tiket-no">TIKET 02</span>
+          <span class="tiket-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></span>
+        </div>
+        <div class="layanan-photo"><img src="https://images.unsplash.com/photo-1585314293845-4db3b9d0c6e9?q=80&w=900&auto=format&fit=crop" alt="Laundry express cepat" loading="lazy"></div>
+        <h3>Cuci Express</h3>
+        <p class="desc">Buat yang mendadak butuh besok pagi. Diprioritaskan, tetap rapi.</p>
+        <div class="layanan-price">Rp 12.000<small>/kg</small></div>
+        <div class="layanan-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> Selesai 6 jam</div>
+      </article>
+
+      <article class="tiket" data-reveal style="--r:-1.1deg">
+        <div class="tiket-stub">
+          <span class="tiket-no">TIKET 03</span>
+          <span class="tiket-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 3h9l3 4v3l-3 3v8H6V3z"/><path d="M9 9h6"/></svg></span>
+        </div>
+        <div class="layanan-photo"><img src="https://images.unsplash.com/photo-1504198458649-3128b932f49e?q=80&w=900&auto=format&fit=crop" alt="Cuci dan setrika rapi" loading="lazy"></div>
+        <h3>Cuci + Setrika</h3>
+        <p class="desc">Disetrika halus, dilipat presisi. Tinggal masuk lemari, langsung pakai.</p>
+        <div class="layanan-price">Rp 9.000<small>/kg</small></div>
+        <div class="layanan-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> Selesai 2 hari</div>
+      </article>
+
+      <article class="tiket" data-reveal style="--r:1.8deg">
+        <div class="tiket-stub">
+          <span class="tiket-no">TIKET 04</span>
+          <span class="tiket-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 4v16M16 4v16"/></svg></span>
+        </div>
+        <div class="layanan-photo"><img src="https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?q=80&w=900&auto=format&fit=crop" alt="Cuci satuan selimut dan bed cover" loading="lazy"></div>
+        <h3>Satuan Khusus</h3>
+        <p class="desc">Selimut, bed cover, boneka, sepatu — item besar yang butuh penanganan khusus.</p>
+        <div class="layanan-price">mulai 25rb<small>/pcs</small></div>
+        <div class="layanan-time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> Selesai 2–3 hari</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= CARA PESAN ============================= -->
+<section class="section" id="cara-pesan" style="background:var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <span class="eyebrow">Cara Pesan</span>
+      <h2 class="font-display">Empat Langkah, Selesai</h2>
+      <p>Mulai dari chat sampai cucian sampai lagi di depan pintu — semua dilacak lewat satu nomor tiket.</p>
+    </div>
+
+    <div class="proses-chain">
+      <div class="proses-step" data-reveal>
+        <div class="proses-num">01</div>
+        <h3>Chat via WhatsApp</h3>
+        <p>Kirim alamat & perkiraan berat cucian. Kami konfirmasi jadwal jemput dalam hitungan menit.</p>
+      </div>
+      <div class="proses-step" data-reveal>
+        <div class="proses-num">02</div>
+        <h3>Dijemput &amp; Ditimbang</h3>
+        <p>Kurir datang ke lokasi, cucian ditimbang dengan timbangan digital langsung di depanmu.</p>
+      </div>
+      <div class="proses-step" data-reveal>
+        <div class="proses-num">03</div>
+        <h3>Dicuci &amp; Disetrika</h3>
+        <p>Proses higienis dengan deterjen lembut, pewangi tahan lama, dikemas rapi per tiket.</p>
+      </div>
+      <div class="proses-step" data-reveal>
+        <div class="proses-num">04</div>
+        <h3>Diantar Balik</h3>
+        <p>Laundry bersih diantar sampai depan pintu. Tinggal buka kantong, langsung pakai.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= KENAPA PILIH KAMI ============================= -->
+<section class="section" id="kenapa">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Kenapa Pilih Kami</span>
+      <h2 class="font-display">Bukan Sekadar Cuci Bersih</h2>
+    </div>
+
+    <div class="fitur-grid">
+      <div class="fitur-card" data-reveal>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 13h16M4 13l2 6h12l2-6M9 13V8a3 3 0 0 1 6 0v5"/></svg></span>
+        <h3>Timbangan Transparan</h3>
+        <p>Berat cucian ditimbang dengan timbangan digital langsung di depan mata kamu, bukan tebak-tebakan.</p>
+      </div>
+      <div class="fitur-card" data-reveal>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6l-8-4z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <h3>Deterjen Lembut</h3>
+        <p>Aman untuk kulit sensitif, cocok juga untuk pakaian bayi dan anak-anak.</p>
+      </div>
+      <div class="fitur-card" data-reveal>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+        <h3>Garansi Ganti Rugi</h3>
+        <p>Jika ada item yang hilang atau tertukar, kami tanggung penuh sesuai kebijakan toko.</p>
+      </div>
+      <div class="fitur-card" data-reveal>
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 20s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 5c-2.5 4.5-9.5 9-9.5 9z"/></svg></span>
+        <h3>Bisa Custom Request</h3>
+        <p>Tanpa pewangi, anti luntur, atau dipisah per kategori — tinggal bilang via WhatsApp.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= GALERI ============================= -->
+<section class="section" id="galeri" style="background:var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <span class="eyebrow">Galeri</span>
+      <h2 class="font-display">Sekilas Proses di Tempat Kami</h2>
+    </div>
+
+    <div class="galeri-grid" data-reveal>
+      <a class="g1" href="#"><img src="https://images.unsplash.com/photo-1567113463300-102a7eb3cb26?q=80&w=900&auto=format&fit=crop" alt="Pakaian rapi terlipat warna-warni" loading="lazy"></a>
+      <a class="g2" href="#"><img src="https://images.unsplash.com/photo-1626806819282-2c1dc01a5e0c?q=80&w=700&auto=format&fit=crop" alt="Mesin cuci dan pengering" loading="lazy"></a>
+      <a class="g3" href="#"><img src="https://images.unsplash.com/photo-1699797467199-6bdf301649e8?q=80&w=700&auto=format&fit=crop" alt="Tumpukan handuk terlipat" loading="lazy"></a>
+      <a class="g4" href="#"><img src="https://images.unsplash.com/photo-1630329273801-8f629dba0a72?q=80&w=500&auto=format&fit=crop" alt="Tekstil bersih warna pastel" loading="lazy"></a>
+      <a class="g5" href="#"><img src="https://images.unsplash.com/photo-1692576855758-318a1fa8ff6d?q=80&w=700&auto=format&fit=crop" alt="Keranjang laundry tersusun" loading="lazy"></a>
+      <a class="g6" href="#"><img src="https://images.unsplash.com/photo-1540221652346-e5dd6b50f3e7?q=80&w=1100&auto=format&fit=crop" alt="Pakaian tergantung rapi" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= HARGA ============================= -->
+<section class="section" id="harga">
+  <div class="container harga-wrap">
+    <div data-reveal>
+      <div class="struk">
+        <div class="struk-head">
+          <div class="nm font-display">Daftar Harga</div>
+          <div class="dt">BERESIN LAUNDRY · BERLAKU HARI INI</div>
+        </div>
+        <div class="struk-row"><span>Cuci Reguler (kg)</span><span class="leader"></span><span class="nominal">Rp 7.000</span></div>
+        <div class="struk-row"><span>Cuci Express 6 Jam (kg)</span><span class="leader"></span><span class="nominal">Rp 12.000</span></div>
+        <div class="struk-row"><span>Cuci + Setrika (kg)</span><span class="leader"></span><span class="nominal">Rp 9.000</span></div>
+        <div class="struk-row"><span>Setrika Saja (kg)</span><span class="leader"></span><span class="nominal">Rp 5.000</span></div>
+        <div class="struk-row"><span>Selimut Tebal (pcs)</span><span class="leader"></span><span class="nominal">Rp 25.000</span></div>
+        <div class="struk-row"><span>Bed Cover (pcs)</span><span class="leader"></span><span class="nominal">Rp 30.000</span></div>
+        <div class="struk-row"><span>Sepatu (pasang)</span><span class="leader"></span><span class="nominal">Rp 35.000</span></div>
+        <div class="struk-foot">Minimal order 3kg untuk antar-jemput gratis · Harga sewaktu-waktu dapat berubah</div>
+      </div>
+    </div>
+
+    <div class="harga-note" data-reveal>
+      <span class="eyebrow">Perlu Tahu</span>
+      <h2 class="font-display" style="font-size:1.8rem; margin-top:6px;">Detail Sebelum Pesan</h2>
+
+      <div class="note-item">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h18M3 6h18M3 18h18"/></svg></span>
+        <div><h4>Minimal 3kg</h4><p>Untuk layanan antar-jemput gratis. Di bawah itu bisa drop langsung ke outlet.</p></div>
+      </div>
+      <div class="note-item">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+        <div><h4>Estimasi Waktu</h4><p>Reguler 2 hari, Express 6 jam sejak cucian ditimbang dan dikonfirmasi.</p></div>
+      </div>
+      <div class="note-item">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9h18M3 9V6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v3M4 9v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9"/></svg></span>
+        <div><h4>Pembayaran</h4><p>Tunai, transfer, atau e-wallet saat cucian diantar balik — fleksibel.</p></div>
+      </div>
+
+      <a href="https://wa.me/6281234567890?text=Halo%20Beresin%20Laundry%2C%20saya%20mau%20tanya%20harga" class="btn btn-primary" style="margin-top:10px; width:fit-content;" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.32 4.94L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm5.83 14.1c-.25.7-1.45 1.33-2 1.42-.52.08-1.18.11-1.9-.12-.44-.14-1-.32-1.73-.62-3.04-1.31-5.02-4.38-5.17-4.58-.15-.2-1.23-1.63-1.23-3.1 0-1.48.78-2.2 1.05-2.5.28-.3.6-.37.8-.37h.58c.18 0 .43-.02.66.5.27.6.9 2.1.98 2.25.08.15.13.33.03.53-.1.2-.16.32-.31.49-.16.18-.32.4-.46.54-.15.15-.3.31-.13.6.18.3.81 1.34 1.74 2.18 1.2 1.07 2.21 1.4 2.52 1.55.31.15.49.13.67-.08.18-.2.78-.9.99-1.21.21-.31.42-.26.7-.16.28.1 1.78.84 2.08.99.3.15.5.23.57.36.08.13.08.74-.17 1.43z"/></svg>
+        Tanya Harga via WA
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= TESTIMONI ============================= -->
+<section class="section" id="testimoni" style="background:var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <span class="eyebrow">Testimoni</span>
+      <h2 class="font-display">Kata Mereka yang Sudah Coba</h2>
+    </div>
+
+    <div class="testi-grid">
+      <article class="tiket testi-card" data-reveal>
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 1-5 5 1.5 7L12 18l-6.5 3.5L7 14.5l-5-5 7-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 1-5 5 1.5 7L12 18l-6.5 3.5L7 14.5l-5-5 7-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 1-5 5 1.5 7L12 18l-6.5 3.5L7 14.5l-5-5 7-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 1-5 5 1.5 7L12 18l-6.5 3.5L7 14.5l-5-5 7-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 1-5 5 1.5 7L12 18l-6.5 3.5L7 14.5l-5-5 7-1z"/></svg>
+        </div>
+        <p class="testi-quote">Anak kos wajib tau tempat ini. Tiap antar selalu pas jumlahnya, gak pernah ketuker sama punya orang lain.</p>
+        <div class="testi-who">
+          <span class="avatar" style="background:var(--indigo)">DR</span>
+          <div><div class="nm">Dimas R.</div><div class="rl">Mahasiswa</div></div>
+          <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>WA</span>
+        </div>
+      </article>
+
+      <article class="tiket testi-card" data-reveal>
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 1-5 5 1.5 7L12 18l-6.5 3.5L7 14.5l-5-5 7-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 1-5 5 1.5 7L12 18l-6.5 3.5L7 14.5l-5-5 7-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 1-5 5 1.5 7L12 18l-6.5 3.5L7 14.5l-5-5 7-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 1-5 5 1.5 7L12 18l-6.5 3.5L7 14.5l-5-5 7-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 1-5 5 1.5 7L12 18l-6.5 3.5L7 14.5l-5-5 7-1z"/></svg>
+        </div>
+        <p class="testi-quote">Express 6 jam-nya nyata. Pernah butuh mendadak buat acara kantor besok pagi, selesai tepat waktu dan rapi.</p>
+        <div class="testi-who">
+          <span class="avatar" style="background:var(--tomato)">RN</span>
+          <div><div class="nm">Rani N.</div><div class="rl">Karyawan Swasta</div></div>
+          <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>WA</span>
+        </div>
+      </article>
+
+      <article class="tiket testi-card" data-reveal>
+        <div class="testi-stars">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 1-5 5 1.5 7L12 18l-6.5 3.5L7 14.5l-5-5 7-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 1-5 5 1.5 7L12 18l-6.5 3.5L7 14.5l-5-5 7-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 1-5 5 1.5 7L12 18l-6.5 3.5L7 14.5l-5-5 7-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 1-5 5 1.5 7L12 18l-6.5 3.5L7 14.5l-5-5 7-1z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.5 7 1-5 5 1.5 7L12 18l-6.5 3.5L7 14.5l-5-5 7-1z"/></svg>
+        </div>
+        <p class="testi-quote">Wanginya awet, baju anak saya yang masih bayi juga aman dicuci di sini. Harganya juga masuk akal.</p>
+        <div class="testi-who">
+          <span class="avatar" style="background:#1F8A5C">BS</span>
+          <div><div class="nm">Bu Sari</div><div class="rl">Ibu Rumah Tangga</div></div>
+          <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>WA</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= AREA LAYANAN ============================= -->
+<section class="section" id="area-layanan">
+  <div class="container area-wrap">
+    <div data-reveal>
+      <span class="eyebrow">Area Layanan</span>
+      <h2 class="font-display" style="font-size:2rem; margin-top:10px;">Jemput-Antar Gratis di Area Ini</h2>
+      <p style="color:var(--muted); margin-top:14px;">Di luar area berikut tetap bisa pesan — ongkos kirim menyesuaikan jarak. Konfirmasi cepat via WhatsApp.</p>
+      <ul class="area-list" style="margin-top:24px;">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.2-7-11a7 7 0 1 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Kec. Purwokerto Utara</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.2-7-11a7 7 0 1 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Kec. Purwokerto Timur</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.2-7-11a7 7 0 1 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Kec. Purwokerto Selatan</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.2-7-11a7 7 0 1 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Sekitar Kampus &amp; Kos</li>
+      </ul>
+    </div>
+    <div class="area-visual" data-reveal>
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2"><path d="M3 17 8 7l4 6 3-4 6 8"/></svg>
+      <span class="area-pin" style="top:28%; left:30%;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.2-7-11a7 7 0 1 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+      <span class="area-pin" style="top:55%; left:60%; width:38px; height:38px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.2-7-11a7 7 0 1 1 14 0c0 5.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FAQ ============================= -->
+<section class="section" id="faq" style="background:var(--card); border-top:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <span class="eyebrow">FAQ</span>
+      <h2 class="font-display">Pertanyaan yang Sering Ditanyakan</h2>
+    </div>
+
+    <div class="faq-list" data-reveal>
+      <div class="faq-item is-open">
+        <button class="faq-q" aria-expanded="true">
+          <span><span class="tiket-no-faq">T01</span>Berapa minimal kiloan untuk dijemput gratis?</span>
+          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-panel"><div><div class="faq-body">Minimal 3kg untuk layanan jemput-antar gratis di area layanan. Kurang dari itu, kamu bisa drop langsung ke outlet tanpa biaya tambahan.</div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span><span class="tiket-no-faq">T02</span>Apa beda Cuci Reguler dan Express?</span>
+          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-panel"><div><div class="faq-body">Reguler selesai dalam 2 hari dengan harga lebih hemat. Express diprioritaskan dan selesai dalam 6 jam, cocok untuk kebutuhan mendadak.</div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span><span class="tiket-no-faq">T03</span>Apakah bisa request tanpa pewangi atau anti luntur?</span>
+          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-panel"><div><div class="faq-body">Bisa. Tinggal sampaikan permintaan khusus saat chat WhatsApp di awal pemesanan — termasuk pisah warna atau kategori tertentu.</div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span><span class="tiket-no-faq">T04</span>Bagaimana kalau ada barang yang hilang atau tertukar?</span>
+          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-panel"><div><div class="faq-body">Setiap pesanan tercatat dengan nomor tiket. Jika terjadi kehilangan atau tertukar akibat kelalaian kami, berlaku garansi ganti rugi sesuai kebijakan toko.</div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span><span class="tiket-no-faq">T05</span>Metode pembayaran apa saja yang diterima?</span>
+          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq-panel"><div><div class="faq-body">Tunai, transfer bank, dan e-wallet — bisa dibayar saat cucian diantar balik ke alamatmu.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= CTA BANNER ============================= -->
+<section style="padding:80px 0 96px;">
+  <div class="cta-banner" data-reveal>
+    <div class="cta-banner-inner">
+      <h2 class="font-display">Laundry Numpuk? <span class="accent">Selesai Hari Ini.</span></h2>
+      <p>Chat sekarang, kurir kami jemput ke lokasimu hari ini juga. Gratis untuk area layanan.</p>
+      <a href="https://wa.me/6281234567890?text=Halo%20Beresin%20Laundry%2C%20saya%20mau%20jemput%20laundry%20hari%20ini" class="btn btn-light" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.32 4.94L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm5.83 14.1c-.25.7-1.45 1.33-2 1.42-.52.08-1.18.11-1.9-.12-.44-.14-1-.32-1.73-.62-3.04-1.31-5.02-4.38-5.17-4.58-.15-.2-1.23-1.63-1.23-3.1 0-1.48.78-2.2 1.05-2.5.28-.3.6-.37.8-.37h.58c.18 0 .43-.02.66.5.27.6.9 2.1.98 2.25.08.15.13.33.03.53-.1.2-.16.32-.31.49-.16.18-.32.4-.46.54-.15.15-.3.31-.13.6.18.3.81 1.34 1.74 2.18 1.2 1.07 2.21 1.4 2.52 1.55.31.15.49.13.67-.08.18-.2.78-.9.99-1.21.21-.31.42-.26.7-.16.28.1 1.78.84 2.08.99.3.15.5.23.57.36.08.13.08.74-.17 1.43z"/></svg>
+        Chat WhatsApp Sekarang
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FOOTER ============================= -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-grid">
+      <div>
+        <a href="#" class="footer-brand">
+          <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16v6a8 8 0 0 1-16 0V4z"/><circle cx="12" cy="13" r="3"/></svg></span>
+          BeresinLaundry
+        </a>
+        <p>Laundry kiloan harian dengan antar-jemput gratis. Cuci bersih, wangi tahan lama, dan tiket nomor yang bikin gak pernah ketuker.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 4v9.5a3.5 3.5 0 1 1-3-3.46"/><path d="M14 4c0 2.5 2 4.5 4.5 4.5"/></svg></a>
+          <a href="https://wa.me/6281234567890" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.32 4.94L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="#layanan">Cuci Reguler</a></li>
+          <li><a href="#layanan">Cuci Express</a></li>
+          <li><a href="#layanan">Cuci + Setrika</a></li>
+          <li><a href="#layanan">Satuan Khusus</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Tautan</h4>
+        <ul>
+          <li><a href="#cara-pesan">Cara Pesan</a></li>
+          <li><a href="#harga">Harga</a></li>
+          <li><a href="#testimoni">Testimoni</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontak</h4>
+        <ul>
+          <li>WA: 0812-3456-7890</li>
+          <li>Jl. Merdeka No. 12, Purwokerto</li>
+          <li>Setiap hari, 07.00–21.00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Beresin Laundry. Semua hak dilindungi.</span>
+      <span>Dibuat oleh [Nama Jasa Pembuatan Website Kamu]</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/6281234567890?text=Halo%20Beresin%20Laundry" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.45 1.32 4.94L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm5.83 14.1c-.25.7-1.45 1.33-2 1.42-.52.08-1.18.11-1.9-.12-.44-.14-1-.32-1.73-.62-3.04-1.31-5.02-4.38-5.17-4.58-.15-.2-1.23-1.63-1.23-3.1 0-1.48.78-2.2 1.05-2.5.28-.3.6-.37.8-.37h.58c.18 0 .43-.02.66.5.27.6.9 2.1.98 2.25.08.15.13.33.03.53-.1.2-.16.32-.31.49-.16.18-.32.4-.46.54-.15.15-.3.31-.13.6.18.3.81 1.34 1.74 2.18 1.2 1.07 2.21 1.4 2.52 1.55.31.15.49.13.67-.08.18-.2.78-.9.99-1.21.21-.31.42-.26.7-.16.28.1 1.78.84 2.08.99.3.15.5.23.57.36.08.13.08.74-.17 1.43z"/></svg>
+</a>
+
+<script>
+  // Nav scroll shadow
+  const nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('is-scrolled', window.scrollY > 8);
+  });
+
+  // Mobile nav toggle
+  const burger = document.getElementById('navBurger');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => navLinks.classList.toggle('is-open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('is-open')));
+
+  // FAQ accordion: klik untuk buka, item lain otomatis tertutup
+  document.querySelectorAll('.faq-item').forEach((item) => {
+    const btn = item.querySelector('.faq-q');
+    btn.addEventListener('click', () => {
+      const willOpen = !item.classList.contains('is-open');
+      document.querySelectorAll('.faq-item.is-open').forEach((other) => {
+        other.classList.remove('is-open');
+        other.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (willOpen) {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

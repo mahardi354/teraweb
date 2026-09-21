@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DriveEase – Rental Mobil Premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0A0A0A;
+      --dark:    #1C1C1C;
+      --mid:     #3A3A3A;
+      --light:   #F2F2F0;
+      --white:   #FAFAFA;
+      --red:     #E8323C;
+      --red-dim: #B8262F;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body:    'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 68px;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.7rem; font-weight: 800; letter-spacing: .5px;
+      color: var(--white); text-decoration: none;
+    }
+    .nav-logo span { color: var(--red); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: .85rem; font-weight: 500; letter-spacing: .3px;
+      color: rgba(255,255,255,0.75); text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--red); color: var(--white);
+      padding: 9px 22px; border-radius: 4px;
+      font-size: .85rem; font-weight: 600; text-decoration: none;
+      transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--red-dim); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1800&q=80') center/cover no-repeat;
+      transform: scale(1.04);
+      animation: heroZoom 12s ease-out forwards;
+    }
+    @keyframes heroZoom { to { transform: scale(1); } }
+    #hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(100deg, rgba(10,10,10,.88) 40%, rgba(10,10,10,.45) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 5%; padding-top: 80px;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      font-size: .78rem; font-weight: 600; letter-spacing: 3px;
+      color: var(--red); text-transform: uppercase;
+      margin-bottom: 16px;
+      opacity: 0; animation: fadeUp .6s .2s forwards;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 8vw, 6.5rem);
+      font-weight: 800; line-height: .95;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      opacity: 0; animation: fadeUp .7s .35s forwards;
+    }
+    .hero-title em { color: var(--red); font-style: normal; }
+    .hero-sub {
+      font-size: 1rem; font-weight: 300; line-height: 1.65;
+      color: rgba(255,255,255,.7); max-width: 420px;
+      margin-bottom: 40px;
+      opacity: 0; animation: fadeUp .7s .5s forwards;
+    }
+    .hero-stats {
+      display: flex; gap: 40px;
+      opacity: 0; animation: fadeUp .7s .65s forwards;
+    }
+    .stat-item { text-align: left; }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2.4rem; font-weight: 800; color: var(--white); line-height: 1;
+    }
+    .stat-num span { color: var(--red); }
+    .stat-label { font-size: .72rem; font-weight: 500; letter-spacing: 1.5px; color: rgba(255,255,255,.5); text-transform: uppercase; margin-top: 4px; }
+
+    /* ── BOOKING WIDGET ── */
+    .booking-bar {
+      position: relative; z-index: 2;
+      background: var(--white);
+      border-radius: 8px;
+      padding: 28px 32px;
+      max-width: 900px;
+      margin: -60px auto 0;
+      box-shadow: 0 20px 60px rgba(0,0,0,.18);
+    }
+    .booking-bar h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--mid);
+      margin-bottom: 20px;
+    }
+    .booking-fields {
+      display: grid; grid-template-columns: 1fr 1fr 1fr auto;
+      gap: 12px; align-items: end;
+    }
+    .field-group label {
+      display: block; font-size: .72rem; font-weight: 600;
+      letter-spacing: 1.2px; text-transform: uppercase;
+      color: var(--mid); margin-bottom: 8px;
+    }
+    .field-group input, .field-group select {
+      width: 100%; padding: 11px 14px;
+      border: 1.5px solid #E0E0E0; border-radius: 5px;
+      font-family: var(--font-body); font-size: .92rem;
+      color: var(--dark); background: var(--white);
+      transition: border-color .2s;
+      appearance: none; -webkit-appearance: none;
+    }
+    .field-group input:focus, .field-group select:focus {
+      outline: none; border-color: var(--red);
+    }
+    .btn-search {
+      background: var(--red); color: var(--white);
+      border: none; border-radius: 5px;
+      padding: 12px 28px;
+      font-family: var(--font-display);
+      font-size: 1rem; font-weight: 700; letter-spacing: .5px;
+      cursor: pointer; white-space: nowrap;
+      transition: background .2s, transform .1s;
+    }
+    .btn-search:hover { background: var(--red-dim); transform: translateY(-1px); }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 90px 5%; }
+    .section-label {
+      font-size: .72rem; font-weight: 600; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--red);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800; line-height: 1.05;
+      text-transform: uppercase;
+    }
+    .section-sub {
+      font-size: .95rem; color: var(--mid);
+      line-height: 1.7; margin-top: 12px; max-width: 480px;
+    }
+    .section-head { margin-bottom: 48px; }
+
+    /* ── FLEET ── */
+    #fleet { background: var(--light); }
+    .fleet-tabs {
+      display: flex; gap: 8px; margin-bottom: 36px; flex-wrap: wrap;
+    }
+    .tab-btn {
+      padding: 8px 20px; border-radius: 30px;
+      border: 1.5px solid #D0D0D0; background: transparent;
+      font-family: var(--font-body); font-size: .83rem; font-weight: 600;
+      cursor: pointer; transition: all .2s; color: var(--mid);
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--red); border-color: var(--red); color: var(--white);
+    }
+    .fleet-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .car-card {
+      background: var(--white); border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,.07);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .car-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,.13); }
+    .car-img {
+      width: 100%; height: 210px; object-fit: cover;
+      display: block;
+    }
+    .car-body { padding: 20px 22px; }
+    .car-category {
+      font-size: .68rem; font-weight: 600; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--red);
+      margin-bottom: 4px;
+    }
+    .car-name {
+      font-family: var(--font-display);
+      font-size: 1.45rem; font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .car-features {
+      display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 18px;
+    }
+    .feat {
+      display: flex; align-items: center; gap: 5px;
+      font-size: .78rem; color: var(--mid);
+    }
+    .feat svg { flex-shrink: 0; }
+    .car-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 16px; border-top: 1px solid #EBEBEB;
+    }
+    .price-label { font-size: .68rem; color: #999; text-transform: uppercase; letter-spacing: 1px; }
+    .price-val {
+      font-family: var(--font-display);
+      font-size: 1.6rem; font-weight: 800; color: var(--black);
+    }
+    .price-val small { font-size: .8rem; font-weight: 400; color: var(--mid); }
+    .btn-rent {
+      background: var(--dark); color: var(--white);
+      padding: 9px 18px; border-radius: 5px;
+      font-size: .82rem; font-weight: 600;
+      border: none; cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-rent:hover { background: var(--red); }
+
+    /* ── WHY US ── */
+    #why { background: var(--black); color: var(--white); }
+    #why .section-title { color: var(--white); }
+    #why .section-sub { color: rgba(255,255,255,.55); }
+    .why-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 32px; margin-top: 48px;
+    }
+    .why-item {
+      padding: 32px 28px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 8px;
+      transition: border-color .2s, background .2s;
+    }
+    .why-item:hover { border-color: var(--red); background: rgba(232,50,60,.05); }
+    .why-icon {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: rgba(232,50,60,.15);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .why-icon svg { width: 22px; height: 22px; }
+    .why-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem; font-weight: 700; text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .why-desc { font-size: .88rem; color: rgba(255,255,255,.5); line-height: 1.65; }
+
+    /* ── HOW IT WORKS ── */
+    #how { background: var(--white); }
+    .steps {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0; margin-top: 48px; position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute; top: 28px; left: 10%; right: 10%;
+      height: 1px; background: repeating-linear-gradient(90deg, var(--red) 0, var(--red) 6px, transparent 6px, transparent 14px);
+    }
+    .step { text-align: center; padding: 0 24px; }
+    .step-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--red); color: var(--white);
+      font-family: var(--font-display); font-size: 1.5rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px; position: relative; z-index: 1;
+    }
+    .step-title {
+      font-family: var(--font-display); font-size: 1.1rem; font-weight: 700;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .step-desc { font-size: .85rem; color: var(--mid); line-height: 1.6; }
+
+    /* ── TESTIMONIALS ── */
+    #testi { background: var(--light); }
+    .testi-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px; margin-top: 48px;
+    }
+    .testi-card {
+      background: var(--white); border-radius: 10px;
+      padding: 28px 26px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    }
+    .stars { color: #F5A623; font-size: 1rem; letter-spacing: 2px; margin-bottom: 14px; }
+    .testi-text { font-size: .9rem; line-height: 1.7; color: var(--mid); margin-bottom: 20px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      width: 42px; height: 42px; border-radius: 50%; object-fit: cover;
+    }
+    .testi-name { font-weight: 600; font-size: .88rem; }
+    .testi-role { font-size: .75rem; color: #999; }
+
+    /* ── CTA BANNER ── */
+    #cta-banner {
+      background: var(--red);
+      padding: 70px 5%;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    #cta-banner::before {
+      content: 'DRIVE';
+      position: absolute; right: -3%; top: 50%; transform: translateY(-50%);
+      font-family: var(--font-display); font-size: 18vw; font-weight: 900;
+      color: rgba(255,255,255,.06); pointer-events: none; white-space: nowrap;
+    }
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;
+      text-transform: uppercase; color: var(--white); margin-bottom: 14px;
+    }
+    .cta-sub { font-size: .95rem; color: rgba(255,255,255,.8); margin-bottom: 32px; }
+    .btn-cta-white {
+      background: var(--white); color: var(--red);
+      padding: 14px 36px; border-radius: 5px;
+      font-family: var(--font-display); font-size: 1.05rem; font-weight: 700;
+      text-decoration: none; display: inline-block;
+      transition: transform .2s, box-shadow .2s;
+      letter-spacing: .5px;
+    }
+    .btn-cta-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black); color: rgba(255,255,255,.55);
+      padding: 60px 5% 30px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px; margin-bottom: 48px;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.8rem; font-weight: 800; color: var(--white);
+      margin-bottom: 14px; display: block;
+    }
+    .footer-logo span { color: var(--red); }
+    .footer-about { font-size: .86rem; line-height: 1.7; max-width: 280px; }
+    .footer-col h4 {
+      font-size: .72rem; font-weight: 600; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--white); margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul a {
+      font-size: .86rem; color: rgba(255,255,255,.5);
+      text-decoration: none; transition: color .2s;
+    }
+    .footer-col ul a:hover { color: var(--white); }
+    .footer-bottom {
+      padding-top: 24px; border-top: 1px solid rgba(255,255,255,.08);
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: .78rem;
+    }
+    .footer-bottom a { color: var(--red); text-decoration: none; }
+    .social-links { display: flex; gap: 14px; }
+    .social-link {
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.15);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.5); text-decoration: none; font-size: .8rem;
+      transition: border-color .2s, color .2s;
+    }
+    .social-link:hover { border-color: var(--red); color: var(--white); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .booking-fields { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .steps::before { display: none; }
+      .hero-stats { gap: 24px; }
+    }
+    @media (max-width: 480px) {
+      .booking-fields { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Drive<span>Ease</span></a>
+  <ul class="nav-links">
+    <li><a href="#fleet">Armada</a></li>
+    <li><a href="#why">Keunggulan</a></li>
+    <li><a href="#how">Cara Sewa</a></li>
+    <li><a href="#testi">Testimoni</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+  </ul>
+  <a href="https://wa.me/628123456789" class="nav-cta">Hubungi Kami</a>
+  <div class="hamburger" id="hamburgerBtn">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Rental Mobil Premium · Terpercaya</p>
+    <h1 class="hero-title">Perjalanan<br>Tak Terlupakan<br><em>Dimulai di Sini</em></h1>
+    <p class="hero-sub">Armada mobil bersih & terawat, sopir berpengalaman, tarif transparan — siap antar jemput ke seluruh penjuru kota.</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">120<span>+</span></div>
+        <div class="stat-label">Unit Tersedia</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4.9<span>★</span></div>
+        <div class="stat-label">Rating Pelanggan</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">8K<span>+</span></div>
+        <div class="stat-label">Perjalanan Sukses</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING WIDGET -->
+<div class="booking-bar reveal" style="max-width:900px; margin-left:auto; margin-right:auto; margin-top:-60px; position:relative; z-index:10;">
+  <h3>Cari Kendaraan Tersedia</h3>
+  <div class="booking-fields">
+    <div class="field-group">
+      <label>Kota / Lokasi Jemput</label>
+      <input type="text" placeholder="Contoh: Purwokerto" />
+    </div>
+    <div class="field-group">
+      <label>Tanggal Mulai</label>
+      <input type="date" />
+    </div>
+    <div class="field-group">
+      <label>Jenis Kendaraan</label>
+      <select>
+        <option value="">Semua Tipe</option>
+        <option>SUV</option>
+        <option>MPV / Keluarga</option>
+        <option>Sedan</option>
+        <option>City Car</option>
+        <option>Van / Minibus</option>
+      </select>
+    </div>
+    <button class="btn-search" onclick="alert('Fitur pencarian tersedia di versi lengkap!')">Cari Mobil</button>
+  </div>
+</div>
+
+<!-- FLEET -->
+<section id="fleet">
+  <div class="section-head reveal">
+    <p class="section-label">Armada Kami</p>
+    <h2 class="section-title">Pilihan Mobil<br>untuk Setiap Kebutuhan</h2>
+    <p class="section-sub">Dari city car hingga SUV mewah, semua armada kami dirawat secara berkala dan dilengkapi fasilitas modern.</p>
+  </div>
+
+  <div class="fleet-tabs reveal">
+    <button class="tab-btn active" onclick="filterTab(this, 'all')">Semua</button>
+    <button class="tab-btn" onclick="filterTab(this, 'suv')">SUV</button>
+    <button class="tab-btn" onclick="filterTab(this, 'mpv')">MPV</button>
+    <button class="tab-btn" onclick="filterTab(this, 'sedan')">Sedan</button>
+    <button class="tab-btn" onclick="filterTab(this, 'city')">City Car</button>
+  </div>
+
+  <div class="fleet-grid" id="fleetGrid">
+
+    <div class="car-card reveal" data-cat="suv">
+      <img class="car-img" src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=600&q=75" alt="Toyota Fortuner" />
+      <div class="car-body">
+        <p class="car-category">SUV</p>
+        <h3 class="car-name">Toyota Fortuner</h3>
+        <div class="car-features">
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            7 Penumpang
+          </span>
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            3 Koper
+          </span>
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            AC Double
+          </span>
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><path d="M8 2v16M16 6v16"/></svg>
+            GPS
+          </span>
+        </div>
+        <div class="car-footer">
+          <div>
+            <div class="price-label">Mulai dari</div>
+            <div class="price-val">Rp650rb<small>/hari</small></div>
+          </div>
+          <button class="btn-rent" onclick="alert('Booking Fortuner berhasil dikirim!')">Sewa Sekarang</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-card reveal" data-cat="mpv">
+      <img class="car-img" src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&q=75" alt="Toyota Innova" />
+      <div class="car-body">
+        <p class="car-category">MPV</p>
+        <h3 class="car-name">Toyota Kijang Innova</h3>
+        <div class="car-features">
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            7 Penumpang
+          </span>
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            2 Koper
+          </span>
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            AC Dingin
+          </span>
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            LCD
+          </span>
+        </div>
+        <div class="car-footer">
+          <div>
+            <div class="price-label">Mulai dari</div>
+            <div class="price-val">Rp450rb<small>/hari</small></div>
+          </div>
+          <button class="btn-rent" onclick="alert('Booking Innova berhasil dikirim!')">Sewa Sekarang</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-card reveal" data-cat="sedan">
+      <img class="car-img" src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=600&q=75" alt="Toyota Camry" />
+      <div class="car-body">
+        <p class="car-category">Sedan</p>
+        <h3 class="car-name">Toyota Camry</h3>
+        <div class="car-features">
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            5 Penumpang
+          </span>
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            2 Koper
+          </span>
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><path d="M8 2v16M16 6v16"/></svg>
+            GPS + WiFi
+          </span>
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Asuransi
+          </span>
+        </div>
+        <div class="car-footer">
+          <div>
+            <div class="price-label">Mulai dari</div>
+            <div class="price-val">Rp750rb<small>/hari</small></div>
+          </div>
+          <button class="btn-rent" onclick="alert('Booking Camry berhasil dikirim!')">Sewa Sekarang</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-card reveal" data-cat="city">
+      <img class="car-img" src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=600&q=75" alt="Honda Jazz" />
+      <div class="car-body">
+        <p class="car-category">City Car</p>
+        <h3 class="car-name">Honda Jazz / Agya</h3>
+        <div class="car-features">
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            5 Penumpang
+          </span>
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            1 Koper
+          </span>
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            AC
+          </span>
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+            Bluetooth
+          </span>
+        </div>
+        <div class="car-footer">
+          <div>
+            <div class="price-label">Mulai dari</div>
+            <div class="price-val">Rp250rb<small>/hari</small></div>
+          </div>
+          <button class="btn-rent" onclick="alert('Booking City Car berhasil dikirim!')">Sewa Sekarang</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-card reveal" data-cat="mpv">
+      <img class="car-img" src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&q=75" alt="Hiace" />
+      <div class="car-body">
+        <p class="car-category">Van / Minibus</p>
+        <h3 class="car-name">Toyota HiAce</h3>
+        <div class="car-features">
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            14 Penumpang
+          </span>
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Bagasi Besar
+          </span>
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            AC Double
+          </span>
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            TV
+          </span>
+        </div>
+        <div class="car-footer">
+          <div>
+            <div class="price-label">Mulai dari</div>
+            <div class="price-val">Rp900rb<small>/hari</small></div>
+          </div>
+          <button class="btn-rent" onclick="alert('Booking HiAce berhasil dikirim!')">Sewa Sekarang</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-card reveal" data-cat="suv">
+      <img class="car-img" src="https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=600&q=75" alt="Mitsubishi Pajero" />
+      <div class="car-body">
+        <p class="car-category">SUV</p>
+        <h3 class="car-name">Mitsubishi Pajero</h3>
+        <div class="car-features">
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            7 Penumpang
+          </span>
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            3 Koper
+          </span>
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Asuransi
+          </span>
+          <span class="feat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/><path d="M8 2v16M16 6v16"/></svg>
+            GPS
+          </span>
+        </div>
+        <div class="car-footer">
+          <div>
+            <div class="price-label">Mulai dari</div>
+            <div class="price-val">Rp800rb<small>/hari</small></div>
+          </div>
+          <button class="btn-rent" onclick="alert('Booking Pajero berhasil dikirim!')">Sewa Sekarang</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="section-head reveal">
+    <p class="section-label" style="color:var(--red)">Kenapa DriveEase?</p>
+    <h2 class="section-title">Layanan Kami<br>Beda dari yang Lain</h2>
+    <p class="section-sub">Kami tidak hanya menyewakan mobil — kami memastikan perjalanan Anda aman, nyaman, dan tepat waktu.</p>
+  </div>
+  <div class="why-grid">
+
+    <div class="why-item reveal">
+      <div class="why-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h4 class="why-title">Bergaransi & Asuransi</h4>
+      <p class="why-desc">Setiap perjalanan dilindungi asuransi komprehensif. Anda tenang, kami yang urus jika ada kendala di jalan.</p>
+    </div>
+
+    <div class="why-item reveal">
+      <div class="why-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <h4 class="why-title">Tepat Waktu, Selalu</h4>
+      <p class="why-desc">Sopir kami terlatih untuk hadir 15 menit lebih awal. Tidak ada keterlambatan, tidak ada alasan.</p>
+    </div>
+
+    <div class="why-item reveal">
+      <div class="why-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h4 class="why-title">Sopir Profesional</h4>
+      <p class="why-desc">Sopir berpengalaman, berlisensi resmi, dan sudah melewati seleksi ketat. Ramah, komunikatif, hafal rute.</p>
+    </div>
+
+    <div class="why-item reveal">
+      <div class="why-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <h4 class="why-title">Harga Transparan</h4>
+      <p class="why-desc">Tarif sudah termasuk BBM, tol, dan parkir. Tidak ada biaya tersembunyi — apa yang tercantum itu yang dibayar.</p>
+    </div>
+
+    <div class="why-item reveal">
+      <div class="why-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6.59 6.59l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <h4 class="why-title">CS 24/7 via WhatsApp</h4>
+      <p class="why-desc">Tim kami siap membantu kapan saja — tengah malam, dini hari, atau hari libur. Respons cepat, solusi nyata.</p>
+    </div>
+
+    <div class="why-item reveal">
+      <div class="why-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#E8323C" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      </div>
+      <h4 class="why-title">Armada Terawat</h4>
+      <p class="why-desc">Servis berkala setiap 5.000 km, interior selalu bersih dan wangi. Kendaraan prima untuk perjalanan jauh.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="section-head reveal" style="text-align:center; max-width:600px; margin:0 auto 48px;">
+    <p class="section-label">Cara Sewa</p>
+    <h2 class="section-title">Pesan Mobil dalam<br>4 Langkah Mudah</h2>
+  </div>
+  <div class="steps">
+    <div class="step reveal">
+      <div class="step-num">1</div>
+      <h4 class="step-title">Pilih Kendaraan</h4>
+      <p class="step-desc">Telusuri armada kami, bandingkan fitur, dan pilih mobil sesuai kebutuhan dan budget Anda.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">2</div>
+      <h4 class="step-title">Isi Form Booking</h4>
+      <p class="step-desc">Tentukan tanggal, durasi, dan lokasi penjemputan. Form kami singkat dan mudah diisi.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">3</div>
+      <h4 class="step-title">Konfirmasi & Bayar</h4>
+      <p class="step-desc">Bayar via transfer bank, QRIS, atau tunai. Bukti booking langsung dikirim via WhatsApp.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">4</div>
+      <h4 class="step-title">Jemput & Berangkat</h4>
+      <p class="step-desc">Sopir hadir tepat waktu di lokasi Anda. Duduk santai dan nikmati perjalanan!</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testi">
+  <div class="section-head reveal">
+    <p class="section-label">Testimoni</p>
+    <h2 class="section-title">Apa Kata<br>Pelanggan Kami</h2>
+    <p class="section-sub">Kepercayaan ribuan pelanggan adalah motivasi terbesar kami untuk terus meningkatkan layanan.</p>
+  </div>
+  <div class="testi-grid">
+
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Sewa Fortuner untuk family trip ke Dieng. Mobilnya bersih banget, sopirnya ramah dan hafal jalan. Anak-anak nyaman selama perjalanan. Pasti repeat order!"</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=70" alt="Budi" />
+        <div>
+          <div class="testi-name">Budi Santoso</div>
+          <div class="testi-role">Pelanggan – Purwokerto</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Pakai HiAce untuk acara pernikahan saudara. Tepat waktu, sopir rapi dan profesional. Koordinasinya gampang lewat WA, booking cepat tidak ribet sama sekali."</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=70" alt="Sari" />
+        <div>
+          <div class="testi-name">Sari Dewi</div>
+          <div class="testi-role">Pelanggan – Cilacap</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal">
+      <div class="stars">★★★★☆</div>
+      <p class="testi-text">"Harga lebih terjangkau dari yang lain, tapi kualitas tidak murahan. Innova-nya terawat dan ber-AC dingin. Untuk perjalanan bisnis ke Semarang, sangat direkomendasikan."</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=70" alt="Ahmad" />
+        <div>
+          <div class="testi-name">Ahmad Fauzi</div>
+          <div class="testi-role">Pelanggan – Banyumas</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section id="cta-banner">
+  <div style="position:relative; z-index:2;">
+    <p class="hero-eyebrow" style="color:rgba(255,255,255,.7); margin-bottom:10px; opacity:1;">Siap untuk perjalanan berikutnya?</p>
+    <h2 class="cta-title">Pesan Sekarang,<br>Berangkat Hari Ini</h2>
+    <p class="cta-sub">Hubungi kami via WhatsApp — respons dalam 5 menit, booking beres dalam hitungan detik.</p>
+    <a href="https://wa.me/628123456789?text=Halo%20DriveEase%2C%20saya%20ingin%20sewa%20mobil" class="btn-cta-white">💬 Chat WhatsApp Sekarang</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="kontak">
+  <div style="max-width:1200px; margin:0 auto;">
+    <div class="footer-grid">
+      <div>
+        <span class="footer-logo">Drive<span>Ease</span></span>
+        <p class="footer-about">Layanan rental mobil premium dengan armada lengkap, sopir profesional, dan harga transparan. Beroperasi sejak 2016 di Jawa Tengah.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="#">Sewa Harian</a></li>
+          <li><a href="#">Sewa Mingguan</a></li>
+          <li><a href="#">Wisata & Tour</a></li>
+          <li><a href="#">Jemput Bandara</a></li>
+          <li><a href="#">Acara Pernikahan</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Perusahaan</h4>
+        <ul>
+          <li><a href="#">Tentang Kami</a></li>
+          <li><a href="#">Armada</a></li>
+          <li><a href="#">Blog & Tips</a></li>
+          <li><a href="#">Karir</a></li>
+          <li><a href="#">Syarat & Ketentuan</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <ul>
+          <li><a href="#">📍 Jl. Jend. Soedirman No.88, Purwokerto</a></li>
+          <li><a href="tel:+628123456789">📞 0812-3456-789</a></li>
+          <li><a href="mailto:info@driveease.id">✉️ info@driveease.id</a></li>
+          <li><a href="#">🕗 Buka 07.00 – 22.00 WIB</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 DriveEase. Dibuat oleh <a href="#">Studio Web Anda</a>.</span>
+      <div class="social-links">
+        <a href="#" class="social-link">ig</a>
+        <a href="#" class="social-link">fb</a>
+        <a href="#" class="social-link">yt</a>
+        <a href="#" class="social-link">wa</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* Scroll reveal */
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => io.observe(el));
+
+  /* Fleet filter */
+  function filterTab(btn, cat) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.car-card').forEach(card => {
+      if (cat === 'all' || card.dataset.cat === cat) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  /* Hamburger (mobile) */
+  document.getElementById('hamburgerBtn').addEventListener('click', () => {
+    const links = document.querySelector('.nav-links');
+    if (links.style.display === 'flex') {
+      links.style.display = 'none';
+    } else {
+      links.style.cssText = 'display:flex; flex-direction:column; position:absolute; top:68px; left:0; width:100%; background:#0A0A0A; padding:20px 5%; gap:18px;';
+    }
+  });
+</script>
+
+</body>
+</html>

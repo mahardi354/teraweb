@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notaris & PPAT Suharto, S.H., M.Kn.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0D1F3C;
+    --navy-mid: #162D54;
+    --gold: #C6973F;
+    --gold-light: #D4A94E;
+    --cream: #F5F0E8;
+    --cream-dark: #EDE6D6;
+    --text: #1A1A2E;
+    --text-mid: #4A4A5A;
+    --white: #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Source Sans 3', sans-serif; color: var(--text); background: var(--cream); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,31,60,0.97); backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%; height: 72px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 14px; }
+  .nav-logo-seal {
+    width: 44px; height: 44px; border: 2px solid var(--gold);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; color: var(--gold); font-size: 16px; font-weight: 700;
+  }
+  .nav-logo-text { color: var(--white); }
+  .nav-logo-text strong { font-family: 'Playfair Display', serif; font-size: 15px; display: block; letter-spacing: 0.5px; }
+  .nav-logo-text span { font-size: 11px; color: var(--gold); letter-spacing: 1.5px; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 13.5px; letter-spacing: 0.8px; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta { background: var(--gold); color: var(--navy); padding: 10px 22px; border-radius: 2px; font-size: 13px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; position: relative; display: flex; align-items: center;
+    background: var(--navy);
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=1400&q=80');
+    background-size: cover; background-position: center;
+    opacity: 0.12;
+  }
+  .hero-pattern {
+    position: absolute; right: 0; top: 0; bottom: 0; width: 45%;
+    background: linear-gradient(135deg, transparent 30%, rgba(198,151,63,0.06) 100%);
+    border-left: 1px solid rgba(198,151,63,0.15);
+  }
+  .hero-content { position: relative; z-index: 2; padding: 0 5%; max-width: 680px; padding-top: 72px; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 12px;
+    color: var(--gold); font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 28px; font-weight: 500;
+  }
+  .hero-eyebrow::before { content: ''; width: 36px; height: 1px; background: var(--gold); }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 5vw, 62px); line-height: 1.15;
+    color: var(--white); font-weight: 700; margin-bottom: 24px;
+  }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero-desc {
+    color: rgba(255,255,255,0.7); font-size: 17px; line-height: 1.75; max-width: 520px; margin-bottom: 42px;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold); color: var(--navy); padding: 15px 32px;
+    font-weight: 700; font-size: 14px; letter-spacing: 1px; text-transform: uppercase;
+    border: none; cursor: pointer; transition: all 0.2s; border-radius: 2px; text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.35); color: var(--white); padding: 15px 32px;
+    font-size: 14px; letter-spacing: 1px; text-transform: uppercase; font-weight: 500;
+    background: transparent; cursor: pointer; transition: all 0.2s; border-radius: 2px; text-decoration: none; display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-stats {
+    position: absolute; bottom: 0; right: 5%; left: 5%;
+    display: flex; justify-content: flex-end; gap: 0;
+    padding-bottom: 40px;
+  }
+  .stat {
+    text-align: center; padding: 0 32px; border-right: 1px solid rgba(198,151,63,0.25);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 38px; color: var(--gold); font-weight: 700; line-height: 1; }
+  .stat-label { color: rgba(255,255,255,0.5); font-size: 11.5px; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 4px; }
+
+  /* DIVIDER ORNAMENT */
+  .divider-gold {
+    text-align: center; padding: 40px 0; display: flex; align-items: center; justify-content: center; gap: 16px;
+  }
+  .divider-gold::before, .divider-gold::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); max-width: 200px; }
+  .divider-icon { width: 20px; height: 20px; color: var(--gold); }
+
+  /* LAYANAN */
+  .layanan { background: var(--cream); padding: 80px 5%; }
+  .section-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 12px; text-align: center; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3.5vw, 42px); text-align: center; color: var(--navy); margin-bottom: 12px; }
+  .section-sub { text-align: center; color: var(--text-mid); max-width: 520px; margin: 0 auto 56px; line-height: 1.7; font-size: 16px; }
+
+  .layanan-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2px; max-width: 1100px; margin: 0 auto; }
+  .layanan-card {
+    background: var(--white); padding: 40px 36px;
+    border-top: 3px solid transparent;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    position: relative;
+  }
+  .layanan-card:hover { border-color: var(--gold); box-shadow: 0 8px 40px rgba(13,31,60,0.1); }
+  .layanan-num { font-family: 'Playfair Display', serif; font-size: 48px; color: var(--cream-dark); font-weight: 700; line-height: 1; margin-bottom: 16px; }
+  .layanan-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--navy); margin-bottom: 12px; }
+  .layanan-card p { color: var(--text-mid); line-height: 1.7; font-size: 15px; }
+
+  /* PROFIL */
+  .profil { background: var(--navy); padding: 80px 5%; }
+  .profil-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .profil-img-wrap { position: relative; }
+  .profil-img {
+    width: 100%; aspect-ratio: 3/4; object-fit: cover;
+    border: 1px solid rgba(198,151,63,0.3);
+  }
+  .profil-badge {
+    position: absolute; bottom: -20px; right: -20px;
+    background: var(--gold); color: var(--navy); padding: 20px 24px;
+    font-family: 'Playfair Display', serif; text-align: center;
+  }
+  .profil-badge strong { font-size: 28px; display: block; }
+  .profil-badge span { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; }
+  .profil-text .section-label { text-align: left; }
+  .profil-text .section-title { text-align: left; color: var(--white); margin-bottom: 24px; }
+  .profil-text p { color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 16px; font-size: 15.5px; }
+  .profil-creds { display: flex; flex-direction: column; gap: 10px; margin-top: 32px; }
+  .cred-item { display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.8); font-size: 14px; }
+  .cred-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+
+  /* PROSES */
+  .proses { background: var(--cream-dark); padding: 80px 5%; }
+  .proses-steps { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
+  .step {
+    display: grid; grid-template-columns: 80px 1fr; gap: 24px;
+    padding: 32px 0; border-bottom: 1px solid rgba(13,31,60,0.1); align-items: start;
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    width: 56px; height: 56px; border: 2px solid var(--gold); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 20px; color: var(--gold); font-weight: 700;
+  }
+  .step-title { font-family: 'Playfair Display', serif; font-size: 19px; color: var(--navy); margin-bottom: 8px; }
+  .step-desc { color: var(--text-mid); line-height: 1.7; font-size: 15px; }
+
+  /* TESTIMONIAL */
+  .testimonial { background: var(--white); padding: 80px 5%; }
+  .testi-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
+  .testi-card { padding: 36px; border: 1px solid var(--cream-dark); position: relative; }
+  .testi-card::before {
+    content: '"'; font-family: 'Playfair Display', serif; font-size: 80px; color: var(--gold);
+    opacity: 0.2; position: absolute; top: 12px; left: 24px; line-height: 1;
+  }
+  .testi-text { font-style: italic; color: var(--text-mid); line-height: 1.8; margin-bottom: 24px; padding-top: 20px; font-size: 15px; }
+  .testi-author { font-weight: 600; color: var(--navy); font-size: 14px; }
+  .testi-role { font-size: 12.5px; color: var(--gold); letter-spacing: 0.5px; }
+
+  /* KONTAK */
+  .kontak { background: var(--navy); padding: 80px 5%; }
+  .kontak-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; }
+  .kontak-info .section-title { text-align: left; color: var(--white); }
+  .kontak-info .section-label { text-align: left; }
+  .kontak-detail { margin-top: 36px; display: flex; flex-direction: column; gap: 20px; }
+  .kd-item { display: flex; gap: 16px; }
+  .kd-icon { width: 40px; height: 40px; border: 1px solid rgba(198,151,63,0.4); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  .kd-icon svg { color: var(--gold); }
+  .kd-text strong { display: block; color: var(--white); font-size: 14px; margin-bottom: 2px; }
+  .kd-text span { color: rgba(255,255,255,0.6); font-size: 14px; }
+  .kontak-form { background: var(--white); padding: 44px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--navy); margin-bottom: 8px; font-weight: 600; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 12px 14px; border: 1px solid var(--cream-dark);
+    font-family: 'Source Sans 3', sans-serif; font-size: 14.5px; color: var(--text);
+    outline: none; transition: border-color 0.2s; background: var(--cream);
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); background: var(--white); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  /* FOOTER */
+  footer { background: #080F1E; padding: 32px 5%; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+  .footer-copy { color: rgba(255,255,255,0.4); font-size: 13px; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { color: rgba(255,255,255,0.4); font-size: 13px; text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .profil-inner, .kontak-inner { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-stats { display: none; }
+    .profil-badge { right: 0; bottom: 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-seal">SH</div>
+    <div class="nav-logo-text">
+      <strong>Suharto, S.H., M.Kn.</strong>
+      <span>Notaris & PPAT Kota Yogyakarta</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#layanan">Layanan</a></li>
+    <li><a href="#profil">Profil</a></li>
+    <li><a href="#proses">Prosedur</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+  </ul>
+  <a href="#kontak" class="nav-cta">Buat Janji</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Notaris & PPAT Resmi</div>
+    <h1>Legalitas Dokumen Anda, <em>Terjamin Kuat</em></h1>
+    <p class="hero-desc">Layanan notarial dan PPAT profesional dengan pengalaman lebih dari 18 tahun. Kami memastikan setiap akta yang kami terbitkan memiliki kekuatan hukum yang sempurna.</p>
+    <div class="hero-actions">
+      <a href="#kontak" class="btn-primary">Konsultasi Gratis</a>
+      <a href="#layanan" class="btn-outline">Lihat Layanan</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">18+</div><div class="stat-label">Tahun Pengalaman</div></div>
+    <div class="stat"><div class="stat-num">12K+</div><div class="stat-label">Akta Diterbitkan</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Terdaftar Resmi</div></div>
+  </div>
+</section>
+
+<section class="layanan" id="layanan">
+  <div class="divider-gold">
+    <svg class="divider-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L13.09 8.26L19 7L15.45 12L19 17L13.09 15.74L12 22L10.91 15.74L5 17L8.55 12L5 7L10.91 8.26L12 2Z"/></svg>
+  </div>
+  <div class="section-label">Layanan Kami</div>
+  <h2 class="section-title">Jasa Notaris & PPAT Lengkap</h2>
+  <p class="section-sub">Kami menyediakan berbagai layanan kenotariatan dan pertanahan yang komprehensif untuk kebutuhan hukum Anda</p>
+  <div class="layanan-grid">
+    <div class="layanan-card">
+      <div class="layanan-num">01</div>
+      <h3>Akta Jual Beli Tanah</h3>
+      <p>Pembuatan AJB properti dan tanah dengan proses yang aman, cepat, dan sesuai peraturan BPN yang berlaku.</p>
+    </div>
+    <div class="layanan-card">
+      <div class="layanan-num">02</div>
+      <h3>Pendirian Badan Usaha</h3>
+      <p>PT, CV, Yayasan, Koperasi — kami tangani seluruh proses akta pendirian hingga pengesahan Kemenkumham.</p>
+    </div>
+    <div class="layanan-card">
+      <div class="layanan-num">03</div>
+      <h3>Akta Wasiat & Hibah</h3>
+      <p>Pengamanan aset keluarga melalui akta wasiat, hibah, dan akta-akta waris yang memiliki kekuatan hukum kuat.</p>
+    </div>
+    <div class="layanan-card">
+      <div class="layanan-num">04</div>
+      <h3>Perjanjian Kredit & SKMHT</h3>
+      <p>Pembuatan akta perjanjian kredit, SKMHT, dan APHT untuk kebutuhan perbankan dan lembaga keuangan.</p>
+    </div>
+    <div class="layanan-card">
+      <div class="layanan-num">05</div>
+      <h3>Sertifikasi & Legalisasi</h3>
+      <p>Legalisasi dokumen, surat keterangan, dan berbagai dokumen legal yang diakui secara nasional dan internasional.</p>
+    </div>
+    <div class="layanan-card">
+      <div class="layanan-num">06</div>
+      <h3>RUPS & Akta Korporasi</h3>
+      <p>Pembuatan risalah RUPS, perubahan anggaran dasar, serta berbagai akta korporasi perusahaan Anda.</p>
+    </div>
+  </div>
+</section>
+
+<section class="profil" id="profil">
+  <div class="profil-inner">
+    <div class="profil-img-wrap">
+      <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80" alt="Notaris Suharto" class="profil-img">
+      <div class="profil-badge">
+        <strong>2006</strong>
+        <span>SK. Menteri Hukum & HAM</span>
+      </div>
+    </div>
+    <div class="profil-text">
+      <div class="section-label">Tentang Kami</div>
+      <h2 class="section-title">Berpengalaman, Terpercaya, dan Bertanggung Jawab</h2>
+      <p>Suharto, S.H., M.Kn. telah menjalankan profesi sebagai Notaris dan PPAT di Kota Yogyakarta sejak tahun 2006, dengan SK pengangkatan dari Menteri Hukum dan Hak Asasi Manusia Republik Indonesia.</p>
+      <p>Dengan latar belakang pendidikan hukum dari Universitas Gadjah Mada dan Magister Kenotariatan dari Universitas Indonesia, beliau berkomitmen memberikan layanan hukum terbaik dengan menjunjung tinggi kode etik profesi.</p>
+      <div class="profil-creds">
+        <div class="cred-item"><div class="cred-dot"></div><span>Anggota Ikatan Notaris Indonesia (INI)</span></div>
+        <div class="cred-item"><div class="cred-dot"></div><span>Anggota Ikatan Pejabat Pembuat Akta Tanah (IPPAT)</span></div>
+        <div class="cred-item"><div class="cred-dot"></div><span>Terdaftar di Kemenkumham & Kanwil BPN DIY</span></div>
+        <div class="cred-item"><div class="cred-dot"></div><span>Berpengalaman menangani 12.000+ akta notarial</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proses" id="proses">
+  <div class="section-label">Prosedur</div>
+  <h2 class="section-title">Cara Kerja Kami</h2>
+  <p class="section-sub">Proses yang terstruktur untuk memastikan setiap dokumen Anda tertangani dengan baik</p>
+  <div class="proses-steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">Konsultasi Awal</div>
+        <p class="step-desc">Anda dapat menghubungi kantor kami via telepon, WhatsApp, atau datang langsung untuk konsultasi tanpa biaya. Kami akan memahami kebutuhan dan menjelaskan dokumen yang diperlukan.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">Pengumpulan Dokumen</div>
+        <p class="step-desc">Tim kami akan memberikan daftar lengkap dokumen yang dibutuhkan sesuai jenis akta yang akan dibuat. Kami siap membantu jika ada dokumen yang perlu diurus terlebih dahulu.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">Pembuatan & Verifikasi Akta</div>
+        <p class="step-desc">Notaris akan menyusun draft akta, memverifikasi seluruh data dan dokumen, serta menjelaskan isi akta kepada para pihak sebelum penandatanganan dilakukan.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div>
+        <div class="step-title">Penandatanganan & Penerbitan</div>
+        <p class="step-desc">Penandatanganan akta dilakukan di hadapan notaris. Akta resmi diterbitkan dan diserahkan kepada klien beserta salinan yang telah dilegalisasi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial">
+  <div class="section-label">Testimoni</div>
+  <h2 class="section-title">Apa Kata Klien Kami</h2>
+  <p class="section-sub">Kepercayaan klien adalah fondasi utama layanan kami</p>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <p class="testi-text">Proses AJB rumah saya berjalan sangat lancar. Staf kantor notaris sangat membantu menjelaskan setiap tahapan. Dokumen selesai tepat waktu sesuai yang dijanjikan.</p>
+      <div class="testi-author">Budi Santoso</div>
+      <div class="testi-role">Pengusaha — Sleman, DIY</div>
+    </div>
+    <div class="testi-card">
+      <p class="testi-text">Pendirian PT kami ditangani dengan profesional. Pak Suharto sangat teliti dan menjelaskan semua klausul dalam anggaran dasar dengan bahasa yang mudah dipahami.</p>
+      <div class="testi-author">Dewi Anggraini</div>
+      <div class="testi-role">Direktur — PT Maju Bersama</div>
+    </div>
+    <div class="testi-card">
+      <p class="testi-text">Sudah 3 kali menggunakan jasa kantor ini untuk berbagai keperluan hukum. Selalu puas dengan hasilnya. Sangat recommended untuk urusan notarial di Yogyakarta.</p>
+      <div class="testi-author">Ahmad Fauzi</div>
+      <div class="testi-role">Konsultan Bisnis — Yogyakarta</div>
+    </div>
+  </div>
+</section>
+
+<section class="kontak" id="kontak">
+  <div class="kontak-inner">
+    <div class="kontak-info">
+      <div class="section-label">Hubungi Kami</div>
+      <h2 class="section-title">Konsultasi Sekarang, Gratis</h2>
+      <div class="kontak-detail">
+        <div class="kd-item">
+          <div class="kd-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="kd-text"><strong>Alamat Kantor</strong><span>Jl. Sudirman No. 47, Gondokusuman, Kota Yogyakarta 55224</span></div>
+        </div>
+        <div class="kd-item">
+          <div class="kd-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="kd-text"><strong>Telepon & WhatsApp</strong><span>0274-555-1234 | 0812-3456-7890</span></div>
+        </div>
+        <div class="kd-item">
+          <div class="kd-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="kd-text"><strong>Jam Operasional</strong><span>Senin–Jumat: 08.00–16.00 WIB<br>Sabtu: 08.00–12.00 WIB</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="kontak-form">
+      <h3 style="font-family:'Playfair Display',serif; color:var(--navy); margin-bottom:28px; font-size:22px;">Kirim Pesan</h3>
+      <div class="form-row">
+        <div class="form-group"><label>Nama Lengkap</label><input type="text" placeholder="Nama Anda"></div>
+        <div class="form-group"><label>No. Telepon</label><input type="text" placeholder="08xx-xxxx-xxxx"></div>
+      </div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="email@domain.com"></div>
+      <div class="form-group"><label>Jenis Layanan</label>
+        <select>
+          <option>Pilih Layanan...</option>
+          <option>Akta Jual Beli Tanah</option>
+          <option>Pendirian Badan Usaha</option>
+          <option>Akta Wasiat & Hibah</option>
+          <option>Perjanjian Kredit</option>
+          <option>Sertifikasi & Legalisasi</option>
+          <option>Lainnya</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Pesan</label><textarea placeholder="Jelaskan kebutuhan Anda..."></textarea></div>
+      <button class="btn-primary" style="width:100%;">Kirim Pesan</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2025 Notaris & PPAT Suharto, S.H., M.Kn. — Terdaftar resmi Kemenkumham RI</p>
+    <div class="footer-links">
+      <a href="#">Kebijakan Privasi</a>
+      <a href="#">Syarat & Ketentuan</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

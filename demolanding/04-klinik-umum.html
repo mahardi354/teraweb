@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klinik Sehat Medika — Klinik Umum Purwokerto</title>
+<meta name="description" content="Klinik Sehat Medika Purwokerto. Dokter umum, poli anak, poli gigi, laboratorium, MCU. Buka setiap hari. Terima BPJS & umum. Daftar online via WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────
+   DESIGN TOKENS
+───────────────────────────────────────── */
+:root{
+  --teal:        #0E7490;
+  --teal-dark:   #0C6A84;
+  --teal-mid:    #0891B2;
+  --teal-light:  #E0F2F8;
+  --teal-pale:   #F0FAFB;
+  --teal-border: #BAE6F5;
+  --green:       #16A34A;
+  --green-pale:  #F0FDF4;
+  --green-border:#BBF7D0;
+  --white:       #FFFFFF;
+  --gray:        #F8FAFC;
+  --gray-mid:    #F1F5F9;
+  --border:      #E2E8F0;
+  --text:        #0F172A;
+  --text-mid:    #475569;
+  --text-muted:  #94A3B8;
+  --red:         #DC2626;
+  --red-pale:    #FEF2F2;
+  --amber:       #D97706;
+  --amber-pale:  #FFFBEB;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--white);
+  color:var(--text);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:16px;line-height:1.6;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+.container{max-width:1140px;margin:0 auto;padding:0 28px}
+
+/* ─────────────────────────────────────────
+   TYPOGRAPHY
+───────────────────────────────────────── */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:700;
+  letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--teal);margin-bottom:12px;
+}
+.eyebrow::before{
+  content:'';width:18px;height:2px;
+  background:var(--teal);border-radius:2px;flex-shrink:0;
+}
+.section-title{
+  font-weight:800;
+  font-size:clamp(26px,3.8vw,42px);
+  color:var(--text);
+  line-height:1.15;
+  letter-spacing:-0.4px;
+  margin-bottom:14px;
+}
+.section-title em{font-style:normal;color:var(--teal)}
+.body-text{
+  font-size:16px;color:var(--text-mid);
+  font-weight:400;line-height:1.85;
+  max-width:520px;
+}
+
+/* ─────────────────────────────────────────
+   BUTTONS
+───────────────────────────────────────── */
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:700;font-size:14px;
+  border-radius:8px;border:none;
+  cursor:pointer;transition:all .2s;
+  text-decoration:none;letter-spacing:0.1px;
+}
+.btn-teal{background:var(--teal);color:#fff;padding:14px 26px}
+.btn-teal:hover{background:var(--teal-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(14,116,144,.3)}
+.btn-green{background:var(--green);color:#fff;padding:14px 26px}
+.btn-green:hover{background:#15803D;transform:translateY(-2px);box-shadow:0 8px 24px rgba(22,163,74,.3)}
+.btn-outline{background:transparent;color:var(--teal);border:2px solid var(--teal);padding:13px 24px}
+.btn-outline:hover{background:var(--teal);color:#fff}
+.btn-white{background:#fff;color:var(--teal);padding:14px 26px}
+.btn-white:hover{background:var(--teal-light);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:rgba(255,255,255,.9);border:1.5px solid rgba(255,255,255,.4);padding:13px 24px}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.75)}
+.btn-lg{padding:16px 34px;font-size:15px}
+.btn-wa{background:#25D366;color:#fff}
+.btn-wa:hover{background:#1EB850;transform:translateY(-2px)}
+
+/* ─────────────────────────────────────────
+   NOTICE BAR
+───────────────────────────────────────── */
+.notice-bar{
+  background:var(--teal);
+  padding:10px 0;
+  overflow:hidden;
+}
+.notice-inner{
+  display:flex;align-items:center;
+  justify-content:space-between;
+  gap:20px;flex-wrap:wrap;
+}
+.notice-item{
+  display:flex;align-items:center;gap:7px;
+  font-size:13px;font-weight:600;color:rgba(255,255,255,.9);
+  white-space:nowrap;
+}
+.notice-bpjs{
+  background:rgba(255,255,255,.2);
+  color:#fff;padding:4px 12px;border-radius:100px;
+  font-size:12px;font-weight:800;letter-spacing:.5px;
+}
+
+/* ─────────────────────────────────────────
+   NAV
+───────────────────────────────────────── */
+nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 1px 16px rgba(14,116,144,.05);
+}
+.nav-inner{
+  display:flex;align-items:center;
+  justify-content:space-between;height:68px;
+}
+.nav-logo{display:flex;align-items:center;gap:12px;cursor:pointer}
+.logo-mark{
+  width:42px;height:42px;
+  background:var(--teal);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.logo-mark svg{width:24px;height:24px;color:#fff}
+.logo-text{}
+.logo-name{
+  font-weight:800;font-size:17px;color:var(--text);
+  line-height:1;letter-spacing:-0.2px;
+}
+.logo-name span{color:var(--teal)}
+.logo-tagline{
+  font-size:10px;color:var(--teal);
+  font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;margin-top:2px;
+}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{
+  font-size:14px;font-weight:600;
+  color:var(--text-mid);transition:color .2s;
+}
+.nav-links a:hover{color:var(--teal)}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.nav-daftar{
+  display:flex;align-items:center;gap:8px;
+  background:var(--teal);color:#fff;
+  padding:9px 18px;border-radius:8px;
+  font-size:13px;font-weight:700;
+  transition:background .2s;
+}
+.nav-daftar:hover{background:var(--teal-dark)}
+.nav-emergency{
+  display:flex;align-items:center;gap:6px;
+  background:var(--red-pale);color:var(--red);
+  padding:9px 14px;border-radius:8px;
+  font-size:12px;font-weight:800;
+  letter-spacing:.3px;border:1px solid #FECACA;
+}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px}
+
+/* ─────────────────────────────────────────
+   HERO — Split with embedded form (signature)
+───────────────────────────────────────── */
+.hero{
+  background:var(--teal-pale);
+  min-height:88vh;
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+}
+/* Subtle medical cross pattern */
+.hero-pattern{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(14,116,144,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(14,116,144,.04) 1px,transparent 1px);
+  background-size:40px 40px;
+  pointer-events:none;
+}
+.hero-accent-circle{
+  position:absolute;right:-120px;top:-120px;
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(14,116,144,.06) 0%,transparent 70%);
+  border-radius:50%;pointer-events:none;
+}
+.hero-inner{
+  display:grid;
+  grid-template-columns:1fr 440px;
+  gap:52px;align-items:center;
+  padding:72px 28px 72px;
+  position:relative;z-index:1;
+  width:100%;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  margin-bottom:18px;
+}
+.hero-pulse{
+  width:9px;height:9px;border-radius:50%;
+  background:var(--green);
+  animation:pulse 2s infinite;
+  flex-shrink:0;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(22,163,74,.5)}
+  70%{box-shadow:0 0 0 8px rgba(22,163,74,0)}
+  100%{box-shadow:0 0 0 0 rgba(22,163,74,0)}
+}
+.hero-eyebrow-text{
+  font-size:12px;font-weight:700;color:var(--green);
+  letter-spacing:1px;
+}
+.hero-h1{
+  font-weight:800;
+  font-size:clamp(38px,5.5vw,64px);
+  color:var(--text);
+  line-height:1.08;
+  letter-spacing:-1px;
+  margin-bottom:18px;
+}
+.hero-h1 em{font-style:normal;color:var(--teal)}
+.hero-sub{
+  font-size:17px;color:var(--text-mid);
+  font-weight:400;line-height:1.8;
+  max-width:460px;margin-bottom:30px;
+}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
+.hero-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  background:#fff;border:1px solid var(--border);
+  color:var(--text-mid);font-size:13px;font-weight:600;
+  padding:7px 14px;border-radius:100px;
+  box-shadow:0 1px 4px rgba(0,0,0,.04);
+}
+.hero-chip span:first-child{font-size:15px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+
+/* ── APPOINTMENT FORM (signature element) ── */
+.appt-form{
+  background:#fff;
+  border-radius:16px;
+  border:1px solid var(--border);
+  box-shadow:0 8px 40px rgba(14,116,144,.1);
+  overflow:hidden;
+}
+.appt-form-head{
+  background:var(--teal);
+  padding:18px 24px;
+  display:flex;align-items:center;gap:10px;
+}
+.appt-form-head-icon{
+  width:36px;height:36px;background:rgba(255,255,255,.15);
+  border-radius:8px;display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+}
+.appt-form-head-title{
+  font-weight:800;font-size:16px;color:#fff;line-height:1;
+}
+.appt-form-head-sub{
+  font-size:12px;color:rgba(255,255,255,.7);margin-top:2px;
+}
+.appt-form-body{padding:22px}
+.appt-form-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:12px;margin-bottom:12px;
+}
+.appt-group label{
+  display:block;font-size:11px;font-weight:700;
+  letter-spacing:.5px;text-transform:uppercase;
+  color:var(--text-mid);margin-bottom:6px;
+}
+.appt-group input,
+.appt-group select{
+  width:100%;background:var(--gray);
+  border:1.5px solid var(--border);border-radius:8px;
+  padding:11px 14px;font-size:13px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  color:var(--text);outline:none;transition:border .2s;
+  appearance:none;
+}
+.appt-group input:focus,
+.appt-group select:focus{border-color:var(--teal)}
+.appt-group input::placeholder{color:var(--text-muted)}
+.appt-full{grid-column:span 2}
+.appt-submit{
+  width:100%;background:var(--green);color:#fff;
+  border:none;border-radius:8px;padding:14px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:700;font-size:14px;
+  cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  margin-top:4px;
+}
+.appt-submit:hover{background:#15803D;transform:translateY(-1px);box-shadow:0 6px 20px rgba(22,163,74,.3)}
+.appt-note{
+  text-align:center;margin-top:12px;
+  font-size:11px;color:var(--text-muted);
+}
+.appt-bpjs{
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  margin-top:10px;
+}
+.bpjs-dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+.bpjs-text{font-size:11px;font-weight:700;color:var(--green)}
+
+/* ─────────────────────────────────────────
+   STATS BAND
+───────────────────────────────────────── */
+.stats-band{background:var(--text);padding:0}
+.stats-band-inner{
+  display:grid;grid-template-columns:repeat(5,1fr);
+}
+.stat-cell{
+  padding:24px 16px;text-align:center;
+  border-right:1px solid rgba(255,255,255,.08);
+  transition:background .2s;
+}
+.stat-cell:last-child{border-right:none}
+.stat-cell:hover{background:rgba(255,255,255,.04)}
+.stat-cell-num{
+  font-weight:800;font-size:30px;color:#fff;
+  line-height:1;margin-bottom:4px;
+}
+.stat-cell-num span{color:var(--teal-mid)}
+.stat-cell-label{
+  font-size:12px;color:rgba(255,255,255,.5);
+  font-weight:500;
+}
+
+/* ─────────────────────────────────────────
+   LAYANAN
+───────────────────────────────────────── */
+.section{padding:96px 0}
+.bg-gray{background:var(--gray)}
+.bg-pale{background:var(--teal-pale)}
+.bg-teal{background:var(--teal)}
+.bg-dark{background:var(--text)}
+
+.layanan-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;margin-top:52px;
+}
+.layanan-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:14px;padding:28px 22px;
+  transition:all .25s;position:relative;
+  overflow:hidden;cursor:default;
+}
+.layanan-card::after{
+  content:'';position:absolute;
+  bottom:0;left:0;right:0;height:3px;
+  background:var(--teal);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .35s;
+}
+.layanan-card:hover{
+  border-color:var(--teal-border);
+  transform:translateY(-5px);
+  box-shadow:0 12px 36px rgba(14,116,144,.1);
+}
+.layanan-card:hover::after{transform:scaleX(1)}
+.lc-icon{
+  width:60px;height:60px;
+  background:var(--teal-pale);border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;margin-bottom:18px;
+  transition:background .2s;border:1px solid var(--teal-border);
+}
+.layanan-card:hover .lc-icon{background:var(--teal);border-color:var(--teal)}
+.lc-name{
+  font-weight:700;font-size:16px;
+  color:var(--text);margin-bottom:8px;
+}
+.lc-desc{
+  font-size:13px;color:var(--text-muted);
+  line-height:1.6;margin-bottom:14px;
+}
+.lc-tag{
+  display:inline-block;
+  background:var(--teal-pale);color:var(--teal);
+  font-size:11px;font-weight:700;
+  padding:3px 10px;border-radius:100px;
+  border:1px solid var(--teal-border);
+}
+
+/* ─────────────────────────────────────────
+   DOKTER
+───────────────────────────────────────── */
+.dokter-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;margin-top:52px;
+}
+.dokter-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:14px;overflow:hidden;
+  transition:all .25s;
+}
+.dokter-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 16px 44px rgba(14,116,144,.11);
+  border-color:var(--teal-border);
+}
+.dokter-photo{
+  height:220px;overflow:hidden;
+  background:var(--teal-pale);position:relative;
+}
+.dokter-photo img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  transition:transform .5s;
+}
+.dokter-card:hover .dokter-photo img{transform:scale(1.04)}
+.dokter-photo .img-fb{
+  display:none;width:100%;height:100%;
+  align-items:center;justify-content:center;
+  font-size:72px;background:var(--teal-pale);
+}
+.dokter-sip{
+  position:absolute;top:10px;right:10px;
+  background:var(--teal);color:#fff;
+  font-size:10px;font-weight:700;
+  padding:4px 10px;border-radius:100px;
+  letter-spacing:.5px;text-transform:uppercase;
+}
+.dokter-info{padding:18px 16px}
+.dokter-name{
+  font-weight:800;font-size:16px;
+  color:var(--text);margin-bottom:3px;
+  line-height:1.2;
+}
+.dokter-spesialis{
+  font-size:11px;font-weight:700;
+  color:var(--teal);letter-spacing:1px;
+  text-transform:uppercase;margin-bottom:10px;
+}
+.dokter-jadwal{
+  display:flex;flex-wrap:wrap;gap:5px;
+}
+.jadwal-chip{
+  background:var(--gray-mid);color:var(--text-mid);
+  font-size:11px;font-weight:600;
+  padding:3px 8px;border-radius:4px;
+}
+.jadwal-chip.today{
+  background:var(--green-pale);
+  color:var(--green);border:1px solid var(--green-border);
+}
+
+/* ─────────────────────────────────────────
+   JADWAL INTERAKTIF
+───────────────────────────────────────── */
+.jadwal-tabs{
+  display:flex;gap:6px;margin-bottom:24px;
+  flex-wrap:wrap;
+}
+.jadwal-tab{
+  padding:9px 18px;border-radius:8px;
+  border:1.5px solid var(--border);
+  font-size:13px;font-weight:700;
+  color:var(--text-mid);cursor:pointer;
+  transition:all .15s;background:var(--white);
+  font-family:'Plus Jakarta Sans',sans-serif;
+}
+.jadwal-tab:hover{border-color:var(--teal);color:var(--teal)}
+.jadwal-tab.active{
+  background:var(--teal);
+  border-color:var(--teal);
+  color:#fff;
+}
+.jadwal-tab.today-tab{
+  border-color:var(--green);color:var(--green);
+  position:relative;
+}
+.jadwal-tab.today-tab.active{background:var(--green);color:#fff;border-color:var(--green)}
+.jadwal-tab.today-tab::after{
+  content:'Hari Ini';
+  position:absolute;top:-8px;right:-4px;
+  background:var(--green);color:#fff;
+  font-size:9px;font-weight:700;
+  padding:2px 5px;border-radius:4px;
+}
+.jadwal-table{
+  width:100%;border-collapse:collapse;
+  border:1px solid var(--border);
+  border-radius:12px;overflow:hidden;
+  font-size:14px;
+}
+.jadwal-table thead{background:var(--teal)}
+.jadwal-table thead th{
+  padding:14px 16px;text-align:left;
+  color:#fff;font-weight:700;font-size:13px;
+  letter-spacing:.3px;
+}
+.jadwal-table tbody tr{
+  border-bottom:1px solid var(--border);
+  transition:background .15s;
+}
+.jadwal-table tbody tr:hover{background:var(--teal-pale)}
+.jadwal-table tbody tr:last-child{border-bottom:none}
+.jadwal-table td{padding:14px 16px;color:var(--text-mid)}
+.jadwal-table td:first-child{font-weight:700;color:var(--text)}
+.jadwal-table td .status-dot{
+  display:inline-flex;align-items:center;gap:5px;
+  font-weight:700;font-size:12px;
+}
+.sdot{width:7px;height:7px;border-radius:50%}
+.sdot.available{background:var(--green)}
+.sdot.limited{background:var(--amber)}
+.sdot.full{background:var(--red)}
+.text-available{color:var(--green)}
+.text-limited{color:var(--amber)}
+.text-full{color:var(--red)}
+.jadwal-panel{display:none}
+.jadwal-panel.active{display:block}
+
+/* ─────────────────────────────────────────
+   ABOUT / PROFIL
+───────────────────────────────────────── */
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:72px;align-items:center;
+}
+.about-photo-wrap{position:relative}
+.about-photo-main{
+  width:100%;aspect-ratio:4/5;
+  border-radius:14px;overflow:hidden;
+  max-width:440px;
+}
+.about-photo-main img{width:100%;height:100%;object-fit:cover}
+.about-photo-main .img-fb{
+  display:none;width:100%;height:100%;
+  background:var(--teal-pale);
+  align-items:center;justify-content:center;font-size:80px;
+}
+.about-cert-card{
+  position:absolute;bottom:-20px;right:0;
+  background:#fff;border-radius:12px;
+  padding:16px 18px;
+  box-shadow:0 8px 32px rgba(14,116,144,.15);
+  border:1px solid var(--border);
+  min-width:180px;
+}
+.acc-title{font-weight:700;font-size:14px;color:var(--text);margin-bottom:10px}
+.acc-items{display:flex;flex-direction:column;gap:6px}
+.acc-item{
+  display:flex;align-items:center;gap:7px;
+  font-size:12px;color:var(--text-mid);font-weight:500;
+}
+.acc-item::before{content:'✓';color:var(--green);font-weight:800;font-size:11px}
+.about-text{}
+.about-pillars{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:14px;margin-top:28px;
+}
+.about-pillar{
+  background:var(--teal-pale);
+  border:1px solid var(--teal-border);
+  border-radius:10px;padding:18px 16px;
+  transition:all .2s;
+}
+.about-pillar:hover{background:var(--teal);border-color:var(--teal)}
+.about-pillar:hover .ap-title{color:#fff}
+.about-pillar:hover .ap-desc{color:rgba(255,255,255,.65)}
+.ap-icon{font-size:22px;margin-bottom:10px}
+.ap-title{font-weight:700;font-size:14px;color:var(--text);margin-bottom:4px}
+.ap-desc{font-size:12px;color:var(--text-muted);line-height:1.5}
+
+/* ─────────────────────────────────────────
+   HEALTH TIPS (value content section)
+───────────────────────────────────────── */
+.tips-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;margin-top:48px;
+}
+.tip-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:14px;overflow:hidden;
+  transition:all .25s;
+}
+.tip-card:hover{
+  border-color:var(--teal-border);
+  transform:translateY(-4px);
+  box-shadow:0 12px 32px rgba(14,116,144,.1);
+}
+.tip-photo{
+  height:180px;overflow:hidden;
+  background:var(--teal-pale);
+}
+.tip-photo img{
+  width:100%;height:100%;
+  object-fit:cover;transition:transform .4s;
+}
+.tip-card:hover .tip-photo img{transform:scale(1.05)}
+.tip-photo .img-fb{
+  display:none;width:100%;height:100%;
+  background:var(--teal-pale);
+  align-items:center;justify-content:center;font-size:56px;
+}
+.tip-cat{
+  padding:16px 18px 0;
+  font-size:10px;font-weight:800;
+  letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--teal);
+}
+.tip-title{
+  padding:8px 18px;
+  font-weight:700;font-size:16px;
+  color:var(--text);line-height:1.3;
+}
+.tip-desc{
+  padding:8px 18px 16px;
+  font-size:13px;color:var(--text-muted);
+  line-height:1.65;
+}
+.tip-footer{
+  padding:14px 18px;
+  border-top:1px solid var(--border);
+  display:flex;align-items:center;
+  justify-content:space-between;
+}
+.tip-author{font-size:12px;color:var(--text-muted)}
+.tip-author strong{color:var(--text);font-weight:700}
+.tip-read{
+  font-size:12px;font-weight:700;color:var(--teal);
+  display:flex;align-items:center;gap:4px;
+}
+
+/* ─────────────────────────────────────────
+   GALERI
+───────────────────────────────────────── */
+.galeri-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:auto auto;
+  gap:10px;margin-top:48px;
+}
+.gal{border-radius:10px;overflow:hidden;position:relative;cursor:pointer}
+.gal.tall{grid-row:span 2}
+.gal img{
+  width:100%;height:100%;
+  object-fit:cover;display:block;
+  transition:transform .5s;
+}
+.gal:not(.tall) img{aspect-ratio:1}
+.gal.tall img{aspect-ratio:1/2}
+.gal .img-fb{
+  display:none;background:var(--teal-pale);
+  align-items:center;justify-content:center;font-size:48px;
+  aspect-ratio:1;
+}
+.gal.tall .img-fb{aspect-ratio:1/2}
+.gal:hover img{transform:scale(1.05)}
+.gal-ov{
+  position:absolute;inset:0;
+  background:linear-gradient(transparent 50%,rgba(14,116,144,.75));
+  opacity:0;transition:opacity .3s;
+  display:flex;flex-direction:column;
+  justify-content:flex-end;padding:14px;
+}
+.gal:hover .gal-ov{opacity:1}
+.gal-label{
+  font-size:12px;font-weight:700;
+  color:#fff;letter-spacing:.5px;
+  text-transform:uppercase;
+}
+
+/* ─────────────────────────────────────────
+   TESTIMONI
+───────────────────────────────────────── */
+.testi-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;margin-top:48px;
+}
+.testi-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:12px;padding:24px;
+  transition:all .25s;position:relative;
+  overflow:hidden;
+}
+.testi-card:hover{
+  border-color:var(--teal-border);
+  box-shadow:0 8px 28px rgba(14,116,144,.08);
+}
+.testi-quote{
+  position:absolute;top:16px;right:18px;
+  font-size:52px;color:var(--teal-light);
+  line-height:.7;font-weight:800;
+}
+.testi-stars{
+  color:#F59E0B;font-size:14px;
+  letter-spacing:1px;margin-bottom:12px;
+}
+.testi-text{
+  font-size:14px;color:var(--text-mid);
+  line-height:1.8;font-style:italic;
+  margin-bottom:18px;font-weight:400;
+}
+.testi-author{display:flex;align-items:center;gap:10px}
+.testi-av{
+  width:42px;height:42px;border-radius:50%;
+  overflow:hidden;flex-shrink:0;
+  background:var(--teal-pale);
+  border:2px solid var(--border);
+}
+.testi-av img{width:100%;height:100%;object-fit:cover}
+.testi-av .img-fb{
+  display:none;width:100%;height:100%;
+  align-items:center;justify-content:center;
+  font-weight:800;font-size:14px;color:var(--teal);
+}
+.testi-name{font-weight:700;font-size:14px;color:var(--text)}
+.testi-tag{
+  background:var(--teal-pale);color:var(--teal);
+  font-size:11px;font-weight:700;
+  padding:2px 8px;border-radius:4px;
+  margin-top:3px;display:inline-block;
+}
+
+/* ─────────────────────────────────────────
+   JAM & KONTAK
+───────────────────────────────────────── */
+.jam-kontak-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:28px;margin-top:48px;
+}
+.info-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:12px;overflow:hidden;
+}
+.ic-head{
+  background:var(--teal);
+  padding:16px 22px;
+  display:flex;align-items:center;gap:10px;
+}
+.ic-head-title{font-weight:700;font-size:16px;color:#fff}
+.jam-row{
+  display:flex;justify-content:space-between;
+  align-items:center;padding:13px 22px;
+  border-bottom:1px solid var(--border);
+}
+.jam-row:last-child{border-bottom:none}
+.jam-row.today{background:var(--teal-pale)}
+.jam-row.closed td,.jam-row.closed span:last-child{
+  color:var(--text-muted)!important;font-weight:500!important;
+}
+.jam-day{font-size:14px;color:var(--text-mid);font-weight:500}
+.jam-row.today .jam-day{color:var(--teal);font-weight:700}
+.jam-time{font-weight:800;font-size:16px;color:var(--text)}
+.buka-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--green-pale);border:1px solid var(--green-border);
+  border-radius:8px;padding:7px 14px;
+  font-size:12px;font-weight:700;color:var(--green);
+  margin-bottom:14px;
+}
+.buka-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--green);animation:blink 1.5s infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.kontak-row{
+  display:flex;gap:14px;padding:15px 22px;
+  border-bottom:1px solid var(--border);align-items:flex-start;
+}
+.kontak-row:last-of-type{border-bottom:none}
+.ki{
+  width:38px;height:38px;flex-shrink:0;
+  background:var(--teal-pale);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;margin-top:2px;
+}
+.kb strong{display:block;font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px}
+.kb p{font-size:13px;color:var(--text-mid);line-height:1.6}
+.wa-cta-row{
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--teal);color:#fff;padding:16px 22px;
+  font-weight:700;font-size:14px;transition:background .2s;
+}
+.wa-cta-row:hover{background:var(--teal-dark)}
+
+/* ─────────────────────────────────────────
+   FAQ
+───────────────────────────────────────── */
+.faq-wrap{max-width:720px;margin:48px auto 0;display:flex;flex-direction:column;gap:6px}
+.faq-item{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.faq-item.open{border-color:var(--teal-border)}
+.faq-q{
+  width:100%;background:none;border:none;
+  padding:17px 22px;
+  display:flex;justify-content:space-between;align-items:center;
+  cursor:pointer;color:var(--text);
+  font-size:15px;font-weight:700;text-align:left;
+  gap:12px;font-family:'Plus Jakarta Sans',sans-serif;
+  transition:color .2s;
+}
+.faq-q:hover{color:var(--teal)}
+.faq-arrow{color:var(--text-muted);transition:transform .3s,color .2s;flex-shrink:0}
+.faq-item.open .faq-arrow{transform:rotate(180deg);color:var(--teal)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a-inner{
+  padding:0 22px 18px;font-size:14px;
+  color:var(--text-mid);line-height:1.8;
+  border-top:1px solid var(--border);
+}
+.faq-item.open .faq-a{max-height:300px}
+
+/* ─────────────────────────────────────────
+   CTA
+───────────────────────────────────────── */
+.cta-sec{
+  position:relative;padding:104px 0;
+  text-align:center;overflow:hidden;
+}
+.cta-bg img{
+  position:absolute;inset:0;
+  width:100%;height:100%;object-fit:cover;
+}
+.cta-bg .img-fb{
+  position:absolute;inset:0;display:none;
+  background:linear-gradient(135deg,var(--teal-dark),#063d4f);
+  align-items:center;justify-content:center;font-size:80px;
+}
+.cta-overlay{
+  position:absolute;inset:0;
+  background:rgba(12,50,68,.82);
+}
+.cta-inner{position:relative;z-index:1;padding:0 28px}
+.cta-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:700;color:rgba(255,255,255,.65);
+  letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:14px;justify-content:center;
+}
+.cta-eyebrow::before,.cta-eyebrow::after{
+  content:'';width:20px;height:1px;background:rgba(255,255,255,.4);
+}
+.cta-h2{
+  font-weight:800;
+  font-size:clamp(28px,4.5vw,50px);
+  color:#fff;max-width:580px;
+  margin:0 auto 14px;line-height:1.15;
+  letter-spacing:-0.5px;
+}
+.cta-h2 em{font-style:normal;color:var(--teal-mid)}
+.cta-sub{
+  font-size:17px;color:rgba(255,255,255,.65);
+  max-width:440px;margin:0 auto 40px;
+  line-height:1.8;font-weight:400;
+}
+.cta-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
+footer{background:var(--text);padding:56px 0 24px}
+.footer-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:48px;margin-bottom:40px;
+}
+.footer-brand-name{
+  font-weight:800;font-size:19px;color:#fff;
+  margin-bottom:3px;letter-spacing:-0.2px;
+}
+.footer-brand-name span{color:var(--teal-mid)}
+.footer-brand-tagline{
+  font-size:10px;color:var(--teal-mid);
+  font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;margin-bottom:14px;
+}
+.footer-brand p{
+  font-size:13px;color:rgba(255,255,255,.4);
+  line-height:1.8;max-width:250px;font-weight:300;
+}
+.footer-bpjs{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:6px;padding:7px 12px;
+  margin-top:14px;font-size:12px;
+  color:rgba(255,255,255,.6);font-weight:600;
+}
+.footer-bpjs::before{
+  content:'✓';color:var(--green);font-weight:800;
+}
+.footer-col h4{
+  font-weight:700;font-size:14px;color:#fff;
+  margin-bottom:14px;letter-spacing:.3px;
+}
+.footer-col ul{
+  list-style:none;display:flex;
+  flex-direction:column;gap:9px;
+}
+.footer-col ul li a{
+  font-size:13px;color:rgba(255,255,255,.4);
+  transition:color .2s;font-weight:400;
+}
+.footer-col ul li a:hover{color:var(--teal-mid)}
+.footer-disclaimer{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:8px;padding:14px 18px;
+  margin-bottom:24px;
+}
+.footer-disclaimer p{
+  font-size:12px;color:rgba(255,255,255,.35);
+  line-height:1.6;font-weight:300;
+}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.08);
+  padding-top:18px;
+  display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:12px;
+}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,.3)}
+.footer-bottom a{color:rgba(255,255,255,.3);transition:color .2s}
+.footer-bottom a:hover{color:var(--teal-mid)}
+
+/* ─────────────────────────────────────────
+   WA FLOAT
+───────────────────────────────────────── */
+.wa-float{
+  position:fixed;bottom:28px;right:28px;z-index:999;
+  display:flex;align-items:center;gap:10px;
+  background:#25D366;color:#fff;
+  padding:14px 20px 14px 16px;border-radius:100px;
+  text-decoration:none;font-weight:700;font-size:14px;
+  box-shadow:0 8px 32px rgba(37,211,102,.4);transition:all .2s;
+}
+.wa-float:hover{background:#1EB850;transform:translateY(-3px)}
+.wa-float svg{width:22px;height:22px}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media(max-width:1024px){
+  .footer-top{grid-template-columns:1fr 1fr}
+  .dokter-grid{grid-template-columns:1fr 1fr}
+  .layanan-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:36px}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-photo-wrap{max-width:420px}
+  .galeri-grid{grid-template-columns:1fr 1fr}
+  .gal.tall{grid-row:span 1}
+  .gal.tall img{aspect-ratio:1}
+  .gal.tall .img-fb{aspect-ratio:1}
+  .testi-grid{grid-template-columns:1fr}
+  .jam-kontak-grid{grid-template-columns:1fr}
+  .tips-grid{grid-template-columns:1fr 1fr}
+  .stats-band-inner{grid-template-columns:1fr 1fr}
+  .appt-form{max-width:540px;margin:0 auto}
+}
+@media(max-width:768px){
+  .nav-links,.nav-actions{display:none}
+  .hamburger{display:flex}
+  .notice-bar .notice-item:not(:first-child){display:none}
+  .section{padding:64px 0}
+  .footer-top{grid-template-columns:1fr;gap:28px}
+  .hero-h1{font-size:clamp(34px,9vw,50px)}
+  .appt-form-grid{grid-template-columns:1fr}
+  .about-pillars{grid-template-columns:1fr}
+  .layanan-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .layanan-grid{grid-template-columns:1fr}
+  .dokter-grid{grid-template-columns:1fr}
+  .tips-grid{grid-template-columns:1fr}
+  .galeri-grid{grid-template-columns:1fr 1fr}
+  .stats-band-inner{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NOTICE BAR -->
+<div class="notice-bar">
+  <div class="container notice-inner">
+    <div class="notice-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Buka Hari Ini · Senin–Sabtu 07.00–20.00, Minggu 08.00–14.00
+    </div>
+    <div class="notice-item">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 10.5 19.79 19.79 0 011.6 1.87 2 2 0 013.59 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.91 7.91a16 16 0 006.29 6.29l.91-.91a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      (0281) 123-4567
+    </div>
+    <div class="notice-item">
+      <span class="notice-bpjs">✓ BPJS</span>
+      Klinik Mitra BPJS Kesehatan Terdaftar
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="container nav-inner">
+    <div class="nav-logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z"/></svg>
+      </div>
+      <div class="logo-text">
+        <div class="logo-name">Sehat <span>Medika</span></div>
+        <div class="logo-tagline">Klinik Umum & Spesialis</div>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#layanan">Layanan</a></li>
+      <li><a href="#dokter">Dokter</a></li>
+      <li><a href="#jadwal">Jadwal</a></li>
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="nav-emergency">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z"/></svg>
+        IGD 24 Jam
+      </div>
+      <a href="https://wa.me/6285743553879?text=Halo%20Klinik%20Sehat%20Medika%2C%20saya%20mau%20daftar%20berobat" class="nav-daftar">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.855L.057 23.886a.5.5 0 0 0 .611.637l6.218-1.637A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.925 0-3.727-.524-5.271-1.432l-.338-.2-4.066 1.07 1.009-3.985-.218-.344A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Daftar Online
+      </a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu(this)"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO with embedded appointment form -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-accent-circle"></div>
+  <div class="container hero-inner">
+
+    <!-- Kiri: konten -->
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="hero-pulse"></div>
+        <span class="hero-eyebrow-text">Klinik Umum Purwokerto · Buka Setiap Hari</span>
+      </div>
+      <h1 class="hero-h1">Kesehatan Anda<br><em>Prioritas Kami</em><br>Setiap Hari</h1>
+      <p class="hero-sub">Pelayanan medis oleh dokter berlisensi — dari konsultasi umum, poli spesialis, laboratorium, hingga Medical Check-Up. Terima BPJS & umum.</p>
+      <div class="hero-chips">
+        <div class="hero-chip"><span>✅</span> Terima BPJS</div>
+        <div class="hero-chip"><span>👨‍⚕️</span> 8 Dokter Aktif</div>
+        <div class="hero-chip"><span>🧪</span> Lab Lengkap</div>
+        <div class="hero-chip"><span>🕐</span> Buka 7 Hari</div>
+      </div>
+      <div class="hero-ctas">
+        <a href="#jadwal" class="btn btn-teal btn-lg">Lihat Jadwal Dokter</a>
+        <a href="#layanan" class="btn btn-outline btn-lg">Semua Layanan</a>
+      </div>
+    </div>
+
+    <!-- Kanan: appointment form (signature) -->
+    <div class="hero-right">
+      <div class="appt-form" id="apptForm">
+        <div class="appt-form-head">
+          <div class="appt-form-head-icon">📋</div>
+          <div>
+            <div class="appt-form-head-title">Daftar Berobat Online</div>
+            <div class="appt-form-head-sub">Tanpa antri lama · Konfirmasi langsung via WA</div>
+          </div>
+        </div>
+        <div class="appt-form-body">
+          <div class="appt-form-grid">
+            <div class="appt-group">
+              <label>Nama Lengkap</label>
+              <input type="text" id="apptNama" placeholder="Nama Anda">
+            </div>
+            <div class="appt-group">
+              <label>No. HP / WA</label>
+              <input type="tel" id="apptHP" placeholder="08xx-xxxx-xxxx">
+            </div>
+            <div class="appt-group">
+              <label>Pilih Poli / Layanan</label>
+              <select id="apptPoli">
+                <option value="">Pilih poli...</option>
+                <option>Poli Umum — dr. Umum</option>
+                <option>Poli Anak — dr. Spesialis Anak</option>
+                <option>Poli Gigi — drg. Umum</option>
+                <option>Poli Kandungan — SpOG</option>
+                <option>Poli Dalam — dr. Internist</option>
+                <option>Laboratorium</option>
+                <option>Medical Check-Up</option>
+              </select>
+            </div>
+            <div class="appt-group">
+              <label>Tanggal Kunjungan</label>
+              <input type="date" id="apptTgl">
+            </div>
+            <div class="appt-group appt-full">
+              <label>Keluhan Utama (opsional)</label>
+              <input type="text" id="apptKeluhan" placeholder="cth: demam, batuk, kontrol rutin...">
+            </div>
+          </div>
+          <button class="appt-submit" onclick="daftarBerobat()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.855L.057 23.886a.5.5 0 0 0 .611.637l6.218-1.637A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.925 0-3.727-.524-5.271-1.432l-.338-.2-4.066 1.07 1.009-3.985-.218-.344A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Daftar via WhatsApp
+          </button>
+          <div class="appt-note">Gratis biaya pendaftaran · Data Anda aman & rahasia</div>
+          <div class="appt-bpjs">
+            <div class="bpjs-dot"></div>
+            <span class="bpjs-text">Terima BPJS Kesehatan & Asuransi Umum</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="container stats-band-inner">
+    <div class="stat-cell">
+      <div class="stat-cell-num" data-count="12">0<span>+</span></div>
+      <div class="stat-cell-label">Tahun Beroperasi</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-cell-num" data-count="8">0<span> Dokter</span></div>
+      <div class="stat-cell-label">Dokter Aktif & Berlisensi</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-cell-num" data-count="50">0<span>K+</span></div>
+      <div class="stat-cell-label">Pasien Terlayani</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-cell-num" data-count="15">0<span> Poli</span></div>
+      <div class="stat-cell-label">Poli & Layanan</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-cell-num" data-count="4.9">0<span>★</span></div>
+      <div class="stat-cell-label">Rating Google Maps</div>
+    </div>
+  </div>
+</div>
+
+<!-- LAYANAN -->
+<section class="section" id="layanan">
+  <div class="container">
+    <div class="eyebrow">Layanan Medis</div>
+    <h2 class="section-title">Semua Kebutuhan Kesehatan<br>Anda <em>di Satu Tempat</em></h2>
+    <p class="body-text">Dari konsultasi harian hingga pemeriksaan khusus — kami sediakan layanan medis lengkap dengan dokter berlisensi dan peralatan modern.</p>
+    <div class="layanan-grid">
+      <div class="layanan-card">
+        <div class="lc-icon">🩺</div>
+        <div class="lc-name">Poli Umum</div>
+        <div class="lc-desc">Konsultasi dokter umum untuk keluhan demam, batuk, pilek, gangguan pencernaan, dan penyakit umum lainnya.</div>
+        <span class="lc-tag">Tersedia Setiap Hari</span>
+      </div>
+      <div class="layanan-card">
+        <div class="lc-icon">👶</div>
+        <div class="lc-name">Poli Anak</div>
+        <div class="lc-desc">Pemeriksaan tumbuh kembang, imunisasi, dan konsultasi kesehatan anak oleh dokter spesialis anak berpengalaman.</div>
+        <span class="lc-tag">SpA Tersertifikasi</span>
+      </div>
+      <div class="layanan-card">
+        <div class="lc-icon">🦷</div>
+        <div class="lc-name">Poli Gigi</div>
+        <div class="lc-desc">Tambal gigi, cabut, scaling (pembersihan karang gigi), perawatan saluran akar, dan konsultasi kesehatan gigi mulut.</div>
+        <span class="lc-tag">Senin–Sabtu</span>
+      </div>
+      <div class="layanan-card">
+        <div class="lc-icon">🤰</div>
+        <div class="lc-name">Poli Kandungan</div>
+        <div class="lc-desc">Pemeriksaan kehamilan, USG kandungan, KB, dan konsultasi kesehatan reproduksi wanita oleh dokter SpOG.</div>
+        <span class="lc-tag">Dokter SpOG</span>
+      </div>
+      <div class="layanan-card">
+        <div class="lc-icon">💊</div>
+        <div class="lc-name">Poli Dalam</div>
+        <div class="lc-desc">Penanganan diabetes, hipertensi, penyakit jantung, ginjal, dan penyakit dalam lainnya oleh dokter internist.</div>
+        <span class="lc-tag">Dokter Internist</span>
+      </div>
+      <div class="layanan-card">
+        <div class="lc-icon">🧪</div>
+        <div class="lc-name">Laboratorium</div>
+        <div class="lc-desc">Pemeriksaan darah lengkap, urin, gula darah, kolesterol, asam urat, fungsi hati, fungsi ginjal, dan lebih dari 50 tes lab.</div>
+        <span class="lc-tag">Hasil Cepat 2 Jam</span>
+      </div>
+      <div class="layanan-card">
+        <div class="lc-icon">📋</div>
+        <div class="lc-name">Medical Check-Up</div>
+        <div class="lc-desc">Paket MCU untuk karyawan, CPNS, SIM, pernikahan, dan keperluan perusahaan. Hasil bisa selesai dalam 1 hari.</div>
+        <span class="lc-tag">Paket Tersedia</span>
+      </div>
+      <div class="layanan-card">
+        <div class="lc-icon">💉</div>
+        <div class="lc-name">Imunisasi & Vaksin</div>
+        <div class="lc-desc">Imunisasi anak sesuai program nasional dan pilihan, vaksin dewasa (flu, hepatitis, typhoid, HPV), serta travel vaccine.</div>
+        <span class="lc-tag">BPJS & Umum</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIM DOKTER -->
+<section class="section bg-gray" id="dokter">
+  <div class="container">
+    <div class="eyebrow">Tim Dokter</div>
+    <h2 class="section-title">Ditangani Dokter yang <em>Kompeten</em><br>dan Berpengalaman</h2>
+    <p class="body-text">Setiap dokter kami memiliki SIP aktif, pendidikan medis tersertifikasi, dan berkomitmen memberikan pelayanan yang hangat dan profesional.</p>
+    <div class="dokter-grid">
+      <div class="dokter-card">
+        <div class="dokter-photo">
+          <img src="https://i.pravatar.cc/400?img=33"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="dr. Ahmad Fauzi">
+          <div class="img-fb">👨‍⚕️</div>
+          <div class="dokter-sip">SIP Aktif</div>
+        </div>
+        <div class="dokter-info">
+          <div class="dokter-name">dr. Ahmad Fauzi, Sp.PD</div>
+          <div class="dokter-spesialis">Poli Dalam</div>
+          <div class="dokter-jadwal">
+            <span class="jadwal-chip today">Sen</span>
+            <span class="jadwal-chip today">Rab</span>
+            <span class="jadwal-chip today">Sab</span>
+          </div>
+        </div>
+      </div>
+      <div class="dokter-card">
+        <div class="dokter-photo">
+          <img src="https://i.pravatar.cc/400?img=47"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="dr. Sari Dewi">
+          <div class="img-fb">👩‍⚕️</div>
+          <div class="dokter-sip">SIP Aktif</div>
+        </div>
+        <div class="dokter-info">
+          <div class="dokter-name">dr. Sari Dewi, Sp.A</div>
+          <div class="dokter-spesialis">Poli Anak</div>
+          <div class="dokter-jadwal">
+            <span class="jadwal-chip today">Sel</span>
+            <span class="jadwal-chip today">Kam</span>
+            <span class="jadwal-chip today">Sab</span>
+          </div>
+        </div>
+      </div>
+      <div class="dokter-card">
+        <div class="dokter-photo">
+          <img src="https://i.pravatar.cc/400?img=48"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="dr. Rini Lestari">
+          <div class="img-fb">👩‍⚕️</div>
+          <div class="dokter-sip">SIP Aktif</div>
+        </div>
+        <div class="dokter-info">
+          <div class="dokter-name">dr. Rini Lestari, SpOG</div>
+          <div class="dokter-spesialis">Kandungan & Kebidanan</div>
+          <div class="dokter-jadwal">
+            <span class="jadwal-chip today">Sen</span>
+            <span class="jadwal-chip today">Rab</span>
+            <span class="jadwal-chip today">Jum</span>
+          </div>
+        </div>
+      </div>
+      <div class="dokter-card">
+        <div class="dokter-photo">
+          <img src="https://i.pravatar.cc/400?img=12"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="dr. Budi Santoso">
+          <div class="img-fb">👨‍⚕️</div>
+          <div class="dokter-sip">SIP Aktif</div>
+        </div>
+        <div class="dokter-info">
+          <div class="dokter-name">dr. Budi Santoso</div>
+          <div class="dokter-spesialis">Dokter Umum</div>
+          <div class="dokter-jadwal">
+            <span class="jadwal-chip today">Sen</span>
+            <span class="jadwal-chip today">Sel</span>
+            <span class="jadwal-chip today">Rab</span>
+            <span class="jadwal-chip today">Kam</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JADWAL INTERAKTIF -->
+<section class="section" id="jadwal">
+  <div class="container">
+    <div class="eyebrow">Jadwal Praktik</div>
+    <h2 class="section-title">Cek Jadwal Dokter<br><em>Hari Ini</em> & Minggu Ini</h2>
+    <p class="body-text">Klik hari yang ingin Anda kunjungi untuk melihat dokter yang praktik beserta jam dan ketersediaan antrian.</p>
+    <div style="margin-top:40px">
+      <div class="jadwal-tabs" id="jadwalTabs">
+        <button class="jadwal-tab" onclick="showJadwal('sen',this)">Senin</button>
+        <button class="jadwal-tab" onclick="showJadwal('sel',this)">Selasa</button>
+        <button class="jadwal-tab" onclick="showJadwal('rab',this)">Rabu</button>
+        <button class="jadwal-tab" onclick="showJadwal('kam',this)">Kamis</button>
+        <button class="jadwal-tab" onclick="showJadwal('jum',this)">Jumat</button>
+        <button class="jadwal-tab today-tab active" onclick="showJadwal('sab',this)">Sabtu</button>
+        <button class="jadwal-tab" onclick="showJadwal('min',this)">Minggu</button>
+      </div>
+
+      <!-- Senin -->
+      <div class="jadwal-panel" id="panel-sen">
+        <table class="jadwal-table">
+          <thead><tr><th>Dokter</th><th>Poli</th><th>Jam Praktik</th><th>Status</th><th>Aksi</th></tr></thead>
+          <tbody>
+            <tr><td>dr. Ahmad Fauzi, Sp.PD</td><td>Poli Dalam</td><td>08.00 – 12.00</td><td><span class="status-dot"><span class="sdot available"></span><span class="text-available">Tersedia</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Senin%20Poli%20Dalam%20dr.%20Ahmad" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+            <tr><td>dr. Rini Lestari, SpOG</td><td>Poli Kandungan</td><td>09.00 – 13.00</td><td><span class="status-dot"><span class="sdot available"></span><span class="text-available">Tersedia</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Senin%20Poli%20Kandungan%20dr.%20Rini" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+            <tr><td>dr. Budi Santoso</td><td>Poli Umum</td><td>07.00 – 14.00</td><td><span class="status-dot"><span class="sdot available"></span><span class="text-available">Tersedia</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Senin%20Poli%20Umum%20dr.%20Budi" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+            <tr><td>drg. Putri Handayani</td><td>Poli Gigi</td><td>10.00 – 15.00</td><td><span class="status-dot"><span class="sdot limited"></span><span class="text-limited">Terbatas</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Senin%20Poli%20Gigi" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Selasa -->
+      <div class="jadwal-panel" id="panel-sel">
+        <table class="jadwal-table">
+          <thead><tr><th>Dokter</th><th>Poli</th><th>Jam Praktik</th><th>Status</th><th>Aksi</th></tr></thead>
+          <tbody>
+            <tr><td>dr. Sari Dewi, Sp.A</td><td>Poli Anak</td><td>08.00 – 13.00</td><td><span class="status-dot"><span class="sdot available"></span><span class="text-available">Tersedia</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Selasa%20Poli%20Anak%20dr.%20Sari" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+            <tr><td>dr. Budi Santoso</td><td>Poli Umum</td><td>07.00 – 14.00</td><td><span class="status-dot"><span class="sdot available"></span><span class="text-available">Tersedia</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Selasa%20Poli%20Umum%20dr.%20Budi" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+            <tr><td>dr. Hendra Wijaya, Sp.JP</td><td>Poli Jantung</td><td>13.00 – 17.00</td><td><span class="status-dot"><span class="sdot available"></span><span class="text-available">Tersedia</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Selasa%20Poli%20Jantung" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Rabu -->
+      <div class="jadwal-panel" id="panel-rab">
+        <table class="jadwal-table">
+          <thead><tr><th>Dokter</th><th>Poli</th><th>Jam Praktik</th><th>Status</th><th>Aksi</th></tr></thead>
+          <tbody>
+            <tr><td>dr. Ahmad Fauzi, Sp.PD</td><td>Poli Dalam</td><td>08.00 – 12.00</td><td><span class="status-dot"><span class="sdot limited"></span><span class="text-limited">Terbatas</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Rabu%20Poli%20Dalam" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+            <tr><td>dr. Rini Lestari, SpOG</td><td>Poli Kandungan</td><td>09.00 – 13.00</td><td><span class="status-dot"><span class="sdot available"></span><span class="text-available">Tersedia</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Rabu%20Poli%20Kandungan" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+            <tr><td>dr. Budi Santoso</td><td>Poli Umum</td><td>07.00 – 14.00</td><td><span class="status-dot"><span class="sdot available"></span><span class="text-available">Tersedia</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Rabu%20Poli%20Umum" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+            <tr><td>drg. Putri Handayani</td><td>Poli Gigi</td><td>10.00 – 15.00</td><td><span class="status-dot"><span class="sdot available"></span><span class="text-available">Tersedia</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Rabu%20Poli%20Gigi" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Kamis -->
+      <div class="jadwal-panel" id="panel-kam">
+        <table class="jadwal-table">
+          <thead><tr><th>Dokter</th><th>Poli</th><th>Jam Praktik</th><th>Status</th><th>Aksi</th></tr></thead>
+          <tbody>
+            <tr><td>dr. Sari Dewi, Sp.A</td><td>Poli Anak</td><td>08.00 – 13.00</td><td><span class="status-dot"><span class="sdot available"></span><span class="text-available">Tersedia</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Kamis%20Poli%20Anak" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+            <tr><td>dr. Budi Santoso</td><td>Poli Umum</td><td>07.00 – 14.00</td><td><span class="status-dot"><span class="sdot available"></span><span class="text-available">Tersedia</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Kamis%20Poli%20Umum" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+            <tr><td>dr. Maya Sari, Sp.M</td><td>Poli Mata</td><td>14.00 – 18.00</td><td><span class="status-dot"><span class="sdot available"></span><span class="text-available">Tersedia</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Kamis%20Poli%20Mata" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Jumat -->
+      <div class="jadwal-panel" id="panel-jum">
+        <table class="jadwal-table">
+          <thead><tr><th>Dokter</th><th>Poli</th><th>Jam Praktik</th><th>Status</th><th>Aksi</th></tr></thead>
+          <tbody>
+            <tr><td>dr. Rini Lestari, SpOG</td><td>Poli Kandungan</td><td>09.00 – 12.00</td><td><span class="status-dot"><span class="sdot available"></span><span class="text-available">Tersedia</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Jumat%20Poli%20Kandungan" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+            <tr><td>dr. Hendra Wijaya, Sp.JP</td><td>Poli Jantung</td><td>13.00 – 17.00</td><td><span class="status-dot"><span class="sdot limited"></span><span class="text-limited">Terbatas</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Jumat%20Poli%20Jantung" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+            <tr><td>dr. Dokter Umum</td><td>Poli Umum</td><td>07.00 – 12.00</td><td><span class="status-dot"><span class="sdot available"></span><span class="text-available">Tersedia</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Jumat%20Poli%20Umum" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Sabtu (today/default) -->
+      <div class="jadwal-panel active" id="panel-sab">
+        <table class="jadwal-table">
+          <thead><tr><th>Dokter</th><th>Poli</th><th>Jam Praktik</th><th>Status</th><th>Aksi</th></tr></thead>
+          <tbody>
+            <tr><td>dr. Ahmad Fauzi, Sp.PD</td><td>Poli Dalam</td><td>08.00 – 12.00</td><td><span class="status-dot"><span class="sdot available"></span><span class="text-available">Tersedia</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Sabtu%20Poli%20Dalam%20dr.%20Ahmad" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+            <tr><td>dr. Sari Dewi, Sp.A</td><td>Poli Anak</td><td>08.00 – 12.00</td><td><span class="status-dot"><span class="sdot limited"></span><span class="text-limited">Terbatas</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Sabtu%20Poli%20Anak%20dr.%20Sari" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+            <tr><td>drg. Putri Handayani</td><td>Poli Gigi</td><td>09.00 – 13.00</td><td><span class="status-dot"><span class="sdot available"></span><span class="text-available">Tersedia</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Sabtu%20Poli%20Gigi" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+            <tr><td>dr. Dokter Umum</td><td>Poli Umum</td><td>07.00 – 14.00</td><td><span class="status-dot"><span class="sdot available"></span><span class="text-available">Tersedia</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Sabtu%20Poli%20Umum" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Minggu -->
+      <div class="jadwal-panel" id="panel-min">
+        <table class="jadwal-table">
+          <thead><tr><th>Dokter</th><th>Poli</th><th>Jam Praktik</th><th>Status</th><th>Aksi</th></tr></thead>
+          <tbody>
+            <tr><td>dr. Dokter Umum</td><td>Poli Umum</td><td>08.00 – 14.00</td><td><span class="status-dot"><span class="sdot available"></span><span class="text-available">Tersedia</span></span></td><td><a href="https://wa.me/6285743553879?text=Daftar%20Minggu%20Poli%20Umum" style="color:var(--teal);font-weight:700;font-size:13px">Daftar →</a></td></tr>
+            <tr><td colspan="5" style="text-align:center;color:var(--text-muted);font-style:italic;padding:16px">Poli spesialis tidak tersedia hari Minggu. Layanan darurat & umum tetap buka.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <p style="text-align:center;margin-top:20px;font-size:13px;color:var(--text-muted)">Jadwal dapat berubah sewaktu-waktu. Konfirmasi dulu via <a href="https://wa.me/6285743553879" style="color:var(--teal);font-weight:700">WhatsApp</a> sebelum datang.</p>
+  </div>
+</section>
+
+<!-- TENTANG KLINIK -->
+<section class="section bg-pale" id="tentang">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo-wrap">
+        <div class="about-photo-main">
+          <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=750&fit=crop&q=85"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+               alt="Interior Klinik Sehat Medika">
+          <div class="img-fb">🏥</div>
+        </div>
+        <div class="about-cert-card">
+          <div class="acc-title">Akreditasi & Sertifikasi</div>
+          <div class="acc-items">
+            <div class="acc-item">Terdaftar Kemenkes RI</div>
+            <div class="acc-item">Klinik Mitra BPJS</div>
+            <div class="acc-item">Akreditasi SNARS 2024</div>
+            <div class="acc-item">ISO 9001:2015</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="eyebrow">Tentang Kami</div>
+        <h2 class="section-title" style="margin-bottom:18px">Klinik Terpercaya<br><em>Sejak 2012</em> di Purwokerto</h2>
+        <p class="body-text" style="margin-bottom:16px">Klinik Sehat Medika berdiri sejak 2012 dengan misi memberikan pelayanan kesehatan bermutu yang mudah diakses semua lapisan masyarakat. Kami percaya kesehatan adalah hak setiap orang.</p>
+        <p class="body-text">Dengan 8 dokter aktif, laboratorium modern, dan 15 poli layanan, kami siap menjadi mitra kesehatan keluarga Anda — mulai dari pencegahan, pengobatan, hingga pemulihan.</p>
+        <div class="about-pillars">
+          <div class="about-pillar">
+            <div class="ap-icon">🔬</div>
+            <div class="ap-title">Peralatan Modern</div>
+            <div class="ap-desc">Lab digital & alat medis berstandar internasional</div>
+          </div>
+          <div class="about-pillar">
+            <div class="ap-icon">🤝</div>
+            <div class="ap-title">Pelayanan Humanis</div>
+            <div class="ap-desc">Dokter sabar, staff ramah, suasana nyaman dan tidak intimidating</div>
+          </div>
+          <div class="about-pillar">
+            <div class="ap-icon">💰</div>
+            <div class="ap-title">Harga Terjangkau</div>
+            <div class="ap-desc">Tarif transparan, terima BPJS, tersedia program cicilan MCU</div>
+          </div>
+          <div class="about-pillar">
+            <div class="ap-icon">📍</div>
+            <div class="ap-title">Lokasi Strategis</div>
+            <div class="ap-desc">Pusat kota Purwokerto, parkir luas, dekat transportasi umum</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERI -->
+<section class="section bg-gray">
+  <div class="container">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:20px">
+      <div>
+        <div class="eyebrow">Fasilitas Klinik</div>
+        <h2 class="section-title" style="margin-bottom:0">Lingkungan <em>Bersih & Nyaman</em><br>untuk Pemulihan Anda</h2>
+      </div>
+      <p style="font-size:14px;color:var(--text-muted);max-width:320px;line-height:1.7">Ruang tunggu ber-AC, ruang tindakan steril, dan fasilitas laboratorium yang terawat dan modern.</p>
+    </div>
+    <div class="galeri-grid">
+      <div class="gal tall">
+        <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=400&h=800&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Ruang tindakan">
+        <div class="img-fb" style="aspect-ratio:1/2">🏥</div>
+        <div class="gal-ov"><div class="gal-label">Ruang Tindakan</div></div>
+      </div>
+      <div class="gal">
+        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&h=400&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Interior klinik">
+        <div class="img-fb">🏥</div>
+        <div class="gal-ov"><div class="gal-label">Lobi & Pendaftaran</div></div>
+      </div>
+      <div class="gal">
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=400&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Ruang konsultasi dokter">
+        <div class="img-fb">👨‍⚕️</div>
+        <div class="gal-ov"><div class="gal-label">Ruang Konsultasi</div></div>
+      </div>
+      <div class="gal">
+        <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=400&h=400&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Laboratorium">
+        <div class="img-fb">🧪</div>
+        <div class="gal-ov"><div class="gal-label">Laboratorium</div></div>
+      </div>
+      <div class="gal">
+        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=400&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Farmasi apotek">
+        <div class="img-fb">💊</div>
+        <div class="gal-ov"><div class="gal-label">Apotek Klinik</div></div>
+      </div>
+      <div class="gal">
+        <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=400&h=400&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Ruang tunggu">
+        <div class="img-fb">🛋️</div>
+        <div class="gal-ov"><div class="gal-label">Ruang Tunggu</div></div>
+      </div>
+      <div class="gal">
+        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&q=80"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Alat medis">
+        <div class="img-fb">🔬</div>
+        <div class="gal-ov"><div class="gal-label">Alat Medis Modern</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HEALTH TIPS -->
+<section class="section">
+  <div class="container">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px;margin-bottom:0">
+      <div>
+        <div class="eyebrow">Tips Kesehatan</div>
+        <h2 class="section-title" style="margin-bottom:0">Edukasi Kesehatan<br>dari <em>Dokter Kami</em></h2>
+      </div>
+      <a href="https://wa.me/6285743553879?text=Halo%20Klinik%20Sehat%20Medika%2C%20saya%20mau%20tanya%20soal%20kesehatan" class="btn btn-outline" style="flex-shrink:0">Tanya Dokter via WA</a>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-photo">
+          <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=500&h=280&fit=crop&q=80"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Hidrasi">
+          <div class="img-fb">💧</div>
+        </div>
+        <div class="tip-cat">Gaya Hidup Sehat</div>
+        <div class="tip-title">Berapa Banyak Air yang Harus Diminum Setiap Hari?</div>
+        <div class="tip-desc">Kebutuhan cairan setiap orang berbeda tergantung usia, berat badan, dan aktivitas. Pelajari cara menghitung kebutuhan hidrasi yang tepat untuk Anda.</div>
+        <div class="tip-footer">
+          <div class="tip-author">Oleh <strong>dr. Budi Santoso</strong></div>
+          <div class="tip-read">Baca <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-photo">
+          <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=500&h=280&fit=crop&q=80"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Tekanan darah">
+          <div class="img-fb">❤️</div>
+        </div>
+        <div class="tip-cat">Penyakit Dalam</div>
+        <div class="tip-title">Kenali Tanda-tanda Hipertensi Sebelum Terlambat</div>
+        <div class="tip-desc">Hipertensi sering disebut "silent killer" karena jarang bergejala. Inilah tanda peringatan dini yang harus Anda waspadai dan kapan harus ke dokter.</div>
+        <div class="tip-footer">
+          <div class="tip-author">Oleh <strong>dr. Ahmad Fauzi, Sp.PD</strong></div>
+          <div class="tip-read">Baca <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-photo">
+          <img src="https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=500&h=280&fit=crop&q=80"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Imunisasi anak">
+          <div class="img-fb">👶</div>
+        </div>
+        <div class="tip-cat">Kesehatan Anak</div>
+        <div class="tip-title">Jadwal Imunisasi Anak yang Wajib Diketahui Orang Tua</div>
+        <div class="tip-desc">Imunisasi adalah investasi kesehatan terbaik untuk anak. Ketahui jadwal vaksin yang direkomendasikan IDAI dari lahir hingga usia 18 tahun.</div>
+        <div class="tip-footer">
+          <div class="tip-author">Oleh <strong>dr. Sari Dewi, Sp.A</strong></div>
+          <div class="tip-read">Baca <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section class="section bg-gray">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:0">
+      <div class="eyebrow" style="justify-content:center">Kata Pasien Kami</div>
+      <h2 class="section-title" style="margin-bottom:12px">Pengalaman <em>Nyata</em><br>dari Pasien Kami</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Daftar online lewat WhatsApp sangat membantu. Sampai klinik tidak perlu antri lama karena sudah terdaftar. Dokternya sabar menjelaskan dan tidak terburu-buru meski pasien banyak."</div>
+        <div class="testi-author">
+          <div class="testi-av">
+            <img src="https://i.pravatar.cc/100?img=5" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="">
+            <div class="img-fb">SR</div>
+          </div>
+          <div>
+            <div class="testi-name">Siti Rahayu</div>
+            <div class="testi-tag">Poli Umum</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Anak saya sudah imunisasi lengkap di sini sejak lahir. dr. Sari sangat telaten dan selalu menjelaskan perkembangan anak dengan detail. Kliniknya juga bersih dan anak tidak takut."</div>
+        <div class="testi-author">
+          <div class="testi-av">
+            <img src="https://i.pravatar.cc/100?img=9" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="">
+            <div class="img-fb">AN</div>
+          </div>
+          <div>
+            <div class="testi-name">Anita Nurhayati</div>
+            <div class="testi-tag">Poli Anak</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"MCU untuk melamar kerja selesai dalam sehari. Hasilnya lengkap dan sudah dalam format yang diminta HRD. Harganya juga masuk akal dibanding klinik lain. Sangat direkomendasikan!"</div>
+        <div class="testi-author">
+          <div class="testi-av">
+            <img src="https://i.pravatar.cc/100?img=33" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="">
+            <div class="img-fb">FP</div>
+          </div>
+          <div>
+            <div class="testi-name">Fajar Prasetyo</div>
+            <div class="testi-tag">Medical Check-Up</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JAM & KONTAK -->
+<section class="section" id="kontak">
+  <div class="container">
+    <div class="eyebrow">Lokasi & Jam Buka</div>
+    <h2 class="section-title">Kami Siap Melayani<br><em>Kapan Anda Butuhkan</em></h2>
+    <div class="jam-kontak-grid">
+      <div>
+        <div class="buka-badge"><span class="buka-dot"></span>Sedang Buka Hari Ini</div>
+        <div class="info-card">
+          <div class="ic-head"><span>🕐</span><span class="ic-head-title">Jam Operasional</span></div>
+          <div class="jam-row"><span class="jam-day">Senin – Jumat</span><span class="jam-time">07.00 – 20.00</span></div>
+          <div class="jam-row today"><span class="jam-day">Sabtu ← Hari Ini</span><span class="jam-time">07.00 – 20.00</span></div>
+          <div class="jam-row"><span class="jam-day">Minggu</span><span class="jam-time">08.00 – 14.00</span></div>
+          <div class="jam-row"><span class="jam-day">Hari Libur Nasional</span><span class="jam-time">08.00 – 14.00</span></div>
+          <div class="jam-row" style="background:var(--red-pale)"><span class="jam-day" style="color:var(--red);font-weight:700">🚨 IGD / Darurat</span><span class="jam-time" style="color:var(--red)">24 Jam</span></div>
+        </div>
+        <div style="background:var(--amber-pale);border:1px solid rgba(217,119,6,.2);border-radius:10px;padding:14px 18px;margin-top:14px">
+          <div style="font-weight:700;font-size:14px;color:var(--amber);margin-bottom:6px">⚠️ Catatan Penting</div>
+          <div style="font-size:13px;color:var(--text-mid);line-height:1.7">Jam praktik dokter spesialis berbeda dengan jam operasional klinik. Cek tab jadwal di atas atau konfirmasi via WhatsApp sebelum datang.</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="kontak-row">
+          <div class="ki">📍</div>
+          <div class="kb">
+            <strong>Alamat Klinik</strong>
+            <p>Jl. Dr. Soeparno No. 45, Purwokerto Utara, Kabupaten Banyumas, Jawa Tengah 53122</p>
+          </div>
+        </div>
+        <div class="kontak-row">
+          <div class="ki">📞</div>
+          <div class="kb">
+            <strong>Telepon & WhatsApp</strong>
+            <p>(0281) 123-4567 · WhatsApp: 0857-4355-3879</p>
+          </div>
+        </div>
+        <div class="kontak-row">
+          <div class="ki">🏥</div>
+          <div class="kb">
+            <strong>Pendaftaran & Antrian</strong>
+            <p>Daftar online via WhatsApp atau datang langsung. Ambil nomor antrian di loket. Prioritas untuk pasien lansia, ibu hamil, dan difabel.</p>
+          </div>
+        </div>
+        <div class="kontak-row">
+          <div class="ki">💳</div>
+          <div class="kb">
+            <strong>Pembayaran</strong>
+            <p>Cash, BPJS Kesehatan, Asuransi (AXA, Prudential, Allianz dll), Kartu Kredit/Debit, QRIS, Transfer Bank</p>
+          </div>
+        </div>
+        <a href="https://wa.me/6285743553879?text=Halo%20Klinik%20Sehat%20Medika%2C%20saya%20mau%20daftar%20berobat" class="wa-cta-row">
+          <span>💬 Daftar Berobat via WhatsApp</span>
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section bg-pale" id="faq">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="eyebrow" style="justify-content:center">FAQ</div>
+      <h2 class="section-title">Pertanyaan yang Sering<br><em>Ditanyakan</em> Pasien</h2>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Bagaimana cara mendaftar berobat secara online?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Isi form pendaftaran di halaman ini atau chat langsung via WhatsApp ke 0857-4355-3879. Sebutkan nama, poli yang dituju, dan rencana tanggal kunjungan. Tim kami akan konfirmasi ketersediaan dokter dan nomor antrian Anda dalam waktu singkat.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah klinik ini menerima BPJS Kesehatan?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Ya, Klinik Sehat Medika adalah klinik mitra BPJS Kesehatan yang terdaftar resmi. Anda bisa menggunakan kartu BPJS untuk berobat di poli umum dan beberapa poli spesialis. Bawa kartu BPJS aktif dan KTP saat kunjungan. Pastikan klinik ini adalah FKTP terdaftar Anda atau tunjukkan surat rujukan jika perlu.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah ada layanan MCU dan berapa lama hasilnya?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Ya. Kami menyediakan paket MCU untuk berbagai keperluan: melamar kerja, CPNS, SIM A/B, pra-nikah, dan corporate health check. Hasil MCU standar bisa selesai dalam 1 hari kerja. Untuk MCU lengkap dengan pemeriksaan jantung dan lab komprehensif bisa 2–3 hari. Hubungi kami untuk informasi paket dan harga.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah tersedia dokter spesialis?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Ya. Kami memiliki poli spesialis yang aktif, termasuk: Sp.PD (penyakit dalam), Sp.A (anak), Sp.OG (kandungan), Sp.JP (jantung), Sp.M (mata), dan Sp.KK (kulit). Jadwal praktik setiap spesialis berbeda — cek tab Jadwal di halaman ini atau konfirmasi via WhatsApp sebelum datang.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Apakah ada layanan darurat atau IGD?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Ya, kami memiliki unit IGD (Instalasi Gawat Darurat) yang buka 24 jam setiap hari termasuk hari libur. Untuk kondisi darurat seperti sesak napas, nyeri dada, kecelakaan, atau kondisi mengancam jiwa lainnya — segera datang ke unit IGD kami atau hubungi nomor darurat (0281) 123-9999.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Berapa biaya konsultasi dokter umum?
+          <svg class="faq-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Biaya konsultasi dokter umum mulai dari Rp 50.000 untuk pasien umum (belum termasuk obat dan pemeriksaan tambahan). Untuk pasien BPJS, biaya ditanggung sesuai ketentuan BPJS Kesehatan. Biaya dokter spesialis berbeda tergantung jenis spesialis — hubungi kami untuk informasi tarif lengkap.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <div class="cta-bg">
+    <img src="https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=1600&h=700&fit=crop&q=85"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="CTA klinik">
+    <div class="img-fb">🏥</div>
+  </div>
+  <div class="cta-overlay"></div>
+  <div class="cta-inner">
+    <div class="cta-eyebrow">Kesehatan adalah Investasi</div>
+    <h2 class="cta-h2">Jangan Tunggu Sakit<br>untuk Mulai <em>Peduli Kesehatan</em></h2>
+    <p class="cta-sub">Daftar sekarang untuk konsultasi, imunisasi, check-up rutin, atau layanan medis yang Anda butuhkan. Proses mudah, dokter siap melayani.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/6285743553879?text=Halo%20Klinik%20Sehat%20Medika%2C%20saya%20mau%20daftar%20berobat" class="btn btn-green btn-lg">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.855L.057 23.886a.5.5 0 0 0 .611.637l6.218-1.637A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.925 0-3.727-.524-5.271-1.432l-.338-.2-4.066 1.07 1.009-3.985-.218-.344A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Daftar Berobat Sekarang
+      </a>
+      <a href="#jadwal" class="btn btn-outline-white btn-lg">Lihat Jadwal Dokter</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Sehat <span>Medika</span></div>
+        <div class="footer-brand-tagline">Klinik Umum & Spesialis Purwokerto</div>
+        <p>Melayani kesehatan masyarakat Banyumas dengan penuh dedikasi sejak 2012. Dokter berlisensi, fasilitas modern, harga terjangkau.</p>
+        <div class="footer-bpjs">Klinik Mitra BPJS Kesehatan Terdaftar</div>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="#layanan">Poli Umum</a></li>
+          <li><a href="#layanan">Poli Anak</a></li>
+          <li><a href="#layanan">Poli Gigi</a></li>
+          <li><a href="#layanan">Poli Kandungan</a></li>
+          <li><a href="#layanan">Laboratorium</a></li>
+          <li><a href="#layanan">Medical Check-Up</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informasi</h4>
+        <ul>
+          <li><a href="#jadwal">Jadwal Dokter</a></li>
+          <li><a href="#tentang">Tentang Klinik</a></li>
+          <li><a href="#kontak">Jam & Lokasi</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="https://wa.me/6285743553879">Daftar via WA</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak Darurat</h4>
+        <ul>
+          <li><a href="tel:02811234567">📞 (0281) 123-4567</a></li>
+          <li><a href="tel:02811239999">🚨 IGD: (0281) 123-9999</a></li>
+          <li><a href="https://wa.me/6285743553879">💬 WA: 0857-4355-3879</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      <p>⚕️ <strong style="color:rgba(255,255,255,.55)">Disclaimer Medis:</strong> Informasi pada website ini bersifat umum dan tidak menggantikan konsultasi medis profesional. Untuk kondisi darurat, segera hubungi IGD atau layanan gawat darurat terdekat. Semua tindakan medis dilakukan oleh tenaga kesehatan berlisensi sesuai standar profesi.</p>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Klinik Sehat Medika. Purwokerto, Banyumas. Izin Klinik No. KL-33020/2012.</p>
+      <p>Website oleh <a href="https://buatwebsitemurah.com" target="_blank">Nusaweb Studio</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/6285743553879?text=Halo%20Klinik%20Sehat%20Medika%2C%20saya%20mau%20daftar%20berobat" class="wa-float" target="_blank">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.532 5.855L.057 23.886a.5.5 0 0 0 .611.637l6.218-1.637A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.925 0-3.727-.524-5.271-1.432l-.338-.2-4.066 1.07 1.009-3.985-.218-.344A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  Daftar Berobat
+</a>
+
+<script>
+/* ─── APPOINTMENT FORM ─── */
+function daftarBerobat(){
+  const nama    = document.getElementById('apptNama').value.trim();
+  const hp      = document.getElementById('apptHP').value.trim();
+  const poli    = document.getElementById('apptPoli').value;
+  const tgl     = document.getElementById('apptTgl').value;
+  const keluhan = document.getElementById('apptKeluhan').value.trim();
+
+  if(!nama){ alert('Mohon masukkan nama Anda.'); return }
+  if(!poli){ alert('Mohon pilih poli / layanan.'); return }
+
+  const tglText = tgl ? ` pada ${new Date(tgl).toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}` : '';
+  const keluhanText = keluhan ? `\n🩺 Keluhan: ${keluhan}` : '';
+
+  const msg = `Halo Klinik Sehat Medika, saya ingin mendaftar berobat.\n\n👤 Nama: ${nama}\n📱 No. HP: ${hp||'(belum diisi)'}\n🏥 Poli: ${poli}${tglText}${keluhanText}\n\nMohon konfirmasi ketersediaan dokter dan nomor antrian. Terima kasih!`;
+  window.open('https://wa.me/6285743553879?text=' + encodeURIComponent(msg), '_blank');
+}
+
+/* ─── JADWAL TABS ─── */
+function showJadwal(day, btn){
+  document.querySelectorAll('.jadwal-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.jadwal-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + day).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* ─── COUNT UP ANIMATION ─── */
+function countUp(el, target, suffix, isDecimal){
+  const duration = 1800;
+  const step = 16;
+  const steps = duration / step;
+  let current = 0;
+  const increment = target / steps;
+  const timer = setInterval(() => {
+    current += increment;
+    if(current >= target){
+      current = target;
+      clearInterval(timer);
+    }
+    el.innerHTML = (isDecimal ? current.toFixed(1) : Math.floor(current)) + '<span>' + suffix + '</span>';
+  }, step);
+}
+
+const statObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      const el = e.target;
+      const count = parseFloat(el.dataset.count);
+      const html = el.innerHTML;
+      const suffix = html.match(/<span>(.*?)<\/span>/)?.[1] || '';
+      countUp(el, count, suffix, count % 1 !== 0);
+      statObs.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-cell-num[data-count]').forEach(el => statObs.observe(el));
+
+/* ─── FAQ ─── */
+function toggleFaq(btn){
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
+
+/* ─── MOBILE MENU ─── */
+function toggleMenu(el){
+  const links = document.querySelector('.nav-links');
+  const actions = document.querySelector('.nav-actions');
+  const isVisible = links.style.display === 'flex';
+  [links, actions].forEach(node => {
+    node.style.display = isVisible ? 'none' : 'flex';
+    if(!isVisible) Object.assign(node.style, {
+      flexDirection:'column', position:'absolute',
+      top:'68px', left:'0', right:'0',
+      background:'rgba(255,255,255,.98)',
+      padding:'16px 28px 24px',
+      borderBottom:'1px solid var(--border)',
+      gap:'14px',
+      boxShadow:'0 8px 24px rgba(0,0,0,.07)',
+      zIndex:'200'
+    });
+  });
+}
+
+/* ─── SCROLL REVEAL ─── */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.07 });
+
+document.querySelectorAll(
+  '.layanan-card,.dokter-card,.tip-card,.testi-card,.gal,.about-pillar,.acc-item'
+).forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = `opacity .45s ease ${i * 0.04}s, transform .45s ease ${i * 0.04}s`;
+  revealObs.observe(el);
+});
+
+/* ─── SET TANGGAL DEFAULT FORM (hari ini) ─── */
+document.getElementById('apptTgl').valueAsDate = new Date();
+</script>
+</body>
+</html>
