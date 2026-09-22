@@ -5,7 +5,7 @@
   "use strict";
 
   var CONFIG = {
-    wa: "6285227272999"
+    wa: "628XXXXXXXXXX"
   };
 
   var waReady = /^\d{9,15}$/.test(CONFIG.wa);
@@ -34,6 +34,21 @@
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
   }
+
+  // FAQ: buka satu, tutup yang lain (akordeon). Dibuat lewat JS supaya
+  // konsisten di semua browser, termasuk yang lebih lawas.
+  document.querySelectorAll(".faq").forEach(function (group) {
+    var items = group.querySelectorAll("details");
+    items.forEach(function (item) {
+      item.addEventListener("toggle", function () {
+        if (item.open) {
+          items.forEach(function (other) {
+            if (other !== item) { other.open = false; }
+          });
+        }
+      });
+    });
+  });
 
   // Tahun di footer
   document.querySelectorAll("[data-year]").forEach(function (el) {
