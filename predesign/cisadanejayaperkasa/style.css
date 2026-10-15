@@ -45,3 +45,9 @@ footer{background:#0a1220;color:#9fb0c6;padding:36px 0;font-size:.92rem}footer .
 .banner{display:block;width:100%;height:auto;border-radius:12px;margin-bottom:36px}
 @media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
 .ci{text-align:center}.ci .ic{margin:0 auto 16px}
+
+.brands{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
+.brand{background:#fff;border:1px solid var(--line);border-top:4px solid var(--red);border-radius:10px;padding:28px 12px;text-align:center;font:700 1.45rem 'Barlow Condensed',sans-serif;letter-spacing:.04em}
+.card p+p{margin-top:14px}.card p a{font-weight:600}
+
+.g5{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}.g5 .cb{padding:16px 16px 20px}.g5 h3{font-size:1.3rem}.g5 p{font-size:.92rem}.card p a{color:var(--red)}
