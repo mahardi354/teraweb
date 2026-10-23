@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Acuan Gerilya TeraWeb</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f6f9;--fg:#14213d;--mut:#5b6678;--card:#fff;--line:#dbe3ec;--acc:#0e7c86;--accbg:#dff1f2;--warn:#fff1c9;--warnfg:#6b4e00;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1624;--fg:#e8edf5;--mut:#9aa6b8;--card:#172033;--line:#27324a;--acc:#4fc3cd;--accbg:#12353a;--warn:#3a2f10;--warnfg:#f2d27a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1624;--fg:#e8edf5;--mut:#9aa6b8;--card:#172033;--line:#27324a;--acc:#4fc3cd;--accbg:#12353a;--warn:#3a2f10;--warnfg:#f2d27a;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*:before,*:after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 "Plus Jakarta Sans",system-ui,sans-serif}
+main{max-width:980px;margin:0 auto;padding:28px 18px 60px}
+h1{font-size:clamp(28px,6vw,44px);line-height:1.1;margin:0 0 8px;font-weight:800;letter-spacing:-.02em}
+h2{font-size:22px;margin:44px 0 6px;font-weight:800}
+.sub{color:var(--mut);margin:0 0 14px;max-width:70ch}
+.note{background:var(--warn);color:var(--warnfg);padding:10px 14px;border-radius:10px;font-size:14px;max-width:70ch}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+nav button,.chip,.btn{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:999px;padding:6px 14px;cursor:pointer;text-decoration:none;display:inline-block}
+nav button:hover,.chip:hover,.btn:hover{border-color:var(--acc)}
+.btn.pri{background:var(--acc);border-color:var(--acc);color:var(--bg);font-weight:700}
+.btn.done,.chip.done{background:var(--accbg);border-color:var(--acc);color:var(--acc)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(100%,440px),1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.card h3{margin:0 0 10px;font-size:18px;display:flex;gap:10px;align-items:center}
+.num{background:var(--acc);color:var(--bg);width:28px;height:28px;border-radius:50%;display:inline-grid;place-items:center;font-size:14px;flex:none}
+.card dl{margin:0;display:grid;grid-template-columns:96px 1fr;gap:6px 10px;font-size:14px}
+.card dt{color:var(--mut)}.card dd{margin:0}
+.warn dd,.warn dt{color:inherit}.warn{grid-column:1/-1;background:var(--warn);color:var(--warnfg);padding:6px 10px;border-radius:8px;display:grid;grid-template-columns:96px 1fr;gap:10px}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.grp{margin:16px 0 6px;font-weight:700;font-size:15px}.grp small{display:block;font-weight:400;color:var(--mut)}
+.tbl{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}th{color:var(--mut);font-weight:500;width:34%}
+ol.steps{padding-left:22px;max-width:72ch}ol.steps li{margin:10px 0}
+.todo label{display:flex;gap:10px;align-items:flex-start;margin:8px 0;cursor:pointer}
+.todo input:checked+span{text-decoration:line-through;color:var(--mut)}
+.top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.pane{display:none}.pane.on{display:block}
+nav button.on{background:var(--acc);border-color:var(--acc);color:var(--bg);font-weight:700}
+#up{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;font:inherit;font-weight:700;font-size:14px;border:0;border-radius:999px;padding:10px 16px;background:var(--acc);color:var(--bg);cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .2s}#up.vis{opacity:1;pointer-events:auto}
+</style>
+</head>
+<body>
+<main>
+<div class="top"><div>
+<h1>Acuan Gerilya TeraWeb</h1>
+<p class="sub">Panduan niche, kota, dan alur kerja cold outreach WhatsApp. Klik tombol <b>Salin</b> untuk mengambil link demo atau teks yang dibutuhkan.</p>
+</div></div>
+<p class="note">Semua daftar adalah estimasi dari ukuran pasar, bukan data resmi. Validasi tiap kota lewat Google Maps sebelum kirim chat.</p>
+<nav>
+<button data-go="niche">Niche</button><button data-go="kota">Kota</button><button data-go="alur">Alur kerja</button><button data-go="keputusan">Keputusan</button>
+</nav>
+
+<section class="pane" id="p-niche"><h2 id="niche">Urutan prioritas niche</h2>
+<p class="sub">Mulai dari fotografer wedding dan rental mobil: manfaat website paling cepat dipahami dan pemiliknya memutuskan sendiri. Notaris/PPAT paling akhir karena prosesnya paling hati-hati.</p>
+<div class="grid" id="nichelist"></div>
+
+</section><section class="pane" id="p-kota"><h2 id="kota">Kota prioritas</h2>
+<p class="sub">Kota menengah paling enak untuk cold outreach: pelakunya banyak, tapi pesaing jasa web sedikit. Kota besar punya pelaku terbanyak, namun sebagian sudah punya website. Klik nama kota untuk menyalin.</p>
+<div id="kotalist"></div>
+
+</section><section class="pane" id="p-alur"><h2 id="alur">Alur kerja gerilya</h2>
+<p class="sub">Satu putaran = satu kota dan satu niche, ditarik datanya sekaligus lalu disaring, tanpa mengecek usaha satu per satu.</p>
+<ol class="steps">
+<li>Tarik data Google Maps (misalnya lewat Outscraper atau Apify) untuk “[niche] [kota]”, ekspor ke spreadsheet.</li>
+<li>Buang yang punya website sendiri. Yang kolom website-nya kosong, atau hanya berisi instagram.com, facebook.com, linktr.ee, atau wa.me, tetap dipertahankan. Wajib ada nomor telepon.</li>
+<li>Beri skor sederhana: ulasan cukup banyak (10 sampai 30, sesuai niche), ada ulasan dalam 3-6 bulan terakhir, foto banyak.</li>
+<li>Cek sekilas Instagram 20-30 teratas, sekitar 10 detik per usaha.</li>
+<li>Cocokkan dengan Meta Ad Library: usaha yang beriklan ke WhatsApp tanpa halaman web adalah calon paling panas.</li>
+<li>Kirim template chat pembuka, maksimal 20-30 chat per hari per nomor supaya WhatsApp tidak terkena banned.</li>
+<li>Follow-up satu kali setelah 1-2 hari; kalau tidak dibalas, lanjut ke calon berikutnya.</li>
+</ol>
+<p class="note">Mengambil data Maps secara massal melanggar ketentuan layanan Google, jadi pakai akun alat yang terpisah dari akun bisnis utama.</p>
+
+</section><section class="pane" id="p-keputusan"><h2 id="keputusan">Keputusan TeraWeb</h2>
+<p class="sub">Harga, paket, dan kebijakan sudah dikonfirmasi; dua hal masih terbuka.</p>
+<div class="tbl"><table id="kep"></table></div>
+<div class="acts"><button class="btn pri" id="copykep">Salin ringkasan keputusan</button></div>
+
+<h3 style="margin:28px 0 4px">Perlu diselaraskan</h3>
+<div class="todo">
+<label><input type="checkbox"><span>Revisi: situs masih menulis “revisi sampai Anda puas”, sedangkan janji di chat 2 kali. Ubah teks di situs supaya sama.</span></label>
+<label><input type="checkbox"><span>Verifikasi izin PPIU travel umrah: minta nomor izin, cocokkan dengan daftar resmi di situs kementerian yang mengurus haji dan umrah, dan tolak kalau tidak bisa dibuktikan.</span></label>
+</div></section>
+</main>
+<button id="up" aria-label="Kembali ke atas">↑ Atas</button>
+<script>
+const B="https://teraweb.id/demo/";
+const N=[
+["Fotografer wedding","Studio kecil, Instagram aktif, bio hanya link WhatsApp","Portofolio rapi, muncul di Google, tidak bergantung algoritma Instagram","Hari kerja pagi atau sore; hindari akhir pekan","Sebut detail karya mereka di chat pembuka",["fotografer-wedding"]],
+["Rental mobil","Mobil plus sopir, paket wisata, ulasan Maps banyak","Armada, harga, dan area layanan di satu halaman","Pagi sebelum jalan atau malam","Kota wisata paling potensial; perorangan sensitif harga",["rental-mobil"]],
+["Wedding organizer","WO kecil sampai menengah, dokumentasi acara banyak","Paket, galeri acara, testimoni, konsultasi via WhatsApp","Hari kerja; hindari akhir pekan dan musim ramai","WO besar biasanya sudah punya web",["wedding-organizer-1"]],
+["Catering","Catering wedding dan nasi box kantor","Menu paket, galeri, tombol pesan, tampil di Google","Pagi sebelum produksi atau sore","Usaha rumahan sangat kecil sering merasa Rp750.000 mahal",["catering-1"]],
+["Agen properti independen","Jualan atas nama pribadi, listing banyak di portal","Etalase pribadi: profil, listing, testimoni","Hari kerja","Agen franchise sudah dapat halaman dari pusat",["agen-properti-1","agen-properti-2"]],
+["Kontraktor & arsitek","Kontraktor, arsitek, atau desain interior kecil sampai menengah dengan portofolio proyek di Instagram","Portofolio proyek, layanan (bangun, renovasi, desain), profil tim, konsultasi via WhatsApp","Hari kerja pagi atau sore","Tampilkan hanya proyek yang boleh dipublikasikan; yang besar sering sudah punya web",["kontraktor-arsitek-1","kontraktor-arsitek-2"]],
+["Klinik kecantikan","Klinik lokal, ulasan Maps 20 ke atas, ada dokter","Halaman informasi: layanan, profil dokter, buat janji","Di luar jam praktik","Batas klaim hasil dan foto before-after",["klinik-kecantikan-1"]],
+["Klinik gigi","Praktik mandiri atau klinik kecil, ulasan 20 ke atas","Layanan, jam praktik, buat janji via WhatsApp","Pagi sebelum buka atau malam","Hindari klaim berlebihan; nada sopan",["klinik-gigi-1"]],
+["Barbershop","Yang ramai atau punya cabang, ulasan 30 ke atas","Harga, galeri hasil, booking via WhatsApp","Pagi sebelum buka atau malam","Satu kursi dengan modal tipis sensitif harga",["barbershop"]],
+["Petshop","Yang punya grooming, klinik, atau pet hotel","Layanan dan harga, galeri, jam buka, booking grooming","Pagi sebelum buka atau malam","Klinik hewan harus ada dokter hewan berizin; tolak yang menjual satwa dilindungi",["klinik-hewan-petshop"]],
+["Cuci karpet","Layanan luas (sofa, kasur, jemput-antar), melayani kantor, masjid, hotel","Layanan, harga per meter, area, sebelum-sesudah","Pagi sebelum berangkat atau malam","Sensitif harga",["cuci-karpet"]],
+["TK/PAUD swasta","Swasta kompetitif (islam terpadu, Montessori, program khusus)","Profil, program, biaya, jadwal pendaftaran, galeri","2-4 bulan sebelum pendaftaran (sekitar Maret-Juli)","Izin orang tua untuk foto anak; keputusan di pengurus yayasan",["tk-paud"]],
+["Travel umrah","Hanya travel berizin PPIU","Tampil kredibel: izin, profil, testimoni, jadwal","Beberapa bulan sebelum musim ramai atau Ramadan","Verifikasi izin sebelum menghubungi",["travel-umroh-1"]],
+["Notaris/PPAT","Kantor kecil yang hanya punya listing Maps","Halaman informasi layanan dan persyaratan dokumen, bukan promosi","Jam kerja, nada formal","Batas promosi; demo wajib bernada informatif",["notaris-ppat-1"]]
+];
+const K=[
+["Pasar menengah","mulai dari sini",["Malang","Yogyakarta (termasuk Sleman dan Bantul)","Solo","Palembang","Denpasar/Badung","Batam","Pekanbaru","Balikpapan","Bandar Lampung","Purwokerto"]],
+["Pasar besar","pelaku terbanyak, sebagian sudah punya website",["Jakarta (Selatan, Timur, Barat)","Surabaya (termasuk Sidoarjo)","Bandung","Bekasi","Tangerang/Tangerang Selatan","Depok","Medan","Semarang","Makassar","Bogor"]],
+["Dekat rumah","pesaing jasa web hampir nol",["Purwokerto","Cilacap","Banyumas","Kebumen","Tegal"]],
+["Tambahan rental mobil","kota wisata",["Mataram (Lombok)","Banyuwangi","Malang/Batu","Yogyakarta","Bali"]],
+["Tambahan travel umrah","basis umat kuat",["Padang","Cirebon","Banjarmasin","Makassar"]],
+["Tambahan WO destinasi","",["Bali","Yogyakarta","Labuan Bajo"]],
+["Tambahan kontraktor & arsitek","banyak perumahan dan pembangunan baru",["Bekasi","Tangerang/Tangerang Selatan","Depok","Sidoarjo","Malang","Yogyakarta"]]
+];
+const D=[["Harga","Landing page Rp450.000; website 4 halaman Rp750.000, sekali bayar"],["Pengerjaan","3-5 hari kerja"],["Domain dan hosting","Domain tidak termasuk; hosting Rp0, tanpa perpanjangan ke TeraWeb"],["Revisi","2 kali"],["Demo siap","14 niche"],["Foto anak (TK/PAUD)","Wajib izin orang tua"],["Niche kesehatan dan notaris/PPAT","Ada batas klaim promosi"]];
+const $=s=>document.querySelector(s);
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function copy(t,b){
+  const ok=()=>{const o=b.textContent;b.textContent="Tersalin ✓";b.classList.add("done");setTimeout(()=>{b.textContent=o;b.classList.remove("done")},1400)};
+  const fb=()=>{const a=document.createElement("textarea");a.value=t;a.style.cssText="position:fixed;opacity:0";document.body.appendChild(a);a.select();try{document.execCommand("copy")}catch(e){}a.remove();ok()};
+  try{navigator.clipboard.writeText(t).then(ok,fb)}catch(e){fb()}
+}
+$("#nichelist").innerHTML=N.map((n,i)=>`<div class="card"><h3><span class="num">${i+1}</span>${esc(n[0])}</h3><dl>
+<dt>Sasar</dt><dd>${esc(n[1])}</dd><dt>Penawaran</dt><dd>${esc(n[2])}</dd><dt>Waktu kirim</dt><dd>${esc(n[3])}</dd></dl>
+<div class="dl2" style="margin-top:8px"><div class="warn"><dt>Hati-hati</dt><dd style="margin:0">${esc(n[4])}</dd></div></div>
+<div class="acts">${n[5].map((d,j)=>`<a class="btn" href="${B+d}/" target="_blank" rel="noopener">Buka demo${n[5].length>1?" "+(j+1):""}</a><button class="btn pri" data-copy="${B+d}/">Salin link${n[5].length>1?" "+(j+1):""}</button>`).join("")}</div></div>`).join("");
+$("#kotalist").innerHTML=K.map(g=>`<div class="grp">${g[0]}${g[1]?`<small>${g[1]}</small>`:""}</div><div class="chips">${g[2].map(c=>`<button class="chip" data-copy="${esc(c)}">${esc(c)}</button>`).join("")}</div>`).join("");
+$("#kep").innerHTML=D.map(r=>`<tr><th>${r[0]}</th><td>${r[1]}</td></tr>`).join("");
+$("#copykep").onclick=function(){copy(D.map(r=>r[0]+": "+r[1]).join("\n"),this)};
+document.addEventListener("click",e=>{
+  const c=e.target.closest("[data-copy]");if(c){const o=c.textContent;copy(c.dataset.copy,c);return}
+  const g=e.target.closest("[data-go]");if(g)show(g.dataset.go);
+});
+function show(id){document.querySelectorAll(".pane").forEach(p=>p.classList.toggle("on",p.id==="p-"+id));document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.go===id));window.scrollTo(0,0)}
+show("niche");
+const up=document.getElementById("up");
+addEventListener("scroll",()=>up.classList.toggle("vis",scrollY>400));
+up.onclick=()=>scrollTo({top:0,behavior:"smooth"});
+</script>
+</body>
+</html>

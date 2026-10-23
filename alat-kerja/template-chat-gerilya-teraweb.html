@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Template Chat Gerilya TeraWeb</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f6f9;--fg:#14213d;--mut:#5b6678;--card:#fff;--line:#dbe3ec;--acc:#0e7c86;--accbg:#dff1f2;--bub:#dcf5d8;--bubfg:#14301a;--ph:#ffe28a;--phfg:#4a3700;--warn:#fff1c9;--warnfg:#6b4e00;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1624;--fg:#e8edf5;--mut:#9aa6b8;--card:#172033;--line:#27324a;--acc:#4fc3cd;--accbg:#12353a;--bub:#1d3d2a;--bubfg:#e3f6e6;--ph:#6b5410;--phfg:#ffe9a8;--warn:#3a2f10;--warnfg:#f2d27a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1624;--fg:#e8edf5;--mut:#9aa6b8;--card:#172033;--line:#27324a;--acc:#4fc3cd;--accbg:#12353a;--bub:#1d3d2a;--bubfg:#e3f6e6;--ph:#6b5410;--phfg:#ffe9a8;--warn:#3a2f10;--warnfg:#f2d27a;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*:before,*:after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 "Plus Jakarta Sans",system-ui,sans-serif}
+main{max-width:860px;margin:0 auto;padding:28px 18px 60px}
+h1{font-size:clamp(28px,6vw,44px);line-height:1.1;margin:0 0 8px;font-weight:800;letter-spacing:-.02em}
+h2{font-size:22px;margin:44px 0 4px;font-weight:800}
+.sub{color:var(--mut);margin:0 0 14px;max-width:70ch}
+.note{background:var(--warn);color:var(--warnfg);padding:10px 14px;border-radius:10px;font-size:14px;max-width:70ch}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
+nav button,.btn{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:999px;padding:6px 14px;cursor:pointer;text-decoration:none;display:inline-block}
+nav button:hover,.btn:hover{border-color:var(--acc)}
+.btn.pri{background:var(--acc);border-color:var(--acc);color:var(--bg);font-weight:700}
+.btn.done{background:var(--accbg);border-color:var(--acc);color:var(--acc)}
+button:focus-visible,a:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.tbl{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;margin:12px 0}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;padding:9px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}th{color:var(--mut);font-weight:500;width:32%}
+.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;color:var(--mut);font-size:14px;margin-bottom:10px}
+.blk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:12px 0}
+.blk .hd{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+.blk h4{margin:0;font-size:15px}
+.msg{background:var(--bub);color:var(--bubfg);border-radius:4px 14px 14px 14px;padding:10px 14px;white-space:pre-wrap;word-break:break-word;font-size:15px}
+.fld{background:var(--ph);color:var(--phfg);border-radius:4px;padding:0 3px;outline:0;cursor:text}.fld:focus{box-shadow:0 0 0 2px var(--acc)}.fld:empty:before{content:attr(data-ph)}.fld:not(:empty){background:var(--accbg);color:var(--acc);font-weight:700}
+.pane{display:none}.pane.on{display:block}
+nav button.on{background:var(--acc);border-color:var(--acc);color:var(--bg);font-weight:700}
+#up{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;font:inherit;font-weight:700;font-size:14px;border:0;border-radius:999px;padding:10px 16px;background:var(--acc);color:var(--bg);cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .2s}#up.vis{opacity:1;pointer-events:auto}
+</style>
+</head>
+<body>
+<main>
+<h1>Template Chat Gerilya TeraWeb</h1>
+<p class="sub">Pilih niche, tekan <b>Salin</b> pada blok chat, tempel ke WhatsApp. Bagian kuning bisa diisi langsung di halaman (klik, lalu ketik); isian yang sama dalam satu niche ikut terisi, dan teks yang tersalin sudah memuat isianmu. Pola tiap niche: chat pembuka dengan link demo, follow-up 1-2 hari kemudian, dan satu balasan untuk keberatan yang paling sering muncul.</p>
+<nav id="nav"></nav>
+
+<section class="pane" id="p-s0"><h2>Data TeraWeb untuk semua template</h2>
+<div class="tbl"><table>
+<tr><th>Landing page</th><td>Rp450.000, 1 halaman, alamat di domain bersama TeraWeb</td></tr>
+<tr><th>Website 4 halaman</th><td>Rp750.000 (Beranda, Layanan, Tentang Kami, Kontak), sekali bayar</td></tr>
+<tr><th>Pengerjaan</th><td>3-5 hari kerja setelah materi lengkap</td></tr>
+<tr><th>Revisi</th><td>2 kali</td></tr>
+<tr><th>Domain</th><td>Tidak termasuk; dibayar ke penyedia domain, kira-kira Rp200.000 per tahun</td></tr>
+<tr><th>Hosting</th><td>Rp0, tanpa perpanjangan tahunan ke TeraWeb</td></tr>
+<tr><th>Tidak termasuk</th><td>Email bisnis, foto atau video profesional, halaman tambahan, toko online dengan keranjang</td></tr>
+</table></div>
+<p class="note">Aturan kirim: maksimal 20-30 chat per hari per nomor, hindari jam sibuk niche, dan jangan kirim ke niche yang demonya belum siap.</p>
+
+<div id="s0x"></div></section>
+<div id="out"></div>
+</main>
+<button id="up" aria-label="Kembali ke atas">↑ Atas</button>
+<script>
+const B="https://teraweb.id/demo/";
+const S=[
+["Kalau calon klien tanya harga",`Untuk website 4 halaman (Beranda, Layanan, Tentang Kami, Kontak), harganya Rp750.000 sekali bayar, tanpa perpanjangan tahunan ke TeraWeb ya, Kak.
+
+Sudah termasuk penulisan teks, galeri foto, Google Maps, tombol WhatsApp di tiap halaman, dan semua file diserahkan ke Kakak. Pengerjaan 3-5 hari kerja setelah materi lengkap, revisi 2 kali.
+Nama domain dibayar terpisah ke penyedia domain, kira-kira Rp200.000 per tahun 😊`],
+["Kalau ingin yang lebih hemat atau untuk iklan",`Kalau mau yang lebih hemat, ada Landing Page Rp450.000, Kak: 1 halaman dengan satu tujuan, yaitu calon pelanggan langsung chat WhatsApp. Cocok untuk iklan atau promo tertentu.
+Website 4 halaman lebih cocok kalau pelanggan biasanya membandingkan beberapa penyedia dulu sebelum menghubungi 😊`],
+["Kalau minta diskon atau tanya “bisa kurang?”",`Harga kami memang tetap dan tertulis jelas di awal, Kak, tanpa harga coret atau hitung mundur 🙏
+Kalau budgetnya terbatas, Landing Page Rp450.000 bisa jadi langkah awal yang hemat.`],
+["Kalau tanya “ada biaya tahunan?”",`Tidak ada perpanjangan ke TeraWeb, Kak. Satu-satunya biaya berulang adalah nama domain yang dibayar langsung ke penyedia domain, tanpa tambahan dari kami 😊`],
+["Kalau bilang “saya pikir-pikir dulu”",`Siap, Kak, silakan dipikirkan dulu 🙏 Contoh websitenya tetap bisa dibuka kapan saja. Kalau ada yang ingin ditanyakan atau mau disesuaikan, kabari saja ya.`],
+["Kalau bilang setuju",`Siap, Kak, terima kasih 🙏 Supaya bisa kami mulai, mohon kirim: nama usaha, logo (kalau ada), foto-foto usaha, alamat dan jam buka, serta layanan atau paket yang ingin ditampilkan.
+Pengerjaan 3-5 hari kerja setelah materi lengkap.`]
+];
+const T=[
+["Fotografer wedding","fotografer-wedding","Hari kerja pagi atau sore, hindari akhir pekan",[
+["Chat pembuka",`Halo Kak, selamat siang 👋
+Saya Widya dari TeraWeb. Saya sempat lihat portofolio [Nama Studio] di Instagram, hasilnya bagus banget, apalagi yang [detail spesifik, misal: prewedding outdoor / momen akad] 😍
+
+Boleh tanya, Kak: selama ini calon pengantin lihat karya Kakak lewat Instagram aja ya?
+
+Kami bikin website portofolio untuk fotografer wedding, jadi galeri, paket, dan kontak ada di satu tempat yang rapi, dan bisa ditemukan di Google saat orang cari "fotografer wedding [kota]".
+
+Ini contoh tampilannya, Kak: https://teraweb.id/demo/fotografer-wedding/
+Silakan dilihat dulu, belum ada pembayaran apa pun kok 🙏`],
+["Follow-up (1-2 hari kemudian)",`Halo Kak [Nama], mohon maaf mengganggu lagi 🙏
+Cuma mau memastikan contoh website fotografer tadi sudah sempat dibuka belum, Kak?
+
+Kalau tertarik, galerinya bisa kami atur sesuai karya Kakak, misalnya dipisah per kategori: wedding, prewedding, engagement.`],
+["Kalau bilang “Instagram sudah cukup”",`Betul, Kak, Instagram memang bagus untuk memamerkan karya 👍
+Website jadi pelengkapnya: calon klien yang cari lewat Google atau dapat rekomendasi teman bisa langsung lihat portofolio lengkap dan paket, tanpa scroll feed. Kakak lihat dulu contohnya, siapa tahu cocok 😊`]]],
+["Rental mobil","rental-mobil","Pagi sebelum jalan atau malam",[
+["Chat pembuka",`Halo Kak, selamat pagi 👋
+Saya Widya dari TeraWeb. Saya lihat [Nama Rental] di [Google Maps/Instagram], ulasannya bagus-bagus ya, Kak 👍
+
+Boleh tanya, Kak: selama ini calon penyewa tanya armada dan harga lewat WhatsApp satu per satu ya?
+
+Kami bikin website khusus rental mobil, jadi daftar armada, harga, syarat sewa, dan area layanan bisa dilihat langsung, lengkap dengan tombol pesan via WhatsApp. Dan bisa muncul di Google saat orang cari "rental mobil [kota]".
+
+Ini contohnya, Kak: https://teraweb.id/demo/rental-mobil/
+Dilihat dulu saja, belum ada pembayaran 🙏`],
+["Follow-up (1-2 hari kemudian)",`Halo Kak [Nama], mohon maaf mengganggu lagi 🙏
+Sudah sempat lihat contoh website rental mobil tadi, Kak?
+
+Kalau cocok, daftar armada dan tarif Kakak bisa kami pasang di sana, jadi pertanyaan yang sama tidak perlu dijawab satu-satu lagi.`],
+["Kalau bilang “WhatsApp sudah cukup”",`Betul, Kak, WhatsApp memang yang utama 👍
+Website membantu sebelum chat masuk: calon penyewa yang cari lewat Google bisa lihat armada dan tarif dulu, jadi yang chat sudah lebih siap pesan. Cek contohnya dulu ya, Kak 😊`]]],
+["Wedding organizer","wedding-organizer-1","Hari kerja; hindari akhir pekan dan musim ramai. Hati-hati: WO besar biasanya sudah punya web",[
+["Chat pembuka",`Halo Kak, selamat siang 👋
+Saya Widya dari TeraWeb. Saya sempat lihat dokumentasi acara [Nama WO] di [Instagram/Google Maps], rapi banget, apalagi yang [detail acara] 😍
+
+Boleh tanya, Kak: selama ini calon pengantin tanya paket dan lihat hasil acaranya lewat chat satu per satu ya?
+
+Kami bikin website untuk wedding organizer: paket, galeri acara, testimoni, dan konsultasi via WhatsApp ada di satu tempat, dan bisa muncul di Google saat orang cari "wedding organizer [kota]".
+
+Ini contohnya, Kak: https://teraweb.id/demo/wedding-organizer-1/
+Dilihat dulu saja, belum ada pembayaran 🙏`],
+["Follow-up (1-2 hari kemudian)",`Halo Kak [Nama], mohon maaf mengganggu lagi 🙏
+Sudah sempat lihat contoh website wedding organizer tadi, Kak?
+
+Kalau cocok, paket dan galeri acara Kakak bisa kami susun di sana, jadi calon pengantin bisa lihat dulu sebelum konsultasi.`],
+["Kalau bilang “Instagram sudah cukup”",`Betul, Kak, Instagram bagus untuk memamerkan acara 👍
+Website melengkapi: paket, testimoni, dan galeri tertata rapi dalam satu halaman, dan bisa ditemukan calon pengantin yang cari lewat Google. Cek contohnya dulu ya, Kak 😊`]]],
+["Catering","catering-1","Pagi sebelum produksi atau sore. Hati-hati: usaha rumahan sangat kecil sering merasa Rp750.000 mahal",[
+["Chat pembuka",`Halo Kak, selamat pagi 👋
+Saya Widya dari TeraWeb. Saya lihat [Nama Catering] di [Google Maps/Instagram], menunya menggoda banget, apalagi [menu andalan] 😋
+
+Boleh tanya, Kak: selama ini pelanggan tanya menu dan harga paket lewat chat satu per satu ya?
+
+Kami bikin website untuk catering: menu paket, galeri, dan tombol pesan via WhatsApp ada di satu halaman, dan bisa tampil di Google saat orang cari "catering [kota]".
+
+Ini contohnya, Kak: https://teraweb.id/demo/catering-1/
+Dilihat dulu saja, belum ada pembayaran 🙏`],
+["Follow-up (1-2 hari kemudian)",`Halo Kak [Nama], mohon maaf mengganggu lagi 🙏
+Sudah sempat buka contoh website catering tadi, Kak?
+
+Kalau cocok, menu paket dan foto-foto masakan Kakak bisa kami pasang, lengkap dengan tombol pesan langsung ke WhatsApp.`],
+["Kalau bilang “mahal / usaha masih kecil”",`Paham, Kak 🙏 Kalau mau mulai yang lebih hemat, ada Landing Page Rp450.000: 1 halaman berisi menu, galeri, dan tombol pesan WhatsApp. Kalau nanti usahanya berkembang, baru dilanjut ke website 4 halaman 😊`]]],
+["Agen properti independen","agen-properti-1","Hari kerja. Hati-hati: agen franchise sudah dapat halaman dari pusat",[
+["Chat pembuka",`Halo Kak, selamat siang 👋
+Saya Widya dari TeraWeb. Saya lihat listing Kakak di [portal/Instagram], banyak yang menarik, apalagi [listing/area] 🏡
+
+Boleh tanya, Kak: selama ini calon pembeli melihat listing Kakak di portal bareng listing agen lain ya?
+
+Kami bikin website etalase pribadi untuk agen properti: profil, listing, dan testimoni Kakak ada di satu halaman milik sendiri, lengkap dengan tombol chat WhatsApp.
+
+Ini contohnya, Kak:
+https://teraweb.id/demo/agen-properti-1/
+https://teraweb.id/demo/agen-properti-2/
+Dilihat dulu saja, belum ada pembayaran 🙏`],
+["Follow-up (1-2 hari kemudian)",`Halo Kak [Nama], mohon maaf mengganggu lagi 🙏
+Sudah sempat lihat contoh website agen properti tadi, Kak?
+
+Kalau cocok, profil dan listing unggulan Kakak bisa kami tampilkan di sana, jadi calon pembeli kenal Kakak langsung, bukan hanya lewat portal.`],
+["Kalau bilang “sudah ada listing di portal”",`Betul, Kak, portal tetap penting untuk jangkauan 👍
+Website pribadi jadi pelengkapnya: profil, testimoni, dan listing pilihan Kakak tampil di satu tempat yang tidak bercampur dengan agen lain. Cek contohnya dulu ya, Kak 😊`]]],
+["Kontraktor & arsitek","kontraktor-arsitek-1","Hari kerja pagi atau sore. Hati-hati: tampilkan hanya proyek yang boleh dipublikasikan; yang besar sering sudah punya web",[
+["Chat pembuka",`Halo Kak, selamat siang 👋
+Saya Widya dari TeraWeb. Saya sempat lihat portofolio [Nama Usaha] di Instagram, proyeknya rapi, apalagi yang [detail proyek] 👷
+
+Boleh tanya, Kak: selama ini calon klien lihat portofolio proyek Kakak lewat Instagram saja ya?
+
+Kami bikin website untuk kontraktor, arsitek, dan desain interior: portofolio proyek, layanan (bangun, renovasi, desain), profil tim, dan konsultasi via WhatsApp ada di satu halaman.
+
+Ini contohnya, Kak:
+https://teraweb.id/demo/kontraktor-arsitek-1/
+https://teraweb.id/demo/kontraktor-arsitek-2/
+Dilihat dulu saja, belum ada pembayaran 🙏`],
+["Follow-up (1-2 hari kemudian)",`Halo Kak [Nama], mohon maaf mengganggu lagi 🙏
+Sudah sempat lihat contoh website kontraktor/arsitek tadi, Kak?
+
+Kalau cocok, proyek-proyek yang boleh dipublikasikan bisa kami tampilkan rapi per kategori, misalnya bangun baru, renovasi, dan interior.`],
+["Kalau bilang “Instagram sudah cukup”",`Betul, Kak, Instagram bagus untuk memamerkan proyek 👍
+Website melengkapi: calon klien yang cari lewat Google bisa langsung lihat layanan, profil tim, dan portofolio lengkap, lalu konsultasi via WhatsApp. Cek contohnya dulu ya, Kak 😊`]]],
+["Klinik kecantikan","klinik-kecantikan-1","Di luar jam praktik. Hati-hati: batas klaim hasil dan foto before-after",[
+["Chat pembuka",`Halo Kak, selamat sore 👋
+Saya Widya dari TeraWeb. Saya lihat [Nama Klinik] di Google Maps, ulasannya bagus-bagus ya, Kak 🙏
+
+Boleh tanya, Kak: selama ini calon pasien tanya layanan dan jadwal dokter lewat chat satu per satu ya?
+
+Kami bikin halaman informasi untuk klinik kecantikan: layanan, profil dokter, dan tombol buat janji via WhatsApp ada di satu tempat, dan bisa ditemukan di Google.
+
+Ini contohnya, Kak: https://teraweb.id/demo/klinik-kecantikan-1/
+Dilihat dulu saja, belum ada pembayaran 🙏`],
+["Follow-up (1-2 hari kemudian)",`Halo Kak [Nama], mohon maaf mengganggu lagi 🙏
+Sudah sempat lihat contoh website klinik tadi, Kak?
+
+Kalau cocok, daftar layanan dan profil dokter bisa kami susun di sana dengan bahasa yang informatif dan sopan.`],
+["Kalau tanya soal klaim hasil / before-after",`Pertanyaan bagus, Kak 🙏 Kami menjaga halaman tetap informatif: fokus pada layanan dan profil dokter, tanpa klaim hasil berlebihan. Untuk foto before-after, kami ikuti batas yang berlaku dan hanya dipasang kalau Kakak berkenan.`]]],
+["Klinik gigi","klinik-gigi-1","Pagi sebelum buka atau malam. Hati-hati: hindari klaim berlebihan; nada sopan",[
+["Chat pembuka",`Halo Kak, selamat pagi 👋
+Saya Widya dari TeraWeb. Saya lihat [Nama Klinik] di Google Maps, ulasan pasiennya bagus ya, Kak 🙏
+
+Boleh tanya, Kak: selama ini pasien baru tanya layanan dan jam praktik lewat telepon atau chat satu per satu ya?
+
+Kami bikin website untuk klinik gigi: layanan, jam praktik, dan tombol buat janji via WhatsApp ada di satu halaman, dan bisa ditemukan di Google saat orang cari "dokter gigi [kota]".
+
+Ini contohnya, Kak: https://teraweb.id/demo/klinik-gigi-1/
+Dilihat dulu saja, belum ada pembayaran 🙏`],
+["Follow-up (1-2 hari kemudian)",`Halo Kak [Nama], mohon maaf mengganggu lagi 🙏
+Sudah sempat lihat contoh website klinik gigi tadi, Kak?
+
+Kalau cocok, layanan dan jadwal praktik Kakak bisa kami pasang dengan bahasa yang informatif dan sopan.`],
+["Kalau bilang “pasien sudah datang dari rekomendasi”",`Betul, Kak, rekomendasi memang paling berharga 👍
+Website membantu pasien yang baru dengar nama klinik lalu mencari di Google: mereka bisa langsung lihat layanan, jam praktik, dan buat janji. Cek contohnya dulu ya, Kak 😊`]]],
+["Barbershop","barbershop","Pagi sebelum buka atau malam. Hati-hati: satu kursi dengan modal tipis sensitif harga",[
+["Chat pembuka",`Halo Bang/Kak, selamat pagi 👋
+Saya Widya dari TeraWeb. Saya lihat [Nama Barbershop] di [Google Maps/Instagram], antreannya kelihatan ramai ya 💈
+
+Boleh tanya: selama ini pelanggan tanya harga dan booking lewat chat satu per satu ya?
+
+Kami bikin website untuk barbershop: daftar harga, galeri hasil potongan, dan booking via WhatsApp ada di satu halaman, dan bisa muncul di Google saat orang cari "barbershop [kota]".
+
+Ini contohnya: https://teraweb.id/demo/barbershop/
+Dilihat dulu saja, belum ada pembayaran 🙏`],
+["Follow-up (1-2 hari kemudian)",`Halo [Nama], mohon maaf mengganggu lagi 🙏
+Sudah sempat buka contoh website barbershop tadi?
+
+Kalau cocok, harga dan galeri hasil potongan bisa kami pasang, lengkap dengan tombol booking langsung ke WhatsApp.`],
+["Kalau bilang “booking sudah lewat Instagram/WA”",`Betul, itu sudah jalan bagus 👍
+Website melengkapi: pelanggan baru yang cari lewat Google bisa langsung lihat harga dan hasil potongan, lalu booking. Kalau mau lebih hemat, ada Landing Page Rp450.000. Cek contohnya dulu ya 😊`]]],
+["Petshop","klinik-hewan-petshop","Pagi sebelum buka atau malam. Hati-hati: klinik hewan harus ada dokter hewan berizin; tolak yang menjual satwa dilindungi",[
+["Chat pembuka",`Halo Kak, selamat pagi 👋
+Saya Widya dari TeraWeb. Saya lihat [Nama Petshop] di [Google Maps/Instagram], layanan [grooming/klinik/pet hotel]-nya lengkap ya 🐾
+
+Boleh tanya, Kak: selama ini pelanggan tanya layanan dan harga grooming lewat chat satu per satu ya?
+
+Kami bikin website untuk petshop: layanan dan harga, galeri, jam buka, dan booking grooming via WhatsApp ada di satu halaman, dan bisa ditemukan di Google.
+
+Ini contohnya, Kak: https://teraweb.id/demo/klinik-hewan-petshop/
+Dilihat dulu saja, belum ada pembayaran 🙏`],
+["Follow-up (1-2 hari kemudian)",`Halo Kak [Nama], mohon maaf mengganggu lagi 🙏
+Sudah sempat lihat contoh website petshop tadi, Kak?
+
+Kalau cocok, layanan, harga, dan foto-foto hewan yang habis grooming bisa kami pasang di sana.`],
+["Kalau bilang “Instagram sudah cukup”",`Betul, Kak, Instagram bagus untuk foto-foto lucu 🐶
+Website melengkapi: layanan, harga, dan jam buka tertata jelas, dan pelanggan yang cari lewat Google bisa langsung booking grooming. Cek contohnya dulu ya, Kak 😊`]]],
+["Cuci karpet","cuci-karpet","Pagi sebelum berangkat atau malam. Hati-hati: sensitif harga",[
+["Chat pembuka",`Halo Kak, selamat pagi 👋
+Saya Widya dari TeraWeb. Saya lihat [Nama Usaha] di [Google Maps/Instagram], layanannya lengkap ya, ada [sofa/kasur/jemput-antar] 🧼
+
+Boleh tanya, Kak: selama ini pelanggan tanya harga dan area layanan lewat chat satu per satu ya?
+
+Kami bikin website untuk usaha cuci karpet: layanan, harga per meter, area layanan, dan foto sebelum-sesudah ada di satu halaman, dan bisa muncul di Google saat orang cari "cuci karpet [kota]".
+
+Ini contohnya, Kak: https://teraweb.id/demo/cuci-karpet/
+Dilihat dulu saja, belum ada pembayaran 🙏`],
+["Follow-up (1-2 hari kemudian)",`Halo Kak [Nama], mohon maaf mengganggu lagi 🙏
+Sudah sempat lihat contoh website cuci karpet tadi, Kak?
+
+Kalau cocok, daftar layanan, harga, dan foto sebelum-sesudah dari Kakak bisa kami pasang di sana.`],
+["Kalau bilang “mahal / belum perlu”",`Paham, Kak 🙏 Kalau mau mulai yang lebih hemat, ada Landing Page Rp450.000: 1 halaman berisi layanan, harga, dan tombol chat WhatsApp. Contohnya tetap bisa dibuka kapan saja kalau nanti Kakak butuh 😊`]]],
+["TK/PAUD swasta","tk-paud","Idealnya 2-4 bulan sebelum pendaftaran (sekitar Maret-Juli). Hati-hati: foto anak wajib izin orang tua; keputusan di pengurus yayasan",[
+["Chat pembuka",`Assalamualaikum / Selamat siang, Bapak/Ibu 👋
+Saya Widya dari TeraWeb. Saya lihat [Nama Sekolah] di [Google Maps/Instagram], programnya menarik, apalagi [program unggulan] 🙏
+
+Boleh tanya, Bapak/Ibu: selama ini orang tua calon murid tanya program, biaya, dan jadwal pendaftaran lewat chat satu per satu ya?
+
+Kami bikin website untuk TK/PAUD: profil, program, biaya, jadwal pendaftaran, dan galeri kegiatan ada di satu halaman, dan bisa ditemukan di Google saat orang tua cari "TK [kota]".
+
+Ini contohnya: https://teraweb.id/demo/tk-paud/
+Dilihat dulu saja, belum ada pembayaran 🙏`],
+["Follow-up (1-2 hari kemudian)",`Selamat siang, Bapak/Ibu [Nama], mohon maaf mengganggu lagi 🙏
+Sudah sempat lihat contoh website TK/PAUD tadi?
+
+Kalau cocok, program dan jadwal pendaftaran sekolah bisa kami tampilkan. Untuk foto anak, kami hanya memasang yang sudah ada izin orang tua.`],
+["Kalau bilang “perlu dibahas dengan pengurus yayasan”",`Baik, Bapak/Ibu, silakan dibahas dulu dengan pengurus 🙏
+Contoh websitenya bisa diteruskan ke beliau, dan kalau ada yang ingin ditanyakan atau disesuaikan, kabari saja ya.`]]],
+["Travel umrah","travel-umroh-1","Beberapa bulan sebelum musim ramai atau Ramadan. Hati-hati: hanya travel berizin PPIU, verifikasi izin sebelum menghubungi",[
+["Chat pembuka",`Assalamualaikum, Bapak/Ibu 👋
+Saya Widya dari TeraWeb. Saya lihat [Nama Travel] di [Google Maps/Instagram], program umrahnya lengkap 🙏
+
+Boleh tanya, Bapak/Ibu: selama ini calon jemaah tanya jadwal dan paket lewat chat satu per satu ya?
+
+Kami bikin website untuk travel umrah: izin, profil perusahaan, testimoni, dan jadwal keberangkatan tampil jelas di satu halaman, supaya calon jemaah lebih yakin.
+
+Ini contohnya: https://teraweb.id/demo/travel-umroh-1/
+Dilihat dulu saja, belum ada pembayaran 🙏`],
+["Follow-up (1-2 hari kemudian)",`Assalamualaikum, Bapak/Ibu [Nama], mohon maaf mengganggu lagi 🙏
+Sudah sempat lihat contoh website travel umrah tadi?
+
+Kalau cocok, profil, testimoni, dan jadwal keberangkatan bisa kami susun di sana.`],
+["Kalau Bapak/Ibu tertarik (minta nomor izin)",`Alhamdulillah, terima kasih, Bapak/Ibu 🙏
+Sebelum kami mulai, mohon kirim nomor izin PPIU travel Bapak/Ibu, karena halaman travel umrah hanya kami buat untuk yang berizin resmi.`]]],
+["Notaris/PPAT","notaris-ppat-1","Jam kerja, nada formal. Hati-hati: ada batas promosi; demo wajib bernada informatif",[
+["Chat pembuka",`Selamat siang, Bapak/Ibu 🙏
+Saya Widya dari TeraWeb. Saya menemukan kantor [Nama Notaris/PPAT] di Google Maps.
+
+Boleh bertanya, Bapak/Ibu: selama ini masyarakat menanyakan layanan dan persyaratan dokumen melalui telepon atau chat satu per satu?
+
+Kami membuat halaman informasi untuk kantor notaris/PPAT: layanan dan persyaratan dokumen tersaji jelas di satu tempat, bersifat informatif dan bukan promosi, serta dapat ditemukan di Google.
+
+Berikut contohnya: https://teraweb.id/demo/notaris-ppat-1/
+Silakan dilihat terlebih dahulu, belum ada pembayaran apa pun 🙏`],
+["Follow-up (1-2 hari kemudian)",`Selamat siang, Bapak/Ibu [Nama]. Mohon maaf mengganggu kembali 🙏
+Apakah contoh halaman informasi tadi sudah sempat dibuka?
+
+Jika sesuai, layanan dan persyaratan dokumen kantor Bapak/Ibu dapat kami susun dengan bahasa yang formal dan informatif.`],
+["Kalau bertanya soal batas promosi",`Terima kasih atas pertanyaannya, Bapak/Ibu 🙏 Halaman kami susun bersifat informatif: layanan dan persyaratan dokumen, tanpa kalimat promosi. Isinya tentu bisa disesuaikan dengan ketentuan yang berlaku bagi profesi Bapak/Ibu.`]]]
+];
+const L="\nhttps://teraweb.id/demo/";
+// Pembuka seragam untuk semua niche (menimpa pembuka lama di T). Urutan: sapaan, panggilan, hook, pertanyaan, tawaran, link.
+const OPEN=[
+["Halo Kak [Nama], selamat siang 👋","Kak","karya [Nama Usaha] di Instagram, hasil foto [detail spesifik, misal: prewedding outdoor]-nya bagus banget 😍","selama ini calon pengantin lebih banyak kenal karya Kakak lewat Instagram saja, atau ada juga yang cari lewat Google?","website portofolio khusus fotografer wedding, supaya galeri, paket, dan kontak ada di satu tempat dan bisa muncul di Google saat orang cari \"fotografer wedding [kota]\"."," https://teraweb.id/demo/fotografer-wedding/"],
+["Halo Kak [Nama], selamat pagi 👋","Kak","[Nama Rental] di [Google Maps/Instagram], ulasannya bagus-bagus ya, Kak 👍","selama ini calon penyewa lebih banyak tanya armada dan harga lewat WhatsApp satu per satu, atau ada juga yang cari lewat Google?","website khusus rental mobil, supaya daftar armada, harga, syarat sewa, dan area layanan bisa dilihat langsung, lengkap dengan tombol pesan via WhatsApp, dan bisa muncul di Google saat orang cari \"rental mobil [kota]\"."," https://teraweb.id/demo/rental-mobil/"],
+["Halo Kak [Nama], selamat siang 👋","Kak","dokumentasi acara [Nama WO] di [Instagram/Google Maps], rapi banget, apalagi yang [detail acara] 😍","selama ini calon pengantin lebih banyak kenal acara-acara Kakak lewat Instagram saja, atau ada juga yang cari lewat Google?","website khusus wedding organizer, supaya paket, galeri acara, testimoni, dan konsultasi via WhatsApp ada di satu tempat, dan bisa muncul di Google saat orang cari \"wedding organizer [kota]\"."," https://teraweb.id/demo/wedding-organizer-1/"],
+["Halo Kak [Nama], selamat pagi 👋","Kak","[Nama Catering] di [Google Maps/Instagram], menunya menggoda banget, apalagi [menu andalan] 😋","selama ini pelanggan lebih banyak kenal Kakak lewat Instagram atau rekomendasi, atau ada juga yang cari lewat Google?","website khusus catering, supaya menu paket, galeri, dan tombol pesan via WhatsApp ada di satu halaman, dan bisa tampil di Google saat orang cari \"catering [kota]\"."," https://teraweb.id/demo/catering-1/"],
+["Halo Kak [Nama], selamat siang 👋","Kak","listing Kakak di [portal/Instagram], banyak yang menarik, apalagi [listing/area] 🏡","selama ini calon pembeli lebih banyak kenal Kakak lewat portal, atau ada juga yang cari nama Kakak di Google?","website etalase pribadi untuk agen properti, supaya profil, listing, dan testimoni Kakak ada di satu halaman milik sendiri, lengkap dengan tombol chat WhatsApp.",L+"agen-properti-1/"+L+"agen-properti-2/"],
+["Halo Kak [Nama], selamat siang 👋","Kak","portofolio [Nama Usaha] di Instagram, proyeknya rapi, apalagi [detail proyek] 👷","selama ini calon klien lebih banyak kenal proyek Kakak lewat Instagram saja, atau ada juga yang cari lewat Google?","website khusus kontraktor, arsitek, dan desain interior, supaya portofolio proyek, layanan (bangun, renovasi, desain), profil tim, dan konsultasi via WhatsApp ada di satu tempat.",L+"kontraktor-arsitek-1/"+L+"kontraktor-arsitek-2/"],
+["Halo Kak [Nama], selamat sore 👋","Kak","[Nama Klinik] di Google Maps, ulasannya bagus-bagus ya, Kak 🙏","selama ini calon pasien lebih banyak kenal klinik Kakak lewat Instagram atau rekomendasi, atau ada juga yang cari lewat Google?","halaman informasi untuk klinik kecantikan, supaya layanan, profil dokter, dan tombol buat janji via WhatsApp ada di satu tempat, dan bisa ditemukan di Google."," https://teraweb.id/demo/klinik-kecantikan-1/"],
+["Halo Kak [Nama], selamat pagi 👋","Kak","[Nama Klinik] di Google Maps, ulasan pasiennya bagus ya, Kak 🙏","selama ini pasien baru lebih banyak datang dari rekomendasi, atau ada juga yang cari lewat Google?","website untuk klinik gigi, supaya layanan, jam praktik, dan tombol buat janji via WhatsApp ada di satu halaman, dan bisa ditemukan di Google saat orang cari \"dokter gigi [kota]\"."," https://teraweb.id/demo/klinik-gigi-1/"],
+["Halo Bang/Kak [Nama], selamat pagi 👋","Bang/Kak","[Nama Barbershop] di [Google Maps/Instagram], antreannya kelihatan ramai ya 💈","selama ini pelanggan lebih banyak kenal lewat Instagram atau dari mulut ke mulut, atau ada juga yang cari lewat Google?","website untuk barbershop, supaya daftar harga, galeri hasil potongan, dan booking via WhatsApp ada di satu halaman, dan bisa muncul di Google saat orang cari \"barbershop [kota]\"."," https://teraweb.id/demo/barbershop/"],
+["Halo Kak [Nama], selamat pagi 👋","Kak","[Nama Petshop] di [Google Maps/Instagram], layanan [grooming/klinik/pet hotel]-nya lengkap ya 🐾","selama ini pelanggan lebih banyak kenal Kakak lewat Instagram, atau ada juga yang cari lewat Google?","website untuk petshop, supaya layanan dan harga, galeri, jam buka, dan booking grooming via WhatsApp ada di satu halaman, dan bisa ditemukan di Google."," https://teraweb.id/demo/klinik-hewan-petshop/"],
+["Halo Kak [Nama], selamat pagi 👋","Kak","[Nama Usaha] di [Google Maps/Instagram], layanannya lengkap ya, ada [sofa/kasur/jemput-antar] 🧼","selama ini pelanggan lebih banyak kenal Kakak lewat rekomendasi atau Instagram, atau ada juga yang cari lewat Google?","website untuk usaha cuci karpet, supaya layanan, harga per meter, area layanan, dan foto sebelum-sesudah ada di satu halaman, dan bisa muncul di Google saat orang cari \"cuci karpet [kota]\"."," https://teraweb.id/demo/cuci-karpet/"],
+["Selamat siang, Bapak/Ibu [Nama] 👋","Bapak/Ibu","[Nama Sekolah] di [Google Maps/Instagram], programnya menarik, apalagi [program unggulan] 🙏","selama ini orang tua calon murid lebih banyak kenal sekolah Bapak/Ibu lewat rekomendasi atau Instagram, atau ada juga yang cari lewat Google?","website untuk TK/PAUD, supaya profil, program, biaya, jadwal pendaftaran, dan galeri kegiatan ada di satu halaman, dan bisa ditemukan di Google saat orang tua cari \"TK [kota]\"."," https://teraweb.id/demo/tk-paud/"],
+["Assalamualaikum, Bapak/Ibu [Nama] 👋","Bapak/Ibu","[Nama Travel] di [Google Maps/Instagram], program umrahnya lengkap 🙏","selama ini calon jemaah lebih banyak kenal travel Bapak/Ibu lewat rekomendasi atau media sosial, atau ada juga yang cari lewat Google?","website untuk travel umrah, supaya izin, profil perusahaan, testimoni, dan jadwal keberangkatan tampil jelas di satu halaman dan calon jemaah lebih yakin."," https://teraweb.id/demo/travel-umroh-1/"],
+["Selamat siang, Bapak/Ibu [Nama] 🙏","Bapak/Ibu","kantor [Nama Notaris/PPAT] di Google Maps.","selama ini masyarakat lebih banyak mengenal kantor Bapak/Ibu lewat rekomendasi, atau ada juga yang mencari lewat Google?","halaman informasi untuk kantor notaris/PPAT, supaya layanan dan persyaratan dokumen tersaji jelas di satu tempat, bersifat informatif dan bukan promosi, serta dapat ditemukan di Google."," https://teraweb.id/demo/notaris-ppat-1/"]
+];
+OPEN.forEach((o,i)=>{T[i][3][0][1]=`${o[0]}\nSaya [Nama Pengirim] dari TeraWeb. Saya sempat lihat ${o[2]}\n\nBoleh tanya, ${o[1]}: ${o[3]}\n\nKebetulan saya bikin ${o[4]}\n\nIni contoh tampilannya, ${o[1]}:${o[5]}\nSilakan dilihat dulu, ${o[1]}, santai saja 🙏 Kalau ada yang menarik, kabari saja ya, nanti kita ngobrol lebih lanjut.`});
+// Follow-up, balasan harga, dan keberatan seragam. Urutan FU = urutan niche di T.
+const FU=[["fotografer","Kalau mau, galeri bisa disesuaikan dengan karya Kakak, misalnya dipisah per kategori: wedding, prewedding, engagement."],
+["rental mobil","Kalau cocok, daftar armada dan tarif Kakak bisa kami pasang di sana, jadi pertanyaan yang sama tidak perlu dijawab satu-satu lagi."],
+["wedding organizer","Kalau cocok, paket dan galeri acara Kakak bisa kami susun di sana, jadi calon pengantin bisa lihat dulu sebelum konsultasi."],
+["catering","Kalau cocok, menu paket dan foto-foto masakan Kakak bisa kami pasang, lengkap dengan tombol pesan langsung ke WhatsApp."],
+["agen properti","Kalau cocok, profil dan listing unggulan Kakak bisa kami tampilkan di sana, jadi calon pembeli kenal Kakak langsung, bukan hanya lewat portal."],
+["kontraktor/arsitek","Kalau cocok, proyek-proyek yang boleh dipublikasikan bisa kami tampilkan rapi per kategori, misalnya bangun baru, renovasi, dan interior."],
+["klinik kecantikan","Kalau cocok, daftar layanan dan profil dokter bisa kami susun di sana dengan bahasa yang informatif dan sopan."],
+["klinik gigi","Kalau cocok, layanan dan jadwal praktik Kakak bisa kami pasang dengan bahasa yang informatif dan sopan."],
+["barbershop","Kalau cocok, harga dan galeri hasil potongan bisa kami pasang, lengkap dengan tombol booking langsung ke WhatsApp."],
+["petshop","Kalau cocok, layanan, harga, dan foto-foto hewan yang habis grooming bisa kami pasang di sana."],
+["cuci karpet","Kalau cocok, daftar layanan, harga, dan foto sebelum-sesudah dari Kakak bisa kami pasang di sana."],
+["TK/PAUD","Kalau cocok, program dan jadwal pendaftaran sekolah bisa kami tampilkan. Untuk foto anak, kami hanya memasang yang sudah ada izin orang tua."],
+["travel umrah","Kalau cocok, profil, testimoni, dan jadwal keberangkatan bisa kami susun di sana."],
+["notaris/PPAT","Jika sesuai, layanan dan persyaratan dokumen kantor Bapak/Ibu dapat kami susun dengan bahasa yang formal dan informatif."]];
+FU.forEach((f,i)=>{const o=OPEN[i],g=o[1],p=o[0].match(/^.*?\[Nama\]/)[0],b=T[i][3];
+b[1]=["Follow-up kalau belum dibalas (1-2 hari kemudian)",`${p}, mohon maaf mengganggu lagi 🙏\nCuma mau memastikan link demo website ${f[0]} tadi sudah sempat dibuka belum, ${g}?\n${f[1]}`];
+b.splice(2,0,["Kalau mereka tanya harga",`Untuk website 4 halaman (Beranda, Layanan, Tentang Kami, Kontak), harganya Rp750.000 ya, ${g}. Sudah termasuk penulisan teks, galeri foto, Google Maps, tombol WhatsApp di tiap halaman, dan semua file diserahkan ke ${g}. Sekali bayar, tanpa perpanjangan tahunan ke TeraWeb.\n\nPengerjaannya 3-5 hari kerja setelah materi lengkap, revisi 2 kali. Nama domain dibayar terpisah ke penyedia domain, kira-kira Rp200.000 per tahun 😊\n\nKalau ada yang ingin ditanyakan sebelum memutuskan, silakan tanya saja ya, ${g}.`]);
+if(i===0)b[3]=["Kalau bilang “Instagram sudah cukup”",`Betul, Kak, Instagram memang bagus untuk memamerkan karya 👍\nWebsite biasanya jadi pelengkapnya: calon klien yang cari lewat Google atau yang dikasih rekomendasi teman bisa langsung lihat portofolio lengkap dan paket tanpa harus scroll feed.\nKakak bisa lihat dulu contohnya, siapa tahu cocok 😊\nhttps://teraweb.id/demo/fotografer-wedding/`];
+else if([1,2,5,9].includes(i))b[3][1]+="\n"+o[5].trim();
+});
+const $=s=>document.querySelector(s);
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function copy(t,b){
+  const ok=()=>{const o=b.dataset.l;b.textContent="Tersalin ✓";b.classList.add("done");setTimeout(()=>{b.textContent=o;b.classList.remove("done")},1400)};
+  const fb=()=>{const a=document.createElement("textarea");a.value=t;a.style.cssText="position:fixed;opacity:0";document.body.appendChild(a);a.select();try{document.execCommand("copy")}catch(e){}a.remove();ok()};
+  try{navigator.clipboard.writeText(t).then(ok,fb)}catch(e){fb()}
+}
+let store=[];
+function txt(b){return [...b.closest(".blk").querySelector(".msg").childNodes].map(n=>n.nodeType===3?n.nodeValue:(n.textContent.trim()||n.dataset.ph)).join("")}
+document.addEventListener("input",e=>{const f=e.target.closest&&e.target.closest(".fld");if(!f)return;if(!f.textContent.trim())f.innerHTML="";(f.dataset.ph==="[Nama Pengirim]"?document:f.closest(".pane")).querySelectorAll(".fld").forEach(o=>{if(o!==f&&o.dataset.ph===f.dataset.ph)o.textContent=f.textContent})});
+document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.closest&&e.target.closest(".fld"))e.preventDefault()});
+document.addEventListener("paste",e=>{if(e.target.closest&&e.target.closest(".fld")){e.preventDefault();document.execCommand("insertText",false,(e.clipboardData.getData("text")||"").replace(/\s+/g," "))}});
+function blk(title,text){
+  store.push(text);
+  return `<div class="blk"><div class="hd"><h4>${esc(title)}</h4><button class="btn pri" data-i="${store.length-1}" data-l="Salin">Salin</button></div><div class="msg">${esc(text).replace(/\[[^\]]+\]/g,m=>`<span class="fld" contenteditable="true" spellcheck="false" data-ph="${m}">${m==="[Nama Pengirim]"?"Widya":""}</span>`)}</div></div>`;
+}
+$("#s0x").innerHTML=`<h2>Balasan standar</h2><p class="sub">Berlaku untuk semua niche.</p>${S.map(x=>blk(x[0],x[1])).join("")}`;
+let h="";
+T.forEach((t,i)=>{
+  h+=`<section id="p-s${i+1}" class="pane"><h2>${i+1}. ${t[0]}</h2><div class="meta"><span>Kirim: ${t[2]}</span><a class="btn" href="${B+t[1]}/" target="_blank" rel="noopener">Buka demo</a><button class="btn" data-l="Salin link demo" data-t="${B+t[1]}/">Salin link demo</button></div>${t[3].map(x=>blk(x[0],x[1])).join("")}</section>`;
+});
+$("#out").innerHTML=h;
+$("#nav").innerHTML=`<button data-go="s0">Data & balasan standar</button>`+T.map((t,i)=>`<button data-go="s${i+1}">${t[0]}</button>`).join("");
+document.addEventListener("click",e=>{
+  const c=e.target.closest("[data-i],[data-t]");
+  if(c){copy(c.dataset.t||txt(c),c);return}
+  const g=e.target.closest("[data-go]");if(g)show(g.dataset.go);
+});
+function show(id){document.querySelectorAll(".pane").forEach(p=>p.classList.toggle("on",p.id==="p-"+id));document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.go===id));window.scrollTo(0,0)}
+show("s0");
+const up=document.getElementById("up");
+addEventListener("scroll",()=>up.classList.toggle("vis",scrollY>400));
+up.onclick=()=>scrollTo({top:0,behavior:"smooth"});
+</script>
+</body>
+</html>
