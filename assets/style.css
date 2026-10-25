@@ -360,3 +360,13 @@ fieldset.field{border:0;padding:0;margin:0 0 22px}
 @media (max-width:600px){.demo-grid{grid-template-columns:1fr}}
 
 .excl + .excl{margin-top:28px}
+
+/* Tombol garis untuk latar biru (banner CTA): putih, saat hover jadi isi putih dengan teks biru tua */
+.btn--ghost-light{background:transparent;color:#fff;border-color:#fff}
+.btn--ghost-light:hover{background:#fff;color:var(--blue-deep);border-color:#fff}
+
+/* Stempel di bagian atas halaman dalam: di HP dikecilkan dan diberi ruang supaya tidak menimpa teks */
+@media (max-width:600px){
+.page-hero{padding:56px 0 100px}
+.page-hero__stamp{width:120px;height:auto;right:-12px;bottom:-24px;opacity:.35}
+}
