@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompt Google Flow untuk Video TikTok TeraWeb</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F5FB;
+  --surface:#FFFFFF;
+  --ink:#141B34;
+  --muted:#5A6482;
+  --line:#DCE1F0;
+  --blue:#1F3FBF;
+  --blue-soft:#E6EBFB;
+  --warn:#B4540A;
+  --warn-soft:#FDEBD8;
+  --ok:#0E7A4B;
+  --radius:14px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0E1222;
+    --surface:#171C32;
+    --ink:#E9ECF8;
+    --muted:#9AA3C4;
+    --line:#2A3153;
+    --blue:#7C95FF;
+    --blue-soft:#222B55;
+    --warn:#F0A25E;
+    --warn-soft:#3A2A18;
+    --ok:#54D69A;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  line-height:1.6;font-size:16px;
+}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:48px 0 28px}
+header h1{
+  font-size:clamp(28px,5vw,44px);line-height:1.12;margin:0 0 14px;
+  font-weight:800;letter-spacing:-.02em;max-width:18ch;
+}
+header p{margin:0;color:var(--muted);max-width:62ch}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.facts span{
+  background:var(--blue-soft);color:var(--blue);font-weight:600;font-size:14px;
+  padding:6px 12px;border-radius:999px;
+}
+.panel{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;margin-bottom:16px;
+}
+.panel h2{margin:0 0 4px;font-size:18px}
+.panel .hint{margin:0 0 12px;color:var(--muted);font-size:14px}
+textarea{
+  width:100%;min-height:96px;resize:vertical;font:inherit;font-size:14.5px;
+  color:var(--ink);background:var(--bg);border:1px solid var(--line);
+  border-radius:10px;padding:12px;line-height:1.55;
+}
+textarea:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.opts{display:flex;flex-wrap:wrap;gap:18px;margin-top:12px}
+.opts label{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
+.opts input{width:18px;height:18px;accent-color:var(--blue)}
+.bar{
+  position:sticky;top:0;z-index:5;background:var(--bg);
+  padding:12px 0;border-bottom:1px solid var(--line);margin-bottom:20px;
+}
+.bar .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{
+  font:inherit;font-size:14px;font-weight:600;cursor:pointer;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  padding:7px 14px;border-radius:999px;
+}
+.chip[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+@media (prefers-color-scheme:dark){.chip[aria-pressed="true"]{color:#0E1222}}
+.spacer{flex:1}
+.btn{
+  font:inherit;font-size:14px;font-weight:700;cursor:pointer;
+  border:1px solid var(--blue);background:var(--blue);color:#fff;
+  padding:8px 16px;border-radius:10px;
+}
+@media (prefers-color-scheme:dark){.btn{color:#0E1222}}
+.btn.ghost{background:transparent;color:var(--blue)}
+.btn.done{background:var(--ok);border-color:var(--ok);color:#fff}
+@media (prefers-color-scheme:dark){.btn.done{color:#0E1222}}
+.group-title{margin:32px 0 4px;font-size:22px;letter-spacing:-.01em}
+.group-desc{margin:0 0 16px;color:var(--muted);font-size:14.5px;max-width:64ch}
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  margin-bottom:14px;display:grid;grid-template-columns:64px 1fr;overflow:hidden;
+}
+.num{
+  background:var(--blue);color:#fff;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:12px 0;gap:2px;
+}
+@media (prefers-color-scheme:dark){.num{color:#0E1222}}
+.num b{font-size:26px;line-height:1;font-weight:800}
+.num small{font-size:12px;font-weight:600;opacity:.85}
+.body{padding:16px 18px}
+.head{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:8px}
+.head h3{margin:0;font-size:17px}
+.words{
+  font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;
+  background:var(--blue-soft);color:var(--blue);
+}
+.words.warn{background:var(--warn-soft);color:var(--warn)}
+.say{
+  margin:0 0 10px;padding:10px 14px;border-left:4px solid var(--blue);
+  background:var(--blue-soft);border-radius:0 10px 10px 0;font-size:15px;font-weight:500;
+}
+.prompt{
+  margin:0 0 12px;font-size:13.5px;color:var(--muted);white-space:pre-wrap;
+  word-break:break-word;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  line-height:1.6;
+}
+.card .btn{padding:7px 14px}
+.music{
+  display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;
+  margin:0 0 12px;padding:10px 14px;border:1px dashed var(--line);
+  border-radius:10px;font-size:14px;
+}
+.music .m-label{font-weight:700;color:var(--blue)}
+.music .m-mood{flex:1 1 220px}
+.music .m-meta{color:var(--muted);font-size:13px}
+.actions{display:flex;flex-wrap:wrap;gap:8px}
+.note{
+  background:var(--blue-soft);border-radius:var(--radius);padding:18px 20px;margin:36px 0 12px;
+}
+.note h2{margin:0 0 8px;font-size:18px}
+.note ul{margin:0;padding-left:20px}
+.note li{margin-bottom:6px}
+footer{padding:20px 0 56px;color:var(--muted);font-size:13.5px}
+.hidden{display:none}
+@media (max-width:560px){
+  .card{grid-template-columns:48px 1fr}
+  .num b{font-size:20px}
+  .body{padding:14px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Prompt video TikTok untuk TeraWeb</h1>
+    <p>25 prompt siap tempel ke Google Flow: 5 klip bersambung dalam satu cerita dan 20 variasi klip tunggal. Semua dengan model perempuan muda, format vertikal 9:16, dialog bahasa Indonesia.</p>
+    <div class="facts">
+      <span>Landing page mulai Rp450.000</span>
+      <span>Website mulai Rp750.000</span>
+      <span>Sekali bayar</span>
+      <span>Tanpa WordPress</span>
+    </div>
+  </header>
+
+  <section class="panel" aria-labelledby="h-char">
+    <h2 id="h-char">Karakter model</h2>
+    <p class="hint">Teks ini otomatis ditempel ke setiap prompt. Ubah sesuai selera, lalu semua prompt ikut berubah.</p>
+    <textarea id="character" aria-label="Deskripsi karakter model">A young Indonesian woman, around 24 years old, warm natural smile, shoulder-length black hair, light makeup, casual outfit with a small royal blue accent, friendly and relatable small-business-owner vibe.</textarea>
+    <div class="opts">
+      <label><input type="checkbox" id="optStyle" checked> Awali dengan gaya TikTok vertikal 9:16</label>
+      <label><input type="checkbox" id="optAvoid" checked> Tambahkan daftar yang dihindari</label>
+    </div>
+  </section>
+
+  <div class="bar" role="toolbar" aria-label="Filter prompt">
+    <div class="row">
+      <button class="chip" data-f="all" aria-pressed="true">Semua</button>
+      <button class="chip" data-f="seri" aria-pressed="false">Seri 5 klip</button>
+      <button class="chip" data-f="niche" aria-pressed="false">Per niche</button>
+      <button class="chip" data-f="sudut" aria-pressed="false">Sudut pesan</button>
+      <span class="spacer"></span>
+      <button class="btn ghost" id="copyVisible">Salin yang tampil</button>
+    </div>
+  </div>
+
+  <main id="list"></main>
+
+  <section class="note">
+    <h2>Catatan pemakaian</h2>
+    <ul>
+      <li>Satu generate di Flow menghasilkan klip sekitar 8 detik. Untuk video lebih panjang, pakai Seri 5 klip (total sekitar 40 detik) lalu gabungkan di CapCut.</li>
+      <li>Jaga wajah tetap sama: buat klip pertama, ambil frame terbaiknya, lalu pakai sebagai Ingredients atau Frames to Video di klip berikutnya.</li>
+      <li>Dialog yang lebih dari sekitar 24 kata biasanya terpotong atau terdengar terburu-buru. Lencana kata di tiap kartu akan memberi peringatan.</li>
+      <li>Saran musik berupa mood, kata kunci, dan tempo untuk dicari di Commercial Music Library TikTok atau CapCut. Pilih satu lagu per video, volume sekitar 10 sampai 20 persen di bawah dialog. Untuk travel umrah, tanpa musik adalah opsi paling aman.</li>
+      <li>Jangan minta Veo menulis teks. Tambahkan harga, logo TeraWeb, dan subtitle lewat CapCut.</li>
+      <li>Hindari janji berlebihan seperti peringkat 1 Google. Situs TeraWeb sendiri tidak menjanjikan peringkat tertentu.</li>
+    </ul>
+  </section>
+
+  <footer>Halaman statis. Bisa langsung diunggah ke hosting sendiri tanpa tambahan apa pun.</footer>
+</div>
+
+<script>
+(function(){
+  var STYLE = "Vertical 9:16, handheld smartphone TikTok style. ";
+  var AVOID = " Avoid: subtitles, watermark, on-screen text, logos, distorted hands, extra fingers.";
+
+  var P = [
+    /* ===== SERI 5 KLIP ===== */
+    {g:"seri", t:"Klip 1: Hook masalah", scene:"{C} stands behind the counter of her small cozy home-bakery shop, looking at her phone with a slightly worried expression. A WhatsApp chat is visible on the phone screen. She looks up at the camera and says in Indonesian:", say:"Pelanggan nanya terus, 'Kak, ada website-nya?' Aku jawab apa dong?", tail:"Natural window light, shallow depth of field, authentic TikTok creator feel."},
+    {g:"seri", t:"Klip 2: Solusi dan harga", scene:"{C} sits at a table in the same bakery shop with a laptop showing a clean, modern blue-themed business website, then turns to the camera with a bright, surprised smile and says in Indonesian:", say:"Ternyata bikin website itu nggak harus mahal. Mulai empat ratus lima puluh ribu aja!", tail:"Quick push-in camera move, warm lighting, upbeat energy."},
+    {g:"seri", t:"Klip 3: Keunggulan", scene:"Medium close-up of {C}. She counts on her fingers while talking to the camera, with a modern bright background and soft blue accents. She says in Indonesian:", say:"Sekali bayar, tanpa WordPress, tanpa biaya tahunan. Semua file jadi milik kita.", tail:"Confident, friendly tone, subtle smooth zoom."},
+    {g:"seri", t:"Klip 4: Hasil", scene:"{C} holds her phone, which keeps lighting up with new WhatsApp notifications as customer orders come in. She laughs happily, shows the phone toward the camera and says in Indonesian:", say:"Sekarang pelanggan baru langsung percaya, tinggal chat!", tail:"Cheerful mood, soft cinematic lighting, slight slow-motion on the phone notifications."},
+    {g:"seri", t:"Klip 5: Ajakan bertindak", scene:"Close-up of {C}. She looks straight into the camera, smiling warmly and pointing downward toward the screen. She says in Indonesian:", say:"Mau lihat contoh untuk usahamu dulu? Chat TeraWeb di WhatsApp, gratis lihat demo!", tail:"Clean bright background with royal blue tones, friendly and inviting, ends on a confident smile."},
+
+    /* ===== PER NICHE ===== */
+    {g:"niche", t:"Toko kue", scene:"{C} behind the counter of a cozy home bakery, holding her phone. She looks at the camera and says in Indonesian:", say:"Pelanggan nanya terus, ada website-nya? Sekarang punya, mulai empat ratus lima puluh ribu aja. Chat TeraWeb!", tail:"Warm lighting, shelves of fresh bread in the background."},
+    {g:"niche", t:"Klinik gigi", scene:"{C} wearing a clinic receptionist outfit in a clean white dental clinic, showing a tablet with a modern clinic website. She says in Indonesian:", say:"Pasien baru suka cek website dulu. Klinik kami udah siap, sekali bayar, nggak ada tagihan tahunan.", tail:"Bright clean interior, calm professional mood."},
+    {g:"niche", t:"Salon dan klinik kecantikan", scene:"{C} in a bright aesthetic salon with soft pink and white tones, turning her phone to show a stylish website. She says in Indonesian:", say:"Tampilan usaha harus secantik hasil kerjanya. Chat TeraWeb, lihat contohnya dulu gratis!", tail:"Soft glowing light, elegant and fresh."},
+    {g:"niche", t:"Katering", scene:"{C} in a catering kitchen with trays of food behind her, holding her phone. She says in Indonesian:", say:"Orderan katering makin gampang, pelanggan bisa lihat menu dan langsung chat WhatsApp dari website.", tail:"Warm kitchen light, appetizing food in the background."},
+    {g:"niche", t:"Wedding organizer", scene:"{C} in an elegant wedding decoration studio with flowers and fabric samples, smiling at the camera. She says in Indonesian:", say:"Calon pengantin pasti cek dulu. Website rapi bikin mereka langsung percaya sama kita.", tail:"Soft romantic lighting, refined atmosphere."},
+    {g:"niche", t:"Cuci karpet dan sofa", scene:"{C} kneeling beside a freshly cleaned sofa in a bright living room, holding her phone. She says in Indonesian:", say:"Jasa cuci sofa juga butuh website, biar pelanggan percaya sebelum pesan. Mulai empat ratus lima puluh ribu!", tail:"Fresh clean look, daylight, upbeat mood."},
+    {g:"niche", t:"Rental mobil", scene:"{C} leaning on a clean white car in front of a small rental office, showing her phone. She says in Indonesian:", say:"Orang cari rental mobil pasti cek online dulu. Usahaku harus ada di sana, dan TeraWeb bikin gampang.", tail:"Sunny outdoor light, confident posture."},
+    {g:"niche", t:"Travel umrah", scene:"{C} in a modest elegant outfit and neat hijab, in a calm bright travel agency office. She says in Indonesian:", say:"Jamaah pasti mau yakin dulu. Website yang rapi bikin travel kami lebih dipercaya.", tail:"Calm, respectful, trustworthy mood, soft natural light."},
+    {g:"niche", t:"PAUD dan TK", scene:"{C} as a kindergarten teacher in a colorful classroom, smiling warmly. She says in Indonesian:", say:"Orang tua mau lihat sekolahnya dulu sebelum daftar. Sekarang cukup kirim satu link website.", tail:"Bright cheerful classroom, gentle friendly energy."},
+    {g:"niche", t:"Pet shop dan klinik hewan", scene:"{C} in a pet shop holding a fluffy cat, with shelves of pet supplies behind her. She says in Indonesian:", say:"Pelanggan mau tahu layanan dan alamat kami. Semua ada di website, tinggal klik dan chat.", tail:"Playful warm mood, soft light."},
+    {g:"niche", t:"Notaris dan jasa hukum", scene:"{C} in a professional blazer in a neat law office with bookshelves. She says in Indonesian:", say:"Kalau urusan penting, orang cari yang terpercaya. Website profesional bantu klien yakin dari awal.", tail:"Calm, composed, professional lighting."},
+    {g:"niche", t:"Kontraktor dan arsitek", scene:"{C} in a studio with architectural models and blueprints, holding a tablet. She says in Indonesian:", say:"Portofolio proyek harus gampang dilihat. Satu website, semua hasil kerja kami tampil rapi.", tail:"Modern studio, clean daylight, confident tone."},
+
+    /* ===== SUDUT PESAN ===== */
+    {g:"sudut", t:"Perbandingan harga", scene:"{C} at a desk with a calculator and laptop, looking surprised at the camera. She says in Indonesian:", say:"Paket website tahunan di pasaran sekitar satu koma tujuh juta per tahun. Di TeraWeb, sekali bayar, mulai empat ratus lima puluh ribu.", tail:"Bright office light, expressive face."},
+    {g:"sudut", t:"Kilat di HP", scene:"Close-up point-of-view of a phone held in the hand of {C}, a website opening instantly on the screen. She glances up at the camera and says in Indonesian:", say:"Sinyal pas-pasan pun kebuka cepat. Website TeraWeb ringan, pelanggan nggak keburu kabur.", tail:"Crisp focus on the phone screen, quick energetic feel."},
+    {g:"sudut", t:"Lihat demo dulu", scene:"{C} sitting in a bright cafe with her phone, grinning at the camera. She says in Indonesian:", say:"Bagusnya, kita dikirimin contoh website dulu buat usaha kita. Belum bayar, nggak ada kewajiban.", tail:"Relaxed cafe ambience, friendly tone."},
+    {g:"sudut", t:"Cepat jadi", scene:"{C} with a wall calendar behind her, counting on her fingers. She says in Indonesian:", say:"Website jadi cuma tiga sampai lima hari kerja. Cepat banget, kan?", tail:"Playful energetic mood, bright light."},
+    {g:"sudut", t:"File milik sendiri", scene:"{C} holding a laptop and a USB drive, smiling confidently at the camera. She says in Indonesian:", say:"Semua file website diserahkan ke kita. Mau pindah hosting, bawa aja. Nggak ada yang nyandera.", tail:"Clean modern workspace, reassuring tone."},
+    {g:"sudut", t:"POV tanda butuh website", scene:"{C} in a small shop, pointing playfully at the camera. She says in Indonesian:", say:"Tanda kamu butuh website: pelanggan sering nanya, ada website-nya? Yuk, chat TeraWeb sekarang!", tail:"Fun relatable TikTok energy, quick punchy delivery."},
+    {g:"sudut", t:"Tanpa WordPress", scene:"{C} at a desk, waving away imaginary clutter with a relieved expression, then smiling at the camera. She says in Indonesian:", say:"Tanpa WordPress, tanpa plugin ribet, tanpa perpanjangan tahunan. Simpel dan aman.", tail:"Clean minimal background with blue accents."},
+    {g:"sudut", t:"Mudah ditemukan orang sekitar", scene:"{C} at a street-side storefront, looking at her phone with a map open, then up at the camera. She says in Indonesian:", say:"Biar orang di sekitar kita gampang nemuin usaha kita. Ada peta, ada alamat, tinggal chat.", tail:"Natural outdoor daylight, friendly neighborhood feel."}
+  ];
+
+  var GROUPS = {
+    seri:{title:"Seri 5 klip bersambung", desc:"Satu cerita utuh dengan setting toko kue. Generate berurutan, jaga wajah tetap sama, lalu gabungkan di CapCut."},
+    niche:{title:"Variasi per niche", desc:"Satu klip 8 detik untuk tiap niche yang ada di demo TeraWeb. Cocok untuk outreach ke niche tertentu."},
+    sudut:{title:"Variasi sudut pesan", desc:"Satu klip per keunggulan TeraWeb: harga, kecepatan, kepemilikan file, SEO lokal, dan lainnya."}
+  };
+
+  var MUSIC = {
+    "Klip 1: Hook masalah":{mood:"Mulai tenang dan sedikit penasaran, beat belum penuh", kw:"inspiring upbeat soft intro", bpm:"95-105"},
+    "Klip 2: Solusi dan harga":{mood:"Energi naik, ceria saat solusi muncul", kw:"inspiring upbeat corporate", bpm:"105-115"},
+    "Klip 3: Keunggulan":{mood:"Stabil, percaya diri, ritme jelas", kw:"inspiring upbeat corporate", bpm:"110-118"},
+    "Klip 4: Hasil":{mood:"Puncak ceria, perayaan kecil", kw:"inspiring upbeat happy", bpm:"115-120"},
+    "Klip 5: Ajakan bertindak":{mood:"Hangat dan mantap, lagu yang sama ditutup lembut", kw:"inspiring upbeat corporate", bpm:"110-120"},
+
+    "Toko kue":{mood:"Hangat, manis, ceria", kw:"happy acoustic cheerful ukulele", bpm:"100-115"},
+    "Klinik gigi":{mood:"Bersih, tenang, terpercaya", kw:"calm corporate soft piano upbeat", bpm:"90-105"},
+    "Salon dan klinik kecantikan":{mood:"Elegan, segar, glowing", kw:"chic pop soft beauty light house", bpm:"100-118"},
+    "Katering":{mood:"Hangat, ramah, bersemangat", kw:"feel good kitchen groove happy funk", bpm:"105-120"},
+    "Wedding organizer":{mood:"Romantis, lembut, megah. Hindari lagu pernikahan populer berlirik", kw:"romantic piano wedding cinematic soft", bpm:"80-100"},
+    "Cuci karpet dan sofa":{mood:"Segar, bersih, energik", kw:"clean fresh pop upbeat motivational", bpm:"115-125"},
+    "Rental mobil":{mood:"Dinamis dan percaya diri", kw:"driving upbeat road trip pop", bpm:"115-125"},
+    "Travel umrah":{mood:"Tenang dan khidmat. Opsi paling aman: tanpa musik, atau instrumental sangat lembut di volume rendah", kw:"soft instrumental calm", bpm:"70-90"},
+    "PAUD dan TK":{mood:"Ceria, ringan, playful", kw:"kids happy playful xylophone", bpm:"105-120"},
+    "Pet shop dan klinik hewan":{mood:"Lucu, ringan, hangat", kw:"quirky happy cute pizzicato", bpm:"105-120"},
+    "Notaris dan jasa hukum":{mood:"Tenang, profesional, mantap", kw:"minimal corporate calm confident", bpm:"85-100"},
+    "Kontraktor dan arsitek":{mood:"Modern, solid, ambisius", kw:"modern corporate architectural ambient", bpm:"95-110"},
+
+    "Perbandingan harga":{mood:"Upbeat dengan kesan cerdas dan hemat", kw:"upbeat pop tech", bpm:"115-125"},
+    "Kilat di HP":{mood:"Cepat, ringkas, terasa instan", kw:"tech upbeat fast", bpm:"120-128"},
+    "Lihat demo dulu":{mood:"Santai dan ramah, tanpa tekanan", kw:"chill pop feel good", bpm:"100-112"},
+    "Cepat jadi":{mood:"Playful dan bersemangat", kw:"upbeat playful pop", bpm:"118-125"},
+    "File milik sendiri":{mood:"Menenangkan dan meyakinkan", kw:"calm confident corporate light", bpm:"95-108"},
+    "POV tanda butuh website":{mood:"Gaya kreator TikTok, playful dan punchy", kw:"playful trending beat", bpm:"120-130"},
+    "Tanpa WordPress":{mood:"Bersih, simpel, lega", kw:"minimal upbeat clean", bpm:"105-118"},
+    "Mudah ditemukan orang sekitar":{mood:"Ramah dan hangat, nuansa lingkungan sekitar", kw:"happy acoustic pop light", bpm:"105-115"}
+  };
+
+  var list = document.getElementById("list");
+  var charEl = document.getElementById("character");
+  var optStyle = document.getElementById("optStyle");
+  var optAvoid = document.getElementById("optAvoid");
+  var filter = "all";
+
+  function compose(item){
+    var c = charEl.value.trim() || "A young Indonesian woman";
+    var scene = item.scene.replace("{C}", c);
+    var out = "";
+    if (optStyle.checked) out += STYLE;
+    out += scene + ' "' + item.say + '" ' + item.tail;
+    if (optAvoid.checked) out += AVOID;
+    return out;
+  }
+
+  function wc(s){ return s.trim().split(/\s+/).length; }
+
+  function copy(text, btn, label){
+    function ok(){
+      var old = btn.textContent;
+      btn.textContent = label || "Tersalin";
+      btn.classList.add("done");
+      setTimeout(function(){ btn.textContent = old; btn.classList.remove("done"); }, 1400);
+    }
+    function fallback(){
+      var ta = document.createElement("textarea");
+      ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); ok(); } catch(e){}
+      document.body.removeChild(ta);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(ok, fallback);
+    } else { fallback(); }
+  }
+
+  var cards = [];
+
+  function build(){
+    var counters = {seri:0, niche:0, sudut:0};
+    var lastGroup = "";
+    var n = 0;
+    P.forEach(function(item, i){
+      if (item.g !== lastGroup){
+        var h = document.createElement("div");
+        h.dataset.group = item.g;
+        h.innerHTML = '<h2 class="group-title"></h2><p class="group-desc"></p>';
+        h.querySelector("h2").textContent = GROUPS[item.g].title;
+        h.querySelector("p").textContent = GROUPS[item.g].desc;
+        list.appendChild(h);
+        lastGroup = item.g;
+      }
+      n++;
+      var words = wc(item.say);
+      var card = document.createElement("article");
+      card.className = "card";
+      card.dataset.group = item.g;
+      card.innerHTML =
+        '<div class="num"><b></b><small>8 dtk</small></div>' +
+        '<div class="body">' +
+          '<div class="head"><h3></h3><span class="words"></span></div>' +
+          '<p class="say"></p>' +
+          '<div class="music"><span class="m-label">Musik</span><span class="m-mood"></span><span class="m-meta"></span></div>' +
+          '<p class="prompt"></p>' +
+          '<div class="actions"><button class="btn" type="button">Salin prompt</button>' +
+          '<button class="btn ghost kw" type="button">Salin kata kunci musik</button></div>' +
+        '</div>';
+      card.querySelector("b").textContent = n;
+      card.querySelector("h3").textContent = item.t;
+      var w = card.querySelector(".words");
+      w.textContent = words + " kata dialog";
+      if (words > 24){ w.classList.add("warn"); w.textContent += " (agak panjang)"; }
+      card.querySelector(".say").textContent = "\u201C" + item.say + "\u201D";
+      var mu = MUSIC[item.t];
+      var musicBox = card.querySelector(".music");
+      var kwBtn = card.querySelector(".kw");
+      if (mu){
+        card.querySelector(".m-mood").textContent = mu.mood;
+        card.querySelector(".m-meta").textContent = "Tempo " + mu.bpm + " BPM. Cari: " + mu.kw;
+        kwBtn.addEventListener("click", function(){ copy(mu.kw, kwBtn, "Tersalin"); });
+      } else {
+        musicBox.classList.add("hidden");
+        kwBtn.classList.add("hidden");
+      }
+      var btn = card.querySelector("button");
+      btn.addEventListener("click", function(){ copy(compose(item), btn); });
+      list.appendChild(card);
+      cards.push({el:card, item:item, p:card.querySelector(".prompt")});
+    });
+    refresh();
+  }
+
+  function refresh(){
+    cards.forEach(function(c){ c.p.textContent = compose(c.item); });
+  }
+
+  function applyFilter(){
+    var heads = list.querySelectorAll("div[data-group]");
+    heads.forEach(function(h){ h.classList.toggle("hidden", filter !== "all" && h.dataset.group !== filter); });
+    cards.forEach(function(c){ c.el.classList.toggle("hidden", filter !== "all" && c.item.g !== filter); });
+  }
+
+  document.querySelectorAll(".chip").forEach(function(ch){
+    ch.addEventListener("click", function(){
+      filter = ch.dataset.f;
+      document.querySelectorAll(".chip").forEach(function(o){ o.setAttribute("aria-pressed", o === ch ? "true" : "false"); });
+      applyFilter();
+    });
+  });
+
+  [charEl, optStyle, optAvoid].forEach(function(el){
+    el.addEventListener("input", refresh);
+    el.addEventListener("change", refresh);
+  });
+
+  document.getElementById("copyVisible").addEventListener("click", function(e){
+    var parts = [];
+    var k = 0;
+    cards.forEach(function(c){
+      if (filter === "all" || c.item.g === filter){
+        k++;
+        parts.push(k + ". " + c.item.t + "\n" + compose(c.item));
+      }
+    });
+    copy(parts.join("\n\n"), e.currentTarget, "Tersalin semua");
+  });
+
+  build();
+})();
+</script>
+</body>
+</html>
