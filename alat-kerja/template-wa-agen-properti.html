@@ -74,6 +74,16 @@ button.copy.done{background:var(--wa);color:#fff}
       <div><label for="f-brand">Nama brand</label><input id="f-brand" value="TeraWeb" autocomplete="off"></div>
       <div><label for="f-harga">Harga</label><input id="f-harga" value="Rp750.000" autocomplete="off"></div>
       <div><label for="f-tayang">Waktu tayang</label><input id="f-tayang" value="3-5 hari kerja" autocomplete="off"></div>
+      <div><label for="f-demopilih">Demo yang dipakai di pesan pertama dan follow-up</label>
+        <select id="f-demopilih">
+          <option value="1">Demo 1</option>
+          <option value="2">Demo 2</option>
+        </select></div>
+      <div><label for="f-demolain">Demo satunya di balasan setelah tertarik</label>
+        <select id="f-demolain">
+          <option value="ya">Sertakan (tawarkan demo yang belum dipakai)</option>
+          <option value="tidak">Jangan sertakan</option>
+        </select></div>
       <div><label for="f-demo1">Link demo 1</label><input id="f-demo1" value="https://teraweb.id/demo/agen-properti-1/" autocomplete="off"></div>
       <div><label for="f-demo2">Link demo 2</label><input id="f-demo2" value="https://teraweb.id/demo/agen-properti-2/" autocomplete="off"></div>
     </div>
@@ -98,25 +108,25 @@ button.copy.done{background:var(--wa);color:#fff}
   var MESSAGES = [
     {id:"google", group:1, label:"Pancing Google",
      when:"Untuk agen yang aktif jualan tapi belum punya website.",
-     text:"{{salam}}, {{sapaan}} {{nama}} 🙏\n\nSaya {{pengirim}} dari {{brand}}. Maaf mengganggu, saya cuma mau tanya satu hal.\n\nKalau calon pembeli mengetik \"rumah dijual di {{kota}}\" di Google, apakah listing {{sapaanLong}} muncul di sana?\n\nBanyak agen properti yang kehilangan pembeli bukan karena rumahnya kurang bagus, tapi karena pembeli yang mencari di Google justru ketemu agen lain. Padahal pembeli yang cari sendiri itu biasanya yang paling serius.\n\nSaya sudah siapkan contoh tampilan website untuk agen properti, lengkap dengan katalog listing dan tombol WhatsApp di setiap properti:\n{{demo1}}\n\nSilakan dilihat dulu, {{sapaan}}, santai saja. Kalau tertarik, nanti saya kasih tahu paket dan harganya 🙏"},
+     text:"{{salam}}, {{sapaan}} {{nama}} 🙏\n\nSaya {{pengirim}} dari {{brand}}. Maaf mengganggu, saya cuma mau tanya satu hal.\n\nKalau calon pembeli mengetik \"rumah dijual di {{kota}}\" di Google, apakah listing {{sapaanLong}} muncul di sana?\n\nBanyak agen properti yang kehilangan pembeli bukan karena rumahnya kurang bagus, tapi karena pembeli yang mencari di Google justru ketemu agen lain. Padahal pembeli yang cari sendiri itu biasanya yang paling serius.\n\nSaya sudah siapkan contoh tampilan website untuk agen properti, lengkap dengan katalog listing dan tombol WhatsApp di setiap properti:\n{{demo}}\n\nSilakan dilihat dulu, {{sapaan}}, santai saja. Kalau tertarik, nanti saya kasih tahu paket dan harganya 🙏"},
     {id:"ig", group:1, label:"Pancing Instagram",
      when:"Untuk agen yang ditemukan lewat Instagram atau katalog di WA.",
-     text:"Halo {{sapaan}} {{nama}}, salam kenal 🙏\n\nSaya {{pengirim}} dari {{brand}}. Tadi saya lihat profil {{sapaanLong}}, listingnya menarik-menarik.\n\nSaya penasaran: kalau ada calon pembeli yang minta \"lihat semua properti yang {{sapaanLong}} jual\", biasanya dikirimnya lewat apa? Foto satu-satu di chat, atau ada satu link yang rapi?\n\nBayangkan cukup kirim satu link, dan pembeli bisa lihat semua listing, foto, harga, lokasi, lalu langsung klik tombol WhatsApp ke {{sapaanLong}}. Kesannya jadi jauh lebih profesional, dan pembeli lebih percaya.\n\nIni contoh tampilannya untuk agen properti:\n{{demo2}}\n\nSilakan dilihat dulu, {{sapaan}}, santai saja. Kalau tertarik, nanti saya kasih tahu paket dan harganya 🙏"},
+     text:"Halo {{sapaan}} {{nama}}, salam kenal 🙏\n\nSaya {{pengirim}} dari {{brand}}. Tadi saya lihat profil {{sapaanLong}}, listingnya menarik-menarik.\n\nSaya penasaran: kalau ada calon pembeli yang minta \"lihat semua properti yang {{sapaanLong}} jual\", biasanya dikirimnya lewat apa? Foto satu-satu di chat, atau ada satu link yang rapi?\n\nBayangkan cukup kirim satu link, dan pembeli bisa lihat semua listing, foto, harga, lokasi, lalu langsung klik tombol WhatsApp ke {{sapaanLong}}. Kesannya jadi jauh lebih profesional, dan pembeli lebih percaya.\n\nIni contoh tampilannya untuk agen properti:\n{{demo}}\n\nSilakan dilihat dulu, {{sapaan}}, santai saja. Kalau tertarik, nanti saya kasih tahu paket dan harganya 🙏"},
     {id:"singkat", group:1, label:"Singkat",
      when:"Untuk agen yang sibuk, atau saat mengirim ke banyak nomor.",
-     text:"Halo {{sapaan}} {{nama}} 🙏\n\nSaya {{pengirim}} dari {{brand}}. Saya bikin website khusus agen properti: ada katalog listing, tombol WhatsApp di tiap properti, dan bisa ditemukan di Google.\n\nContoh jadinya seperti ini:\n{{demo1}}\n\nKalau {{sapaanLong}} mau punya yang seperti itu atas nama sendiri, kabari saya ya. Silakan dilihat dulu 🙏"},
+     text:"Halo {{sapaan}} {{nama}} 🙏\n\nSaya {{pengirim}} dari {{brand}}. Saya bikin website khusus agen properti: ada katalog listing, tombol WhatsApp di tiap properti, dan bisa ditemukan di Google.\n\nContoh jadinya seperti ini:\n{{demo}}\n\nKalau {{sapaanLong}} mau punya yang seperti itu atas nama sendiri, kabari saya ya. Silakan dilihat dulu 🙏"},
     {id:"harga", group:2, label:"Balasan setelah tertarik",
      when:"Kirim hanya jika agen membalas atau bilang sudah melihat demo.",
-     text:"Terima kasih sudah dilihat, {{sapaan}} 🙏\n\nUntuk websitenya, paketnya:\n✅ {{harga}} sekali bayar\n✅ Tanpa biaya perpanjangan tahunan\n✅ Tayang {{tayang}}\n✅ Revisi 2 kali sebelum tayang\n✅ Tombol WhatsApp di setiap listing\n\nSatu transaksi saja dari website ini sudah jauh melebihi biayanya, {{sapaan}}. Kalau cocok, tinggal kirim nama usaha dan beberapa foto listing, sisanya saya yang kerjakan.\n\nMau saya mulai dari nama usaha {{sapaanLong}}?"},
+     text:"Terima kasih sudah dilihat, {{sapaan}} 🙏\n\nUntuk websitenya, paketnya:\n✅ {{harga}} sekali bayar\n✅ Tanpa biaya perpanjangan tahunan\n✅ Tayang {{tayang}}\n✅ Revisi 2 kali sebelum tayang\n✅ Tombol WhatsApp di setiap listing\n\nSatu transaksi saja dari website ini sudah jauh melebihi biayanya, {{sapaan}}. Kalau cocok, tinggal kirim nama usaha dan beberapa foto listing, sisanya saya yang kerjakan.{{demoLainBlok}}\n\nMau saya mulai dari nama usaha {{sapaanLong}}?"},
     {id:"fu1", group:2, label:"Follow-up 1",
      when:"Kirim 2-3 hari setelah pesan pertama kalau belum ada balasan.",
-     text:"Halo {{sapaan}} {{nama}} 🙏\n\n{{pengirim}} dari {{brand}} lagi, mau menyapa sebentar. Kemarin saya sempat kirim contoh website untuk agen properti.\n\nKalau sempat, boleh dilihat 1 menit saja ya:\n{{demo1}}\n\nKalau memang belum butuh, tidak apa-apa sama sekali, {{sapaan}}. Terima kasih sudah membaca 🙏"},
+     text:"Halo {{sapaan}} {{nama}} 🙏\n\n{{pengirim}} dari {{brand}} lagi, mau menyapa sebentar. Kemarin saya sempat kirim contoh website untuk agen properti.\n\nKalau sempat, boleh dilihat 1 menit saja ya:\n{{demo}}\n\nKalau memang belum butuh, tidak apa-apa sama sekali, {{sapaan}}. Terima kasih sudah membaca 🙏"},
     {id:"fu2", group:2, label:"Follow-up 2 (penutup)",
      when:"Pesan terakhir, 4-5 hari setelah follow-up 1. Setelah ini jangan dikejar lagi.",
      text:"Permisi {{sapaan}} {{nama}}, ini pesan terakhir dari saya supaya tidak mengganggu 🙏\n\nKalau suatu saat {{sapaanLong}} ingin punya website listing sendiri, tinggal balas chat ini, dengan senang hati saya bantu.\n\nSukses terus penjualannya di {{kota}}, {{sapaan}}!"}
   ];
 
-  var fields = ["nama","sapaan","kota","salam","nomor","pengirim","brand","harga","tayang","demo1","demo2"];
+  var fields = ["nama","sapaan","kota","salam","nomor","pengirim","brand","harga","tayang","demo1","demo2","demopilih","demolain"];
   function el(id){return document.getElementById(id);}
   function val(k){return el("f-"+k).value.trim();}
 
@@ -127,6 +137,12 @@ button.copy.done{background:var(--wa);color:#fff}
     var p = {};
     fields.forEach(function(k){ p[k] = val(k); });
     p.sapaanLong = longForm(p.sapaan);
+    var pakai = p.demopilih === "2" ? "2" : "1";
+    p.demo = p["demo"+pakai];
+    p.demoLain = p["demo"+(pakai==="1" ? "2" : "1")];
+    p.demoLainBlok = (p.demolain === "ya" && p.demoLain)
+      ? "\n\nKalau " + p.sapaanLong + " ingin lihat gaya yang lain, ini satu contoh lagi:\n" + p.demoLain
+      : "";
     var ph = {nama:"[Nama]", kota:"[Kota]"};
     Object.keys(ph).forEach(function(k){ if(!p[k]) p[k] = ph[k]; });
     return p;
