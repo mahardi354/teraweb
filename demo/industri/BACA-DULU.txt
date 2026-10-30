@@ -1,0 +1,23 @@
+WEBSITE DEMO - TEMPLATE INDUSTRO (DIADAPTASI KE BAHASA INDONESIA)
+================================================================
+Dasar desain: "Industro - Industrial HTML Template" oleh HTML Codex
+(https://htmlcodex.com/industrial-html-template), lisensi CC BY 4.0.
+
+PENTING (lisensi):
+- Tautan kredit "Designed By HTML Codex" di footer JANGAN dihapus,
+  kecuali membeli Credit Removal License: https://htmlcodex.com/credit-removal
+- Template tidak boleh dijual ulang/disewakan sebagai template. Memakainya
+  untuk membuat website klien: baca LICENSE.txt dan pastikan sesuai.
+
+Halaman: index.html (Beranda), about.html (Tentang), feature.html (Keunggulan),
+project.html (Proyek), service.html (Layanan), team.html (Tim), testimonial.html (Testimoni), contact.html (Kontak, peta Jakarta), 404.html.
+
+Yang perlu diganti untuk klien nyata:
+1. Nama perusahaan, alamat, telepon, email, angka (18 tahun, 220 karyawan, 350 klien, 1200 proyek),
+   nama tim dan testimoni (semua contoh/fiktif).
+2. Nomor WhatsApp di akhir contact.html (6281234567890).
+3. Foto di folder img/ (foto bawaan template hanya untuk demo; ganti dengan foto asli klien).
+4. Link video profil (YouTube) di index.html, about.html, feature.html.
+5. Link media sosial di bagian atas dan footer.
+Butuh internet saat dibuka (font dan ikon dimuat dari Google Fonts / CDN).
+Upload seluruh isi folder ke hosting, index.html harus di root.
