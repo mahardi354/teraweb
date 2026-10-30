@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generator Pesan Penawaran – Jasa Perizinan</title>
+<style>
+:root{
+  --bg:#f4f6f8; --card:#ffffff; --text:#1c2733; --muted:#5f6c7b; --border:#d9e0e7;
+  --primary:#0f766e; --primary-h:#0b5f58; --hl-bg:#d7f5ee; --hl-text:#0b4f47; --wa:#25d366; --bubble:#dcf8c6;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0f1519; --card:#182128; --text:#e6edf3; --muted:#93a1ae; --border:#2a3640;
+    --primary:#2dd4bf; --primary-h:#5eead4; --hl-bg:#134e4a; --hl-text:#99f6e4; --bubble:#1f3a2c;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;padding:24px 16px 48px}
+.wrap{max-width:960px;margin:0 auto}
+h1{font-size:1.4rem;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 20px;font-size:.95rem}
+.grid{display:grid;grid-template-columns:1fr 1.25fr;gap:20px}
+@media(max-width:780px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px}
+.card h2{font-size:1rem;margin:0 0 14px}
+label{display:block;font-size:.85rem;font-weight:600;margin:0 0 5px}
+.field{margin-bottom:14px}
+.hint{font-weight:400;color:var(--muted);font-size:.8rem}
+input,select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:9px;font:inherit;background:var(--bg);color:var(--text)}
+input:focus,select:focus{outline:2px solid var(--primary);outline-offset:0;border-color:var(--primary)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bubble{background:var(--bubble);border-radius:12px;padding:16px 18px;white-space:pre-wrap;word-wrap:break-word;font-size:.95rem}
+.bubble mark{background:var(--hl-bg);color:var(--hl-text);padding:0 3px;border-radius:4px;font-weight:600}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+button,.btn{font:inherit;font-weight:600;border:0;border-radius:9px;padding:10px 16px;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+.b-primary{background:var(--primary);color:#fff}
+.b-primary:hover{background:var(--primary-h)}
+.b-wa{background:var(--wa);color:#08331a}
+.b-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#111;color:#fff;padding:10px 18px;border-radius:999px;opacity:0;transition:.25s;pointer-events:none;font-size:.9rem}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.count{color:var(--muted);font-size:.8rem;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Generator Pesan Penawaran</h1>
+  <p class="sub">Ubah field di kiri, pesan di kanan otomatis menyesuaikan. Siap disalin atau langsung dikirim ke WhatsApp.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Isi Field</h2>
+
+      <div class="row">
+        <div class="field">
+          <label for="waktu">Sapaan waktu</label>
+          <select id="waktu">
+            <option value="pagi">Selamat pagi</option>
+            <option value="siang">Selamat siang</option>
+            <option value="sore">Selamat sore</option>
+            <option value="malam">Selamat malam</option>
+            <option value="pagi/siang">Selamat pagi/siang</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sapaan">Sapaan ke penerima</label>
+          <select id="sapaan">
+            <option value="Pak/Bu">Pak/Bu</option>
+            <option value="Pak">Pak</option>
+            <option value="Bu">Bu</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="nama">Nama Anda</label>
+        <input id="nama" type="text" placeholder="mis. Didik">
+      </div>
+
+      <div class="field">
+        <label for="jasa">Nama Jasa Perizinan</label>
+        <input id="jasa" type="text" placeholder="mis. CV Mitra Legalitas Nusantara">
+      </div>
+
+      <div class="field">
+        <label for="hp">Nomor WhatsApp tujuan <span class="hint">(opsional, untuk tombol kirim)</span></label>
+        <input id="hp" type="tel" inputmode="tel" placeholder="mis. 0812 3456 7890">
+      </div>
+
+      <button class="b-ghost" id="reset" type="button">Reset field</button>
+    </div>
+
+    <div class="card">
+      <h2>Pratinjau Pesan</h2>
+      <div class="bubble" id="preview"></div>
+      <div class="count" id="count"></div>
+      <div class="actions">
+        <button class="b-primary" id="copy" type="button">Salin pesan</button>
+        <a class="btn b-wa" id="wa" href="#" target="_blank" rel="noopener">Kirim via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast">Pesan disalin</div>
+
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var ids = ['waktu','sapaan','nama','jasa','hp'];
+  var KEY = 'pesan-penawaran-perizinan';
+
+  function esc(s){
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  // template: {{key}} akan diganti nilai field
+  function build(v, html){
+    var wrap = function(t){ return html ? '<mark>' + esc(t) + '</mark>' : t; };
+    var nama = v.nama.trim() || '[Nama Anda]';
+    var jasa = v.jasa.trim() || '[Nama Jasa Perizinan]';
+    var salam = 'Selamat ' + v.waktu;
+    var sap = v.sapaan;
+
+    var lines = [
+      [salam + ' ', sap, ','],
+      null,
+      ['Salam kenal, saya ', nama, ', pembuat website company profile. Saya mendapatkan nomor ini dari Google Maps resmi ', jasa, '.'],
+      null,
+      ['Saya menghubungi Bapak/Ibu untuk menawarkan kolaborasi. Sebagai penyedia jasa legalitas perusahaan, klien-klien baru Bapak/Ibu (PT/CV baru) pasti banyak yang membutuhkan website Company Profile untuk mulai beroperasi secara profesional.'],
+      null,
+      ['Kami ingin menawarkan kerja sama. Bapak/Ibu bisa menawarkan jasa pembuatan web korporat ke klien Anda secara paket, dan saya yang mengerjakannya di belakang layar dengan sistem komisi/bagi hasil (komisi).'],
+      null,
+      ['Sebagai bahan pertimbangan, saya sudah menyiapkan sebuah web demo khusus untuk sektor industri/pabrik yang responsif dan sangat cepat. Apakah boleh saya bagikan link-nya di sini?'],
+      null,
+      ['Terima kasih dan sukses selalu untuk ', jasa, '.']
+    ];
+
+    // Penanda mana bagian yang merupakan field (indeks ganjil pada baris bergaya field)
+    var out = [];
+    lines.forEach(function(l){
+      if(l === null){ out.push(''); return; }
+      var s = '';
+      if(l.length === 3 && l[2] === ','){            // baris salam
+        s = (html ? esc(l[0]) : l[0]) + wrap(l[1]) + ',';
+      } else if(l.length === 5){                      // salam kenal
+        s = (html ? esc(l[0]) : l[0]) + wrap(l[1]) + (html ? esc(l[2]) : l[2]) + wrap(l[3]) + (html ? esc(l[4]) : l[4]);
+      } else if(l.length === 3){                      // penutup
+        s = (html ? esc(l[0]) : l[0]) + wrap(l[1]) + (html ? esc(l[2]) : l[2]);
+      } else {
+        s = html ? esc(l[0]) : l[0];
+      }
+      out.push(s);
+    });
+    return out.join('\n');
+  }
+
+  function vals(){
+    var v = {};
+    ids.forEach(function(i){ v[i] = $(i).value; });
+    return v;
+  }
+
+  function normHp(n){
+    var d = n.replace(/\D/g,'');
+    if(!d) return '';
+    if(d.indexOf('0') === 0) d = '62' + d.slice(1);
+    else if(d.indexOf('8') === 0) d = '62' + d;
+    return d;
+  }
+
+  function render(){
+    var v = vals();
+    var plain = build(v, false);
+    $('preview').innerHTML = build(v, true);
+    $('count').textContent = plain.length + ' karakter';
+    var hp = normHp(v.hp);
+    var base = hp ? 'https://wa.me/' + hp : 'https://wa.me/';
+    $('wa').href = base + '?text=' + encodeURIComponent(plain);
+    try { localStorage.setItem(KEY, JSON.stringify(v)); } catch(e){}
+  }
+
+  function toast(msg){
+    var t = $('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 1800);
+  }
+
+  $('copy').addEventListener('click', function(){
+    var text = build(vals(), false);
+    function fallback(){
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); toast('Pesan disalin'); } catch(e){ toast('Gagal menyalin'); }
+      document.body.removeChild(ta);
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ toast('Pesan disalin'); }, fallback);
+    } else { fallback(); }
+  });
+
+  $('reset').addEventListener('click', function(){
+    $('waktu').value = 'pagi'; $('sapaan').value = 'Pak/Bu';
+    $('nama').value = ''; $('jasa').value = ''; $('hp').value = '';
+    render();
+  });
+
+  ids.forEach(function(i){
+    $(i).addEventListener('input', render);
+    $(i).addEventListener('change', render);
+  });
+
+  try {
+    var saved = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if(saved){ ids.forEach(function(i){ if(typeof saved[i] === 'string') $(i).value = saved[i]; }); }
+  } catch(e){}
+
+  render();
+})();
+</script>
+</body>
+</html>
