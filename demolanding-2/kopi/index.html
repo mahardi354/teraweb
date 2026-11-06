@@ -8,11 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#F7F5FB;--surface:#fff;--ink:#1E1B3A;--mute:#5E5A7A;--line:#E3DFF0;--dusk:#2B2A5C;--dusk2:#4A2F6B;--amber:#FFB02E;--amber-ink:#3A2500;--green:#1FA855;--sun:#FF7A59;
+:root{--bg:#F7F1E8;--surface:#FFFCF7;--ink:#30231B;--mute:#76665A;--line:#E7D9C8;--dusk:#38251B;--dusk2:#75452D;--amber:#DFA64F;--amber-ink:#392313;--green:#21834F;--sun:#B96F43;
 --font-d:'Bricolage Grotesque',system-ui,sans-serif;--font-b:'DM Sans',system-ui,sans-serif;color-scheme:light;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#13122A;--surface:#1D1B3D;--ink:#F3F0FF;--mute:#B5B0D3;--line:#34315E;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#13122A;--surface:#1D1B3D;--ink:#F3F0FF;--mute:#B5B0D3;--line:#34315E;color-scheme:dark}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--font-b);-webkit-font-smoothing:antialiased}
 h1,h2,h3{font-family:var(--font-d);line-height:1.1;margin:0;letter-spacing:-.02em}
@@ -30,7 +28,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .nl a{color:#E9E4FF;text-decoration:none;font-size:15px}.nl .btn{padding:9px 18px;font-size:14px;color:#fff}
 @media(max-width:720px){.nl a:not(.btn){display:none}}
 /* hero */
-.hero{background:linear-gradient(170deg,var(--dusk) 0%,var(--dusk2) 55%,#B5476B 100%);color:#fff;padding:64px 0 80px;overflow:hidden}
+.hero{background:linear-gradient(170deg,#38251B 0%,#75452D 58%,#B77A4B 100%);color:#fff;padding:64px 0 80px;overflow:hidden}
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
 @media(max-width:820px){.hero .wrap{grid-template-columns:1fr}}
 .pill{display:inline-block;background:rgba(255,255,255,.14);border-radius:999px;padding:6px 14px;font-size:14px;margin-bottom:18px}
@@ -51,7 +49,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 /* grids */
 .grid{display:grid;gap:18px;margin-top:36px}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
 @media(max-width:900px){.g3{grid-template-columns:1fr}.g4{grid-template-columns:repeat(2,1fr)}}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 10px 30px rgba(67,43,27,.05)}
 .card .ic{font-size:34px;margin-bottom:10px}.card h3{font-size:21px;margin-bottom:8px}.card p{color:var(--mute);font-size:15.5px}
 .problem{background:var(--dusk);color:#fff}.problem .lead{color:#CFC7F0}
 .problem .card{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16)}.problem .card p{color:#D6CEF5}
@@ -70,7 +68,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 /* testi */
 .q{font-size:16.5px}.who{margin-top:14px;font-size:14px;color:var(--mute)}.stars{color:var(--amber);letter-spacing:2px}
 /* promo */
-.promo{background:linear-gradient(120deg,var(--sun),#B5476B);color:#fff;border-radius:28px;padding:40px 28px;text-align:center}
+.promo{background:linear-gradient(120deg,#B96F43,#6A3E29);color:#fff;border-radius:28px;padding:40px 28px;text-align:center}
 .promo h2{color:#fff}.cd{display:flex;justify-content:center;gap:12px;margin:22px 0}
 .cd div{background:rgba(0,0,0,.25);border-radius:14px;padding:12px 8px;min-width:68px}.cd b{display:block;font:800 30px var(--font-d)}.cd span{font-size:12px}
 /* form */
@@ -85,8 +83,8 @@ summary{cursor:pointer;font-weight:700;font-size:17px}details[open] summary{marg
 footer{background:var(--dusk);color:#CFC7F0;padding:40px 0 100px;font-size:14.5px;text-align:center}
 .float{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;box-shadow:0 10px 26px rgba(0,0,0,.3)}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-.himg{width:100%;height:100%;object-fit:cover;border-radius:28px;box-shadow:0 24px 50px rgba(0,0,0,.4)}
-.art{height:min(420px,90vw)}.pimg{width:100%;height:auto;border-radius:14px;margin-bottom:16px;display:block}
+.himg{width:100%;height:100%;object-fit:cover;object-position:center;border-radius:28px;box-shadow:0 24px 50px rgba(0,0,0,.28)}
+.art{height:min(420px,90vw)}.pimg{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center;border-radius:16px;margin-bottom:16px;display:block}.initials{display:inline-grid;place-items:center;background:#E8D3BD;color:#6A3E29;font-weight:800;font-size:13px;letter-spacing:.04em}
 .who{display:flex;align-items:center;gap:10px}.av{width:44px;height:44px;border-radius:50%}
 </style>
 </head>
@@ -103,8 +101,7 @@ footer{background:var(--dusk);color:#CFC7F0;padding:40px 0 100px;font-size:14.5p
 <div class="cta"><a class="btn btn-amber" href="#pesan">Pesan sekarang</a><a class="btn btn-ghost" href="#menu">Lihat paket</a></div>
 <p class="proof">⭐ 4,9 dari 312 ulasan · lebih dari 5.000 botol terjual bulan ini</p>
 </div>
-<div class="art" aria-hidden="true"><img class="himg" src="images/01-botol-dan-segelas-kopi-susu-gula-aren-di.webp" alt="Botol dan segelas kopi susu gula aren di bawah langit senja" width="900" height="760">
-<span class="chip" style="left:0;top:70px">Tanpa pemanis buatan</span><span class="chip" style="right:0;top:150px">Gratis ongkir 5 km</span></div>
+<div class="art"><img class="himg" src="images/01-kopi-senja-hero.webp" alt="Foto produk ilustratif botol kopi susu gula aren Kopi Senja"><span class="chip" style="left:0;top:70px">Gula aren asli</span><span class="chip" style="right:0;top:150px">Disajikan dingin</span></div>
 </div></header>
 
 <div class="strip"><div class="wrap">
@@ -134,15 +131,15 @@ footer{background:var(--dusk);color:#CFC7F0;padding:40px 0 100px;font-size:14.5p
 <h2>Pilih paket yang cocok untuk tim Anda</h2>
 <p class="lead">Semua paket sudah termasuk botol, es batu cadangan, dan stiker nama.</p>
 <div class="grid g3">
-<div class="card price"><img class="pimg" loading="lazy" src="images/02-satu-botol-kopi-senja.webp" alt="Satu botol Kopi Senja" width="640" height="480"><h3>Si Solo</h3><p>Untuk Anda sendiri, seminggu penuh.</p>
+<div class="card price"><img class="pimg" loading="lazy" src="images/02-paket-si-solo.webp" alt="Satu botol Kopi Senja" width="640" height="480"><h3>Si Solo</h3><p>Untuk Anda sendiri, seminggu penuh.</p>
 <div class="big">Rp 49.000</div><s>1 botol 1 liter</s>
 <ul><li>±6 gelas ukuran regular</li><li>Pilih tingkat manis</li><li>Tahan 5 hari di kulkas</li></ul>
 <a class="btn btn-amber" href="#pesan" data-pick="solo">Pilih Si Solo</a></div>
-<div class="card price hot"><span class="badge">Paling laris</span><img class="pimg" loading="lazy" src="images/03-tiga-botol-kopi-senja.webp" alt="Tiga botol Kopi Senja" width="640" height="480"><h3>Tim Kompak</h3><p>Pas untuk 5–8 orang di kantor.</p>
+<div class="card price hot"><span class="badge">Paling laris</span><img class="pimg" loading="lazy" src="images/03-paket-tim-kompak.webp" alt="Tiga botol Kopi Senja" width="640" height="480"><h3>Tim Kompak</h3><p>Pas untuk 5–8 orang di kantor.</p>
 <div class="big">Rp 135.000</div><s>Rp 147.000 · hemat Rp 12.000</s>
 <ul><li>3 botol 1 liter</li><li>Gratis ongkir area kota</li><li>Bonus 1 botol cold brew mini</li><li>Stiker nama untuk tiap botol</li></ul>
 <a class="btn btn-wa" href="#pesan" data-pick="tim">Pilih Tim Kompak</a></div>
-<div class="card price"><img class="pimg" loading="lazy" src="images/04-sepuluh-botol-kopi-senja.webp" alt="Sepuluh botol Kopi Senja" width="640" height="480"><h3>Pesta Senja</h3><p>Arisan, rapat besar, acara keluarga.</p>
+<div class="card price"><img class="pimg" loading="lazy" src="images/04-paket-pesta-senja.webp" alt="Sepuluh botol Kopi Senja" width="640" height="480"><h3>Pesta Senja</h3><p>Arisan, rapat besar, acara keluarga.</p>
 <div class="big">Rp 420.000</div><s>Rp 490.000 · hemat Rp 70.000</s>
 <ul><li>10 botol 1 liter</li><li>Gratis ongkir seluruh kota</li><li>Label botol dengan nama acara</li><li>Diantar tepat waktu</li></ul>
 <a class="btn btn-amber" href="#pesan" data-pick="pesta">Pilih Pesta Senja</a></div>
@@ -159,9 +156,9 @@ footer{background:var(--dusk);color:#CFC7F0;padding:40px 0 100px;font-size:14.5p
 <section id="testi" style="background:var(--surface)"><div class="wrap">
 <h2>Kata mereka yang sudah mencoba</h2>
 <div class="grid g3">
-<div class="card"><div class="stars">★★★★★</div><p class="q">“Anak-anak kantor sampai rebutan botol terakhir. Besoknya langsung pesan paket Tim Kompak.”</p><p class="who"><img class="av" loading="lazy" src="images/05-gambar.webp" alt="" width="44" height="44"> Rina, admin kantor notaris</p></div>
-<div class="card"><div class="stars">★★★★★</div><p class="q">“Manisnya pas, tidak bikin eneg. Antarnya juga tepat waktu pas acara pengajian.”</p><p class="who"><img class="av" loading="lazy" src="images/06-gambar.webp" alt="" width="44" height="44"> Bu Siti, ibu rumah tangga</p></div>
-<div class="card"><div class="stars">★★★★★</div><p class="q">“Dulu beli kopi kafe tiap hari. Sekarang tinggal ambil dari kulkas, uang jajan jauh lebih aman.”</p><p class="who"><img class="av" loading="lazy" src="images/07-gambar.webp" alt="" width="44" height="44"> Fajar, freelancer desain</p></div>
+<div class="card"><div class="stars">★★★★★</div><p class="q">“Anak-anak kantor sampai rebutan botol terakhir. Besoknya langsung pesan paket Tim Kompak.”</p><p class="who"><span class="av initials">RS</span> Rina, admin kantor notaris</p></div>
+<div class="card"><div class="stars">★★★★★</div><p class="q">“Manisnya pas, tidak bikin eneg. Antarnya juga tepat waktu pas acara pengajian.”</p><p class="who"><span class="av initials">BS</span> Bu Siti, ibu rumah tangga</p></div>
+<div class="card"><div class="stars">★★★★★</div><p class="q">“Dulu beli kopi kafe tiap hari. Sekarang tinggal ambil dari kulkas, uang jajan jauh lebih aman.”</p><p class="who"><span class="av initials">FA</span> Fajar, freelancer desain</p></div>
 </div></div></section>
 
 <section><div class="wrap"><div class="promo">
