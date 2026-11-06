@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daftar Isi Web Demo</title>
+<style>
+:root{
+  --bg:#f3f5f9; --surface:#ffffff; --text:#14213d; --muted:#5b6478;
+  --line:#dfe3ec; --accent:#2457d6; --accent-soft:#e6edfc;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#0f1420; --surface:#181f2f; --text:#eef1f8; --muted:#9aa3b8; --line:#283049; --accent:#7ea2ff; --accent-soft:#1f2a47;}
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+.wrap{max-width:720px;margin:0 auto;padding:56px 20px 40px}
+h1{font-size:clamp(1.8rem,5vw,2.4rem);line-height:1.2;letter-spacing:-.02em}
+.lead{color:var(--muted);margin-top:10px;max-width:52ch}
+ul{list-style:none;margin-top:36px;display:grid;gap:12px}
+a.item{display:flex;align-items:center;gap:16px;padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-radius:12px;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
+a.item:hover,a.item:focus-visible{border-color:var(--accent);transform:translateX(4px);outline:none}
+a.item:focus-visible{box-shadow:0 0 0 3px var(--accent-soft)}
+.icon{flex:none;width:44px;height:44px;border-radius:10px;background:var(--accent-soft);display:grid;place-items:center;font-size:1.4rem}
+.body{flex:1;min-width:0}
+.name{font-weight:600;font-size:1.05rem}
+.path{font-size:.85rem;color:var(--muted);font-family:Consolas,Menlo,monospace}
+.tag{flex:none;font-size:.75rem;padding:3px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-weight:600}
+footer{margin-top:40px;color:var(--muted);font-size:.85rem}
+@media (prefers-reduced-motion:reduce){a.item{transition:none}a.item:hover{transform:none}}
+@media (max-width:480px){.tag{display:none}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>Daftar Isi Web Demo</h1>
+  <p class="lead">Pilih salah satu demo di bawah untuk melihat contoh website per niche.</p>
+
+  <ul>
+    <li>
+      <a class="item" href="fashion.html">
+        <span class="icon" aria-hidden="true">👗</span>
+        <span class="body"><span class="name">Fashion</span><br><span class="path">fashion.html</span></span>
+        <span class="tag">Halaman</span>
+      </a>
+    </li>
+    <li>
+      <a class="item" href="kopi.html">
+        <span class="icon" aria-hidden="true">☕</span>
+        <span class="body"><span class="name">Kopi</span><br><span class="path">kopi.html</span></span>
+        <span class="tag">Halaman</span>
+      </a>
+    </li>
+    <li>
+      <a class="item" href="skincare/">
+        <span class="icon" aria-hidden="true">🧴</span>
+        <span class="body"><span class="name">Skincare</span><br><span class="path">skincare/</span></span>
+        <span class="tag">Folder</span>
+      </a>
+    </li>
+    <li>
+      <a class="item" href="sambal-roa/">
+        <span class="icon" aria-hidden="true">🌶️</span>
+        <span class="body"><span class="name">Sambal Roa</span><br><span class="path">sambal-roa/</span></span>
+        <span class="tag">Folder</span>
+      </a>
+    </li>
+  </ul>
+
+  <footer>Web demo</footer>
+</main>
+</body>
+</html>
