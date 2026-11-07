@@ -6,10 +6,10 @@
 <title>Kopi Senja – Kopi Susu Gula Aren Literan, Antar Hari Ini</title>
 <meta name="description" content="Kopi susu gula aren literan, diseduh pagi ini, diantar sebelum siang. Pesan lewat WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#F7F1E8;--surface:#FFFCF7;--ink:#30231B;--mute:#76665A;--line:#E7D9C8;--dusk:#38251B;--dusk2:#75452D;--amber:#DFA64F;--amber-ink:#392313;--green:#21834F;--sun:#B96F43;
---font-d:'Bricolage Grotesque',system-ui,sans-serif;--font-b:'DM Sans',system-ui,sans-serif;color-scheme:light;
+--font-d:'Fraunces',Georgia,'Times New Roman',serif;--font-b:'DM Sans',system-ui,sans-serif;color-scheme:light;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--font-b);-webkit-font-smoothing:antialiased}
@@ -86,6 +86,23 @@ footer{background:var(--dusk);color:#CFC7F0;padding:40px 0 100px;font-size:14.5p
 .himg{width:100%;height:100%;object-fit:cover;object-position:center;border-radius:28px;box-shadow:0 24px 50px rgba(0,0,0,.28)}
 .art{height:min(420px,90vw)}.pimg{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center;border-radius:16px;margin-bottom:16px;display:block}.initials{display:inline-grid;place-items:center;background:#E8D3BD;color:#6A3E29;font-weight:800;font-size:13px;letter-spacing:.04em}
 .who{display:flex;align-items:center;gap:10px}.av{width:44px;height:44px;border-radius:50%}
+
+/* Tipografi: Fraunces (serif hangat, bersahabat) untuk heading & hero */
+h1,h2,h3{font-weight:700;letter-spacing:-.015em}
+h3{letter-spacing:-.005em}
+.hero h1{font-size:clamp(38px,6.6vw,64px);font-weight:700;line-height:1.05;letter-spacing:-.025em}
+h2{font-weight:700;line-height:1.12}
+.logo{font-weight:800;letter-spacing:-.01em}
+
+/* FAQ accordion: satu item terbuka, yang lain menutup otomatis */
+details{transition:border-color .25s}
+details[open]{border-color:var(--amber)}
+summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";flex:none;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:var(--bg);color:var(--dusk2);font-size:20px;line-height:1;transition:background .25s,color .25s}
+details[open] summary::after{content:"\2212";background:var(--amber);color:var(--amber-ink)}
+details[open] p{animation:faqIn .3s ease}
+@keyframes faqIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -183,11 +200,11 @@ footer{background:var(--dusk);color:#CFC7F0;padding:40px 0 100px;font-size:14.5p
 
 <section id="faq" style="background:var(--surface)"><div class="wrap" style="max-width:760px">
 <h2 style="margin-bottom:28px">Pertanyaan yang sering muncul</h2>
-<details><summary>Sampai kapan kopinya awet?</summary><p>Simpan di kulkas dan nikmati dalam 5 hari. Kocok dulu sebelum dituang, karena susu dan kopi memang suka berpisah sebentar.</p></details>
-<details><summary>Area antar sampai mana?</summary><p>Gratis ongkir untuk area dalam kota sesuai paket. Di luar itu ada ongkos kecil yang kami infokan sebelum Anda bayar.</p></details>
-<details><summary>Bisa pesan untuk besok pagi?</summary><p>Bisa. Pesan sebelum pukul 20.00 dan sebutkan jam antar yang Anda mau di catatan.</p></details>
-<details><summary>Boleh request label nama acara?</summary><p>Boleh banget. Paket Pesta Senja sudah termasuk label, untuk paket lain tambah Rp 2.000 per botol.</p></details>
-<details><summary>Bagaimana kalau tidak cocok?</summary><p>Hubungi kami di hari yang sama. Kami ganti atau kembalikan dana, tanpa drama.</p></details>
+<details name="faq"><summary>Sampai kapan kopinya awet?</summary><p>Simpan di kulkas dan nikmati dalam 5 hari. Kocok dulu sebelum dituang, karena susu dan kopi memang suka berpisah sebentar.</p></details>
+<details name="faq"><summary>Area antar sampai mana?</summary><p>Gratis ongkir untuk area dalam kota sesuai paket. Di luar itu ada ongkos kecil yang kami infokan sebelum Anda bayar.</p></details>
+<details name="faq"><summary>Bisa pesan untuk besok pagi?</summary><p>Bisa. Pesan sebelum pukul 20.00 dan sebutkan jam antar yang Anda mau di catatan.</p></details>
+<details name="faq"><summary>Boleh request label nama acara?</summary><p>Boleh banget. Paket Pesta Senja sudah termasuk label, untuk paket lain tambah Rp 2.000 per botol.</p></details>
+<details name="faq"><summary>Bagaimana kalau tidak cocok?</summary><p>Hubungi kami di hari yang sama. Kami ganti atau kembalikan dana, tanpa drama.</p></details>
 </div></section>
 
 <section><div class="wrap" style="text-align:center">
@@ -216,6 +233,11 @@ function tick(){var s=Math.max(0,Math.floor((end-Date.now())/1000));
 var v={d:Math.floor(s/86400),h:Math.floor(s%86400/3600),m:Math.floor(s%3600/60),s:s%60};
 for(var k in v){$(k).textContent=String(v[k]).padStart(2,"0")}}
 tick();setInterval(tick,1000);
+(function(){
+var items=document.querySelectorAll('#faq details');
+items.forEach(function(d){d.addEventListener('toggle',function(){
+if(d.open){items.forEach(function(o){if(o!==d)o.open=false})}})});
+})();
 </script>
 </body>
 </html>

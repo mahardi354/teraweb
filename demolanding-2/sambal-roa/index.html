@@ -3,14 +3,14 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* Layout: satu halaman jualan panjang. Hero dua kolom (teks + stoples), lalu bagian bergantian terang/gelap tipis, ditutup form pesan ke WhatsApp. */
 :root{
   --bg:#fcf6f4; --surface:#ffffff; --ink:#231512; --muted:#6d5650; --line:#ecd9d4;
   --chili:#c91f1a; --btn:#c91f1a; --chili-soft:#fde3df; --gold:#f0a500; --green:#1e6b4b; --green-soft:#dff1e8;
   --band:#8f1013; --on-band:#fff4f1;
-  --font-display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --font-display:'Fraunces',Georgia,'Times New Roman',serif;
   --font-body:'Figtree','Segoe UI',system-ui,sans-serif;
   --shadow:0 18px 40px -22px rgba(120,30,20,.45);
 }
@@ -52,7 +52,7 @@ a{color:inherit}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
 header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
-.brand{font:800 1.25rem var(--font-display);text-decoration:none;display:flex;align-items:center;gap:8px;letter-spacing:-.02em}
+.brand{font:700 1.25rem var(--font-display);text-decoration:none;display:flex;align-items:center;gap:8px;letter-spacing:-.02em}
 .brand i{width:12px;height:12px;border-radius:50% 50% 50% 0;background:var(--chili);transform:rotate(-45deg);display:inline-block}
 .nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-weight:600;font-size:.95rem}
 .nav ul a{text-decoration:none;color:var(--muted)}
@@ -123,7 +123,7 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgroun
 .heat{display:flex;align-items:center;gap:6px;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .heat i{width:20px;height:8px;border-radius:99px;background:var(--line)}
 .heat i.on{background:var(--chili)}
-.price{font:800 1.7rem var(--font-display);margin-top:auto}
+.price{font:700 1.7rem var(--font-display);margin-top:auto}
 .price small{font:500 .85rem var(--font-body);color:var(--muted)}
 .ok{margin-top:18px;color:var(--muted);font-size:.92rem}
 
@@ -136,7 +136,7 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgroun
 .steps li{counter-increment:s;position:relative;border:1px solid var(--line);border-radius:20px;background:var(--surface);display:flex;flex-direction:column;min-width:0;overflow:hidden}
 .steps li img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block}
 .steps .tx{padding:18px 22px 22px;display:flex;flex-direction:column;gap:8px}
-.steps li::before{content:counter(s);position:absolute;left:12px;top:12px;width:38px;height:38px;border-radius:50%;background:var(--chili);color:#fff;font:800 1.15rem var(--font-display);display:grid;place-items:center;box-shadow:0 6px 14px -6px rgba(0,0,0,.5)}
+.steps li::before{content:counter(s);position:absolute;left:12px;top:12px;width:38px;height:38px;border-radius:50%;background:var(--chili);color:#fff;font:700 1.15rem var(--font-display);display:grid;place-items:center;box-shadow:0 6px 14px -6px rgba(0,0,0,.5)}
 .steps p{color:var(--muted);font-size:.96rem}
 .steps time{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
 @media(max-width:900px){.steps{grid-template-columns:1fr 1fr}}
@@ -159,7 +159,7 @@ td.no{color:var(--muted)}
 .plan{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:30px;display:flex;flex-direction:column;gap:16px}
 .plan.hot{border:2px solid var(--chili);box-shadow:var(--shadow)}
 .plan .badge{position:absolute;top:-14px;left:28px;background:var(--chili);color:#fff;font:700 .78rem var(--font-body);letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:99px}
-.plan .big{font:800 2.5rem/1 var(--font-display);letter-spacing:-.03em}
+.plan .big{font:700 2.5rem/1 var(--font-display);letter-spacing:-.03em}
 .plan .was{color:var(--muted);text-decoration:line-through;font-size:.95rem}
 .plan .save{display:inline-block;align-self:flex-start;background:var(--green-soft);color:var(--green);font-weight:700;font-size:.85rem;padding:4px 12px;border-radius:99px}
 .plan .ticks{margin-block:4px 8px;flex:1}
@@ -177,7 +177,7 @@ td.no{color:var(--muted)}
 
 /* guarantee */
 .guar{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:var(--green-soft);border:1px solid color-mix(in srgb,var(--green) 35%,transparent);border-radius:28px;padding:clamp(24px,4vw,44px)}
-.guar .seal{width:96px;height:96px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;text-align:center;font:800 1.15rem/1.1 var(--font-display)}
+.guar .seal{width:96px;height:96px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;text-align:center;font:700 1.15rem/1.1 var(--font-display)}
 .guar .seal small{display:block;font:600 .62rem var(--font-body);letter-spacing:.12em}
 .guar div{display:flex;flex-direction:column;gap:8px;min-width:0}
 @media(max-width:600px){.guar{grid-template-columns:1fr}}
@@ -193,7 +193,7 @@ input:focus,select:focus,textarea:focus{outline:3px solid color-mix(in srgb,var(
 .row2{display:grid;grid-template-columns:1fr 120px;gap:14px}
 .sum{background:var(--chili-soft);border-radius:16px;padding:16px 18px;display:flex;flex-direction:column;gap:6px;font-size:.95rem}
 .sum div{display:flex;justify-content:space-between;gap:12px}
-.sum .tot{font:800 1.5rem var(--font-display);padding-top:8px;border-top:1px dashed var(--line);margin-top:4px;font-variant-numeric:tabular-nums}
+.sum .tot{font:700 1.5rem var(--font-display);padding-top:8px;border-top:1px dashed var(--line);margin-top:4px;font-variant-numeric:tabular-nums}
 .sum span:last-child{font-variant-numeric:tabular-nums;font-weight:600;text-align:right}
 .fine{color:var(--muted);font-size:.85rem;text-align:center}
 .steps-mini{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
@@ -215,7 +215,7 @@ details p{color:var(--muted);padding-bottom:20px}
 .final .wrap{display:flex;flex-direction:column;align-items:center;gap:20px;padding-block:clamp(56px,8vw,96px)}
 .final p{opacity:.9;max-width:52ch}
 .final .count{display:flex;gap:10px}
-.final .count div{background:rgba(255,255,255,.14);border-radius:14px;padding:10px 16px;min-width:74px;font:800 1.9rem var(--font-display);font-variant-numeric:tabular-nums;line-height:1.1}
+.final .count div{background:rgba(255,255,255,.14);border-radius:14px;padding:10px 16px;min-width:74px;font:700 1.9rem var(--font-display);font-variant-numeric:tabular-nums;line-height:1.1}
 .final .count small{display:block;font:600 .65rem var(--font-body);letter-spacing:.12em;text-transform:uppercase;opacity:.8}
 
 footer.site{padding-block:36px 110px;color:var(--muted);font-size:.9rem}
@@ -226,6 +226,21 @@ footer.site small{display:block;margin-top:4px}
 .fab{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:25;display:flex;align-items:center;gap:10px;background:#1f9d55;color:#fff;font-weight:700;text-decoration:none;padding:14px 20px;border-radius:99px;box-shadow:0 14px 30px -10px rgba(0,0,0,.5)}
 @media(max-width:480px){.fab span{display:none}.fab{padding:15px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* Tipografi: Fraunces weight 700 untuk heading & hero (serif hangat), Figtree untuk isi */
+h1,h2,h3{font-weight:700;letter-spacing:-.015em}
+h1{font-size:clamp(2.1rem,4.6vw,3.4rem);font-weight:700;letter-spacing:-.025em;line-height:1.08}
+h2{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:700}
+h3{font-weight:700;letter-spacing:-.005em}
+.d{display:none}
+@media(min-width:861px){.d{display:inline}}
+
+/* FAQ accordion: satu item terbuka, yang lain menutup otomatis */
+details{transition:border-color .25s}
+details[open]{border-color:var(--chili)}
+details[open] p{animation:faqIn .3s ease}
+@keyframes faqIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){details[open] p{animation:none}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -259,7 +274,7 @@ footer.site small{display:block;margin-top:4px}
 <section class="hero"><div class="wrap">
   <div class="copy">
     <span class="eyebrow">Sambal roa rumahan dari Cilacap</span>
-    <h1>Pedasnya bikin <em>nambah nasi</em>, bukan bikin nyesel.</h1>
+    <h1>Pedasnya bikin<br class="d"> <em>nambah nasi</em>, bukan<br class="d"> bikin nyesel.</h1>
     <p class="lead">Cabai rawit segar, ikan roa asap asli, dan bawang yang ditumis pelan di wajan besi. Tanpa pengawet, tanpa pewarna, dimasak per batch supaya aromanya masih ngangenin saat sampai di meja makanmu.</p>
     <div class="cta-row">
       <a class="btn" href="#pesan"><svg class="ic"><use href="#i-wa"/></svg>Pesan lewat WhatsApp</a>
@@ -522,13 +537,13 @@ footer.site small{display:block;margin-top:4px}
     <h2>Yang sering ditanyakan</h2>
   </div>
   <div class="faq">
-    <details><summary>Tahan berapa lama?</summary><p>Sambal tahan 3 bulan di suhu ruang selama stoples tertutup rapat, dan 6 bulan di kulkas. Setelah dibuka, simpan di kulkas dan ambil dengan sendok kering. Tanggal produksi tertera di tutup.</p></details>
-    <details><summary>Seberapa pedas yang Nendang?</summary><p>Kira-kira setara 15 sampai 20 cabai rawit per sendok makan. Kalau biasa makan level 4 ke atas, pilih Nendang. Kalau ragu, mulai dari Original.</p></details>
-    <details><summary>Bisa kirim ke luar Jawa?</summary><p>Bisa. Ongkir dihitung sesuai tujuan dan akan dikonfirmasi admin sebelum kamu transfer. Paket Keluarga dan Reseller gratis ongkir khusus pulau Jawa.</p></details>
-    <details><summary>Apakah ada COD?</summary><p>COD tersedia untuk wilayah Cilacap dan Purwokerto. Untuk kota lain, pembayaran lewat transfer bank atau e-wallet.</p></details>
-    <details><summary>Kalau stoples pecah di jalan?</summary><p>Kirim foto paket dan video unboxing dalam 7 hari. Kami kirim ulang tanpa biaya tambahan.</p></details>
-    <details><summary>Bagaimana cara jadi reseller?</summary><p>Pesan Paket Reseller, 12 stoples dengan harga Rp29.000 per stoples. Kamu dapat materi foto dan teks promosi. Harga jual yang disarankan Rp38.000 per stoples.</p></details>
-    <details><summary>Boleh pesan custom label untuk hampers atau souvenir?</summary><p>Bisa untuk pemesanan minimal 50 stoples. Hubungi admin lewat WhatsApp untuk diskusi desain label dan harga.</p></details>
+    <details name="faq"><summary>Tahan berapa lama?</summary><p>Sambal tahan 3 bulan di suhu ruang selama stoples tertutup rapat, dan 6 bulan di kulkas. Setelah dibuka, simpan di kulkas dan ambil dengan sendok kering. Tanggal produksi tertera di tutup.</p></details>
+    <details name="faq"><summary>Seberapa pedas yang Nendang?</summary><p>Kira-kira setara 15 sampai 20 cabai rawit per sendok makan. Kalau biasa makan level 4 ke atas, pilih Nendang. Kalau ragu, mulai dari Original.</p></details>
+    <details name="faq"><summary>Bisa kirim ke luar Jawa?</summary><p>Bisa. Ongkir dihitung sesuai tujuan dan akan dikonfirmasi admin sebelum kamu transfer. Paket Keluarga dan Reseller gratis ongkir khusus pulau Jawa.</p></details>
+    <details name="faq"><summary>Apakah ada COD?</summary><p>COD tersedia untuk wilayah Cilacap dan Purwokerto. Untuk kota lain, pembayaran lewat transfer bank atau e-wallet.</p></details>
+    <details name="faq"><summary>Kalau stoples pecah di jalan?</summary><p>Kirim foto paket dan video unboxing dalam 7 hari. Kami kirim ulang tanpa biaya tambahan.</p></details>
+    <details name="faq"><summary>Bagaimana cara jadi reseller?</summary><p>Pesan Paket Reseller, 12 stoples dengan harga Rp29.000 per stoples. Kamu dapat materi foto dan teks promosi. Harga jual yang disarankan Rp38.000 per stoples.</p></details>
+    <details name="faq"><summary>Boleh pesan custom label untuk hampers atau souvenir?</summary><p>Bisa untuk pemesanan minimal 50 stoples. Hubungi admin lewat WhatsApp untuk diskusi desain label dan harga.</p></details>
   </div>
 </div></section>
 
@@ -616,4 +631,11 @@ footer.site small{display:block;margin-top:4px}
 })();
 </script>
 
+<script>
+(function(){
+var items=document.querySelectorAll('.faq details');
+items.forEach(function(d){d.addEventListener('toggle',function(){
+if(d.open){items.forEach(function(o){if(o!==d)o.open=false})}})});
+})();
+</script>
 </body></html>
