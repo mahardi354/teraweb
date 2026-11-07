@@ -2,260 +2,369 @@
 <html lang="id">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Program Mitra Jasa Perizinan | TeraWeb</title>
-<meta name="description" content="Tawarkan Paket PT + Website ke klien Anda. Modal Rp500.000 per website, harga jual Anda yang tentukan, white label, tayang 3-5 hari kerja. Tanpa biaya bergabung.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Partner White Label Website untuk Jasa Perizinan dan Legalitas | TeraWeb</title>
+<meta name="description" content="Tambahkan Paket PT + Website di layanan perizinan Anda tanpa menambah tim. White label, tayang 3-5 hari kerja, harga partner mulai Rp300.000 per proyek.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0d2438;--ink2:#35506a;--paper:#f4f7fa;--card:#fff;--line:#d6e0ea;--green:#0a8a63;--gbg:#e2f5ee;--amber:#f2a516;--abg:#fff3d6}
-*{box-sizing:border-box;margin:0}
+:root{--ink:#0f1b3d;--mute:#51608a;--blue:#1d4ed8;--deep:#0c2a6e;--soft:#eef3ff;--line:#d9e2f5;--ok:#0f7a4a;--gold:#f5b301;color-scheme:light}
+*{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:"Public Sans",system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;font-size:17px;padding-bottom:84px}
-h1,h2,h3{font-family:"Bricolage Grotesque","Public Sans",sans-serif;line-height:1.12;letter-spacing:-.02em}
+body{margin:0;background:#fff;color:var(--ink);font:17px/1.65 "Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
-section{padding:72px 0}
-h2{font-size:clamp(28px,4.2vw,42px);font-weight:800;max-width:21ch}
-.lead{color:var(--ink2);max-width:60ch;margin-top:14px}
-.btn{display:inline-block;background:var(--green);color:#fff;font-weight:600;padding:15px 26px;border-radius:10px;text-decoration:none;font-size:17px;transition:transform .15s,background .15s}
-.btn:hover{background:#087653;transform:translateY(-2px)}
-.btn.alt{background:transparent;border:2px solid rgba(255,255,255,.4)}
-.btn.alt:hover{background:rgba(255,255,255,.12)}
-header.top{background:var(--ink);color:#fff;padding-top:env(safe-area-inset-top,0)}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
-.logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:22px;text-decoration:none}
-.logo span{color:var(--amber)}
-.nav small{color:#9fb6cb;font-size:14px}
-.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center;padding:30px 0 84px}
-.hero h1{font-size:clamp(34px,5.6vw,58px);font-weight:800}
-.hero h1 em{font-style:normal;color:var(--amber)}
-.hero p{color:#c3d3e2;margin:20px 0 28px;max-width:48ch;font-size:18px}
+.w{max-width:1000px;margin:0 auto;padding:0 20px}
+section{padding:60px 0}
+h1,h2,h3{line-height:1.2;margin:0}
+h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;margin-bottom:10px}
+.lead{color:var(--mute);max-width:62ch;margin:0 0 28px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;text-decoration:none}
+.brand svg{width:34px;height:34px}
+.btn{display:inline-block;padding:14px 22px;border-radius:10px;font-weight:600;text-decoration:none;border:2px solid var(--blue);background:var(--blue);color:#fff;font-size:1rem;cursor:pointer;font-family:inherit}
+.btn.alt{background:transparent;color:var(--blue)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.hero{background:var(--deep);color:#fff;padding:0 0 56px}
+.hero nav a.btn{padding:9px 16px;font-size:.92rem;background:#fff;color:var(--deep);border-color:#fff}
+.hero h1{font-size:clamp(1.9rem,5vw,3.1rem);font-weight:800;max-width:19ch;margin:34px 0 16px}
+.hero p{color:#c9d7ff;max-width:58ch;margin:0 0 26px;font-size:1.08rem}
+.hero .btn,.final .btn{background:var(--gold);border-color:var(--gold);color:#1b1500}
+.hero .btn.alt{background:transparent;color:#fff;border-color:#8fa8e6}
+.forwho{display:inline-block;margin-top:30px;background:var(--gold);color:#1b1500;font-weight:800;font-size:.9rem;padding:6px 14px;border-radius:99px}
+.forwho+h1{margin-top:14px}
 .cta{display:flex;gap:12px;flex-wrap:wrap}
-.chips{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;font-size:14.5px;color:#9fb6cb}
-.chips span::before{content:"✓ ";color:var(--amber);font-weight:700}
-.inv{background:var(--card);color:var(--ink);border-radius:16px;padding:24px;box-shadow:0 24px 60px rgba(0,0,0,.35);transform:rotate(1.5deg)}
-.inv h3{font-size:18px;display:flex;justify-content:space-between;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:2px dashed var(--line)}
-.inv h3 span{font-family:"Public Sans";font-weight:500;font-size:13px;color:var(--ink2)}
-.row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;font-size:15px;border-bottom:1px solid var(--line)}
-.row b{font-weight:600;white-space:nowrap}
-.row.new{background:var(--abg);border:2px solid var(--amber);border-radius:10px;padding:12px;margin:10px 0;animation:pop .7s .5s both}
-.row.new em{display:block;font-style:normal;font-size:12px;color:#8a5a00;font-weight:600}
-.mg{display:flex;justify-content:space-between;align-items:center;background:var(--gbg);border-radius:10px;padding:12px 14px;margin-top:6px;font-weight:700}
-.mg span:last-child{color:var(--green);font-size:20px;font-family:"Bricolage Grotesque"}
-@keyframes pop{from{opacity:0;transform:translateY(-14px) scale(.96)}to{opacity:1;transform:none}}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:-44px;position:relative}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 12px 30px rgba(13,36,56,.08)}
-.stat b{display:block;font-family:"Bricolage Grotesque";font-size:clamp(26px,3.6vw,36px);color:var(--green);line-height:1.1}
-.stat span{font-size:15px;color:var(--ink2)}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
-.quote{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--green);border-radius:12px;padding:22px 24px;font-size:19px;font-family:"Bricolage Grotesque",sans-serif;font-weight:500;line-height:1.4}
-.quote small{display:block;margin-top:10px;font-family:"Public Sans";font-size:14px;color:var(--ink2);font-weight:400}
-.list{list-style:none;padding:0;margin-top:22px;display:grid;gap:14px}
-.list li{padding-left:34px;position:relative}
-.list li::before{content:"";position:absolute;left:0;top:5px;width:20px;height:20px;border-radius:50%;background:var(--gbg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3.2 3.2L15 6.8' fill='none' stroke='%230a8a63' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/cover}
-.dark{background:var(--ink);color:#fff}
-.dark .lead{color:#c3d3e2}
-.ways{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:36px}
-.way{border-radius:16px;padding:30px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18)}
-.way.main{background:#fff;color:var(--ink);border:0}
-.way .tag{display:inline-block;background:var(--gbg);color:var(--green);font-weight:600;font-size:13px;padding:4px 12px;border-radius:99px;margin-bottom:14px}
-.way:not(.main) .tag{background:rgba(255,255,255,.14);color:#fff}
-.way h3{font-size:25px;margin-bottom:8px}
-.way p{font-size:16px;opacity:.92}
-.way ul{list-style:none;padding:0;margin-top:16px;display:grid;gap:8px;font-size:16px}
-.way li::before{content:"+ ";font-weight:700;color:var(--amber)}
-.way.main li::before{color:var(--green)}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px;counter-reset:s}
-.step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;counter-increment:s}
-.step::before{content:counter(s);display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;margin-bottom:14px;font-family:"Bricolage Grotesque"}
-.step h3{font-size:19px;margin-bottom:6px}
-.step p{color:var(--ink2);font-size:15.5px}
-.kit{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
-.kit div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:22px}
-.kit h3{font-size:19px;margin-bottom:6px;color:var(--amber)}
-.kit p{font-size:15.5px;color:#c3d3e2}
-.calc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px;margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:34px}
-.calc label{display:block;font-weight:600;font-size:15px;margin-bottom:6px}
-.calc .f{margin-bottom:22px}
-.calc input[type=range]{width:100%;accent-color:var(--green)}
-.calc .big2{font-family:"Bricolage Grotesque";font-weight:800;font-size:26px}
-.fixed{background:var(--paper);border:1px dashed var(--line);border-radius:10px;padding:12px 14px;font-size:15px;display:flex;justify-content:space-between;gap:10px}
-.fixed b{color:var(--green)}
-.out{background:var(--gbg);border-radius:14px;padding:26px;display:flex;flex-direction:column;justify-content:center}
-.out .big{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(34px,5vw,50px);color:var(--green);line-height:1.05;margin:6px 0}
-.out p{font-size:15px;color:var(--ink2)}
-.out .yr{margin-top:12px;font-weight:600;font-size:17px}
-.fn{font-size:13px;color:var(--ink2);margin-top:12px}
-details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin-top:12px}
-summary{font-weight:600;cursor:pointer}
-details p{margin-top:10px;color:var(--ink2);font-size:16px}
-.final{text-align:center;padding:90px 0}
-.final h2{margin:0 auto;max-width:19ch;color:#fff}
-.final .lead{margin:16px auto 30px}
-footer{background:#081826;color:#8aa3b9;font-size:14px;padding:26px 0 calc(26px + 70px);text-align:center}
-.sticky{position:fixed;left:0;right:0;bottom:0;z-index:9;background:rgba(13,36,56,.96);backdrop-filter:blur(8px);padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));display:flex;gap:12px;justify-content:center;align-items:center}
-.sticky span{color:#c3d3e2;font-size:15px}
-.sticky .btn{padding:11px 22px;font-size:16px}
-@media(max-width:820px){.hero,.split,.ways,.calc,.steps,.kit,.stats{grid-template-columns:1fr}.inv{transform:none}section{padding:54px 0}.nav small{display:none}.sticky span{display:none}.stats{margin-top:-52px}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:38px}
+.stats div{border:1px solid #37579f;border-radius:12px;padding:14px}
+.stats b{display:block;font-size:1.2rem}
+.stats span{color:#b9c9f5;font-size:.9rem}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{border:1px solid var(--line);border-radius:14px;padding:18px;background:#fff}
+.card h3{font-size:1.02rem;margin-bottom:6px}
+.card p{margin:0;color:var(--mute);font-size:.96rem}
+.pain .card{border-left:4px solid #e0a800}
+.alt-bg{background:var(--soft)}
+.step b.n{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;margin-bottom:8px}
+ul.tick{list-style:none;padding:0;margin:12px 0 0}
+ul.tick li{padding-left:28px;position:relative;margin-bottom:8px;font-size:.95rem}
+ul.tick li:before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}
+.price{border:2px solid var(--line);border-radius:16px;padding:22px;background:#fff;position:relative}
+.price.hot{border-color:var(--blue)}
+.tag{position:absolute;top:-12px;left:18px;background:var(--blue);color:#fff;font-size:.8rem;font-weight:600;padding:3px 12px;border-radius:99px}
+.price h3{font-size:1.2rem}
+.price .p1{font-size:2rem;font-weight:800;color:var(--blue);margin:8px 0 0;display:block}
+.price small{color:var(--mute)}
+.sugg{background:var(--soft);border-radius:10px;padding:10px 12px;margin-top:12px;font-size:.92rem}
+.bundle{margin-top:26px;background:#fff;border:2px dashed var(--blue);border-radius:16px;padding:20px}
+.bundle h3{font-size:1.1rem;margin-bottom:12px}
+.bundle .grid{gap:12px}
+.bundle .it{border:1px solid var(--line);border-radius:12px;padding:14px;font-size:.93rem}
+.bundle .it b{display:block;margin-bottom:2px}
+.bundle .it.hl{background:var(--soft);border-color:var(--blue)}
+.bundle .it em{display:block;font-style:normal;font-weight:800;color:var(--blue);margin-top:6px}
+.note{font-size:.85rem;color:var(--mute);margin-top:10px}
+.shots{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.shot{display:block;text-decoration:none;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.shot img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top}
+.shot .ph{aspect-ratio:4/5;display:grid;place-content:center;gap:6px;text-align:center;padding:12px;background:repeating-linear-gradient(135deg,#eef3ff,#eef3ff 12px,#e4ecff 12px,#e4ecff 24px);color:var(--mute);font-size:.82rem;border-bottom:1px solid var(--line)}
+.shot .ph b{font-size:.78rem;letter-spacing:.06em;color:var(--blue)}
+.shot span.t{display:block;padding:8px 10px;font-size:.88rem;font-weight:600}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
+label{display:block;font-size:.88rem;color:var(--mute);margin:12px 0 4px}
+label:first-child{margin-top:0}
+input,select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff;color:var(--ink)}
+.res{background:var(--deep);color:#fff;border-radius:16px;padding:22px}
+.res small{color:#b9c9f5}
+.res .big{font-size:2rem;font-weight:800;display:block}
+.res .row{display:flex;justify-content:space-between;border-top:1px solid #37579f;padding:10px 0;gap:10px}
+.copyb{border:1px solid var(--line);border-radius:12px;background:#fff;margin-bottom:12px;overflow:hidden}
+.copyb header{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);font-weight:600}
+.copyb button{padding:6px 12px;border:1px solid var(--blue);border-radius:6px;background:transparent;color:var(--blue);font:inherit;font-size:.9rem;cursor:pointer}
+.copyb button.done{background:var(--ok);border-color:var(--ok);color:#fff}
+.copyb pre{margin:0;padding:14px;white-space:pre-wrap;word-wrap:break-word;font:inherit;font-size:.93rem;color:var(--ink)}
+details{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px;background:#fff}
+summary{cursor:pointer;font-weight:600}
+details p{margin:10px 0 0;color:var(--mute)}
+.final{background:var(--deep);color:#fff;text-align:center}
+.final p{color:#c9d7ff;margin:0 auto 24px;max-width:52ch}
+footer{padding:24px 0 80px;color:var(--mute);font-size:.9rem;text-align:center}
+.wa{position:fixed;right:16px;bottom:16px;z-index:5;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+@media (max-width:760px){.stats,.shots{grid-template-columns:1fr 1fr}.g2,.g3,.g4,.calc{grid-template-columns:1fr}section{padding:44px 0}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
-<header class="top">
-<div class="wrap">
-<div class="nav"><a class="logo" href="#">Tera<span>Web</span></a><small>Program Mitra untuk Jasa Perizinan &amp; Legalitas</small></div>
-<div class="hero">
-<div>
-<h1>Setiap PT yang Anda urus bisa jadi <em>margin jutaan rupiah</em> lagi.</h1>
-<p>Klien baru Anda butuh website untuk tender dan daftar vendor. Jadikan “Paket PT + Website”: klien senang karena beres di satu tempat, Anda dapat margin besar. Kami kerjakan di belakang layar, atas nama Anda.</p>
-<div class="cta"><a class="btn wa" href="#">Gabung jadi mitra</a><a class="btn alt" href="https://teraweb.id/demo/industri/" target="_blank" rel="noopener">Lihat contoh hasilnya</a></div>
-<div class="chips"><span>Tanpa biaya bergabung</span><span>Tanpa target minimum</span><span>White label</span></div>
-</div>
-<div class="inv" aria-label="Contoh invoice Paket PT + Website">
-<h3>Paket PT + Website <span>contoh ilustrasi</span></h3>
-<div class="row"><span>Akta, SK, dan NIB</span><b>paket Anda</b></div>
-<div class="row"><span>NPWP badan</span><b>paket Anda</b></div>
-<div class="row new"><span>Website company profile<em>Tambahan baru di paket Anda</em></span><b>+ Rp2.000.000</b></div>
-<div class="mg"><span>Modal Anda Rp500.000, margin</span><span>Rp1.500.000</span></div>
-</div>
-</div>
-</div>
+<header class="hero">
+  <div class="w">
+    <nav>
+      <a class="brand" href="https://teraweb.id" aria-label="TeraWeb">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#1d4ed8"/><circle cx="20" cy="20" r="16" fill="none" stroke="#fff" stroke-width="1"/><circle cx="20" cy="20" r="12.5" fill="none" stroke="#fff" stroke-width="1"/><path d="M13.5 20.5l4.5 4.5 8.5-9.5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        TeraWeb
+      </a>
+      <a class="btn wa-link" href="#kontak">Jadi partner</a>
+    </nav>
+    <span class="forwho" id="forwho" hidden></span>
+    <h1>PT baru sudah jadi, kliennya butuh website? Jawab “bisa”, tanpa menambah tim.</h1>
+    <p>TeraWeb mengerjakan website company profile white label untuk jasa perizinan dan legalitas: atas nama Anda, harga jual Anda, tayang dalam 3-5 hari kerja. Jadikan “Paket PT + Website” dan tambahkan margin di tiap klien.</p>
+    <div class="cta">
+      <a class="btn wa-link" href="#" target="_blank" rel="noopener">Jadi partner via WhatsApp</a>
+      <a class="btn alt" href="#paket">Lihat paket dan harga</a>
+    </div>
+    <div class="stats">
+      <div><b>Mulai Rp300.000</b><span>harga partner per proyek</span></div>
+      <div><b>3-5 hari kerja</b><span>setelah materi lengkap</span></div>
+      <div><b>White label</b><span>tanpa merek TeraWeb</span></div>
+      <div><b>Hosting gratis</b><span>termasuk perpanjangannya</span></div>
+    </div>
+  </div>
 </header>
 
-<div class="wrap">
-<div class="stats">
-<div class="stat"><b>Rp500rb</b><span>modal per website, harga tetap</span></div>
-<div class="stat"><b>Rp1,5-3,5 jt</b><span>kisaran harga jual website company profile di pasaran</span></div>
-<div class="stat"><b>3-5 hari</b><span>kerja sejak data klien lengkap</span></div>
-</div>
-</div>
+<section>
+  <div class="w">
+    <h2>Ini pasti sering terjadi di biro perizinan Anda</h2>
+    <p class="lead">Izin selesai, klien senang, lalu muncul satu permintaan yang bukan bisnis utama Anda.</p>
+    <div class="grid g2 pain">
+      <div class="card"><h3>“Sekalian bikinin website ya”</h3><p>Begitu NIB terbit, klien butuh company profile. Kalau Anda tidak punya jawaban, mereka mencari vendor lain.</p></div>
+      <div class="card"><h3>Syarat tender dan vendor mendesak</h3><p>Instansi dan perusahaan besar sering meminta profil dan alamat website. Klien butuh cepat, dan Anda ingin tetap jadi orang yang membantu.</p></div>
+      <div class="card"><h3>Paket Anda sama dengan kompetitor</h3><p>Harga dan layanan mirip. Website yang beres di satu tempat bisa jadi pembeda yang nyata.</p></div>
+      <div class="card"><h3>Klien lama belum punya website</h3><p>PT-nya sudah berdiri berbulan-bulan, tapi websitenya belum ada. Peluang itu sudah ada di kontak Anda.</p></div>
+    </div>
+    <p style="margin-top:22px;font-weight:600">Dengan partner white label, semua itu jadi layanan yang bisa Anda tambahkan ke paket klien.</p>
+  </div>
+</section>
+
+<section class="alt-bg" id="paket">
+  <div class="w">
+    <h2>Dua paket, harga partner jelas</h2>
+    <p class="lead">Anda yang menetapkan harga jual ke klien. Kami hanya menagih harga partner.</p>
+    <div class="grid g2">
+      <div class="price hot">
+        <span class="tag">Paling cocok untuk Paket PT + Website</span>
+        <h3>Website 4 Halaman</h3><small>Beranda, Layanan, Tentang Kami, Kontak</small>
+        <span class="p1">Rp500.000</span><small>harga partner per proyek</small>
+        <div class="sugg"><b>Saran harga jual:</b> Rp1.500.000-2.500.000<br>Margin Anda: Rp1.000.000-2.000.000 per proyek</div>
+        <ul class="tick">
+          <li>Teks company profile yang rapi dan meyakinkan</li>
+          <li>Galeri foto, Google Maps, tombol WhatsApp di tiap halaman</li>
+          <li>HTTPS, kecepatan dioptimalkan, SEO on-page</li>
+          <li>Semua file diserahkan kepada klien</li>
+        </ul>
+      </div>
+      <div class="price">
+        <h3>Landing Page</h3><small>1 halaman, 1 tujuan: chat WhatsApp</small>
+        <span class="p1">Rp300.000</span><small>harga partner per proyek</small>
+        <div class="sugg"><b>Saran harga jual:</b> Rp750.000-1.000.000<br>Margin Anda: Rp450.000-700.000 per proyek</div>
+        <ul class="tick">
+          <li>Cocok untuk klien yang butuh satu halaman cepat</li>
+          <li>Tampilan rapi di HP dan komputer</li>
+          <li>Tombol WhatsApp, HTTPS, SEO on-page</li>
+          <li>Pengerjaan lebih ringkas</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bundle">
+      <h3>Contoh susunan daftar harga Anda (angka hanya ilustrasi)</h3>
+      <div class="grid g3">
+        <div class="it"><b>Paket Legalitas</b>Pendirian PT seperti biasa<em>Rp X</em></div>
+        <div class="it hl"><b>Paket PT + Website</b>Legalitas lengkap + website company profile 4 halaman<em>Rp X + 2.000.000</em></div>
+        <div class="it"><b>Website untuk klien lama</b>Untuk PT yang sudah berdiri<em>Rp 1.500.000-2.500.000</em></div>
+      </div>
+    </div>
+    <p class="note">Semua paket: tayang 3-5 hari kerja setelah materi lengkap, revisi 2 kali sebelum tayang, revisi kecil gratis 14 hari setelah tayang. Hosting gratis, perpanjangan hosting pun gratis. Domain .com atau .net sekitar Rp300.000-400.000, dibayar terpisah.</p>
+  </div>
+</section>
 
 <section>
-<div class="wrap split">
-<div>
-<h2>Klien Anda akan mencarinya. Lebih baik dari Anda.</h2>
-<p class="lead">Begitu PT berdiri, pemilik usaha langsung dihadapkan pada permintaan company profile dan alamat website: dari instansi, perusahaan besar, bahkan bank. Mereka akan mencari sendiri, atau menurut pada rekomendasi orang yang mereka percaya, yaitu Anda.</p>
-<ul class="list">
-<li>Syarat umum tender dan pendaftaran vendor.</li>
-<li>Kesan resmi dan terpercaya di mata calon klien.</li>
-<li>Terasa seperti pelayanan lengkap dari satu pintu, bukan urusan tambahan.</li>
-</ul>
-</div>
-<div class="quote">“Mbak, PT saya sudah jadi. Ada rekomendasi yang bisa bikinin website-nya sekalian?”<small>Pertanyaan yang sangat mungkin sudah sering masuk ke WhatsApp Anda.</small></div>
-</div>
+  <div class="w">
+    <h2>Contoh hasil yang bisa Anda tunjukkan ke klien</h2>
+    <p class="lead">Klik untuk melihat versi lengkapnya di tab baru.</p>
+    <div class="shots" id="shots"></div>
+    <p style="margin-top:18px"><a class="btn alt" id="semuaDemo" href="https://teraweb.id/demo/" target="_blank" rel="noopener">Buka semua demo</a></p>
+  </div>
 </section>
 
-<section class="dark">
-<div class="wrap">
-<h2>Dua cara memakainya, mulai dari yang paling mudah.</h2>
-<p class="lead">Keduanya memakai modal yang sama dan harga jual yang Anda tentukan sendiri.</p>
-<div class="ways">
-<div class="way main">
-<span class="tag">Paling menguntungkan</span>
-<h3>Masukkan ke paket perizinan</h3>
-<p>Buat “Paket PT + Website” di daftar harga Anda dengan harga paket naik sedikit. Klien merasa dapat paket lengkap, dan Anda tidak perlu menawarkan terpisah.</p>
-<ul><li>Satu keputusan, satu invoice</li><li>Margin tersembunyi di dalam harga paket</li><li>Data perusahaan sudah ada saat urus izin</li></ul>
-</div>
-<div class="way">
-<span class="tag">Bonus tanpa modal</span>
-<h3>Tawarkan ke klien lama</h3>
-<p>Klien yang PT-nya sudah berdiri tapi belum punya website adalah peluang yang sudah ada di kontak Anda. Cukup satu pesan WhatsApp.</p>
-<ul><li>Contoh pesan siap salin kami sediakan</li><li>Tidak perlu mencari klien baru</li><li>Order bisa berulang tiap bulan</li></ul>
-</div>
-</div>
-</div>
+<section class="alt-bg">
+  <div class="w">
+    <h2>Hitung tambahan penghasilan Anda</h2>
+    <p class="lead">Pilih paket, lalu ubah harga jual sesuai yang akan Anda pakai ke klien.</p>
+    <div class="calc">
+      <div class="panel">
+        <label for="paketSel">Paket</label>
+        <select id="paketSel"><option value="web">Website 4 Halaman (harga partner Rp500.000)</option><option value="lp">Landing Page (harga partner Rp300.000)</option></select>
+        <label for="jual">Harga jual ke klien (Rp)</label>
+        <input id="jual" type="number" inputmode="numeric" min="0" step="50000" value="2000000">
+        <label for="jml">Jumlah proyek per bulan</label>
+        <input id="jml" type="number" inputmode="numeric" min="0" step="1" value="3">
+        <p class="note">Belum termasuk biaya domain klien. Angka hanya simulasi dari harga yang Anda isi, bukan jaminan hasil.</p>
+      </div>
+      <div class="res" aria-live="polite">
+        <small>Margin per proyek</small><span class="big" id="r1">Rp0</span>
+        <div class="row"><small>Per bulan</small><b id="r2">Rp0</b></div>
+        <div class="row"><small>Per tahun</small><b id="r3">Rp0</b></div>
+        <div class="row"><small>Biaya ke TeraWeb per bulan</small><b id="r4">Rp0</b></div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section>
-<div class="wrap">
-<h2>Anda tinggal jual. Sisanya kami.</h2>
-<div class="steps">
-<div class="step"><h3>Klien setuju</h3><p>Tawarkan paket PT + Website, atau website saja untuk klien lama.</p></div>
-<div class="step"><h3>Teruskan datanya</h3><p>Klien mengisi satu formulir sederhana. Belum punya logo atau naskah? Kami bantu susun.</p></div>
-<div class="step"><h3>Kami kerjakan</h3><p>Dikerjakan di belakang layar atas nama Anda. Revisi 2 kali sebelum tayang.</p></div>
-<div class="step"><h3>Tayang dan tagih</h3><p>Selesai 3-5 hari kerja. Penagihan ke klien tetap lewat Anda.</p></div>
-</div>
-</div>
+  <div class="w">
+    <h2>Cara kerjanya</h2>
+    <p class="lead">Empat langkah, dan klien hanya berhubungan dengan Anda.</p>
+    <div class="grid g4">
+      <div class="card step"><b class="n">1</b><h3>Jual dengan merek Anda</h3><p>Masukkan ke paket perizinan atau tawarkan ke klien lama. Anda hanya membayar harga partner.</p></div>
+      <div class="card step"><b class="n">2</b><h3>Kirim data klien</h3><p>Klien mengisi formulir data, lalu Anda teruskan bersama logo dan foto. Kami bantu merapikan kebutuhannya.</p></div>
+      <div class="card step"><b class="n">3</b><h3>Kami kerjakan</h3><p>3-5 hari kerja, tanpa merek TeraWeb di hasil akhir.</p></div>
+      <div class="card step"><b class="n">4</b><h3>Tayang dan revisi</h3><p>Revisi 2 kali sebelum tayang, revisi kecil gratis 14 hari sesudahnya.</p></div>
+    </div>
+  </div>
 </section>
 
-<section class="dark" style="padding-top:64px">
-<div class="wrap">
-<h2>Perlengkapan mitra, gratis dan siap pakai.</h2>
-<p class="lead">Supaya Anda tidak perlu menyiapkan apa pun dari nol.</p>
-<div class="kit">
-<div><h3>Materi penawaran PDF</h3><p>Bisa diberi logo dan kontak Anda sendiri, tinggal kirim ke klien.</p></div>
-<div><h3>Contoh susunan paket</h3><p>Panduan menyusun “Paket PT + Website” di daftar harga Anda.</p></div>
-<div><h3>Formulir data klien</h3><p>Klien cukup mengisi satu formulir, jadi tidak ada data yang tercecer.</p></div>
-</div>
-</div>
+<section class="alt-bg">
+  <div class="w">
+    <h2>Bahan siap pakai untuk menjual ke klien Anda</h2>
+    <p class="lead">Salin, ganti bagian dalam kurung dan harganya sesuai kebijakan Anda, lalu kirim. Tidak perlu menyusun dari nol.</p>
+    <div class="copyb"><header>Deskripsi “Paket PT + Website” untuk daftar harga<button type="button">Salin</button></header><pre>PAKET PT + WEBSITE
+Pendirian PT lengkap, ditambah website company profile 4 halaman (Beranda, Layanan, Tentang Kami, Kontak), supaya perusahaan Anda langsung siap untuk tender, daftar vendor, dan dipercaya calon klien.
+
+Sudah termasuk:
+- Seluruh layanan legalitas paket PT
+- Website company profile 4 halaman, rapi di HP dan komputer
+- Tombol WhatsApp, Google Maps, HTTPS, SEO on-page
+
+Pengerjaan website: 3-5 hari kerja setelah data lengkap
+Revisi: 2 kali sebelum tayang, revisi kecil gratis 14 hari setelah tayang
+Harga paket: Rp[harga paket Anda]
+Biaya domain .com atau .net sekitar Rp300.000-400.000, hosting gratis.</pre></div>
+    <div class="copyb"><header>Pesan ke klien yang baru selesai urus PT (WhatsApp)<button type="button">Salin</button></header><pre>Halo [nama klien], selamat, PT-nya sudah resmi 🎉
+
+Biasanya langkah berikutnya adalah punya website company profile, karena sering diminta untuk tender dan daftar vendor. Kami bisa bantu: tayang 3-5 hari kerja, teks dibantu tulis, tampilannya rapi di HP.
+
+Mau saya kirimkan contoh yang sesuai dengan bidang usaha [nama usaha]?</pre></div>
+    <div class="copyb"><header>Pesan ke klien lama yang belum punya website<button type="button">Salin</button></header><pre>Halo [nama klien], PT [nama PT] sudah berjalan baik. Sudah punya website company profile untuk tampil lebih meyakinkan di depan calon klien dan vendor?
+
+Kami menyediakan pembuatan website siap tayang dalam 3-5 hari kerja, harga Rp[harga Anda]. Ini contoh tampilannya: [link demo]. Kalau mau, saya bantu proses datanya.</pre></div>
+    <div class="copyb"><header>Jawaban untuk pertanyaan klien: edit, domain, hosting<button type="button">Salin</button></header><pre>Bisa edit sendiri? Websitenya statis (tanpa dashboard), jadi cepat dan hampir tanpa perawatan. Kalau mau ganti teks atau foto, kirim ke kami dan kami yang mengerjakan. Revisi kecil gratis 14 hari setelah tayang.
+
+Domain dan hosting? Hosting gratis, dan perpanjangan hosting juga gratis. Domain .com atau .net sekitar Rp300.000-400.000, dan nama domainnya milik Bapak/Ibu sendiri.</pre></div>
+  </div>
 </section>
 
-<section id="simulasi">
-<div class="wrap">
-<h2>Hitung sendiri margin Anda.</h2>
-<p class="lead">Geser sesuai kondisi Anda. Modal tetap Rp500.000, harga jual Anda yang tentukan.</p>
-<div class="calc">
-<div>
-<div class="f"><label for="pj">Harga jual ke klien: <span class="big2" id="pjv">Rp2.000.000</span></label><input id="pj" type="range" min="1000000" max="4000000" step="100000" value="2000000"></div>
-<div class="f"><label for="n">Website terjual per bulan: <span class="big2" id="nv">5</span></label><input id="n" type="range" min="1" max="20" value="5"></div>
-<div class="fixed"><span>Modal Anda per website</span><b>Rp500.000 (tetap)</b></div>
-</div>
-<div class="out" aria-live="polite">
-<p>Margin per website</p>
-<div class="big" id="per">Rp0</div>
-<p>Margin per bulan</p>
-<div class="big" id="bulan">Rp0</div>
-<div class="yr" id="tahun"></div>
-</div>
-</div>
-<p class="fn">Hitungan ilustrasi, bukan jaminan hasil. Hasil nyata tergantung berapa klien yang Anda tawari.</p>
-</div>
+<section>
+  <div class="w">
+    <div class="grid g2" style="gap:30px;align-items:start">
+      <div>
+        <h2>Siapa di balik TeraWeb</h2>
+        <p class="lead" style="margin-bottom:12px">Sejak 2010 kami membuat website untuk berbagai usaha. Kami merancang TeraWeb sebagai kebalikan dari website yang mahal, lambat, atau rumit dirawat: sederhana, cepat, harga terang.</p>
+        <a class="btn alt" href="https://teraweb.id/tentang-kami" target="_blank" rel="noopener">Baca selengkapnya</a>
+      </div>
+      <ul class="tick" style="margin-top:0">
+        <li><b>Sejak 2010</b> membangun website untuk berbagai usaha</li>
+        <li><b>Website statis di Cloudflare:</b> cepat, tanpa plugin, hampir tanpa perawatan</li>
+        <li><b>Rp0</b> biaya perpanjangan hosting ke TeraWeb</li>
+        <li><b>100% file diserahkan</b> kepada pemilik website</li>
+        <li><b>Jujur soal hasil:</b> kami tidak menjanjikan peringkat 1 di Google</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
-<section style="padding-top:0">
-<div class="wrap">
-<h2>Pertanyaan yang biasanya muncul.</h2>
-<details><summary>Apakah ada biaya untuk bergabung?</summary><p>Tidak ada. Tanpa biaya bergabung, tanpa target minimum, dan tanpa kontrak yang mengikat. Silakan mulai dari satu klien dulu.</p></details>
-<details><summary>Klien saya tahu kalau yang mengerjakan TeraWeb?</summary><p>Tidak, kalau Anda memilih white label. Nama kami tidak muncul di website maupun komunikasi ke klien. Anda yang memegang klien, harga, dan penagihan.</p></details>
-<details><summary>Berapa harga jual yang wajar?</summary><p>Website company profile di pasaran biasanya dijual sekitar Rp1,5-3,5 juta. Anda bebas menentukan sendiri sesuai klien Anda.</p></details>
-<details><summary>Bagaimana kalau klien belum punya logo atau konten?</summary><p>Tidak masalah. Ada formulir data dan kami membantu menyusun kontennya dari informasi dasar.</p></details>
-<details><summary>Berapa lama website selesai?</summary><p>Umumnya 3-5 hari kerja, dihitung sejak data dari klien lengkap.</p></details>
-<details><summary>Saya hanya punya beberapa klien per bulan. Apakah tetap cocok?</summary><p>Cocok. Berapa pun jumlah kliennya, tambahan margin tetap datang tanpa Anda mengeluarkan modal di muka atau menambah pekerjaan.</p></details>
-</div>
+<section class="alt-bg">
+  <div class="w">
+    <h2>Pertanyaan yang biasa ditanyakan biro perizinan</h2>
+    <p class="lead">Kalau ada yang belum terjawab, tanyakan lewat WhatsApp.</p>
+    <details><summary>Apakah klien akan tahu TeraWeb?</summary><p>Tidak. Hasilnya white label atas nama Anda, semua komunikasi lewat Anda, dan kami tidak menghubungi klien Anda langsung.</p></details>
+    <details><summary>Bagaimana kalau website klien down atau error?</summary><p>Website dibuat statis, tanpa WordPress, plugin, atau database, dan dihosting di Cloudflare, jadi risiko error mendadak jauh lebih kecil. Kalau tetap ada masalah, kabari kami lewat WhatsApp. Laporan di hari kerja kami tangani paling lambat pukul 16.00 WIB hari itu juga, lalu kami kabari penyebab dan perkiraan selesainya.</p></details>
+    <details><summary>Bagaimana soal domain dan hosting?</summary><p>Hosting gratis, termasuk perpanjangannya. Domain .com atau .net sekitar Rp300.000-400.000, dibayar terpisah dari harga partner. Untuk white label penuh, kami sarankan memakai domain atas nama klien.</p></details>
+    <details><summary>Apakah klien bisa mengedit sendiri?</summary><p>Tidak ada dashboard. Websitenya statis supaya cepat dan hampir tanpa perawatan. Permintaan ganti teks atau foto lewat Anda ke kami. Revisi kecil gratis 14 hari setelah tayang, sesudahnya ada biaya kecil per permintaan.</p></details>
+    <details><summary>Bagaimana kalau hasilnya kurang sesuai?</summary><p>Ada revisi 2 kali sebelum tayang. Anda juga bisa mulai dari satu proyek percobaan dan menilai hasilnya sendiri sebelum menjadikannya layanan tetap.</p></details>
+    <details><summary>Berapa lama pengerjaannya?</summary><p>3-5 hari kerja, dihitung setelah data dan materi klien (logo, warna, foto, teks) lengkap.</p></details>
+    <details><summary>Bisa untuk toko online atau sistem custom?</summary><p>Tidak. Kami fokus ke website profil dan landing page. Untuk kebutuhan yang lebih luas, diskusikan dulu lewat WhatsApp.</p></details>
+    <details><summary>Apakah ada biaya bergabung atau target minimum?</summary><p>Tidak ada. Anda hanya membayar harga partner per proyek yang berjalan.</p></details>
+  </div>
 </section>
 
-<section class="dark final">
-<div class="wrap">
-<h2>Klien Anda akan butuh website. Jadilah yang menawarkannya.</h2>
-<p class="lead">Kirim satu pesan, kami kirimkan perlengkapan mitra dan jawab semua pertanyaan Anda.</p>
-<a class="btn wa" href="#">Chat TeraWeb sekarang</a>
-</div>
+<section class="final" id="kontak">
+  <div class="w">
+    <h2>Mulai dari satu proyek percobaan</h2>
+    <p>Pilih satu klien yang sedang butuh website, kita kerjakan, lalu Anda nilai sendiri hasilnya. Tidak cocok? Tidak perlu dilanjutkan.</p>
+    <a class="btn wa-link" href="#" target="_blank" rel="noopener">Ngobrol via WhatsApp</a>
+  </div>
 </section>
 
-<footer><div class="wrap">TeraWeb · teraweb.id · Website company profile untuk perusahaan Indonesia</div></footer>
-
-<div class="sticky"><span>Siap menambah margin dari tiap klien PT baru?</span><a class="btn wa" href="#">Gabung via WhatsApp</a></div>
+<footer>TeraWeb | teraweb.id</footer>
+<a class="btn wa wa-link" href="#" target="_blank" rel="noopener">WhatsApp</a>
 
 <script>
-// Nomor WhatsApp (format 62, tanpa + dan tanpa 0 di depan)
-var WA_NUMBER="6285227272999";
-var WA_TEXT="Halo TeraWeb, saya tertarik dengan Program Mitra Jasa Perizinan. Boleh dijelaskan skemanya?";
-document.querySelectorAll("a.wa").forEach(function(a){a.href="https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(WA_TEXT);a.target="_blank";a.rel="noopener"});
-var MODAL=500000;
-var rp=function(x){return "Rp"+Math.round(x).toLocaleString("id-ID")};
-function calc(){
-var pj=+document.getElementById("pj").value,n=+document.getElementById("n").value;
-var m=Math.max(pj-MODAL,0),b=m*n;
-document.getElementById("pjv").textContent=rp(pj);document.getElementById("nv").textContent=n;
-document.getElementById("per").textContent=rp(m);document.getElementById("bulan").textContent=rp(b);
-document.getElementById("tahun").textContent="Sekitar "+rp(b*12)+" dalam setahun.";
-}
-["pj","n"].forEach(function(id){document.getElementById(id).addEventListener("input",calc)});
-calc();
+(function () {
+  // ===== EDIT DI SINI =====
+  var WA_NUMBER = "6285227272999";
+  // Demo: ganti url dengan link demo, dan img dengan alamat screenshot (kosongkan untuk placeholder)
+  var DEMOS = [
+    { judul: "Industri dan pabrik", url: "https://teraweb.id/demo/industri/", img: "" },
+    { judul: "Kontraktor dan konstruksi", url: "https://teraweb.id/demo/kontraktor/", img: "" },
+    { judul: "Perdagangan umum", url: "https://teraweb.id/demo/perdagangan/", img: "" },
+    { judul: "Jasa dan konsultan", url: "https://teraweb.id/demo/jasa/", img: "" }
+  ];
+  // ========================
+
+  var BIRO = "";
+  try { BIRO = (new URLSearchParams(location.search).get("biro") || "").replace(/\s+/g, " ").trim().slice(0, 60); } catch (e) {}
+  var msg = BIRO ? "Halo TeraWeb, saya dari " + BIRO + " dan tertarik jadi partner white label." : "Halo TeraWeb, saya dari biro perizinan dan tertarik jadi partner white label.";
+  Array.prototype.forEach.call(document.querySelectorAll("a.wa-link"), function (a) {
+    if (a.getAttribute("href") === "#kontak") return;
+    a.href = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+  });
+  if (BIRO) {
+    var fw = document.getElementById("forwho"); fw.textContent = "Disiapkan khusus untuk " + BIRO; fw.hidden = false;
+    document.title = "Partner White Label untuk " + BIRO + " | TeraWeb";
+  }
+
+  var box = document.getElementById("shots");
+  DEMOS.forEach(function (d) {
+    var a = document.createElement("a"); a.className = "shot"; a.href = d.url; a.target = "_blank"; a.rel = "noopener";
+    var top;
+    if (d.img) { top = document.createElement("img"); top.src = d.img; top.alt = "Contoh website " + d.judul; top.loading = "lazy"; }
+    else { top = document.createElement("div"); top.className = "ph"; var b = document.createElement("b"); b.textContent = "TEMPEL SCREENSHOT DI SINI"; var s = document.createElement("span"); s.textContent = d.judul; top.appendChild(b); top.appendChild(s); }
+    var t = document.createElement("span"); t.className = "t"; t.textContent = d.judul;
+    a.appendChild(top); a.appendChild(t); box.appendChild(a);
+  });
+
+  var fmt = new Intl.NumberFormat("id-ID");
+  var PKG = { lp: { modal: 300000, jual: 850000 }, web: { modal: 500000, jual: 2000000 } };
+  function rp(n) { return (n < 0 ? "-Rp" : "Rp") + fmt.format(Math.abs(Math.round(n))); }
+  function num(id) { var v = parseFloat(document.getElementById(id).value); return isNaN(v) || v < 0 ? 0 : v; }
+  function calc() {
+    var p = PKG[document.getElementById("paketSel").value];
+    var m = num("jual") - p.modal, jml = num("jml");
+    document.getElementById("r1").textContent = rp(m);
+    document.getElementById("r2").textContent = rp(m * jml);
+    document.getElementById("r3").textContent = rp(m * jml * 12);
+    document.getElementById("r4").textContent = rp(p.modal * jml);
+  }
+  document.getElementById("paketSel").addEventListener("change", function () { document.getElementById("jual").value = PKG[this.value].jual; calc(); });
+  ["jual", "jml"].forEach(function (id) { document.getElementById(id).addEventListener("input", calc); });
+  calc();
+
+  Array.prototype.forEach.call(document.querySelectorAll(".copyb button"), function (b) {
+    b.addEventListener("click", function () {
+      var text = b.parentNode.parentNode.querySelector("pre").textContent;
+      function ok() { b.textContent = "Tersalin"; b.classList.add("done"); setTimeout(function () { b.textContent = "Salin"; b.classList.remove("done"); }, 1500); }
+      function fb() {
+        var ta = document.createElement("textarea"); ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); ok(); } catch (e) {}
+        document.body.removeChild(ta);
+      }
+      if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text).then(ok, fb); } else { fb(); }
+    });
+  });
+})();
 </script>
 </body>
 </html>
