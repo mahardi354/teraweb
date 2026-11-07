@@ -35,6 +35,79 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacin
 @media(max-width:900px){.wrap{width:min(100% - 36px,720px)}.nav{gap:15px}.nav a{font-size:.82rem}.hero-grid{min-height:510px;grid-template-columns:1fr .9fr}.hero-art{height:490px}.hero-copy{padding:42px 0}.trust-list li{padding-inline:12px;font-size:.78rem}.ingredient-grid{gap:30px}.benefit-grid{min-height:340px}.benefit-photo{height:340px}.faq-grid{gap:30px}}
 @media(max-width:680px){.wrap{width:calc(100% - 32px)}.promo{gap:10px;justify-content:space-between;font-size:.68rem;padding:8px 12px}.promo .cd{gap:5px;font-size:.62rem}.cd-label{display:none}.cd-unit b{font-size:.8rem}.header-in{height:66px}.logo{font-size:1.7rem}.nav{display:none}.header-in>.btn{padding:9px 13px}.hero-grid{display:flex;flex-direction:column;align-items:stretch;gap:0;min-height:0}.hero-copy{padding:38px 0 12px}.hero h1{font-size:clamp(3rem,13vw,4.4rem);max-width:540px}.lede{font-size:.98rem;max-width:500px}.cta-row{margin:20px 0}.btn-lg{padding:13px 17px;font-size:.82rem}.perks{gap:9px 13px;font-size:.72rem}.hero-art{height:350px;margin:0 -16px}.hero-img{object-position:65% 45%;mask-image:linear-gradient(180deg,transparent 0%,#000 13%)}.price-tag{right:6%;top:10%;padding:10px 14px;border-radius:16px}.pt-name{font-size:.68rem}.pt-price strong{font-size:1.05rem}.trust-list{grid-template-columns:1fr 1fr;padding:10px 0}.trust-list li{padding:12px 8px;font-size:.73rem}.trust-list li:nth-child(3){border-left:0}.trust-list li:nth-child(n+3){border-top:1px solid var(--line)}.section{padding:55px 0}.ingredient-grid{grid-template-columns:1fr;gap:25px}.ingredient-photo{height:260px;border-radius:0 75px 0 0}.ingredient-copy h2,.benefit-copy h2,.faq-head h2{font-size:2.2rem}.ingredient-list{gap:9px}.ingredient-list h3{font-size:.76rem}.ingredient-list p{font-size:.66rem}.benefit-grid{grid-template-columns:1fr;min-height:0}.benefit-copy{padding:48px 0 24px}.benefit-photo{height:300px;border-radius:90px 0 0 0;margin-left:auto;width:94%}.review-grid{grid-template-columns:1fr;gap:12px}.review{padding:18px}.faq-grid{grid-template-columns:1fr;gap:20px}.faq-list details{padding:13px 15px}.product-grid{grid-template-columns:1fr;gap:16px}.product-card{display:grid;grid-template-columns:40% 60%}.product-card img{height:auto;min-height:0;aspect-ratio:1/1;object-fit:cover;padding:0}.product-info{padding:16px}.product-info h3{font-size:1.12rem}.product-info p{font-size:.78rem}.final-cta-in{display:block;text-align:center}.final-cta h2{font-size:2.1rem}.final-cta .btn{margin-top:20px}.footer-grid{grid-template-columns:1fr;gap:18px}.demo-bar{display:block}.demo-bar p+p{margin-top:8px}.sticky-bar{display:flex;position:fixed;z-index:30;bottom:0;left:0;right:0;background:#fffdf8;border-top:1px solid var(--line);padding:10px 16px;align-items:center;justify-content:space-between;box-shadow:0 -8px 25px #102e1d12}.sb-text{display:grid;font-size:.78rem}.sb-text span{font-weight:700;color:var(--green)}body{padding-bottom:64px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+/* === Full-bleed transparent hero refinement === */
+.site-header{
+  position:absolute;top:46px;left:0;right:0;z-index:20;
+  background:transparent;border:0;backdrop-filter:none;
+}
+.header-in{height:82px}
+.nav a{color:#183e30;text-shadow:0 1px 10px #ffffff70}
+.hero{
+  background:linear-gradient(105deg,#f4f4e8 0%,#e3ecd7 48%,#b9d0a9 100%);
+}
+.hero:before{
+  background:
+    radial-gradient(ellipse at 76% 44%,#ffffff1c 0,transparent 46%),
+    linear-gradient(90deg,#f5f5e9 0%,#f5f5e9ed 31%,#f5f5e980 48%,#f5f5e900 70%);
+}
+.hero-grid{
+  display:block;position:relative;min-height:690px;
+  padding-top:112px;padding-bottom:44px;
+}
+.hero-copy{width:min(53%,610px);padding:48px 0 56px;z-index:2}
+.hero-art{
+  position:absolute;right:-28px;top:0;bottom:0;width:66%;height:100%;
+  margin:0;z-index:0;overflow:hidden;pointer-events:none;
+}
+.hero-img{
+  width:100%;height:100%;object-fit:cover;object-position:65% center;
+  mix-blend-mode:multiply;
+  mask-image:linear-gradient(90deg,transparent 0%,#000 22%,#000 100%);
+}
+.price-tag{right:5%;top:23%;z-index:2}
+.trust{position:relative;z-index:3}
+@media(max-width:900px){
+  .hero-grid{min-height:620px;padding-top:102px}
+  .hero-copy{width:55%}
+  .hero-art{width:65%;right:-18px}
+}
+@media(max-width:680px){
+  .site-header{top:44px}
+  .header-in{height:68px}
+  .hero-grid{display:flex;flex-direction:column;min-height:0;padding-top:82px;padding-bottom:0}
+  .hero-copy{width:100%;padding:35px 0 8px}
+  .hero-art{
+    position:relative;right:auto;top:auto;bottom:auto;width:calc(100% + 32px);
+    height:350px;margin:0 -16px;pointer-events:auto;
+  }
+  .hero-img{
+    object-position:65% 44%;mask-image:linear-gradient(180deg,transparent 0%,#000 12%);
+  }
+  .price-tag{right:6%;top:10%}
+}
+
+
+/* === Sticky transparent navigation === */
+.site-header{
+  position:sticky;
+  top:0;
+  left:0;
+  right:0;
+  z-index:50;
+  margin-bottom:-82px;
+  background:rgba(247,249,239,.16);
+  border:0;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  transition:background .25s ease, box-shadow .25s ease;
+}
+.header-in{height:82px}
+@media(max-width:680px){
+  .site-header{margin-bottom:-68px}
+  .header-in{height:68px}
+}
+
 </style>
 </head>
 <body>
@@ -68,7 +141,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacin
 <figure class="review"><div class="review-top"><span class="avatar">N</span><div><strong>Nadia Putri</strong><div class="stars">★★★★★</div></div></div><blockquote>“Pengiriman cepat, produknya original. Pasti repurchase lagi!”</blockquote></figure>
 </div></div></section>
 <section class="section faq" id="faq"><div class="wrap faq-grid"><div class="faq-head"><p class="eyebrow">Butuh informasi?</p><h2>Pertanyaan yang sering diajukan</h2><p>Temukan jawaban untuk pertanyaan seputar produk kami.</p><a class="btn" href="https://wa.me/6281234567890" data-wa="tanya">Tanya lewat WhatsApp →</a></div>
-<div class="faq-list"><details name="faq"><summary>Apakah serum ini cocok untuk kulit berminyak?</summary><p>Teksturnya ringan dan berbasis air. Sesuaikan pemakaian dengan kebutuhan kulitmu dan lakukan patch test sebelum pemakaian rutin.</p></details><details name="faq"><summary>Berapa lama hasilnya terlihat?</summary><p>Kelembapan dapat terasa sejak pemakaian awal. Hasil tampilan kulit berbeda pada setiap orang dan bergantung pada rutinitas pemakaian.</p></details><details name="faq"><summary>Apakah aman untuk ibu hamil dan menyusui?</summary><p>Konsultasikan dengan dokter sebelum mencoba skincare baru selama kehamilan atau menyusui.</p></details><details name="faq"><summary>Bagaimana cara penyimpanannya?</summary><p>Simpan di tempat sejuk dan kering, terhindar dari sinar matahari langsung, serta tutup botol setelah digunakan.</p></details></div></div></section>
+<div class="faq-list"><details><summary>Apakah serum ini cocok untuk kulit berminyak?</summary><p>Teksturnya ringan dan berbasis air. Sesuaikan pemakaian dengan kebutuhan kulitmu dan lakukan patch test sebelum pemakaian rutin.</p></details><details><summary>Berapa lama hasilnya terlihat?</summary><p>Kelembapan dapat terasa sejak pemakaian awal. Hasil tampilan kulit berbeda pada setiap orang dan bergantung pada rutinitas pemakaian.</p></details><details><summary>Apakah aman untuk ibu hamil dan menyusui?</summary><p>Konsultasikan dengan dokter sebelum mencoba skincare baru selama kehamilan atau menyusui.</p></details><details><summary>Bagaimana cara penyimpanannya?</summary><p>Simpan di tempat sejuk dan kering, terhindar dari sinar matahari langsung, serta tutup botol setelah digunakan.</p></details></div></div></section>
 <section class="section products" id="produk"><div class="wrap"><div class="section-head"><p class="eyebrow">Rangkaian Embun</p><h2>Lengkapi rutinitas skincare-mu</h2><p>Pilih produk yang sesuai untuk kebutuhan kulit sehari-hari.</p></div><div class="product-grid">
 <article class="product-card"><img src="images/produk-serum.webp" alt="Embun Dewy Glow Serum" loading="lazy"><div class="product-info"><h3>Dewy Glow Serum</h3><p>Niacinamide · Centella · Hyaluronic Acid</p><p class="product-price">Rp129.000</p><a class="btn btn-sm" href="https://wa.me/6281234567890" data-wa="serum">Pesan sekarang</a></div></article>
 <article class="product-card"><img src="images/produk-krim.webp" alt="Embun Cloud Gel Moisturizer" loading="lazy"><div class="product-info"><h3>Cloud Gel Moisturizer</h3><p>Ceramide · Squalane · Panthenol</p><p class="product-price">Rp99.000</p><a class="btn btn-sm" href="https://wa.me/6281234567890" data-wa="krim">Pesan sekarang</a></div></article>
@@ -81,5 +154,4 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacin
 <script>
 (()=>{const deadline=new Date('2026-11-11T23:59:59+07:00').getTime();const update=()=>{let left=Math.max(0,deadline-Date.now());const values={d:Math.floor(left/86400000),h:Math.floor(left/3600000)%24,m:Math.floor(left/60000)%60,s:Math.floor(left/1000)%60};document.querySelectorAll('[data-countdown]').forEach(el=>Object.entries(values).forEach(([k,v])=>{const n=el.querySelector('[data-'+k+']');if(n)n.textContent=String(v).padStart(2,'0')}))};update();setInterval(update,1000);document.querySelectorAll('[data-year]').forEach(e=>e.textContent=new Date().getFullYear());document.querySelectorAll('[data-wa]').forEach(a=>{const item=a.dataset.wa||'serum';const messages={serum:'Halo Embun, saya tertarik Dewy Glow Serum Rp129.000.',krim:'Halo Embun, saya tertarik Cloud Gel Moisturizer Rp99.000.',sunscreen:'Halo Embun, saya tertarik Sheer Sunscreen Rp109.000.',trio:'Halo Embun, saya tertarik Paket Trio Embun Rp279.000.',tanya:'Halo Embun, saya ingin bertanya tentang produknya.'};a.href='https://wa.me/6281234567890?text='+encodeURIComponent(messages[item]||messages.serum)})})();
 </script>
-<script>document.querySelectorAll('.faq-list details').forEach(function(d){d.addEventListener('toggle',function(){if(d.open)document.querySelectorAll('.faq-list details[open]').forEach(function(o){if(o!==d)o.removeAttribute('open')})})});</script>
 </body></html>

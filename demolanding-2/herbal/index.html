@@ -419,13 +419,13 @@ body{background:var(--cream)}
   <h2 class="center">Pertanyaan yang Sering Ditanyakan</h2>
   <p class="lead center" style="margin-left:auto">Masih ragu? Wajar. Ini jawaban jujur untuk pertanyaan paling umum.</p>
   <div class="faq">
-    <details><summary>Apakah Slimora aman dikonsumsi setiap hari?</summary><p>Slimora diracik dari bahan herbal dengan dosis harian yang lembut. Tetap ikuti aturan pakai: 2 kapsul sehari. Hentikan penggunaan dan konsultasikan ke dokter bila timbul reaksi yang tidak nyaman.</p></details>
-    <details><summary>Berapa lama hasilnya terasa?</summary><p>Sebagian pengguna merasa perut lebih nyaman dalam 1-2 minggu. Perubahan lingkar perut dan berat badan umumnya terlihat pada minggu ke-3 hingga ke-4 dengan pemakaian rutin. Hasil tiap orang berbeda.</p></details>
-    <details><summary>Apakah harus diet ketat dan olahraga berat?</summary><p>Tidak perlu ekstrem. Cukup atur porsi makan sewajarnya, perbanyak air putih, dan bergerak ringan seperti jalan kaki 15 menit. Slimora membantu proses, bukan menggantikan gaya hidup sehat.</p></details>
-    <details><summary>Apakah bisa dikonsumsi ibu hamil, menyusui, atau penderita penyakit tertentu?</summary><p>Ibu hamil, menyusui, anak di bawah 18 tahun, serta penderita penyakit kronis atau yang sedang minum obat rutin sebaiknya berkonsultasi dengan dokter sebelum mengonsumsi.</p></details>
-    <details><summary>Apakah bikin mulas atau bolak-balik toilet?</summary><p>Formula dirancang lembut dan nyaman di lambung. Pada beberapa orang, BAB bisa lebih lancar di awal pemakaian karena kandungan serat herbal. Minumlah setelah makan ringan bila lambungmu sensitif.</p></details>
-    <details><summary>Apakah bisa COD dan berapa lama pengiriman?</summary><p>Bisa COD ke seluruh Indonesia. Pesanan diproses di hari yang sama (sebelum pukul 15.00) dan tiba dalam 2-5 hari kerja tergantung lokasi.</p></details>
-    <details><summary>Bagaimana jika berat badan saya tidak turun?</summary><p>Itulah gunanya garansi 30 hari. Hubungi tim kami via WhatsApp, kami bantu evaluasi pola pakai dan proses sesuai ketentuan garansi.</p></details>
+    <details name="faq"><summary>Apakah Slimora aman dikonsumsi setiap hari?</summary><p>Slimora diracik dari bahan herbal dengan dosis harian yang lembut. Tetap ikuti aturan pakai: 2 kapsul sehari. Hentikan penggunaan dan konsultasikan ke dokter bila timbul reaksi yang tidak nyaman.</p></details>
+    <details name="faq"><summary>Berapa lama hasilnya terasa?</summary><p>Sebagian pengguna merasa perut lebih nyaman dalam 1-2 minggu. Perubahan lingkar perut dan berat badan umumnya terlihat pada minggu ke-3 hingga ke-4 dengan pemakaian rutin. Hasil tiap orang berbeda.</p></details>
+    <details name="faq"><summary>Apakah harus diet ketat dan olahraga berat?</summary><p>Tidak perlu ekstrem. Cukup atur porsi makan sewajarnya, perbanyak air putih, dan bergerak ringan seperti jalan kaki 15 menit. Slimora membantu proses, bukan menggantikan gaya hidup sehat.</p></details>
+    <details name="faq"><summary>Apakah bisa dikonsumsi ibu hamil, menyusui, atau penderita penyakit tertentu?</summary><p>Ibu hamil, menyusui, anak di bawah 18 tahun, serta penderita penyakit kronis atau yang sedang minum obat rutin sebaiknya berkonsultasi dengan dokter sebelum mengonsumsi.</p></details>
+    <details name="faq"><summary>Apakah bikin mulas atau bolak-balik toilet?</summary><p>Formula dirancang lembut dan nyaman di lambung. Pada beberapa orang, BAB bisa lebih lancar di awal pemakaian karena kandungan serat herbal. Minumlah setelah makan ringan bila lambungmu sensitif.</p></details>
+    <details name="faq"><summary>Apakah bisa COD dan berapa lama pengiriman?</summary><p>Bisa COD ke seluruh Indonesia. Pesanan diproses di hari yang sama (sebelum pukul 15.00) dan tiba dalam 2-5 hari kerja tergantung lokasi.</p></details>
+    <details name="faq"><summary>Bagaimana jika berat badan saya tidak turun?</summary><p>Itulah gunanya garansi 30 hari. Hubungi tim kami via WhatsApp, kami bantu evaluasi pola pakai dan proses sesuai ketentuan garansi.</p></details>
   </div>
 </div></section>
 
@@ -487,6 +487,8 @@ function tick(){
   h.textContent=p(Math.floor(d/36e5));m.textContent=p(Math.floor(d%36e5/6e4));s.textContent=p(Math.floor(d%6e4/1e3));
 }
 tick();setInterval(tick,1000);
+// FAQ buka-tutup bergantian
+document.querySelectorAll('.faq details').forEach(function(d){d.addEventListener('toggle',function(){if(d.open)document.querySelectorAll('.faq details[open]').forEach(function(o){if(o!==d)o.removeAttribute('open')})})});
 </script>
 </body>
 </html>
