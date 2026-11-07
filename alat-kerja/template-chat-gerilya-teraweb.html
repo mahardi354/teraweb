@@ -1,52 +1,108 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
-<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Template Chat Gerilya TeraWeb</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<meta name="robots" content="noindex, nofollow">
+<title>Generator Chat Gerilya – TeraWeb</title>
 <style>
-:root{--bg:#f2f6f9;--fg:#14213d;--mut:#5b6678;--card:#fff;--line:#dbe3ec;--acc:#0e7c86;--accbg:#dff1f2;--bub:#dcf5d8;--bubfg:#14301a;--ph:#ffe28a;--phfg:#4a3700;--warn:#fff1c9;--warnfg:#6b4e00;
+:root{--bg:#f4f6f8;--card:#fff;--text:#1c2733;--muted:#5f6c7b;--border:#d9e0e7;--primary:#0f766e;--primary-h:#0b5f58;--hl-bg:#d7f5ee;--hl-text:#0b4f47;--ph-bg:#ffe28a;--ph-text:#4a3700;--wa:#25d366;--bubble:#dcf8c6;--warn:#fff1c9;--warnfg:#6b4e00;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1624;--fg:#e8edf5;--mut:#9aa6b8;--card:#172033;--line:#27324a;--acc:#4fc3cd;--accbg:#12353a;--bub:#1d3d2a;--bubfg:#e3f6e6;--ph:#6b5410;--phfg:#ffe9a8;--warn:#3a2f10;--warnfg:#f2d27a;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0f1624;--fg:#e8edf5;--mut:#9aa6b8;--card:#172033;--line:#27324a;--acc:#4fc3cd;--accbg:#12353a;--bub:#1d3d2a;--bubfg:#e3f6e6;--ph:#6b5410;--phfg:#ffe9a8;--warn:#3a2f10;--warnfg:#f2d27a;color-scheme:dark}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1519;--card:#182128;--text:#e6edf3;--muted:#93a1ae;--border:#2a3640;--primary:#2dd4bf;--primary-h:#5eead4;--hl-bg:#134e4a;--hl-text:#99f6e4;--ph-bg:#6b5410;--ph-text:#ffe9a8;--bubble:#1f3a2c;--warn:#3a2f10;--warnfg:#f2d27a;color-scheme:dark}}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *,*:before,*:after{box-sizing:inherit}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 "Plus Jakarta Sans",system-ui,sans-serif}
-main{max-width:860px;margin:0 auto;padding:28px 18px 60px}
-h1{font-size:clamp(28px,6vw,44px);line-height:1.1;margin:0 0 8px;font-weight:800;letter-spacing:-.02em}
-h2{font-size:22px;margin:44px 0 4px;font-weight:800}
-.sub{color:var(--mut);margin:0 0 14px;max-width:70ch}
-.note{background:var(--warn);color:var(--warnfg);padding:10px 14px;border-radius:10px;font-size:14px;max-width:70ch}
-nav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}
-nav button,.btn{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:999px;padding:6px 14px;cursor:pointer;text-decoration:none;display:inline-block}
-nav button:hover,.btn:hover{border-color:var(--acc)}
-.btn.pri{background:var(--acc);border-color:var(--acc);color:var(--bg);font-weight:700}
-.btn.done{background:var(--accbg);border-color:var(--acc);color:var(--acc)}
-button:focus-visible,a:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
-.tbl{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;margin:12px 0}
-table{border-collapse:collapse;width:100%;font-size:15px}
-th,td{text-align:left;padding:9px 14px;border-bottom:1px solid var(--line);vertical-align:top}
-tr:last-child td{border-bottom:0}th{color:var(--mut);font-weight:500;width:32%}
-.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;color:var(--mut);font-size:14px;margin-bottom:10px}
-.blk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:12px 0}
-.blk .hd{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
-.blk h4{margin:0;font-size:15px}
-.msg{background:var(--bub);color:var(--bubfg);border-radius:4px 14px 14px 14px;padding:10px 14px;white-space:pre-wrap;word-break:break-word;font-size:15px}
-.fld{background:var(--ph);color:var(--phfg);border-radius:4px;padding:0 3px;outline:0;cursor:text}.fld:focus{box-shadow:0 0 0 2px var(--acc)}.fld:empty:before{content:attr(data-ph)}.fld:not(:empty){background:var(--accbg);color:var(--acc);font-weight:700}
-.pane{display:none}.pane.on{display:block}
-nav button.on{background:var(--acc);border-color:var(--acc);color:var(--bg);font-weight:700}
-#up{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;font:inherit;font-weight:700;font-size:14px;border:0;border-radius:999px;padding:10px 16px;background:var(--acc);color:var(--bg);cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .2s}#up.vis{opacity:1;pointer-events:auto}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;padding:24px 16px 48px}
+.wrap{max-width:1000px;margin:0 auto}
+h1{font-size:1.4rem;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 20px;font-size:.95rem}
+.grid{display:grid;grid-template-columns:1fr 1.3fr;gap:20px;align-items:start}
+@media(max-width:780px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px}
+.card h2{font-size:1rem;margin:0 0 14px}
+.side{position:sticky;top:12px}
+@media(max-width:780px){.side{position:static}}
+label{display:block;font-size:.85rem;font-weight:600;margin:0 0 5px}
+.field{margin-bottom:14px}
+.hint{font-weight:400;color:var(--muted);font-size:.8rem}
+input,select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:9px;font:inherit;background:var(--bg);color:var(--text)}
+input:focus,select:focus,.bubble:focus{outline:2px solid var(--primary);border-color:var(--primary)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chip{font:inherit;font-size:.85rem;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:999px;padding:5px 12px;cursor:pointer}
+.chip.on{background:var(--primary);border-color:var(--primary);color:#fff;font-weight:600}
+.tip{background:var(--warn);color:var(--warnfg);border-radius:10px;padding:8px 12px;font-size:.85rem;margin-bottom:12px}
+.bubble{background:var(--bubble);border-radius:12px;padding:16px 18px;white-space:pre-wrap;word-wrap:break-word;font-size:.95rem}
+.bubble mark{background:var(--hl-bg);color:var(--hl-text);padding:0 3px;border-radius:4px;font-weight:600}
+.bubble mark.ph{background:var(--ph-bg);color:var(--ph-text)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+button,.btn{font:inherit;font-weight:600;border:0;border-radius:9px;padding:10px 16px;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+.b-primary{background:var(--primary);color:#fff}.b-primary:hover{background:var(--primary-h)}
+.b-wa{background:var(--wa);color:#08331a}
+.b-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
+.b-sm{padding:7px 12px;font-size:.85rem}
+.count{color:var(--muted);font-size:.8rem;margin-top:10px}
+.sec{margin-top:20px}
+.sec .note{color:var(--muted);font-size:.85rem;margin:-6px 0 14px}
+.variant{border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:12px;background:var(--bg)}
+.variant:last-child{margin-bottom:0}
+.vh{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.vt{font-weight:600;font-size:.9rem}
+.vb{white-space:pre-wrap;word-wrap:break-word;font-size:.93rem}
+.tbl{overflow-x:auto;border:1px solid var(--border);border-radius:12px;margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:last-child th,tr:last-child td{border-bottom:0}th{color:var(--muted);font-weight:500;width:32%}
+p.note{background:var(--warn);color:var(--warnfg);padding:10px 14px;border-radius:10px;font-size:.88rem;margin:0}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);background:#111;color:#fff;padding:10px 18px;border-radius:999px;opacity:0;transition:.25s;pointer-events:none;font-size:.9rem}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 </head>
 <body>
-<main>
-<h1>Template Chat Gerilya TeraWeb</h1>
-<p class="sub">Pilih niche, tekan <b>Salin</b> pada blok chat, tempel ke WhatsApp. Bagian kuning bisa diisi langsung di halaman (klik, lalu ketik); isian yang sama dalam satu niche ikut terisi, dan teks yang tersalin sudah memuat isianmu. Pola tiap niche: chat pembuka dengan link demo, follow-up 1-2 hari kemudian, dan satu balasan untuk keberatan yang paling sering muncul.</p>
-<nav id="nav"></nav>
-
-<section class="pane" id="p-s0"><h2>Data TeraWeb untuk semua template</h2>
+<div class="wrap">
+  <h1>Generator Chat Gerilya TeraWeb</h1>
+  <p class="sub">Pilih niche, isi field di kiri, pesan di kanan menyesuaikan otomatis. Bagian kuning di pratinjau bisa diketik langsung. Siap disalin atau dikirim ke WhatsApp.</p>
+  <div class="grid">
+    <div class="card side">
+      <h2>Isi Field</h2>
+      <div class="field"><label for="niche">Niche</label><select id="niche"></select></div>
+      <div class="row">
+        <div class="field"><label for="waktu">Sapaan waktu</label><select id="waktu"><option value="pagi">Selamat pagi</option><option value="siang">Selamat siang</option><option value="sore">Selamat sore</option><option value="malam">Selamat malam</option></select></div>
+        <div class="field"><label for="pengirim">Nama Anda</label><input id="pengirim" placeholder="mis. Didik" value="Didik"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="kak">Sapaan singkat</label><select id="kak"><option>Kak</option><option>Pak</option><option>Bu</option><option>Pak/Bu</option><option>Bang</option></select></div>
+        <div class="field"><label for="kakak">Sapaan panjang</label><select id="kakak"><option>Kakak</option><option>Bapak</option><option>Ibu</option><option>Bapak/Ibu</option><option>Abang</option></select></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="nama">Nama penerima</label><input id="nama" placeholder="mis. Rina"></div>
+        <div class="field"><label for="usaha">Nama usaha</label><input id="usaha" placeholder="mis. Rina Photography"></div>
+      </div>
+      <div class="field"><label for="kota">Kota</label><input id="kota" placeholder="mis. Cilacap"></div>
+      <div class="field"><label for="demo1">Demo 1 <span class="hint">(otomatis sesuai niche)</span></label><input id="demo1" type="url"></div>
+      <div class="field"><label for="demo2">Demo 2 <span class="hint">(opsional)</span></label><input id="demo2" type="url" placeholder="kosongkan kalau hanya satu demo"></div>
+      <div class="field"><label for="hp">Nomor WhatsApp tujuan <span class="hint">(opsional)</span></label><input id="hp" type="tel" inputmode="tel" placeholder="mis. 0812 3456 7890"></div>
+      <button class="b-ghost" id="reset" type="button">Reset field</button>
+    </div>
+    <div class="card">
+      <h2>Pratinjau Pesan</h2>
+      <div class="chips" id="chips"></div>
+      <div class="tip" id="tip"></div>
+      <div class="bubble" id="preview" contenteditable="true" spellcheck="false"></div>
+      <div class="count" id="count"></div>
+      <div class="actions">
+        <button class="b-primary" id="copy" type="button">Salin pesan</button>
+        <button class="b-wa" id="wa" type="button">Kirim via WhatsApp</button>
+        <a class="btn b-ghost" id="open" href="#" target="_blank" rel="noopener">Buka demo</a>
+      </div>
+    </div>
+  </div>
+  <div class="card sec">
+    <h2>Balasan standar</h2>
+    <p class="note" style="background:none;padding:0;color:var(--muted)">Berlaku untuk semua niche. Ikut terisi dari field di kiri.</p>
+    <div id="variants"></div>
+  </div>
+  <div class="card sec">
+    <h2>Data TeraWeb untuk semua template</h2>
 <div class="tbl"><table>
 <tr><th>Landing page</th><td>Rp450.000, 1 halaman, alamat di domain bersama TeraWeb</td></tr>
 <tr><th>Website 4 halaman</th><td>Rp750.000 (Beranda, Layanan, Tentang Kami, Kontak), sekali bayar</td></tr>
@@ -56,12 +112,10 @@ nav button.on{background:var(--acc);border-color:var(--acc);color:var(--bg);font
 <tr><th>Hosting</th><td>Rp0, tanpa perpanjangan tahunan ke TeraWeb</td></tr>
 <tr><th>Tidak termasuk</th><td>Email bisnis, foto atau video profesional, halaman tambahan, toko online dengan keranjang</td></tr>
 </table></div>
-<p class="note">Aturan kirim: maksimal 20-30 chat per hari per nomor, hindari jam sibuk niche, dan jangan kirim ke niche yang demonya belum siap.</p>
-
-<div id="s0x"></div></section>
-<div id="out"></div>
-</main>
-<button id="up" aria-label="Kembali ke atas">↑ Atas</button>
+    <p class="note">Aturan kirim: maksimal 20-30 chat per hari per nomor, hindari jam sibuk niche, dan jangan kirim ke niche yang demonya belum siap.</p>
+  </div>
+</div>
+<div class="toast" id="toast">Pesan disalin</div>
 <script>
 const B="https://teraweb.id/demo/";
 const S=[
@@ -344,39 +398,61 @@ b.splice(2,0,["Kalau mereka tanya harga",`Untuk website 4 halaman (Beranda, Laya
 if(i===0)b[3]=["Kalau bilang “Instagram sudah cukup”",`Betul, Kak, Instagram memang bagus untuk memamerkan karya 👍\nWebsite biasanya jadi pelengkapnya: calon klien yang cari lewat Google atau yang dikasih rekomendasi teman bisa langsung lihat portofolio lengkap dan paket tanpa harus scroll feed.\nKakak bisa lihat dulu contohnya, siapa tahu cocok 😊\nhttps://teraweb.id/demo/fotografer-wedding/`];
 else if([1,2,5,9].includes(i))b[3][1]+="\n"+o[5].trim();
 });
-const $=s=>document.querySelector(s);
-function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;")}
-function copy(t,b){
-  const ok=()=>{const o=b.dataset.l;b.textContent="Tersalin ✓";b.classList.add("done");setTimeout(()=>{b.textContent=o;b.classList.remove("done")},1400)};
-  const fb=()=>{const a=document.createElement("textarea");a.value=t;a.style.cssText="position:fixed;opacity:0";document.body.appendChild(a);a.select();try{document.execCommand("copy")}catch(e){}a.remove();ok()};
-  try{navigator.clipboard.writeText(t).then(ok,fb)}catch(e){fb()}
+
+const $=id=>document.getElementById(id);
+const URLRE=/https:\/\/teraweb\.id\/demo\/[a-z0-9-]+\/?/g;
+const KEY='gerilya-teraweb';
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function pre(s){var n=0;return s.replace(/\b([Ss])elamat (pagi|siang|sore)\b/g,(m,c)=>c==='S'?'{Salam}':'{salam}').replace(URLRE,()=>++n==1?'{demo1}':'{demo2}').replace(/Bang\/Kak/g,'{kak}').replace(/Bapak\/Ibu/g,'{kakak}').replace(/\bKakak\b/g,'{kakak}').replace(/\bKak\b/g,'{kak}').replace(/\[Nama Pengirim\]/g,'{pengirim}').replace(/\[Nama\]/g,'{nama}').replace(/\[Nama [^\]]+\]/g,'{usaha}').replace(/\[kota\]/g,'{kota}')}
+const D=T.map((t,i)=>{var m=t[3][0][1].match(URLRE)||[];return{d1:m[0]||B+t[1]+'/',d2:m[1]||'',lg:OPEN[i][1]==='Bapak/Ibu'?3:0}});
+const PH={nama:'[Nama]',pengirim:'[Nama Anda]',usaha:'[Nama Usaha]',kota:'[kota]',demo1:'[link demo]'};
+let cur=0,mi=0;
+function vals(){var g=id=>$(id).value.trim(),w=$('waktu').value;return{salam:'selamat '+w,Salam:'Selamat '+w,kak:$('kak').value,kakak:$('kakak').value,nama:g('nama'),pengirim:g('pengirim'),usaha:g('usaha'),kota:g('kota'),demo1:g('demo1'),demo2:g('demo2')}}
+function fill(t,html){
+  var v=vals(),parts=[];
+  if(!v.demo2)t=t.replace(/\n?\{demo2\}/g,'');
+  t=t.replace(/\{(\w+)\}|\[[^\]]+\]/g,function(m,k){var val=k?v[k]:'',ph=!val;if(ph)val=k?(PH[k]||''):m;parts.push([val,ph]);return '\u0001'+(parts.length-1)+'\u0002'});
+  if(html)t=esc(t);
+  return t.replace(/\u0001(\d+)\u0002/g,function(_,i){var p=parts[i];return html?'<mark'+(p[1]?' class="ph"':'')+'>'+esc(p[0])+'</mark>':p[0]})
 }
-let store=[];
-function txt(b){return [...b.closest(".blk").querySelector(".msg").childNodes].map(n=>n.nodeType===3?n.nodeValue:(n.textContent.trim()||n.dataset.ph)).join("")}
-document.addEventListener("input",e=>{const f=e.target.closest&&e.target.closest(".fld");if(!f)return;if(!f.textContent.trim())f.innerHTML="";(f.dataset.ph==="[Nama Pengirim]"?document:f.closest(".pane")).querySelectorAll(".fld").forEach(o=>{if(o!==f&&o.dataset.ph===f.dataset.ph)o.textContent=f.textContent})});
-document.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.closest&&e.target.closest(".fld"))e.preventDefault()});
-document.addEventListener("paste",e=>{if(e.target.closest&&e.target.closest(".fld")){e.preventDefault();document.execCommand("insertText",false,(e.clipboardData.getData("text")||"").replace(/\s+/g," "))}});
-function blk(title,text){
-  store.push(text);
-  return `<div class="blk"><div class="hd"><h4>${esc(title)}</h4><button class="btn pri" data-i="${store.length-1}" data-l="Salin">Salin</button></div><div class="msg">${esc(text).replace(/\[[^\]]+\]/g,m=>`<span class="fld" contenteditable="true" spellcheck="false" data-ph="${m}">${m==="[Nama Pengirim]"?"Widya":""}</span>`)}</div></div>`;
+function hp(){var d=$('hp').value.replace(/\D/g,'');if(!d)return'';if(d[0]==='0')d='62'+d.slice(1);else if(d[0]==='8')d='62'+d;return d}
+function wa(text){window.open('https://wa.me/'+hp()+'?text='+encodeURIComponent(text),'_blank','noopener')}
+function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
+function copyText(text){
+  var fb=()=>{var a=document.createElement('textarea');a.value=text;a.style.cssText='position:fixed;opacity:0';document.body.appendChild(a);a.select();try{document.execCommand('copy');toast('Pesan disalin')}catch(e){toast('Gagal menyalin')}a.remove()};
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(text).then(()=>toast('Pesan disalin'),fb);else fb()
 }
-$("#s0x").innerHTML=`<h2>Balasan standar</h2><p class="sub">Berlaku untuk semua niche.</p>${S.map(x=>blk(x[0],x[1])).join("")}`;
-let h="";
-T.forEach((t,i)=>{
-  h+=`<section id="p-s${i+1}" class="pane"><h2>${i+1}. ${t[0]}</h2><div class="meta"><span>Kirim: ${t[2]}</span><a class="btn" href="${B+t[1]}/" target="_blank" rel="noopener">Buka demo</a><button class="btn" data-l="Salin link demo" data-t="${B+t[1]}/">Salin link demo</button></div>${t[3].map(x=>blk(x[0],x[1])).join("")}</section>`;
-});
-$("#out").innerHTML=h;
-$("#nav").innerHTML=`<button data-go="s0">Data & balasan standar</button>`+T.map((t,i)=>`<button data-go="s${i+1}">${t[0]}</button>`).join("");
-document.addEventListener("click",e=>{
-  const c=e.target.closest("[data-i],[data-t]");
-  if(c){copy(c.dataset.t||txt(c),c);return}
-  const g=e.target.closest("[data-go]");if(g)show(g.dataset.go);
-});
-function show(id){document.querySelectorAll(".pane").forEach(p=>p.classList.toggle("on",p.id==="p-"+id));document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.go===id));window.scrollTo(0,0)}
-show("s0");
-const up=document.getElementById("up");
-addEventListener("scroll",()=>up.classList.toggle("vis",scrollY>400));
-up.onclick=()=>scrollTo({top:0,behavior:"smooth"});
+function cur_text(){return $('preview').innerText.replace(/\n+$/,'')}
+function render(){
+  var m=T[cur][3].map(x=>[x[0],pre(x[1])]);if(mi>=m.length)mi=0;
+  $('chips').innerHTML=m.map((x,k)=>'<button type="button" class="chip'+(k==mi?' on':'')+'" data-k="'+k+'">'+esc(x[0])+'</button>').join('');
+  $('tip').textContent='Waktu kirim: '+T[cur][2];
+  $('preview').innerHTML=fill(m[mi][1],true);
+  $('count').textContent=cur_text().length+' karakter';
+  var d=$('demo1').value.trim();$('open').href=d||'#';$('open').style.display=d?'':'none';
+  $('variants').innerHTML=S.map((x,k)=>'<div class="variant"><div class="vh"><span class="vt">'+esc(x[0])+'</span><span><button class="b-primary b-sm" type="button" data-c="'+k+'">Salin</button> <button class="b-wa b-sm" type="button" data-w="'+k+'">WhatsApp</button></span></div><div class="vb">'+esc(fill(pre(x[1]),false))+'</div></div>').join('');
+  try{localStorage.setItem(KEY,JSON.stringify({p:$('pengirim').value,h:$('hp').value,w:$('waktu').value}))}catch(e){}
+}
+function setNiche(i,keep){
+  cur=i;mi=0;$('niche').value=i;$('demo1').value=D[i].d1;$('demo2').value=D[i].d2;
+  $('kak').selectedIndex=$('kakak').selectedIndex=D[i].lg;
+  if(!keep){$('nama').value='';$('usaha').value=''}
+  render()
+}
+$('niche').innerHTML=T.map((t,i)=>'<option value="'+i+'">'+(i+1)+'. '+esc(t[0])+'</option>').join('');
+$('niche').addEventListener('change',()=>setNiche(+$('niche').value));
+['waktu','pengirim','nama','usaha','kota','demo1','demo2','hp','kakak'].forEach(id=>{$(id).addEventListener('input',render);$(id).addEventListener('change',render)});
+$('kak').addEventListener('change',()=>{$('kakak').selectedIndex=$('kak').selectedIndex;render()});
+$('chips').addEventListener('click',e=>{var b=e.target.closest('[data-k]');if(b){mi=+b.dataset.k;render()}});
+$('variants').addEventListener('click',e=>{var c=e.target.closest('[data-c]'),w=e.target.closest('[data-w]');
+  if(c)copyText(fill(pre(S[+c.dataset.c][1]),false));if(w)wa(fill(pre(S[+w.dataset.w][1]),false))});
+$('preview').addEventListener('input',()=>{$('count').textContent=cur_text().length+' karakter'});
+$('copy').addEventListener('click',()=>copyText(cur_text()));
+$('wa').addEventListener('click',()=>wa(cur_text()));
+$('reset').addEventListener('click',()=>{$('kota').value='';setNiche(cur)});
+var hr=new Date().getHours();$('waktu').selectedIndex=hr>=4&&hr<11?0:hr<15?1:hr<18?2:3;
+try{var sv=JSON.parse(localStorage.getItem(KEY)||'null');if(sv){if(typeof sv.p==='string')$('pengirim').value=sv.p;if(typeof sv.h==='string')$('hp').value=sv.h;if(sv.w)$('waktu').value=sv.w}}catch(e){}
+setNiche(0);
 </script>
 </body>
 </html>
