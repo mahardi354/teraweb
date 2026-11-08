@@ -5,7 +5,7 @@
   "use strict";
 
   var CONFIG = {
-    wa: "6285227272999"
+    wa: "628XXXXXXXXXX"
   };
 
   var waReady = /^\d{9,15}$/.test(CONFIG.wa);
