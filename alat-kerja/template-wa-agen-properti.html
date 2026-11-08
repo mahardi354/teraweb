@@ -50,9 +50,9 @@ button.copy.done{background:var(--wa);color:#fff}
 
   <section class="panel" aria-labelledby="h-param">
     <h2 id="h-param">Parameter</h2>
-    <p class="hint">Kolom yang masih kosong akan tampil sebagai [Nama], [Kota], dan seterusnya di pesan.</p>
+    <p class="hint">Kolom yang masih kosong akan tampil sebagai [Nama Agen], [Kota], dan seterusnya di pesan.</p>
     <div class="grid">
-      <div><label for="f-nama">Nama agen</label><input id="f-nama" placeholder="mis. Budi" autocomplete="off"></div>
+      <div><label for="f-nama">Nama agen properti / usaha</label><input id="f-nama" placeholder="mis. Griya Asri Properti" autocomplete="off"></div>
       <div><label for="f-sapaan">Sapaan</label>
         <select id="f-sapaan">
           <option value="Pak/Bu">Pak/Bu (belum tahu gender)</option>
@@ -107,23 +107,23 @@ button.copy.done{background:var(--wa);color:#fff}
 (function(){
   var MESSAGES = [
     {id:"google", group:1, label:"Pancing Google",
-     when:"Untuk agen yang aktif jualan tapi belum punya website.",
-     text:"{{salam}}, {{sapaan}} {{nama}} 🙏\n\nSaya {{pengirim}} dari {{brand}}. Maaf mengganggu, saya cuma mau tanya satu hal.\n\nKalau calon pembeli mengetik \"rumah dijual di {{kota}}\" di Google, apakah listing {{sapaanLong}} muncul di sana?\n\nBanyak agen properti yang kehilangan pembeli bukan karena rumahnya kurang bagus, tapi karena pembeli yang mencari di Google justru ketemu agen lain. Padahal pembeli yang cari sendiri itu biasanya yang paling serius.\n\nSaya sudah siapkan contoh tampilan website untuk agen properti, lengkap dengan katalog listing dan tombol WhatsApp di setiap properti:\n{{demo}}\n\nSilakan dilihat dulu, {{sapaan}}, santai saja. Kalau tertarik, nanti saya kasih tahu paket dan harganya 🙏"},
+     when:"Untuk agen yang aktif jualan tapi belum punya website. Kirim hanya kalau Anda sudah mengecek di Google dan memang belum menemukan websitenya.",
+     text:"{{salam}}, {{sapaan}} 🙏\n\nSaya {{pengirim}} dari {{brand}}. Maaf mengganggu, saya lihat {{nama}} aktif memasarkan properti di {{kota}}.\n\nTadi saya sempat cari \"rumah dijual di {{kota}}\" di Google, dan saya belum menemukan website milik {{nama}}. Apakah memang belum ada website sendiri, {{sapaan}}?\n\nKebetulan saya membuat website khusus agen properti, lengkap dengan katalog listing dan tombol WhatsApp di setiap properti. Ini contoh tampilannya:\n{{demo}}\n\nKalau berkenan, silakan dilihat dulu, {{sapaan}}, santai saja. Kalau tertarik, nanti saya kabari paket dan harganya 🙏"},
     {id:"ig", group:1, label:"Pancing Instagram",
      when:"Untuk agen yang ditemukan lewat Instagram atau katalog di WA.",
-     text:"Halo {{sapaan}} {{nama}}, salam kenal 🙏\n\nSaya {{pengirim}} dari {{brand}}. Tadi saya lihat profil {{sapaanLong}}, listingnya menarik-menarik.\n\nSaya penasaran: kalau ada calon pembeli yang minta \"lihat semua properti yang {{sapaanLong}} jual\", biasanya dikirimnya lewat apa? Foto satu-satu di chat, atau ada satu link yang rapi?\n\nBayangkan cukup kirim satu link, dan pembeli bisa lihat semua listing, foto, harga, lokasi, lalu langsung klik tombol WhatsApp ke {{sapaanLong}}. Kesannya jadi jauh lebih profesional, dan pembeli lebih percaya.\n\nIni contoh tampilannya untuk agen properti:\n{{demo}}\n\nSilakan dilihat dulu, {{sapaan}}, santai saja. Kalau tertarik, nanti saya kasih tahu paket dan harganya 🙏"},
+     text:"Halo {{sapaan}}, salam kenal 🙏\n\nSaya {{pengirim}} dari {{brand}}. Tadi saya lihat profil {{nama}}, listingnya menarik-menarik.\n\nSaya penasaran, kalau ada calon pembeli yang minta lihat semua properti yang dijual {{nama}}, biasanya dikirimnya lewat apa? Foto satu-satu di chat, atau ada satu link yang rapi?\n\nSaya biasa membuatkan website listing untuk agen properti: semua properti, foto, harga, dan lokasi ada dalam satu link, dengan tombol WhatsApp langsung ke {{nama}}. Ini contohnya:\n{{demo}}\n\nSilakan dilihat dulu, {{sapaan}}, santai saja. Kalau tertarik, nanti saya kabari paket dan harganya 🙏"},
     {id:"singkat", group:1, label:"Singkat",
      when:"Untuk agen yang sibuk, atau saat mengirim ke banyak nomor.",
-     text:"Halo {{sapaan}} {{nama}} 🙏\n\nSaya {{pengirim}} dari {{brand}}. Saya bikin website khusus agen properti: ada katalog listing, tombol WhatsApp di tiap properti, dan bisa ditemukan di Google.\n\nContoh jadinya seperti ini:\n{{demo}}\n\nKalau {{sapaanLong}} mau punya yang seperti itu atas nama sendiri, kabari saya ya. Silakan dilihat dulu 🙏"},
+     text:"Halo {{sapaan}} 🙏\n\nSaya {{pengirim}} dari {{brand}}. Saya membuat website khusus agen properti: ada katalog listing, tombol WhatsApp di tiap properti, dan bisa ditemukan di Google.\n\nContoh jadinya seperti ini:\n{{demo}}\n\nKalau {{nama}} tertarik punya yang seperti itu atas nama sendiri, kabari saya ya. Silakan dilihat dulu 🙏"},
     {id:"harga", group:2, label:"Balasan setelah tertarik",
      when:"Kirim hanya jika agen membalas atau bilang sudah melihat demo.",
-     text:"Terima kasih sudah dilihat, {{sapaan}} 🙏\n\nUntuk websitenya, paketnya:\n✅ {{harga}} sekali bayar\n✅ Tanpa biaya perpanjangan tahunan\n✅ Tayang {{tayang}}\n✅ Revisi 2 kali sebelum tayang\n✅ Tombol WhatsApp di setiap listing\n\nSatu transaksi saja dari website ini sudah jauh melebihi biayanya, {{sapaan}}. Kalau cocok, tinggal kirim nama usaha dan beberapa foto listing, sisanya saya yang kerjakan.{{demoLainBlok}}\n\nMau saya mulai dari nama usaha {{sapaanLong}}?"},
+     text:"Terima kasih sudah dilihat, {{sapaan}} 🙏\n\nUntuk websitenya, paketnya:\n✅ {{harga}} sekali bayar\n✅ Tanpa biaya perpanjangan tahunan\n✅ Tayang {{tayang}}\n✅ Revisi 2 kali sebelum tayang\n✅ Tombol WhatsApp di setiap listing\n\nKalau cocok, tinggal kirim logo dan beberapa foto listing {{nama}}, sisanya saya yang kerjakan.{{demoLainBlok}}\n\nKalau ada yang ingin ditanyakan dulu, silakan, {{sapaan}} 🙏"},
     {id:"fu1", group:2, label:"Follow-up 1",
      when:"Kirim 2-3 hari setelah pesan pertama kalau belum ada balasan.",
-     text:"Halo {{sapaan}} {{nama}} 🙏\n\n{{pengirim}} dari {{brand}} lagi, mau menyapa sebentar. Kemarin saya sempat kirim contoh website untuk agen properti.\n\nKalau sempat, boleh dilihat 1 menit saja ya:\n{{demo}}\n\nKalau memang belum butuh, tidak apa-apa sama sekali, {{sapaan}}. Terima kasih sudah membaca 🙏"},
+     text:"Halo {{sapaan}} 🙏\n\n{{pengirim}} dari {{brand}} lagi, mau menyapa sebentar. Kemarin saya sempat kirim contoh website untuk agen properti.\n\nKalau sempat, boleh dilihat 1 menit saja ya:\n{{demo}}\n\nKalau memang belum butuh, tidak apa-apa sama sekali, {{sapaan}}. Terima kasih sudah membaca 🙏"},
     {id:"fu2", group:2, label:"Follow-up 2 (penutup)",
      when:"Pesan terakhir, 4-5 hari setelah follow-up 1. Setelah ini jangan dikejar lagi.",
-     text:"Permisi {{sapaan}} {{nama}}, ini pesan terakhir dari saya supaya tidak mengganggu 🙏\n\nKalau suatu saat {{sapaanLong}} ingin punya website listing sendiri, tinggal balas chat ini, dengan senang hati saya bantu.\n\nSukses terus penjualannya di {{kota}}, {{sapaan}}!"}
+     text:"Permisi {{sapaan}} 🙏\n\nIni pesan terakhir dari saya supaya tidak mengganggu. Kalau suatu saat {{nama}} ingin punya website listing sendiri, tinggal balas chat ini, dengan senang hati saya bantu.\n\nSukses terus penjualannya di {{kota}}, {{sapaan}}!"}
   ];
 
   var fields = ["nama","sapaan","kota","salam","nomor","pengirim","brand","harga","tayang","demo1","demo2","demopilih","demolain"];
@@ -143,7 +143,7 @@ button.copy.done{background:var(--wa);color:#fff}
     p.demoLainBlok = (p.demolain === "ya" && p.demoLain)
       ? "\n\nKalau " + p.sapaanLong + " ingin lihat gaya yang lain, ini satu contoh lagi:\n" + p.demoLain
       : "";
-    var ph = {nama:"[Nama]", kota:"[Kota]"};
+    var ph = {nama:"[Nama Agen]", kota:"[Kota]"};
     Object.keys(ph).forEach(function(k){ if(!p[k]) p[k] = ph[k]; });
     return p;
   }
