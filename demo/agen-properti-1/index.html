@@ -458,6 +458,101 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .load-more-wrap{text-align:center; margin-top:40px;}
 .hidden-card{display:none;}
 
+
+/* ========================= REFERENCE HERO ========================= */
+.site-header{
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:1000;
+  padding:20px 0;
+  background:transparent;
+  border-bottom:1px solid transparent;
+  transition:background .35s ease, box-shadow .35s ease, padding .3s ease, backdrop-filter .35s ease, border-color .35s ease;
+}
+.site-header.is-scrolled{
+  background:rgba(247,243,234,.94);
+  backdrop-filter:blur(14px) saturate(1.05);
+  -webkit-backdrop-filter:blur(14px) saturate(1.05);
+  box-shadow:0 8px 28px -18px rgba(33,38,31,.42);
+  padding:12px 0;
+  border-bottom-color:rgba(199,186,156,.65);
+}
+.site-header .container{max-width:1380px;}
+.brand{gap:14px; color:var(--forest-dark);}
+.brand .mark{width:56px;height:56px;border-radius:13px;}
+.brand .mark svg{width:29px;height:29px;}
+.brand .brand-text{line-height:.92;}
+.brand .brand-text .brand-name{font-family:'Fraunces',serif;font-size:1.72rem;letter-spacing:.02em;font-weight:600;}
+.brand .brand-text small{font-family:'Plus Jakarta Sans',sans-serif;font-size:.62rem;letter-spacing:.34em;margin-top:7px;color:var(--forest-dark);font-weight:700;}
+.nav-links{gap:38px;}
+.nav-links a{font-size:.93rem;color:var(--ink);font-weight:500;}
+.header-actions .btn-brass{background:var(--forest);color:#fff;border-color:var(--forest);padding:12px 22px;font-size:.86rem;box-shadow:none;}
+.header-actions .btn-brass:hover{background:var(--forest-dark);}
+.header-actions .btn-brass svg{display:none;}
+.header-actions .btn-brass::after{content:'›';font-size:1.35rem;line-height:.7;margin-left:4px;font-weight:400;}
+.site-header:not(.is-scrolled) .header-actions .btn-brass{background:var(--forest);}
+
+.hero{
+  min-height:630px;
+  padding:0;
+  display:flex;
+  align-items:stretch;
+  overflow:hidden;
+  background-color:var(--bg);
+  background-image:
+    linear-gradient(90deg, rgba(247,243,234,.99) 0%, rgba(247,243,234,.97) 27%, rgba(247,243,234,.82) 40%, rgba(247,243,234,.28) 56%, rgba(247,243,234,0) 69%),
+    url('images/hero-tapak-clean.jpg');
+  background-size:cover;
+  background-position:center center;
+}
+.hero > .container{width:100%;max-width:1380px;display:flex;align-items:center;padding-top:78px;}
+.hero-grid{display:block;width:100%;margin:0;}
+.hero-copy{max-width:690px;padding-bottom:18px;}
+.hero-copy .eyebrow{margin-bottom:20px;color:var(--brass);font-size:.74rem;letter-spacing:.13em;font-weight:600;}
+.hero-copy .eyebrow::before{width:46px;height:2px;}
+.hero-copy h1{font-size:clamp(3.25rem,5vw,5.05rem);line-height:.98;letter-spacing:-.035em;font-weight:560;max-width:680px;margin-bottom:22px;}
+.hero-copy p.lead{font-size:1.18rem;line-height:1.55;max-width:610px;color:#304039;margin-bottom:0;}
+.hero-cta{align-items:center;margin-top:28px;gap:18px;}
+.hero-cta .btn-primary{padding:16px 28px;background:var(--forest);}
+.hero-cta .btn-outline{border:0;padding:0;background:transparent;box-shadow:none;}
+.hero-cta .btn-outline::before{content:'▶';width:50px;height:50px;border:1px solid var(--forest);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.82rem;margin-right:12px;color:var(--forest);}
+.hero-cta .btn-outline{font-size:.94rem;font-weight:600;color:var(--forest-dark);}
+.hero-media{display:none;}
+.hero .stat-bar{display:none;}
+
+@media(max-width:1100px){
+  .nav-links{gap:24px;}
+  .hero-copy{max-width:620px;}
+  .hero-copy h1{font-size:clamp(3rem,5vw,4.4rem);}
+}
+@media(max-width:900px){
+  .brand .mark{width:48px;height:48px;}
+  .brand .brand-text .brand-name{font-size:1.45rem;}
+  .brand .brand-text small{font-size:.5rem;}
+  .hero{min-height:720px;background-position:68% center;background-image:linear-gradient(90deg, rgba(247,243,234,.98) 0%, rgba(247,243,234,.92) 48%, rgba(247,243,234,.3) 82%, rgba(247,243,234,0) 100%),url('images/hero-tapak-clean.jpg');}
+  .hero > .container{padding-top:92px;align-items:center;}
+  .hero-copy{max-width:590px;}
+  .hero-copy h1{font-size:clamp(2.65rem,8vw,4rem);}
+}
+@media(max-width:600px){
+  .site-header{padding:14px 0;}
+  .site-header .container{padding:0 18px;}
+  .brand{gap:9px;}
+  .brand .mark{width:42px;height:42px;border-radius:10px;}
+  .brand .mark svg{width:22px;height:22px;}
+  .brand .brand-text .brand-name{font-size:1.25rem;}
+  .brand .brand-text small{font-size:.43rem;letter-spacing:.28em;margin-top:5px;}
+  .header-actions .btn-brass{display:none;}
+  .hero{min-height:760px;background-position:65% center;background-image:linear-gradient(90deg, rgba(247,243,234,.98) 0%, rgba(247,243,234,.91) 55%, rgba(247,243,234,.35) 100%),url('images/hero-tapak-clean.jpg');}
+  .hero > .container{padding-top:82px;}
+  .hero-copy{padding-bottom:10px;}
+  .hero-copy .eyebrow{font-size:.62rem;letter-spacing:.1em;}
+  .hero-copy h1{font-size:clamp(2.45rem,12vw,3.5rem);line-height:1.01;}
+  .hero-copy p.lead{font-size:1rem;}
+  .hero-cta{gap:16px;margin-top:24px;}
+  .hero-cta .btn-primary{padding:14px 22px;}
+}
+
 </style>
 </head>
 <body>
@@ -468,21 +563,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 11.5L12 4l9 7.5" stroke="#D9B171" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 10v9a1 1 0 0 0 1 1H10v-5.5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1V20h3.5a1 1 0 0 0 1-1v-9" stroke="#D9B171" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </span>
         <span class="brand-text">
-          <span>TAPAK Properti</span>
-          <small>Independent Property Advisor</small>
+          <span class="brand-name">TAPAK</span>
+          <small>PROPERTI</small>
         </span>
       </a>
       <nav class="nav-links">
-        <a href="index.html" data-nav="beranda" class="active">Beranda</a>
-        <a href="tentang.html" data-nav="tentang">Tentang Kami</a>
+        <a href="#beranda" data-nav="beranda" class="active">Beranda</a>
         <a href="properti.html" data-nav="properti">Properti</a>
+        <a href="tentang.html" data-nav="tentang">Tentang Kami</a>
         <a href="kontak.html" data-nav="kontak">Kontak</a>
       </nav>
       <div class="header-actions">
-        <a href="https://wa.me/6281234567890" class="btn btn-brass btn-sm" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.7-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.2.2-.3.2-.5.1-.2 0-.3 0-.5s-.6-1.5-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>
-          WhatsApp
-        </a>
         <button class="hamburger" aria-label="Buka menu"><span class="bars"><span></span><span></span><span></span></span></button>
       </div>
     </div>
@@ -496,49 +587,32 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       </span>
       <button class="close-x" aria-label="Tutup menu">&times;</button>
     </div>
-    <a href="index.html">Beranda</a>
-    <a href="tentang.html">Tentang Kami</a>
+    <a href="#beranda">Beranda</a>
     <a href="properti.html">Properti</a>
+    <a href="tentang.html">Tentang Kami</a>
     <a href="kontak.html">Kontak</a>
-    <a href="https://wa.me/6281234567890" style="font-family:'Plus Jakarta Sans',sans-serif; font-size:1rem; color:#D9B171;">Chat via WhatsApp &rarr;</a>
   </div>
 
 <main>
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="beranda">
     <div class="container">
       <div class="hero-grid">
         <div class="hero-copy reveal">
-          <span class="eyebrow">Konsultan Properti Independen · Semarang Raya</span>
-          <h1>Cari rumah bukan cuma soal harga, tapi soal ketepatan.</h1>
-          <p class="lead">Saya membantu Anda membeli atau menjual rumah dengan pendampingan personal — mulai dari survei lokasi, negosiasi harga, sampai legalitas dokumen. Tanpa target sepihak dari agensi besar, murni demi kepentingan Anda.</p>
+          <span class="eyebrow">Konsultan Properti Independen</span>
+          <h1>Temukan Rumah Terbaik di Semarang, Ungaran, dan Kendal</h1>
+          <p class="lead">Pendampingan personal jual-beli rumah dari survei hingga serah terima kunci.</p>
           <div class="hero-cta">
-            <a href="properti.html" class="btn btn-primary">Lihat Properti Tersedia</a>
-            <a href="https://wa.me/6281234567890" class="btn btn-outline" target="_blank" rel="noopener">Konsultasi Gratis via WhatsApp</a>
+            <a href="https://wa.me/6281234567890" class="btn btn-primary" target="_blank" rel="noopener">Konsultasi Sekarang <span aria-hidden="true">›</span></a>
+            <a href="#tentang" class="btn btn-outline">Tonton Profil Kami</a>
           </div>
         </div>
-        <div class="hero-media reveal">
-          <div class="frame">
-            <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=900&q=80" alt="Rumah modern minimalis dengan halaman rumput hijau di Semarang">
-          </div>
-          <div class="float-card">
-            <span class="dot"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.3-9.1C1.2 8.7 3 5 6.6 5c2 0 3.4 1 4.4 2.3C12 6 13.4 5 15.4 5 19 5 20.8 8.7 19.3 11.9 17 16.4 12 21 12 21Z" stroke="currentColor" stroke-width="1.5"/></svg></span>
-            <div><strong>127 keluarga</strong><span>sudah menemukan rumah lewat TAPAK</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="stat-bar reveal">
-        <div class="stat"><b>9+</b><span>Tahun pengalaman</span></div>
-        <div class="stat"><b>210</b><span>Transaksi selesai</span></div>
-        <div class="stat"><b>4.9/5</b><span>Rating kepuasan klien</span></div>
-        <div class="stat"><b>12</b><span>Kecamatan area layanan</span></div>
       </div>
     </div>
   </section>
 
   <!-- KENAPA AGEN INDEPENDEN -->
-  <section class="section-pad">
+  <section class="section-pad" id="tentang">
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow" style="justify-content:center;">Kenapa Agen Independen</span>
@@ -581,7 +655,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   </section>
 
   <!-- FEATURED PROPERTIES -->
-  <section class="section-pad" style="background:var(--bg-alt);">
+  <section class="section-pad" id="properti" style="background:var(--bg-alt);">
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow" style="justify-content:center;">Rekomendasi Minggu Ini</span>
@@ -593,7 +667,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <article class="card-property reveal">
           <div class="thumb">
             <span class="ribbon">Baru</span>
-            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=760&q=80" alt="Rumah asri dua lantai di Tembalang, Semarang">
+            <img src="images/photo-1600596542815-ffad4c1539a9.jpg" alt="Rumah asri dua lantai di Tembalang, Semarang">
             <span class="price-tag mono">Rp 1,15 M</span>
           </div>
           <div class="body">
@@ -612,7 +686,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <article class="card-property reveal">
           <div class="thumb">
             <span class="ribbon nego">Nego</span>
-            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=760&q=80" alt="Rumah cluster modern di Ungaran">
+            <img src="images/photo-1600607687939-ce8a6c25118c.jpg" alt="Rumah cluster modern di Ungaran">
             <span class="price-tag mono">Rp 890 Jt</span>
           </div>
           <div class="body">
@@ -631,7 +705,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <article class="card-property reveal">
           <div class="thumb">
             <span class="ribbon booked">Booking Fee</span>
-            <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=760&q=80" alt="Rumah hook siap huni di Mijen, Semarang">
+            <img src="images/photo-1523217582562-09d0def993a6.jpg" alt="Rumah hook siap huni di Mijen, Semarang">
             <span class="price-tag mono">Rp 1,65 M</span>
           </div>
           <div class="body">
@@ -655,7 +729,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   </section>
 
   <!-- PROSES -->
-  <section class="section-pad">
+  <section class="section-pad" id="layanan">
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow" style="justify-content:center;">Alur Kerja Sama</span>
@@ -693,7 +767,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   </section>
 
   <!-- TESTIMONIALS -->
-  <section class="section-pad" style="background:var(--bg-alt);">
+  <section class="section-pad" id="testimoni" style="background:var(--bg-alt);">
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow" style="justify-content:center;">Kata Klien</span>
@@ -704,7 +778,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           <div class="stars">★★★★★</div>
           <p>"Mas Bimo sabar banget nemenin survei ke 7 rumah sebelum akhirnya ketemu yang pas. Nggak pernah dipaksa buru-buru ambil keputusan."</p>
           <div class="who">
-            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Foto Ratna Wulandari">
+            <img src="images/women-44.jpg" alt="Foto Ratna Wulandari">
             <div><strong>Ratna Wulandari</strong><span>Pembeli, Tembalang</span></div>
           </div>
         </div>
@@ -712,7 +786,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           <div class="stars">★★★★★</div>
           <p>"Rumah warisan orang tua saya laku dengan harga di atas ekspektasi karena datanya jelas &amp; negonya kuat. Prosesnya rapi dari awal sampai akhir."</p>
           <div class="who">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto Andi Kurniawan">
+            <img src="images/men-32.jpg" alt="Foto Andi Kurniawan">
             <div><strong>Andi Kurniawan</strong><span>Penjual, Banyumanik</span></div>
           </div>
         </div>
@@ -720,7 +794,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           <div class="stars">★★★★★</div>
           <p>"Bagian legalitas yang paling saya khawatirkan justru paling ditangani serius. Sertifikat &amp; IMB dicek dulu sebelum saya transfer DP."</p>
           <div class="who">
-            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Foto Fajar Nugroho">
+            <img src="images/men-67.jpg" alt="Foto Fajar Nugroho">
             <div><strong>Fajar Nugroho</strong><span>Pembeli, Ungaran</span></div>
           </div>
         </div>
@@ -729,7 +803,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   </section>
 
   <!-- FAQ -->
-  <section class="section-pad">
+  <section class="section-pad" id="faq">
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow" style="justify-content:center;">Pertanyaan Umum</span>
@@ -773,7 +847,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   </section>
 
   <!-- CTA -->
-  <section class="section-pad" style="padding-top:0;">
+  <section class="section-pad" id="kontak" style="padding-top:0;">
     <div class="container">
       <div class="cta-banner reveal">
         <h2>Siap mencari rumah yang benar-benar cocok?</h2>
