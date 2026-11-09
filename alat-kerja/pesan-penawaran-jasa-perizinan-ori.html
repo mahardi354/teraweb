@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generator Pesan Penawaran – Jasa Perizinan</title>
+<style>
+:root{
+  --bg:#f4f6f8; --card:#ffffff; --text:#1c2733; --muted:#5f6c7b; --border:#d9e0e7;
+  --primary:#0f766e; --primary-h:#0b5f58; --hl-bg:#d7f5ee; --hl-text:#0b4f47; --warn-bg:#fde7b0; --warn-text:#6b4500; --wa:#25d366; --bubble:#dcf8c6;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0f1519; --card:#182128; --text:#e6edf3; --muted:#93a1ae; --border:#2a3640;
+    --primary:#2dd4bf; --primary-h:#5eead4; --hl-bg:#134e4a; --hl-text:#99f6e4; --warn-bg:#5a4208; --warn-text:#ffe08a; --bubble:#1f3a2c;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;padding:24px 16px 48px}
+.wrap{max-width:980px;margin:0 auto}
+h1{font-size:1.4rem;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 20px;font-size:.95rem}
+.grid{display:grid;grid-template-columns:1fr 1.25fr;gap:20px}
+@media(max-width:780px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px}
+.card h2{font-size:1rem;margin:0 0 14px}
+label{display:block;font-size:.85rem;font-weight:600;margin:0 0 5px}
+.field{margin-bottom:14px}
+.hint{font-weight:400;color:var(--muted);font-size:.8rem}
+.req{color:#c2410c}
+.field[hidden]{display:none}
+input,select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:9px;font:inherit;background:var(--bg);color:var(--text)}
+input:focus,select:focus{outline:2px solid var(--primary);outline-offset:0;border-color:var(--primary)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bubble{background:var(--bubble);border-radius:12px;padding:16px 18px;white-space:pre-wrap;word-wrap:break-word;font-size:.95rem}
+.bubble mark{background:var(--hl-bg);color:var(--hl-text);padding:0 3px;border-radius:4px;font-weight:600}
+.bubble mark.warn{background:var(--warn-bg);color:var(--warn-text)}
+.alert{margin-top:12px;background:var(--warn-bg);color:var(--warn-text);border-radius:9px;padding:9px 12px;font-size:.88rem}
+.alert[hidden]{display:none}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+button,.btn{font:inherit;font-weight:600;border:0;border-radius:9px;padding:10px 16px;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+.b-primary{background:var(--primary);color:#fff}
+.b-primary:hover{background:var(--primary-h)}
+.b-wa{background:var(--wa);color:#08331a}
+.b-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#111;color:#fff;padding:10px 18px;border-radius:999px;opacity:0;transition:.25s;pointer-events:none;font-size:.9rem}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.count{color:var(--muted);font-size:.8rem;margin-top:10px}
+:focus-visible{outline:3px solid #f2a516;outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Generator Pesan Penawaran</h1>
+  <p class="sub">Isi kolom di kiri, pesan di kanan menyesuaikan otomatis. Bagian berwarna hijau berasal dari isian Anda, bagian kuning masih harus diisi.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Isi Field</h2>
+
+      <div class="row">
+        <div class="field">
+          <label for="waktu">Salam waktu</label>
+          <select id="waktu">
+            <option value="pagi">Selamat pagi</option>
+            <option value="siang" selected>Selamat siang</option>
+            <option value="sore">Selamat sore</option>
+            <option value="malam">Selamat malam</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sapaan">Sapaan ke penerima</label>
+          <select id="sapaan">
+            <option value="Pak/Bu">Pak/Bu (Bapak/Ibu)</option>
+            <option value="Pak">Pak (Bapak)</option>
+            <option value="Bu">Bu (Ibu)</option>
+            <option value="Kak">Kak (Kakak)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="nama">Nama Anda</label>
+          <input id="nama" type="text" placeholder="mis. Didik">
+        </div>
+        <div class="field">
+          <label for="usaha">Nama usaha Anda</label>
+          <input id="usaha" type="text" value="TeraWeb">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="jasa">Nama jasa perizinan <span class="req">*</span></label>
+        <input id="jasa" type="text" placeholder="mis. CV Mitra Legalitas Nusantara">
+      </div>
+
+      <div class="field">
+        <label for="ulasan">Hal spesifik dari ulasan Google Maps mereka <span class="req">*</span></label>
+        <input id="ulasan" type="text" placeholder="mis. prosesnya cepat dan komunikasinya enak">
+        <div class="hint">Baca 2-3 ulasan mereka, ambil satu hal yang benar-benar tertulis. Jangan mengarang.</div>
+      </div>
+
+      <div class="field">
+        <label for="jenis">Link yang dikirim</label>
+        <select id="jenis">
+          <option value="demo">Demo industri (contoh hasil)</option>
+          <option value="halaman">Halaman mitra (skema dan contoh hasil)</option>
+        </select>
+      </div>
+
+      <div class="field" id="f-link">
+        <label for="link">Link demo</label>
+        <input id="link" type="url" inputmode="url" value="https://teraweb.id/demo/industri/">
+        <div class="hint">Ganti dengan demo yang paling dekat dengan bidang mereka.</div>
+      </div>
+
+      <div class="field" id="f-halaman" hidden>
+        <label for="halaman">Alamat halaman mitra</label>
+        <input id="halaman" type="url" inputmode="url" value="https://teraweb.id/mitra-perizinan">
+        <div class="hint">Nama jasa perizinan otomatis ditambahkan sebagai ?biro= agar halaman bertuliskan nama mereka.</div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="versi">Panjang pesan</label>
+          <select id="versi">
+            <option value="lengkap">Lengkap</option>
+            <option value="ringkas">Ringkas</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="hp">Nomor WhatsApp tujuan <span class="hint">(opsional)</span></label>
+          <input id="hp" type="tel" inputmode="tel" placeholder="mis. 0812 3456 7890">
+        </div>
+      </div>
+
+      <button class="b-ghost" id="reset" type="button">Reset field</button>
+    </div>
+
+    <div class="card">
+      <h2>Pratinjau Pesan</h2>
+      <div class="bubble" id="preview"></div>
+      <div class="alert" id="alert" hidden>Isi nama jasa perizinan dan hal spesifik dari ulasan dulu. Pujian yang tidak sesuai ulasan justru terasa seperti template.</div>
+      <div class="count" id="count"></div>
+      <div class="actions">
+        <button class="b-primary" id="copy" type="button">Salin pesan</button>
+        <a class="btn b-wa" id="wa" href="#" target="_blank" rel="noopener">Kirim via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast">Pesan disalin</div>
+
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var ids = ['waktu','sapaan','nama','usaha','jasa','ulasan','jenis','link','halaman','versi','hp'];
+  var DEFAULTS = {waktu:'siang', sapaan:'Pak/Bu', nama:'', usaha:'TeraWeb', jasa:'', ulasan:'', jenis:'demo', link:'https://teraweb.id/demo/industri/', halaman:'https://teraweb.id/mitra-perizinan', versi:'lengkap', hp:''};
+  var LONG = {'Pak/Bu':'Bapak/Ibu','Pak':'Bapak','Bu':'Ibu','Kak':'Kakak'};
+  var KEY = 'pesan-penawaran-perizinan-v2';
+  var M = '\u0001', W = '\u0002', E = '\u0003';
+
+  function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  // Bagian dari isian ditandai M..E (hijau), placeholder yang belum diisi W..E (kuning)
+  function f(t, ph){ t = (t || '').trim(); return t ? M + t + E : W + ph + E; }
+
+  function pageUrl(v){
+    var base = (v.halaman || '').trim(), nm = (v.jasa || '').trim();
+    if(!base) return '';
+    if(!nm) return base;
+    return base + (base.indexOf('?') > -1 ? '&' : '?') + 'biro=' + encodeURIComponent(nm.replace(/\s+/g,' ').slice(0,60));
+  }
+
+  function build(v){
+    var sap = v.sapaan, lg = LONG[sap] || sap;
+    var s = f(sap, 'Pak/Bu'), L = f(lg, 'Bapak/Ibu');
+    var nama = f(v.nama, 'Nama Anda'), usaha = f(v.usaha, 'Nama usaha');
+    var jasa = f(v.jasa, 'Nama Jasa Perizinan'), ulasan = f(v.ulasan, 'hal spesifik dari ulasan');
+    var waktu = M + v.waktu + E;
+    var page = v.jenis === 'halaman';
+    var url = page ? f(pageUrl(v), 'alamat halaman mitra') : f(v.link, 'link demo');
+    var t;
+    if(v.versi === 'ringkas'){
+      t = 'Selamat ' + waktu + ' ' + s + '. Saya ' + nama + ' dari ' + usaha + ', pembuat website company profile.\n\n' +
+          'Saya lihat ' + jasa + ' punya banyak ulasan bagus soal ' + ulasan + '. Saya punya usulan: tawarkan \u201cPaket PT + Website\u201d ke klien. Mereka senang karena beres di satu tempat, ' + L + ' dapat margin yang besar, dan saya yang mengerjakan atas nama ' + L + '.\n\n' +
+          (page ? 'Penjelasan skema dan contoh hasilnya: ' + url + '\n\nKalau ada yang ingin ditanyakan, kabari saja ya ' + s + '.. \uD83D\uDE4F'
+                : 'Contoh hasilnya: ' + url + '\n\nKalau menarik, saya jelaskan ya ' + s + '.. \uD83D\uDE4F');
+    } else {
+      t = 'Selamat ' + waktu + ' ' + s + '. Saya ' + nama + ' dari ' + usaha + ', pembuat website company profile.\n\n' +
+          'Saya sempat lihat ' + jasa + ' di Google Maps, banyak ulasan bagus dari klien soal ' + ulasan + '.\n\n' +
+          'Klien yang baru mendirikan PT/CV biasanya langsung butuh website untuk tender dan daftar vendor, lalu bingung harus cari ke mana. ' + L + ' bisa menawarkan \u201cPaket PT + Website\u201d: klien senang karena semuanya beres di satu tempat, dan ' + L + ' dapat margin yang besar. Saya kerjakan di belakang layar atas nama ' + L + ' (white label), tanpa biaya bergabung.\n\n' +
+          (page ? 'Penjelasan skema dan contoh hasilnya ada di sini: ' + url + '\n\nKalau ada yang ingin ditanyakan, kabari saja ya ' + s + '.. \uD83D\uDE4F'
+                : 'Ini contoh hasilnya: ' + url + '\n\nKalau menarik, saya jelaskan skemanya ya ' + s + '.. \uD83D\uDE4F');
+    }
+    return t;
+  }
+
+  function vals(){ var v = {}; ids.forEach(function(i){ v[i] = $(i).value; }); return v; }
+  function plainOf(t){ return t.replace(/[\u0001\u0002\u0003]/g, ''); }
+  function htmlOf(t){ return esc(t).replace(/\u0001/g,'<mark>').replace(/\u0002/g,'<mark class="warn">').replace(/\u0003/g,'</mark>'); }
+
+  function normHp(n){
+    var d = n.replace(/\D/g,'');
+    if(!d) return '';
+    if(d.indexOf('0') === 0) d = '62' + d.slice(1);
+    else if(d.indexOf('8') === 0) d = '62' + d;
+    return d;
+  }
+
+  function render(){
+    var v = vals(), raw = build(v), plain = plainOf(raw);
+    $('preview').innerHTML = htmlOf(raw);
+    $('count').textContent = plain.length + ' karakter';
+    $('alert').hidden = !!(v.jasa.trim() && v.ulasan.trim());
+    $('f-link').hidden = v.jenis === 'halaman';
+    $('f-halaman').hidden = v.jenis !== 'halaman';
+    var hp = normHp(v.hp);
+    $('wa').href = (hp ? 'https://wa.me/' + hp : 'https://wa.me/') + '?text=' + encodeURIComponent(plain);
+    try { localStorage.setItem(KEY, JSON.stringify(v)); } catch(e){}
+  }
+
+  function toast(msg){
+    var t = $('toast'); t.textContent = msg; t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 1800);
+  }
+
+  $('copy').addEventListener('click', function(){
+    var text = plainOf(build(vals()));
+    function fallback(){
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); toast('Pesan disalin'); } catch(e){ toast('Gagal menyalin'); }
+      document.body.removeChild(ta);
+    }
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(text).then(function(){ toast('Pesan disalin'); }, fallback);
+    } else { fallback(); }
+  });
+
+  $('reset').addEventListener('click', function(){
+    ids.forEach(function(i){ $(i).value = DEFAULTS[i]; });
+    render();
+  });
+
+  ids.forEach(function(i){ $(i).addEventListener('input', render); $(i).addEventListener('change', render); });
+
+  try {
+    var saved = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if(saved){ ids.forEach(function(i){ if(typeof saved[i] === 'string') $(i).value = saved[i]; }); }
+  } catch(e){}
+
+  render();
+})();
+</script>
+</body>
+</html>
