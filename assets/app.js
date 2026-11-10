@@ -1,20 +1,18 @@
-/* TeraWeb — JavaScript ringan (tanpa library).
-   GANTI nomor WhatsApp di bawah ini (format internasional, tanpa + dan tanpa spasi).
-   Contoh: 6281234567890 */
+/* TeraWeb.id — JavaScript ringan (tanpa library).
+   Nomor WhatsApp: format internasional, tanpa + dan tanpa spasi. */
 (function () {
   "use strict";
 
-  var CONFIG = {
-    wa: "628XXXXXXXXXX"
-  };
-
+  var CONFIG = { wa: "6285227272999" };
   var waReady = /^\d{9,15}$/.test(CONFIG.wa);
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.documentElement.classList.add("js");
 
   function waUrl(message) {
     return "https://wa.me/" + CONFIG.wa + "?text=" + encodeURIComponent(message);
   }
 
-  // Semua tautan dengan atribut data-wa dibuka ke WhatsApp dengan pesan siap kirim.
+  // Tautan dengan atribut data-wa dibuka ke WhatsApp dengan pesan siap kirim.
   if (waReady) {
     document.querySelectorAll("[data-wa]").forEach(function (a) {
       a.href = waUrl(a.getAttribute("data-wa"));
@@ -22,7 +20,7 @@
       a.rel = "noopener";
     });
   } else if (window.console) {
-    console.warn("TeraWeb: nomor WhatsApp belum diatur. Edit CONFIG.wa di assets/app.js.");
+    console.warn("TeraWeb.id: nomor WhatsApp belum diatur. Edit CONFIG.wa di assets/app.js.");
   }
 
   // Menu mobile
@@ -35,27 +33,53 @@
     });
   }
 
-  // FAQ: buka satu, tutup yang lain (akordeon). Dibuat lewat JS supaya
-  // konsisten di semua browser, termasuk yang lebih lawas.
+  // FAQ: buka satu, tutup yang lain
   document.querySelectorAll(".faq").forEach(function (group) {
     var items = group.querySelectorAll("details");
     items.forEach(function (item) {
       item.addEventListener("toggle", function () {
-        if (item.open) {
-          items.forEach(function (other) {
-            if (other !== item) { other.open = false; }
-          });
-        }
+        if (item.open) { items.forEach(function (o) { if (o !== item) { o.open = false; } }); }
       });
     });
   });
 
   // Tahun di footer
-  document.querySelectorAll("[data-year]").forEach(function (el) {
-    el.textContent = new Date().getFullYear();
-  });
+  document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
-  // Formulir kontak: menyusun pesan lalu membuka WhatsApp
+  // Animasi bar (lomba muat dan simulasi biaya): jalan sekali saat terlihat
+  function runWhenVisible(el) {
+    if (reduce || !("IntersectionObserver" in window)) { el.classList.add("is-run"); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { el.classList.add("is-run"); io.disconnect(); }
+      });
+    }, { threshold: 0.4 });
+    io.observe(el);
+  }
+  document.querySelectorAll(".race, .cost__bars").forEach(runWhenVisible);
+
+  // Putar ulang lomba muat. Memakai Web Animations API (bukan class CSS) supaya tetap
+  // berjalan di perangkat dengan pengaturan "kurangi gerakan": ini permintaan pengunjung sendiri.
+  var replay = document.getElementById("race-replay");
+  var race = document.querySelector(".race");
+  if (replay && race) {
+    var lanes = [
+      { sel: ".race__row--slow .race__fill", ms: 3400, ease: "cubic-bezier(.3,.1,.5,1)" },
+      { sel: ".race__row--fast .race__fill", ms: 500, ease: "cubic-bezier(.3,.9,.3,1)" }
+    ];
+    replay.addEventListener("click", function () {
+      lanes.forEach(function (lane) {
+        var fill = race.querySelector(lane.sel);
+        if (!fill || !fill.animate) { return; }
+        fill.getAnimations().forEach(function (an) { an.cancel(); });
+        var track = fill.parentNode.getBoundingClientRect().width;
+        var pct = track ? (fill.getBoundingClientRect().width / track) * 100 : 100;
+        fill.animate([{ width: "0%" }, { width: pct + "%" }], { duration: lane.ms, easing: lane.ease });
+      });
+    });
+  }
+
+  // Formulir kontak: susun pesan lalu buka WhatsApp
   var form = document.getElementById("form-kontak");
   if (form) {
     var err = document.getElementById("form-error");
@@ -73,7 +97,7 @@
       err.textContent = "";
 
       var lines = [
-        "Halo TeraWeb, saya " + nama + (usaha ? " dari " + usaha : "") + ".",
+        "Halo TeraWeb.id, saya " + nama + (usaha ? " dari " + usaha : "") + ".",
         "Jenis usaha: " + jenis,
         "Yang saya butuhkan: " + (paket ? paket.value : "Belum tahu, mohon disarankan")
       ];
