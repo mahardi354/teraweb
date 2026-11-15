@@ -106,6 +106,7 @@ p.note{background:var(--warn);color:var(--warnfg);padding:10px 14px;border-radiu
 <div class="tbl"><table>
 <tr><th>Landing page</th><td>Rp450.000, 1 halaman, alamat di domain bersama TeraWeb</td></tr>
 <tr><th>Website 4 halaman</th><td>Rp750.000 (Beranda, Layanan, Tentang Kami, Kontak), sekali bayar</td></tr>
+<tr><th>Bonus</th><td>Website 4 halaman dapat bonus Company Profile PDF senilai Rp250.000 (sering disebut compro). Tidak berlaku untuk Landing page</td></tr>
 <tr><th>Pengerjaan</th><td>3-5 hari kerja setelah materi lengkap</td></tr>
 <tr><th>Revisi</th><td>2 kali</td></tr>
 <tr><th>Domain</th><td>Tidak termasuk; dibayar ke penyedia domain, kira-kira Rp200.000 per tahun</td></tr>
@@ -122,15 +123,20 @@ const S=[
 ["Kalau calon klien tanya harga",`Untuk website 4 halaman (Beranda, Layanan, Tentang Kami, Kontak), harganya Rp750.000 sekali bayar, tanpa perpanjangan tahunan ke TeraWeb ya, Kak.
 
 Sudah termasuk penulisan teks, galeri foto, Google Maps, tombol WhatsApp di tiap halaman, dan semua file diserahkan ke Kakak. Pengerjaan 3-5 hari kerja setelah materi lengkap, revisi 2 kali.
+
+Website 4 halaman juga dapat bonus Company Profile PDF senilai Rp250.000: profil usaha, layanan, dan kontak dalam satu file yang bisa Kakak kirim ke calon pelanggan 🎁
+
 Nama domain dibayar terpisah ke penyedia domain, kira-kira Rp200.000 per tahun 😊`],
 ["Kalau ingin yang lebih hemat atau untuk iklan",`Kalau mau yang lebih hemat, ada Landing Page Rp450.000, Kak: 1 halaman dengan satu tujuan, yaitu calon pelanggan langsung chat WhatsApp. Cocok untuk iklan atau promo tertentu.
-Website 4 halaman lebih cocok kalau pelanggan biasanya membandingkan beberapa penyedia dulu sebelum menghubungi 😊`],
+Website 4 halaman lebih cocok kalau pelanggan biasanya membandingkan beberapa penyedia dulu sebelum menghubungi. Website 4 halaman juga dapat bonus Company Profile PDF senilai Rp250.000 😊`],
 ["Kalau minta diskon atau tanya “bisa kurang?”",`Harga kami memang tetap dan tertulis jelas di awal, Kak, tanpa harga coret atau hitung mundur 🙏
+Sebagai gantinya, Website 4 halaman dapat bonus Company Profile PDF senilai Rp250.000, Kak.
 Kalau budgetnya terbatas, Landing Page Rp450.000 bisa jadi langkah awal yang hemat.`],
 ["Kalau tanya “ada biaya tahunan?”",`Tidak ada perpanjangan ke TeraWeb, Kak. Satu-satunya biaya berulang adalah nama domain yang dibayar langsung ke penyedia domain, tanpa tambahan dari kami 😊`],
 ["Kalau bilang “saya pikir-pikir dulu”",`Siap, Kak, silakan dipikirkan dulu 🙏 Contoh websitenya tetap bisa dibuka kapan saja. Kalau ada yang ingin ditanyakan atau mau disesuaikan, kabari saja ya.`],
 ["Kalau bilang setuju",`Siap, Kak, terima kasih 🙏 Supaya bisa kami mulai, mohon kirim: nama usaha, logo (kalau ada), foto-foto usaha, alamat dan jam buka, serta layanan atau paket yang ingin ditampilkan.
-Pengerjaan 3-5 hari kerja setelah materi lengkap.`]
+Pengerjaan 3-5 hari kerja setelah materi lengkap.
+Kalau Website 4 halaman, Company Profile PDF bonusnya kami susun dari materi yang sama, jadi tidak ada tambahan yang perlu disiapkan 😊`]
 ];
 const T=[
 ["Fotografer wedding","fotografer-wedding","Hari kerja pagi atau sore, hindari akhir pekan",[
@@ -394,7 +400,7 @@ const FU=[["fotografer","Kalau mau, galeri bisa disesuaikan dengan karya Kakak, 
 ["notaris/PPAT","Jika sesuai, layanan dan persyaratan dokumen kantor Bapak/Ibu dapat kami susun dengan bahasa yang formal dan informatif."]];
 FU.forEach((f,i)=>{const o=OPEN[i],g=o[1],p=o[0].match(/^.*?\[Nama\]/)[0],b=T[i][3];
 b[1]=["Follow-up kalau belum dibalas (1-2 hari kemudian)",`${p}, mohon maaf mengganggu lagi 🙏\nCuma mau memastikan link demo website ${f[0]} tadi sudah sempat dibuka belum, ${g}?\n${f[1]}`];
-b.splice(2,0,["Kalau mereka tanya harga",`Untuk website 4 halaman (Beranda, Layanan, Tentang Kami, Kontak), harganya Rp750.000 ya, ${g}. Sudah termasuk penulisan teks, galeri foto, Google Maps, tombol WhatsApp di tiap halaman, dan semua file diserahkan ke ${g}. Sekali bayar, tanpa perpanjangan tahunan ke TeraWeb.\n\nPengerjaannya 3-5 hari kerja setelah materi lengkap, revisi 2 kali. Nama domain dibayar terpisah ke penyedia domain, kira-kira Rp200.000 per tahun 😊\n\nKalau ada yang ingin ditanyakan sebelum memutuskan, silakan tanya saja ya, ${g}.`]);
+b.splice(2,0,["Kalau mereka tanya harga",`Untuk website 4 halaman (Beranda, Layanan, Tentang Kami, Kontak), harganya Rp750.000 ya, ${g}. Sudah termasuk penulisan teks, galeri foto, Google Maps, tombol WhatsApp di tiap halaman, dan semua file diserahkan ke ${g}. Sekali bayar, tanpa perpanjangan tahunan ke TeraWeb.\n\nWebsite 4 halaman ini juga dapat bonus Company Profile PDF senilai Rp250.000, ${g}: profil usaha, layanan, dan kontak dalam satu file PDF yang bisa langsung dikirim ke calon pelanggan 🎁\n\nPengerjaannya 3-5 hari kerja setelah materi lengkap, revisi 2 kali. Nama domain dibayar terpisah ke penyedia domain, kira-kira Rp200.000 per tahun 😊\n\nKalau ada yang ingin ditanyakan sebelum memutuskan, silakan tanya saja ya, ${g}.`]);
 if(i===0)b[3]=["Kalau bilang “Instagram sudah cukup”",`Betul, Kak, Instagram memang bagus untuk memamerkan karya 👍\nWebsite biasanya jadi pelengkapnya: calon klien yang cari lewat Google atau yang dikasih rekomendasi teman bisa langsung lihat portofolio lengkap dan paket tanpa harus scroll feed.\nKakak bisa lihat dulu contohnya, siapa tahu cocok 😊\nhttps://teraweb.id/demo/fotografer-wedding/`];
 else if([1,2,5,9].includes(i))b[3][1]+="\n"+o[5].trim();
 });
