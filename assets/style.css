@@ -406,3 +406,14 @@ ul,ol{margin:0;padding:0}
 .cp__dl a::before{content:"PDF";position:absolute;left:10px;top:50%;transform:translateY(-50%);background:#14DDFF;color:#011947;font-size:.65rem;font-weight:800;border-radius:5px;padding:3px 6px}
 .cp__dl a span{font-weight:500;font-size:.8rem;color:#b9ccff}
 .cp__dl a:hover{background:rgba(255,255,255,.18)}
+
+.cp__visual{display:grid;grid-template-columns:1fr 1fr;gap:14px;place-items:start center;min-height:0;order:0}
+.cp-stamp{grid-column:1/-1;justify-self:center;position:static;width:auto;height:auto;display:block;border-radius:99px;padding:7px 18px;font-size:.88rem;transform:rotate(-2deg);text-align:center}
+.cp-shot{margin:0;width:100%;max-width:220px;text-align:center}
+.cp-shot a{display:block;border-radius:8px;overflow:hidden;box-shadow:0 24px 40px -14px rgba(0,0,0,.55);transition:transform .2s}
+.cp-shot:nth-of-type(1) a{transform:rotate(-3deg)}
+.cp-shot:nth-of-type(2) a{transform:rotate(3deg)}
+.cp-shot a:hover{transform:translateY(-4px) rotate(0)}
+.cp-shot img{display:block;width:100%;height:auto}
+.cp-shot figcaption{margin-top:12px;font-weight:700;color:#fff;font-size:.9rem}
+@media (max-width:820px){.cp__visual{order:-1}}
