@@ -109,13 +109,13 @@ button.copy.done{background:var(--wa);color:#fff}
   var MESSAGES = [
     {id:"google", group:1, label:"Pancing Google",
      when:"Untuk agen yang aktif jualan tapi belum punya website. Kirim hanya kalau Anda sudah mengecek di Google dan memang belum menemukan websitenya.",
-     text:"{{salam}}, {{sapaan}} 🙏\n\nSaya {{pengirim}} dari {{brand}}. Maaf mengganggu, saya lihat {{nama}} aktif memasarkan properti di {{kota}}.\n\nTadi saya sempat cari \"rumah dijual di {{kota}}\" di Google, dan saya belum menemukan website milik {{nama}}. Apakah memang belum ada website sendiri, {{sapaan}}?\n\nKebetulan saya membuat website khusus agen properti, lengkap dengan katalog listing dan tombol WhatsApp di setiap properti. Ini contoh tampilannya:\n{{demo}}\n\nKalau berkenan, silakan dilihat dulu, {{sapaan}}, santai saja. Kalau tertarik, nanti saya kabari paket dan harganya 🙏"},
+     text:"{{salam}}, {{sapaan}} 🙏\n\nSaya {{pengirim}} dari {{brand}}. Maaf mengganggu, saya lihat {{nama}} aktif memasarkan properti di {{kota}}.\n\nTadi saya sempat cari \"rumah dijual di {{kota}}\" di Google, dan saya belum menemukan website milik {{nama}}. Apakah memang belum ada website sendiri, {{sapaan}}?\n\nKebetulan saya membuat website khusus agen properti, lengkap dengan katalog listing dan tombol WhatsApp di setiap properti. Ini contoh tampilannya:\n{{demo}}{{bonusAwal}}\n\nKalau berkenan, silakan dilihat dulu, {{sapaan}}, santai saja. Kalau tertarik, nanti saya kabari paket dan harganya 🙏"},
     {id:"ig", group:1, label:"Pancing Instagram",
      when:"Untuk agen yang ditemukan lewat Instagram atau katalog di WA.",
-     text:"Halo {{sapaan}}, salam kenal 🙏\n\nSaya {{pengirim}} dari {{brand}}. Tadi saya lihat profil {{nama}}, listingnya menarik-menarik.\n\nSaya penasaran, kalau ada calon pembeli yang minta lihat semua properti yang dijual {{nama}}, biasanya dikirimnya lewat apa? Foto satu-satu di chat, atau ada satu link yang rapi?\n\nSaya biasa membuatkan website listing untuk agen properti: semua properti, foto, harga, dan lokasi ada dalam satu link, dengan tombol WhatsApp langsung ke {{nama}}. Ini contohnya:\n{{demo}}\n\nSilakan dilihat dulu, {{sapaan}}, santai saja. Kalau tertarik, nanti saya kabari paket dan harganya 🙏"},
+     text:"Halo {{sapaan}}, salam kenal 🙏\n\nSaya {{pengirim}} dari {{brand}}. Tadi saya lihat profil {{nama}}, listingnya menarik-menarik.\n\nSaya penasaran, kalau ada calon pembeli yang minta lihat semua properti yang dijual {{nama}}, biasanya dikirimnya lewat apa? Foto satu-satu di chat, atau ada satu link yang rapi?\n\nSaya biasa membuatkan website listing untuk agen properti: semua properti, foto, harga, dan lokasi ada dalam satu link, dengan tombol WhatsApp langsung ke {{nama}}. Ini contohnya:\n{{demo}}{{bonusAwal}}\n\nSilakan dilihat dulu, {{sapaan}}, santai saja. Kalau tertarik, nanti saya kabari paket dan harganya 🙏"},
     {id:"singkat", group:1, label:"Singkat",
      when:"Untuk agen yang sibuk, atau saat mengirim ke banyak nomor.",
-     text:"Halo {{sapaan}} 🙏\n\nSaya {{pengirim}} dari {{brand}}. Saya membuat website khusus agen properti: ada katalog listing, tombol WhatsApp di tiap properti, dan bisa ditemukan di Google.\n\nContoh jadinya seperti ini:\n{{demo}}\n\nKalau {{nama}} tertarik punya yang seperti itu atas nama sendiri, kabari saya ya. Silakan dilihat dulu 🙏"},
+     text:"Halo {{sapaan}} 🙏\n\nSaya {{pengirim}} dari {{brand}}. Saya membuat website khusus agen properti: ada katalog listing, tombol WhatsApp di tiap properti, dan bisa ditemukan di Google.\n\nContoh jadinya seperti ini:\n{{demo}}{{bonusSingkat}}\n\nKalau {{nama}} tertarik punya yang seperti itu atas nama sendiri, kabari saya ya. Silakan dilihat dulu 🙏"},
     {id:"harga", group:2, label:"Balasan setelah tertarik",
      when:"Kirim hanya jika agen membalas atau bilang sudah melihat demo.",
      text:"Terima kasih sudah dilihat, {{sapaan}} 🙏\n\nUntuk websitenya, paketnya:\n✅ {{harga}} sekali bayar\n✅ Tanpa biaya perpanjangan tahunan\n✅ Tayang {{tayang}}\n✅ Revisi 2 kali sebelum tayang\n✅ Tombol WhatsApp di setiap listing{{bonusBaris}}\n\nKalau cocok, tinggal kirim logo dan beberapa foto listing {{nama}}, sisanya saya yang kerjakan.{{demoLainBlok}}\n\nKalau ada yang ingin ditanyakan dulu, silakan, {{sapaan}} 🙏"},
@@ -146,6 +146,8 @@ button.copy.done{background:var(--wa);color:#fff}
       : "";
     p.bonusBaris = p.bonus ? "\n🎁 Dapat bonus " + p.bonus : "";
     p.bonusFU = p.bonus ? "\n\nOh ya, kalau jadi pesan website ini, dapat bonus " + p.bonus + "." : "";
+    p.bonusAwal = p.bonus ? "\n\nKalau jadi dibuatkan, dapat bonus " + p.bonus + ". Bonus ini bisa dikirim ke calon pembeli properti, sehingga pemasaran jadi lebih meyakinkan dan efektif." : "";
+    p.bonusSingkat = p.bonus ? "\n\nPlus dapat bonus " + p.bonus + ", buat dikirim ke calon pembeli." : "";
     var ph = {nama:"[Nama Agen]", kota:"[Kota]"};
     Object.keys(ph).forEach(function(k){ if(!p[k]) p[k] = ph[k]; });
     return p;
