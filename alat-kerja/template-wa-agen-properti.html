@@ -74,7 +74,7 @@ button.copy.done{background:var(--wa);color:#fff}
       <div><label for="f-brand">Nama brand</label><input id="f-brand" value="TeraWeb" autocomplete="off"></div>
       <div><label for="f-harga">Harga</label><input id="f-harga" value="Rp750.000" autocomplete="off"></div>
       <div><label for="f-bonus">Bonus (kosongkan kalau tidak ada)</label><input id="f-bonus" value="Company Profile PDF senilai Rp250.000" autocomplete="off"></div>
-      <div><label for="f-compro">Link contoh Company Profile (kosongkan kalau tidak ada)</label><input id="f-compro" value="https://teraweb.id/contoh-company-profile-pdf/company-profile-amara-dental-studio.pdf" autocomplete="off"></div>
+      <div><label for="f-compro">Link contoh Company Profile (kosongkan kalau tidak ada)</label><input id="f-compro" value="https://teraweb.id/contoh-company-profile-pdf/company-profile-raditya-properti.pdf" autocomplete="off"></div>
       <div><label for="f-tayang">Waktu tayang</label><input id="f-tayang" value="3-5 hari kerja" autocomplete="off"></div>
       <div><label for="f-demopilih">Demo yang dipakai di pesan pertama dan follow-up</label>
         <select id="f-demopilih">
@@ -151,7 +151,7 @@ button.copy.done{background:var(--wa);color:#fff}
     p.bonusSingkat = p.bonus ? "\n\nPlus dapat bonus " + p.bonus + ", buat dikirim ke calon pembeli." : "";
     var ph = {nama:"[Nama Agen]", kota:"[Kota]"};
     Object.keys(ph).forEach(function(k){ if(!p[k]) p[k] = ph[k]; });
-    p.comproBlok = (p.bonus && p.compro) ? "\n\nIni contoh Company Profile PDF-nya (contoh untuk klinik gigi, nanti disesuaikan dengan usaha " + p.nama + "):\n" + p.compro : "";
+    p.comproBlok = (p.bonus && p.compro) ? "\n\nIni contoh Company Profile PDF untuk agen properti:\n" + p.compro : "";
     return p;
   }
   function render(text){
