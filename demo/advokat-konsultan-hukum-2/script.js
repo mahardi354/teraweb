@@ -4,6 +4,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  const toTopBtn = document.querySelector('.to-top');
+
   // ---------- Sticky header shadow ----------
   const header = document.querySelector('.site-header');
   const onScroll = () => {
@@ -85,7 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ---------- Back to top ----------
-  const toTopBtn = document.querySelector('.to-top');
   toTopBtn && toTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
   // ---------- Contact form (demo, no backend) ----------
