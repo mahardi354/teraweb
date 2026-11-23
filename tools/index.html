@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Daftar Isi - TeraWeb</title>
+<style>
+:root{--ink:#10283a;--ink-2:#4a6072;--paper:#f2f6f8;--line:#d3dee5;--accent:#e9a400;--teal:#0f6e6a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:720px;margin:0 auto;padding:28px 20px}
+h1{margin:0 0 .3em;font-size:1.6rem;line-height:1.2}
+.sub{color:var(--ink-2);margin:0 0 22px}
+ol{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:n}
+li{counter-increment:n}
+a.item{display:block;background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px 16px 58px;text-decoration:none;color:inherit;position:relative}
+a.item:before{content:counter(n);position:absolute;left:16px;top:16px;width:30px;height:30px;border-radius:50%;background:var(--teal);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+a.item:hover{border-color:var(--teal)}
+a.item:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.t{font-weight:700;display:block}
+.d{color:var(--ink-2);font-size:.92rem;display:block;margin-top:2px}
+.f{font:.8rem ui-monospace,Consolas,monospace;color:var(--teal);margin-top:6px;display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Daftar isi</h1>
+  <p class="sub">Alat dan dokumen TeraWeb.</p>
+  <ol>
+    <li><a class="item" href="pembuat-menu-warung.html"><span class="t">Pembuat menu warung</span><span class="d">Isi data warung dan daftar menu, lalu unduh halaman menu digital.</span><span class="f">pembuat-menu-warung.html</span></a></li>
+    <li><a class="item" href="pembuat-katalog-produk.html"><span class="t">Pembuat katalog produk</span><span class="d">Susun katalog produk untuk usaha non-kuliner.</span><span class="f">pembuat-katalog-produk.html</span></a></li>
+    <li><a class="item" href="pembuat-qr-menu.html"><span class="t">Pembuat QR menu</span><span class="d">Buat QR dan kartu A6 dari alamat menu digital untuk dicetak.</span><span class="f">pembuat-qr-menu.html</span></a></li>
+  </ol>
+</div>
+</body>
+</html>

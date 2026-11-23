@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Pembuat QR dan Kartu Menu</title>
+<style>
+:root{
+  --ink:#10283a; --ink-2:#4a6072; --paper:#f2f6f8; --card:#fff;
+  --line:#d3dee5; --accent:#e9a400; --accent-ink:#3b2a00; --teal:#0f6e6a; --err:#b3261e; --info-bg:#eef4f6;
+  --radius:10px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1,h2{margin:0 0 .4em;line-height:1.2}
+h1{font-size:1.6rem}
+h2{font-size:1.1rem}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1040px;margin:0 auto;padding:22px}
+.sub{color:var(--ink-2);margin:.2em 0 0;max-width:72ch}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.panel + .panel{margin-top:20px}
+label.l{display:block;font-size:.86rem;font-weight:600;margin:14px 0 4px}
+label.l:first-of-type{margin-top:0}
+input[type=text],select{width:100%;font:inherit;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:8px;padding:9px 11px}
+input[type=color]{width:56px;height:40px;border:1.5px solid var(--line);border-radius:8px;padding:2px;background:#fff}
+.chk{display:flex;gap:8px;align-items:center;font-size:.92rem;margin-top:12px}
+.chk input{width:17px;height:17px;flex:none}
+.btn{font:600 .9rem system-ui,sans-serif;padding:9px 16px;border-radius:8px;border:0;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.main{background:var(--accent);color:var(--accent-ink)}
+.btn.alt{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;align-items:center}
+.err{color:var(--err);font-weight:600;font-size:.9rem}
+.hint{font-size:.85rem;color:var(--ink-2);margin:6px 0 0}
+.stage{display:flex;justify-content:center;background:var(--info-bg);border-radius:8px;padding:18px;overflow:auto}
+ul.tips{margin:.4em 0 0;padding-left:1.2em;color:var(--ink-2);font-size:.94rem}
+ul.tips li{margin-bottom:.4em}
+
+/* kartu: ukuran A6 */
+.card{width:105mm;height:148mm;background:#fff;border:1px solid #cfd9df;display:flex;flex-direction:column;align-items:center;text-align:center;color:#10283a;overflow:hidden;break-inside:avoid}
+.card .band{width:100%;padding:8mm 6mm;color:#fff;font-weight:700;font-size:6mm;line-height:1.2;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.card .top{margin:7mm 8mm 3mm;font-size:5.2mm;font-weight:600;line-height:1.3}
+.card .qr{width:68mm;height:68mm}
+.card .qr svg{width:100%;height:100%;display:block}
+.card .bot{margin:3mm 8mm 0;font-size:3.6mm;color:#4a6072}
+.card .url{margin:2mm 8mm 0;font-size:3mm;color:#6b7c88;word-break:break-all}
+.card .cr{margin-top:auto;padding:0 0 4mm;font-size:2.8mm;color:#8b9aa5}
+#sheet{display:none}
+@media(max-width:860px){.cols{grid-template-columns:1fr}}
+@media print{
+  @page{size:A4;margin:0}
+  body{background:#fff}
+  .wrap{display:none}
+  #sheet{display:grid;grid-template-columns:repeat(2,105mm);grid-auto-rows:148.5mm;width:210mm;margin:0}
+  #sheet.one{display:flex;justify-content:center;align-items:flex-start;padding-top:20mm}
+  #sheet .card{border:1px dashed #9aa8b2}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Pembuat QR dan kartu menu</h1>
+    <p class="sub">Masukkan alamat menu digital warung, lalu cetak kartu QR ukuran A6 untuk diletakkan di meja, atau unduh QR-nya sebagai PNG atau SVG.</p>
+  </header>
+
+  <div class="cols">
+    <form class="panel" onsubmit="return false" aria-label="Isi kartu">
+      <h2>1. Isi kartu</h2>
+      <label class="l" for="nama">Nama warung</label>
+      <input type="text" id="nama" placeholder="Angkringan Pak Joko" autocomplete="off">
+      <label class="l" for="url">Alamat menu digital</label>
+      <input type="text" id="url" placeholder="https://situsmu.com/angkringan-pak-joko/" autocomplete="off">
+      <p class="err" id="er"></p>
+      <label class="l" for="top">Teks ajakan</label>
+      <input type="text" id="top" value="Scan untuk lihat menu" autocomplete="off">
+      <label class="l" for="bot">Teks petunjuk</label>
+      <input type="text" id="bot" value="Arahkan kamera HP ke kode ini" autocomplete="off">
+      <div class="row" style="align-items:flex-end">
+        <div><label class="l" for="col" style="margin-top:0">Warna pita</label><input type="color" id="col" value="#0f6e6a"></div>
+        <label class="chk" style="margin-top:0"><input type="checkbox" id="showurl" checked> Tampilkan alamat di bawah QR</label>
+      </div>
+      <label class="chk"><input type="checkbox" id="cr" checked> Tampilkan kredit pembuat</label>
+      <label class="l" for="crt">Teks kredit</label>
+      <input type="text" id="crt" value="Menu digital oleh TeraWeb" autocomplete="off">
+      <label class="l" for="lay">Tata letak cetak</label>
+      <select id="lay">
+        <option value="four">4 kartu per lembar A4 (hemat kertas, lalu dipotong)</option>
+        <option value="one">1 kartu per lembar A4</option>
+      </select>
+      <div class="row">
+        <button type="button" class="btn main" id="print">Cetak atau simpan PDF</button>
+        <button type="button" class="btn main" id="cardpng">Unduh kartu (PNG)</button>
+        <button type="button" class="btn alt" id="png">Unduh QR (PNG)</button>
+        <button type="button" class="btn alt" id="svg">Unduh QR (SVG)</button>
+      </div>
+      <p class="hint">Saat mencetak, pilih skala 100 persen atau “Ukuran sebenarnya”, bukan “Sesuaikan halaman”, supaya QR tidak mengecil.</p>
+      <p class="hint"><b>Unduh kartu (PNG)</b> menghasilkan satu gambar kartu A6 lengkap dengan pita dan teks (resolusi sekitar 300 dpi), siap dikirim lewat WhatsApp atau dibawa ke percetakan.</p>
+    </form>
+
+    <section class="panel" aria-labelledby="h2">
+      <h2 id="h2">2. Pratinjau kartu</h2>
+      <div class="stage"><div id="prev"></div></div>
+      <p class="hint">Ukuran A6 (105 × 148 mm). QR selalu hitam di atas putih agar mudah dibaca kamera.</p>
+    </section>
+  </div>
+
+  <section class="panel">
+    <h2>Catatan penting</h2>
+    <ul class="tips">
+      <li><b>Uji pindai dulu.</b> Sebelum mencetak banyak, pindai QR di layar atau hasil cetak percobaan dengan dua HP berbeda, dan pastikan halamannya terbuka.</li>
+      <li><b>QR ini statis:</b> alamatnya tertanam langsung. Kalau alamat menu berubah setelah dicetak, QR lama mati dan harus dicetak ulang. Pakai alamat yang akan kamu jaga, dan perbarui menu dengan mengganti isi berkas di alamat yang sama.</li>
+      <li>Untuk stiker atau tampilan meja yang lain, unduh QR sebagai SVG. Ukurannya bisa dibesarkan tanpa pecah di aplikasi desain atau percetakan.</li>
+      <li>Kartu A6 bisa dimasukkan ke dudukan akrilik atau dilaminasi. Kalau printer rumahmu tidak mencetak sampai tepi kertas, pilih tata letak 1 kartu per lembar.</li>
+    </ul>
+  </section>
+</div>
+<div id="sheet" class="one" aria-hidden="true"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script>
+var $ = function(id){ return document.getElementById(id); };
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+var store = {
+  get: function(k){ try { return localStorage.getItem("tw_qr_" + k); } catch(e){ return null; } },
+  set: function(k,v){ try { localStorage.setItem("tw_qr_" + k, v); } catch(e){} }
+};
+var FIELDS = ["nama","url","top","bot","col","crt","lay"];
+var QUIET = 4;
+
+/* ====== QR ====== */
+function makeQR(text){
+  var q = qrcode(0, "M");
+  q.addData(text);
+  q.make();
+  var n = q.getModuleCount(), m = [];
+  for (var r = 0; r < n; r++){ m[r] = []; for (var c = 0; c < n; c++) m[r][c] = q.isDark(r, c); }
+  return {n:n, m:m};
+}
+function svgOf(qr, forDownload){
+  var size = qr.n + QUIET * 2, d = "";
+  for (var r = 0; r < qr.n; r++) for (var c = 0; c < qr.n; c++)
+    if (qr.m[r][c]) d += "M" + (c + QUIET) + " " + (r + QUIET) + "h1v1h-1z";
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + size + " " + size + '"' + (forDownload ? ' width="1000" height="1000"' : "") +
+    ' shape-rendering="crispEdges" role="img" aria-label="Kode QR menu"><rect width="100%" height="100%" fill="#fff"/><path d="' + d + '" fill="#000"/></svg>';
+}
+function validUrl(u){
+  if (!/^https?:\/\//i.test(u)) return "Alamat harus diawali https:// atau http://.";
+  try { new URL(u); } catch(e){ return "Alamat tidak valid."; }
+  return "";
+}
+function vals(){ var o = {}; FIELDS.forEach(function(f){ o[f] = $(f).value; }); o.showurl = $("showurl").checked; o.cr = $("cr").checked; return o; }
+
+function cardHtml(o, qr){
+  var col = /^#[0-9a-f]{6}$/i.test(o.col) ? o.col : "#0f6e6a";
+  return '<div class="card"><div class="band" style="background:' + col + '">' + esc(o.nama.trim() || "Nama Warung") + "</div>" +
+    '<p class="top">' + esc(o.top) + '</p><div class="qr">' + (qr ? svgOf(qr, false) : "") + "</div>" +
+    '<p class="bot">' + esc(o.bot) + "</p>" + (o.showurl && o.url ? '<p class="url">' + esc(o.url.replace(/^https?:\/\//i, "")) + "</p>" : "") +
+    (o.cr && o.crt.trim() ? '<div class="cr">' + esc(o.crt.trim()) + "</div>" : '<div class="cr"></div>') + "</div>";
+}
+
+var CUR = null;
+function refresh(){
+  var o = vals(), url = o.url.trim(), err = url ? validUrl(url) : "Isi alamat menu untuk membuat QR.";
+  $("er").textContent = url && err ? err : "";
+  CUR = null;
+  if (!err){
+    if (typeof qrcode === "undefined"){ $("er").textContent = "Pustaka QR belum termuat. Cek koneksi internet lalu muat ulang halaman."; }
+    else { try { CUR = makeQR(url); } catch(e){ $("er").textContent = "Alamat terlalu panjang untuk dibuat QR."; } }
+  }
+  $("prev").innerHTML = cardHtml(o, CUR);
+  var one = o.lay === "one";
+  $("sheet").className = one ? "one" : "four";
+  var card = cardHtml(o, CUR);
+  $("sheet").innerHTML = one ? card : card + card + card + card;
+  FIELDS.forEach(function(f){ store.set(f, $(f).value); });
+  store.set("showurl", o.showurl ? "1" : "0"); store.set("cr", o.cr ? "1" : "0");
+}
+
+function saveBlob(name, blob){
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = name;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1500);
+}
+function baseName(){
+  var s = $("nama").value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  return "qr-" + (s || "menu");
+}
+function need(){ if (!CUR){ $("er").textContent = $("er").textContent || "Isi alamat menu yang valid dulu."; return false; } return true; }
+
+/* ====== KARTU LENGKAP (PNG) ====== */
+var FONT = 'system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif';
+function wrapText(ctx, text, maxW){
+  var out = [], words = String(text).split(/\s+/).filter(Boolean), line = "";
+  function pushLong(w){
+    var cur = "";
+    for (var i = 0; i < w.length; i++){
+      if (ctx.measureText(cur + w[i]).width > maxW && cur){ out.push(cur); cur = ""; }
+      cur += w[i];
+    }
+    return cur;
+  }
+  words.forEach(function(w){
+    var t = line ? line + " " + w : w;
+    if (ctx.measureText(t).width <= maxW){ line = t; return; }
+    if (line){ out.push(line); line = ""; }
+    line = ctx.measureText(w).width > maxW ? pushLong(w) : w;
+  });
+  if (line) out.push(line);
+  return out.length ? out : [""];
+}
+function drawCard(o, qr){
+  var S = 12, W = 105 * S, H = 148 * S;
+  var cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+  var ctx = cv.getContext("2d");
+  ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, W, H);
+  ctx.textAlign = "center"; ctx.textBaseline = "middle";
+  var col = /^#[0-9a-f]{6}$/i.test(o.col) ? o.col : "#0f6e6a";
+
+  // pita
+  ctx.font = "700 " + (6 * S) + "px " + FONT;
+  var nameLines = wrapText(ctx, o.nama.trim() || "Nama Warung", 93 * S), lh = 7.2 * S;
+  var bandH = 16 * S + nameLines.length * lh;
+  ctx.fillStyle = col; ctx.fillRect(0, 0, W, bandH);
+  ctx.fillStyle = "#fff";
+  nameLines.forEach(function(l, i){ ctx.fillText(l, W / 2, 8 * S + (i + 0.5) * lh); });
+  var y = bandH + 7 * S;
+
+  // teks ajakan
+  ctx.font = "600 " + (5.2 * S) + "px " + FONT; ctx.fillStyle = "#10283a";
+  var tl = wrapText(ctx, o.top, 89 * S), tlh = 5.2 * 1.3 * S;
+  tl.forEach(function(l, i){ ctx.fillText(l, W / 2, y + (i + 0.5) * tlh); });
+  y += tl.length * tlh + 3 * S;
+
+  // QR
+  var qs = 68 * S, qx = (W - qs) / 2, unit = qs / (qr.n + QUIET * 2);
+  ctx.fillStyle = "#fff"; ctx.fillRect(qx, y, qs, qs);
+  ctx.fillStyle = "#000";
+  for (var r = 0; r < qr.n; r++) for (var c = 0; c < qr.n; c++)
+    if (qr.m[r][c]) ctx.fillRect(Math.floor(qx + (c + QUIET) * unit), Math.floor(y + (r + QUIET) * unit), Math.ceil(unit), Math.ceil(unit));
+  y += qs + 3 * S;
+
+  // teks petunjuk
+  ctx.font = "400 " + (3.6 * S) + "px " + FONT; ctx.fillStyle = "#4a6072";
+  var bl = wrapText(ctx, o.bot, 89 * S), blh = 3.6 * 1.55 * S;
+  bl.forEach(function(l, i){ ctx.fillText(l, W / 2, y + (i + 0.5) * blh); });
+  y += bl.length * blh;
+
+  // alamat
+  if (o.showurl && o.url){
+    y += 2 * S;
+    ctx.font = "400 " + (3 * S) + "px " + FONT; ctx.fillStyle = "#6b7c88";
+    var ul = wrapText(ctx, o.url.trim().replace(/^https?:\/\//i, ""), 89 * S), ulh = 3 * 1.55 * S;
+    ul.forEach(function(l, i){ ctx.fillText(l, W / 2, y + (i + 0.5) * ulh); });
+  }
+
+  // kredit
+  if (o.cr && o.crt.trim()){
+    ctx.font = "400 " + (2.8 * S) + "px " + FONT; ctx.fillStyle = "#8b9aa5";
+    ctx.fillText(o.crt.trim(), W / 2, H - 4 * S - 2.8 * 1.55 * S / 2);
+  }
+  return cv;
+}
+
+(function(){
+  FIELDS.forEach(function(f){ var v = store.get(f); if (v != null) $(f).value = v; });
+  if (store.get("showurl") === "0") $("showurl").checked = false;
+  if (store.get("cr") === "0") $("cr").checked = false;
+  FIELDS.concat(["showurl", "cr"]).forEach(function(f){ $(f).addEventListener(f === "lay" || f === "col" || f === "showurl" || f === "cr" ? "change" : "input", refresh); });
+  $("col").addEventListener("input", refresh);
+
+  $("print").addEventListener("click", function(){ if (need()) window.print(); });
+  $("cardpng").addEventListener("click", function(){
+    if (!need()) return;
+    drawCard(vals(), CUR).toBlob(function(b){ saveBlob(baseName().replace(/^qr-/, "kartu-") + ".png", b); }, "image/png");
+  });
+  $("svg").addEventListener("click", function(){
+    if (need()) saveBlob(baseName() + ".svg", new Blob([svgOf(CUR, true)], {type:"image/svg+xml"}));
+  });
+  $("png").addEventListener("click", function(){
+    if (!need()) return;
+    var scale = 20, size = (CUR.n + QUIET * 2) * scale, cv = document.createElement("canvas");
+    cv.width = cv.height = size;
+    var ctx = cv.getContext("2d");
+    ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, size, size);
+    ctx.fillStyle = "#000";
+    for (var r = 0; r < CUR.n; r++) for (var c = 0; c < CUR.n; c++)
+      if (CUR.m[r][c]) ctx.fillRect((c + QUIET) * scale, (r + QUIET) * scale, scale, scale);
+    cv.toBlob(function(b){ saveBlob(baseName() + ".png", b); }, "image/png");
+  });
+  refresh();
+})();
+</script>
+</body>
+</html>

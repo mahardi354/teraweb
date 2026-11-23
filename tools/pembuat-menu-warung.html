@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Pembuat Menu Digital Warung</title>
+<style>
+:root{
+  --ink:#10283a; --ink-2:#4a6072; --paper:#f2f6f8; --card:#fff;
+  --line:#d3dee5; --accent:#e9a400; --accent-ink:#3b2a00; --teal:#0f6e6a; --err:#b3261e; --info-bg:#eef4f6;
+  --radius:10px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1,h2{margin:0 0 .4em;line-height:1.2}
+h1{font-size:1.6rem}
+h2{font-size:1.1rem}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1160px;margin:0 auto;padding:22px}
+.sub{color:var(--ink-2);margin:.2em 0 0;max-width:74ch}
+.cols{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:20px;margin-top:20px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.panel + .panel{margin-top:20px}
+.side{position:sticky;top:14px}
+label.l{display:block;font-size:.84rem;font-weight:600;margin:12px 0 4px}
+label.l:first-of-type{margin-top:0}
+textarea,select,input[type=text],input[type=number],input[type=search]{width:100%;font:inherit;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:8px;padding:8px 10px}
+textarea{resize:vertical;line-height:1.5}
+input[type=color]{width:56px;height:38px;border:1.5px solid var(--line);border-radius:8px;padding:2px;background:#fff}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chk{display:flex;gap:8px;align-items:center;font-size:.9rem;white-space:nowrap}
+.chk input{width:17px;height:17px;flex:none}
+.btn{font:600 .9rem system-ui,sans-serif;padding:9px 16px;border-radius:8px;border:0;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.main{background:var(--accent);color:var(--accent-ink)}
+.btn.alt{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
+.btn.sm{padding:5px 11px;font-size:.82rem}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;align-items:center}
+.ok{color:var(--teal);font-weight:600;font-size:.9rem}
+.err{color:var(--err);font-weight:600;font-size:.9rem}
+.hint{font-size:.85rem;color:var(--ink-2);margin:6px 0 0}
+.cat{border:1px solid var(--line);border-radius:8px;padding:12px;margin-top:12px;background:#fbfdfe}
+.ch{display:grid;grid-template-columns:1fr auto auto auto;gap:6px;align-items:center}
+.ch input{font-weight:600}
+.itm{border-top:1px dashed var(--line);margin-top:10px;padding-top:10px}
+.ir{display:grid;grid-template-columns:1fr 110px 120px auto;gap:6px;align-items:center}
+.itm details{margin-top:6px}
+.itm summary{cursor:pointer;font-size:.84rem;color:var(--ink-2)}
+.itm details input[type=text]{margin-top:6px}
+.ph{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.ph img{width:56px;height:56px;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+.pt{position:relative;display:inline-block;line-height:0}
+.px{position:absolute;top:-7px;right:-7px;width:22px;height:22px;border-radius:50%;border:0;background:#b3261e;color:#fff;cursor:pointer;font-size:15px;line-height:1;padding:0}
+.pt i{position:absolute;left:1px;right:1px;bottom:1px;background:rgba(0,0,0,.6);color:#fff;font:600 .6rem/1.5 system-ui,sans-serif;text-align:center;border-radius:0 0 7px 7px}
+.ph input[type=file]{display:none}
+.ph label.btn{margin:0}
+.prev{width:100%;height:620px;border:1.5px solid var(--line);border-radius:8px;background:#fff}
+ul.tips{margin:.4em 0 0;padding-left:1.2em;color:var(--ink-2);font-size:.94rem}
+ul.tips li{margin-bottom:.4em}
+@media(max-width:900px){.cols{grid-template-columns:1fr}.side{position:static}.ir{grid-template-columns:1fr 1fr}.prev{height:520px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Pembuat menu digital warung</h1>
+    <p class="sub">Isi data warung dan daftar menu, lihat pratinjau langsung, lalu unduh satu berkas HTML (atau folder zip) yang siap diunggah ke Cloudflare. Alamat halamannya tinggal kamu jadikan QR.</p>
+  </header>
+
+  <div class="cols">
+    <div>
+      <section class="panel" aria-labelledby="h1a">
+        <h2 id="h1a">1. Data warung</h2>
+        <label class="l" for="f-nama">Nama warung atau kafe</label>
+        <input type="text" id="f-nama" autocomplete="off">
+        <label class="l" for="f-tagline">Slogan singkat (opsional)</label>
+        <input type="text" id="f-tagline" autocomplete="off">
+        <div class="two">
+          <div><label class="l" for="f-jam">Jam buka</label><input type="text" id="f-jam" placeholder="16.00 - 24.00" autocomplete="off"></div>
+          <div><label class="l" for="f-wa">Nomor WhatsApp</label><input type="text" id="f-wa" placeholder="0812 3456 7890" inputmode="tel" autocomplete="off"></div>
+        </div>
+        <label class="l" for="f-alamat">Alamat (opsional)</label>
+        <input type="text" id="f-alamat" autocomplete="off">
+        <label class="l" for="f-maps">Link Google Maps (opsional, alamat jadi bisa diklik)</label>
+        <input type="text" id="f-maps" placeholder="https://maps.app.goo.gl/..." autocomplete="off">
+        <label class="l">Foto header (opsional)</label>
+        <div class="ph" id="hdr-box"></div>
+        <p class="hint">Foto di bagian atas halaman, misalnya foto warung atau makanan andalan. Paling pas foto mendatar rasio 2:1 (misalnya 1200 x 600 px), dengan objek utama di tengah. Tinggi header tetap sekitar 230 px, jadi di HP sisi kiri dan kanan foto bisa terpotong sedikit. Tulisan diberi garis tepi hitam supaya terbaca di atas foto.</p>
+        <label class="l" for="f-layout">Tampilan menu</label>
+        <select id="f-layout"><option value="list">Daftar (foto kecil di samping)</option><option value="card">Kartu (foto besar, dua kolom)</option></select>
+        <div class="row" style="align-items:flex-end">
+          <div><label class="l" for="f-warna" style="margin-top:0">Warna</label><input type="color" id="f-warna" value="#0f6e6a"></div>
+          <label class="chk"><input type="checkbox" id="f-cart" checked> Keranjang pesanan lewat WhatsApp</label>
+        </div>
+        <p class="hint">Keranjang hanya aktif kalau nomor WhatsApp diisi. Pembeli memilih jumlah, lalu pesanan terkirim sebagai pesan yang sudah tersusun.</p>
+        <label class="l" for="f-catatan">Catatan di bagian bawah (opsional)</label>
+        <input type="text" id="f-catatan" placeholder="Harga sudah termasuk pajak." autocomplete="off">
+        <div class="row" style="align-items:flex-end">
+          <label class="chk"><input type="checkbox" id="f-credit" checked> Tampilkan kredit pembuat</label>
+        </div>
+        <div class="two">
+          <div><label class="l" for="f-ctext">Teks kredit</label><input type="text" id="f-ctext" autocomplete="off"></div>
+          <div><label class="l" for="f-curl">Tautan kredit (opsional)</label><input type="text" id="f-curl" placeholder="https://teraweb.id" autocomplete="off"></div>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="h2a">
+        <h2 id="h2a">2. Daftar menu</h2>
+        <label class="l" for="bulk">Tempel cepat (satu baris satu menu)</label>
+        <textarea id="bulk" rows="6" placeholder="Makanan&#10;Nasi Goreng 15rb&#10;Mie Rebus - 12.000&#10;Minuman&#10;Es Teh 5000&#10;Kopi Hitam 6k"></textarea>
+        <p class="hint">Baris tanpa harga dianggap nama kategori. Harga boleh ditulis 15000, 15.000, 15rb, 15k, atau Rp 15.000.</p>
+        <div class="row">
+          <button type="button" class="btn main" id="bulkadd">Tambahkan ke menu</button>
+          <label class="chk"><input type="checkbox" id="bulkrep"> Ganti seluruh menu</label>
+        </div>
+        <div id="cats"></div>
+        <div class="row">
+          <button type="button" class="btn alt" id="catadd">Tambah kategori</button>
+          <button type="button" class="btn alt sm" id="sample">Isi contoh</button>
+          <button type="button" class="btn alt sm" id="clear">Kosongkan menu</button>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="h3a">
+        <h2 id="h3a">3. Simpan dan unduh</h2>
+        <label class="l" for="f-slug">Nama folder atau alamat (slug)</label>
+        <input type="text" id="f-slug" placeholder="angkringan-pak-joko" autocomplete="off">
+        <div class="row">
+          <button type="button" class="btn main" id="dlhtml">Unduh index.html</button>
+          <button type="button" class="btn alt" id="dlzip">Unduh folder + foto terpisah (.zip)</button>
+          <button type="button" class="btn alt" id="cp">Salin kode</button>
+          <span class="ok" id="ok"></span><span class="err" id="er"></span>
+        </div>
+        <p class="hint" id="sz"></p>
+        <p class="hint"><b>Satu berkas</b>: foto tertanam di index.html (praktis, tapi lebih berat kalau fotonya banyak). <b>Folder (.zip)</b>: foto disimpan terpisah di folder img, jadi halaman terbuka lebih ringan. Disarankan kalau ada banyak foto.</p>
+        <label class="l" for="openf">Buka lagi untuk diubah</label>
+        <input type="file" id="openf" accept=".html,.json,.zip,.jpg,.jpeg,.png,.webp,.gif" multiple>
+        <p class="hint">Pilih index.html (atau .json) yang pernah dibuat di sini. Kalau halamannya memakai folder foto, pilih saja berkas .zip-nya, atau pilih index.html bersama semua foto dari folder img sekaligus (tahan Ctrl atau Shift). Datanya tertanam di halaman, jadi kamu bisa mengubah harga kapan saja tanpa mengetik ulang.</p>
+      </section>
+    </div>
+
+    <aside class="side">
+      <section class="panel" aria-labelledby="h4a">
+        <h2 id="h4a">Pratinjau</h2>
+        <iframe class="prev" id="prev" title="Pratinjau menu" sandbox="allow-scripts allow-popups"></iframe>
+        <p class="hint">Tampilan ini sama dengan yang dilihat pembeli di HP.</p>
+      </section>
+    </aside>
+  </div>
+
+  <section class="panel">
+    <h2>Catatan penting</h2>
+    <ul class="tips">
+      <li>Gunakan alamat yang <b>awet</b> untuk QR. Kalau alamat berubah setelah QR dicetak, QR-nya mati. Pilih alamat yang akan kamu jaga bertahun-tahun, dan perbarui menu dengan mengganti isi berkas yang sama di folder yang sama.</li>
+      <li>Foto menu opsional, sampai 4 foto per menu. Buka "Foto, deskripsi, dan urutan" pada menu, lalu tekan Pilih foto (boleh pilih beberapa sekaligus, dari galeri atau langsung kamera HP). Foto otomatis dipotong persegi dan dikecilkan (sekitar 20 sampai 35 KB per foto), lalu tertanam di index.html. Di tampilan Kartu, foto bisa digeser; ketuk foto untuk memperbesar dan membuka galeri.</li>
+      <li>Halaman ini tidak memakai pustaka luar dan berukuran kecil, jadi cepat dibuka di sinyal lemah. Warna sebaiknya cukup gelap supaya teks putih di atasnya mudah dibaca.</li>
+      <li>Dua cara unduh. <b>Unduh index.html</b> menghasilkan satu berkas dengan foto tertanam. <b>Unduh folder + foto terpisah (.zip)</b> menghasilkan index.html yang ringan plus folder img berisi foto, jadi lebih cepat dibuka kalau fotonya banyak. Untuk zip, ekstrak dulu lalu unggah isinya ke Cloudflare Pages (index.html dan folder img harus berdampingan).</li>
+    </ul>
+  </section>
+</div>
+
+<!-- Templat halaman menu yang diunduh. Jangan diubah kecuali kamu paham isinya. -->
+<script type="text/plain" id="tpl-css">
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:#f6f7f8;color:#1c2b36;font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+#app{max-width:640px;margin:0 auto;background:#fff;min-height:100vh;padding-bottom:96px}
+.hd{padding:28px 20px 20px;background:var(--c);color:#fff}
+.hd h1{margin:0 0 4px;font-size:1.6rem;line-height:1.2}
+.tg{margin:0 0 10px;opacity:.92}
+.if{margin:0 0 14px;font-size:.9rem;display:flex;flex-direction:column;gap:2px}.if a{color:#fff}
+.wa{display:inline-block;background:#fff;color:var(--c);font-weight:600;padding:9px 16px;border-radius:999px;text-decoration:none;font-size:.92rem}
+.nv{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid #e5eaee;display:flex;gap:8px;overflow-x:auto;padding:10px 16px;scrollbar-width:none}
+.nv::-webkit-scrollbar{display:none}
+.nv a{flex:none;padding:6px 14px;border-radius:999px;background:#eef2f5;color:#1c2b36;text-decoration:none;font-size:.9rem;font-weight:500}
+.sr{padding:12px 16px 0}.sr input{width:100%;font:inherit;padding:10px 14px;border:1.5px solid #d6dee4;border-radius:10px}
+.ct{padding:4px 16px;scroll-margin-top:56px}.ct h2{font-size:1.1rem;margin:20px 0 6px;color:var(--c)}
+.ct ul{list-style:none;margin:0;padding:0}
+.it{display:flex;gap:12px;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #edf1f4}
+.tx{flex:1;min-width:0}.nm{font-weight:600}.ds{font-size:.88rem;color:#5b6d7a;margin-top:2px}.pr{font-weight:600;margin-top:4px}
+.it img{width:72px;height:72px;object-fit:cover;border-radius:10px;flex:none}
+.bd{font-style:normal;font-size:.7rem;font-weight:700;background:#fdf1d6;color:#7a5600;border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.bd.o{background:#fbe7e5;color:#a02018}
+.it.x{opacity:.55}
+.st{display:flex;align-items:center;gap:6px;flex:none}
+.st button{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--c);background:#fff;color:var(--c);font-size:1.15rem;line-height:1;cursor:pointer}
+.st .pl{background:var(--c);color:#fff}.q{min-width:18px;text-align:center;font-weight:600}
+.cb{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #d6dee4;padding:10px 16px;display:grid;gap:8px;max-width:640px;margin:0 auto}
+.cs{display:flex;justify-content:space-between}
+.cb input{font:inherit;padding:9px 12px;border:1.5px solid #d6dee4;border-radius:8px;width:100%}
+.go{background:var(--c);color:#fff;border:0;border-radius:10px;padding:12px;font-weight:600;font-size:1rem;font-family:inherit;cursor:pointer}
+.ft{padding:20px 16px;font-size:.82rem;color:#5b6d7a}.ft p{margin:0 0 6px}.ft a{color:inherit}
+.em{padding:40px 20px;text-align:center;color:#5b6d7a}
+.hd.im{background-size:cover;background-position:center;padding-top:42px;text-shadow:-2px 0 #000,2px 0 #000,0 -2px #000,0 2px #000,-1.5px -1.5px #000,1.5px -1.5px #000,-1.5px 1.5px #000,1.5px 1.5px #000}
+.hd.im .wa{text-shadow:none}
+.hd.im .tg,.hd.im .if{text-shadow:-1px 0 #000,1px 0 #000,0 -1px #000,0 1px #000,-1px -1px #000,1px -1px #000,-1px 1px #000,1px 1px #000}
+.it img{cursor:zoom-in}
+.cd .ct ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding-top:6px}
+.cd .it{flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;padding:0;border:1px solid #e5eaee;border-radius:14px;overflow:hidden}
+.cd .it img{order:-1;width:100%;height:auto;aspect-ratio:1/1;border-radius:0}
+.cd .tx{padding:10px 12px 4px}
+.cd .st{padding:6px 12px 12px;margin-top:auto;justify-content:flex-end}
+.lb{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.86);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px;cursor:zoom-out}
+.lb img{max-width:min(92vw,560px);max-height:75vh;width:auto;height:auto;border-radius:12px;object-fit:contain;background:#fff}
+.lb p{margin:0;color:#fff;font-weight:600;text-align:center}
+.cd .ct ul{align-items:start}
+.cd .gal{order:-1;position:relative}
+.cd .gs{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.gs::-webkit-scrollbar{display:none}
+.cd .gs img{order:0;flex:0 0 100%;width:100%;scroll-snap-align:center}
+.gc{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.6);color:#fff;font:600 .72rem system-ui,sans-serif;padding:2px 10px;border-radius:999px}
+.gw{position:relative;flex:none;line-height:0}
+.gn{position:absolute;right:4px;bottom:4px;background:rgba(0,0,0,.65);color:#fff;font:700 .68rem/1.4 system-ui,sans-serif;padding:1px 7px;border-radius:999px}
+.lbb{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.9);color:#10283a;font-size:1.7rem;line-height:1;cursor:pointer;padding:0}
+.lp{left:10px}.ln{right:10px}
+.lb p#lbc{font-weight:400;font-size:.85rem;opacity:.85}
+/* ===== percantik ===== */
+body{background:#eef2f4}
+#app{box-shadow:0 0 48px rgba(16,40,58,.10)}
+.hd{background-image:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 68%,#000));border-radius:0 0 26px 26px;padding:32px 22px 26px}
+.hd.im{padding-top:38px;padding-bottom:18px}
+.hd h1{font-size:1.75rem;letter-spacing:-.01em}
+.tg{font-size:1.02rem}
+.if{gap:4px;margin-bottom:16px}
+.wa{box-shadow:0 4px 14px rgba(0,0,0,.18);padding:10px 18px;transition:transform .15s}
+.wa:active{transform:scale(.97)}
+.nv{padding:12px 16px;border-bottom:0;box-shadow:0 6px 14px -10px rgba(16,40,58,.25)}
+.nv a{background:#f1f5f7;transition:background .2s,color .2s}
+.nv a.on{background:var(--c);color:#fff}
+.sr{padding:16px 16px 0}
+.sr input{border-radius:999px;background:#f3f6f8;border:1.5px solid transparent;padding:11px 18px}
+.sr input:focus{outline:0;border-color:var(--c);background:#fff}
+.ct{padding:4px 18px}
+.ct h2{display:flex;align-items:center;gap:10px;font-size:1.18rem;margin:26px 0 8px}
+.ct h2:before{content:"";width:5px;height:1.15em;border-radius:3px;background:var(--c)}
+.it{padding:14px 0}
+.nm{font-size:1.02rem}
+.pr{color:var(--c);font-size:1.02rem}
+.it img{border-radius:12px;box-shadow:0 3px 10px rgba(16,40,58,.16)}
+.it.x img{filter:grayscale(1)}
+.st button{width:38px;height:38px;font-size:1.25rem;transition:transform .12s}
+.st button:active{transform:scale(.9)}
+.cd .it{border:0;box-shadow:0 3px 14px rgba(16,40,58,.10);border-radius:16px;padding:0}
+.cd .it img{box-shadow:none;border-radius:0}
+.cd .tx{padding:12px 14px 4px}
+.cb{border-top:0;border-radius:20px 20px 0 0;box-shadow:0 -8px 28px rgba(16,40,58,.16);padding:14px 18px 16px}
+.cb input{border-radius:10px}.cb input:focus{outline:0;border-color:var(--c)}
+.go{border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.ft{text-align:center;margin:12px 16px 0;padding:18px 0;border-top:1px dashed #d6dee4}
+@media(prefers-reduced-motion:no-preference){
+.it{animation:fi .4s ease both}
+.cb:not([hidden]){animation:up .25s ease}
+.lb{animation:fo .2s ease}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}}
+@keyframes up{from{transform:translateY(100%)}}
+@keyframes fo{from{opacity:0}}
+}
+</script>
+<script type="text/plain" id="tpl-js">
+(function(){
+var D=JSON.parse(document.getElementById("menu-data").textContent);
+var app=document.getElementById("app");var lbs=[],lbi=0;if(D.layout==="card")app.className="cd";
+function e(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
+function rp(n){return "Rp "+Math.round(n).toLocaleString("id-ID")}
+function okU(u){return u&&!/^(javascript|vbscript):/i.test(u)&&(!/^data:/i.test(u)||/^data:image\/(jpeg|png|webp|gif);base64,/i.test(u))}
+var gal={};
+function pics(ps,k,n){if(!ps.length)return'';var im=function(u,i){return'<img loading="lazy" alt="'+e(n)+'" src="'+e(u)+'" data-k="'+k+'" data-i="'+i+'">'};
+if(D.layout==="card"&&ps.length>1)return'<div class="gal"><div class="gs">'+ps.map(im).join("")+'</div><span class="gc">1/'+ps.length+'</span></div>';
+if(ps.length>1)return'<span class="gw">'+im(ps[0],0)+'<b class="gn">+'+(ps.length-1)+'</b></span>';
+return im(ps[0],0)}
+var wa=String(D.wa||"").replace(/\D/g,"");if(wa.indexOf("0")===0)wa="62"+wa.slice(1);
+var cartOn=!!(D.cart&&wa),qty={},items={};
+var h='<header class="hd"><h1>'+e(D.nama)+'</h1>';
+if(D.tagline)h+='<p class="tg">'+e(D.tagline)+'</p>';
+var info=[];
+if(D.jam)info.push('<span>\uD83D\uDD52 Buka '+e(D.jam)+'</span>');
+if(D.alamat)info.push(/^https?:\/\//i.test(D.maps||"")?'<a href="'+e(D.maps)+'" target="_blank" rel="noopener">\uD83D\uDCCD '+e(D.alamat)+'</a>':'<span>\uD83D\uDCCD '+e(D.alamat)+'</span>');
+if(info.length)h+='<p class="if">'+info.join("")+'</p>';
+if(wa)h+='<a class="wa" href="https://wa.me/'+wa+'" target="_blank" rel="noopener">Hubungi lewat WhatsApp</a>';
+h+='</header>';
+var cats=(D.cats||[]).filter(function(c){return c.items&&c.items.length});
+if(!cats.length)h+='<p class="em">Menu belum tersedia.</p>';
+if(cats.length>1){h+='<nav class="nv" aria-label="Kategori">';cats.forEach(function(c,i){h+='<a href="#k'+i+'">'+e(c.nama)+'</a>'});h+='</nav>'}
+if(cats.length)h+='<div class="sr"><input id="q" type="search" placeholder="Cari menu" aria-label="Cari menu"></div>';
+cats.forEach(function(c,ci){
+h+='<section class="ct" id="k'+ci+'"><h2>'+e(c.nama)+'</h2><ul>';
+c.items.forEach(function(it,ii){
+var key=ci+"_"+ii;items[key]=it;
+var ps=(Array.isArray(it.imgs)?it.imgs:(it.img?[it.img]:[])).map(String).filter(okU);gal[key]=ps;var img=pics(ps,key,it.n);
+h+='<li class="it'+(it.x?' x':'')+'" data-t="'+e((it.n+" "+(it.d||"")).toLowerCase())+'"><div class="tx"><div class="nm">'+e(it.n)+(it.b?'<em class="bd">'+e(it.b)+'</em>':'')+(it.x?'<em class="bd o">Habis</em>':'')+'</div>'+(it.d?'<div class="ds">'+e(it.d)+'</div>':'')+(it.p>0?'<div class="pr">'+rp(it.p)+'</div>':'')+'</div>'+img;
+if(cartOn&&!it.x&&it.p>0)h+='<div class="st" data-k="'+key+'"><button type="button" class="mn" aria-label="Kurangi '+e(it.n)+'">\u2212</button><span class="q">0</span><button type="button" class="pl" aria-label="Tambah '+e(it.n)+'">+</button></div>';
+h+='</li>'});
+h+='</ul></section>'});
+var ft='';
+if(D.catatan)ft+='<p>'+e(D.catatan)+'</p>';
+if(D.credit&&D.ctext)ft+='<p>'+(/^https?:\/\//i.test(D.curl||"")?'<a href="'+e(D.curl)+'" target="_blank" rel="noopener">'+e(D.ctext)+'</a>':e(D.ctext))+'</p>';
+if(ft)h+='<footer class="ft">'+ft+'</footer>';
+if(cartOn)h+='<div class="cb" id="cb" hidden><div class="cs"><b id="cn">0 item</b><span id="ct">Rp 0</span></div><input id="mj" type="text" placeholder="Nama atau nomor meja" aria-label="Nama atau nomor meja"><button type="button" class="go" id="go">Pesan lewat WhatsApp</button></div>';
+var hs=String(D.hdr||""),hOk=/^(data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+\/=]+|img\/[A-Za-z0-9._-]+)$/i.test(hs);
+h+='<div class="lb" id="lb" hidden><img id="lbi" alt=""><p id="lbp"></p><p id="lbc"></p><button type="button" class="lbb lp" id="lbv" aria-label="Foto sebelumnya">\u2039</button><button type="button" class="lbb ln" id="lbx" aria-label="Foto berikutnya">\u203A</button></div>';
+app.innerHTML=h;
+if(hOk){var hd=app.querySelector(".hd");hd.className+=" im";hd.style.backgroundImage='url("'+hs+'")'}
+function upd(){var n=0,t=0;for(var k in qty){if(qty[k]>0){n+=qty[k];t+=qty[k]*items[k].p}}
+var cb=document.getElementById("cb");if(!cb)return;cb.hidden=n===0;document.getElementById("cn").textContent=n+" item";document.getElementById("ct").textContent=rp(t)}
+app.addEventListener("click",function(ev){
+var im=ev.target.closest(".it img");
+if(im){lbs=gal[im.getAttribute("data-k")]||[im.src];lbi=parseInt(im.getAttribute("data-i")||"0",10);document.getElementById("lbp").textContent=im.alt;lbS();document.getElementById("lb").hidden=false;return}
+var lbb=ev.target.closest(".lbb");if(lbb){lbG(lbb.id==="lbx"?1:-1);return}
+if(ev.target.closest("#lb")){document.getElementById("lb").hidden=true;return}
+var b=ev.target.closest(".st button");
+if(b){var k=b.parentNode.getAttribute("data-k");qty[k]=Math.max(0,(qty[k]||0)+(b.className==="pl"?1:-1));b.parentNode.querySelector(".q").textContent=qty[k];upd();return}
+if(ev.target.id==="go"){var l=[],t=0;for(var k2 in qty){if(qty[k2]>0){var it=items[k2];l.push("\u2022 "+qty[k2]+"x "+it.n+" ("+rp(it.p*qty[k2])+")");t+=it.p*qty[k2]}}
+var m="Halo "+D.nama+", saya mau pesan:\n"+l.join("\n")+"\nTotal: "+rp(t);var mj=document.getElementById("mj").value.trim();if(mj)m+="\nNama/Meja: "+mj;
+location.href="https://wa.me/"+wa+"?text="+encodeURIComponent(m)}});
+function lbS(){document.getElementById("lbi").src=lbs[lbi];document.getElementById("lbc").textContent=lbs.length>1?(lbi+1)+" / "+lbs.length:"";document.getElementById("lbv").hidden=document.getElementById("lbx").hidden=lbs.length<2}
+function lbG(d){lbi=(lbi+d+lbs.length)%lbs.length;lbS()}
+document.addEventListener("keydown",function(ev){var l=document.getElementById("lb");if(!l||l.hidden)return;if(ev.key==="Escape")l.hidden=true;else if(ev.key==="ArrowRight")lbG(1);else if(ev.key==="ArrowLeft")lbG(-1)});
+var tx0=null,lbe=document.getElementById("lb");if(lbe){lbe.addEventListener("touchstart",function(ev){tx0=ev.touches[0].clientX},{passive:true});lbe.addEventListener("touchend",function(ev){if(tx0===null||lbs.length<2)return;var dx=ev.changedTouches[0].clientX-tx0;tx0=null;if(Math.abs(dx)>45){lbG(dx<0?1:-1);ev.preventDefault()}})}
+Array.prototype.forEach.call(app.querySelectorAll(".gs"),function(g){g.addEventListener("scroll",function(){g.parentNode.querySelector(".gc").textContent=(Math.round(g.scrollLeft/g.clientWidth)+1)+"/"+g.children.length},{passive:true})});
+var nl=app.querySelectorAll(".nv a");
+if(nl.length&&"IntersectionObserver" in window){var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){Array.prototype.forEach.call(nl,function(a){var on=a.getAttribute("href")==="#"+x.target.id;a.classList.toggle("on",on);if(on&&a.scrollIntoView){var nv=a.parentNode;nv.scrollTo({left:a.offsetLeft-16,behavior:"smooth"})}})}})},{rootMargin:"-25% 0px -65% 0px"});Array.prototype.forEach.call(app.querySelectorAll(".ct"),function(c){io.observe(c)})}
+var q=document.getElementById("q");
+if(q)q.addEventListener("input",function(){var v=q.value.trim().toLowerCase();
+Array.prototype.forEach.call(document.querySelectorAll(".it"),function(li){li.hidden=v&&li.getAttribute("data-t").indexOf(v)<0});
+Array.prototype.forEach.call(document.querySelectorAll(".ct"),function(s){s.hidden=!s.querySelector(".it:not([hidden])")})});
+})();
+</script>
+
+<script>
+var BADGES = ["", "Terlaris", "Pedas", "Baru", "Vegetarian"];
+var DEF = {nama:"Angkringan Contoh", tagline:"Hangat, murah, dan nikmat", alamat:"Jl. Contoh No. 1", jam:"16.00 - 24.00", wa:"", maps:"", warna:"#0f6e6a", cart:true, layout:"list", hdr:"", catatan:"Harga dapat berubah sewaktu-waktu.", credit:true, ctext:"Menu digital oleh TeraWeb", curl:"", slug:"angkringan-contoh",
+  cats:[
+    {nama:"Nasi dan Lauk", items:[{n:"Nasi Kucing Teri", p:3000, d:"", b:"Terlaris", x:false, imgs:[]},{n:"Nasi Kucing Oseng", p:3000, d:"", b:"", x:false, imgs:[]},{n:"Nasi Goreng", p:12000, d:"Telur dan kerupuk", b:"", x:false, imgs:[]}]},
+    {nama:"Gorengan dan Sate", items:[{n:"Tempe Mendoan", p:2000, d:"", b:"", x:false, imgs:[]},{n:"Sate Usus", p:2500, d:"", b:"Pedas", x:false, imgs:[]},{n:"Sate Telur Puyuh", p:3000, d:"", b:"", x:true, img:""}]},
+    {nama:"Minuman", items:[{n:"Es Teh", p:4000, d:"", b:"", x:false, imgs:[]},{n:"Wedang Jahe", p:5000, d:"", b:"", x:false, imgs:[]},{n:"Kopi Joss", p:7000, d:"Arang panas, khas angkringan", b:"Baru", x:false, imgs:[]}]}
+  ]};
+var D;
+var $ = function(id){ return document.getElementById(id); };
+function esc(s){ return String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+var store = {
+  get: function(k){ try { return localStorage.getItem("tw_mn_" + k); } catch(x){ return null; } },
+  set: function(k,v){ try { localStorage.setItem("tw_mn_" + k, v); return true; } catch(x){ return false; } }
+};
+function slugify(s){ return String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""); }
+function clone(o){ return JSON.parse(JSON.stringify(o)); }
+
+/* ====== PEMBUAT HALAMAN ====== */
+function cleanData(){
+  var o = clone(D);
+  o.cats = o.cats.map(function(c){
+    return {nama:String(c.nama || "").trim(), items:c.items.filter(function(i){ return String(i.n || "").trim(); }).map(function(i){
+      return {n:String(i.n).trim(), p:Math.max(0, parseInt(i.p, 10) || 0), d:String(i.d || "").trim(), b:i.b || "", x:!!i.x, imgs:(Array.isArray(i.imgs) ? i.imgs : (i.img ? [i.img] : [])).map(function(u){ return String(u || "").trim(); }).filter(Boolean).slice(0, 4)};
+    })};
+  }).filter(function(c){ return c.items.length; });
+  return o;
+}
+function menuPage(o){
+  o = o || cleanData();
+  var col = /^#[0-9a-f]{6}$/i.test(o.warna) ? o.warna : "#0f6e6a";
+  var title = (o.nama || "Menu") + " - Menu";
+  var json = JSON.stringify(o).replace(/</g, "\\u003c");
+  return '<!DOCTYPE html>\n<html lang="id">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n' +
+    "<title>" + esc(title) + '</title>\n<meta name="description" content="' + esc("Menu dan harga " + (o.nama || "") + (o.tagline ? ". " + o.tagline : "")) + '">\n' +
+    '<meta name="theme-color" content="' + col + '">\n<meta property="og:title" content="' + esc(title) + '">\n<meta property="og:description" content="' + esc(o.tagline || "Lihat menu dan harga") + '">\n' +
+    "<style>\n:root{--c:" + col + "}\n" + $("tpl-css").textContent + "</style>\n</head>\n<body>\n<div id=\"app\"></div>\n" +
+    '<script type="application/json" id="menu-data">' + json + "<\/script>\n<script>" + $("tpl-js").textContent + "<\/script>\n</body>\n</html>\n";
+}
+
+/* ====== EKSPOR FOLDER & ZIP (tanpa pustaka luar) ====== */
+var EXT = {"image/jpeg":"jpg", "image/png":"png", "image/webp":"webp", "image/gif":"gif"};
+var MIME = {jpg:"image/jpeg", jpeg:"image/jpeg", png:"image/png", webp:"image/webp", gif:"image/gif"};
+function dataInfo(u){
+  var m = /^data:(image\/(?:jpeg|png|webp|gif));base64,([A-Za-z0-9+\/=]+)$/i.exec(String(u || ""));
+  return m ? {mime:m[1].toLowerCase(), b64:m[2]} : null;
+}
+function b64ToBytes(b){ var s = atob(b), a = new Uint8Array(s.length); for (var i = 0; i < s.length; i++) a[i] = s.charCodeAt(i); return a; }
+function bytesToB64(a){ var s = "", n = 0x8000; for (var i = 0; i < a.length; i += n) s += String.fromCharCode.apply(null, a.subarray(i, i + n)); return btoa(s); }
+function exportPage(folder, dry){
+  var o = cleanData(), files = [], bytes = 0;
+  function put(u, name){
+    var di = dataInfo(u); if (!di) return u;
+    bytes += Math.floor(di.b64.length * 3 / 4);
+    var path = "img/" + name + "." + EXT[di.mime];
+    files.push({name:path, bytes: dry ? null : b64ToBytes(di.b64)});
+    return path;
+  }
+  if (folder){
+    if (o.hdr) o.hdr = put(o.hdr, "header");
+    o.cats.forEach(function(c, ci){ c.items.forEach(function(it, ii){
+      it.imgs = (it.imgs || []).map(function(u, pi){ return put(u, "p" + (ci + 1) + "-" + (ii + 1) + "-" + (pi + 1)); });
+    }); });
+  }
+  return {html: menuPage(o), files: files, count: files.length, bytes: bytes};
+}
+var CRCT = null;
+function crc32(a){
+  if (!CRCT){ CRCT = new Uint32Array(256); for (var n = 0; n < 256; n++){ var c = n; for (var k = 0; k < 8; k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1); CRCT[n] = c >>> 0; } }
+  var r = 0xFFFFFFFF; for (var i = 0; i < a.length; i++) r = CRCT[(r ^ a[i]) & 0xFF] ^ (r >>> 8);
+  return (r ^ 0xFFFFFFFF) >>> 0;
+}
+function makeZip(list){
+  var enc = new TextEncoder(), parts = [], cen = [], off = 0, cs = 0;
+  list.forEach(function(e){
+    var nm = enc.encode(e.name), crc = crc32(e.bytes), sz = e.bytes.length;
+    var h = new DataView(new ArrayBuffer(30));
+    h.setUint32(0, 0x04034b50, true); h.setUint16(4, 20, true); h.setUint16(6, 0x0800, true); h.setUint16(8, 0, true);
+    h.setUint16(10, 0, true); h.setUint16(12, 0x21, true); h.setUint32(14, crc, true); h.setUint32(18, sz, true); h.setUint32(22, sz, true);
+    h.setUint16(26, nm.length, true); h.setUint16(28, 0, true);
+    parts.push(h.buffer, nm, e.bytes);
+    var c = new DataView(new ArrayBuffer(46));
+    c.setUint32(0, 0x02014b50, true); c.setUint16(4, 20, true); c.setUint16(6, 20, true); c.setUint16(8, 0x0800, true); c.setUint16(10, 0, true);
+    c.setUint16(12, 0, true); c.setUint16(14, 0x21, true); c.setUint32(16, crc, true); c.setUint32(20, sz, true); c.setUint32(24, sz, true);
+    c.setUint16(28, nm.length, true); c.setUint32(42, off, true);
+    cen.push(c.buffer, nm); cs += 46 + nm.length;
+    off += 30 + nm.length + sz;
+  });
+  var end = new DataView(new ArrayBuffer(22));
+  end.setUint32(0, 0x06054b50, true); end.setUint16(8, list.length, true); end.setUint16(10, list.length, true); end.setUint32(12, cs, true); end.setUint32(16, off, true);
+  return new Blob(parts.concat(cen, [end.buffer]), {type:"application/zip"});
+}
+function readZip(buf){
+  var dv = new DataView(buf), u8 = new Uint8Array(buf), dec = new TextDecoder(), i = buf.byteLength - 22;
+  while (i >= 0 && dv.getUint32(i, true) !== 0x06054b50) i--;
+  if (i < 0) return Promise.reject(new Error("zip"));
+  var n = dv.getUint16(i + 10, true), off = dv.getUint32(i + 16, true), list = [];
+  for (var k = 0; k < n; k++){
+    if (dv.getUint32(off, true) !== 0x02014b50) break;
+    var nl = dv.getUint16(off + 28, true), el = dv.getUint16(off + 30, true), cl = dv.getUint16(off + 32, true);
+    list.push({name:dec.decode(u8.subarray(off + 46, off + 46 + nl)), method:dv.getUint16(off + 10, true), cs:dv.getUint32(off + 20, true), lho:dv.getUint32(off + 42, true)});
+    off += 46 + nl + el + cl;
+  }
+  return Promise.all(list.map(function(e){
+    if (/\/$/.test(e.name)) return null;
+    var s = e.lho + 30 + dv.getUint16(e.lho + 26, true) + dv.getUint16(e.lho + 28, true), raw = u8.subarray(s, s + e.cs);
+    if (e.method === 0) return {name:e.name, bytes:raw};
+    if (e.method === 8 && typeof DecompressionStream !== "undefined")
+      return new Response(new Blob([raw]).stream().pipeThrough(new DecompressionStream("deflate-raw"))).arrayBuffer().then(function(ab){ return {name:e.name, bytes:new Uint8Array(ab)}; });
+    return null;
+  })).then(function(a){ return a.filter(Boolean); });
+}
+
+/* ====== PENYUNTING ====== */
+function isData(v){ return /^data:image\//i.test(String(v || "")); }
+function openKeys(){
+  var k = {};
+  Array.prototype.forEach.call(document.querySelectorAll("#cats details[open]"), function(d){ k[d.getAttribute("data-k")] = 1; });
+  return k;
+}
+function renderEditor(keep){
+  var h = "";
+  D.cats.forEach(function(c, ci){
+    h += '<div class="cat"><div class="ch"><input type="text" data-c="' + ci + '" data-f="cn" value="' + esc(c.nama) + '" aria-label="Nama kategori" placeholder="Nama kategori">' +
+      '<button type="button" class="btn alt sm" data-a="cup" data-c="' + ci + '">Naik</button><button type="button" class="btn alt sm" data-a="cdn" data-c="' + ci + '">Turun</button><button type="button" class="btn alt sm" data-a="cdel" data-c="' + ci + '">Hapus</button></div>';
+    c.items.forEach(function(it, ii){
+      var at = ' data-c="' + ci + '" data-i="' + ii + '"';
+      var opts = BADGES.map(function(b){ return '<option value="' + b + '"' + (it.b === b ? " selected" : "") + ">" + (b || "Tanpa label") + "</option>"; }).join("");
+      h += '<div class="itm"><div class="ir"><input type="text"' + at + ' data-f="n" value="' + esc(it.n) + '" placeholder="Nama menu" aria-label="Nama menu">' +
+        '<input type="number"' + at + ' data-f="p" min="0" step="500" value="' + esc(it.p) + '" placeholder="Harga" aria-label="Harga">' +
+        '<select' + at + ' data-f="b" aria-label="Label">' + opts + "</select>" +
+        '<label class="chk"><input type="checkbox"' + at + ' data-f="x"' + (it.x ? " checked" : "") + "> Habis</label></div>" +
+        '<details data-k="' + ci + '_' + ii + '"' + (keep && keep[ci + "_" + ii] ? " open" : "") + '><summary>Foto, deskripsi, dan urutan' + (it.imgs && it.imgs.length ? " (" + it.imgs.length + " foto)" : "") + '</summary><input type="text"' + at + ' data-f="d" value="' + esc(it.d) + '" placeholder="Deskripsi singkat (opsional)" aria-label="Deskripsi">' +
+        '<div class="ph">' + (it.imgs || []).map(function(u, pi){ return '<span class="pt"><img src="' + esc(u) + '" alt="Foto ' + (pi + 1) + '"><button type="button" class="px" data-a="pdel"' + at + ' data-p="' + pi + '" aria-label="Hapus foto ' + (pi + 1) + '">&times;</button>' + (pi === 0 ? "<i>utama</i>" : "") + "</span>"; }).join("") +
+        ((it.imgs || []).length < 4 ? '<label class="btn alt sm">' + ((it.imgs || []).length ? "Tambah foto" : "Pilih foto") + '<input type="file" accept="image/*" multiple' + at + ' data-up="1"></label>' : "") + '</div>' +
+        '<p class="hint">Maksimal 4 foto per menu. Foto pertama jadi foto utama.</p>' +
+        '<div class="row"><button type="button" class="btn alt sm" data-a="iup"' + at + '>Naik</button><button type="button" class="btn alt sm" data-a="idn"' + at + '>Turun</button><button type="button" class="btn alt sm" data-a="idel"' + at + ">Hapus menu ini</button></div></details></div>";
+    });
+    h += '<div class="row"><button type="button" class="btn alt sm" data-a="iadd" data-c="' + ci + '">Tambah menu</button></div></div>';
+  });
+  $("cats").innerHTML = h || '<p class="hint">Belum ada kategori. Tempel daftar di atas atau tekan Tambah kategori.</p>';
+}
+
+var timer = null;
+function changed(){
+  if (!store.set("data", JSON.stringify(D))) msg("er", "Simpanan otomatis browser penuh. Unduh index.html sekarang supaya data tidak hilang.");
+  clearTimeout(timer);
+  timer = setTimeout(function(){
+    var html = menuPage();
+    $("prev").srcdoc = html;
+    var kb = Math.round(new Blob([html]).size / 1024);
+    var ex = exportPage(true, true), fkb = Math.round(new Blob([ex.html]).size / 1024);
+    $("sz").textContent = "Satu berkas: " + kb + " KB. Mode folder: index.html " + fkb + " KB" + (ex.count ? " + " + ex.count + " foto (" + Math.round(ex.bytes / 1024) + " KB, dimuat terpisah)" : "") + ".";
+  }, 250);
+}
+function move(arr, i, d){ var j = i + d; if (j < 0 || j >= arr.length) return; var t = arr[i]; arr[i] = arr[j]; arr[j] = t; }
+
+/* ====== TEMPEL CEPAT ====== */
+function toPrice(num, unit){
+  if (unit){ var f = parseFloat(num.replace(",", ".")); return Math.round((isNaN(f) ? 0 : f) * 1000); }
+  var n = num.replace(/[.,](?=\d{3}(\D|$))/g, "").replace(/[.,]/g, "");
+  return parseInt(n, 10) || 0;
+}
+function parseBulk(text){
+  var cats = [], cur = null;
+  text.split(/\r?\n/).forEach(function(raw){
+    var line = raw.trim();
+    if (!line) return;
+    var m = line.match(/^(.*?)[\s\-\u2013:=|;]*?(?:rp\.?\s*)?(\d[\d.,]*)\s*(rb|ribu|k)?\s*$/i);
+    if (m && m[1].trim()){
+      if (!cur){ cur = {nama:"Menu", items:[]}; cats.push(cur); }
+      cur.items.push({n:m[1].trim(), p:toPrice(m[2], m[3]), d:"", b:"", x:false, imgs:[]});
+    } else {
+      var name = line.replace(/^#+\s*/, "").replace(/:+$/, "").trim();
+      if (name){ cur = {nama:name, items:[]}; cats.push(cur); }
+    }
+  });
+  return cats.filter(function(c){ return c.items.length; });
+}
+
+/* ====== INFO WARUNG ====== */
+var MAP = {nama:"f-nama", tagline:"f-tagline", jam:"f-jam", wa:"f-wa", alamat:"f-alamat", maps:"f-maps", warna:"f-warna", layout:"f-layout", catatan:"f-catatan", ctext:"f-ctext", curl:"f-curl", slug:"f-slug"};
+function renderHdr(){
+  var b = $("hdr-box"); if (!b) return;
+  b.innerHTML = (D.hdr ? '<img src="' + esc(D.hdr) + '" alt="Foto header" style="width:112px;height:56px">' : "") +
+    '<label class="btn alt sm">' + (D.hdr ? "Ganti foto header" : "Pilih foto header") + '<input type="file" accept="image/*" id="hdr-file"></label>' +
+    (D.hdr ? '<button type="button" class="btn alt sm" id="hdr-del">Hapus foto header</button>' : "");
+}
+function fillInfo(){
+  Object.keys(MAP).forEach(function(k){ $(MAP[k]).value = D[k] != null ? D[k] : ""; });
+  $("f-cart").checked = !!D.cart; $("f-credit").checked = !!D.credit;
+  renderHdr();
+}
+function msg(id, t){ $(id).textContent = t; setTimeout(function(){ $(id).textContent = ""; }, 2400); }
+function saveBlob(name, blob){
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = name;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1500);
+}
+function copyText(txt, done){
+  function fb(){
+    var t = document.createElement("textarea");
+    t.value = txt; t.style.position = "fixed"; t.style.opacity = "0";
+    document.body.appendChild(t); t.select();
+    try { document.execCommand("copy"); done(); } catch(x){}
+    document.body.removeChild(t);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, fb);
+  else fb();
+}
+function loadData(o){
+  if (!o || !Array.isArray(o.cats)) throw new Error("bad");
+  D = Object.assign(clone(DEF), o);
+  D.cats = o.cats.map(function(c){ return {nama:c.nama || "", items:(c.items || []).map(function(i){ return {n:i.n || "", p:parseInt(i.p, 10) || 0, d:i.d || "", b:i.b || "", x:!!i.x, imgs:Array.isArray(i.imgs) ? i.imgs.filter(Boolean).slice(0, 4) : (i.img ? [i.img] : [])}; })}; });
+  fillInfo(); renderEditor(); changed();
+}
+
+(function(){
+  try { var raw = store.get("data"); D = raw ? JSON.parse(raw) : clone(DEF); } catch(x){ D = clone(DEF); }
+  if (!D || !Array.isArray(D.cats)) D = clone(DEF);
+  fillInfo(); renderEditor(); changed();
+
+  Object.keys(MAP).forEach(function(k){
+    $(MAP[k]).addEventListener("input", function(){ D[k] = $(MAP[k]).value; changed(); });
+  });
+  $("hdr-box").addEventListener("change", function(ev){
+    var el = ev.target; if (el.id !== "hdr-file") return;
+    var f = el.files && el.files[0]; if (!f) return;
+    shrink(f, 1000, 500, 0.7, function(d){
+      if (!d){ alert("Foto tidak bisa dibaca. Coba foto lain (JPG atau PNG)."); return; }
+      D.hdr = d; renderHdr(); changed();
+    });
+  });
+  $("hdr-box").addEventListener("click", function(ev){
+    if (ev.target.id === "hdr-del"){ D.hdr = ""; renderHdr(); changed(); }
+  });
+  $("f-cart").addEventListener("change", function(){ D.cart = $("f-cart").checked; changed(); });
+  $("f-credit").addEventListener("change", function(){ D.credit = $("f-credit").checked; changed(); });
+
+  var cats = $("cats");
+  function onField(ev){
+    var el = ev.target, f = el.getAttribute("data-f"); if (!f) return;
+    var ci = parseInt(el.getAttribute("data-c"), 10), ii = el.getAttribute("data-i");
+    if (f === "cn"){ D.cats[ci].nama = el.value; changed(); return; }
+    var it = D.cats[ci].items[parseInt(ii, 10)];
+    it[f] = f === "x" ? el.checked : (f === "p" ? (parseInt(el.value, 10) || 0) : el.value);
+    changed();
+  }
+  function shrink(file, W, H, Q, cb){
+    var u = URL.createObjectURL(file), im = new Image();
+    im.onload = function(){
+      var w = im.naturalWidth, h = im.naturalHeight, r = W / H, sw = w, sh = w / r;
+      if (sh > h){ sh = h; sw = h * r; }
+      var c = document.createElement("canvas"); c.width = W; c.height = H;
+      var x = c.getContext("2d");
+      x.fillStyle = "#fff"; x.fillRect(0, 0, W, H);
+      x.drawImage(im, (w - sw) / 2, (h - sh) / 2, sw, sh, 0, 0, W, H);
+      URL.revokeObjectURL(u);
+      cb(c.toDataURL("image/jpeg", Q));
+    };
+    im.onerror = function(){ URL.revokeObjectURL(u); cb(null); };
+    im.src = u;
+  }
+  cats.addEventListener("change", function(ev){
+    var el = ev.target; if (!el.getAttribute || !el.getAttribute("data-up")) return;
+    var fs = Array.prototype.slice.call(el.files || []); if (!fs.length) return;
+    var ci = parseInt(el.getAttribute("data-c"), 10), ii = parseInt(el.getAttribute("data-i"), 10), it = D.cats[ci].items[ii];
+    it.imgs = it.imgs || [];
+    var room = 4 - it.imgs.length;
+    if (fs.length > room){ alert("Maksimal 4 foto per menu. Hanya " + room + " foto pertama yang dipakai."); fs = fs.slice(0, room); }
+    var left = fs.length, got = [];
+    fs.forEach(function(f, n){
+      shrink(f, 400, 400, 0.72, function(d){
+        got[n] = d;
+        if (--left === 0){
+          var bad = false;
+          got.forEach(function(g){ if (g) it.imgs.push(g); else bad = true; });
+          if (bad) alert("Sebagian foto tidak bisa dibaca. Coba foto lain (JPG atau PNG).");
+          var k = openKeys(); k[ci + "_" + ii] = 1;
+          renderEditor(k); changed();
+        }
+      });
+    });
+  });
+  cats.addEventListener("input", onField);
+  cats.addEventListener("change", onField);
+  cats.addEventListener("click", function(ev){
+    var b = ev.target.closest("button[data-a]"); if (!b) return;
+    var a = b.getAttribute("data-a"), ci = parseInt(b.getAttribute("data-c"), 10), ii = parseInt(b.getAttribute("data-i"), 10);
+    if (a === "cup") move(D.cats, ci, -1);
+    else if (a === "cdn") move(D.cats, ci, 1);
+    else if (a === "cdel"){ if (confirm("Hapus kategori ini beserta isinya?")) D.cats.splice(ci, 1); else return; }
+    else if (a === "iadd") D.cats[ci].items.push({n:"", p:0, d:"", b:"", x:false, imgs:[]});
+    else if (a === "iup") move(D.cats[ci].items, ii, -1);
+    else if (a === "idn") move(D.cats[ci].items, ii, 1);
+    else if (a === "idel") D.cats[ci].items.splice(ii, 1);
+    else if (a === "pdel"){ D.cats[ci].items[ii].imgs.splice(parseInt(b.getAttribute("data-p"), 10), 1); var k = openKeys(); k[ci + "_" + ii] = 1; renderEditor(k); changed(); return; }
+    renderEditor(); changed();
+  });
+
+  $("catadd").addEventListener("click", function(){ D.cats.push({nama:"Kategori baru", items:[{n:"", p:0, d:"", b:"", x:false, imgs:[]}]}); renderEditor(); changed(); });
+  $("sample").addEventListener("click", function(){ if (confirm("Ganti semua isi dengan contoh?")){ D = clone(DEF); fillInfo(); renderEditor(); changed(); } });
+  $("clear").addEventListener("click", function(){ if (confirm("Kosongkan seluruh menu?")){ D.cats = []; renderEditor(); changed(); } });
+
+  $("bulkadd").addEventListener("click", function(){
+    var add = parseBulk($("bulk").value);
+    if (!add.length){ msg("er", "Tidak ada menu berharga yang terbaca."); return; }
+    if ($("bulkrep").checked) D.cats = add;
+    else add.forEach(function(c){
+      var ex = null;
+      D.cats.forEach(function(x){ if (x.nama.trim().toLowerCase() === c.nama.toLowerCase()) ex = x; });
+      if (ex) ex.items = ex.items.concat(c.items); else D.cats.push(c);
+    });
+    $("bulk").value = "";
+    renderEditor(); changed();
+    msg("ok", add.reduce(function(s, c){ return s + c.items.length; }, 0) + " menu ditambahkan");
+  });
+
+  function fname(){ return slugify(D.slug) || slugify(D.nama) || "menu"; }
+  $("dlhtml").addEventListener("click", function(){ saveBlob("index.html", new Blob([menuPage()], {type:"text/html"})); });
+  $("cp").addEventListener("click", function(){ copyText(menuPage(), function(){ msg("ok", "Tersalin"); }); });
+  $("dlzip").addEventListener("click", function(){
+    var ex = exportPage(true), list = [{name:"index.html", bytes:new TextEncoder().encode(ex.html)}];
+    ex.files.forEach(function(f){ list.push({name:f.name, bytes:f.bytes}); });
+    saveBlob(fname() + ".zip", makeZip(list));
+    msg("ok", "Zip siap: index.html + " + ex.count + " foto");
+  });
+  $("openf").addEventListener("change", function(){
+    var input = this, files = Array.prototype.slice.call(input.files || []);
+    if (!files.length) return;
+    function rb(f){ return new Promise(function(res, rej){ var r = new FileReader(); r.onload = function(){ res(r.result); }; r.onerror = rej; r.readAsArrayBuffer(f); }); }
+    Promise.all(files.map(function(f){
+      return rb(f).then(function(ab){ return /\.zip$/i.test(f.name) ? readZip(ab) : [{name:f.name, bytes:new Uint8Array(ab)}]; });
+    })).then(function(groups){
+      var pool = [], page = null, imgs = {};
+      groups.forEach(function(g){ pool = pool.concat(g); });
+      pool.forEach(function(e){
+        var base = e.name.split("/").pop().toLowerCase(), ext = base.split(".").pop();
+        if (/\.(html?|json)$/i.test(base)){ if (!page || e.name.split("/").length < page.name.split("/").length) page = e; }
+        else if (MIME[ext]) imgs[base] = "data:" + MIME[ext] + ";base64," + bytesToB64(e.bytes);
+      });
+      if (!page) throw new Error("none");
+      var t = new TextDecoder().decode(page.bytes), data;
+      if (/\.json$/i.test(page.name)) data = JSON.parse(t);
+      else {
+        var m = t.match(/<script type="application\/json" id="menu-data">([\s\S]*?)<\/script>/);
+        if (!m) throw new Error("none");
+        data = JSON.parse(m[1]);
+      }
+      loadData(data);
+      var miss = 0;
+      function fix(u){
+        u = String(u || ""); if (!u || isData(u) || /^https?:/i.test(u)) return u;
+        var b = u.split("/").pop().toLowerCase(); if (imgs[b]) return imgs[b]; miss++; return "";
+      }
+      D.hdr = fix(D.hdr);
+      D.cats.forEach(function(c){ c.items.forEach(function(it){ it.imgs = (it.imgs || []).map(fix).filter(Boolean); }); });
+      renderEditor(); fillInfo(); changed();
+      if (miss) msg("er", "Data dimuat, tetapi " + miss + " foto tidak ditemukan. Pilih juga berkas .zip atau semua foto dari folder img.");
+      else msg("ok", "Data dimuat");
+    }).catch(function(){ msg("er", "Berkas ini bukan halaman menu buatan alat ini."); }).then(function(){ input.value = ""; });
+  });
+})();
+</script>
+</body>
+</html>
