@@ -24,7 +24,7 @@ h2{font-size:1.1rem}
 .panel + .panel{margin-top:20px}
 label.l{display:block;font-size:.86rem;font-weight:600;margin:14px 0 4px}
 label.l:first-of-type{margin-top:0}
-input[type=text],select{width:100%;font:inherit;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:8px;padding:9px 11px}
+input[type=text],input[type=number],select{width:100%;font:inherit;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:8px;padding:9px 11px}
 input[type=color]{width:56px;height:40px;border:1.5px solid var(--line);border-radius:8px;padding:2px;background:#fff}
 .chk{display:flex;gap:8px;align-items:center;font-size:.92rem;margin-top:12px}
 .chk input{width:17px;height:17px;flex:none}
@@ -47,6 +47,14 @@ ul.tips li{margin-bottom:.4em}
 .card .bot{margin:3mm 8mm 0;font-size:3.6mm;color:#4a6072}
 .card .url{margin:2mm 8mm 0;font-size:3mm;color:#6b7c88;word-break:break-all}
 .card .cr{margin-top:auto;padding:0 0 4mm;font-size:2.8mm;color:#8b9aa5}
+.card.compact{width:var(--w);height:auto}
+.card.compact .band{padding:calc(var(--w)*.035) calc(var(--w)*.05);font-size:calc(var(--w)*.075);line-height:1.15}
+.card.compact .top{margin:calc(var(--w)*.04) calc(var(--w)*.06) calc(var(--w)*.015);font-size:calc(var(--w)*.052);line-height:1.15}
+.card.compact .qr{width:calc(var(--w)*.82);height:calc(var(--w)*.82)}
+.card.compact .bot{margin:calc(var(--w)*.015) calc(var(--w)*.06) 0;font-size:calc(var(--w)*.04);line-height:1.2}
+.card.compact .url{margin:calc(var(--w)*.01) calc(var(--w)*.06) 0;font-size:calc(var(--w)*.034);line-height:1.2}
+.card.compact .cr{margin-top:calc(var(--w)*.025);padding:0 0 calc(var(--w)*.03);font-size:calc(var(--w)*.034);line-height:1.2}
+[hidden]{display:none !important}
 #sheet{display:none}
 @media(max-width:860px){.cols{grid-template-columns:1fr}}
 @media print{
@@ -54,6 +62,7 @@ ul.tips li{margin-bottom:.4em}
   body{background:#fff}
   .wrap{display:none}
   #sheet{display:grid;grid-template-columns:repeat(2,105mm);grid-auto-rows:148.5mm;width:210mm;margin:0}
+  #sheet.tile{grid-auto-rows:auto;align-content:start;justify-content:start;padding:5mm}
   #sheet.one{display:flex;justify-content:center;align-items:flex-start;padding-top:20mm}
   #sheet .card{border:1px dashed #9aa8b2}
 }
@@ -69,6 +78,16 @@ ul.tips li{margin-bottom:.4em}
   <div class="cols">
     <form class="panel" onsubmit="return false" aria-label="Isi kartu">
       <h2>1. Isi kartu</h2>
+      <label class="l" for="mode">Bentuk kartu</label>
+      <select id="mode">
+        <option value="full">Kartu berdiri (A6, QR besar): untuk dudukan akrilik atau booth kecil</option>
+        <option value="meja">Papan meja (ringkas): QR kecil, ada ruang untuk branding warung</option>
+      </select>
+      <div id="widbox" hidden>
+        <label class="l" for="wid">Lebar kartu (mm)</label>
+        <input type="number" id="wid" value="65" min="40" max="105" step="1" inputmode="numeric">
+        <p class="hint">Isi sesuai lebar area QR di papan mejamu (40 sampai 105 mm). Tinggi kartu mengikuti isi.</p>
+      </div>
       <label class="l" for="nama">Nama warung</label>
       <input type="text" id="nama" placeholder="Angkringan Pak Joko" autocomplete="off">
       <label class="l" for="url">Alamat menu digital</label>
@@ -78,6 +97,7 @@ ul.tips li{margin-bottom:.4em}
       <input type="text" id="top" value="Scan untuk lihat menu" autocomplete="off">
       <label class="l" for="bot">Teks petunjuk</label>
       <input type="text" id="bot" value="Arahkan kamera HP ke kode ini" autocomplete="off">
+      <label class="chk"><input type="checkbox" id="showbot" checked> Tampilkan teks petunjuk</label>
       <div class="row" style="align-items:flex-end">
         <div><label class="l" for="col" style="margin-top:0">Warna pita</label><input type="color" id="col" value="#0f6e6a"></div>
         <label class="chk" style="margin-top:0"><input type="checkbox" id="showurl" checked> Tampilkan alamat di bawah QR</label>
@@ -103,7 +123,8 @@ ul.tips li{margin-bottom:.4em}
     <section class="panel" aria-labelledby="h2">
       <h2 id="h2">2. Pratinjau kartu</h2>
       <div class="stage"><div id="prev"></div></div>
-      <p class="hint">Ukuran A6 (105 × 148 mm). QR selalu hitam di atas putih agar mudah dibaca kamera.</p>
+      <p class="hint" id="phint">Ukuran A6 (105 × 148 mm). QR selalu hitam di atas putih agar mudah dibaca kamera.</p>
+      <p class="err" id="qw"></p>
     </section>
   </div>
 
@@ -127,7 +148,7 @@ var store = {
   get: function(k){ try { return localStorage.getItem("tw_qr_" + k); } catch(e){ return null; } },
   set: function(k,v){ try { localStorage.setItem("tw_qr_" + k, v); } catch(e){} }
 };
-var FIELDS = ["nama","url","top","bot","col","crt","lay"];
+var FIELDS = ["mode","wid","nama","url","top","bot","col","crt","lay"];
 var QUIET = 4;
 
 /* ====== QR ====== */
@@ -151,13 +172,31 @@ function validUrl(u){
   try { new URL(u); } catch(e){ return "Alamat tidak valid."; }
   return "";
 }
-function vals(){ var o = {}; FIELDS.forEach(function(f){ o[f] = $(f).value; }); o.showurl = $("showurl").checked; o.cr = $("cr").checked; return o; }
+function vals(){ var o = {}; FIELDS.forEach(function(f){ o[f] = $(f).value; }); o.showurl = $("showurl").checked; o.cr = $("cr").checked; o.showbot = $("showbot").checked; return o; }
+
+function widMm(o){
+  var w = parseFloat(o.wid);
+  if (isNaN(w)) w = 65;
+  return Math.min(105, Math.max(40, w));
+}
+/* ukuran dan jarak (mm). Mode "meja": semua dihitung dari lebar kartu, spasinya rapat */
+function cfgFor(o){
+  if (o.mode !== "meja") return {W:105,H:148,fixed:true,bandFont:6,bandPadV:8,bandLh:1.2,nameMax:93,
+    topT:7,topFont:5.2,topLh:1.3,topMax:89,topB:3,qr:68,botT:3,botFont:3.6,botLh:1.55,botMax:89,
+    urlT:2,urlFont:3,urlLh:1.55,crFont:2.8,crLh:1.55,crT:0,crB:4};
+  var w = widMm(o);
+  return {W:w,H:0,fixed:false,bandFont:.075*w,bandPadV:.035*w,bandLh:1.15,nameMax:.9*w,
+    topT:.04*w,topFont:.052*w,topLh:1.15,topMax:.88*w,topB:.015*w,qr:.82*w,botT:.015*w,botFont:.04*w,botLh:1.2,botMax:.88*w,
+    urlT:.01*w,urlFont:.034*w,urlLh:1.2,crFont:.034*w,crLh:1.2,crT:.025*w,crB:.03*w};
+}
+function hasBot(o){ return o.showbot && o.bot.trim(); }
 
 function cardHtml(o, qr){
   var col = /^#[0-9a-f]{6}$/i.test(o.col) ? o.col : "#0f6e6a";
-  return '<div class="card"><div class="band" style="background:' + col + '">' + esc(o.nama.trim() || "Nama Warung") + "</div>" +
+  var compact = o.mode === "meja";
+  return '<div class="card' + (compact ? " compact" : "") + '"' + (compact ? ' style="--w:' + widMm(o) + 'mm"' : "") + '><div class="band" style="background:' + col + '">' + esc(o.nama.trim() || "Nama Warung") + "</div>" +
     '<p class="top">' + esc(o.top) + '</p><div class="qr">' + (qr ? svgOf(qr, false) : "") + "</div>" +
-    '<p class="bot">' + esc(o.bot) + "</p>" + (o.showurl && o.url ? '<p class="url">' + esc(o.url.replace(/^https?:\/\//i, "")) + "</p>" : "") +
+    (hasBot(o) ? '<p class="bot">' + esc(o.bot) + "</p>" : "") + (o.showurl && o.url ? '<p class="url">' + esc(o.url.replace(/^https?:\/\//i, "")) + "</p>" : "") +
     (o.cr && o.crt.trim() ? '<div class="cr">' + esc(o.crt.trim()) + "</div>" : '<div class="cr"></div>') + "</div>";
 }
 
@@ -171,12 +210,27 @@ function refresh(){
     else { try { CUR = makeQR(url); } catch(e){ $("er").textContent = "Alamat terlalu panjang untuk dibuat QR."; } }
   }
   $("prev").innerHTML = cardHtml(o, CUR);
-  var one = o.lay === "one";
-  $("sheet").className = one ? "one" : "four";
-  var card = cardHtml(o, CUR);
-  $("sheet").innerHTML = one ? card : card + card + card + card;
+  var one = o.lay === "one", compact = o.mode === "meja", g = cfgFor(o), card = cardHtml(o, CUR), sheet = $("sheet"), opt = $("lay").options[0];
+  $("widbox").hidden = !compact;
+  sheet.style.gridTemplateColumns = "";
+  if (compact){
+    var hmm = $("prev").firstChild.getBoundingClientRect().height * 25.4 / 96 + 0.5;
+    var cols = Math.max(1, Math.floor(200 / g.W)), rows = Math.max(1, Math.floor(287 / hmm)), cnt = Math.min(60, cols * rows);
+    opt.textContent = "Banyak kartu per lembar A4 (muat " + cnt + " kartu, lalu dipotong)";
+    sheet.className = one ? "one" : "tile";
+    if (!one) sheet.style.gridTemplateColumns = "repeat(" + cols + "," + g.W + "mm)";
+    sheet.innerHTML = one ? card : new Array(cnt + 1).join(card);
+    $("phint").textContent = "Pratinjau dalam ukuran sebenarnya: lebar " + g.W + " mm, tinggi sekitar " + Math.round(hmm) + " mm. QR selalu hitam di atas putih agar mudah dibaca kamera.";
+  } else {
+    opt.textContent = "4 kartu per lembar A4 (hemat kertas, lalu dipotong)";
+    sheet.className = one ? "one" : "four";
+    sheet.innerHTML = one ? card : card + card + card + card;
+    $("phint").textContent = "Ukuran A6 (105 × 148 mm). QR selalu hitam di atas putih agar mudah dibaca kamera.";
+  }
+  var mod = CUR ? g.qr / (CUR.n + QUIET * 2) : 0;
+  $("qw").textContent = CUR && mod < 0.6 ? "QR terlalu kecil untuk alamat sepanjang ini (tiap kotak sekitar " + mod.toFixed(2).replace(".", ",") + " mm). Perbesar lebar kartu atau pendekkan alamat menu, lalu uji pindai." : "";
   FIELDS.forEach(function(f){ store.set(f, $(f).value); });
-  store.set("showurl", o.showurl ? "1" : "0"); store.set("cr", o.cr ? "1" : "0");
+  store.set("showurl", o.showurl ? "1" : "0"); store.set("cr", o.cr ? "1" : "0"); store.set("showbot", o.showbot ? "1" : "0");
 }
 
 function saveBlob(name, blob){
@@ -213,69 +267,81 @@ function wrapText(ctx, text, maxW){
   return out.length ? out : [""];
 }
 function drawCard(o, qr){
-  var S = 12, W = 105 * S, H = 148 * S;
-  var cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+  var S = 12, g = cfgFor(o), W = Math.round(g.W * S);
+  var cv = document.createElement("canvas"); cv.width = W; cv.height = Math.round((g.fixed ? g.H : 300) * S);
   var ctx = cv.getContext("2d");
-  ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, cv.width, cv.height);
   ctx.textAlign = "center"; ctx.textBaseline = "middle";
   var col = /^#[0-9a-f]{6}$/i.test(o.col) ? o.col : "#0f6e6a";
 
   // pita
-  ctx.font = "700 " + (6 * S) + "px " + FONT;
-  var nameLines = wrapText(ctx, o.nama.trim() || "Nama Warung", 93 * S), lh = 7.2 * S;
-  var bandH = 16 * S + nameLines.length * lh;
+  ctx.font = "700 " + (g.bandFont * S) + "px " + FONT;
+  var nameLines = wrapText(ctx, o.nama.trim() || "Nama Warung", g.nameMax * S), lh = g.bandFont * g.bandLh * S;
+  var bandH = 2 * g.bandPadV * S + nameLines.length * lh;
   ctx.fillStyle = col; ctx.fillRect(0, 0, W, bandH);
   ctx.fillStyle = "#fff";
-  nameLines.forEach(function(l, i){ ctx.fillText(l, W / 2, 8 * S + (i + 0.5) * lh); });
-  var y = bandH + 7 * S;
+  nameLines.forEach(function(l, i){ ctx.fillText(l, W / 2, g.bandPadV * S + (i + 0.5) * lh); });
+  var y = bandH + g.topT * S;
 
   // teks ajakan
-  ctx.font = "600 " + (5.2 * S) + "px " + FONT; ctx.fillStyle = "#10283a";
-  var tl = wrapText(ctx, o.top, 89 * S), tlh = 5.2 * 1.3 * S;
+  ctx.font = "600 " + (g.topFont * S) + "px " + FONT; ctx.fillStyle = "#10283a";
+  var tl = wrapText(ctx, o.top, g.topMax * S), tlh = g.topFont * g.topLh * S;
   tl.forEach(function(l, i){ ctx.fillText(l, W / 2, y + (i + 0.5) * tlh); });
-  y += tl.length * tlh + 3 * S;
+  y += tl.length * tlh + g.topB * S;
 
   // QR
-  var qs = 68 * S, qx = (W - qs) / 2, unit = qs / (qr.n + QUIET * 2);
+  var qs = g.qr * S, qx = (W - qs) / 2, unit = qs / (qr.n + QUIET * 2);
   ctx.fillStyle = "#fff"; ctx.fillRect(qx, y, qs, qs);
   ctx.fillStyle = "#000";
   for (var r = 0; r < qr.n; r++) for (var c = 0; c < qr.n; c++)
     if (qr.m[r][c]) ctx.fillRect(Math.floor(qx + (c + QUIET) * unit), Math.floor(y + (r + QUIET) * unit), Math.ceil(unit), Math.ceil(unit));
-  y += qs + 3 * S;
+  y += qs;
 
   // teks petunjuk
-  ctx.font = "400 " + (3.6 * S) + "px " + FONT; ctx.fillStyle = "#4a6072";
-  var bl = wrapText(ctx, o.bot, 89 * S), blh = 3.6 * 1.55 * S;
-  bl.forEach(function(l, i){ ctx.fillText(l, W / 2, y + (i + 0.5) * blh); });
-  y += bl.length * blh;
+  if (hasBot(o)){
+    y += g.botT * S;
+    ctx.font = "400 " + (g.botFont * S) + "px " + FONT; ctx.fillStyle = "#4a6072";
+    var bl = wrapText(ctx, o.bot, g.botMax * S), blh = g.botFont * g.botLh * S;
+    bl.forEach(function(l, i){ ctx.fillText(l, W / 2, y + (i + 0.5) * blh); });
+    y += bl.length * blh;
+  }
 
   // alamat
   if (o.showurl && o.url){
-    y += 2 * S;
-    ctx.font = "400 " + (3 * S) + "px " + FONT; ctx.fillStyle = "#6b7c88";
-    var ul = wrapText(ctx, o.url.trim().replace(/^https?:\/\//i, ""), 89 * S), ulh = 3 * 1.55 * S;
+    y += g.urlT * S;
+    ctx.font = "400 " + (g.urlFont * S) + "px " + FONT; ctx.fillStyle = "#6b7c88";
+    var ul = wrapText(ctx, o.url.trim().replace(/^https?:\/\//i, ""), g.botMax * S), ulh = g.urlFont * g.urlLh * S;
     ul.forEach(function(l, i){ ctx.fillText(l, W / 2, y + (i + 0.5) * ulh); });
+    y += ul.length * ulh;
   }
 
   // kredit
-  if (o.cr && o.crt.trim()){
-    ctx.font = "400 " + (2.8 * S) + "px " + FONT; ctx.fillStyle = "#8b9aa5";
-    ctx.fillText(o.crt.trim(), W / 2, H - 4 * S - 2.8 * 1.55 * S / 2);
+  var hasCr = o.cr && o.crt.trim(), crH = g.crFont * g.crLh * S;
+  ctx.font = "400 " + (g.crFont * S) + "px " + FONT; ctx.fillStyle = "#8b9aa5";
+  if (g.fixed){
+    if (hasCr) ctx.fillText(o.crt.trim(), W / 2, g.H * S - g.crB * S - crH / 2);
+    return cv;
   }
-  return cv;
+  y += g.crT * S;
+  if (hasCr){ ctx.fillText(o.crt.trim(), W / 2, y + crH / 2); y += crH; }
+  y += g.crB * S;
+  var out = document.createElement("canvas"); out.width = W; out.height = Math.ceil(y);
+  out.getContext("2d").drawImage(cv, 0, 0);
+  return out;
 }
 
 (function(){
   FIELDS.forEach(function(f){ var v = store.get(f); if (v != null) $(f).value = v; });
   if (store.get("showurl") === "0") $("showurl").checked = false;
   if (store.get("cr") === "0") $("cr").checked = false;
-  FIELDS.concat(["showurl", "cr"]).forEach(function(f){ $(f).addEventListener(f === "lay" || f === "col" || f === "showurl" || f === "cr" ? "change" : "input", refresh); });
+  if (store.get("showbot") === "0") $("showbot").checked = false;
+  FIELDS.concat(["showurl", "cr", "showbot"]).forEach(function(f){ $(f).addEventListener(["lay", "col", "showurl", "cr", "showbot", "mode"].indexOf(f) >= 0 ? "change" : "input", refresh); });
   $("col").addEventListener("input", refresh);
 
   $("print").addEventListener("click", function(){ if (need()) window.print(); });
   $("cardpng").addEventListener("click", function(){
     if (!need()) return;
-    drawCard(vals(), CUR).toBlob(function(b){ saveBlob(baseName().replace(/^qr-/, "kartu-") + ".png", b); }, "image/png");
+    drawCard(vals(), CUR).toBlob(function(b){ saveBlob(baseName().replace(/^qr-/, vals().mode === "meja" ? "kartu-meja-" : "kartu-") + ".png", b); }, "image/png");
   });
   $("svg").addEventListener("click", function(){
     if (need()) saveBlob(baseName() + ".svg", new Blob([svgOf(CUR, true)], {type:"image/svg+xml"}));
