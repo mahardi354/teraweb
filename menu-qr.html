@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Menu Digital + QR untuk Rumah Makan dan Kafe</title>
+<meta name="description" content="Scan QR di meja atau bagikan link ke WhatsApp. Pembeli pilih menu, total terhitung, pesanan masuk ke WhatsApp untuk makan di tempat maupun pesan antar.">
+<meta name="theme-color" content="#0f6e6a">
+<style>
+:root{--ink:#10283a;--mut:#51657a;--bg:#f6f9fa;--card:#fff;--line:#dbe5ea;--teal:#0f6e6a;--teal2:#0b5552;--amb:#f2a900;--amb-ink:#3a2a00;--soft:#e8f4f2}
+*{box-sizing:border-box}[hidden]{display:none!important}html{scroll-behavior:smooth;scroll-padding-top:12px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.w{max-width:1040px;margin:0 auto;padding:0 20px}
+h1,h2,h3{line-height:1.2;margin:0 0 .4em;letter-spacing:-.01em}
+h2{font-size:clamp(1.5rem,4.2vw,2.1rem)}
+.sub{color:var(--mut);max-width:62ch;margin:0 0 26px}
+section{padding:54px 0}
+.btn{display:inline-block;font:700 1rem system-ui,sans-serif;padding:13px 22px;border-radius:12px;background:var(--amb);color:var(--amb-ink);text-decoration:none;border:0;cursor:pointer;box-shadow:0 6px 18px rgba(242,169,0,.35);transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn.o{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7);box-shadow:none}
+.btn.d{background:var(--teal);color:#fff;box-shadow:0 6px 18px rgba(15,110,106,.3)}
+.btn.blk{display:block;text-align:center}
+.lab{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);background:var(--soft);padding:4px 12px;border-radius:999px;margin-bottom:12px}
+/* hero */
+.hero{background:radial-gradient(1200px 500px at 85% -10%,#1b9a92 0,transparent 60%),linear-gradient(135deg,var(--teal),var(--teal2));color:#fff;padding:46px 0 56px;overflow:hidden}
+.hg{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
+.hero h1{font-size:clamp(1.9rem,5.6vw,3rem);margin-bottom:.35em}
+.hero h1 em{font-style:normal;color:#ffd666}
+.hero p{font-size:1.08rem;opacity:.95;max-width:52ch;margin:0 0 22px}
+.hb{display:flex;gap:12px;flex-wrap:wrap}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding:0;list-style:none}
+.pills li{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:5px 13px;border-radius:999px;font-size:.88rem}
+.ph{width:min(280px,78vw);margin:0 auto;background:#10283a;border-radius:34px;padding:10px;box-shadow:0 30px 60px rgba(0,0,0,.35);transform:rotate(2deg)}
+.sc{background:#fff;border-radius:26px;overflow:hidden;color:var(--ink);font-size:.82rem;line-height:1.4}
+.sc .hd{background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff;padding:18px 14px 12px;border-radius:0 0 18px 18px}
+.sc .hd b{font-size:1.05rem;display:block}.sc .hd span{opacity:.9;font-size:.76rem}
+.sc .it{display:flex;justify-content:space-between;align-items:center;padding:9px 14px;border-bottom:1px solid #edf1f4}
+.sc .it i{font-style:normal;color:var(--teal);font-weight:700;display:block}
+.sc .q{display:flex;align-items:center;gap:7px;font-weight:700}
+.sc .q u{width:22px;height:22px;border-radius:50%;background:var(--teal);color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center}
+.sc .q u.m{background:#fff;color:var(--teal);border:1.5px solid var(--teal)}
+.sc .cb{margin:10px;background:var(--teal);color:#fff;border-radius:14px;padding:9px 12px;display:flex;justify-content:space-between;font-weight:700}
+.sc .bd{font-size:.66rem;background:#fff1c9;color:#7a5600;padding:1px 7px;border-radius:999px;margin-left:5px}
+/* pain strip */
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+.pain-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--amb);border-radius:14px;padding:18px}
+.pain-box h3{font-size:1.02rem;margin-bottom:5px}
+.pain-box p{margin:0;color:var(--mut);font-size:.94rem}
+/* grids */
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.cd{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.cd .ic{font-size:1.7rem;display:block;margin-bottom:6px}
+.cd h3{font-size:1.08rem}.cd p{margin:0;color:var(--mut);font-size:.96rem}
+.stp{counter-reset:s}.stp .cd{counter-increment:s;position:relative;padding-top:30px}
+.stp .cd:before{content:counter(s);position:absolute;top:-14px;left:18px;width:34px;height:34px;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(15,110,106,.4)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.side{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.side h3{display:flex;align-items:center;gap:8px}
+.side.adm{background:var(--soft);border-color:#bfe0db}
+.side ol{margin:8px 0 0;padding-left:1.2em}.side li{margin:.5em 0}
+.band{background:var(--teal);color:#fff;border-radius:20px;padding:26px 24px}
+.band h3{font-size:1.3rem}.band p{margin:0 0 .6em;opacity:.95}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chips span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);padding:4px 12px;border-radius:999px;font-size:.9rem}
+.honest{background:#fff8e3;border:1px solid #f0d68a;border-radius:16px;padding:22px}
+.honest ul{margin:8px 0 0;padding-left:1.2em;color:#5b4a14}.honest li{margin:.35em 0}
+/* paket */
+.pk{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.pc{background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;position:relative}
+.pc.hl{border-color:var(--teal);box-shadow:0 14px 36px rgba(15,110,106,.18);transform:translateY(-6px)}
+.tag{position:absolute;top:-13px;left:20px;background:var(--teal);color:#fff;font-size:.78rem;font-weight:800;padding:3px 14px;border-radius:999px}
+.pr{font-size:2.1rem;font-weight:800;margin:2px 0}.pr small{font-size:.85rem;font-weight:500;color:var(--mut)}
+.for{color:var(--mut);font-size:.92rem;margin:0 0 14px}
+.pc ul{list-style:none;padding:0;margin:0 0 20px;flex:1}
+.pc li{padding:7px 0 7px 26px;position:relative;border-bottom:1px dashed var(--line);font-size:.95rem}
+.pc li:before{content:"\2713";position:absolute;left:0;color:var(--teal);font-weight:800}
+.pc li.no{color:#8999a6}.pc li.no:before{content:"\2013";color:#8999a6}
+.terms{margin-top:22px}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:10px 0;transition:box-shadow .2s}
+details[open]{box-shadow:0 8px 22px rgba(16,40,58,.08);border-color:#b9d3d0}
+summary{cursor:pointer;font-weight:700;padding:14px 18px;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";flex:none;width:26px;height:26px;border-radius:50%;background:var(--soft);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800}
+details[open] summary:after{content:"\2212";background:var(--teal);color:#fff}
+details .a{padding:0 18px 16px;color:var(--mut)}details .a p{margin:.4em 0}
+.fc{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
+.fc button{font:600 .9rem system-ui,sans-serif;padding:7px 15px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.fc button.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.cta{background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff;border-radius:24px;padding:38px 26px;text-align:center}
+.cta p{max-width:54ch;margin:0 auto 18px;opacity:.95}
+.qform{max-width:460px;margin:0 auto 18px;text-align:left;display:grid;gap:10px}
+.qf-row{display:grid;gap:4px}
+.qf-row label{font-size:.86rem;font-weight:700;color:#fff}
+.qf-row input,.qf-row select{width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.96);color:var(--ink);font:400 .95rem/1.4 system-ui,-apple-system,sans-serif}
+.qf-row input:focus,.qf-row select:focus{outline:3px solid var(--amb);outline-offset:1px}
+.cta-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+.btn.ghost-light{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.45);box-shadow:none;font-size:.9rem;padding:10px 16px}
+footer{text-align:center;color:var(--mut);font-size:.86rem;padding:10px 0 96px}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;display:none;background:#25b35a;color:#fff;font-weight:800;padding:13px 20px;border-radius:999px;text-decoration:none;box-shadow:0 8px 22px rgba(0,0,0,.28)}
+.fab.on{display:block}
+.rv{opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+:focus-visible{outline:3px solid var(--amb);outline-offset:2px}
+@media(max-width:820px){.hg,.two,.g3,.g2,.pk,.pain-grid{grid-template-columns:1fr}.ph{transform:none;margin-top:8px}.pc.hl{transform:none}section{padding:40px 0}.hero{padding:34px 0 44px}}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="w hg">
+  <div>
+    <h1>Scan QR di meja, pesanan langsung masuk WhatsApp. <em>Rapi, jelas, dan bisa pesan antar.</em></h1>
+    <p>Pembeli cukup scan QR di meja atau buka link yang Anda bagikan, pilih menu, lalu kirim pesanan lengkap beserta totalnya ke WhatsApp Anda. Tanpa aplikasi, tanpa komisi per pesanan, dan menunya kami yang kerjakan.</p>
+    <div class="hb"><a class="btn" href="#paket">Pilih paket sekarang</a><a class="btn o" id="demo" href="#cara" hidden>Lihat contoh menu</a><a class="btn o" href="#cara">Cara kerjanya</a></div>
+    <ul class="pills"><li>Tanpa aplikasi</li><li>0% komisi per pesanan</li><li>Harga berubah? QR tetap sama</li><li>Bisa untuk pesan antar</li></ul>
+  </div>
+  <div class="ph" aria-hidden="true"><div class="sc">
+    <div class="hd"><b>Kedai Contoh</b><span>Hangat, cepat, dan jelas</span></div>
+    <div class="it"><div>Nasi Goreng Spesial<span class="bd">Terlaris</span><i>Rp 18.000</i></div><div class="q"><u class="m">&minus;</u>2<u>+</u></div></div>
+    <div class="it"><div>Mie Ayam Bakso<i>Rp 15.000</i></div><div class="q"><u class="m">&minus;</u>1<u>+</u></div></div>
+    <div class="it"><div>Es Teh Manis<i>Rp 5.000</i></div><div class="q"><u class="m">&minus;</u>2<u>+</u></div></div>
+    <div class="cb"><span>5 item</span><span>Rp 61.000</span></div>
+    <div class="cb" style="margin-top:0;background:#25b35a;justify-content:center">Pesan lewat WhatsApp</div>
+  </div></div>
+</div></header>
+
+<section style="padding-bottom:16px"><div class="w rv">
+  <span class="lab">Masalah yang sering terjadi</span>
+  <h2>Jam ramai bikin kewalahan? Rapikan alurnya sejak di meja</h2>
+  <p class="sub">Saat pembeli menumpuk atau harga sering disesuaikan, alur pemesanan yang jelas membuat layanan tetap tenang dan terarah.</p>
+  <div class="pain-grid">
+    <div class="pain-box"><h3>Cetak ulang saat harga berubah</h3><p>Harga naik atau menu habis sering memaksa cetak ulang menu atau menempel stiker yang membuat tampilan kurang rapi.</p></div>
+    <div class="pain-box"><h3>Hitung manual &amp; antrean rawan selip</h3><p>Saat banyak pesanan masuk bersamaan, daftar item, total, dan urutan siapa yang memesan lebih dulu perlu terlihat jelas.</p></div>
+    <div class="pain-box"><h3>Jualan berhenti di meja saja</h3><p>Padahal pelanggan rumah, kos, atau grup sekitar bisa memesan lebih mudah jika link atau QR menunya dibagikan lewat WhatsApp.</p></div>
+  </div>
+</div></section>
+
+<section id="cara"><div class="w rv">
+  <span class="lab">Cara kerja</span>
+  <h2>Semudah 3 langkah, untuk pembeli maupun untuk Anda</h2>
+  <p class="sub">Tidak ada aplikasi yang perlu dipasang. Cukup kamera HP dan WhatsApp.</p>
+  <div class="g3 stp">
+    <div class="cd"><h3>Scan atau buka link</h3><p>Pembeli scan QR di meja, atau membuka link menu yang Anda bagikan lewat WhatsApp.</p></div>
+    <div class="cd"><h3>Pilih menu dan jumlah</h3><p>Menu, foto, dan harga terbaru tampil rapi di HP. Total harga terhitung otomatis.</p></div>
+    <div class="cd"><h3>Kirim lewat WhatsApp</h3><p>Pesan sudah tersusun lengkap. Pembeli tinggal menekan Kirim, dan pesanan masuk ke WhatsApp Anda.</p></div>
+  </div>
+  <div class="two" style="margin-top:22px">
+    <div class="side"><h3>&#128241; Yang pembeli terima</h3><ol><li>Menu dan harga yang selalu terbaru</li><li>Foto makanan yang menggugah (pada paket Foto dan Lengkap)</li><li>Total pesanan yang jelas sebelum dikirim</li></ol></div>
+    <div class="side adm"><h3>&#128172; Yang Anda terima di WhatsApp</h3><ol><li>Daftar menu, jumlah, subtotal, dan <b>total harga</b></li><li>Nama atau nomor meja, atau alamat pengantaran</li><li>Jam pesan masuk, jadi <b>antrean jelas</b> siapa lebih dulu</li><li>Kesempatan <b>cek stok dan konfirmasi harga</b> sebelum dimasak</li></ol></div>
+  </div>
+</div></section>
+
+<section style="padding-top:10px"><div class="w rv">
+  <div class="band">
+    <h3>&#128757; Bukan hanya untuk di tempat. Bisa untuk pesan antar juga.</h3>
+    <p>QR tidak harus menempel di meja. Bagikan <b>link menu</b> dan gambar QR lewat WhatsApp, status, grup, atau Instagram. Pelanggan yang tidak datang ke tempat pun bisa memesan. Jangkauan jualan Anda jadi lebih luas.</p>
+    <div class="chips"><span>Chat WhatsApp</span><span>Status WhatsApp</span><span>Grup RT dan komunitas</span><span>Bio Instagram</span><span>Stiker dan brosur</span></div>
+    <p style="margin-top:14px;font-size:.93rem;opacity:.92">Pelanggan mengisi alamat pengantaran, lalu pesanan masuk ke WhatsApp Anda. Ongkir dan total akhir Anda konfirmasi dulu sebelum diantar.</p>
+  </div>
+</div></section>
+
+<section><div class="w rv">
+  <span class="lab">Manfaat</span>
+  <h2>Kenapa beralih ke menu digital + QR?</h2>
+  <p class="sub">Hal-hal kecil yang biasanya menyita waktu dan biaya berulang, kami rapikan.</p>
+  <div class="g3">
+    <div class="cd"><span class="ic">&#128424;</span><h3>Tanpa cetak ulang</h3><p>Harga naik atau menu habis? Cukup kabari kami. Halaman berubah, alamat dan QR di meja tetap sama.</p></div>
+    <div class="cd"><span class="ic">&#9989;</span><h3>Cek dulu sebelum dimasak</h3><p>Pesanan masuk lewat WhatsApp, jadi Anda bisa memastikan stok dan harga lebih dulu sebelum diproses.</p></div>
+    <div class="cd"><span class="ic">&#128290;</span><h3>Antrean jelas</h3><p>Setiap pesan WhatsApp mencatat jam masuknya. Terlihat siapa yang memesan lebih dulu.</p></div>
+    <div class="cd"><span class="ic">&#10024;</span><h3>Tampil rapi dan menggoda</h3><p>Nama, warna, dan foto menu sesuai usaha Anda. Pelanggan mudah memilih tanpa menunggu buku menu.</p></div>
+    <div class="cd"><span class="ic">&#128176;</span><h3>Tanpa komisi per pesanan</h3><p>Pesanan langsung ke WhatsApp Anda. Kami tidak mengambil potongan dari penjualan.</p></div>
+    <div class="cd"><span class="ic">&#128220;</span><h3>Kami yang kerjakan</h3><p>Anda cukup kirim daftar menu. Tidak perlu belajar alat atau mengutak-atik apa pun.</p></div>
+  </div>
+  <div class="honest" style="margin-top:22px">
+    <h3>&#129309; Kami jujur sejak awal</h3>
+    <p style="margin:0;color:#5b4a14">Supaya tidak ada salah paham, menu digital ini <b>bukan</b>:</p>
+    <ul><li>aplikasi kasir atau sistem pembayaran online</li><li>penghitung ongkir otomatis, atau pelacak kurir (ongkir dan pengantaran Anda atur sendiri)</li><li>jaminan omzet naik. Yang kami jamin: menu Anda rapi, selalu terbaru, dan pesanan lebih mudah diterima</li></ul>
+  </div>
+</div></section>
+
+<section id="paket"><div class="w rv">
+  <span class="lab">Paket</span>
+  <h2>Pilih paket yang pas untuk usaha Anda</h2>
+  <p class="sub">Semua paket sudah termasuk QR siap cetak dan pesanan lewat WhatsApp, termasuk untuk pesan antar.</p>
+  <div class="pk">
+    <div class="pc"><h3>Dasar</h3><div class="pr">Rp150.000</div><p class="for">Warung dan angkringan — ringkas &amp; hemat</p>
+      <ul><li>Menu teks + QR siap cetak</li><li>Pesanan lewat WhatsApp</li><li>Sampai 30 menu</li><li>Gratis ubah menu 1 kali</li><li class="no">Tanpa foto menu</li></ul>
+      <a class="btn d blk" data-wa="Dasar" href="#kontak">Mulai dengan Dasar</a></div>
+    <div class="pc hl"><span class="tag">Paling Diminati</span><h3>Foto</h3><div class="pr">Rp250.000</div><p class="for">Yang ingin tampilan menu lebih menarik</p>
+      <ul><li>Semua isi paket Dasar</li><li>Foto menu, sampai 15 foto</li><li>Foto bisa diketuk untuk diperbesar</li><li>Sampai 30 menu</li><li>Gratis ubah menu 2 kali</li></ul>
+      <a class="btn blk" data-wa="Foto" href="#kontak">Pilih Paket Foto</a></div>
+    <div class="pc"><h3>Lengkap</h3><div class="pr">Rp400.000</div><p class="for">Kafe dan resto kecil — tampil maksimal</p>
+      <ul><li>Semua isi paket Foto</li><li>Tampilan kartu foto besar, foto bisa digeser</li><li>Sampai 30 foto dan 50 menu</li><li>Gratis ubah menu 3 kali</li></ul>
+      <a class="btn d blk" data-wa="Lengkap" href="#kontak">Pilih Lengkap</a></div>
+  </div>
+  <div class="terms">
+    <details><summary>Menu atau foto melebihi batas paket?</summary><div class="a"><p>Tambahan Rp2.000 per menu dan Rp5.000 per foto.</p></div></details>
+    <details><summary>Ubah menu setelah kuota gratis habis</summary><div class="a"><p>Dua pilihan: Rp15.000 per kali ubah, atau langganan Rp200.000 per tahun untuk ubah menu sepuasnya dalam batas wajar. Langganan lebih hemat kalau menu Anda sering berubah.</p></div></details>
+    <details><summary>Pembayaran dan waktu pengerjaan</summary><div class="a"><p>DP 50% di awal, pelunasan sebelum halaman tayang. Estimasi 1 sampai 2 hari kerja setelah semua data lengkap kami terima.</p></div></details>
+    <details><summary>Alamat sendiri (domain)</summary><div class="a"><p>Opsional. Biaya domain terpisah, sekitar Rp200.000 per tahun.</p></div></details>
+    <details><summary>Tanggung jawab isi menu</summary><div class="a"><p>Isi menu, harga, dan foto yang Anda kirim adalah tanggung jawab Anda. Kami bertugas menyusun dan memasangnya dengan rapi.</p></div></details>
+  </div>
+</div></section>
+
+<section><div class="w rv">
+  <span class="lab">Yang perlu Anda siapkan</span>
+  <h2>Cukup kirim lewat WhatsApp</h2>
+  <div class="g2">
+    <div class="cd"><h3>&#128221; Data usaha</h3><p>Nama usaha, slogan, jam buka, alamat, nomor WhatsApp untuk pesanan, dan warna favorit.</p></div>
+    <div class="cd"><h3>&#127860; Menu dan harga</h3><p>Daftar menu lengkap dengan harga, dikelompokkan per kategori. Foto menu bila memilih paket Foto atau Lengkap.</p></div>
+    <div class="cd"><h3>&#128757; Info pesan antar</h3><p>Kalau melayani antar: area antar, jam antar, dan keterangan ongkir. Bisa kami tuliskan di halaman menu.</p></div>
+    <div class="cd"><h3>&#9201; Lalu kami kerjakan</h3><p>Anda terima link dan QR siap cetak. Estimasi 1 sampai 2 hari kerja setelah data lengkap.</p></div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="w rv">
+  <span class="lab">FAQ</span>
+  <h2>Pertanyaan yang sering ditanyakan</h2>
+  <p class="sub">Pilih topik, lalu ketuk pertanyaannya. Kalau belum terjawab, tanyakan langsung lewat WhatsApp.</p>
+  <div class="fc" id="fc"><button class="on" data-c="all">Semua</button><button data-c="pesan">Pesanan</button><button data-c="antar">Pesan antar</button><button data-c="biaya">Biaya dan paket</button><button data-c="ubah">Ubah menu</button><button data-c="teknis">Teknis</button></div>
+  <div id="fl">
+    <details data-c="pesan"><summary>Apakah pelanggan harus memasang aplikasi?</summary><div class="a"><p>Tidak. Cukup scan QR dengan kamera HP, atau buka link menu. Halaman langsung terbuka di browser.</p></div></details>
+    <details data-c="pesan"><summary>Bagaimana cara pesanan masuk?</summary><div class="a"><p>Pembeli memilih menu dan jumlah, mengisi nama atau nomor meja (atau alamat untuk pesan antar), lalu menekan tombol pesan. WhatsApp Anda terbuka dengan pesan yang sudah tersusun: daftar menu, jumlah, subtotal, dan total harga. Pembeli tinggal menekan Kirim.</p></div></details>
+    <details data-c="pesan"><summary>Bagaimana kalau ada menu yang habis atau harganya berbeda?</summary><div class="a"><p>Karena pesanan masuk lewat WhatsApp, Anda bisa mengecek dulu sebelum memasak. Kalau ada yang habis, tinggal balas dan tawarkan pengganti. Status "Habis" di halaman diubah lewat kami, jadi konfirmasi di WhatsApp ini menjadi pengaman.</p></div></details>
+    <details data-c="pesan"><summary>Bagaimana dengan antrean pesanan?</summary><div class="a"><p>Setiap pesan WhatsApp tercatat jam masuknya, jadi terlihat siapa yang memesan lebih dulu. Anda atau dapur tinggal melayani sesuai urutan jam kirim.</p></div></details>
+    <details data-c="pesan"><summary>Apakah ini sistem pembayaran atau kasir?</summary><div class="a"><p>Bukan. Halaman ini untuk menampilkan menu dan mengirim pesanan ke WhatsApp. Pembayaran tetap seperti biasa (tunai, QRIS di kasir, transfer, dan lainnya), dan kami tidak mengambil komisi.</p></div></details>
+    <details data-c="antar"><summary>Apakah bisa untuk pesan antar (delivery)?</summary><div class="a"><p>Bisa. Bagikan link menu atau gambar QR lewat WhatsApp, status, grup, atau Instagram. Pelanggan memilih menu, mengisi alamat pengantaran, lalu mengirim pesanan ke WhatsApp Anda. Pengantarannya Anda atur sendiri.</p></div></details>
+    <details data-c="antar"><summary>Apakah ongkir dihitung otomatis?</summary><div class="a"><p>Tidak. Total di halaman menu belum termasuk ongkir. Anda mengonfirmasi ongkir dan total akhir lewat WhatsApp sebelum pesanan diantar.</p></div></details>
+    <details data-c="antar"><summary>Siapa yang mengantar pesanan?</summary><div class="a"><p>Anda sendiri, dengan kurir atau ojek langganan. Kami tidak menyediakan kurir dan tidak terhubung dengan aplikasi ojek online.</p></div></details>
+    <details data-c="antar"><summary>Bagaimana cara membagikan QR lewat WhatsApp?</summary><div class="a"><p>Kirim <b>link menu</b> (paling praktis) dan, kalau perlu, gambar QR-nya. Gambar QR yang diterima di HP yang sama kurang praktis dipindai, jadi untuk pelanggan online lebih baik membagikan link. QR paling pas untuk di meja, kasir, atau materi cetak.</p></div></details>
+    <details data-c="biaya"><summary>Apakah ada biaya bulanan?</summary><div class="a"><p>Tidak ada biaya tayang bulanan. Biayanya hanya harga awal paket, ditambah biaya ubah menu bila kuota gratis habis. Ada pilihan langganan tahunan kalau Anda sering mengubah menu.</p></div></details>
+    <details data-c="biaya"><summary>Kalau saya berhenti berlangganan?</summary><div class="a"><p>Halaman menu tetap tayang. Hanya perubahan menu yang jadi berbayar per kali ubah.</p></div></details>
+    <details data-c="biaya"><summary>Bisa memakai alamat (domain) sendiri?</summary><div class="a"><p>Bisa, sebagai opsi tambahan. Biaya domain terpisah, sekitar Rp200.000 per tahun.</p></div></details>
+    <details data-c="biaya"><summary>Apakah ada jaminan omzet naik?</summary><div class="a"><p>Tidak, dan kami tidak akan menjanjikannya. Yang kami pastikan: menu Anda rapi, selalu terbaru, dan pesanan lebih mudah diterima.</p></div></details>
+    <details data-c="ubah"><summary>Bagaimana kalau harga naik atau menu berubah?</summary><div class="a"><p>Kabari kami lewat WhatsApp. Halaman diperbarui, alamat dan QR tidak berubah. Setiap paket sudah termasuk beberapa kali ubah gratis.</p></div></details>
+    <details data-c="ubah"><summary>Siapa yang menginput menu?</summary><div class="a"><p>Kami. Anda cukup mengirim daftar menu, harga, dan foto lewat WhatsApp.</p></div></details>
+    <details data-c="ubah"><summary>Berapa lama jadinya?</summary><div class="a"><p>Sekitar 1 sampai 2 hari kerja setelah semua data lengkap diterima. Ini perkiraan, bukan jaminan.</p></div></details>
+    <details data-c="teknis"><summary>Kalau QR rusak, hilang, atau kotor?</summary><div class="a"><p>QR bisa dicetak ulang kapan saja. Alamatnya tetap, jadi QR lama dan baru sama-sama berfungsi.</p></div></details>
+    <details data-c="teknis"><summary>Kalau sinyal jelek atau internet mati?</summary><div class="a"><p>Pembeli tetap butuh sinyal untuk membuka halaman. Halamannya dibuat ringan, tetapi kalau benar-benar tidak ada sinyal tidak akan terbuka. Simpan buku menu kertas sebagai cadangan.</p></div></details>
+    <details data-c="teknis"><summary>Apakah data pelanggan disimpan?</summary><div class="a"><p>Halaman tidak menyimpan data pembeli. Pesanan langsung dikirim ke WhatsApp Anda.</p></div></details>
+    <details data-c="teknis"><summary>Bagaimana dengan pelanggan yang kurang mahir memakai HP?</summary><div class="a"><p>Buku menu kertas tetap boleh dipakai berdampingan. QR ini tambahan bagi pelanggan yang mau, dan pelayan bisa membantu membukakannya.</p></div></details>
+    <details data-c="teknis"><summary>Punya beberapa cabang?</summary><div class="a"><p>Hubungi kami lewat WhatsApp, nanti kami sesuaikan penawarannya.</p></div></details>
+  </div>
+</div></section>
+
+<section id="kontak" style="padding-top:10px"><div class="w rv">
+  <div class="cta">
+    <h2>Siap bikin menu digital untuk usaha Anda?</h2>
+    <p>Ketik detail usaha Anda langsung di bawah—lalu klik tombol WhatsApp, pesan Anda otomatis tersusun siap kirim.</p>
+    <form class="qform" id="order-form" onsubmit="return false;">
+      <div class="qf-row">
+        <label for="qf-nama">Nama usaha</label>
+        <input id="qf-nama" type="text" placeholder="Contoh: Warung Makan Bu Sari">
+      </div>
+      <div class="qf-row">
+        <label for="qf-jenis">Jenis usaha</label>
+        <select id="qf-jenis">
+          <option value="Warung / angkringan">Warung / angkringan</option>
+          <option value="Kafe / kedai kopi">Kafe / kedai kopi</option>
+          <option value="Rumah makan / resto">Rumah makan / resto</option>
+        </select>
+      </div>
+      <div class="qf-row">
+        <label for="qf-paket">Paket</label>
+        <select id="qf-paket">
+          <option value="Dasar (Rp150.000)">Dasar (Rp150.000)</option>
+          <option value="Foto (Rp250.000)" selected>Foto (Rp250.000)</option>
+          <option value="Lengkap (Rp400.000)">Lengkap (Rp400.000)</option>
+        </select>
+      </div>
+      <div class="qf-row">
+        <label for="qf-antar">Melayani pesan antar?</label>
+        <select id="qf-antar">
+          <option value="Ya">Ya</option>
+          <option value="Tidak">Tidak</option>
+        </select>
+      </div>
+    </form>
+    <div class="cta-actions">
+      <a class="btn" id="wa-main" href="#" target="_blank" rel="noopener">Chat via WhatsApp</a>
+      <button type="button" class="btn ghost-light" id="copy-tpl">Salin format chat</button>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="w" id="ft"></div></footer>
+<a class="fab" id="fab" href="#" target="_blank" rel="noopener">&#128172; Chat WhatsApp</a>
+
+<script>
+// Ganti sesuai kebutuhan
+var CONFIG = {
+  brand: "[Nama Brand]",          // nama brand yang tampil di footer
+  wa: "628XXXXXXXXXX",            // nomor WhatsApp, format 62 tanpa + atau spasi
+  demo: ""                        // link contoh menu (opsional). Kosong = tombol disembunyikan
+};
+(function(){
+  function wa(t){ return "https://wa.me/" + CONFIG.wa + "?text=" + encodeURIComponent(t); }
+  function val(id){ var n = document.getElementById(id); return n ? n.value.trim() : ""; }
+  function buildMsg(){
+    var nama = val("qf-nama") || "-";
+    var jenis = val("qf-jenis") || "-";
+    var paket = val("qf-paket") || "-";
+    var antar = val("qf-antar") || "-";
+    return "Halo, saya tertarik dengan menu digital + QR untuk usaha saya.\n"
+      + "Nama usaha: " + nama + "\n"
+      + "Jenis usaha: " + jenis + "\n"
+      + "Paket: " + paket + "\n"
+      + "Melayani pesan antar? " + antar;
+  }
+  function syncWa(){
+    var href = wa(buildMsg());
+    document.getElementById("wa-main").href = href;
+    document.getElementById("fab").href = href;
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("[data-wa]"), function(a){
+    var pkg = a.getAttribute("data-wa");
+    a.href = wa("Halo, saya tertarik dengan paket " + pkg + " (menu digital + QR).\nNama usaha: \nMelayani pesan antar? ");
+    a.target = "_blank"; a.rel = "noopener";
+    a.addEventListener("click", function(){
+      var sel = document.getElementById("qf-paket");
+      if (sel){
+        for (var i = 0; i < sel.options.length; i++){
+          if (sel.options[i].value.indexOf(pkg) === 0){ sel.selectedIndex = i; break; }
+        }
+      }
+      syncWa();
+    });
+  });
+  ["qf-nama","qf-jenis","qf-paket","qf-antar"].forEach(function(id){
+    var n = document.getElementById(id);
+    if (n){ n.addEventListener("input", syncWa); n.addEventListener("change", syncWa); }
+  });
+  syncWa();
+  var d = document.getElementById("demo");
+  if (CONFIG.demo){ d.href = CONFIG.demo; d.target = "_blank"; d.rel = "noopener"; d.hidden = false; }
+  document.getElementById("ft").textContent = "Menu digital oleh " + CONFIG.brand;
+  document.title = "Menu Digital + QR | " + CONFIG.brand;
+  // salin isian
+  var copyBtn = document.getElementById("copy-tpl");
+  if (copyBtn){
+    copyBtn.addEventListener("click", function(){
+      var plain = buildMsg();
+      if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(plain).then(function(){
+          copyBtn.textContent = "Format tersalin";
+          setTimeout(function(){ copyBtn.textContent = "Salin format chat"; }, 2000);
+        });
+      }
+    });
+  }
+  // filter FAQ
+  var fc = document.getElementById("fc");
+  fc.addEventListener("click", function(ev){
+    var b = ev.target.closest("button"); if (!b) return;
+    Array.prototype.forEach.call(fc.children, function(x){ x.classList.toggle("on", x === b); });
+    var c = b.getAttribute("data-c");
+    Array.prototype.forEach.call(document.querySelectorAll("#fl details"), function(e){
+      e.hidden = !(c === "all" || e.getAttribute("data-c") === c);
+    });
+  });
+  // tombol WA melayang setelah lewat hero
+  var hero = document.querySelector(".hero"), fab = document.getElementById("fab");
+  function sc(){ fab.classList.toggle("on", window.scrollY > hero.offsetHeight - 80); }
+  window.addEventListener("scroll", sc, {passive:true}); sc();
+  // muncul perlahan saat digulir
+  var els = document.querySelectorAll(".rv");
+  if ("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(en){ en.forEach(function(x){ if (x.isIntersecting){ x.target.classList.add("in"); io.unobserve(x.target); } }); }, {threshold:.08});
+    Array.prototype.forEach.call(els, function(e){ io.observe(e); });
+  } else Array.prototype.forEach.call(els, function(e){ e.classList.add("in"); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Katalog Online untuk Reseller Produk Brand</title>
+<meta name="description" content="Ubah link bio & chat WhatsApp jadi mesin closing. Katalog produk digital lengkap dengan varian, harga coret, galeri foto, dan pesanan otomatis ke WhatsApp tanpa komisi.">
+<meta name="theme-color" content="#0f766e">
+<style>
+:root{--ink:#10283a;--mut:#51657a;--bg:#f6f9fa;--card:#fff;--line:#dbe5ea;--teal:#0f766e;--teal2:#0a5750;--amb:#f2a900;--amb-ink:#3a2a00;--soft:#e0f4f1}
+*{box-sizing:border-box}[hidden]{display:none!important}html{scroll-behavior:smooth;scroll-padding-top:12px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.w{max-width:1040px;margin:0 auto;padding:0 20px}
+h1,h2,h3{line-height:1.2;margin:0 0 .4em;letter-spacing:-.01em}
+h2{font-size:clamp(1.5rem,4.2vw,2.1rem)}
+.sub{color:var(--mut);max-width:62ch;margin:0 0 26px}
+section{padding:54px 0}
+.btn{display:inline-block;font:700 1rem system-ui,sans-serif;padding:13px 22px;border-radius:12px;background:var(--amb);color:var(--amb-ink);text-decoration:none;border:0;cursor:pointer;box-shadow:0 6px 18px rgba(242,169,0,.35);transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn.o{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7);box-shadow:none}
+.btn.d{background:var(--teal);color:#fff;box-shadow:0 6px 18px rgba(15,118,110,.3)}
+.btn.blk{display:block;text-align:center}
+.lab{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);background:var(--soft);padding:4px 12px;border-radius:999px;margin-bottom:12px}
+/* hero */
+.hero{background:radial-gradient(1200px 500px at 85% -10%,#2bb3a5 0,transparent 60%),linear-gradient(135deg,var(--teal),var(--teal2));color:#fff;padding:46px 0 56px;overflow:hidden}
+.hg{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
+.hero h1{font-size:clamp(1.9rem,5.6vw,3rem);margin-bottom:.35em}
+.hero h1 em{font-style:normal;color:#ffd666}
+.hero p{font-size:1.08rem;opacity:.95;max-width:52ch;margin:0 0 22px}
+.hb{display:flex;gap:12px;flex-wrap:wrap}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;padding:0;list-style:none}
+.pills li{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:5px 13px;border-radius:999px;font-size:.88rem}
+.ph{width:min(280px,78vw);margin:0 auto;background:#10283a;border-radius:34px;padding:10px;box-shadow:0 30px 60px rgba(0,0,0,.35);transform:rotate(2deg)}
+.sc{background:#fff;border-radius:26px;overflow:hidden;color:var(--ink);font-size:.82rem;line-height:1.4}
+.sc .hd{background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff;padding:18px 14px 12px;border-radius:0 0 18px 18px}
+.sc .hd b{font-size:1.05rem;display:block}.sc .hd span{opacity:.9;font-size:.76rem}
+.sc .cb{margin:10px;background:var(--teal);color:#fff;border-radius:14px;padding:9px 12px;display:flex;justify-content:space-between;font-weight:700}
+.sc .bd{font-size:.66rem;background:#fff1c9;color:#7a5600;padding:1px 7px;border-radius:999px;margin-left:5px}
+/* pain strip */
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+.pain-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--amb);border-radius:14px;padding:18px}
+.pain-box h3{font-size:1.02rem;margin-bottom:5px}
+.pain-box p{margin:0;color:var(--mut);font-size:.94rem}
+/* grids */
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.cd{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.cd .ic{font-size:1.7rem;display:block;margin-bottom:6px}
+.cd h3{font-size:1.08rem}.cd p{margin:0;color:var(--mut);font-size:.96rem}
+.stp{counter-reset:s}.stp .cd{counter-increment:s;position:relative;padding-top:30px}
+.stp .cd:before{content:counter(s);position:absolute;top:-14px;left:18px;width:34px;height:34px;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(15,118,110,.4)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.side{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.side h3{display:flex;align-items:center;gap:8px}
+.side.adm{background:var(--soft);border-color:#bfe3dd}
+.side ol{margin:8px 0 0;padding-left:1.2em}.side li{margin:.5em 0}
+.band{background:var(--teal);color:#fff;border-radius:20px;padding:26px 24px}
+.band h3{font-size:1.3rem}.band p{margin:0 0 .6em;opacity:.95}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chips span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);padding:4px 12px;border-radius:999px;font-size:.9rem}
+.honest{background:#fff8e3;border:1px solid #f0d68a;border-radius:16px;padding:22px}
+.honest ul{margin:8px 0 0;padding-left:1.2em;color:#5b4a14}.honest li{margin:.35em 0}
+/* paket */
+.pk{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.pc{background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;position:relative}
+.pc.hl{border-color:var(--teal);box-shadow:0 14px 36px rgba(15,118,110,.18);transform:translateY(-6px)}
+.tag{position:absolute;top:-13px;left:20px;background:var(--teal);color:#fff;font-size:.78rem;font-weight:800;padding:3px 14px;border-radius:999px}
+.pr{font-size:2.1rem;font-weight:800;margin:2px 0}.pr small{font-size:.85rem;font-weight:500;color:var(--mut)}
+.for{color:var(--mut);font-size:.92rem;margin:0 0 14px}
+.pc ul{list-style:none;padding:0;margin:0 0 20px;flex:1}
+.pc li{padding:7px 0 7px 26px;position:relative;border-bottom:1px dashed var(--line);font-size:.95rem}
+.pc li:before{content:"\2713";position:absolute;left:0;color:var(--teal);font-weight:800}
+.pc li.no{color:#8999a6}.pc li.no:before{content:"\2013";color:#8999a6}
+.terms{margin-top:22px}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:10px 0;transition:box-shadow .2s}
+details[open]{box-shadow:0 8px 22px rgba(16,40,58,.08);border-color:#b9ddd7}
+summary{cursor:pointer;font-weight:700;padding:14px 18px;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";flex:none;width:26px;height:26px;border-radius:50%;background:var(--soft);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800}
+details[open] summary:after{content:"\2212";background:var(--teal);color:#fff}
+details .a{padding:0 18px 16px;color:var(--mut)}details .a p{margin:.4em 0}
+.fc{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
+.fc button{font:600 .9rem system-ui,sans-serif;padding:7px 15px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.fc button.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.cta{background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff;border-radius:24px;padding:38px 26px;text-align:center}
+.cta p{max-width:54ch;margin:0 auto 18px;opacity:.95}
+.qform{max-width:460px;margin:0 auto 18px;text-align:left;display:grid;gap:10px}
+.qf-row{display:grid;gap:4px}
+.qf-row label{font-size:.86rem;font-weight:700;color:#fff}
+.qf-row input,.qf-row select{width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.96);color:var(--ink);font:400 .95rem/1.4 system-ui,-apple-system,sans-serif}
+.qf-row input:focus,.qf-row select:focus{outline:3px solid var(--amb);outline-offset:1px}
+.cta-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+.btn.ghost-light{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.45);box-shadow:none;font-size:.9rem;padding:10px 16px}
+footer{text-align:center;color:var(--mut);font-size:.86rem;padding:10px 0 96px}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;display:none;background:#25b35a;color:#fff;font-weight:800;padding:13px 20px;border-radius:999px;text-decoration:none;box-shadow:0 8px 22px rgba(0,0,0,.28)}
+.fab.on{display:block}
+.rv{opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+:focus-visible{outline:3px solid var(--amb);outline-offset:2px}
+@media(max-width:820px){.hg,.two,.g3,.g2,.pk,.pain-grid{grid-template-columns:1fr}.ph{transform:none;margin-top:8px}.pc.hl{transform:none}section{padding:40px 0}.hero{padding:34px 0 44px}}
+
+.sc .pi{display:flex;gap:9px;padding:10px 14px;border-bottom:1px solid #edf1f4}
+.sc .th{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,#bfe9e3,#2bb3a5);flex:none}
+.sc s{color:#8a99a5;font-size:.72rem;margin-right:4px}
+.sc .dc{background:#fbe7e5;color:#a02018;font-size:.64rem;font-weight:700;padding:0 6px;border-radius:999px;margin-left:4px}
+.sc .vc{display:flex;gap:5px;margin-top:4px}
+.sc .vc b{font-size:.68rem;border:1px solid var(--teal);color:var(--teal);border-radius:999px;padding:0 9px;font-weight:600}
+.sc .vc b.s{background:var(--teal);color:#fff}
+.sc .pi i{font-style:normal;color:var(--teal);font-weight:700}
+</style>
+</head>
+<body>
+<header class="hero"><div class="w hg">
+  <div>
+    <h1>Bikin reseller brand terlihat seperti toko resmi. <em>Sekali klik, orderan langsung masuk WhatsApp.</em></h1>
+    <p>Berhenti capek kirim foto satu per satu di chat. Kumpulkan seluruh produk brand jualan Anda dalam satu link katalog yang meyakinkan—lengkap dengan varian, harga coret, dan galeri foto. Katalognya kami yang kerjakan sampai siap pakai.</p>
+    <div class="hb"><a class="btn" href="#paket">Pilih paket sekarang</a><a class="btn o" id="demo" href="#cara" hidden>Lihat contoh katalog</a><a class="btn o" href="#cara">Lihat cara kerjanya</a></div>
+    <ul class="pills"><li>Etalase toko pribadi</li><li>Varian &amp; harga coret otomatis</li><li>0% komisi per transaksi</li><li>Harga &amp; stok mudah diperbarui</li></ul>
+  </div>
+  <div class="ph" aria-hidden="true"><div class="sc">
+    <div class="hd"><b>Toko Contoh</b><span>Produk brand pilihan, siap kirim</span></div>
+    <div class="pi"><div class="th"></div><div><b>Tas Selempang Kanvas</b><span class="bd">Terlaris</span><br><s>Rp 120.000</s><i>Rp 89.000</i><span class="dc">-26%</span><div class="vc"><b class="s">Hitam</b><b>Krem</b></div></div></div>
+    <div class="pi"><div class="th" style="background:linear-gradient(135deg,#ffe3a3,#f2a900)"></div><div><b>Botol Minum 600 ml</b><span class="bd">Promo</span><br><i>Rp 79.000</i></div></div>
+    <div class="cb"><span>2 item</span><span>Rp 168.000</span></div>
+    <div class="cb" style="margin-top:0;background:#25b35a;justify-content:center">Pesan lewat WhatsApp</div>
+  </div></div>
+</div></header>
+
+<section style="padding-bottom:16px"><div class="w rv">
+  <span class="lab">Masalah klasik reseller</span>
+  <h2>Jualan produk bagus, tapi calon pembeli sering batal karena chat ribet?</h2>
+  <p class="sub">Saat calon pembeli harus bertanya berkali-kali sebelum melihat harga dan pilihan varian, peluang closing mudah hilang di tengah jalan.</p>
+  <div class="pain-grid">
+    <div class="pain-box"><h3>Capek kirim foto satu per satu</h3><p>Setiap ada yang tanya "ada warna apa aja?", Anda harus menggulir galeri HP dan mengirim ulang foto yang sama berulang kali.</p></div>
+    <div class="pain-box"><h3>Pembeli ragu karena info terpisah</h3><p>Harga di caption berbeda, varian tidak jelas, atau promo tidak terlihat menonjol—membuat calon pembeli menunda keputusan beli.</p></div>
+    <div class="pain-box"><h3>Margin tergerus potongan platform</h3><p>Berjualan di marketplace sering terkena biaya admin atau perang harga, sementara mengarahkan traffic ke katalog sendiri menjaga margin tetap utuh.</p></div>
+  </div>
+</div></section>
+
+<section id="cara"><div class="w rv">
+  <span class="lab">Cara kerja</span>
+  <h2>Dari klik link di bio sampai rekap order masuk WhatsApp</h2>
+  <p class="sub">Pembeli tidak perlu mengunduh aplikasi atau membuat akun. Semua berjalan mulus di browser HP dan WhatsApp.</p>
+  <div class="g3 stp">
+    <div class="cd"><h3>Bagikan 1 link etalase</h3><p>Pasang di bio Instagram/TikTok, status WhatsApp, atau grup pelanggan. Satu link mewakili seluruh koleksi Anda.</p></div>
+    <div class="cd"><h3>Pembeli pilih &amp; hitung sendiri</h3><p>Foto, varian ukuran/warna, harga coret, dan total belanja langsung terjumlah rapi tanpa perlu tanya admin dulu.</p></div>
+    <div class="cd"><h3>Order masuk siap diproses</h3><p>Daftar belanja + alamat pengiriman otomatis tersusun di WhatsApp Anda. Tinggal cek stok, infokan ongkir, lalu kirim.</p></div>
+  </div>
+  <div class="two" style="margin-top:22px">
+    <div class="side"><h3>&#128717; Pengalaman yang pembeli rasakan</h3><ol><li>Tampilan toko rapi dan terpercaya seperti katalog resmi</li><li>Bisa geser galeri foto dan bandingkan varian harga dalam hitungan detik</li><li>Harga coret &amp; label promo memicu keputusan beli lebih cepat</li></ol></div>
+    <div class="side adm"><h3>&#128172; Rekap rapi yang masuk ke WhatsApp Anda</h3><ol><li>Nama produk, pilihan varian, jumlah, subtotal, dan <b>total belanja</b></li><li>Nama lengkap serta <b>alamat pengiriman</b> pembeli</li><li>Jam pesan masuk, sehingga <b>urutan antrean order jelas</b></li><li>Ruang aman untuk <b>cek stok dan konfirmasi ongkir</b> sebelum transfer</li></ol></div>
+  </div>
+</div></section>
+
+<section style="padding-top:10px"><div class="w rv">
+  <div class="band">
+    <h3>&#127760; Satu link permanen untuk menjangkau pembeli di mana saja</h3>
+    <p>Ubah setiap postingan media sosial dan status WhatsApp menjadi pintu masuk penjualan. Katalog Anda memiliki alamat tetap yang siap dibagikan kapan pun—bahkan bisa dicetak menjadi QR Code untuk paket pengiriman, brosur, atau stand pameran.</p>
+    <div class="chips"><span>Bio Instagram</span><span>Bio TikTok</span><span>Status WhatsApp</span><span>Grup pelanggan &amp; komunitas</span><span>QR di paket &amp; brosur</span></div>
+    <p style="margin-top:14px;font-size:.93rem;opacity:.92">Melayani pengiriman dalam maupun luar kota dengan ekspedisi pilihan Anda. Ongkir dan total akhir Anda konfirmasi langsung lewat WhatsApp.</p>
+  </div>
+</div></section>
+
+<section><div class="w rv">
+  <span class="lab">Senjata closing untuk reseller</span>
+  <h2>Dirancang khusus untuk mendongkrak keyakinan pembeli</h2>
+  <p class="sub">Bukan sekadar daftar harga biasa—setiap elemen disusun agar calon pembeli lebih mudah memilih dan mantap menekan tombol pesan.</p>
+  <div class="g3">
+    <div class="cd"><span class="ic">&#128207;</span><h3>Varian multi-harga</h3><p>Ukuran (S, M, L), warna, atau paket bundling—masing-masing memiliki harga dan tombol jumlah sendiri yang langsung menghitung total.</p></div>
+    <div class="cd"><span class="ic">&#127991;</span><h3>Harga coret &amp; diskon otomatis</h3><p>Tampilkan harga normal vs harga promo. Persentase hemat muncul otomatis untuk memperkuat daya tarik penawaran.</p></div>
+    <div class="cd"><span class="ic">&#128196;</span><h3>Penjelasan produk meyakinkan</h3><p>Ruang lega untuk manfaat utama, spesifikasi, cara pakai, hingga pencantuman nomor izin/sertifikasi resmi brand (opsional).</p></div>
+    <div class="cd"><span class="ic">&#128247;</span><h3>Galeri sampai 4 foto per produk</h3><p>Tampilkan detail tekstur, kemasan, atau testimoni visual yang bisa digeser &amp; diperbesar tanpa membuat halaman terasa berat.</p></div>
+    <div class="cd"><span class="ic">&#127991;</span><h3>Badge pemicu aksi</h3><p>Tandai produk dengan label <b>Terlaris</b>, <b>Promo</b>, <b>Baru</b>, <b>Stok terbatas</b>, atau <b>Preorder</b> agar pembeli tahu mana yang paling layak dipilih.</p></div>
+    <div class="cd"><span class="ic">&#128176;</span><h3>0% komisi penjualan</h3><p>Seluruh hasil penjualan masuk ke rekening Anda. Tidak ada potongan komisi per transaksi dari pihak kami.</p></div>
+  </div>
+  <div class="chips" style="margin:18px 0 0"><span style="background:#fff;border-color:var(--line);color:var(--ink)">Cocok untuk: reseller produk brand</span><span style="background:#fff;border-color:var(--line);color:var(--ink)">agen &amp; distributor</span><span style="background:#fff;border-color:var(--line);color:var(--ink)">dropshipper aktif</span><span style="background:#fff;border-color:var(--line);color:var(--ink)">seller Instagram &amp; TikTok</span><span style="background:#fff;border-color:var(--line);color:var(--ink)">skincare, fashion, herbal, kuliner kemasan, &amp; aksesoris</span></div>
+  <div class="honest" style="margin-top:22px">
+    <h3>&#129309; Transparan sejak awal agar tidak salah ekspektasi</h3>
+    <p style="margin:0;color:#5b4a14">Katalog digital ini <b>bukan</b>:</p>
+    <ul><li>marketplace, payment gateway otomatis, atau penghitung ongkir otomatis</li><li>sistem pelacak resi (pembayaran dan pengiriman tetap Anda kendalikan penuh lewat WhatsApp)</li><li>jaminan omzet otomatis naik. Yang kami pastikan: etalase Anda tampil profesional, selalu update, dan mempercepat alur order masuk ke WhatsApp</li></ul>
+    <p style="margin:10px 0 0;color:#5b4a14">Isi deskripsi, klaim manfaat, nomor izin/sertifikasi, serta foto produk merupakan <b>tanggung jawab penjual</b>. Gunakan materi dan informasi resmi sesuai aturan brand yang Anda pasarkan.</p>
+  </div>
+</div></section>
+
+<section id="paket"><div class="w rv">
+  <span class="lab">Pilihan investasi</span>
+  <h2>Pilih paket yang sesuai skala katalog Anda</h2>
+  <p class="sub">Sekali bayar untuk pembuatan katalog siap pakai—sudah termasuk varian, harga coret, badge promo, QR siap cetak, dan order otomatis ke WhatsApp.</p>
+  <div class="pk">
+    <div class="pc"><h3>Mulai</h3><div class="pr">Rp300.000</div><p class="for">Reseller pemula yang ingin tampil rapi</p>
+      <ul><li>Katalog online + QR siap cetak</li><li>Sampai 20 produk</li><li>1 foto per produk</li><li>Varian dan harga coret</li><li>Gratis ubah katalog 2 kali</li></ul>
+      <a class="btn d blk" data-wa="Mulai" href="#kontak">Mulai dengan Paket Mulai</a></div>
+    <div class="pc hl"><span class="tag">Paling Diminati</span><h3>Reseller</h3><div class="pr">Rp500.000</div><p class="for">Penjual aktif yang rutin closing tiap hari</p>
+      <ul><li>Semua isi paket Mulai</li><li>Sampai 50 produk</li><li>Sampai 3 foto per produk</li><li>Deskripsi lengkap &amp; nomor izin (jika ada)</li><li>Banner header toko</li><li>Gratis ubah katalog 3 kali</li></ul>
+      <a class="btn blk" data-wa="Reseller" href="#kontak">Ambil Paket Reseller</a></div>
+    <div class="pc"><h3>Toko</h3><div class="pr">Rp800.000</div><p class="for">Koleksi lengkap atau multi-brand</p>
+      <ul><li>Semua isi paket Reseller</li><li>Sampai 100 produk</li><li>Sampai 4 foto per produk</li><li>Pengelompokan kategori per brand</li><li>Gratis ubah katalog 5 kali</li></ul>
+      <a class="btn d blk" data-wa="Toko" href="#kontak">Pilih Paket Toko</a></div>
+  </div>
+  <div class="terms">
+    <details><summary>Produk atau foto melebihi batas paket?</summary><div class="a"><p>Tambahan Rp3.000 per produk dan Rp5.000 per foto.</p></div></details>
+    <details><summary>Ubah katalog setelah kuota gratis habis</summary><div class="a"><p>Dua pilihan: Rp25.000 per kali ubah, atau langganan Rp300.000 per tahun untuk ubah katalog sepuasnya dalam batas wajar. Langganan lebih hemat kalau harga, stok, dan produk Anda sering berubah.</p></div></details>
+    <details><summary>Pembayaran dan waktu pengerjaan</summary><div class="a"><p>DP 50% di awal, pelunasan sebelum katalog tayang. Estimasi 2 sampai 3 hari kerja setelah semua data lengkap kami terima.</p></div></details>
+    <details><summary>Alamat katalog dan domain sendiri</summary><div class="a"><p>Alamat katalog dijaga tetap, jadi link dan QR yang sudah dibagikan tidak mati. Tidak ada biaya tayang bulanan. Alamat sendiri (domain) bersifat opsional dengan biaya terpisah, sekitar Rp200.000 per tahun.</p></div></details>
+    <details><summary>Tanggung jawab isi katalog</summary><div class="a"><p>Isi deskripsi, klaim, nomor izin, dan foto yang Anda kirim adalah tanggung jawab Anda. Kami bertugas menyusun dan memasangnya dengan rapi, dan berhak menolak atau menghapus isi yang melanggar hukum.</p></div></details>
+  </div>
+</div></section>
+
+<section><div class="w rv">
+  <span class="lab">Proses terima beres</span>
+  <h2>Anda fokus jualan, materi cukup kirim lewat WhatsApp</h2>
+  <div class="g2">
+    <div class="cd"><h3>&#128221; Identitas toko</h3><p>Nama toko atau brand, slogan singkat, kota asal pengiriman, jam layanan admin, nomor WhatsApp order, warna favorit, dan akun media sosial (opsional).</p></div>
+    <div class="cd"><h3>&#128230; Daftar produk &amp; promo</h3><p>Nama produk, harga normal &amp; harga coret (jika ada), pilihan varian, deskripsi singkat, serta nomor izin/sertifikasi resmi (opsional).</p></div>
+    <div class="cd"><h3>&#128247; Foto produk</h3><p>Kirim foto produk yang jelas dan terang. Pastikan Anda memiliki izin penggunaan materi dari brand yang dipasarkan.</p></div>
+    <div class="cd"><h3>&#128230; Ketentuan pengiriman</h3><p>Pilihan ekspedisi yang tersedia, area pengiriman, dan catatan ongkir agar pembeli langsung paham sebelum checkout.</p></div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="w rv">
+  <span class="lab">FAQ</span>
+  <h2>Pertanyaan yang sering ditanyakan</h2>
+  <p class="sub">Pilih topik, lalu ketuk pertanyaannya. Kalau belum terjawab, tanyakan langsung lewat WhatsApp.</p>
+  <div class="fc" id="fc"><button class="on" data-c="all">Semua</button><button data-c="pesan">Pesanan</button><button data-c="kirim">Pengiriman</button><button data-c="produk">Produk dan klaim</button><button data-c="biaya">Biaya dan paket</button><button data-c="ubah">Ubah katalog</button><button data-c="teknis">Teknis</button></div>
+  <div id="fl">
+    <details data-c="pesan"><summary>Bagaimana cara pesanan masuk?</summary><div class="a"><p>Pembeli memilih produk, varian, dan jumlah, mengisi nama dan alamat pengiriman, lalu menekan tombol pesan. WhatsApp Anda terbuka dengan pesan yang sudah tersusun: nama produk, varian, jumlah, subtotal, dan total harga. Pembeli tinggal menekan Kirim.</p></div></details>
+    <details data-c="pesan"><summary>Apakah pembeli harus memasang aplikasi?</summary><div class="a"><p>Tidak. Cukup membuka link katalog di browser HP.</p></div></details>
+    <details data-c="pesan"><summary>Bagaimana kalau stok habis atau harga berubah?</summary><div class="a"><p>Karena pesanan masuk lewat WhatsApp, Anda bisa mengecek stok dan harga dulu sebelum mengirim. Kalau ada yang habis, tinggal balas dan tawarkan pengganti. Status "Habis" di katalog diubah lewat kami, jadi konfirmasi di WhatsApp ini menjadi pengaman.</p></div></details>
+    <details data-c="pesan"><summary>Bagaimana urutan pesanan?</summary><div class="a"><p>Setiap pesan WhatsApp tercatat jam masuknya, jadi terlihat siapa yang memesan lebih dulu.</p></div></details>
+    <details data-c="kirim"><summary>Bagaimana dengan pelanggan luar kota?</summary><div class="a"><p>Mereka tetap bisa memesan lewat link katalog. Anda mengonfirmasi ongkir (sesuai ekspedisi pilihan Anda) dan total akhir lewat WhatsApp sebelum pesanan dikirim.</p></div></details>
+    <details data-c="kirim"><summary>Apakah ongkir dan resi dihitung otomatis?</summary><div class="a"><p>Tidak. Total di katalog belum termasuk ongkir, dan nomor resi tidak dilacak oleh katalog. Anda mengurusnya sendiri lewat WhatsApp.</p></div></details>
+    <details data-c="kirim"><summary>Bagaimana dengan pembayaran?</summary><div class="a"><p>Tidak lewat katalog. Pembayaran diatur oleh Anda sesuai kebiasaan (misalnya transfer atau COD). Kami tidak mengambil komisi dari penjualan.</p></div></details>
+    <details data-c="kirim"><summary>Bagaimana cara membagikan katalog?</summary><div class="a"><p>Bagikan <b>link katalog</b> di bio Instagram atau TikTok, status WhatsApp, atau grup. QR dipakai untuk stand, brosur, atau kemasan. Gambar QR yang diterima di HP yang sama kurang praktis dipindai, jadi untuk pelanggan online gunakan link.</p></div></details>
+    <details data-c="produk"><summary>Bisakah produk punya varian ukuran atau warna dengan harga berbeda?</summary><div class="a"><p>Bisa. Setiap varian punya nama, harga, dan tombol jumlah sendiri.</p></div></details>
+    <details data-c="produk"><summary>Bisakah menampilkan harga coret dan promo?</summary><div class="a"><p>Bisa. Isi harga normal dan harga promo, label persentase diskon muncul otomatis. Tambahkan label Promo, Terlaris, Baru, Stok terbatas, atau Preorder bila perlu.</p></div></details>
+    <details data-c="produk"><summary>Bisakah mencantumkan deskripsi panjang dan nomor izin?</summary><div class="a"><p>Bisa. Deskripsi bisa beberapa baris, dan nomor izin atau sertifikasi bersifat opsional.</p></div></details>
+    <details data-c="produk"><summary>Berapa foto yang bisa dipasang per produk?</summary><div class="a"><p>Sampai 4 foto per produk, sesuai batas paket. Foto bisa digeser dan diperbesar oleh pembeli.</p></div></details>
+    <details data-c="produk"><summary>Siapa yang bertanggung jawab atas klaim dan foto produk?</summary><div class="a"><p>Penjual. Sebaiknya gunakan deskripsi dan foto resmi dari brand, sesuai ketentuannya, dan hindari klaim berlebihan. Kalau ragu, tanyakan ke brand yang Anda jual.</p></div></details>
+    <details data-c="biaya"><summary>Apakah ada biaya bulanan atau komisi?</summary><div class="a"><p>Tidak ada biaya tayang bulanan dan tidak ada komisi per pesanan. Biaya hanya harga awal paket, ditambah biaya ubah katalog bila kuota gratis habis.</p></div></details>
+    <details data-c="biaya"><summary>Kalau saya berhenti berlangganan?</summary><div class="a"><p>Katalog tetap tayang. Hanya perubahan isi yang jadi berbayar per kali ubah.</p></div></details>
+    <details data-c="biaya"><summary>Apakah ada jaminan penjualan naik?</summary><div class="a"><p>Tidak, dan kami tidak akan menjanjikannya. Yang kami pastikan: katalog Anda rapi, selalu terbaru, dan pesanan lebih mudah diterima.</p></div></details>
+    <details data-c="ubah"><summary>Bagaimana kalau harga, stok, atau produk berubah?</summary><div class="a"><p>Kabari kami lewat WhatsApp. Katalog diperbarui, alamat dan QR tidak berubah. Setiap paket sudah termasuk beberapa kali ubah gratis, lalu bisa bayar per kali ubah atau langganan tahunan.</p></div></details>
+    <details data-c="ubah"><summary>Siapa yang menginput produk?</summary><div class="a"><p>Kami. Anda cukup mengirim daftar produk, harga, deskripsi, dan foto lewat WhatsApp.</p></div></details>
+    <details data-c="ubah"><summary>Berapa lama jadinya?</summary><div class="a"><p>Sekitar 2 sampai 3 hari kerja setelah semua data lengkap diterima. Ini perkiraan, bukan jaminan.</p></div></details>
+    <details data-c="teknis"><summary>Apakah katalog dengan banyak foto jadi berat?</summary><div class="a"><p>Foto dimuat terpisah dan bertahap, jadi halaman tetap ringan dibuka. Pembeli tetap butuh sinyal untuk membukanya.</p></div></details>
+    <details data-c="teknis"><summary>Apakah data pembeli disimpan?</summary><div class="a"><p>Katalog tidak menyimpan data pembeli. Pesanan langsung dikirim ke WhatsApp Anda.</p></div></details>
+    <details data-c="teknis"><summary>Menjual lebih dari satu brand?</summary><div class="a"><p>Bisa, produk dikelompokkan per kategori atau per brand. Hubungi kami untuk menyesuaikan penawarannya.</p></div></details>
+  </div>
+</div></section>
+
+<section id="kontak" style="padding-top:10px"><div class="w rv">
+  <div class="cta">
+    <h2>Siap punya katalog online yang bikin jualan lebih meyakinkan?</h2>
+    <p>Ketik detail toko atau brand Anda langsung di bawah—lalu klik tombol WhatsApp agar pesan otomatis tersusun rapi.</p>
+    <form class="qform" id="order-form" onsubmit="return false;">
+      <div class="qf-row">
+        <label for="qf-toko">Nama toko atau brand</label>
+        <input id="qf-toko" type="text" placeholder="Contoh: Berkah Store / Glow Brand">
+      </div>
+      <div class="qf-row">
+        <label for="qf-produk">Produk yang dijual</label>
+        <input id="qf-produk" type="text" placeholder="Contoh: Skincare, fashion, herbal, aksesoris">
+      </div>
+      <div class="qf-row">
+        <label for="qf-jml">Perkiraan jumlah produk</label>
+        <input id="qf-jml" type="text" placeholder="Contoh: 25 produk">
+      </div>
+      <div class="qf-row">
+        <label for="qf-paket">Paket</label>
+        <select id="qf-paket">
+          <option value="Mulai (Rp300.000)">Mulai (Rp300.000)</option>
+          <option value="Reseller (Rp500.000)" selected>Reseller (Rp500.000)</option>
+          <option value="Toko (Rp800.000)">Toko (Rp800.000)</option>
+        </select>
+      </div>
+      <div class="qf-row">
+        <label for="qf-kota">Kota</label>
+        <input id="qf-kota" type="text" placeholder="Contoh: Cilacap / Purwokerto">
+      </div>
+    </form>
+    <div class="cta-actions">
+      <a class="btn" id="wa-main" href="#" target="_blank" rel="noopener">Chat via WhatsApp</a>
+      <button type="button" class="btn ghost-light" id="copy-tpl">Salin format chat</button>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="w" id="ft"></div></footer>
+<a class="fab" id="fab" href="#" target="_blank" rel="noopener">&#128172; Chat WhatsApp</a>
+<script>
+// Ganti sesuai kebutuhan
+var CONFIG = {
+  brand: "[Nama Brand]",          // nama brand yang tampil di footer
+  wa: "628XXXXXXXXXX",            // nomor WhatsApp, format 62 tanpa + atau spasi
+  demo: ""                        // link contoh menu (opsional). Kosong = tombol disembunyikan
+};
+(function(){
+  function wa(t){ return "https://wa.me/" + CONFIG.wa + "?text=" + encodeURIComponent(t); }
+  function val(id){ var n = document.getElementById(id); return n ? n.value.trim() : ""; }
+  function buildMsg(){
+    var toko = val("qf-toko") || "-";
+    var produk = val("qf-produk") || "-";
+    var jml = val("qf-jml") || "-";
+    var paket = val("qf-paket") || "-";
+    var kota = val("qf-kota") || "-";
+    return "Halo, saya tertarik bikin katalog online untuk produk brand saya.\n"
+      + "Nama toko atau brand: " + toko + "\n"
+      + "Produk yang dijual: " + produk + "\n"
+      + "Perkiraan jumlah produk: " + jml + "\n"
+      + "Paket: " + paket + "\n"
+      + "Kota: " + kota;
+  }
+  function syncWa(){
+    var href = wa(buildMsg());
+    document.getElementById("wa-main").href = href;
+    document.getElementById("fab").href = href;
+  }
+  Array.prototype.forEach.call(document.querySelectorAll("[data-wa]"), function(a){
+    var pkg = a.getAttribute("data-wa");
+    a.href = wa("Halo, saya tertarik dengan paket " + pkg + " (katalog online reseller).\nNama toko atau brand: \nProduk yang dijual: ");
+    a.target = "_blank"; a.rel = "noopener";
+    a.addEventListener("click", function(){
+      var sel = document.getElementById("qf-paket");
+      if (sel){
+        for (var i = 0; i < sel.options.length; i++){
+          if (sel.options[i].value.indexOf(pkg) === 0){ sel.selectedIndex = i; break; }
+        }
+      }
+      syncWa();
+    });
+  });
+  ["qf-toko","qf-produk","qf-jml","qf-paket","qf-kota"].forEach(function(id){
+    var n = document.getElementById(id);
+    if (n){ n.addEventListener("input", syncWa); n.addEventListener("change", syncWa); }
+  });
+  syncWa();
+  var d = document.getElementById("demo");
+  if (CONFIG.demo){ d.href = CONFIG.demo; d.target = "_blank"; d.rel = "noopener"; d.hidden = false; }
+  document.getElementById("ft").textContent = "Katalog digital oleh " + CONFIG.brand;
+  document.title = "Katalog Online | " + CONFIG.brand;
+  // salin isian
+  var copyBtn = document.getElementById("copy-tpl");
+  if (copyBtn){
+    copyBtn.addEventListener("click", function(){
+      var plain = buildMsg();
+      if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(plain).then(function(){
+          copyBtn.textContent = "Format tersalin";
+          setTimeout(function(){ copyBtn.textContent = "Salin format chat"; }, 2000);
+        });
+      }
+    });
+  }
+  // filter FAQ
+  var fc = document.getElementById("fc");
+  fc.addEventListener("click", function(ev){
+    var b = ev.target.closest("button"); if (!b) return;
+    Array.prototype.forEach.call(fc.children, function(x){ x.classList.toggle("on", x === b); });
+    var c = b.getAttribute("data-c");
+    Array.prototype.forEach.call(document.querySelectorAll("#fl details"), function(e){
+      e.hidden = !(c === "all" || e.getAttribute("data-c") === c);
+    });
+  });
+  // tombol WA melayang setelah lewat hero
+  var hero = document.querySelector(".hero"), fab = document.getElementById("fab");
+  function sc(){ fab.classList.toggle("on", window.scrollY > hero.offsetHeight - 80); }
+  window.addEventListener("scroll", sc, {passive:true}); sc();
+  // muncul perlahan saat digulir
+  var els = document.querySelectorAll(".rv");
+  if ("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(en){ en.forEach(function(x){ if (x.isIntersecting){ x.target.classList.add("in"); io.unobserve(x.target); } }); }, {threshold:.08});
+    Array.prototype.forEach.call(els, function(e){ io.observe(e); });
+  } else Array.prototype.forEach.call(els, function(e){ e.classList.add("in"); });
+})();
+</script>
+</body>
+</html>
